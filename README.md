@@ -1,10 +1,13 @@
-# The Linux Command Line
+# The Command Line
 
-This is a selection of command-line tips that I've found useful over the years when working on Linux. It's organized as a bit of a journey, from command-line novice to expert. Some tips are elementary, and some sophisticated enough few people know them. The goal is broad coverage of important tips that a technical user will find useful or time-saving. It's a bit long, and users certainly don't need to know all of them, but I've done my best to review that each item is worth reading in terms of projected time savings, if you use Linux heavily.
+### Time-saving tips for Linux
 
-I originally wrote this list as an answer [on Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know/answer/Joshua-Levy), but given the interest there it seems perhaps it's worth moving it to Github, where people more talented than I can more easily suggest improvements. If you see an error or something that could be better, please submit a PR! :)
+This is a selection of command-line tips that I've found useful over the years when working on Linux. It's organized as a journey, from command-line novice to expert. Some tips are elementary, and some sophisticated enough very few people know them.
 
-The items are intentionally brief. For more information on a command, try man, aptitude/yum, or Google.
+The goal is broad coverage of important tips that a technical user will find useful or time-saving. It's a bit long, and users certainly don't need to know all of them, but I've done my best to review that each item is worth reading in terms of projected time savings, if you use Linux heavily. It's written for Linux, but many items apply equally to MacOS. The items are intentionally brief. For more information on a command, try man, aptitude/yum, or Google.
+
+I originally wrote much of this as an answer [on Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know/answer/Joshua-Levy), but given the interest there. it seems it's worth moving the list to Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit a PR!
+
 
 ## Basics
 
@@ -24,6 +27,7 @@ The items are intentionally brief. For more information on a command, try man, a
 
 - Learn to use apt-get or yum (depending on distro) to find and install packages.
 
+
 ## Everyday use
 
 - In bash, use Ctrl-R to search through command history.
@@ -35,9 +39,10 @@ The items are intentionally brief. For more information on a command, try man, a
 - If you are halfway through typing a command but change your mind, hit Alt-# to add a # at the beginning and enter it as a comment (or use Ctrl-A, #, enter). You can then return to it later via command history.
 
 - Use xargs (or parallel). It's very powerful. Note you can control how many items execute per line (-L) as well as parallelism (-P). If you're not sure if it'll do the right thing, use xargs echo first. Also, -I{} is handy. Examples:
-
+```
       find . -name \*.py | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
+```
 
 - pstree -p is a helpful display of the process tree.
 
@@ -52,14 +57,18 @@ The items are intentionally brief. For more information on a command, try man, a
 - In bash scripts, use set -x for debugging output. Use set -e to abort on errors. - Consider using set -o pipefail as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use trap.
 
 - In bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
-
+```
       # do something in current dir
       (cd /some/other/dir; other-command)
       # continue in original dir
+```
 
 - In bash, note there are lots of kinds of variable expansion. Checking a variable exists: ${name:?error message}. For example, if a bash script requires a single argument, just write input_file=${1:?usage: $0 input_file}. Arithmetic expansion: i=$(( (i + 1) % 5 )). Sequences: {1..10}. Trimming of strings: ${var%suffix} and ${var#prefix}. For example if var=foo.pdf, then echo ${var%.pdf}.txt prints "foo.txt".
 
-- The output of a command can be treated like a file via <(some command). For example, compare local /etc/hosts with a remote one: diff /etc/hosts <(ssh somehost cat /etc/hosts)
+- The output of a command can be treated like a file via <(some command). For example, compare local /etc/hosts with a remote one:
+```
+diff /etc/hosts <(ssh somehost cat /etc/hosts)
+```
 
 - Know about "here documents" in bash, as in cat <<EOF ....
 
@@ -72,16 +81,19 @@ The items are intentionally brief. For more information on a command, try man, a
 - In ssh, knowing how to port tunnel with -L or -D (and occasionally -R) is useful, e.g. to access web sites from a remote server.
 
 - It can be useful to make a few optimizations to your ssh configuration; for example, this .ssh/config contains settings to avoid dropped connections in certain network environments, not require confirmation connecting to new hosts, forward authentication, and use compression (which is helpful with scp over low-bandwidth connections):
-
+```
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6
       StrictHostKeyChecking=no
       Compression=yes
       ForwardAgent=yes
+```
 
 - To get the permissions on a file in octal form, which is useful for system configuration but not available in "ls" and easy to bungle, use something like
-stat -c '%A %a %n' /etc/timezone
+```
+      stat -c '%A %a %n' /etc/timezone
+```
 
 ## Data processing
 
@@ -102,12 +114,14 @@ stat -c '%A %a %n' /etc/timezone
 - Know basic awk and sed for simple data munging. For example, summing all numbers in the third column of a text file: awk '{ x += $3 } END { print x }'. This is probably 3X faster and 3X shorter than equivalent Python.
 
 - To replace all occurrences of a string in place, in one or more files:
-
+```
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
+```
 
-- To rename many files at once according to a pattern, use rename. (Or if you want something more general, my own tool repren may help.)
-
+- To rename many files at once according to a pattern, use rename. Or if you want something more general, repren may help.
+```
       rename 's/\.bak$//' *.bak
+```
 
 - Use shuf to shuffle or select random lines from a file.
 
@@ -122,8 +136,9 @@ stat -c '%A %a %n' /etc/timezone
 - Also for binary files, strings (plus grep, etc.) lets you find bits of text.
 
 - To convert text encodings, try iconv. Or uconv for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
-
+```
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
+```
 
 - To split files into pieces, see split (to split by size) and csplit (to split by a pattern).
 
@@ -167,27 +182,32 @@ stat -c '%A %a %n' /etc/timezone
 ## One-liners
 
 - It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via sort/uniq. Suppose a and b are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the -T option if /tmp is on a small root partition.) See also the note about LC_ALL above.
-
+```
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
+```
 
 - Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
-
+```
       awk '{ x += $3 } END { print x }' myfile
+```
 
 - If want to see sizes/dates on a tree of files, this is like a recursive "ls -l" but is easier to read than "ls -lR":
-find . -type f -ls
+```
+      find . -type f -ls
+```
 
-- Use xargs. It's very powerful. Note you can control how many items execute per line (-L) as well as parallelism (-P). If you're not sure if it'll do the right thing, use xargs echo first. Also, -I{} is handy. Examples:
-
+- Use xargs or parallel for doing many things. Note you can control how many items execute per line (-L) as well as parallelism (-P). If you're not sure if it'll do the right thing, use xargs echo first. Also, -I{} is handy. Examples:
+```
       find . -name \*.py | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
+```
 
 - Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an acct_id parameter that is present in the URL. If you want a tally of how many requests for each acct_id:
-
+```
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
-
+```
 
 ## Obscure but useful commands
 
@@ -246,4 +266,6 @@ find . -type f -ls
 - fortune, ddate, and sl: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-Disclaimer: Just because you can do something in Bash, doesn't necessarily mean you should. ;)
+## Disclaimer
+
+Just because you *can* do something in Bash, doesn't necessarily mean you should. ;)
