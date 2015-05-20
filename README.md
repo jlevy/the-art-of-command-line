@@ -48,15 +48,15 @@ I originally wrote much of this as an answer [on Quora](http://www.quora.com/Wha
 
 - Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
 
-- Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see man 7 signal
+- Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
 
-- Use nohup or disown if you want a background process to keep running forever.
+- Use `nohup` or `disown` if you want a background process to keep running forever.
 
-- Check what processes are listening via netstat -lntp. See also lsof.
+- Check what processes are listening via `netstat -lntp`.
 
-- In bash scripts, use set -x for debugging output. 
+- See also `lsof` for open sockets and files.
 
-- In bash scripts, use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
+- In bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
 
 - In bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
 ```
@@ -67,7 +67,7 @@ I originally wrote much of this as an answer [on Quora](http://www.quora.com/Wha
 
 - In bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
 
-- The output of a command can be treated like a file via `<(some command)`. For example, compare local /etc/hosts with a remote one:
+- The output of a command can be treated like a file via `<(some command)`. For example, compare local `/etc/hosts` with a remote one:
 ```
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
@@ -80,7 +80,7 @@ I originally wrote much of this as an answer [on Quora](http://www.quora.com/Wha
 
 - On remote ssh sessions, use `screen` or `dtach` to save your session, in case it is interrupted.
 
-- In ssh, knowing how to port tunnel with -L or -D (and occasionally -R) is useful, e.g. to access web sites from a remote server.
+- In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
 - It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, not require confirmation connecting to new hosts, forward authentication, and use compression (which is helpful with scp over low-bandwidth connections):
 ```
