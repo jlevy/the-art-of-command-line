@@ -2,9 +2,9 @@
 
 ## Tips for Linux
 
-This is a selection of command-line tips that I've found useful over the years when working on Linux. It's organized as a journey, from command-line novice to expert. Some tips are elementary, and some sophisticated enough very few people know them.
+This is a selection of command-line tips that I've found useful over the years when working on Linux. It's organized a bit like a journey, from command-line novice to expert. Some tips are elementary, and some sophisticated enough very few people know them.
 
-The goal is broad coverage of important tips that a technical user will find useful or time-saving. It's a bit long, and users certainly don't need to know all of them, but I've done my best to review that each item is worth reading in terms of projected time savings, if you use Linux heavily. It's written for Linux, but many items apply equally to MacOS. The items are intentionally brief. For more information on a command, try `man`, `apt-get`/`yum`, or Google.
+The goals are brevity and broad coverage of important tips that a technical user will find useful or time-saving. It's a bit long, and users certainly don't need to know all of them, but I've done my best to review that each item is worth reading in terms of projected time savings, if you use Linux heavily. It's written for Linux, but many items apply equally to MacOS. Items are intentionally minimal, with the expectation you can use `man`, `apt-get`/`yum`, or Google for more background.
 
 I originally wrote much of this as an answer [on Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), but given the interest there, it seems it's worth moving the list to Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit a PR!
 
@@ -96,6 +96,7 @@ I originally wrote much of this as an answer [on Quora](http://www.quora.com/Wha
 ```
       stat -c '%A %a %n' /etc/timezone
 ```
+
 
 ## Data processing
 
@@ -213,59 +214,59 @@ I originally wrote much of this as an answer [on Quora](http://www.quora.com/Wha
 
 ## Obscure but useful
 
-- expr: perform arithmetic or boolean operations or evaluate regular expressions
-- m4: simple macro processor
-- screen: powerful terminal multiplexing and session persistence
-- yes: print a string a lot
-- cal: nice calendar
-- env: run a command (useful in scripts)
-- look: find English words (or lines in a file) beginning with a string
-- cut and paste and join: data manipulation
-- fmt: format text paragraphs
-- pr: format text into pages/columns
-- fold: wrap lines of text
-- column: format text into columns or tables
-- expand and unexpand: convert between tabs and spaces
-- nl: add line numbers
-- seq: print numbers
-- bc: calculator
-- factor: factor integers
-- nc: network debugging and data transfer
-- dd: moving data between files or devices
-- file: identify type of a file
-- stat: file info
-- tac: print files in reverse
-- shuf: random selection of lines from a file
-- comm: compare sorted files line by line
-- hd and bvi: dump or edit binary files
-- strings: extract text from binary files
-- tr: character translation or manipulation
-- iconv or uconv: conversion for text encodings
-- split and csplit: splitting files
-- 7z: high-ratio file compression
-- ldd: dynamic library info
-- nm: symbols from object files
-- ab: benchrmarking web servers
-- strace: system call debugging
-- mtr: better traceroute for network debugging
-- cssh: visual concurrent shell
-- wireshark and tshark: packet capture and network debugging
-- host and dig: DNS lookups
-- lsof: process file descriptor and socket info
-- dstat: useful system stats
-- iostat: CPU and disk usage stats
-- htop: improved version of top
-- last: login history
-- w: who's logged on
-- id: user/group identity info
-- sar: historic system stats
-- iftop or nethogs: network utilization by socket or process
-- ss: socket statistics
-- dmesg: boot and system error messages
-- hdparm: SATA/ATA disk manipulation/performance
-- lsb_release: Linux distribution info
-- lshw: hardware information
-- fortune, ddate, and sl: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `m4`: simple macro processor
+- `screen`: powerful terminal multiplexing and session persistence
+- `yes`: print a string a lot
+- `cal`: nice calendar
+- `env`: run a command (useful in scripts)
+- `look`: find English words (or lines in a file) beginning with a string
+- `cut `and paste and join: data manipulation
+- `fmt`: format text paragraphs
+- `pr`: format text into pages/columns
+- `fold`: wrap lines of text
+- `column`: format text into columns or tables
+- `expand `and unexpand: convert between tabs and spaces
+- `nl`: add line numbers
+- `seq`: print numbers
+- `bc`: calculator
+- `factor`: factor integers
+- `nc`: network debugging and data transfer
+- `dd`: moving data between files or devices
+- `file`: identify type of a file
+- `stat`: file info
+- `tac`: print files in reverse
+- `shuf`: random selection of lines from a file
+- `comm`: compare sorted files line by line
+- `hd` and `bvi`: dump or edit binary files
+- `strings`: extract text from binary files
+- `tr`: character translation or manipulation
+- `iconv `or uconv: conversion for text encodings
+- `split `and csplit: splitting files
+- `7z`: high-ratio file compression
+- `ldd`: dynamic library info
+- `nm`: symbols from object files
+- `ab`: benchrmarking web servers
+- `strace`: system call debugging
+- `mtr`: better traceroute for network debugging
+- `cssh`: visual concurrent shell
+- `wireshark `and tshark: packet capture and network debugging
+- `host `and dig: DNS lookups
+- `lsof`: process file descriptor and socket info
+- `dstat`: useful system stats
+- `iostat`: CPU and disk usage stats
+- `htop`: improved version of top
+- `last`: login history
+- `w`: who's logged on
+- `id`: user/group identity info
+- `sar`: historic system stats
+- `iftop `or nethogs: network utilization by socket or process
+- `ss`: socket statistics
+- `dmesg`: boot and system error messages
+- `hdparm`: SATA/ATA disk manipulation/performance
+- `lsb_release`: Linux distribution info
+- `lshw`: hardware information
+- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
 ## Disclaimer
