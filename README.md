@@ -4,9 +4,9 @@
 
 This is a selection of command-line tips that I've found useful over the years when working on Linux. It's organized as a journey, from command-line novice to expert. Some tips are elementary, and some sophisticated enough very few people know them.
 
-The goal is broad coverage of important tips that a technical user will find useful or time-saving. It's a bit long, and users certainly don't need to know all of them, but I've done my best to review that each item is worth reading in terms of projected time savings, if you use Linux heavily. It's written for Linux, but many items apply equally to MacOS. The items are intentionally brief. For more information on a command, try man, apt-get/yum, or Google.
+The goal is broad coverage of important tips that a technical user will find useful or time-saving. It's a bit long, and users certainly don't need to know all of them, but I've done my best to review that each item is worth reading in terms of projected time savings, if you use Linux heavily. It's written for Linux, but many items apply equally to MacOS. The items are intentionally brief. For more information on a command, try `man`, `apt-get`/`yum`, or Google.
 
-I originally wrote much of this as an answer [on Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know/answer/Joshua-Levy), but given the interest there. it seems it's worth moving the list to Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit a PR!
+I originally wrote much of this as an answer [on Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), but given the interest there, it seems it's worth moving the list to Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit a PR!
 
 
 ## Basics
