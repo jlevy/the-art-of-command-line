@@ -1,15 +1,33 @@
 # The Art of Command Line
 
-## Tips for Linux
+## Fluency in one page
 
-This is a selection of command-line tips that I've found useful over the years when working on Linux. It's organized a bit like a journey, from command-line novice to expert. Some tips are elementary, and some sophisticated enough very few people know them.
+- [Fundamentals](#fundamentals)
+- [Everyday use](#everyday-use)
+- [Data processing](#data-processing)
+- [System debugging](#system-debugging)
+- [One-liners](#one-liners)
+- [Obscure but useful](#obscure-but-useful)
+- [Disclaimer](#disclaimer)
 
-The goals are brevity and broad coverage of important tips that a technical user will find useful or time-saving. It's a bit long, and users certainly don't need to know all of them, but I've done my best to review that each item is worth reading in terms of projected time savings, if you use Linux heavily. It's written for Linux, but many items apply equally to MacOS. Items are intentionally minimal, with the expectation you can use `man`, `apt-get`/`yum`, or Google for more background.
+Being capable on the command line is skill that will save you time and improve your flexibility and productivity as an engineer in both obvious and subtle ways. Traditionally, it's the result of an accumulation of basic understanding and tips and tricks that you pick up informally over time.
 
-I originally wrote much of this as an answer [on Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), but given the interest there, it seems it's worth moving the list to Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit a PR!
+This is a one-page list of specific tips. It's organized a bit like a journey, from command-line novice to expert. Some are elementary, and some are fairly sophisticated or obscure. Once you understand and can recall the items here, you're likely to know your way around the command better than anyone you know.
+
+Much of this
+[originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
+[appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
+on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. *If you see an error or something that could be better, please submit an issue or PR!*
+
+Scope:
+
+- The goals are brevity and breadth. Some tips are obscure, but every tip is essential in some situation or significantly saves time over alternatives.
+- This is written for Linux. Some but not all items apply equally to MacOS (or even Cygwin).
+- The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
+- Descriptions are intentionally minimal, with the expectation you'll use `man`, `apt-get`/`yum` to install, and Google for more background.
 
 
-## Basics
+## Fundamentals
 
 - Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but bash is powerful and always available (learning mainly zsh, fish, etc. restricts you in many situations).
 
@@ -17,7 +35,7 @@ I originally wrote much of this as an answer [on Quora](http://www.quora.com/Wha
 
 - Know ssh, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
-- Be familiar with bash job management: &, Ctrl-Z, Ctrl-C, `jobs`, `fg`, `bg`, `kill`, etc.
+- Be familiar with bash job management: `&`, Ctrl-Z, Ctrl-C, `jobs`, `fg`, `bg`, `kill`, etc.
 
 - Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f`, `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`), `df`, `mount`.
 
@@ -145,6 +163,7 @@ I originally wrote much of this as an answer [on Quora](http://www.quora.com/Wha
 
 - To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
 
+
 ## System debugging
 
 - For web debugging, `curl` and `curl -I` are handy, or their wget equivalents, or the more modern `httpie`.
@@ -183,6 +202,8 @@ I originally wrote much of this as an answer [on Quora](http://www.quora.com/Wha
 
 
 ## One-liners
+
+A few examples of piecing together commands:
 
 - It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above.
 ```
