@@ -6,6 +6,7 @@
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
+- [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
 Being capable on the command line is a skill that is in some ways archaic, but will save time and improve your flexibility and productivity as an engineer in both obvious and subtle ways. Fluency results from both understanding and lots of specific tricks that you pick up informally over time.
@@ -289,6 +290,12 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
+## More resources
+
+- [https://github.com/alebcay/awesome-shell](awesome-shell): A curated list of shell tools and resources
+- [http://redsymbol.net/articles/unofficial-bash-strict-mode/](Strict mode) for writing better shell scripts
+
+
 ## Disclaimer
 
-Just because you *can* do something in Bash, doesn't necessarily mean you should. ;)
+With the exception of very small tasks, code is written so others can read it. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
