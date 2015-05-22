@@ -49,7 +49,7 @@ Scope:
 
 - In bash, use Ctrl-R to search through command history.
 
-- In bash, use Ctrl-W to kill the last word, and Ctrl-U to kill the line. See man readline for default keybindings in bash. There are a lot. For example Alt-. cycles through prevous arguments, and Alt-* expands a glob.
+- In bash, use Ctrl-W to kill the last word, and Ctrl-U to kill the line. See `man readline` for default keybindings in bash. There are a lot. For example Alt-. cycles through previous arguments, and Alt-* expands a glob.
 
 - To go back to the previous working directory: cd -
 
@@ -125,7 +125,7 @@ Scope:
 
 - For Amazon S3, `s3cmd` is convenient (albeit immature, with occasional misfeatures) and `s4cmd` is faster.
 
-- Know about `sort` and `uniq` (including uniq's `-u` and `-d` options). See one-liners below.
+- Know about `sort` and `uniq` (including uniq's `-u` and `-d` options -- see one-liners below).
 
 - Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
 
@@ -138,7 +138,7 @@ Scope:
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files at once according to a pattern, use rename. Or if you want something more general, repren may help.
+- To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
 ```
       rename 's/\.bak$//' *.bak
 ```
@@ -165,7 +165,7 @@ Scope:
 
 ## System debugging
 
-- For web debugging, `curl` and `curl -I` are handy, or their wget equivalents, or the more modern `httpie`.
+- For web debugging, `curl` and `curl -I` are handy, or their wget equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
 
 - To know disk/cpu/network status, use `iostat`, `netstat`, `top` (or the better `htop`), and (especially) `dstat`. Good for getting a quick idea of what's happening on a system.
 
@@ -193,7 +193,7 @@ Scope:
 
 - When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
 
-- For deeper systems and performance analyses, look at `stap` (systemtap) and `perf`.
+- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
 
 - Confirm what Linux distribution you're using (works on most distros): `lsb_release -a`
 
