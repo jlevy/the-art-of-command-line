@@ -1,7 +1,5 @@
 # The Art of Command Line
 
-## Fluency in one page
-
 - [Fundamentals](#fundamentals)
 - [Everyday use](#everyday-use)
 - [Data processing](#data-processing)
@@ -10,18 +8,19 @@
 - [Obscure but useful](#obscure-but-useful)
 - [Disclaimer](#disclaimer)
 
-Being capable on the command line is skill that will save you time and improve your flexibility and productivity as an engineer in both obvious and subtle ways. Traditionally, it's the result of an accumulation of basic understanding and tips and tricks that you pick up informally over time.
+Being capable on the command line is a skill that is in some ways archaic, but will save time and improve your flexibility and productivity as an engineer in both obvious and subtle ways. Fluency results from both understanding and lots of specific tricks that you pick up informally over time.
 
-This is a one-page list of specific tips. It's organized a bit like a journey, from command-line novice to expert. Some are elementary, and some are fairly sophisticated or obscure. Once you understand and can recall the items here, you're likely to know your way around the command better than anyone you know.
+This is a one-page summary of many of the commands and tricks you should know, focusing on Linux. It's organized a bit like a journey, from command-line novice to expert. Some tips are elementary, and some are fairly sophisticated or obscure. If you manage to use and recall all the items here, it's likely you know your way around a shell prompt better than anyone you know.
 
 Much of this
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
-on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. *If you see an error or something that could be better, please submit an issue or PR!*
+on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
+but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR!
 
 Scope:
 
-- The goals are brevity and breadth. Some tips are obscure, but every tip is essential in some situation or significantly saves time over alternatives.
+- The goals are breadth and brevity. Some tips are obscure, but every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux. Some but not all items apply equally to MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - Descriptions are intentionally minimal, with the expectation you'll use `man`, `apt-get`/`yum` to install, and Google for more background.
