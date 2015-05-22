@@ -292,8 +292,8 @@ A few examples of piecing together commands:
 
 ## More resources
 
-- [https://github.com/alebcay/awesome-shell](awesome-shell): A curated list of shell tools and resources
-- [http://redsymbol.net/articles/unofficial-bash-strict-mode/](Strict mode) for writing better shell scripts
+- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
 
 
 ## Disclaimer
