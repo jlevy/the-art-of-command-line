@@ -1,6 +1,6 @@
 # The Art of Command Line
 
-- [Fundamentals](#fundamentals)
+- [Basics](#basics)
 - [Everyday use](#everyday-use)
 - [Data processing](#data-processing)
 - [System debugging](#system-debugging)
@@ -9,9 +9,9 @@
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
-Being capable on the command line is a skill that is in some ways archaic, but will save time and improve your flexibility and productivity as an engineer in both obvious and subtle ways. Fluency results from both understanding and lots of specific tricks that you pick up informally over time.
+Fluency on the command line is a skill that is in some ways archaic, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways.
 
-This is a one-page summary of many of the commands and tricks you should know, focusing on Linux. It's organized a bit like a journey, from command-line novice to expert. Some tips are elementary, and some are fairly sophisticated or obscure. If you manage to use and recall all the items here, it's likely you know your way around a shell prompt better than anyone you know.
+This is a selection of notes and tips on using the command-line tips that I've found useful over the years when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot. It's a bit like a journey, from command-line novice to expert. 
 
 Much of this
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
@@ -21,21 +21,21 @@ but given the interest there, it seems it's worth using Github, where people mor
 
 Scope:
 
-- The goals are breadth and brevity. Some tips are obscure, but every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux. Some but not all items apply equally to MacOS (or even Cygwin).
+- The goals are breadth and brevity. Every tip is essential in some situation or significantly saves time over alternatives.
+- This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - Descriptions are intentionally minimal, with the expectation you'll use `man`, `apt-get`/`yum` to install, and Google for more background.
 
 
-## Fundamentals
+## Basics
 
-- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but bash is powerful and always available (learning mainly zsh, fish, etc. restricts you in many situations).
+- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
-- Learn vim. There's really no competition for random Linux editing (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
+- Learn Vim (`vi`). There's really no competition for random Linux editing (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
 
 - Know ssh, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
-- Be familiar with bash job management: `&`, Ctrl-Z, Ctrl-C, `jobs`, `fg`, `bg`, `kill`, etc.
+- Be familiar with bash job management: `&`, **q-Z**, **Ctrl-C**, `jobs`, `fg`, `bg`, `kill`, etc.
 
 - Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f`, `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`), `df`, `mount`.
 
@@ -48,15 +48,15 @@ Scope:
 
 ## Everyday use
 
-- In bash, use Ctrl-R to search through command history.
+- In bash, use **Ctrl-R** to search through command history.
 
-- In bash, use Ctrl-W to kill the last word, and Ctrl-U to kill the line. See `man readline` for default keybindings in bash. There are a lot. For example Alt-. cycles through previous arguments, and Alt-* expands a glob.
+- In bash, use **Ctrl-W** to delete the last word, and **Ctrl-U** to delete the whole line. Use **Alt-Left** and **Alt-Right** to move by word, and **Ctrl-K** to kill to the end of the line. See `man readline` for all the default keybindings in bash. There are a lot. For example **Alt-.** cycles through previous arguments, and **Alt-\*** expands a glob.
 
-- To go back to the previous working directory: cd -
+- To go back to the previous working directory: `cd -`
 
-- If you are halfway through typing a command but change your mind, hit Alt-# to add a # at the beginning and enter it as a comment (or use Ctrl-A, #, enter). You can then return to it later via command history.
+- If you are halfway through typing a command but change your mind, hit **Alt-#** to add a `#` at the beginning and enter it as a comment (or use **Ctrl-A**, **#**, **enter**). You can then return to it later via command history.
 
-- Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (-L) as well as parallelism (-P). If you're not sure if it'll do the right thing, use xargs echo first. Also, -I{} is handy. Examples:
+- Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
 ```
       find . -name \*.py | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
@@ -150,7 +150,7 @@ Scope:
 
 - Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`
 
-- If you ever need to write a tab literal in a command line in bash (e.g. for the -t argument to sort), press Ctrl-V <tab> or write $'\t' (the latter is better as you can copy/paste it).
+- If you ever need to write a tab literal in a command line in bash (e.g. for the -t argument to sort), press **Ctrl-V** **<tab>** or write `$'\t'` (the latter is better as you can copy/paste it).
 
 - For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
 
@@ -176,7 +176,7 @@ Scope:
 
 - Use `mtr` as a better traceroute, to identify network issues.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sk *`.
+- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
 
 - To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
 
@@ -271,8 +271,8 @@ A few examples of piecing together commands:
 - `strace`: system call debugging
 - `mtr`: better traceroute for network debugging
 - `cssh`: visual concurrent shell
-- `wireshark `and tshark: packet capture and network debugging
-- `host `and dig: DNS lookups
+- `wireshark` and `tshark`: packet capture and network debugging
+- `host` and `dig`: DNS lookups
 - `lsof`: process file descriptor and socket info
 - `dstat`: useful system stats
 - `iostat`: CPU and disk usage stats
@@ -281,7 +281,7 @@ A few examples of piecing together commands:
 - `w`: who's logged on
 - `id`: user/group identity info
 - `sar`: historic system stats
-- `iftop `or nethogs: network utilization by socket or process
+- `iftop` or `nethogs`: network utilization by socket or process
 - `ss`: socket statistics
 - `dmesg`: boot and system error messages
 - `hdparm`: SATA/ATA disk manipulation/performance
