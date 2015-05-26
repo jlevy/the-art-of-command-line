@@ -50,7 +50,7 @@ Scope:
 
 - In bash, use **Ctrl-R** to search through command history.
 
-- In bash, use **Ctrl-W** to delete the last word, and **Ctrl-U** to delete the whole line. Use **Alt-Left** and **Alt-Right** to move by word, and **Ctrl-K** to kill to the end of the line. See `man readline` for all the default keybindings in bash. There are a lot. For example **Alt-.** cycles through previous arguments, and **Alt-\*** expands a glob.
+- In bash, use **Ctrl-W** to delete the last word, and **Ctrl-U** to delete the whole line. Use **Alt-Left** and **Alt-Right** to move by word, and **Ctrl-K** to kill to the end of the line. See `man readline` for all the default keybindings in bash. There are a lot. For example **Alt-.** cycles through previous arguments, and **Alt-*** expands a glob.
 
 - To go back to the previous working directory: `cd -`
 
