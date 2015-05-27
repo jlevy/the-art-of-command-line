@@ -225,7 +225,7 @@ A few examples of piecing together commands:
 ```
       mkdir -p ~/test/{one,two,three}/subtest.{one,two,three}
 ```
-      creates:
+creates:
 ```
 ~/test/
 |_____one/
