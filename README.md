@@ -221,6 +221,26 @@ A few examples of piecing together commands:
 ```
       find . -type f -ls
 ```
+- You can simplify the creation of a directory tree by using `{}`:
+```
+      mkdir -p ~/test/{one,two,three}/subtest.{one,two,three}
+```
+      creates:
+```
+~/test/
+|_____one/
+      |_____subtest.one
+      |_____subtest.two/
+      |_____subtest.three/
+|_____two/
+      |_____subtest.one
+      |_____subtest.two/
+      |_____subtest.three/
+|_____three/
+      |_____subtest.one
+      |_____subtest.two/
+      |_____subtest.three/
+```
 
 - Use `xargs` or `parallel` whenever you can. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use xargs echo first. Also, `-I{}` is handy. Examples:
 ```
