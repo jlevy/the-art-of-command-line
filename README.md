@@ -11,7 +11,7 @@
 
 Fluency on the command line is a skill that is in some ways archaic, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways.
 
-This is a selection of notes and tips on using the command-line tips that I've found useful over the years when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot. It's a bit like a journey, from command-line novice to expert. 
+This is a selection of notes and tips on using the command-line that I've found useful over the years when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot. It's a bit like a journey, from command-line novice to expert. 
 
 Much of this
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
