@@ -43,7 +43,7 @@ Scope:
 
 - Know regular expressions well, and the various flags to `grep`/`egrep`. The `-o`, `-A`, and `-B` options are worth knowing.
 
-- Learn to use `apt-get` or `yum` (depending on distro) to find and install packages.
+- Learn to use `apt-get` or `yum` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
 
 ## Everyday use
@@ -128,7 +128,7 @@ Scope:
 
 - For JSON, use `jq`.
 
-- For Amazon S3, `s3cmd` is convenient (albeit immature, with occasional misfeatures) and `s4cmd` is faster.
+- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient (albeit immature, with occasional misfeatures) and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
 
 - Know about `sort` and `uniq` (including uniq's `-u` and `-d` options -- see one-liners below).
 
