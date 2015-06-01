@@ -128,9 +128,9 @@ Scope:
 
 - For JSON, use `jq`.
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient (albeit immature, with occasional misfeatures) and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
+- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
 
-- Know about `sort` and `uniq` (including uniq's `-u` and `-d` options -- see one-liners below).
+- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below.
 
 - Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
 
@@ -145,7 +145,8 @@ Scope:
 
 - To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
 ```
-      rename 's/\.bak$//' *.bak
+      rename 's/\.bak$//' *.bak    # Recover backup files. 
+      repren --full --preserve-case --from foo --to bar .   # Full rename of filenames, directories, and contents.
 ```
 
 - Use `shuf` to shuffle or select random lines from a file.
@@ -170,7 +171,7 @@ Scope:
 
 ## System debugging
 
-- For web debugging, `curl` and `curl -I` are handy, or their wget equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
+- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
 
 - To know disk/cpu/network status, use `iostat`, `netstat`, `top` (or the better `htop`), and (especially) `dstat`. Good for getting a quick idea of what's happening on a system.
 
