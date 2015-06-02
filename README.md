@@ -129,6 +129,8 @@ Scope:
 
 - To convert HTML to text: `lynx -dump -stdin`
 
+- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+
 - If you must handle XML, `xmlstarlet` is old but good.
 
 - For JSON, use `jq`.
