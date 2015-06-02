@@ -9,9 +9,10 @@
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
-Fluency on the command line is a skill that is in some ways archaic, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways.
 
-This is a selection of notes and tips on using the command-line that I've found useful over the years when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot. It's a bit like a journey, from command-line novice to expert. 
+![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
+
+Fluency on the command line is a skill that is in some ways archaic, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways. This is a selection of notes and tips on using the command-line that I've found useful when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot.
 
 Much of this
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
@@ -159,7 +160,7 @@ Scope:
 
 - Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`
 
-- If you ever need to write a tab literal in a command line in bash (e.g. for the -t argument to sort), press **Ctrl-V** **<tab>** or write `$'\t'` (the latter is better as you can copy/paste it).
+- If you ever need to write a tab literal in a command line in bash (e.g. for the -t argument to sort), press **Ctrl-V** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
 
 - For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
 
@@ -242,60 +243,118 @@ A few examples of piecing together commands:
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
+- Process this Markdown document and extract a random tip.
+```
+      pandoc -f markdown -t html README.md | xmlstarlet fo --html --dropdtd | xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" | xmlstarlet unesc | fmt 80
+```
+
+
 ## Obscure but useful
 
 - `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+
 - `m4`: simple macro processor
+
 - `screen`: powerful terminal multiplexing and session persistence
+
 - `yes`: print a string a lot
+
 - `cal`: nice calendar
+
 - `env`: run a command (useful in scripts)
+
 - `look`: find English words (or lines in a file) beginning with a string
+
 - `cut `and paste and join: data manipulation
+
 - `fmt`: format text paragraphs
+
 - `pr`: format text into pages/columns
+
 - `fold`: wrap lines of text
+
 - `column`: format text into columns or tables
+
 - `expand `and unexpand: convert between tabs and spaces
+
 - `nl`: add line numbers
+
 - `seq`: print numbers
+
 - `bc`: calculator
+
 - `factor`: factor integers
+
 - `nc`: network debugging and data transfer
+
 - `dd`: moving data between files or devices
+
 - `file`: identify type of a file
+
 - `stat`: file info
+
 - `tac`: print files in reverse
+
 - `shuf`: random selection of lines from a file
+
 - `comm`: compare sorted files line by line
+
 - `hd` and `bvi`: dump or edit binary files
+
 - `strings`: extract text from binary files
+
 - `tr`: character translation or manipulation
+
 - `iconv `or uconv: conversion for text encodings
+
 - `split `and csplit: splitting files
+
 - `7z`: high-ratio file compression
+
 - `ldd`: dynamic library info
+
 - `nm`: symbols from object files
+
 - `ab`: benchrmarking web servers
+
 - `strace`: system call debugging
+
 - `mtr`: better traceroute for network debugging
+
 - `cssh`: visual concurrent shell
+
 - `wireshark` and `tshark`: packet capture and network debugging
+
 - `host` and `dig`: DNS lookups
+
 - `lsof`: process file descriptor and socket info
+
 - `dstat`: useful system stats
+
 - `iostat`: CPU and disk usage stats
+
 - `htop`: improved version of top
+
 - `last`: login history
+
 - `w`: who's logged on
+
 - `id`: user/group identity info
+
 - `sar`: historic system stats
+
 - `iftop` or `nethogs`: network utilization by socket or process
+
 - `ss`: socket statistics
+
 - `dmesg`: boot and system error messages
+
 - `hdparm`: SATA/ATA disk manipulation/performance
+
 - `lsb_release`: Linux distribution info
+
 - `lshw`: hardware information
+
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
