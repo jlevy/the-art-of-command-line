@@ -152,8 +152,10 @@ Scope:
 
 - To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
 ```
-      rename 's/\.bak$//' *.bak    # Recover backup files. 
-      repren --full --preserve-case --from foo --to bar .   # Full rename of filenames, directories, and contents.
+      # Recover backup files foo.bak -> foo:
+      rename 's/\.bak$//' *.bak
+      # Full rename of filenames, directories, and contents foo -> bar:
+      repren --full --preserve-case --from foo --to bar .
 ```
 
 - Use `shuf` to shuffle or select random lines from a file.
@@ -245,9 +247,15 @@ A few examples of piecing together commands:
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- Process this Markdown document and extract a random tip.
+- Run this function to get a random tip from this document (parses Markdown and extracts an item):
 ```
-      pandoc -f markdown -t html README.md | xmlstarlet fo --html --dropdtd | xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" | xmlstarlet unesc | fmt 80
+      function taocl() {
+        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
+          pandoc -f markdown -t html README.md |
+          xmlstarlet fo --html --dropdtd |
+          xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
+          xmlstarlet unesc | fmt 80
+      }
 ```
 
 
