@@ -97,7 +97,7 @@ Scope:
 
 - Use `man ascii` for a good ASCII table, with hex and decimal values.
 
-- On remote ssh sessions, use `screen` or `dtach` to save your session, in case it is interrupted.
+- Use `screen` or `tmux` to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
 
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
