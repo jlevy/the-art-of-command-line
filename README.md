@@ -36,7 +36,7 @@ Scope:
 
 - Know ssh, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
-- Be familiar with bash job management: `&`, **q-Z**, **Ctrl-C**, `jobs`, `fg`, `bg`, `kill`, etc.
+- Be familiar with bash job management: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
 - Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f`, `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`), `df`, `mount`.
 
