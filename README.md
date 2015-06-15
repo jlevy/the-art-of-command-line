@@ -36,7 +36,7 @@ Scope:
 
 - Know ssh, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
-- Be familiar with bash job management: `&`, **q-Z**, **Ctrl-C**, `jobs`, `fg`, `bg`, `kill`, etc.
+- Be familiar with bash job management: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
 - Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f`, `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`), `df`, `mount`.
 
@@ -49,13 +49,13 @@ Scope:
 
 ## Everyday use
 
-- In bash, use **Ctrl-R** to search through command history.
+- In bash, use **ctrl-r** to search through command history.
 
-- In bash, use **Ctrl-W** to delete the last word, and **Ctrl-U** to delete the whole line. Use **Alt-Left** and **Alt-Right** to move by word, and **Ctrl-K** to kill to the end of the line. See `man readline` for all the default keybindings in bash. There are a lot. For example **Alt-.** cycles through previous arguments, and **Alt-*** expands a glob.
+- In bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the whole line. Use **alt-Left** and **alt-Right** to move by word, and **ctrl-k** to kill to the end of the line. See `man readline` for all the default keybindings in bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
 
 - To go back to the previous working directory: `cd -`
 
-- If you are halfway through typing a command but change your mind, hit **Alt-#** to add a `#` at the beginning and enter it as a comment (or use **Ctrl-A**, **#**, **enter**). You can then return to it later via command history.
+- If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
 
 - Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
 ```
@@ -164,7 +164,7 @@ Scope:
 
 - Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`
 
-- If you ever need to write a tab literal in a command line in bash (e.g. for the -t argument to sort), press **Ctrl-V** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- If you ever need to write a tab literal in a command line in bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
 
 - For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
 
