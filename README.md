@@ -106,7 +106,6 @@ Scope:
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6
-      StrictHostKeyChecking=no
       Compression=yes
       ForwardAgent=yes
 ```
