@@ -42,7 +42,7 @@ Scope:
 
 - Basic network management: `ip` or `ifconfig`, `dig`.
 
-- Know regular expressions well, and the various flags to `grep`/`egrep`. The `-o`, `-A`, and `-B` options are worth knowing.
+- Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-A`, and `-B` options are worth knowing.
 
 - Learn to use `apt-get` or `yum` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
