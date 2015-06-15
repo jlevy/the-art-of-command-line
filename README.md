@@ -325,7 +325,7 @@ A few examples of piecing together commands:
 
 - `nm`: symbols from object files
 
-- `ab`: benchrmarking web servers
+- `ab`: benchmarking web servers
 
 - `strace`: system call debugging
 
