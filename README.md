@@ -55,6 +55,15 @@ Scope:
 
 - In Bash, use **ctrl-r** to search through command history.
 
+- In Bash, many history commands can be quickly reached by the key **!**. For example, `!vim` executes the last vim command, `!$` writes last argument of previous line, `-i` executes the i-th last command:
+```
+      touch hello.txt README.md
+      # will execute "vim README.md"
+      vim !$
+      # will execute "touch hello.txt README.md"
+      !-2
+```
+ 
 - In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the whole line. Use **alt-Left** and **alt-Right** to move by word, and **ctrl-k** to kill to the end of the line. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
 
 - To go back to the previous working directory: `cd -`
