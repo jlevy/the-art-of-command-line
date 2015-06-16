@@ -53,6 +53,8 @@ Scope:
 
 - In bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the whole line. Use **alt-Left** and **alt-Right** to move by word, and **ctrl-k** to kill to the end of the line. See `man readline` for all the default keybindings in bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
 
+- Alternatively, add `set editing-mode vi` to your `~/.bashrc` to enable vim-keybindings for bash (and any program using GNU readline).
+
 - To go back to the previous working directory: `cd -`
 
 - If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
