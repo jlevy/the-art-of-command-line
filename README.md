@@ -108,7 +108,6 @@ Scope:
       ServerAliveCountMax=6
       StrictHostKeyChecking=no
       Compression=yes
-      ForwardAgent=yes
 ```
 
 - To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
