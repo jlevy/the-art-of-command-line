@@ -208,7 +208,7 @@ Scope:
 
 - The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
 
-- For more serious network debugging, `wireshark` or `tshark`.
+- For more serious network debugging, `wireshark`, `tshark`, or `ngrep`.
 
 - Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
 
@@ -385,6 +385,7 @@ A few examples of piecing together commands:
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
+- `ngrep`: grep for the network layer
 
 ## More resources
 
