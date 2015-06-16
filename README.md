@@ -187,6 +187,9 @@ Scope:
 
 - To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
 
+- To compare two files use `meld fileA fileB`
+
+
 
 ## System debugging
 
