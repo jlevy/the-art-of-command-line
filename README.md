@@ -371,9 +371,9 @@ A few examples of piecing together commands:
 
 - `gpg`: encrypt and sign files
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
-
 - `toe`: table of terminfo entries
+
+- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
 ## More resources
