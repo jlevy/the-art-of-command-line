@@ -135,9 +135,17 @@ Notes:
 
 - For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
-- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
-`python -m SimpleHTTPServer 7777` (for port 7777 and Python 2).
+- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, with python2 use:
 
+```
+      python -m SimpleHTTPServer [port]
+```
+
+- If you have python3:
+
+```
+      python -m http.server [port]
+```
 
 ## Processing files and data
 
