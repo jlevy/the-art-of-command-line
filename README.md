@@ -55,6 +55,11 @@ Scope:
 
 - In Bash, use **ctrl-r** to search through command history.
 
+- In Bash, use **history** display command history.
+ - Additionally, you can use **!#** where **#** is the sequence of command in history.
+
+- In Bash, use **!!** to repeat the last command
+
 - In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the whole line. Use **alt-Left** and **alt-Right** to move by word, and **ctrl-k** to kill to the end of the line. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
 
 - To go back to the previous working directory: `cd -`
