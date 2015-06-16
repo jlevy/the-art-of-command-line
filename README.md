@@ -32,11 +32,13 @@ Scope:
 
 - Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
-- Learn Vim (`vi`). There's really no competition for random Linux editing (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
+- Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
 
-- Know ssh, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
+- Learn about redirection of output and input using `>` and `<` and pipes using `|`. Learn about stdout and stderr.
 
 - Be familiar with bash job management: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+
+- Know ssh, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
 - Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f`, `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`), `df`, `mount`.
 
