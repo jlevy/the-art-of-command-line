@@ -71,7 +71,7 @@ Scope:
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
 
-- Check what processes are listening via `netstat -lntp`.
+- Check what processes are listening via `ss -plat`.
 
 - See also `lsof` for open sockets and files.
 
