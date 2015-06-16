@@ -124,6 +124,10 @@ Scope:
 
 - For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
+- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
+```
+      python -m SimpleHTTPServer [port]
+```
 
 ## Processing files and data
 
