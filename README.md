@@ -141,7 +141,7 @@ Scope:
 
 - Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
 
-- Know that locale affects a lot of command line tools, including sorting order and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. This can make sort or other commands run many times slower. (Note that even if you use UTF-8 text, you can safely sort by ASCII order for many purposes.) To disable slow i18n routines and use traditional byte-based sort order, use `export LC_ALL=C` (in fact, consider putting this in your `~/.bashrc`).
+- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
 
 - Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
 
