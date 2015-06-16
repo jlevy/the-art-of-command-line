@@ -187,6 +187,8 @@ Scope:
 
 - To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
 
+- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
+
 
 ## System debugging
 
