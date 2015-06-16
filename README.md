@@ -59,7 +59,7 @@ Scope:
 
 - Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
 ```
-      find . -name \*.py | xargs grep some_function
+      find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
@@ -123,7 +123,7 @@ Scope:
 
 ## Processing files and data
 
-- To locate a file by name in the current directory, `find -iname *something* .` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` my not have indexed recently created files).
+- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` my not have indexed recently created files).
 
 - For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
 
@@ -240,7 +240,7 @@ A few examples of piecing together commands:
 
 - Use `xargs` or `parallel` whenever you can. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use xargs echo first. Also, `-I{}` is handy. Examples:
 ```
-      find . -name \*.py | xargs grep some_function
+      find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
