@@ -40,7 +40,7 @@ Scope:
 
 - Be familiar with Bash job management: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
-- Know ssh, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
+- Know `ssh`, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
 - Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`), `df`, `mount`.
 
@@ -283,7 +283,7 @@ A few examples of piecing together commands:
 
 - `look`: find English words (or lines in a file) beginning with a string
 
-- `cut `and paste and join: data manipulation
+- `cut `and `paste` and `join`: data manipulation
 
 - `fmt`: format text paragraphs
 
@@ -293,7 +293,7 @@ A few examples of piecing together commands:
 
 - `column`: format text into columns or tables
 
-- `expand `and unexpand: convert between tabs and spaces
+- `expand` and `unexpand`: convert between tabs and spaces
 
 - `nl`: add line numbers
 
@@ -329,7 +329,7 @@ A few examples of piecing together commands:
 
 - `iconv `or uconv: conversion for text encodings
 
-- `split `and csplit: splitting files
+- `split `and `csplit`: splitting files
 
 - `7z`: high-ratio file compression
 
