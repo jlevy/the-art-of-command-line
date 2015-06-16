@@ -113,6 +113,13 @@ Scope:
       Compression=yes
 ```
 
+- To lower network overhead, this `~/.ssh/config` contains settings to multiplex channels to the same server with a local control file:
+```
+      ControlMaster auto
+      ControlPath /tmp/%r@%h:%p
+      ControlPersist yes
+```
+
 - A few other options relevant to ssh are security sensitive and should be enabled with care, e.g. per subnet or host or in trusted networks: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
 - To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
