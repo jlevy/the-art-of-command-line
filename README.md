@@ -30,13 +30,13 @@ Scope:
 
 ## Basics
 
-- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
+- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
 - Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
 
 - Learn about redirection of output and input using `>` and `<` and pipes using `|`. Learn about stdout and stderr.
 
-- Be familiar with bash job management: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+- Be familiar with Bash job management: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
 - Know ssh, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
@@ -51,9 +51,9 @@ Scope:
 
 ## Everyday use
 
-- In bash, use **ctrl-r** to search through command history.
+- In Bash, use **ctrl-r** to search through command history.
 
-- In bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the whole line. Use **alt-Left** and **alt-Right** to move by word, and **ctrl-k** to kill to the end of the line. See `man readline` for all the default keybindings in bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the whole line. Use **alt-Left** and **alt-Right** to move by word, and **ctrl-k** to kill to the end of the line. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
 
 - To go back to the previous working directory: `cd -`
 
@@ -77,23 +77,23 @@ Scope:
 
 - See also `lsof` for open sockets and files.
 
-- In bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
+- In Bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
 
-- In bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
+- In Bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
 ```
       # do something in current dir
       (cd /some/other/dir; other-command)
       # continue in original dir
 ```
 
-- In bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
+- In Bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a Bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
 
 - The output of a command can be treated like a file via `<(some command)`. For example, compare local `/etc/hosts` with a remote one:
 ```
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- Know about "here documents" in bash, as in `cat <<EOF ...`.
+- Know about "here documents" in Bash, as in `cat <<EOF ...`.
 
 - In Bash, redirect both standard output and standard error via: `some-command >logfile 2>&1`. Often, to ensure a command does not leave an open file handle to standard input, tying it to the terminal you are in, it is also good practice to add `</dev/null`.
 
@@ -166,7 +166,7 @@ Scope:
 
 - Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`
 
-- If you ever need to write a tab literal in a command line in bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
 
 - For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
 
@@ -299,6 +299,10 @@ A few examples of piecing together commands:
 
 - `factor`: factor integers
 
+- `gpg`: encrypt and sign files
+
+- `toe`: table of terminfo entries
+
 - `nc`: network debugging and data transfer
 
 - `dd`: moving data between files or devices
@@ -345,7 +349,7 @@ A few examples of piecing together commands:
 
 - `dstat`: useful system stats
 
-- [`glances`](https://github.com/nicolargo/glances) : high level, multi-subsystem overview
+- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
 
 - `iostat`: CPU and disk usage stats
 
@@ -371,10 +375,6 @@ A few examples of piecing together commands:
 
 - `lshw`: hardware information
 
-- `gpg`: encrypt and sign files
-
-- `toe`: table of terminfo entries
-
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
@@ -386,4 +386,4 @@ A few examples of piecing together commands:
 
 ## Disclaimer
 
-With the exception of very small tasks, code is written so others can read it. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
