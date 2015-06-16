@@ -184,6 +184,8 @@ Scope:
 
 - To know disk/cpu/network status, use `iostat`, `netstat`, `top` (or the better `htop`), and (especially) `dstat`. Good for getting a quick idea of what's happening on a system.
 
+- For a more in-depth system overview, use [`glances`](https://github.com/nicolargo/glances). It presents you with several system level statistics in one terminal window. Very helpful for quickly checking on various subsystems.
+
 - To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
 
 - Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs.
@@ -340,6 +342,8 @@ A few examples of piecing together commands:
 - `lsof`: process file descriptor and socket info
 
 - `dstat`: useful system stats
+
+- [`glances`](https://github.com/nicolargo/glances) : high level, multi-subsystem overview
 
 - `iostat`: CPU and disk usage stats
 
