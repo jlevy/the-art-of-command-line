@@ -187,9 +187,7 @@ Scope:
 
 - To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
 
-- For compressed files, such as rotated logs, use `zless`, `zmore`, `zcat`, and `zgrep` to operate on the uncompressed contents.
-
-- Use `tailf` instead of `tail -f` to prevent periodic filesystem flushes, and access time modification when the file has no activity. Can also save battery life on laptops by reducing hard-disk activity when logging is infrequent.
+- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
 
 ## System debugging
