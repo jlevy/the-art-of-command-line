@@ -25,7 +25,7 @@ Scope:
 - The goals are breadth and brevity. Every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
-- Descriptions are intentionally minimal, with the expectation you'll use `man`, `apt-get`/`yum` to install, and Google for more background.
+- Descriptions are intentionally minimal, with the expectation you'll use `man`, `apt-get`/`yum`/`dnf` to install, and Google for more background.
 
 
 ## Basics
