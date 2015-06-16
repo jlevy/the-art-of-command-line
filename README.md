@@ -143,7 +143,7 @@ Scope:
 
 - For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below.
+- Know about `sort` and `uniq`, including uniq's `-u` and `-d`, sort's `-u` options -- see one-liners below.
 
 - Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
 
@@ -229,7 +229,7 @@ A few examples of piecing together commands:
 
 - It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above.
 ```
-      cat a b | sort | uniq > c   # c is a union b
+      cat a b | sort -u > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
