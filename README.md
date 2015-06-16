@@ -262,7 +262,7 @@ A few examples of piecing together commands:
           pandoc -f markdown -t html |
           xmlstarlet fo --html --dropdtd |
           xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
-          xmlstarlet unesc | fmt 80
+          xmlstarlet unesc | fmt -80
       }
 ```
 
