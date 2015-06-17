@@ -53,7 +53,7 @@ Scope:
 
 ## Everyday use
 
-- In Bash, use **Tab** to complete file names and **ctrl-r** to search through command history.
+- In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
 
 - In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the whole line. Use **alt-b** and **alt-f** to move by word, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
 
