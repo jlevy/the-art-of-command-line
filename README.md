@@ -48,7 +48,7 @@ Scope:
 
 - Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-A`, and `-B` options are worth knowing.
 
-- Learn to use `apt-get`, `yum`, or `dnf` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
+- Learn to use `apt-get`, `yum`, or `dnf` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`). Try to avoid `sudo pip …` (because of the big ball of mud it creates), and prefer [virtualenvwrapper](https://bitbucket.org/dhellmann/virtualenvwrapper), [dh-virtualenv](https://github.com/spotify/dh-virtualenv), and [pipsi](https://github.com/mitsuhiko/pipsi).
 
 
 ## Everyday use
