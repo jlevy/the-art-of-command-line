@@ -130,6 +130,11 @@ Scope:
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2).
 
+- `alias` - when you have some favirite commands you write a lot. example:
+ ```bash
+ alias myproc='ps aux | grep username'
+ ```
+ After this, just type: myproc
 
 ## Processing files and data
 
