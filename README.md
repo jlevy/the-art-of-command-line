@@ -230,6 +230,7 @@ Scope:
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
+- Use `watch` to monitor a command's output recurrently instead of running it by hand.
 
 ## One-liners
 
@@ -274,6 +275,11 @@ A few examples of piecing together commands:
       }
 ```
 
+- Monitor some command's output every 1 second:
+
+```sh
+      watch -n1 "ps aux | grep sidekiq"
+```
 
 ## Obscure but useful
 
