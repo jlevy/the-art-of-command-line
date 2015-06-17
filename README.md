@@ -128,9 +128,8 @@ Scope:
 - For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
-```
-      python -m SimpleHTTPServer [port]
-```
+`python -m SimpleHTTPServer 7777` (for port 7777 and Python 2).
+
 
 ## Processing files and data
 
@@ -318,6 +317,8 @@ A few examples of piecing together commands:
 
 - `nc`: network debugging and data transfer
 
+- `ngrep`: grep for the network layer
+
 - `dd`: moving data between files or devices
 
 - `file`: identify type of a file
@@ -390,7 +391,6 @@ A few examples of piecing together commands:
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
-- `ngrep`: grep for the network layer
 
 ## More resources
 
