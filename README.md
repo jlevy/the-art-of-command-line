@@ -1,5 +1,6 @@
 # The Art of Command Line
 
+- [Meta](#meta)
 - [Basics](#basics)
 - [Everyday use](#everyday-use)
 - [Processing files and data](#processing-files-and-data)
@@ -20,12 +21,19 @@ Much of this
 on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
 but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (But only after reviewing the scope/philosophy bullets below.)
 
+## Meta
+
 Scope:
 
 - The goals are breadth (everything important), specificity (give concrete examples of the most common case), and brevity (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
-- To keep this to one page, include content by reference whenever possible. Descriptions are intentionally minimal, with the expectation you'll use `man`, `apt-get`/`yum`/`dnf` to install, and Google for more background.
+- To keep this to one page, include content by reference whenever possible.
+- 
+Notes:
+
+- This is for both beginners and the experienced. In both cases, you're smart enough to look up more detail elsewhere once you know the idea or command to Google.
+- Check out [Explainshell](http://explainshell.com/) to get a helpful breakdown of what the command, pipes, and options do.
 
 
 ## Basics
