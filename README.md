@@ -214,7 +214,7 @@ Notes:
 
 - Use `mtr` as a better traceroute, to identify network issues.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh * | sort -h`.
 
 - To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
 
