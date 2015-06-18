@@ -77,7 +77,7 @@ Scope:
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
 
-- Check what processes are listening via `netstat -tulpn`.
+- Check what processes are listening via `netstat -tulpn` or `ss -a`.
 
 - See also `lsof` for open sockets and files.
 
