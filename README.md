@@ -50,6 +50,8 @@ Scope:
 
 - Learn to use `apt-get`, `yum`, or `dnf` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
+- In addition to package managers, you should also learn how to compile packages from source. Learn how to decompress files (`gunzip`, `tar xf`, etc) and learn how to compile them (generally as you follow their `README` files or through `make`, and figuring out the development packages that ARE generally available through your distro)
+
 
 ## Everyday use
 
