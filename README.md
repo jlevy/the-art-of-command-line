@@ -387,6 +387,8 @@ A few examples of piecing together commands:
 
 - `ngrep`: grep for the network layer
 
+- `apropos`: search the manual pages
+
 ## More resources
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
