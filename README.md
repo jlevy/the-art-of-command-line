@@ -408,6 +408,7 @@ A few examples of piecing together commands:
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+- [Tmux's FAQ](https://raw.githubusercontent.com/tmux/tmux/master/FAQ) for extra information about differene between tmux and screen
 
 
 ## Disclaimer
