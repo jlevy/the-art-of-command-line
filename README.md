@@ -294,6 +294,8 @@ A few examples of piecing together commands:
 
 - `screen`: powerful terminal multiplexing and session persistence
 
+- `tmux`: powerful terminal multiplexer that is a lighter alternative to screen
+
 - `yes`: print a string a lot
 
 - `cal`: nice calendar
