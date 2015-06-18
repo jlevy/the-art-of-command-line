@@ -54,6 +54,8 @@ Notes:
 
 - Basic network management: `ip` or `ifconfig`, `dig`.
 
+- Basic disk and partitioning management: `df`, `du`, `fdisk`, `mkfs`.
+
 - Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-A`, and `-B` options are worth knowing.
 
 - Learn to use `apt-get`, `yum`, or `dnf` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
@@ -83,7 +85,7 @@ Notes:
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
 
-- Check what processes are listening via `netstat -lntp`.
+- Check what processes are listening via `netstat -tulpn` or `ss -a`.
 
 - See also `lsof` for open sockets and files.
 
@@ -168,6 +170,11 @@ Notes:
 - To replace all occurrences of a string in place, in one or more files:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
+```
+
+or equivalent, with earlier mentioned `sed`:
+```sh
+      sed -i 's/old-string/new-string/g' my-files-*.txt
 ```
 
 - To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
