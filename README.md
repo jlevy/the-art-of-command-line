@@ -135,17 +135,25 @@ Notes:
 
 - For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
-- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, with python2 use:
+- ###### Quick web-service of the current directory
 
-```
+  - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, with python2 use:
+  
+    ```
       python -m SimpleHTTPServer [port]
-```
+    ```
 
-- If you have python3:
-
-```
+  - If you have python3:
+  
+    ```
       python -m http.server [port]
-```
+    ```
+
+  - If you are unsure which Python is in your path:
+
+    ```
+    python -V
+    ```
 
 ## Processing files and data
 
