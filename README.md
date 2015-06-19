@@ -288,119 +288,119 @@ A few examples of piecing together commands:
 
 ## Obscure but useful
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
-
-- `m4`: simple macro processor
-
-- `screen`: powerful terminal multiplexing and session persistence
-
-- `yes`: print a string a lot
-
-- `cal`: nice calendar
-
-- `env`: run a command (useful in scripts)
-
-- `look`: find English words (or lines in a file) beginning with a string
-
-- `cut `and `paste` and `join`: data manipulation
-
-- `fmt`: format text paragraphs
-
-- `pr`: format text into pages/columns
-
-- `fold`: wrap lines of text
-
-- `column`: format text into columns or tables
-
-- `expand` and `unexpand`: convert between tabs and spaces
-
-- `nl`: add line numbers
-
-- `seq`: print numbers
-
-- `bc`: calculator
-
-- `factor`: factor integers
-
-- `gpg`: encrypt and sign files
-
-- `toe`: table of terminfo entries
-
-- `nc`: network debugging and data transfer
-
-- `ngrep`: grep for the network layer
-
-- `dd`: moving data between files or devices
-
-- `file`: identify type of a file
-
-- `stat`: file info
-
-- `tac`: print files in reverse
-
-- `shuf`: random selection of lines from a file
-
-- `comm`: compare sorted files line by line
-
-- `hd` and `bvi`: dump or edit binary files
-
-- `strings`: extract text from binary files
-
-- `tr`: character translation or manipulation
-
-- `iconv `or uconv: conversion for text encodings
-
-- `split `and `csplit`: splitting files
-
 - `7z`: high-ratio file compression
-
-- `ldd`: dynamic library info
-
-- `nm`: symbols from object files
 
 - `ab`: benchmarking web servers
 
-- `strace`: system call debugging
+- `bc`: calculator
 
-- `mtr`: better traceroute for network debugging
+- `bvi` and `hd`: dump or edit binary files
+
+- `cal`: nice calendar
+
+- `column`: format text into columns or tables
+
+- `comm`: compare sorted files line by line
+
+- `csplit` and `split`: splitting files
 
 - `cssh`: visual concurrent shell
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- `cut` and `join` and `paste`: data manipulation
 
-- `host` and `dig`: DNS lookups
+- `ddate`, `fortune`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
-- `lsof`: process file descriptor and socket info
+- `dd`: moving data between files or devices
 
-- `dstat`: useful system stats
-
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
-
-- `iostat`: CPU and disk usage stats
-
-- `htop`: improved version of top
-
-- `last`: login history
-
-- `w`: who's logged on
-
-- `id`: user/group identity info
-
-- `sar`: historic system stats
-
-- `iftop` or `nethogs`: network utilization by socket or process
-
-- `ss`: socket statistics
+- `dig` and `host`: DNS lookups
 
 - `dmesg`: boot and system error messages
 
+- `dstat`: useful system stats
+
+- `env`: run a command (useful in scripts)
+
+- `expand` and `unexpand`: convert between tabs and spaces
+
+- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+
+- `factor`: factor integers
+
+- `file`: identify type of a file
+
+- `fmt`: format text paragraphs
+
+- `fold`: wrap lines of text
+
+- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+
+- `gpg`: encrypt and sign files
+
 - `hdparm`: SATA/ATA disk manipulation/performance
+
+- `htop`: improved version of top
+
+- `iconv` or uconv: conversion for text encodings
+
+- `id`: user/group identity info
+
+- `iftop` or `nethogs`: network utilization by socket or process
+
+- `iostat`: CPU and disk usage stats
+
+- `last`: login history
+
+- `ldd`: dynamic library info
+
+- `look`: find English words (or lines in a file) beginning with a string
 
 - `lsb_release`: Linux distribution info
 
 - `lshw`: hardware information
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+- `lsof`: process file descriptor and socket info
+
+- `m4`: simple macro processor
+
+- `mtr`: better traceroute for network debugging
+
+- `nc`: network debugging and data transfer
+
+- `ngrep`: grep for the network layer
+
+- `nl`: add line numbers
+
+- `nm`: symbols from object files
+
+- `pr`: format text into pages/columns
+
+- `sar`: historic system stats
+
+- `screen`: powerful terminal multiplexing and session persistence
+
+- `seq`: print numbers
+
+- `shuf`: random selection of lines from a file
+
+- `ss`: socket statistics
+
+- `stat`: file info
+
+- `strace`: system call debugging
+
+- `strings`: extract text from binary files
+
+- `tac`: print files in reverse
+
+- `toe`: table of terminfo entries
+
+- `tr`: character translation or manipulation
+
+- `tshark` and `wireshark`: packet capture and network debugging
+
+- `w`: who's logged on
+
+- `yes`: print a string a lot
 
 
 ## More resources
