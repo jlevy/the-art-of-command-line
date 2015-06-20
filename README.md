@@ -188,6 +188,8 @@ Notes:
       repren --full --preserve-case --from foo --to bar .
 ```
 
+- Use `mmv` to move/copy/append/link multiple files and directories by wildcard patterns. Rename file extension name: `mmv '*.JPG' '#1.jpg'`. 
+
 - Use `shuf` to shuffle or select random lines from a file.
 
 - Know `sort`'s options. Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line.
