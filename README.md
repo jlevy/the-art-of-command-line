@@ -330,11 +330,11 @@ A few examples of piecing together commands:
 
 - `nc`: network debugging and data transfer
 
-- `ngrep`: grep for the network layer
-
 - `dd`: moving data between files or devices
 
 - `file`: identify type of a file
+
+- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
 
 - `stat`: file info
 
@@ -350,7 +350,7 @@ A few examples of piecing together commands:
 
 - `tr`: character translation or manipulation
 
-- `iconv `or uconv: conversion for text encodings
+- `iconv` or `uconv`: conversion for text encodings
 
 - `split `and `csplit`: splitting files
 
@@ -369,6 +369,8 @@ A few examples of piecing together commands:
 - `cssh`: visual concurrent shell
 
 - `wireshark` and `tshark`: packet capture and network debugging
+
+- `ngrep`: grep for the network layer
 
 - `host` and `dig`: DNS lookups
 
@@ -403,8 +405,6 @@ A few examples of piecing together commands:
 - `lshw`: hardware information
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
-
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
 
 
 ## More resources
