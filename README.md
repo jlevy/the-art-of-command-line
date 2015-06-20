@@ -167,6 +167,10 @@ Notes:
 
 - Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
 
+- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+
+- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+
 - Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
 
 - Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
@@ -332,6 +336,10 @@ A few examples of piecing together commands:
 
 - `nc`: network debugging and data transfer
 
+- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+
+- `slurm`: network trafic visualization
+
 - `dd`: moving data between files or devices
 
 - `file`: identify type of a file
@@ -369,6 +377,8 @@ A few examples of piecing together commands:
 - `mtr`: better traceroute for network debugging
 
 - `cssh`: visual concurrent shell
+
+- `rsync`: sync files and folders over SSH
 
 - `wireshark` and `tshark`: packet capture and network debugging
 
