@@ -404,6 +404,8 @@ A few examples of piecing together commands:
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
+- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+
 
 ## More resources
 
