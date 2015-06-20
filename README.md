@@ -289,14 +289,11 @@ A few examples of piecing together commands:
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- Run this function to get a random tip from this document (parses Markdown and extracts an item):
+- Run this function to get a random tip from this document:
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
-          pandoc -f markdown -t html |
-          xmlstarlet fo --html --dropdtd |
-          xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
-          xmlstarlet unesc | fmt -80
+          python -c 'import sys,re,random;print random.choice([m.group(1) for m in re.finditer(r"^- (.*?)\n\n",sys.stdin.read(),re.DOTALL|re.MULTILINE)])' | fmt -80
       }
 ```
 
