@@ -294,8 +294,6 @@ A few examples of piecing together commands:
 
 - `m4`: simple macro processor
 
-- `screen`: powerful terminal multiplexing and session persistence
-
 - `yes`: print a string a lot
 
 - `cal`: nice calendar
