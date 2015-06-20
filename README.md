@@ -364,6 +364,8 @@ A few examples of piecing together commands:
 
 - `split `and `csplit`: splitting files
 
+- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+
 - `7z`: high-ratio file compression
 
 - `ldd`: dynamic library info
@@ -418,7 +420,7 @@ A few examples of piecing together commands:
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
-- `units`: unit conversion and calculation program, converts furlongs per fortnights to twips per blinks, `/usr/share/units/definitions.units` worth reading by itself.
+
 
 ## More resources
 
