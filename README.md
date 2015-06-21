@@ -70,7 +70,7 @@ Notes:
 
 - Alternatively, if you love vi-style key-bindings, use `set -o vi`.
 
-- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r* and **alt-.**.
+- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
 
 - To go back to the previous working directory: `cd -`
 
