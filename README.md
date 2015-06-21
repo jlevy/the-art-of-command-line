@@ -29,10 +29,11 @@ Scope:
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
+- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion. 
 
 Notes:
 
-- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`brew` (as appropriate) to install new programs.
+- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`pip`/`brew` (as appropriate) to install new programs.
 - Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
 
 
@@ -89,7 +90,7 @@ Notes:
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
 
-- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for for UDP).
+- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
 
 - See also `lsof` for open sockets and files.
 
@@ -196,9 +197,13 @@ Notes:
 
 - If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
 
+- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
+
 - For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
 
 - Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+
+- For binary diffs (delta compression), use `xdelta3`.
 
 - To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
 ```sh
@@ -364,6 +369,8 @@ A few examples of piecing together commands:
 
 - `split `and `csplit`: splitting files
 
+- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+
 - `7z`: high-ratio file compression
 
 - `ldd`: dynamic library info
@@ -428,3 +435,10 @@ A few examples of piecing together commands:
 ## Disclaimer
 
 With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+
+
+## License
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/).
