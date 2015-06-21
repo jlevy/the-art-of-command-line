@@ -29,10 +29,11 @@ Scope:
 - 这篇文章对刚接触命令行的新手以及具有命令行使用经验的人都有用处。The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). 每个小技巧在某个特定情境下都是基本的或能够显著地节约时间。
 - 本文为Linux所写，但很多内容（并非所有的）同样适用于MacOS甚至Cygwin。
 - 本文关注于交互式Bash，尽管很多技巧适用于其他shell或Bash脚本。
+- 本文包括了"标准的"Unix命令和需要安装特定包的命令，只要它们足够重要。
 
 Notes:
 
-- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. 使用 `apt-get`/`yum`/`dnf`/`brew` 来安装新程序。
+- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. 使用 `apt-get`/`yum`/`dnf`/`pip`/`brew` 来安装新程序。
 - 使用 [Explainshell](http://explainshell.com/) 去获取相关命令、参数、管道等内容的解释。
 
 
