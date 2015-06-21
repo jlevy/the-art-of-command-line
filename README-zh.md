@@ -1,14 +1,15 @@
 # 命令行的艺术
 
-- [Meta](#meta)
-- [Basics](#basics)
-- [Everyday use](#everyday-use)
-- [Processing files and data](#processing-files-and-data)
-- [System debugging](#system-debugging)
-- [One-liners](#one-liners)
-- [Obscure but useful](#obscure-but-useful)
-- [More resources](#more-resources)
-- [Disclaimer](#disclaimer)
+- [必读](#必读)
+- [基础](#基础)
+- [日常使用](#日常使用)
+- [文件及数据处理](#文件及数据处理)
+- [系统调试](#系统调试)
+- [一行代码](#一行代码)
+- [冷门但有用](#冷门但有用)
+- [更多资源](#更多资源)
+- [免责声明](#免责声明)
+- [授权条款](#授权条款)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -19,25 +20,25 @@
 [首次](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [出现](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-但考虑到这里的人们都具有学习的天赋且乐于接受别人的建议，使用Github来做这件事是更佳的选择。如果你在本文中发现了错误或者存在可以改善的地方，请果断提交Issue或Pull Request！（当然在提交前请看一下meta节和已有的issue/PR）。
+但考虑到这里的人们都具有学习的天赋且乐于接受别人的建议，使用Github来做这件事是更佳的选择。如果你在本文中发现了错误或者存在可以改善的地方，请果断提交Issue或Pull Request！（当然在提交前请看一下必读节和已有的issue/PR）。
 
 
-## Meta
+## 必读
 
-Scope:
+涵盖范围:
 
 - 这篇文章对刚接触命令行的新手以及具有命令行使用经验的人都有用处。本文致力于做到覆盖面广（尽量包括一切重要的内容）, 具体（给出最常见的具体的例子）以及简洁（避免一些不必要的东西以及一些偏题的可以在其他地方翻阅到文献的东西）。 每个小技巧在某个特定情境下都是基本的或能够显著地节约时间。
 - 本文为Linux所写，但很多内容（并非所有的）同样适用于MacOS甚至Cygwin。
 - 本文关注于交互式Bash，尽管很多技巧适用于其他shell或Bash脚本。
 - 本文包括了"标准的"Unix命令和需要安装特定包的命令，只要它们足够重要。
 
-Notes:
+注意事项:
 
 - 为了能在一页内展示尽量多的东西, 一些具体的信息会被间接的包含在引用页里。聪明机智的你如果掌握了使用 Google 搜索引擎的基本思路与命令, 那么你将可以查阅到更多的详细信息。使用 `apt-get`/`yum`/`dnf`/`pip`/`brew` 来安装新程序。
 - 使用 [Explainshell](http://explainshell.com/) 去获取相关命令、参数、管道等内容的解释。
 
 
-## Basics
+## 基础
 
 - 学习Bash的基础知识。具体来说, 输入 `man bash` 并至少全文浏览一遍; 它很简单并且不长。其他的shell可能很好用，但Bash功能强大且几乎所有情况下都是可用的 ( *只*学习 zsh, fish或其他的shell的话, 在你自己的电脑上会显得很方便, 但在很多情况下会限制你, 比如当你需要在服务器上工作时)。
 
@@ -62,7 +63,7 @@ Notes:
 - 学会使用`apt-get`, `yum`, 或`dnf` (取决于你使用的Linux发行版)来查找或安装包。确保你的环境中有 `pip` 来安装基于Python的命令韩工具 (部分程序使用`pip`来安装会很简单)。
 
 
-## Everyday use
+## 日常使用
 
 - 在Bash中，可以使用**Tab**自动补全参数，使用**ctrl-r**搜索命令行历史。
 
@@ -146,7 +147,7 @@ Notes:
 `python -m SimpleHTTPServer 7777` (使用端口7777和Python 2)或`python -m http.server 7777` (使用端口7777和Python 3)。
 
 
-## Processing files and data
+## 文件及数据处理
 
 - 在当前路径下通过文件名定位一个文件，`find . -iname '*something*'`(或类似的)。在所有路径下通过文件名查找文件，使用 `locate something` (但请记住`updatedb`可能没有对最近新建的文件建立索引)。
 
@@ -197,9 +198,13 @@ Notes:
 
 - 如果你想在Bash命令行中写tab制表符，按下**ctrl-v** **[Tab]** 或键入`$'\t'`(后者可能更好，因为你可以复制粘贴它)。
 
+- 标准的源代码对比及合并工具是`diff`和`patch`。使用`diffstat`查看变更总览数据。注意到`diff -r`对整个文件夹有效。使用`diff -r tree1 tree2 | diffstat`查看变更总览数据。
+
 - 对于二进制文件，使用`hd`使其以十六进制显示以及使用`bvi`来编辑二进制。
 
 - 同样对于二进制文件，使用`strings`(包括`grep`等等)允许你查找一些文本。
+
+- 二进制文件对比(Delta压缩)，使用`xdelta3`。
 
 - 使用`iconv`更改文本编码。而更高级的用法，可以使用`uconv`，它支持一些高级的Unicode功能。例如，这条命令将所有元音字母转为小写并移除了:
 ```sh
@@ -211,7 +216,7 @@ Notes:
 - 使用`zless`, `zmore`, `zcat`和`zgrep`对压缩过的文件进行操作。
 
 
-## System debugging
+## 系统调试
 
 - `curl`和`curl -I`可以便捷地被应用于web调试中，它们的好兄弟`wget`也可以，或者是更潮流的[`httpie`](https://github.com/jakubroztocil/httpie)。
 
@@ -250,42 +255,41 @@ Notes:
 - 无论什么东西工作得很欢乐时试试`dmesg`(可能是硬件或驱动问题)。
 
 
-## One-liners
+## 一行代码
 
-A few examples of piecing together commands:
+一些命令组合的例子:
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+- 当你需要对文本文件做集合交、并、差运算时，结合使用`sort`/`uniq`很有帮助。假设`a`与`b`是两内容不同的文件。这种方式效率很高， 并且在小文件和上G的文件上都能运用 (`sort`不被内存大小约束，尽管在`/tmp`在一个小的根分区上时你可能需要`-T`参数)，参阅前文中关于`LC_ALL`和`sort`的`-u`参数的部分。
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Use `grep . *` to visually examine all contents of all files in a directory, e.g. for directories filled with config settings, like `/sys`, `/proc`, `/etc`.
+- 使用`grep . *`来阅读检查目录下所有文件的内容，例如检查一个充满配置文件的目录比如`/sys`、`/proc`、`/etc`。
 
-
-- Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
+- 计算文本文件第三列中所有数的和（可能比同等作用的Python代码块三倍且代码量少三倍）:
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- 如果你想在文件树上查看大小\日期，这可能看起来像递归版的`ls -l`但比`ls -lR`更易于理解:
 ```sh
       find . -type f -ls
 ```
 
-- Use `xargs` or `parallel` whenever you can. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use xargs echo first. Also, `-I{}` is handy. Examples:
+- 尽可能的使用`xargs`或`parallel`。。注意到你可以控制每行参数个数(`-L`)和最大并行数 (`-P`)。如果你不确定它们是否会按你想的那样工作，先使用`xargs echo`查看一下。此外, 使用`-I{}`会很方便。例如:
 ```sh
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
+- 假设你有一个类似于web服务器日志文件的文本文件，并且一个确定的值只会出现在某些行上，假设一个`acct_id`参数在URI中。如果你想计算出每个`acct_id`值有多少次请求，使用如下代码:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- Run this function to get a random tip from this document (parses Markdown and extracts an item):
+- 运行这个函数从这篇文档中随机获取一条小技巧(解析Markdown文件并抽取项目):
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -297,135 +301,145 @@ A few examples of piecing together commands:
 ```
 
 
-## Obscure but useful
+## 冷门但有用
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `expr`: 计算表达式或正则匹配
 
-- `m4`: simple macro processor
+- `m4`: 简单地宏处理器
 
-- `yes`: print a string a lot
+- `yes`: 多次打印字符串
 
-- `cal`: nice calendar
+- `cal`: 漂亮的日历
 
-- `env`: run a command (useful in scripts)
+- `env`: 执行一个命令(脚本文件中很有用)
 
-- `look`: find English words (or lines in a file) beginning with a string
+- `look`: 查找以特定字符串开头的单词
 
-- `cut `and `paste` and `join`: data manipulation
+- `cut`、`paste`和`join`: 数据修改
 
-- `fmt`: format text paragraphs
+- `fmt`: 格式化文本段落
 
-- `pr`: format text into pages/columns
+- `pr`: 将文本格式化成页/列形式
 
-- `fold`: wrap lines of text
+- `fold`: 包裹文本中的几行
 
-- `column`: format text into columns or tables
+- `column`: 将文本格式化成多列或表格
 
-- `expand` and `unexpand`: convert between tabs and spaces
+- `expand`和`unexpand`: 制表符与空格之间转换
 
-- `nl`: add line numbers
+- `nl`: 添加行号
 
-- `seq`: print numbers
+- `seq`: 打印数字
 
-- `bc`: calculator
+- `bc`: 计算器
 
-- `factor`: factor integers
+- `factor`: 分解因数
 
-- `gpg`: encrypt and sign files
+- `gpg`: 加密并签名文件
 
-- `toe`: table of terminfo entries
+- `toe`: terminfo entries列表
 
-- `nc`: network debugging and data transfer
+- `nc`: 网络调试及数据传输
 
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+- `socat`: 套接字代理，与`netcat`类似
 
-- `slurm`: network trafic visualization
+- `slurm`: 网络可视化
 
-- `dd`: moving data between files or devices
+- `dd`: 文件或设备间传输数据
 
-- `file`: identify type of a file
+- `file`: 确定文件类型
 
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+- `tree`: 以树的形式显示路径和文件，类似于递归的`ls`
 
-- `stat`: file info
+- `stat`: 文件信息
 
-- `tac`: print files in reverse
+- `tac`: 反向输出文件
 
-- `shuf`: random selection of lines from a file
+- `shuf`: 文件中随机选取几行
 
-- `comm`: compare sorted files line by line
+- `comm`: 一行一行的比较排序过的文件
 
-- `hd` and `bvi`: dump or edit binary files
+- `hd`和`bvi`: 保存或编辑二进制文件
 
-- `strings`: extract text from binary files
+- `strings`: 从二进制文件中抽取文本
 
-- `tr`: character translation or manipulation
+- `tr`: 转换字母
 
-- `iconv` or `uconv`: conversion for text encodings
+- `iconv`或`uconv`: 简易的文件编码
 
-- `split `and `csplit`: splitting files
+- `split `和`csplit`: 分割文件
 
-- `7z`: high-ratio file compression
+- `units`: 将一种计量单位转换为另一种等效的计量单位(参阅`/usr/share/units/definitions.units`)
 
-- `ldd`: dynamic library info
+- `7z`: 高比例的文件压缩
 
-- `nm`: symbols from object files
+- `ldd`: 动态库信息
 
-- `ab`: benchmarking web servers
+- `nm`: 提取obj文件中的符号
 
-- `strace`: system call debugging
+- `ab`: 性能分析web服务器
 
-- `mtr`: better traceroute for network debugging
+- `strace`: 系统调用调试
 
-- `cssh`: visual concurrent shell
+- `mtr`: 更好的网络调试跟踪工具
 
-- `rsync`: sync files and folders over SSH
+- `cssh`: 可视化的并发shell
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- `rsync`: 通过ssh同步文件和文件夹
 
-- `ngrep`: grep for the network layer
+- `wireshark`和`tshark`:抓包和网络调试工具
 
-- `host` and `dig`: DNS lookups
+- `ngrep`: 网络层的grep
 
-- `lsof`: process file descriptor and socket info
+- `host`和`dig`: DNS查找
 
-- `dstat`: useful system stats
+- `lsof`: 列出当前系统打开文件的工具以及查看端口信息
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- `dstat`: 系统状态查看
 
-- `iostat`: CPU and disk usage stats
+- [`glances`](https://github.com/nicolargo/glances): 高层次的多子系统总览
 
-- `htop`: improved version of top
+- `iostat`: CPU和硬盘状态
 
-- `last`: login history
+- `htop`: top的加强版
 
-- `w`: who's logged on
+- `last`: 登入记录
 
-- `id`: user/group identity info
+- `w`: 查看处于登录状态的用户
 
-- `sar`: historic system stats
+- `id`: 用户/组ID信息
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- `sar`: 系统历史数据
 
-- `ss`: socket statistics
+- `iftop`或`nethogs`: 套接字及进程的网络利用
 
-- `dmesg`: boot and system error messages
+- `ss`: 套接字数据
 
-- `hdparm`: SATA/ATA disk manipulation/performance
+- `dmesg`: 引导及系统错误信息
 
-- `lsb_release`: Linux distribution info
+- `hdparm`: SATA/ATA磁盘更改及性能分析
 
-- `lshw`: hardware information
+- `lsb_release`: Linux发行版信息
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+- `lshw`: 硬件信息
 
+- `fortune`，`ddate`和`sl`: 额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否"有用"
 
-## More resources
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+## 更多资源
 
+- [awesome-shell](https://github.com/alebcay/awesome-shell): 一份精心组织的命令行工具及资源的列表。
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)： 为了编写更好的脚本文件。
 
-## Disclaimer
 
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+## 免责声明
+
+除去特别微小的任务，记录下这些代码以便他人查看。责任往往伴随着能力，*可以*做并不意味着应该做。
+
+
+## 授权条款
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+
+本文使用授权协议 [Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/)。
+
