@@ -148,40 +148,40 @@ Notes:
 
 ## Processing files and data
 
-- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
+- 在当前路径下通过文件名定位一个文件，`find . -iname '*something*'`(或类似的)。在所有路径下通过文件名查找文件，使用 `locate something` (但请记住`updatedb`可能没有对最近新建的文件建立索引)。
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- 使用[`ag`](https://github.com/ggreer/the_silver_searcher)在源或文件里检索（比`grep -r`更好）。
 
-- To convert HTML to text: `lynx -dump -stdin`
+- 将HTML转为文本: `lynx -dump -stdin`
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- Markdown, HTML, 以及所有文档格式之间的转换, 试试 [`pandoc`](http://pandoc.org/)。
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- 如果你不得不处理XML， `xmlstarlet`宝刀未老。
 
-- For JSON, use `jq`.
+- 使用`jq`处理json。
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Excel或CSV文件的处理, [csvkit](https://github.com/onyxfish/csvkit)提供了`in2csv`, `csvcut`, `csvjoin`, `csvgrep`等工具。
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
+- 关于Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd)很方便而[`s4cmd`](https://github.com/bloomreach/s4cmd)更快。Amazon官方的[`aws`](https://github.com/aws/aws-cli)是其他AWS相关工作的基础。
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below.
+- 了解如何使用`sort`和`uniq`，包括uniq的`-u`参数和`-d`参数，详见后文one-liners。
 
-- Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+- 了解如何使用`cut`，`paste`和`join`来更改文件。大部分人都会使用`cut`但忘了`join`。
 
-- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+- 了解如何运用`wc`去计算新行数(`-l`), 字符数(`-m`),单词数(`-w`)以及字节数(`-c`)。
 
-- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+- 了解如何使用`tee`将标准输入复制到文件甚至标准输出，例如`ls -al | tee file.txt`。
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- 了解语言环境对许多命令行工具的微妙影响，包括排序的顺序和性能。大多数Linux的安装过程会将`LANG`或其他有关的变量设置为符合本地的设置。意识到当你改变语言环境时，排序的结果可能会改变。明白国际化可能会时sort或其他命令运行效率下降*许多倍*。某些情况下（例如集合运算）你可以放心的使用`export LC_ALL=C`来忽略掉国际化并使用基于字节的顺序。
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- 了解`awk`和`sed`关于数据的简单处理的用法。例如, 将文本文件中第三列的所有数字求和: `awk '{ x += $3 } END { print x }'`. 这可能比同等作用的Python代码块三倍且代码量少三倍。
 
-- To replace all occurrences of a string in place, in one or more files:
+- 替换一个或多个文件中出现的字符串:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
+- 依据某种模式批量重命名多个文件，使用`rename`。对于复杂的重命名规则，[`repren`](https://github.com/jlevy/repren)或许有帮助。
 ```sh
       # Recover backup files foo.bak -> foo:
       rename 's/\.bak$//' *.bak
@@ -189,26 +189,26 @@ Notes:
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- Use `shuf` to shuffle or select random lines from a file.
+- 使用`shuf`从一个文件中随机选取行。
 
-- Know `sort`'s options. Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line.
+- 了解`sort`的参数。明白键的工作原理(`-t`和`-k`)。例如，注意到你需要`-k1,1`来仅按第一个域来排序，而`-k1`意味着按整行排序。
 
-- Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`
+- 稳定排序(`sort -s`)在某些情况下很有用。例如,以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用`sort -k1,1 | sort -s -k2,2`
 
-- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- 如果你想在Bash命令行中写tab制表符，按下**ctrl-v** **[Tab]** 或键入`$'\t'`(后者可能更好，因为你可以复制粘贴它)。
 
-- For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
+- 对于二进制文件，使用`hd`使其以十六进制显示以及使用`bvi`来编辑二进制。
 
-- Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+- 同样对于二进制文件，使用`strings`(包括`grep`等等)允许你查找一些文本。
 
 - To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
+- 拆分文件，查看`split`(按大小拆分)和`csplit`(按模式拆分)。
 
-- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
+- 使用`zless`, `zmore`, `zcat`和`zgrep`对压缩过的文件进行操作。
 
 
 ## System debugging
