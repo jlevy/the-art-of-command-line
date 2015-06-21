@@ -1,3 +1,5 @@
+[ Languages: [中文](README-zh.md) ]
+
 # The Art of Command Line
 
 - [Meta](#meta)
