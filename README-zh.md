@@ -201,7 +201,7 @@ Notes:
 
 - 同样对于二进制文件，使用`strings`(包括`grep`等等)允许你查找一些文本。
 
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
+- 使用`iconv`更改文本编码。而更高级的用法，可以使用`uconv`，它支持一些高级的Unicode功能。例如，这条命令将所有元音字母转为小写并移除了:
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
@@ -213,41 +213,41 @@ Notes:
 
 ## System debugging
 
-- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
+- `curl`和`curl -I`可以便捷地被应用于web调试中，它们的好兄弟`wget`也可以，或者是更潮流的[`httpie`](https://github.com/jakubroztocil/httpie)。
 
-- To know disk/cpu/network status, use `iostat`, `netstat`, `top` (or the better `htop`), and (especially) `dstat`. Good for getting a quick idea of what's happening on a system.
+- 使用`iostat`、`netstat`、`top` (`htop`更佳) 和`dstat`去获取硬盘、cpu和网络的状态。熟练掌握这些工具可以使你快速的对系统的当前状态有一个大概的认识。
 
-- For a more in-depth system overview, use [`glances`](https://github.com/nicolargo/glances). It presents you with several system level statistics in one terminal window. Very helpful for quickly checking on various subsystems.
+- 若要对系统有一个深度的总体认识, 使用[`glances`](https://github.com/nicolargo/glances)。它在一个终端窗口中向你提供一些系统级的数据。这对于快速的检查各个子系统非常有帮助。
 
-- To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
+- 若要了解内存状态，运行并理解`free`和`vmstat`的输出。尤其注意"cached"的值，它指的是Linux内核用来作为文件缓存的内存大小，因此它与空闲内存无关。
 
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs.
+- Java系统调试则是一件截然不同的事，一个可以用于Oracle的JVM或其他JVM上的调试的小技巧是你可以运行`kill -3 <pid>`同时一个完整的栈轨迹和堆概述（包括GC的细节）会被保存到标准输出/日志文件。
 
-- Use `mtr` as a better traceroute, to identify network issues.
+- 使用`mtr`去跟踪路由，用于确定网络问题。
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- 用`ncdu`来查看磁盘使用情况，它比常用的命令，如`du -sh *`，更节省时间。
 
-- To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
+- 查找正在使用带宽的套接字连接或进程，使用`iftop`或`nethogs`。
 
-- The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
+- `ab`工具(捆绑于Apache)可以简单粗暴地检查web服务器的性能。对于更复杂的负载测试，使用`siege`。
 
-- For more serious network debugging, `wireshark`, `tshark`, or `ngrep`.
+- `wireshark`，`tshark`和`ngrep`可用于复杂的网络调试。
 
-- Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
+- 了解`strace`和`ltrace`。这俩工具在你的程序运行失败、挂起甚至崩溃，而你却不知道为什么或你想对性能有个总体的认识的时候是非常有用的。注意profile参数(`-c`)和附加到一个运行的进程参数 (`-p`)。
 
-- Know about `ldd` to check shared libraries etc.
+- 了解使用`ldd`来检查共享库。
 
-- Know how to connect to a running process with `gdb` and get its stack traces.
+- 了解如何运用`gdb`连接到一个运行着的进程并获取它的堆栈轨迹。
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- 学会使用`/proc`。它在调试正在出现的问题的时候有时会效果惊人。比如: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`。
 
-- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- 当调试一些之前出现的问题的时候，`sar`非常有用。它展示了cpu、内存以及网络等的历史数据。
 
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
+- 关于更深层次的系统分析以及性能分析，看看`stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), 以及[`sysdig`](https://github.com/draios/sysdig)。
 
-- Confirm what Linux distribution you're using (works on most distros): `lsb_release -a`
+- 查看你当前使用的Linux发型版(大部分发行版有效): `lsb_release -a`
 
-- Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
+- 无论什么东西工作得很欢乐时试试`dmesg`(可能是硬件或驱动问题)。
 
 
 ## One-liners
