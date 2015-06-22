@@ -1,53 +1,56 @@
 [ Languages: [中文](README-zh.md) [FRANCAIS](README-fr.md)]
 
-# The Art of Command Line
+# L'art de la ligne de commande
 
 - [Meta](#meta)
-- [Basics](#basics)
-- [Everyday use](#everyday-use)
-- [Processing files and data](#processing-files-and-data)
-- [System debugging](#system-debugging)
-- [One-liners](#one-liners)
-- [Obscure but useful](#obscure-but-useful)
-- [More resources](#more-resources)
-- [Disclaimer](#disclaimer)
+- [Basique](#basics)
+- [Usage Journalier](#everyday-use)
+- [Le traitement des dossiers et des données](#processing-files-and-data)
+- [Debbugage du Système](#system-debugging)
+- [Répliques](#one-liners)
+- [Obscure mais utile](#obscure-but-useful)
+- [Plus de ressources](#more-resources)
+- [Avertissement](#disclaimer)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Fluency on the command line is a skill often neglected or considered arcane, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways. This is a selection of notes and tips on using the command-line that I've found useful when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot.
 
-Much of this
+Traduction faite par GlobalHelp -> http://github.com/GlobalHelp (Possible erreurs de Traduction)
+
+La maîtrise de la ligne de commande est une compétence souvent négligé ou considéré comme out of date, mais elle améliore votre flexibilitée et votre agilitée en tant que programmeur. Ceci est une selection de conseils que j'ai trouvé utile lorsque je travaillé avec Linux. Beaucoup de conseils sont élémantaires, et d'autre plus spécifiques, sohpistiqués, ou obscure. Cette page n'est pas longue, mais si vous vous rapellez de tout les items de cette page alors vous en connaîtrez beaucoup.
+
+Influence:
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
+mais je trouve plus intéressant d'utiliser Github, où des gens plus talentueux que moi propose de nouvelles choses.
 
 
 ## Meta
 
-Scope:
+Objectifs:
 
-- This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
-- The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
-- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.
+- Ce guide est à la fois pour les débutants et les expirimetés.
+- Ceci est écrit pour Linux.Mais beaucoup *(pas tout)* de choses peuvent être faite sur MacOs(or encore Cygwin).
+- Le focus est sur un Bash interactif, bien que de nombreux conseils appliquent à d'autres shell et de scripts Bash générale.
+- Ceci inclus "standard" Unix commandes ainsi que celles qui requièrent les installations de packages spéciaux -- tant qu'ils sont suffisament important pour y être installée.
 
 Notes:
 
-- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (as appropriate) to install new programs.
-- Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
+- Pour garder ce document à une page, le contenu est implicitement inclus par référence.Vous êtes assez intelligent pour vérifier ou regarder plus en detail sur google. Utiliser `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (as appropriate) to install new programs.
+- Utiliser [Explainshell](http://explainshell.com/) pour obtenir répartition utile des commandes, options, etc.
 
 
-## Basics
+## Basiques
 
-- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
+- Apprenez le Bash basics. Actuellement, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
-- Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
+- Apprenez à utiliser un éditeur de texte. Idéalement Vim (`vi`), il n'y a pas de competition pour le meilleur éditeur  (même si vous utilisez Emacs).
 
 - Know how to read documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`. Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`.
 
-- Learn about redirection of output and input using `>` and `<` and pipes using `|`. Learn about stdout and stderr.
+- Apprenez à propos des redirections de output et input en utilisant `>` et `<` et slash en utilisant `|`. Apprenez à propos de stdout and stderr.
 
 - Learn about file glob expansion with `*` (and perhaps `?` and `{`...`}`) and quoting and the difference between double `"` and single `'` quotes. (See more on variable expansion below.)
 
@@ -64,7 +67,7 @@ Notes:
 - Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
 
-## Everyday use
+## Usage Journalier
 
 - In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
 
@@ -148,23 +151,23 @@ Notes:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
 
-## Processing files and data
+## Le traitement des dossiers et des données
 
 - To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
 
 - For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
 
-- To convert HTML to text: `lynx -dump -stdin`
+- Pour convertir un fichier HTML en Txt: `lynx -dump -stdin`
 
 - For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- If you must handle XML, `xmlstarlet` c'est vieux mais bon
 
-- For JSON, use `jq`.
+- Pour JSON, utiliser `jq`.
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Pour Excel ou CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
+- Pour Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
 
 - Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below.
 
@@ -428,13 +431,13 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-## More resources
+## Plus De ressources
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
 
 
-## Disclaimer
+## Avertissement
 
 With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
 
