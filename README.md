@@ -37,7 +37,7 @@ Notes:
 
 - To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (as appropriate) to install new programs.
 - Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
-
+- Incorporate [eg](https://github.com/srsudar/eg) in your daily workflow for quick and concise examples of how a certain command is used within the command-line itself.
 
 ## Basics
 
@@ -62,6 +62,8 @@ Notes:
 - Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-A`, and `-B` options are worth knowing.
 
 - Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
+
+
 
 
 ## Everyday use
