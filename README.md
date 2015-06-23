@@ -1,3 +1,5 @@
+[ Languages: [中文](README-zh.md) ]
+
 # The Art of Command Line
 
 - [Meta](#meta)
@@ -29,10 +31,11 @@ Scope:
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
+- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion. 
 
 Notes:
 
-- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`brew` (as appropriate) to install new programs.
+- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (as appropriate) to install new programs.
 - Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
 
 
@@ -52,13 +55,13 @@ Notes:
 
 - Know `ssh`, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
-- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`.
+- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
 - Basic network management: `ip` or `ifconfig`, `dig`.
 
 - Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-A`, and `-B` options are worth knowing.
 
-- Learn to use `apt-get`, `yum`, or `dnf` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
+- Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
 
 ## Everyday use
@@ -69,7 +72,7 @@ Notes:
 
 - Alternatively, if you love vi-style key-bindings, use `set -o vi`.
 
-- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r* and **alt-.**.
+- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
 
 - To go back to the previous working directory: `cd -`
 
@@ -89,7 +92,7 @@ Notes:
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
 
-- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for for UDP).
+- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
 
 - See also `lsof` for open sockets and files.
 
@@ -420,6 +423,8 @@ A few examples of piecing together commands:
 - `hdparm`: SATA/ATA disk manipulation/performance
 
 - `lsb_release`: Linux distribution info
+
+- `lsblk`: List block devices: a tree view of your disks and disk paritions
 
 - `lshw`: hardware information
 
