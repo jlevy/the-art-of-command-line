@@ -423,6 +423,8 @@ A few examples of piecing together commands:
 
 - `lsb_release`: Linux distribution info
 
+- `lsblk`: List block devices: a tree view of your disks and disk paritions
+
 - `lshw`: hardware information
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
