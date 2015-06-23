@@ -315,6 +315,8 @@ A few examples of piecing together commands:
 
 - `env`: run a command (useful in scripts)
 
+- `printenv`: print out environment variables (useful in debugging and scripts)
+
 - `look`: find English words (or lines in a file) beginning with a string
 
 - `cut `and `paste` and `join`: data manipulation
