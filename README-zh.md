@@ -14,7 +14,7 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-熟练使用命令行是一种常常被忽视或被认为晦涩难懂,但实际上,它可以提高你作为工程师的灵活性以及生产力。本文是一份我在Linux上工作时发现的一些关于命令行的使用的小技巧的摘要。这些小技巧有基础的、相当复杂的甚至晦涩难懂的。这篇文章并不长,但当你能够熟练掌握这里列出的所有技巧时,你就学会了很多关于命令行的东西了。
+熟练使用命令行是一种常常被忽视的技能或被认为是晦涩难懂的,但实际上,它可以提高你作为工程师的灵活性以及生产力。本文是一份我在Linux上工作时发现的一些关于命令行的使用的小技巧的摘要。这些小技巧有基础的、相当复杂的甚至晦涩难懂的。这篇文章并不长,但当你能够熟练掌握这里列出的所有技巧时,你就学会了很多关于命令行的东西了。
 
 这里的大部分内容
 [首次](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
@@ -218,7 +218,7 @@
 
 ## 系统调试
 
-- `curl`和`curl -I`可以便捷地被应用于web调试中,它们的好兄弟`wget`也可以,或者是更潮流的[`httpie`](https://github.com/jakubroztocil/httpie)。
+- `curl`和`curl -I`可以便捷地被应用于web调试中,它们的好兄弟`wget`也可以,或者是更现代的[`httpie`](https://github.com/jakubroztocil/httpie)。
 
 - 使用`iostat`、`netstat`、`top` (`htop`更佳) 和`dstat`去获取硬盘、cpu和网络的状态。熟练掌握这些工具可以使你快速的对系统的当前状态有一个大概的认识。
 
