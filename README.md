@@ -255,6 +255,8 @@ Notes:
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
+- Wondering what RAID or graphics card you have? Use `lspci` to find out.  (`lspci | grep RAID`, `lspci | grep VGA`)
+
 
 ## One-liners
 
@@ -426,6 +428,8 @@ A few examples of piecing together commands:
 - `lsblk`: List block devices: a tree view of your disks and disk paritions
 
 - `lshw`: hardware information
+
+- `lspci`: PCI device info
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
