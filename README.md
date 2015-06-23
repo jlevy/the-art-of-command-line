@@ -253,7 +253,7 @@ Notes:
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
-
+-use eg to get examples of commands on the terminal
 ## One-liners
 
 A few examples of piecing together commands:
