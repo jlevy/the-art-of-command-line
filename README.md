@@ -363,6 +363,8 @@ A few examples of piecing together commands:
 
 - `comm`: compare sorted files line by line
 
+- `pv`: monitor the progress of data through a pipe
+
 - `hd` and `bvi`: dump or edit binary files
 
 - `strings`: extract text from binary files
