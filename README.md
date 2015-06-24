@@ -1,5 +1,8 @@
+[ Languages: [中文](README-zh.md) ]
+
 # The Art of Command Line
 
+- [Meta](#meta)
 - [Basics](#basics)
 - [Everyday use](#everyday-use)
 - [Processing files and data](#processing-files-and-data)
@@ -18,14 +21,22 @@ Much of this
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR!
+but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
+
+
+## Meta
 
 Scope:
 
-- The goals are breadth and brevity. Every tip is essential in some situation or significantly saves time over alternatives.
+- This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
-- Descriptions are intentionally minimal, with the expectation you'll use `man`, `apt-get`/`yum`/`dnf` to install, and Google for more background.
+- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion. 
+
+Notes:
+
+- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (as appropriate) to install new programs.
+- Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
 
 
 ## Basics
@@ -33,6 +44,8 @@ Scope:
 - Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
 - Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
+
+- Know how to read documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`. Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`.
 
 - Learn about redirection of output and input using `>` and `<` and pipes using `|`. Learn about stdout and stderr.
 
@@ -42,20 +55,24 @@ Scope:
 
 - Know `ssh`, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
-- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`), `df`, `mount`.
+- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
 - Basic network management: `ip` or `ifconfig`, `dig`.
 
 - Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-A`, and `-B` options are worth knowing.
 
-- Learn to use `apt-get`, `yum`, or `dnf` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
+- Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
 
 ## Everyday use
 
-- In Bash, use **ctrl-r** to search through command history.
+- In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
 
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the whole line. Use **alt-b** and **alt-f** to move by word, and **ctrl-k** to kill to the end of the line. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+
+- Alternatively, if you love vi-style key-bindings, use `set -o vi`.
+
+- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
 
 - To go back to the previous working directory: `cd -`
 
@@ -75,7 +92,7 @@ Scope:
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
 
-- Check what processes are listening via `netstat -lntp`.
+- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
 
 - See also `lsof` for open sockets and files.
 
@@ -84,7 +101,7 @@ Scope:
 - In Bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
 ```bash
       # do something in current dir
-      (cd /some/other/dir; other-command)
+      (cd /some/other/dir && other-command)
       # continue in original dir
 ```
 
@@ -101,7 +118,7 @@ Scope:
 
 - Use `man ascii` for a good ASCII table, with hex and decimal values. For general encoding info, `man unicode`, `man utf-8`, and `man latin1` are helpful.
 
-- Use `screen` or `tmux` to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
+- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
 
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
@@ -128,7 +145,7 @@ Scope:
 - For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
-`python -m SimpleHTTPServer 7777` (for port 7777 and Python 2).
+`python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
 
 ## Processing files and data
@@ -149,9 +166,13 @@ Scope:
 
 - For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below.
+- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
 
 - Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+
+- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+
+- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
 
 - Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
 
@@ -178,9 +199,13 @@ Scope:
 
 - If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
 
+- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
+
 - For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
 
 - Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+
+- For binary diffs (delta compression), use `xdelta3`.
 
 - To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
 ```sh
@@ -235,12 +260,15 @@ Scope:
 
 A few examples of piecing together commands:
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above.
+- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
+
+- Use `grep . *` to visually examine all contents of all files in a directory, e.g. for directories filled with config settings, like `/sys`, `/proc`, `/etc`.
+
 
 - Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
 ```sh
@@ -281,13 +309,13 @@ A few examples of piecing together commands:
 
 - `m4`: simple macro processor
 
-- `screen`: powerful terminal multiplexing and session persistence
-
 - `yes`: print a string a lot
 
 - `cal`: nice calendar
 
 - `env`: run a command (useful in scripts)
+
+- `printenv`: print out environment variables (useful in debugging and scripts)
 
 - `look`: find English words (or lines in a file) beginning with a string
 
@@ -317,11 +345,15 @@ A few examples of piecing together commands:
 
 - `nc`: network debugging and data transfer
 
-- `ngrep`: grep for the network layer
+- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+
+- `slurm`: network trafic visualization
 
 - `dd`: moving data between files or devices
 
 - `file`: identify type of a file
+
+- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
 
 - `stat`: file info
 
@@ -331,15 +363,19 @@ A few examples of piecing together commands:
 
 - `comm`: compare sorted files line by line
 
+- `pv`: monitor the progress of data through a pipe
+
 - `hd` and `bvi`: dump or edit binary files
 
 - `strings`: extract text from binary files
 
 - `tr`: character translation or manipulation
 
-- `iconv `or uconv: conversion for text encodings
+- `iconv` or `uconv`: conversion for text encodings
 
 - `split `and `csplit`: splitting files
+
+- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
 
 - `7z`: high-ratio file compression
 
@@ -355,7 +391,11 @@ A few examples of piecing together commands:
 
 - `cssh`: visual concurrent shell
 
+- `rsync`: sync files and folders over SSH
+
 - `wireshark` and `tshark`: packet capture and network debugging
+
+- `ngrep`: grep for the network layer
 
 - `host` and `dig`: DNS lookups
 
@@ -387,7 +427,9 @@ A few examples of piecing together commands:
 
 - `lsb_release`: Linux distribution info
 
-- `lshw`: hardware information
+- `lsblk`: List block devices: a tree view of your disks and disk paritions
+
+- `lshw` and `lspci`: hardware information, including RAID, graphics, etc.
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
@@ -401,3 +443,10 @@ A few examples of piecing together commands:
 ## Disclaimer
 
 With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+
+
+## License
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/).
