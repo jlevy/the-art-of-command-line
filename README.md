@@ -166,7 +166,7 @@ Notes:
 
 - For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below.
+- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
 
 - Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
 
