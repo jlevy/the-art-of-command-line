@@ -19,8 +19,7 @@
 这里的大部分内容
 [首次](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [出现](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
-于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，
-但考虑到这里的人们都具有学习的天赋且乐于接受别人的建议，使用Github来做这件事是更佳的选择。如果你在本文中发现了错误或者存在可以改善的地方，请果断提交Issue或Pull Request！(当然在提交前请看一下必读节和已有的issue/PR)。
+于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，但考虑到这里的人们都具有学习的天赋且乐于接受别人的建议，使用Github来做这件事是更佳的选择。如果你在本文中发现了错误或者存在可以改善的地方，请果断提交Issue或Pull Request！(当然在提交前请看一下必读节和已有的issue/PR)。
 
 
 ## 必读
@@ -34,7 +33,7 @@
 
 注意事项:
 
-- 为了能在一页内展示尽量多的东西，一些具体的信息会被间接的包含在引用页里。聪明机智的你如果掌握了使用 Google 搜索引擎的基本思路与命令，那么你将可以查阅到更多的详细信息。使用 `apt-get`/`yum`/`dnf`/`pip`/`brew` 来安装新程序。
+- 为了能在一页内展示尽量多的东西，一些具体的信息会被间接的包含在引用页里。聪明机智的你如果掌握了使用 Google 搜索引擎的基本思路与命令，那么你将可以查阅到更多的详细信息。使用 `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew`来安装新程序。
 - 使用 [Explainshell](http://explainshell.com/) 去获取相关命令、参数、管道等内容的解释。
 
 
@@ -54,13 +53,13 @@
 
 - 了解`ssh`，以及基本的无密码认证，`ssh-agent`，`ssh-add`等。
 
-- 学会基本的文件管理: `ls` 和 `ls -l` (了解`ls -l`中每一列代表的意义)，`less`，`head`，`tail`和`tail -f` (甚至 `less +F`)，`ln` and `ln -s` (了解软连接和硬连接的区别)，`chown`，`chmod`，`du` (硬盘使用情况概述: `du -sk *`)。 关于文件系统的管理，学习 `df`，`mount`，`fdisk`，`mkfs`。
+- 学会基本的文件管理: `ls` 和 `ls -l` (了解`ls -l`中每一列代表的意义)，`less`，`head`，`tail`和`tail -f` (甚至 `less +F`)，`ln` and `ln -s` (了解软连接和硬连接的区别)，`chown`，`chmod`，`du` (硬盘使用情况概述: `du -sk *`)。 关于文件系统的管理，学习 `df`，`mount`，`fdisk`，`mkfs`，`lsblk`。
 
 - 学习基本的网络管理: `ip` 或 `ifconfig`，`dig`。
 
 - 熟悉正则表达式，以及`grep`/`egrep`里不同参数的作用，例如`-i`，`-o`，`-A`，和 `-B`。
 
-- 学会使用`apt-get`，`yum`，或`dnf` (取决于你使用的Linux发行版)来查找或安装包。确保你的环境中有 `pip` 来安装基于Python的命令行工具 (部分程序使用`pip`来安装会很简单)。
+- 学会使用 `apt-get`，`yum`，`dnf` 或 `pacman` (取决于你使用的Linux发行版)来查找或安装包。确保你的环境中有 `pip` 来安装基于Python的命令行工具 (部分程序使用`pip`来安装会很简单)。
 
 
 ## 日常使用
@@ -117,7 +116,7 @@
 
 - 使用`man ascii`查看具有十六进制和十进制值的ASCII表。`man unicode`，`man utf-8`，以及 `man latin1` 有助于你去了解通用的编码信息。
 
-- 使用`screen`或`tmux`来使用多个屏幕，当你在使用ssh时(保存session信息)将尤为有用。另一个轻量级的解决方案是`dtach`。
+- 使用`screen`或[`tmux`](https://tmux.github.io/)来使用多个屏幕，当你在使用ssh时(保存session信息)将尤为有用。另一个轻量级的解决方案是`dtach`。
 
 - ssh中，了解如何使用`-L`或`-D`(偶尔需要用`-R`)去开启隧道是非常有用的，例如当你需要从一台远程服务器上访问web。
 
@@ -165,7 +164,7 @@
 
 - 关于Amazon S3，[`s3cmd`](https://github.com/s3tools/s3cmd)很方便而[`s4cmd`](https://github.com/bloomreach/s4cmd)更快。Amazon官方的[`aws`](https://github.com/aws/aws-cli)是其他AWS相关工作的基础。
 
-- 了解如何使用`sort`和`uniq`，包括uniq的`-u`参数和`-d`参数，详见后文one-liners。
+- 了解如何使用`sort`和`uniq`，包括uniq的`-u`参数和`-d`参数，详见后文一行代码节。另外可以了解一下`comm`。
 
 - 了解如何使用`cut`，`paste`和`join`来更改文件。大部分人都会使用`cut`但忘了`join`。
 
@@ -313,6 +312,8 @@
 
 - `env`: 执行一个命令(脚本文件中很有用)
 
+- `printenv`: 打印环境变量(调试时或在使用脚本文件时很有用)
+
 - `look`: 查找以特定字符串开头的单词
 
 - `cut`、`paste`和`join`: 数据修改
@@ -359,7 +360,9 @@
 
 - `comm`: 一行一行的比较排序过的文件
 
-- `hd`和`bvi`: 保存或编辑二进制文件
+- `pv`: 监视通过管道的数据
+
+- `hd` 和 `bvi`: 保存或编辑二进制文件
 
 - `strings`: 从二进制文件中抽取文本
 
@@ -391,7 +394,7 @@
 
 - `ngrep`: 网络层的grep
 
-- `host`和`dig`: DNS查找
+- `host` 和 `dig`: DNS查找
 
 - `lsof`: 列出当前系统打开文件的工具以及查看端口信息
 
@@ -411,7 +414,7 @@
 
 - `sar`: 系统历史数据
 
-- `iftop`或`nethogs`: 套接字及进程的网络利用
+- `iftop` 或 `nethogs`: 套接字及进程的网络利用
 
 - `ss`: 套接字数据
 
@@ -421,7 +424,9 @@
 
 - `lsb_release`: Linux发行版信息
 
-- `lshw`: 硬件信息
+- `lsblk`: 列出块设备信息: 以树形展示你的磁盘以及磁盘分区信息
+
+- `lshw` 及 `lspci`: 查看硬件信息，包括RAID、显卡等
 
 - `fortune`，`ddate`和`sl`: 额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否"有用"
 
