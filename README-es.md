@@ -28,15 +28,15 @@ pero debido al interés mostrado ahí, parece que vale la pena usar Github, dond
 
 Alcance:
 
-- Esta guía es para ambos el principiante y el experimentado. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
-- The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
-- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion. 
+- Esta guía es para ambos el principiante y el experimentado. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar facilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente ahorra tiempo comparada con otras alternativas.
+- Esta escrito para Linux. Mucho pero no todos los puntos se aplican igualmente para MacOS (o incluso Cygwin).
+- Se enficá en Bash interactivo, Aunque muchos de los consejos se aplican para otros shells y al Bash scripting por lo general.
+- Esta incluye ambos comandos "estándar" Unix commands así como aquellos que requiren la instalación especial de in paquete -- siempre que sea suficientemente importante para ameritar su inclusión. 
 
-Notes:
+Notas:
 
-- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (as appropriate) to install new programs.
-- Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
+- Para mantener esto en una página, el contenido esta incluido implicitamente por referencia. Tú eres suficientemente inteligente para ver profundamente los detalles en otros lugares, cuando conoces la idea o comando command en Google. Usar `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (según proceda) para instalar los nuevos programas.
+- Usar [Explainshell](http://explainshell.com/) para obtener detalles de ayuda sobre que comandos, options, pipes, etc.
 
 
 ## Basics
