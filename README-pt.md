@@ -4,14 +4,14 @@
 # A arte da linha de comando 
 
 - [Meta](#meta)
-- [Básico](#basics)
-- [Uso diário](#everyday-use)
-- [Processamento de arquivos e dados](#processing-files-and-data)
-- [Debugs do sistema](#system-debugging)
+- [Básico](#basico)
+- [Uso diário](#uso-diario)
+- [Processamento de arquivos e dados](#processamento-de-arquivos-e-dados)
+- [Debugs do sistema](#debugs-do-sistema)
 - [One-liners](#one-liners)
-- [Obscuros mas úteis](#obscure-but-useful)
-- [Mais conteúdo](#more-resources)
-- [Aviso](#disclaimer)
+- [Obscuros mas úteis](#obscuros-mas-uteis)
+- [Mais conteúdo](#mais-conteudo)
+- [Aviso](#aviso)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
