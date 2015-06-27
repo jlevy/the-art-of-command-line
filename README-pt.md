@@ -105,22 +105,22 @@ Notas:
       # continua no diretório atual
 ```
 
-- In Bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a Bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
+- No Bash, note que existem muitos tipos de variáveis de expansão. Verificando a existência de uma variável: `${name:?error_messages}`. Por exemplo, se um script Bash requer um único argumento, apenas escreva `input_file=${1:?usage: $0 input_file}`. Expansões aritméticas: `i=$(( (i + 1) % 5 ))`. Sequências: `{1..10}`. Aparando as strings: `${var%suffix}` e `${var#prefix}`. Por exemplo, se `var=foo.pdf`, então `echo ${var%.pdf}.txt` imprime `foo.txt`.
 
-- The output of a command can be treated like a file via `<(some command)`. For example, compare local `/etc/hosts` with a remote one:
+- A saída de um comando pode ser trata como um arquivo através `<(algum comando)`. Por exemplo, comparar um arquivo local `/etc/hosts` com um remoto:
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- Know about "here documents" in Bash, as in `cat <<EOF ...`.
+- Saiba sobre "documentos aqui" no Bash, como em `cat <<EOF ...`. 
 
-- In Bash, redirect both standard output and standard error via: `some-command >logfile 2>&1`. Often, to ensure a command does not leave an open file handle to standard input, tying it to the terminal you are in, it is also good practice to add `</dev/null`.
+- No Bash, redirecionar a saída padrão (stdout) e a saída de erro padrão (stderr) através de: `algum-comando >logfile 2> $1`. Muitas vezes, para garantir que um comando não deixa um arquivo aberto para manipular a entrada padrão, digitando isso no terminal que você está, é uma boa prática adicionar um `</dev/null`.
 
-- Use `man ascii` for a good ASCII table, with hex and decimal values. For general encoding info, `man unicode`, `man utf-8`, and `man latin1` are helpful.
+- Use `man ascii` para visualizar a tabela ASCII, com valores hexadecimais e decimais. Para informações gerais sobre codificações, `man unicode`, `man utf-8`, e `man latin1` são úteis.
 
-- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
+- Use `screen` ou [`tmux`](https://tmux.github.io/) para multiplexar as telas, especialmente útil em sessões ssh remotas e para desanexar e reanexar a uma sessão. Uma alternativa mais simples para a persistência de uma sessão é `dtach`.
 
-- In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
+- No ssh, saber como realizar um túnel de portas com `-L` ou `-D` (e ocasionalmente `-R`) é útil, para por exemplo acessar sites webs de um servidor remoto.
 
 - It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, use compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
 ```
@@ -258,40 +258,40 @@ Notas:
 
 ## One-liners
 
-A few examples of piecing together commands:
+Alguns exemplos de como reunir os comandos.
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+- É notavelmente útil algumas vezes, que você quer obter a interseção, união e a diferença de arquivos de texto através de `sort`/`uniq`. Suponha que `a` e `b` são arquivos de texto que são únicos. Desde modo é rápido, e funciona em arquivos de tamanhos arbitrários, podem até possuírem gigabytes. (Ordenação não é limitada por memória, embora você possa precisar usar a opção `-T` se `/tmp` está em uma partição pequena.) Veja também a nota sobre `LC_ALL` a cima es opções `-u` do `sort`(vamos deixar isso claro abaixo).
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Use `grep . *` to visually examine all contents of all files in a directory, e.g. for directories filled with config settings, like `/sys`, `/proc`, `/etc`.
+- Use `grep . *` para visualmente examinar todo o conteúdo de todos os arquivos de um diretório, por exemplo, para diretórios com arquivos de configurações, como `/sys`, `/proc`, `/etc`.
 
 
-- Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
+- Somar todos os números em uma terceira coluna de um arquivo de texto (isto é provavelmente 3X mais rápido e 3X menos linhas de código do que o equivalente em Python).
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- Se você quer visualizar tamanhos/datas em uma árvore de arquivos, isto é como uma `ls -l` recursivo, mas é mais fácil de ler do que `ls -lR`:
 ```sh
       find . -type f -ls
 ```
 
-- Use `xargs` or `parallel` whenever you can. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use xargs echo first. Also, `-I{}` is handy. Examples:
+- Utilize `xargs` ou `parallel` sempre que você puder. Note que você pode controlar quantos item é executado por linha (`-L`) assim como o paralelismo (`-P`). Se você não tem certeza de que esta é a coisa certa a se fazer, utilize `xargs echo` primeiro.
 ```sh
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
+- Digamos que você tenha um arquivo de texto, como um log do servidor web, e um certo valor que aparece em algumas linhas, como por exemplo o parâmetro `acct_id` que está presente na URL. Se você quer um cálculo de quantas requisições para este `acct_id`.
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- Run this function to get a random tip from this document (parses Markdown and extracts an item):
+- Execute esta função para obter uma dica random deste documento (analisa a sintaxe Markdown e extrai um item)
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -303,31 +303,31 @@ A few examples of piecing together commands:
 ```
 
 
-## Obscure but useful
+## Obscuros mas úteis 
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `expr`: executa operações boleanas ou aritméticas ou avalia expressões regulares. 
 
-- `m4`: simple macro processor
+- `m4`: simples processador de macros. 
 
-- `yes`: print a string a lot
+- `yes`: imprime uma string muitas vezes. 
 
-- `cal`: nice calendar
+- `cal`: calendário legal. 
 
-- `env`: run a command (useful in scripts)
+- `env`: executa um comando (útil em scripts).
 
-- `printenv`: print out environment variables (useful in debugging and scripts)
+- `printenv`: imprime as variáveis de ambiente (útil em debug e scripts). 
 
-- `look`: find English words (or lines in a file) beginning with a string
+- `look`: procura palavras Inglesas (ou linhas em um arquivo) começando com uma string.
 
-- `cut `and `paste` and `join`: data manipulation
+- `cut ` e `paste` e `join`: manipulação de dados.
 
-- `fmt`: format text paragraphs
+- `fmt`: formata parágrafos de texto.
 
-- `pr`: format text into pages/columns
+- `pr`: formata textos em páginas/colunas.
 
-- `fold`: wrap lines of text
+- `fold`: envolve linhas de texto.
 
-- `column`: format text into columns or tables
+- `column`: formata texto em colunas ou tabelas.
 
 - `expand` e `unexpand`: converte entre tabs e espaços. 
 
