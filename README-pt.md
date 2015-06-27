@@ -41,7 +41,7 @@ Notas:
 
 ## Básico 
 
-- Aprenda o básico sobre Bash. Atualmente, digite `man bash` e pelo menos entenda superficialmente o seu funcionamento; é bastante de ler e nem é tão grande assim. Shells alternativos podem serem legais, mas o Bash é mais poderoso e sempre estar disponível (aprendendo  *somente* zsh, fish, etc, é enquanto tentador no seu próprio notebook, restringe você em muitas situações, como ao usar servidores existentes).
+- Aprenda o básico sobre Bash. Atualmente, digite `man bash` e pelo menos entenda superficialmente o seu funcionamento; é bastante simples de ler e nem é tão grande assim. Shells alternativos podem serem legais, mas o Bash é mais poderoso e sempre estar disponível (aprendendo  *somente* zsh, fish, etc, é enquanto tentador no seu próprio notebook, restringe você em muitas situações, como ao usar servidores existentes).
 
 - Aprenda pelo menos um editor text-base bem. Idealmente o Vim (`vi`), como não existe nenhuma competição aleatória de edição em um terminal ( mesmo se você usa o Emacs, uma grande IDE, ou um moderno editor hipster a maioria do tempo).
 
@@ -217,17 +217,17 @@ Notas:
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
 
-## System debugging
+## Debugando o sistema 
 
-- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
+- Para web debug, `curl` e `curl -I` são úteis, ou os equivalentes `wget`, or uma alternativa mais moderna [`httpie`](https://github.com/jakubroztocil/httpie).
 
-- To know disk/cpu/network status, use `iostat`, `netstat`, `top` (or the better `htop`), and (especially) `dstat`. Good for getting a quick idea of what's happening on a system.
+- Para saber o status do disco/cpu/rede, use `iostat`, `netstat`, `top` (ou o `htop` como alternativa melhor), e (especialmente) `dstat`. Bom para obter uma ideia rápida do que está acontecendo em um sistema.
 
-- For a more in-depth system overview, use [`glances`](https://github.com/nicolargo/glances). It presents you with several system level statistics in one terminal window. Very helpful for quickly checking on various subsystems.
+- Para um resumo mais aprofundado do sistema, use [`glances`](https://github.com/nicolargo/glances). Este lhe apresenta vários níveis de estatísticas do sistema em uma janela do terminal. Muito útil para uma rápida verificação em vários subsistemas.
 
-- To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
+- Para saber o status da memória, execute e entenda a saída do `free` `vmstat`. Em particular, esteja ciente de que o valor "cached", é mantido pelo kernel Linux como um arquivo de cache, então este efetivamente conta como um valor de memória disponível. 
 
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs.
+- Debugar um sistema java é uma "kettle of fish", mas um simples truque nas máquinas virtuais Oracle e algum outro tipo de JVM é que você pode executar `kill -3 <pid>` e um completo rastreamento da pilha(stack trace) e resumo da heap (incluindo detalhes geracionais do garbage collector, os quais podem serem altamente informativos) serão vazados para stderr/logs.
 
 - Use `mtr` as a better traceroute, to identify network issues.
 
