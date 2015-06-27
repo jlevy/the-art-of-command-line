@@ -433,6 +433,8 @@ A few examples of piecing together commands:
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
+- `apg`: generates several random passwords.
+
 
 ## More resources
 
