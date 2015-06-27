@@ -64,63 +64,63 @@
 
 ## 日常使用
 
-- 在Bash中，可以使用**Tab**自动补全参数，使用**ctrl-r**搜索命令行历史。
+- 在 Bash 中，可以使用 **Tab** 自动补全参数，使用 **ctrl-r** 搜索命令行历史。
 
-- 在Bash中，使用**ctrl-w**删除你键入的最后一个单词，使用**ctrl-u**删除整行，使用**alt-b**和**alt-f**按单词移动，使用**ctrl-k**从光标处删除到行尾，使用**ctrl-l**清屏。键入`man readline`查看Bash中的默认快捷键，内容很多。例如**alt-.** 循环地移向前一个参数，以及**alt-***展开通配符。
+- 在 Bash 中，使用 **ctrl-w** 删除你键入的最后一个单词，使用 **ctrl-u** 删除整行，使用 **alt-b** 和 **alt-f** 按单词移动，使用 **ctrl-k** 从光标处删除到行尾，使用 **ctrl-l** 清屏。键入 `man readline` 查看 Bash 中的默认快捷键，内容很多。例如 **alt-.** 循环地移向前一个参数，以及 **alt-*** 展开通配符。
 
-- 你喜欢的话，可以键入`set -o vi`来使用vi风格的快捷键。
+- 你喜欢的话，可以键入 `set -o vi` 来使用 vi 风格的快捷键。
 
-- 键入`history`查看命令行历史记录。其中有许多缩写，例如`!$` (最后键入的参数)和`!!`(最后键入的命令)，尽管通常被 **ctrl-r**和**alt-.**取代。
+- 键入 `history` 查看命令行历史记录。其中有许多缩写，例如 `!$`(最后键入的参数)和 `!!`(最后键入的命令)，尽管通常被 **ctrl-r** 和 **alt-.** 取代。
 
 - 回到上一个工作路径: `cd -`
 
-- 如果你输入命令的时候改变了主意，按下**alt-#**在行首添加`#`(将你输入的命令视为注释)，并回车。这样做的话，之后你可以很方便的利用命令行历史回到你刚才输入到一半的命令。
+- 如果你输入命令的时候改变了主意，按下 **alt-#** 在行首添加 `#`(将你输入的命令视为注释)，并回车。这样做的话，之后你可以很方便的利用命令行历史回到你刚才输入到一半的命令。
 
-- 使用`xargs` ( 或`parallel`)。他们非常给力。注意到你可以控制每行参数个数(`-L`)和最大并行数 (`-P`)。如果你不确定它们是否会按你想的那样工作，先使用`xargs echo`查看一下。此外，使用`-I{}`会很方便。例如:
+- 使用 `xargs` ( 或 `parallel`)。他们非常给力。注意到你可以控制每行参数个数(`-L`)和最大并行数(`-P`)。如果你不确定它们是否会按你想的那样工作，先使用 `xargs echo` 查看一下。此外，使用 `-I{}` 会很方便。例如:
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- `pstree -p`有助于展示进程树。
+- `pstree -p` 有助于展示进程树。
 
-- 使用`pgrep`和`pkill`根据名字查找进程或发送信号。
+- 使用 `pgrep` 和 `pkill` 根据名字查找进程或发送信号。
 
-- 了解你可以发往进程的信号的种类。比如，使用`kill -STOP [pid]`停止一个进程。使用`man 7 signal`查看详细列表。
+- 了解你可以发往进程的信号的种类。比如，使用 `kill -STOP [pid]` 停止一个进程。使用 `man 7 signal` 查看详细列表。
 
-- 使用`nohup`或`disown`使一个后台进程持续运行。
+- 使用 `nohup` 或 `disown` 使一个后台进程持续运行。
 
-- 使用`netstat -lntp`或`ss -plat`检查哪些进程在监听端口(默认是检查TCP端口; 使用参数`-u`检查UDP端口)。
+- 使用 `netstat -lntp` 或 `ss -plat` 检查哪些进程在监听端口(默认是检查 TCP 端口; 使用参数 `-u` 检查 UDP 端口)。
 
-- 有关打开套接字和文件，请参阅`lsof`。
+- 有关打开套接字和文件，请参阅 `lsof`。
 
-- 在Bash脚本中，使用`set -x`去调试输出，尽可能的使用严格模式，使用`set -e`令脚本在发生错误时退出而不是继续运行，使用`set -o pipefail`严谨地对待错误(尽管问题可能很微妙)。当牵扯到很多脚本时，使用`trap`。
+- 在 Bash 脚本中，使用 `set -x` 去调试输出，尽可能的使用严格模式，使用 `set -e` 令脚本在发生错误时退出而不是继续运行，使用 `set -o pipefail` 严谨地对待错误(尽管问题可能很微妙)。当牵扯到很多脚本时，使用 `trap`。
 
-- 在Bash脚本中，子shell(使用括号`(...)`)是一种便捷的方式去组织参数。一个常见的例子是临时地移动工作路径，代码如下：
+- 在 Bash 脚本中，子 shell(使用括号`(...)`)是一种便捷的方式去组织参数。一个常见的例子是临时地移动工作路径，代码如下：
 ```bash
       # do something in current dir
       (cd /some/other/dir && other-command)
       # continue in original dir
 ```
 
-- 在Bash中，注意到其中有许多形式的扩展。检查变量是否存在: `${name:?error message}`。例如，当Bash脚本需要一个参数时，可以使用这样的代码`input_file=${1:?usage: $0 input_file}`。数学表达式: `i=$(( (i + 1) % 5 ))`。序列: `{1..10}`。 截断字符串: `${var%suffix}`和`${var#prefix}`。例如，假设`var=foo.pdf`，那么`echo ${var%.pdf}.txt`将输出`foo.txt`。
+- 在 Bash 中，注意到其中有许多形式的扩展。检查变量是否存在: `${name:?error message}`。例如，当 Bash 脚本需要一个参数时，可以使用这样的代码 `input_file=${1:?usage: $0 input_file}`。数学表达式: `i=$(( (i + 1) % 5 ))`。序列: `{1..10}`。 截断字符串: `${var%suffix}` 和 `${var#prefix}`。例如，假设 `var=foo.pdf`，那么 `echo ${var%.pdf}.txt` 将输出 `foo.txt`。
 
-- 通过使用`<(some command)`可以将输出视为文件。例如，对比本地文件`/etc/hosts`和一个远程文件:
+- 通过使用 `<(some command)` 可以将输出视为文件。例如，对比本地文件 `/etc/hosts` 和一个远程文件:
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- 了解Bash中的"here documents"，例如`cat <<EOF ...`。
+- 了解 Bash 中的"here documents"，例如 `cat <<EOF ...`。
 
-- 在Bash中，同时重定向标准输出和标准错误，`some-command >logfile 2>&1`。通常，为了保证命令不会在标准输入里残留一个打开了的文件句柄导致你当前所在的终端无法操作，添加`</dev/null`是一个好习惯。
+- 在 Bash 中，同时重定向标准输出和标准错误，`some-command >logfile 2>&1`。通常，为了保证命令不会在标准输入里残留一个打开了的文件句柄导致你当前所在的终端无法操作，添加 `</dev/null` 是一个好习惯。
 
-- 使用`man ascii`查看具有十六进制和十进制值的ASCII表。`man unicode`，`man utf-8`，以及 `man latin1` 有助于你去了解通用的编码信息。
+- 使用 `man ascii` 查看具有十六进制和十进制值的ASCII表。`man unicode`，`man utf-8`，以及 `man latin1` 有助于你去了解通用的编码信息。
 
-- 使用`screen`或[`tmux`](https://tmux.github.io/)来使用多个屏幕，当你在使用ssh时(保存session信息)将尤为有用。另一个轻量级的解决方案是`dtach`。
+- 使用 `screen` 或 [`tmux`](https://tmux.github.io/) 来使用多个屏幕，当你在使用 ssh 时(保存 session 信息)将尤为有用。另一个轻量级的解决方案是 `dtach`。
 
-- ssh中，了解如何使用`-L`或`-D`(偶尔需要用`-R`)去开启隧道是非常有用的，例如当你需要从一台远程服务器上访问web。
+- ssh 中，了解如何使用 `-L` 或 `-D`(偶尔需要用 `-R`)去开启隧道是非常有用的，例如当你需要从一台远程服务器上访问 web。
 
-- 对ssh设置做一些小优化可能是很有用的，例如这个`~/.ssh/config`文件包含了防止特定环境下断开连接、压缩数据、多通道等选项：
+- 对 ssh 设置做一些小优化可能是很有用的，例如这个 `~/.ssh/config` 文件包含了防止特定环境下断开连接、压缩数据、多通道等选项：
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -131,19 +131,19 @@
       ControlPersist yes
 ```
 
-- 部分其他的关于ssh的选项是安全敏感且应当小心启用的。例如在可信任的网络中: `StrictHostKeyChecking=no`，`ForwardAgent=yes`
+- 部分其他的关于 ssh 的选项是安全敏感且应当小心启用的。例如在可信任的网络中: `StrictHostKeyChecking=no`，`ForwardAgent=yes`
 
 - 获取文件的八进制格式权限，使用类似如下的代码：
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- 使用[`percol`](https://github.com/mooz/percol)可以交互式地从另一个命令输出中选取值。
+- 使用 [`percol`](https://github.com/mooz/percol) 可以交互式地从另一个命令输出中选取值。
 
-- 使用`fpp`([PathPicker](https://github.com/facebook/PathPicker))可以与基于另一个命令(例如`git`)输出的文件交互。
+- 使用 `fpp`([PathPicker](https://github.com/facebook/PathPicker))可以与基于另一个命令(例如 `git`)输出的文件交互。
 
-- 将web服务器上当前目录下所有的文件(以及子目录)暴露给你所处网络的所有用户，使用：
-`python -m SimpleHTTPServer 7777` (使用端口7777和Python 2)或`python -m http.server 7777` (使用端口7777和Python 3)。
+- 将 web 服务器上当前目录下所有的文件(以及子目录)暴露给你所处网络的所有用户，使用：
+`python -m SimpleHTTPServer 7777` (使用端口 7777 和 Python 2)或`python -m http.server 7777` (使用端口 7777 和 Python 3)。
 
 
 ## 文件及数据处理
