@@ -54,56 +54,54 @@ Notas:
 
 - Aprenda `ssh`, e o básico de autenticação sem senha, através do `ssh-agent`, `ssh-add`, etc.
 
-- Gerenciamento básico de arquivos: `ls` e `ls -l` (em particular, aprenda o que cada coluna significa no `ls -l` significa), 
+- Gerenciamento básico de arquivos: `ls` e `ls -l` (em particular, aprenda o que cada coluna significa no `ls -l` significa), `less`, `head`, `tail` and `tail -f` (ou ainda melhor, `less +F`), `ln` e `ln -s`(aprenda as diferenças e vantagens de soft links versus hard links), `chown`, `chmod`, `du` (para um rápido resumo do uso do disco: `du -sk *`). Para gerenciamento do sistema de arquivos, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
-- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Gerenciamento básico da rede: `ip` ou `ifconfig`, `dig`.
 
-- Basic network management: `ip` or `ifconfig`, `dig`.
+- Sabia bem expressões regulares, e as várias flags para `grep`/`egrep`. As `-i`, `-o`, `-A`, e `-B` são opções que é importante saber.
 
-- Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-A`, and `-B` options are worth knowing.
-
-- Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
+- Aprenda a usar `apt-get`, `yum`, `dnf` ou `pacman` (dependendo da distribuição) para procurar e instalar pacotes. E garanta que você possui o `pip` para instalar ferramentas baseadas em Python (algumas abaixo são fáceis de instalar através do `pip`).
 
 
-## Everyday use
+## Usu diário 
 
-- In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
+- No Bash, use **Tab** para completar argumentos e **ctrl-r** para pesquisar através do histórico de comandos.
 
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+- No Bash, utilize **ctrl-w** para deletar a última palavra, e **ctrl-u** para deletar tudo e voltar para o início da linha. Use **alt-b** e **alt-f** para se mover por palavras, **ctrl-k** para apagar até o final da linha, **ctrl-l** para limpar a tela. Consulte `man readline` para todos os keybindings padrões do Bash. Existem muitos. Por exemplo **alt-.** circula através dos argumentos anteriores, e **alt-*** expande um glob. ***
 
-- Alternatively, if you love vi-style key-bindings, use `set -o vi`.
+- Como alternativa, se você ama os keybinds ao estilo do vi, use `set -o vi`.
 
-- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
+- Para ver os comandos recentes, `history`. Existem também muitas abreviações como `!$` (último argumento) e `!!` último comando, embora estes sejam muitas vezes facilmente substituídos por **ctrl-r** e **alt-.**.
 
-- To go back to the previous working directory: `cd -`
+- Volte atrás para o diretório de trabalho anterior: `cd -`.
 
-- If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
+- Se você estar na metade do caminho ao digitar um comando, mas mudou de ideia, tecle **alt-#** para adicionar um `#` ao início e defina este como um comentário (ou use **ctrl-a**. **#**. **enter**). Você pode então recuperar o comando mais tarde através do histórico de comandos.
 
-- Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
+- Use `xargs` (ou `parallel`). Estes são muito poderosos. Note que você pode controlar como os vários items são executados por linha (`-L`) assim como o paralelismo (`-P`). Se você não tem certeza de isto é a coisa certa a se fazer, use `xargs echo` primeiro. O `-I{}` também é muito útil. Exemplos:
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- `pstree -p` is a helpful display of the process tree.
+- `pstree -p` é um modo de visualização muito útil da árvore de processos.
 
-- Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
+- Use `pgrep` e `pkill` para procurar ou sinalizar os processo pelo seu nome (`-f` é muito útil).
 
-- Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
+- Saiba os vários sinais que você pode enviar para um processo. Por exemplo, para suspender um processo, use `kill -STOP [pid]`. Para saber a lista completas dos sinais, veja `man 7 signal`.
 
-- Use `nohup` or `disown` if you want a background process to keep running forever.
+- Use `nohup` ou `disown` se você deseja por o processo em background executando para sempre.
 
-- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
+- Verifique quais processos estão escutando através `netstat -lntp` ou `ss -plat` (para TCP; adicione `-u` para UDP).
 
-- See also `lsof` for open sockets and files.
+- Veja também `lsof` para abrir sockets e arquivos.
 
-- In Bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
+- Em scripts Bash, use `set -x` para debugar a saída. Utilize modos estritos sempre que for possível. Use `set -e` para abortar em caso de erros. Use `set -o pipefail` como também, para ser restrito a respeito dos erros (embora este tópico seja um pouco sútil). Para scripts mais desenvolvidos, use também `trap`.
 
-- In Bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
+- Em Bash scripts, subshells (escrito com parênteses) são formas convenientes de agrupar comandos. Um exemplo comum é temporariamente mover para um diretório de trabalho diferente, e.g.
 ```bash
-      # do something in current dir
+      # faz algo no diretório corrente
       (cd /some/other/dir && other-command)
-      # continue in original dir
+      # continua no diretório atual
 ```
 
 - In Bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a Bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
