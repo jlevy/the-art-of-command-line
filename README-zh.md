@@ -258,37 +258,37 @@
 
 一些命令组合的例子:
 
-- 当你需要对文本文件做集合交、并、差运算时，结合使用`sort`/`uniq`很有帮助。假设`a`与`b`是两内容不同的文件。这种方式效率很高，并且在小文件和上G的文件上都能运用 (`sort`不被内存大小约束，尽管在`/tmp`在一个小的根分区上时你可能需要`-T`参数)，参阅前文中关于`LC_ALL`和`sort`的`-u`参数的部分。
+- 当你需要对文本文件做集合交、并、差运算时，结合使用 `sort`/`uniq` 很有帮助。假设 `a` 与 `b` 是两内容不同的文件。这种方式效率很高，并且在小文件和上G的文件上都能运用 (`sort` 不被内存大小约束，尽管在 `/tmp` 在一个小的根分区上时你可能需要 `-T` 参数)，参阅前文中关于 `LC_ALL` 和 `sort` 的 `-u` 参数的部分。
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- 使用`grep . *`来阅读检查目录下所有文件的内容，例如检查一个充满配置文件的目录比如`/sys`、`/proc`、`/etc`。
+- 使用 `grep . *` 来阅读检查目录下所有文件的内容，例如检查一个充满配置文件的目录比如 `/sys`、`/proc`、`/etc`。
 
-- 计算文本文件第三列中所有数的和(可能比同等作用的Python代码块三倍且代码量少三倍):
+- 计算文本文件第三列中所有数的和(可能比同等作用的 Python 代码块三倍且代码量少三倍):
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- 如果你想在文件树上查看大小\日期，这可能看起来像递归版的`ls -l`但比`ls -lR`更易于理解:
+- 如果你想在文件树上查看大小\日期，这可能看起来像递归版的 `ls -l` 但比 `ls -lR` 更易于理解:
 ```sh
       find . -type f -ls
 ```
 
-- 尽可能的使用`xargs`或`parallel`。注意到你可以控制每行参数个数(`-L`)和最大并行数 (`-P`)。如果你不确定它们是否会按你想的那样工作，先使用`xargs echo`查看一下。此外，使用`-I{}`会很方便。例如:
+- 尽可能的使用 `xargs` 或 `parallel`。注意到你可以控制每行参数个数(`-L`)和最大并行数(`-P`)。如果你不确定它们是否会按你想的那样工作，先使用 `xargs echo` 查看一下。此外，使用 `-I{}` 会很方便。例如:
 ```sh
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- 假设你有一个类似于web服务器日志文件的文本文件，并且一个确定的值只会出现在某些行上，假设一个`acct_id`参数在URI中。如果你想计算出每个`acct_id`值有多少次请求，使用如下代码:
+- 假设你有一个类似于 web 服务器日志文件的文本文件，并且一个确定的值只会出现在某些行上，假设一个 `acct_id` 参数在URI中。如果你想计算出每个 `acct_id` 值有多少次请求，使用如下代码:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- 运行这个函数从这篇文档中随机获取一条小技巧(解析Markdown文件并抽取项目):
+- 运行这个函数从这篇文档中随机获取一条小技巧(解析 Markdown 文件并抽取项目):
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -316,7 +316,7 @@
 
 - `look`: 查找以特定字符串开头的单词
 
-- `cut`、`paste`和`join`: 数据修改
+- `cut`、`paste` 和 `join`: 数据修改
 
 - `fmt`: 格式化文本段落
 
@@ -326,7 +326,7 @@
 
 - `column`: 将文本格式化成多列或表格
 
-- `expand`和`unexpand`: 制表符与空格之间转换
+- `expand` 和 `unexpand`: 制表符与空格之间转换
 
 - `nl`: 添加行号
 
@@ -338,11 +338,11 @@
 
 - `gpg`: 加密并签名文件
 
-- `toe`: terminfo entries列表
+- `toe`: terminfo entries 列表
 
 - `nc`: 网络调试及数据传输
 
-- `socat`: 套接字代理，与`netcat`类似
+- `socat`: 套接字代理，与 `netcat` 类似
 
 - `slurm`: 网络可视化
 
@@ -350,7 +350,7 @@
 
 - `file`: 确定文件类型
 
-- `tree`: 以树的形式显示路径和文件，类似于递归的`ls`
+- `tree`: 以树的形式显示路径和文件，类似于递归的 `ls`
 
 - `stat`: 文件信息
 
@@ -368,33 +368,33 @@
 
 - `tr`: 转换字母
 
-- `iconv`或`uconv`: 简易的文件编码
+- `iconv` 或 `uconv`: 简易的文件编码
 
-- `split `和`csplit`: 分割文件
+- `split` 和 `csplit`: 分割文件
 
-- `units`: 将一种计量单位转换为另一种等效的计量单位(参阅`/usr/share/units/definitions.units`)
+- `units`: 将一种计量单位转换为另一种等效的计量单位(参阅 `/usr/share/units/definitions.units`)
 
 - `7z`: 高比例的文件压缩
 
 - `ldd`: 动态库信息
 
-- `nm`: 提取obj文件中的符号
+- `nm`: 提取 obj 文件中的符号
 
-- `ab`: 性能分析web服务器
+- `ab`: 性能分析 web 服务器
 
 - `strace`: 系统调用调试
 
 - `mtr`: 更好的网络调试跟踪工具
 
-- `cssh`: 可视化的并发shell
+- `cssh`: 可视化的并发 shell
 
-- `rsync`: 通过ssh同步文件和文件夹
+- `rsync`: 通过 ssh 同步文件和文件夹
 
-- `wireshark`和`tshark`:抓包和网络调试工具
+- `wireshark` 和 `tshark`: 抓包和网络调试工具
 
-- `ngrep`: 网络层的grep
+- `ngrep`: 网络层的 grep
 
-- `host` 和 `dig`: DNS查找
+- `host` 和 `dig`: DNS 查找
 
 - `lsof`: 列出当前系统打开文件的工具以及查看端口信息
 
@@ -402,15 +402,15 @@
 
 - [`glances`](https://github.com/nicolargo/glances): 高层次的多子系统总览
 
-- `iostat`: CPU和硬盘状态
+- `iostat`: CPU 和硬盘状态
 
-- `htop`: top的加强版
+- `htop`: top 的加强版
 
 - `last`: 登入记录
 
 - `w`: 查看处于登录状态的用户
 
-- `id`: 用户/组ID信息
+- `id`: 用户/组 ID 信息
 
 - `sar`: 系统历史数据
 
@@ -420,15 +420,15 @@
 
 - `dmesg`: 引导及系统错误信息
 
-- `hdparm`: SATA/ATA磁盘更改及性能分析
+- `hdparm`: SATA/ATA 磁盘更改及性能分析
 
-- `lsb_release`: Linux发行版信息
+- `lsb_release`: Linux 发行版信息
 
 - `lsblk`: 列出块设备信息: 以树形展示你的磁盘以及磁盘分区信息
 
-- `lshw` 及 `lspci`: 查看硬件信息，包括RAID、显卡等
+- `lshw` 及 `lspci`: 查看硬件信息，包括 RAID、显卡等
 
-- `fortune`，`ddate`和`sl`: 额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否"有用"
+- `fortune`，`ddate` 和 `sl`: 额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否"有用"
 
 
 ## 更多资源
@@ -447,4 +447,3 @@
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
 
 本文使用授权协议 [Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/)。
-
