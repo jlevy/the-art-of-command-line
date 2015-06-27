@@ -15,13 +15,13 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Fluência na linha de comando é uma skill muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como um *desenvolvedor*. Este texto descreve uma selação de notas e dicas de uso da linha de comando que eu tenho encontrado muita utilizada usando o Linux. Algumas dicas são elementares, e algumas são mais específicas, sofisticadas ou obscuras. Esta página não é tão longa, mas se você puder usar e relembrar todos os items que estão aqui, então você sabe bastante coisas.
+Fluência na linha de comando é uma skill muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como um *desenvolvedor*. Este texto descreve uma selação de notas e dicas de uso da linha de comando que eu tenho encontrado muita utilidade usando o Linux. Algumas dicas são elementares, e algumas são mais específicas, sofisticadas ou obscuras. Esta página não é tão longa, mas se você puder usar e relembrar todos os items que estão aqui, então você possui tem bastante conhecimento.
 
 Mais sobre isso
-[originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
-[appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
-em [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-mas dado o interesse lá, então parece que é importante usar o Github, onde pessoas mais talentosas do que eu, prontamente podem sugerir melhorias. Se você ver um erro ou algo que poderia ser melhorado, por favor abra uma issue ou um PR! (É claro por favor revise as meta sections e PRs/issues existentes primeiro.)
+[originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
+[apareceu](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
+no [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
+mas dado o interesse lá, então parece que é importante usar o Github, onde pessoas mais talentosas do que eu, prontamente podem sugerir melhorias. Se você ver um erro ou algo que poderia ser melhorado, por favor abra uma issue ou um PR! (E claro por favor revise as meta sections e PRs/issues existentes primeiro.)
 
 ## Meta
 
@@ -63,7 +63,7 @@ Notas:
 - Aprenda a usar `apt-get`, `yum`, `dnf` ou `pacman` (dependendo da distribuição) para procurar e instalar pacotes. E garanta que você possui o `pip` para instalar ferramentas baseadas em Python (algumas abaixo são fáceis de instalar através do `pip`).
 
 
-## Usu diário 
+## Uso diário 
 
 - No Bash, use **Tab** para completar argumentos e **ctrl-r** para pesquisar através do histórico de comandos.
 
@@ -328,123 +328,121 @@ A few examples of piecing together commands:
 
 - `column`: format text into columns or tables
 
-- `expand` and `unexpand`: convert between tabs and spaces
+- `expand` e `unexpand`: converte entre tabs e espaços. 
 
-- `nl`: add line numbers
+- `nl`: adiciona números as linhas. 
 
-- `seq`: print numbers
+- `seq`: imprime números. 
 
-- `bc`: calculator
+- `bc`: calculadora. 
 
-- `factor`: factor integers
+- `factor`: fatora inteiros. 
 
-- `gpg`: encrypt and sign files
+- `gpg`: criptografa e assina arquivos. 
 
-- `toe`: table of terminfo entries
+- `toe`: tabela de entradas dos tipos de terminais. 
 
-- `nc`: network debugging and data transfer
+- `nc`: ferramenta de debug de rede e transferência de dados. 
 
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+- `socat`: socket relay e portas encaminhamento de portas tcp (similar ao `netcat`)
 
-- `slurm`: network trafic visualization
+- `slurm`: visualização do tráfego da rede. 
 
-- `dd`: moving data between files or devices
+- `dd`: move os dados entre arquivos ou dispositivos.
 
-- `file`: identify type of a file
+- `file`: identifica o tipo do arquivo. 
 
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+- `tree`: mostra os diretórios e subdiretórios como um árvore de dependências; como `ls` mas recursivo. 
 
-- `stat`: file info
+- `stat`: informações do arquivo. 
 
-- `tac`: print files in reverse
+- `tac`: imprime arquivos na ordem reversa. 
 
-- `shuf`: random selection of lines from a file
+- `shuf`: seleção random de linhas de um arquivo.
 
-- `comm`: compare sorted files line by line
+- `comm`: compara uma lista de arquivos ordenadas linha por linha. 
 
-- `pv`: monitor the progress of data through a pipe
+- `pv`: monitora o progresso dos dados através de um pipe. 
 
-- `hd` and `bvi`: dump or edit binary files
+- `hd` e `bvi`: dump ou edita arquivos binários.
 
-- `strings`: extract text from binary files
+- `strings`: extrai texto de arquivos binários.
 
-- `tr`: character translation or manipulation
+- `tr`: tradução manipulação de caracteres. 
 
-- `iconv` or `uconv`: conversion for text encodings
+- `iconv` ou `uconv`: conversor de codificações de text.
 
-- `split `and `csplit`: splitting files
+- `split ` e `csplit`: divisão de arquivos. 
 
-- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+- `units`: conversor de unidades e cálculos; converte furlongs por quinzena para twips per blink (veja também `/usr/share/units/definitions.units`)
 
-- `7z`: high-ratio file compression
+- `7z`: Compressor de arquivos de alto desempenho.
 
-- `ldd`: dynamic library info
+- `ldd`: informações dinâmicas das bibliotecas. 
 
-- `nm`: symbols from object files
+- `nm`: símbolos de arquivos objetos.
 
-- `ab`: benchmarking web servers
+- `ab`: benchmarking para web servers.
 
-- `strace`: system call debugging
+- `strace`: Debug para chamadas de sistema. 
 
-- `mtr`: better traceroute for network debugging
+- `mtr`: melhor tracerout para debugar a rede.
 
-- `cssh`: visual concurrent shell
+- `cssh`: Visualização concorrente do shell.
 
-- `rsync`: sync files and folders over SSH
+- `rsync`: Sincroniza arquivos e pastas através do SSH. 
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- `wireshark` e `tshark`: captura de pacotes e debug de rede.
 
-- `ngrep`: grep for the network layer
+- `ngrep`: grep para a camada de rede.
 
-- `host` and `dig`: DNS lookups
+- `host` e `dig`: Consultas DNS.
 
-- `lsof`: process file descriptor and socket info
+- `lsof`: Arquivo de descritores dos processos e informações dos sockets. 
 
-- `dstat`: useful system stats
+- `dstat`: Estatísticas úteis do sistema. 
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- [`glances`](https://github.com/nicolargo/glances): Resumo em alto nível, de multi subsistemas. 
 
-- `iostat`: CPU and disk usage stats
+- `iostat`: Estatísticas de uso do CPU e do disco. 
 
-- `htop`: improved version of top
+- `htop`: Versão do top melhorada. 
 
-- `last`: login history
+- `last`: histórico de logins. 
 
-- `w`: who's logged on
+- `w`: quem está logado. 
 
-- `id`: user/group identity info
+- `id`: Informações sobre a identidade do user/group. 
 
-- `sar`: historic system stats
+- `sar`: histórico dos estados do sistema. 
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- `iftop` ou `nethogs`: Utilização da rede por sockets ou processos. 
 
-- `ss`: socket statistics
+- `ss`: Statísticas dos sockets.
 
-- `dmesg`: boot and system error messages
+- `dmesg`: Mensagens de erro do sistema e do boot.
 
-- `hdparm`: SATA/ATA disk manipulation/performance
+- `hdparm`: Manipulação/performance de discos SATA/ATA.
 
-- `lsb_release`: Linux distribution info
+- `lsb_release`: Informações sobre a distribuição do Linux.
 
-- `lsblk`: List block devices: a tree view of your disks and disk paritions
+- `lsblk`: Lista os blocos dos dispositivos: uma visualização é forma de árvore dos seus discos e partições do disco.
 
-- `lshw` and `lspci`: hardware information, including RAID, graphics, etc.
+- `lshw` e `lspci`: informações do hardware, incluindo RAID, gráficos, etc.
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+- `fortune`, `ddate`, e `sl`: um, bem, isto depende de você considerar locomotivas a vapor e citações Zippy "úteis". 
 
+## Mais conteúdo 
 
-## More resources
+- [awesome-shell](https://github.com/alebcay/awesome-shell): Uma lista refinada de ferramentas do shell e outros recursos.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) para escrever shell scripts melhores. 
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+## Aviso 
 
-
-## Disclaimer
-
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+Com a exceção de tarefas muito pequenas, o código é escrito de modo que outros possam ler. Junto com o poder vem a responsabilidade. O fato de você *poder* fazer algo no Bash não necessariamente significa que você deve! ;)
 
 
-## License
+## Licença 
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
 
