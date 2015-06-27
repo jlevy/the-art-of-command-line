@@ -4,13 +4,13 @@
 # A arte da linha de comando 
 
 - [Meta](#meta)
-- [Básico](#basico)
-- [Uso diário](#uso-diario)
+- [Básico](#básico)
+- [Uso diário](#uso-diário)
 - [Processamento de arquivos e dados](#processamento-de-arquivos-e-dados)
 - [Debugs do sistema](#debugs-do-sistema)
 - [One-liners](#one-liners)
-- [Obscuros mas úteis](#obscuros-mas-uteis)
-- [Mais conteúdo](#mais-conteudo)
+- [Obscuros mas úteis](#obscuros-mas-úteis)
+- [Mais conteúdo](#mais-conteúdo)
 - [Aviso](#aviso)
 
 
