@@ -14,12 +14,12 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-熟练使用命令行是一种常常被忽视或被认为晦涩难懂，但实际上，它可以提高你作为工程师的灵活性以及生产力。本文是一份我在Linux上工作时发现的一些关于命令行的使用的小技巧的摘要。这些小技巧有基础的、相当复杂的甚至晦涩难懂的。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
+熟练使用命令行是一种常常被忽视或被认为难以掌握的技能，但实际上，它可以提高你作为工程师的灵活性以及生产力。本文是一份我在Linux上工作时发现的一些关于命令行的使用的小技巧的摘要。这些小技巧有基础的、相当复杂的甚至晦涩难懂的。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
 
 这里的大部分内容
 [首次](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [出现](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
-于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，但考虑到这里的人们都具有学习的天赋且乐于接受别人的建议，使用Github来做这件事是更佳的选择。如果你在本文中发现了错误或者存在可以改善的地方，请果断提交Issue或Pull Request！(当然在提交前请看一下必读节和已有的issue/PR)。
+于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，但考虑到这里的人们都具有学习的天赋且乐于接受别人的建议，使用Github来做这件事是更佳的选择。如果你在本文中发现了错误或者存在可以改善的地方，请果断提交Issue或Pull Request！(当然在提交前请看一下必读节和已有的PR/issue)。
 
 
 ## 必读
@@ -33,7 +33,7 @@
 
 注意事项:
 
-- 为了能在一页内展示尽量多的东西，一些具体的信息会被间接的包含在引用页里。聪明机智的你如果掌握了使用 Google 搜索引擎的基本思路与命令，那么你将可以查阅到更多的详细信息。使用 `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew`来安装新程序。
+- 为了能在一页内展示尽量多的东西，一些具体的信息会被间接的包含在引用页里。聪明机智的你如果掌握了使用 Google 搜索引擎的基本思路与命令，那么你将可以查阅到更多的详细信息。使用 `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew`（以及其它合适的包管理器）来安装新程序。
 - 使用 [Explainshell](http://explainshell.com/) 去获取相关命令、参数、管道等内容的解释。
 
 
@@ -47,13 +47,13 @@
 
 - 学会使用`>`和`<`来重定向输出和输入，学会使用`|`来重定向管道。了解标准输出stdout和标准错误stderr。
 
-- 学会使用通配符`*` ( 若能`?`和`{`...`}`更好) 和引用以及引用中`'`和`"`的区别。
+- 学会使用通配符`*` (或许再算上`?`和`{`...`}`) 和引用以及引用中`'`和`"`的区别。
 
 - 熟悉Bash任务管理工具: `&`，**ctrl-z**，**ctrl-c**，`jobs`，`fg`，`bg`，`kill` 等。
 
 - 了解`ssh`，以及基本的无密码认证，`ssh-agent`，`ssh-add`等。
 
-- 学会基本的文件管理: `ls` 和 `ls -l` (了解`ls -l`中每一列代表的意义)，`less`，`head`，`tail`和`tail -f` (甚至 `less +F`)，`ln` and `ln -s` (了解软连接和硬连接的区别)，`chown`，`chmod`，`du` (硬盘使用情况概述: `du -sk *`)。 关于文件系统的管理，学习 `df`，`mount`，`fdisk`，`mkfs`，`lsblk`。
+- 学会基本的文件管理: `ls` 和 `ls -l` (了解`ls -l`中每一列代表的意义)，`less`，`head`，`tail`和`tail -f` (甚至 `less +F`)，`ln` and `ln -s` (了解硬链接与软链接的区别)，`chown`，`chmod`，`du` (硬盘使用情况概述: `du -sk *`)。 关于文件系统的管理，学习 `df`，`mount`，`fdisk`，`mkfs`，`lsblk`。
 
 - 学习基本的网络管理: `ip` 或 `ifconfig`，`dig`。
 
@@ -150,7 +150,7 @@
 
 - 在当前路径下通过文件名定位一个文件，`find . -iname '*something*'`(或类似的)。在所有路径下通过文件名查找文件，使用 `locate something` (但请记住`updatedb`可能没有对最近新建的文件建立索引)。
 
-- 使用[`ag`](https://github.com/ggreer/the_silver_searcher)在源或文件里检索(比`grep -r`更好)。
+- 使用[`ag`](https://github.com/ggreer/the_silver_searcher)在源代码或数据文件里检索(比`grep -r`更好)。
 
 - 将HTML转为文本: `lynx -dump -stdin`
 
@@ -158,7 +158,7 @@
 
 - 如果你不得不处理XML，`xmlstarlet`宝刀未老。
 
-- 使用`jq`处理json。
+- 使用`jq`处理JSON。
 
 - Excel或CSV文件的处理，[csvkit](https://github.com/onyxfish/csvkit)提供了`in2csv`，`csvcut`，`csvjoin`，`csvgrep`等工具。
 
@@ -166,7 +166,7 @@
 
 - 了解如何使用`sort`和`uniq`，包括uniq的`-u`参数和`-d`参数，详见后文一行代码节。另外可以了解一下`comm`。
 
-- 了解如何使用`cut`，`paste`和`join`来更改文件。大部分人都会使用`cut`但忘了`join`。
+- 了解如何使用`cut`，`paste`和`join`来更改文件。很多人都会使用`cut`，但几乎都不会使用`join`。
 
 - 了解如何运用`wc`去计算新行数(`-l`)，字符数(`-m`)，单词数(`-w`)以及字节数(`-c`)。
 
