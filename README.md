@@ -353,6 +353,8 @@ A few examples of piecing together commands:
 
 - `file`: identify type of a file
 
+- `mdls`: lists metadata of files like author or camera
+
 - `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
 
 - `stat`: file info
