@@ -148,40 +148,40 @@
 
 ## 文件及数据处理
 
-- 在当前路径下通过文件名定位一个文件，`find . -iname '*something*'`(或类似的)。在所有路径下通过文件名查找文件，使用 `locate something` (但请记住`updatedb`可能没有对最近新建的文件建立索引)。
+- 在当前路径下通过文件名定位一个文件，`find . -iname '*something*'`(或类似的)。在所有路径下通过文件名查找文件，使用 `locate something` (但请记住 `updatedb` 可能没有对最近新建的文件建立索引)。
 
-- 使用[`ag`](https://github.com/ggreer/the_silver_searcher)在源代码或数据文件里检索(比`grep -r`更好)。
+- 使用 [`ag`](https://github.com/ggreer/the_silver_searcher) 在源代码或数据文件里检索(比 `grep -r` 更好)。
 
 - 将HTML转为文本: `lynx -dump -stdin`
 
 - Markdown，HTML，以及所有文档格式之间的转换，试试 [`pandoc`](http://pandoc.org/)。
 
-- 如果你不得不处理XML，`xmlstarlet`宝刀未老。
+- 如果你不得不处理 XML，`xmlstarlet` 宝刀未老。
 
-- 使用`jq`处理JSON。
+- 使用 `jq` 处理 JSON。
 
-- Excel或CSV文件的处理，[csvkit](https://github.com/onyxfish/csvkit)提供了`in2csv`，`csvcut`，`csvjoin`，`csvgrep`等工具。
+- Excel 或 CSV 文件的处理，[csvkit](https://github.com/onyxfish/csvkit) 提供了 `in2csv`，`csvcut`，`csvjoin`，`csvgrep` 等工具。
 
-- 关于Amazon S3，[`s3cmd`](https://github.com/s3tools/s3cmd)很方便而[`s4cmd`](https://github.com/bloomreach/s4cmd)更快。Amazon官方的[`aws`](https://github.com/aws/aws-cli)是其他AWS相关工作的基础。
+- 关于 Amazon S3，[`s3cmd`](https://github.com/s3tools/s3cmd) 很方便而 [`s4cmd`](https://github.com/bloomreach/s4cmd) 更快。Amazon 官方的 [`aws`](https://github.com/aws/aws-cli) 是其他 AWS 相关工作的基础。
 
-- 了解如何使用`sort`和`uniq`，包括uniq的`-u`参数和`-d`参数，详见后文一行代码节。另外可以了解一下`comm`。
+- 了解如何使用 `sort` 和 `uniq`，包括 uniq 的 `-u` 参数和 `-d` 参数，详见后文一行代码节。另外可以了解一下 `comm`。
 
-- 了解如何使用`cut`，`paste`和`join`来更改文件。很多人都会使用`cut`，但几乎都不会使用`join`。
+- 了解如何使用 `cut`，`paste` 和 `join` 来更改文件。很多人都会使用 `cut`，但几乎都不会使用 `join`。
 
-- 了解如何运用`wc`去计算新行数(`-l`)，字符数(`-m`)，单词数(`-w`)以及字节数(`-c`)。
+- 了解如何运用 `wc` 去计算新行数(`-l`)，字符数(`-m`)，单词数(`-w`)以及字节数(`-c`)。
 
-- 了解如何使用`tee`将标准输入复制到文件甚至标准输出，例如`ls -al | tee file.txt`。
+- 了解如何使用 `tee` 将标准输入复制到文件甚至标准输出，例如 `ls -al | tee file.txt`。
 
-- 了解语言环境对许多命令行工具的微妙影响，包括排序的顺序和性能。大多数Linux的安装过程会将`LANG`或其他有关的变量设置为符合本地的设置。意识到当你改变语言环境时，排序的结果可能会改变。明白国际化可能会时sort或其他命令运行效率下降*许多倍*。某些情况下(例如集合运算)你可以放心的使用`export LC_ALL=C`来忽略掉国际化并使用基于字节的顺序。
+- 了解语言环境对许多命令行工具的微妙影响，包括排序的顺序和性能。大多数 Linux 的安装过程会将 `LANG` 或其他有关的变量设置为符合本地的设置。意识到当你改变语言环境时，排序的结果可能会改变。明白国际化可能会时 sort 或其他命令运行效率下降*许多倍*。某些情况下(例如集合运算)你可以放心的使用 `export LC_ALL=C` 来忽略掉国际化并使用基于字节的顺序。
 
-- 了解`awk`和`sed`关于数据的简单处理的用法。例如，将文本文件中第三列的所有数字求和: `awk '{ x += $3 } END { print x }'`. 这可能比同等作用的Python代码块三倍且代码量少三倍。
+- 了解 `awk` 和 `sed` 关于数据的简单处理的用法。例如，将文本文件中第三列的所有数字求和: `awk '{ x += $3 } END { print x }'`. 这可能比同等作用的 Python 代码块三倍且代码量少三倍。
 
 - 替换一个或多个文件中出现的字符串:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- 依据某种模式批量重命名多个文件，使用`rename`。对于复杂的重命名规则，[`repren`](https://github.com/jlevy/repren)或许有帮助。
+- 依据某种模式批量重命名多个文件，使用 `rename`。对于复杂的重命名规则，[`repren`](https://github.com/jlevy/repren) 或许有帮助。
 ```sh
       # Recover backup files foo.bak -> foo:
       rename 's/\.bak$//' *.bak
@@ -189,69 +189,69 @@
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- 使用`shuf`从一个文件中随机选取行。
+- 使用 `shuf` 从一个文件中随机选取行。
 
-- 了解`sort`的参数。明白键的工作原理(`-t`和`-k`)。例如，注意到你需要`-k1，1`来仅按第一个域来排序，而`-k1`意味着按整行排序。
+- 了解 `sort` 的参数。明白键的工作原理(`-t` 和 `-k`)。例如，注意到你需要 `-k1，1` 来仅按第一个域来排序，而 `-k1` 意味着按整行排序。
 
-- 稳定排序(`sort -s`)在某些情况下很有用。例如，以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用`sort -k1，1 | sort -s -k2，2`
+- 稳定排序(`sort -s`)在某些情况下很有用。例如，以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用 `sort -k1，1 | sort -s -k2，2`
 
-- 如果你想在Bash命令行中写tab制表符，按下**ctrl-v** **[Tab]** 或键入`$'\t'`(后者可能更好，因为你可以复制粘贴它)。
+- 如果你想在 Bash 命令行中写 tab 制表符，按下 **ctrl-v** **[Tab]** 或键入 `$'\t'` (后者可能更好，因为你可以复制粘贴它)。
 
-- 标准的源代码对比及合并工具是`diff`和`patch`。使用`diffstat`查看变更总览数据。注意到`diff -r`对整个文件夹有效。使用`diff -r tree1 tree2 | diffstat`查看变更总览数据。
+- 标准的源代码对比及合并工具是 `diff` 和 `patch`。使用 `diffstat` 查看变更总览数据。注意到 `diff -r` 对整个文件夹有效。使用 `diff -r tree1 tree2 | diffstat` 查看变更总览数据。
 
-- 对于二进制文件，使用`hd`使其以十六进制显示以及使用`bvi`来编辑二进制。
+- 对于二进制文件，使用 `hd` 使其以十六进制显示以及使用 `bvi` 来编辑二进制。
 
-- 同样对于二进制文件，使用`strings`(包括`grep`等等)允许你查找一些文本。
+- 同样对于二进制文件，使用 `strings`(包括 `grep` 等等)允许你查找一些文本。
 
-- 二进制文件对比(Delta压缩)，使用`xdelta3`。
+- 二进制文件对比(Delta 压缩)，使用 `xdelta3`。
 
-- 使用`iconv`更改文本编码。而更高级的用法，可以使用`uconv`，它支持一些高级的Unicode功能。例如，这条命令将所有元音字母转为小写并移除了:
+- 使用 `iconv` 更改文本编码。而更高级的用法，可以使用 `uconv`，它支持一些高级的 Unicode 功能。例如，这条命令将所有元音字母转为小写并移除了:
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- 拆分文件，查看`split`(按大小拆分)和`csplit`(按模式拆分)。
+- 拆分文件，查看 `split`(按大小拆分)和 `csplit`(按模式拆分)。
 
-- 使用`zless`，`zmore`，`zcat`和`zgrep`对压缩过的文件进行操作。
+- 使用 `zless`，`zmore`，`zcat` 和 `zgrep`对压缩过的文件进行操作。
 
 
 ## 系统调试
 
-- `curl`和`curl -I`可以便捷地被应用于web调试中，它们的好兄弟`wget`也可以，或者是更潮流的[`httpie`](https://github.com/jakubroztocil/httpie)。
+- `curl` 和 `curl -I` 可以便捷地被应用于 web 调试中，它们的好兄弟 `wget` 也可以，或者是更潮流的 [`httpie`](https://github.com/jakubroztocil/httpie)。
 
-- 使用`iostat`、`netstat`、`top` (`htop`更佳) 和`dstat`去获取硬盘、cpu和网络的状态。熟练掌握这些工具可以使你快速的对系统的当前状态有一个大概的认识。
+- 使用 `iostat`、`netstat`、`top` (`htop` 更佳)和 `dstat` 去获取硬盘、cpu 和网络的状态。熟练掌握这些工具可以使你快速的对系统的当前状态有一个大概的认识。
 
-- 若要对系统有一个深度的总体认识，使用[`glances`](https://github.com/nicolargo/glances)。它在一个终端窗口中向你提供一些系统级的数据。这对于快速的检查各个子系统非常有帮助。
+- 若要对系统有一个深度的总体认识，使用 [`glances`](https://github.com/nicolargo/glances)。它在一个终端窗口中向你提供一些系统级的数据。这对于快速的检查各个子系统非常有帮助。
 
-- 若要了解内存状态，运行并理解`free`和`vmstat`的输出。尤其注意"cached"的值，它指的是Linux内核用来作为文件缓存的内存大小，因此它与空闲内存无关。
+- 若要了解内存状态，运行并理解 `free` 和 `vmstat` 的输出。尤其注意"cached"的值，它指的是 Linux 内核用来作为文件缓存的内存大小，因此它与空闲内存无关。
 
-- Java系统调试则是一件截然不同的事，一个可以用于Oracle的JVM或其他JVM上的调试的小技巧是你可以运行`kill -3 <pid>`同时一个完整的栈轨迹和堆概述(包括GC的细节)会被保存到标准输出/日志文件。
+- Java 系统调试则是一件截然不同的事，一个可以用于 Oracle 的 JVM 或其他 JVM 上的调试的小技巧是你可以运行 `kill -3 <pid>` 同时一个完整的栈轨迹和堆概述(包括 GC 的细节)会被保存到标准输出/日志文件。
 
-- 使用`mtr`去跟踪路由，用于确定网络问题。
+- 使用 `mtr` 去跟踪路由，用于确定网络问题。
 
-- 用`ncdu`来查看磁盘使用情况，它比常用的命令，如`du -sh *`，更节省时间。
+- 用 `ncdu` 来查看磁盘使用情况，它比常用的命令，如 `du -sh *`，更节省时间。
 
-- 查找正在使用带宽的套接字连接或进程，使用`iftop`或`nethogs`。
+- 查找正在使用带宽的套接字连接或进程，使用 `iftop` 或 `nethogs`。
 
-- `ab`工具(捆绑于Apache)可以简单粗暴地检查web服务器的性能。对于更复杂的负载测试，使用`siege`。
+- `ab` 工具(捆绑于 Apache)可以简单粗暴地检查 web 服务器的性能。对于更复杂的负载测试，使用 `siege`。
 
-- `wireshark`，`tshark`和`ngrep`可用于复杂的网络调试。
+- `wireshark`，`tshark` 和 `ngrep` 可用于复杂的网络调试。
 
-- 了解`strace`和`ltrace`。这俩工具在你的程序运行失败、挂起甚至崩溃，而你却不知道为什么或你想对性能有个总体的认识的时候是非常有用的。注意profile参数(`-c`)和附加到一个运行的进程参数 (`-p`)。
+- 了解 `strace` 和 `ltrace`。这俩工具在你的程序运行失败、挂起甚至崩溃，而你却不知道为什么或你想对性能有个总体的认识的时候是非常有用的。注意 profile 参数(`-c`)和附加到一个运行的进程参数 (`-p`)。
 
-- 了解使用`ldd`来检查共享库。
+- 了解使用 `ldd` 来检查共享库。
 
-- 了解如何运用`gdb`连接到一个运行着的进程并获取它的堆栈轨迹。
+- 了解如何运用 `gdb` 连接到一个运行着的进程并获取它的堆栈轨迹。
 
-- 学会使用`/proc`。它在调试正在出现的问题的时候有时会效果惊人。比如: `/proc/cpuinfo`，`/proc/xxx/cwd`，`/proc/xxx/exe`，`/proc/xxx/fd/`，`/proc/xxx/smaps`。
+- 学会使用 `/proc`。它在调试正在出现的问题的时候有时会效果惊人。比如: `/proc/cpuinfo`，`/proc/xxx/cwd`，`/proc/xxx/exe`，`/proc/xxx/fd/`，`/proc/xxx/smaps`。
 
-- 当调试一些之前出现的问题的时候，`sar`非常有用。它展示了cpu、内存以及网络等的历史数据。
+- 当调试一些之前出现的问题的时候，`sar` 非常有用。它展示了 cpu、内存以及网络等的历史数据。
 
-- 关于更深层次的系统分析以及性能分析，看看`stap` ([SystemTap](https://sourceware.org/systemtap/wiki))，[`perf`](http://en.wikipedia.org/wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
+- 关于更深层次的系统分析以及性能分析，看看 `stap`([SystemTap](https://sourceware.org/systemtap/wiki))，[`perf`](http://en.wikipedia.org/wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
-- 查看你当前使用的Linux发型版(大部分发行版有效): `lsb_release -a`
+- 查看你当前使用的 Linux 发型版(大部分发行版有效): `lsb_release -a`
 
-- 无论什么东西工作得很欢乐时试试`dmesg`(可能是硬件或驱动问题)。
+- 无论什么东西工作得很欢乐时试试 `dmesg` (可能是硬件或驱动问题)。
 
 
 ## 一行代码
