@@ -1,16 +1,17 @@
 [ Languages: [中文](README-zh.md) ]
+[ Languages: [Portuguese](README-pt.md) ]
 
-# The Art of Command Line
+# A arte da linha de comando 
 
 - [Meta](#meta)
-- [Basics](#basics)
-- [Everyday use](#everyday-use)
-- [Processing files and data](#processing-files-and-data)
-- [System debugging](#system-debugging)
+- [Básico](#basics)
+- [Uso diário](#everyday-use)
+- [Processamento de arquivos e dados](#processing-files-and-data)
+- [Debugs do sistema](#system-debugging)
 - [One-liners](#one-liners)
-- [Obscure but useful](#obscure-but-useful)
-- [More resources](#more-resources)
-- [Disclaimer](#disclaimer)
+- [Obscuros mas úteis](#obscure-but-useful)
+- [Mais conteúdo](#more-resources)
+- [Aviso](#disclaimer)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -21,7 +22,7 @@ Mais sobre isso
 [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareceu](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 no [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-mas dado o interesse lá, então parece que é importante usar o Github, onde pessoas mais talentosas do que eu, prontamente podem sugerir melhorias. Se você ver um erro ou algo que poderia ser melhorado, por favor abra uma issue ou um PR! (E claro por favor revise as meta sections e PRs/issues existentes primeiro.)
+mas dado o interesse lá, então parece que é importante usar o Github, onde pessoas mais talentosas do que eu, prontamente podem sugerir melhorias. Se você ver um erro ou algo que poderia ser melhorado, por favor abra uma issue ou um PR! (E claro, por favor revise as meta sections e PRs/issues existentes primeiro.)
 
 ## Meta
 
