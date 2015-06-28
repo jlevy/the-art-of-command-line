@@ -1,5 +1,4 @@
-[ Languages: [中文](README-zh.md) ]
-[ Languages: [Portuguese](README-pt.md) ]
+[ Languages: [中文](README-zh.md), [Portuguese](README-pt.md)]
 
 
 # The Art of Command Line
