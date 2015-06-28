@@ -1,4 +1,4 @@
-[ Languages: [English](README.md), [中文](README-zh.md), [Português](README-pt.md)]
+[ Languages: [English](README.md), [Português](README-pt.md), [中文](README-zh.md) ]
 
 
 # A arte da linha de comando 

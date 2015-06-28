@@ -1,3 +1,6 @@
+[ Languages: [English](README.md), [Português](README-pt.md), [中文](README-zh.md) ]
+
+
 # 命令行的艺术
 
 - [必读](#必读)
