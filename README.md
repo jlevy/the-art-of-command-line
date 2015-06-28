@@ -32,7 +32,7 @@ Scope:
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
-- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion. 
+- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.
 
 Notes:
 
@@ -256,6 +256,15 @@ Notes:
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
+## Using `dmidecode` to get hardware info
+
+- Information about system BIOS: `dmidecode -t bios`
+
+- Information about RAM slots and maximum supported RAM: `dmidecode -t memory`
+
+- Information about CPU: `dmidecode -t processor`
+
+Other possible keywords you can use to get info from `dmidecode` are `system`, `baseboard`, `chassis`, `cache`, `connector`, `slot`
 
 ## One-liners
 
@@ -432,6 +441,10 @@ A few examples of piecing together commands:
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
+- `lscpu`: Display information about the CPU architecture
+
+- `lsusb`: List USB devices
+
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
@@ -448,6 +461,6 @@ With the exception of very small tasks, code is written so others can read it. W
 
 ## License
 
-[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
