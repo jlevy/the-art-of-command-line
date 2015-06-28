@@ -255,6 +255,15 @@ Notes:
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
+## Using `dmidecode` to get hardware info
+
+- Information about system BIOS: `dmidecode -t bios`
+
+- Information about RAM slots and maximum supported RAM: `dmidecode -t memory`
+
+- Information about CPU: `dmidecode -t processor`
+
+Other possible keywords you can use to get info from `dmidecode` are `system`, `baseboard`, `chassis`, `cache`, `connector`, `slot`
 
 ## One-liners
 
