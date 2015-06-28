@@ -430,7 +430,7 @@ A few examples of piecing together commands:
 
 - `lsblk`: List block devices: a tree view of your disks and disk paritions
 
-- `lshw` and `lspci`: hardware information, including RAID, graphics, etc.
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
