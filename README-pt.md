@@ -1,4 +1,5 @@
 [ Languages: [中文](README-zh.md) ]
+
 [ Languages: [Portuguese](README-pt.md) ]
 
 # A arte da linha de comando 
@@ -68,7 +69,7 @@ Notas:
 
 - No Bash, use **Tab** para completar argumentos e **ctrl-r** para pesquisar através do histórico de comandos.
 
-- No Bash, utilize **ctrl-w** para deletar a última palavra, e **ctrl-u** para deletar tudo e voltar para o início da linha. Use **alt-b** e **alt-f** para se mover por palavras, **ctrl-k** para apagar até o final da linha, **ctrl-l** para limpar a tela. Consulte `man readline` para todos os keybindings padrões do Bash. Existem muitos. Por exemplo **alt-.** circula através dos argumentos anteriores, e **alt-*** expande um glob. ***
+- No Bash, utilize **ctrl-w** para deletar a última palavra, e **ctrl-u** para deletar tudo e voltar para o início da linha. Use **alt-b** e **alt-f** para se mover por palavras, **ctrl-k** para apagar até o final da linha, **ctrl-l** para limpar a tela. Consulte `man readline` para todos os keybindings padrões do Bash. Existem muitos. Por exemplo **alt-.** circula através dos argumentos anteriores, e **alt-** expande um glob. 
 
 - Como alternativa, se você ama os keybinds ao estilo do vi, use `set -o vi`.
 
@@ -122,7 +123,7 @@ Notas:
 
 - No ssh, saber como realizar um túnel de portas com `-L` ou `-D` (e ocasionalmente `-R`) é útil, para por exemplo acessar sites webs de um servidor remoto.
 
-- It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, use compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
+- Pode ser útil realizar algumas otimizações em suas configurações do ssh; por exemplo, o arquivo `~/.ssh/config` contém configurações para evitar que conexões sejam dropadas em certos ambientes de rede, use compressão (muito útil quando se está usando o scp através de uma conexão lenta), e multiplexação de canais do mesmo servidor com um arquivo de controle local: 
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -133,88 +134,88 @@ Notas:
       ControlPersist yes
 ```
 
-- A few other options relevant to ssh are security sensitive and should be enabled with care, e.g. per subnet or host or in trusted networks: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+- Algumas outras opções relevantes para o ssh são sensíveis a segurança e deveriam serem habilitadas com cuidado, por exemplo por sub rede ou host ou em redes confiáveis: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
+- Para conseguir as permissões em arquivo em forma octal, o qual é útil para as configurações do sistema mas não disponível no `ls` e fácil de se confundir, use algo como:
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- For interactive selection of values from the output of another command, use [`percol`](https://github.com/mooz/percol).
+- Para seleção interativas de valores da saída de outro comando, use [`percol`](https://github.com/mooz/percol).
 
-- For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
+- Para interação com arquivos baseados na saída de outro comando (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
-- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
-`python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
+- Para um simples servidor web para todos os arquivos do diretório atual (e subdiretórios), disponível para alguém na sua rede, use:
+`python -m SimpleHTTPServer 7777` (para a porta 7777 e Python 2) e `python -m http.server 7777` (para a porta 7777 e Python 3).
 
 
-## Processing files and data
+## Processamento de arquivos e dados 
 
-- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
+- Para localizar um arquivo pelo nome no diretório atual, `find . -iname '*something*'` (ou similar). Para procurar um arquivo em qualquer lugar pelo nome, use `locate something` (mas tenha em mente `updatedb` pode não ter indexado arquivos criados recentemente).
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Para uma busca mais geral através de arquivos de dados ou de códigos (mais avançado do que `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
 
-- To convert HTML to text: `lynx -dump -stdin`
+- Para converter HTML para texto: `lynx -dump -stdin`.
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- Para Markdown, HTML, e todos os demais tipos de conversão de documentos, tente [`pandoc`](http://pandoc.org/).
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- Se você precisa manipular XML, `xmlstarlet` é antigo mas é bom.
 
-- For JSON, use `jq`.
+- Para JSON, `jq`.
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Para Excel ou arquivos CSV, [csvkit](https://github.com/onyxfish/csvkit) que provê `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
+- Para a Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) é uma forma conveniente e [`s4cmd`](https://github.com/bloomreach/s4cmd) é mais rápido. O [`aws`](https://github.com/aws/aws-cli) da amazon é essencial para outras tarefas relacionadas.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
+- Aprenda a respeito do `sort` e `uniq`, incluindo as opções do `-u` e `-d` do `uniq` -- veja os one-liners abaixo. Veja também `comm`.
 
-- Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+- Aprenda a respeito do `cut`, `paste`, e `join` para manipular arquivos de texto. Muitas pessoas usam `cut` mas esquecem do `join`.
 
-- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+- Aprenda a respeito do `wc` para contar novas linhas (`-l`), caracteres (`-m`), palavras (`-m`) e bytes (`-c`).
 
-- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+- Aprenda a respeito do `tee` para copiar da entrada padrão (stdin) para um arquivo e também para a saída padrão (stdout), como no `ls -al | tee file.txt`.
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- Aprenda que as configurações de localização afetam um várias ferramentas da linha de comando em formas sutis, incluindo a ordem da ordenação e performance. A maioria das instalações do Linux irá definir `LANG` ou outras variáveis de localização para o US English. Mas esteja ciente de que a ordem da ordenação irá mudar, caso você altere a localização. E saiba que as rotinas do i18n oide fazer o `sort` ou outros comandos executarem *muitas vezes* mais lentos. Em algumas situações (como o conjunto de operações ou as operações únicas abaixo) você pode seguramente ignorar a lentidão das rotinas do i18n inteiramente e usar a ordem baseada nos bytes, usando `export LC_ALL=C`.
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- Aprenda o básico sobre `awk` e `sed` para obtenção de informações simples de dados. Por exemplo, somar todos os números na terceira coluna de um arquivo de texto: `awk '{ x += $3 } END { print x }'`. Isto é provavelmente 3X mais rápido e 3X mais curto do que o equivalente em Python.
 
-- To replace all occurrences of a string in place, in one or more files:
+- Para substituir todas as ocorrências de uma string em um lugar, em um ou mais arquivos:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
+- Para renomear muitos arquivos de uma vez, de acordo com um padrão, use `rename`. Para renomeações mais complexas, [`repren`](https://github.com/jlevy/repren) pode ajudar.
 ```sh
-      # Recover backup files foo.bak -> foo:
+      # Recuperar arquivos de backup foo.bak -> foo:
       rename 's/\.bak$//' *.bak
-      # Full rename of filenames, directories, and contents foo -> bar:
+      # Renomea completamente o nome dos arquivos, diretórios, e outros conteúdos foo -> bar:
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- Use `shuf` to shuffle or select random lines from a file.
+- Utilize o `shuf` para embaralhar ou selecionar linhas randoms de um arquivo.
 
-- Know `sort`'s options. Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line.
+- Para as opções do `sort`. Aprenda com as chaves (`-t` e `-k`). Em particular, saiba que precisa escrever `-k1,1` para ordenar somente o primeiro campo; `-k1` significa ordenar de acordo com a linha inteira.
 
-- Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`
+- Ordenação estável (`sort -s`) pode ser útil. Por exemplo, para ordenar primeiramente pelo campo 2, então secundariamente pelo campo 1, você pode usar `sort -k1,1 | sort -s -k2,2`.
 
-- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- Se você precisa escrever literalmente um tab na linha de comando no Bash (por exemplo, para o argumento -t do `sort`), pressione **ctrl-v** **[Tab]** ou escreva `$'\t'` (o último é melhor pois você pode copiar e colar ele).
 
-- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
+- As ferramentas padrão para extrair patches de códigos fonte são `diff`e `patch`. Veja também `diffstat` para um resumo de estatísticas de um diff. Note que `diff -r` funciona para diretórios inteiros. Use `diff -r tree1 tree2 | diffstat`  para um resumo das alterações.
 
-- For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
+- Para arquivos binários, use `hd` para um simples dump hexadecimal e `bvi` para edição binária.
 
-- Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+- Também para arquivos binários, `strings` (mais `grep`, etc.) deixa você encontrar pedaços de texto.
 
-- For binary diffs (delta compression), use `xdelta3`.
+- Para diffs binários (compressão delta), use `xdelta3.`
 
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
+- Para converter a codificação de textos, tente `iconv`. Ou `uconv` para uso mais avançado; Este suporta algumas funcionalidades avançadas do Unicode. Por exemplo, este comando transforma o texto para minúsculo e remove todos os acentos (expandindo e removendo eles):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
+- Para dividir um arquivo em pedaços, veja `split` (para dividir por tamanho) e `csplit` (para dividir por um padrão).
 
-- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
+Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 
 ## Debugando o sistema 
@@ -229,31 +230,31 @@ Notas:
 
 - Debugar um sistema java é uma "kettle of fish", mas um simples truque nas máquinas virtuais Oracle e algum outro tipo de JVM é que você pode executar `kill -3 <pid>` e um completo rastreamento da pilha(stack trace) e resumo da heap (incluindo detalhes geracionais do garbage collector, os quais podem serem altamente informativos) serão vazados para stderr/logs.
 
-- Use `mtr` as a better traceroute, to identify network issues.
+- Use `mtr` como um melhor alternativa ao traceroute, para identificar problemas na rede.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- Para verificar o porque de um disco está cheio, `ncdu` economiza bastante tempo em comparação aos comandos usuais com `du -sh *`.
 
-- To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
+- Para procurar qual socket ou processo está utilizando a banda de rede, tente `iftop` ou `nethogs`.
 
-- The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
+- A ferramenta `ab` (que vem com o Apache) é muito útil para verificação rápida da performance do servidor web. Para mais complexos testes de carga, tente `siege`.
 
-- For more serious network debugging, `wireshark`, `tshark`, or `ngrep`.
+- Para debugs mais sérios da rede, `wireshark`, `tshark`, or `ngrep`.
 
-- Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
+- Aprenda a respeito do `strace`e `ltrace`. Estes podem serem úteis se um programa está falhando, travado, ou quebrando, e você não sabe o por que, ou se você quer obter uma ideia geral da performance. Note que a opção de perfil (`-c`), e a habilidade de se plugar a um processo em execução (`-p`).
 
-- Know about `ldd` to check shared libraries etc.
+- Aprenda a respeito do `ldd` para verificar bibliotecas compartilhadas, e etc.
 
-- Know how to connect to a running process with `gdb` and get its stack traces.
+- Aprenda sobre como se contar a um processo em execução com o `gdb` e obter informações sobre a stack trace.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Utilize `/proc`. Este é incrivelmente útil em algumas vezes quando se deseja debugar problemas vivos. Exemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
-- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- Quando estiver debugando o porque de algo ter dado errado no passado, `sar` pode ser de muita utilidade. Este exibe as estatísticas históricas da CPU, memória, rede e etc.
 
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
+- Para análises de performance mais profundas do sistema, dê uma olhada em `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), e [`sysdig`](https://github.com/draios/sysdig).
 
-- Confirm what Linux distribution you're using (works on most distros): `lsb_release -a`
+- Confirme qual a sua distribuição do Linux usando (funciona na maioria das distros): `lsb_release -a`.
 
-- Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
+- Use `dmesg` sempre que algo estiver de maneira estranha (isto poderia ser um hardware ou problemas de driver).
 
 
 ## One-liners
@@ -447,4 +448,4 @@ Com a exceção de tarefas muito pequenas, o código é escrito de modo que outr
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+Este trabalho está licenciado sobre uma [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
