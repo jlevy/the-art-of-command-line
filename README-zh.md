@@ -3,6 +3,7 @@
 
 # 命令行的艺术
 
+[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 - [必读](#必读)
 - [基础](#基础)
 - [日常使用](#日常使用)
@@ -56,7 +57,7 @@
 
 - 了解 `ssh`，以及基本的无密码认证，`ssh-agent`，`ssh-add` 等。
 
-- 学会基本的文件管理: `ls` 和 `ls -l` (了解 `ls -l` 中每一列代表的意义)，`less`，`head`，`tail` 和 `tail -f` (甚至 `less +F`)，`ln` 和 `ln -s` (了解硬链接与软链接的区别)，`chown`，`chmod`，`du` (硬盘使用情况概述: `du -sk *`)。 关于文件系统的管理，学习 `df`，`mount`，`fdisk`，`mkfs`，`lsblk`。
+- 学会基本的文件管理: `ls` 和 `ls -l` (了解 `ls -l` 中每一列代表的意义)，`less`，`head`，`tail` 和 `tail -f` (甚至 `less +F`)，`ln` 和 `ln -s` (了解硬链接与软链接的区别)，`chown`，`chmod`，`du` (硬盘使用情况概述: `du -hk *`)。 关于文件系统的管理，学习 `df`，`mount`，`fdisk`，`mkfs`，`lsblk`。
 
 - 学习基本的网络管理: `ip` 或 `ifconfig`，`dig`。
 
@@ -194,9 +195,7 @@
 
 - 使用 `shuf` 从一个文件中随机选取行。
 
-- 了解 `sort` 的参数。明白键的工作原理(`-t` 和 `-k`)。例如，注意到你需要 `-k1，1` 来仅按第一个域来排序，而 `-k1` 意味着按整行排序。
-
-- 稳定排序(`sort -s`)在某些情况下很有用。例如，以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用 `sort -k1，1 | sort -s -k2，2`
+- 了解 `sort` 的参数。明白键的工作原理(`-t` 和 `-k`)。例如，注意到你需要 `-k1，1` 来仅按第一个域来排序，而 `-k1` 意味着按整行排序。稳定排序(`sort -s`)在某些情况下很有用。例如，以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用 `sort -k1，1 | sort -s -k2，2`。处理可读性数字（例如 `du -h` 的输出）的时候使用 `sort -h` 。
 
 - 如果你想在 Bash 命令行中写 tab 制表符，按下 **ctrl-v** **[Tab]** 或键入 `$'\t'` (后者可能更好，因为你可以复制粘贴它)。
 
@@ -429,7 +428,7 @@
 
 - `lsblk`: 列出块设备信息: 以树形展示你的磁盘以及磁盘分区信息
 
-- `lshw` 及 `lspci`: 查看硬件信息，包括 RAID、显卡等
+- `lshw`，`lscpu`，`lspci`，`lsusb` 和 `dmidecode`: 查看硬件信息，包括 CPU、BIOS、RAID、显卡、USB设备等
 
 - `fortune`，`ddate` 和 `sl`: 额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否"有用"
 
@@ -447,6 +446,6 @@
 
 ## 授权条款
 
-[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-本文使用授权协议 [Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/)。
+本文使用授权协议 [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)。
