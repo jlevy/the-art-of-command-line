@@ -16,67 +16,66 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Fluência na linha de comando é uma skill muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como um *desenvolvedor*. Este texto descreve uma selação de notas e dicas de uso da linha de comando que eu tenho encontrado muita utilidade usando o Linux. Algumas dicas são elementares, e algumas são mais específicas, sofisticadas ou obscuras. Esta página não é tão longa, mas se você puder usar e relembrar todos os items que estão aqui, então você possui bastante conhecimento.
+Fluência na linha de comando é uma habilidade muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como  *desenvolvedor* de diversas maneiras, sutis ou não. Este texto descreve uma seleção de notas e dicas de uso da linha de comando  que me parecem muito uteis, quando usando o Linux. Algumas dicas são elementares, e outras são mais específicas, sofisticadas ou obscuras. Esta página  é curta, mas se você souber usar e lembrar todos os items que estão aqui, então você está mandando bem.
 
-Mais sobre isso
-[originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
+Muito do que está aqui [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareceu](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 no [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-mas dado o interesse lá, então me parece que é importante usar o Github, onde pessoas mais talentosas do que eu, prontamente podem sugerir melhorias. Se você ver um erro ou algo que poderia ser melhorado, por favor abra uma issue ou um PR! (E claro, por favor revise as meta sections e PRs/issues existentes primeiro.)
+mas dado o interesse por lá,  me pareceu importante usar o Github, onde pessoas mais talentosas do que eu,  poderiam sugerir melhorias facilmente. Se você descobrir um erro ou algo que poderia ser melhorado, por favor abra um issue ou um PR! (E claro, por favor veja as `meta sections' e PRs/issues existentes, primeiro.)
 
 ## Meta
 
 Escopo:
 
-- Este guia é destinado tanto para iniciantes como para usuários mais experientes. Os objetivos são *generalização* (tudo de importante), *aprofundamento* (dar exemplos concretos dos casos de uso mais comuns), e *brevidade* (evitar coisas que não são tão essenciais ou digressões que você pode facilmente encontrar por aí). Todas as dicas são essenciais em alguma situação ou trazem uma economia notável de tempo em relação a outras alternativas.
-- Este guia é escrito para o Linux. Porém muitos, mas não todos os items se aplicam igualmente para o MacOS (ou mesmo o Cygwin).
-- O foco está na interatividade com o Bash, embora muitas dicas aqui são aplicadas para outros shells e em geral para Bash script.
-- Este inclui tanto comandos no "padrão" Unix, como comandos que requerem instalação de pacotes adicionais -- tanto quanto estes sejam importantes o suficiente para merecerem sua inclusão. 
+- Este guia é destinado tanto aos iniciantes quanto aos usuários mais experientes. Os objetivos são *abrangencia*  (tudo que é importante), *especificidade* (dar exemplos concretos dos casos de usos mais comuns), e *brevidade* (evitar coisas que não são tão essenciais ou digressões que você pode facilmente encontrar pela internet). Todas as dicas são essenciais em alguma situação ou trazem uma economia notável de tempo em relação a outras alternativas.
+- Este guia é escrito para o Linux. Muitos, mas não todos os items, se aplicam igualmente para o MacOS (ou mesmo o Cygwin).
+- O foco está na interatividade com  Bash, embora muitas dicas aqui sejam aplicáveis a outras `shells' e tambem a scripts em Bash, em geral.
+- Incluimos tanto comandos no Unix "padrão", quanto comandos que requeiram instalação de pacotes adicionais -- desde que estes sejam importantes o suficiente para merecerem sua inclusão nessa lista. 
 
 Notas:
 
-- Para manter este guia em uma página, o conteúdo implícito será incluído por referência. Você é experto o suficiente para verificar mais detalhes em outros lugares, uma vez que você já tenha entendido a ideia ou caso contrário não exite em usar o Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (como adequado) para instalar novos programas.
-- Use [Explainshell](http://explainshell.com/) para encontrar informações úteis sobre o que faz os comandos, opções, pipes e etc. 
+- Para manter este guia em uma única página, o conteúdo implícito será incluído por referência. Você é competente o suficiente para verificar mais detalhes em outros lugares, desde que você já tenha entendido a ideia ou saiba o que procurar no Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (quando adequado) para instalar novos programas.
+- Use [Explainshell](http://explainshell.com/) para encontrar informações úteis sobre o que fazem os comandos, as opções, pipes e etc. 
 
 
 ## Básico 
 
-- Aprenda o básico sobre Bash. Atualmente, digite `man bash` e pelo menos entenda superficialmente o seu funcionamento; é bastante simples de ler e nem é tão grande assim. Shells alternativos podem serem legais, mas o Bash é mais poderoso e sempre estar disponível (aprendendo  *somente* zsh, fish, etc, enquanto é tentador no seu próprio notebook, restringe você em muitas situações, como ao usar servidores existentes).
+- Aprenda o básico sobre Bash. Na verdade, digite `man bash` e pelo menos entenda superficialmente o seu funcionamento; é bastante simples de ler e nem é tão grande assim. Shells alternativas podem ser legais, mas  Bash é a mais poderosa e sempre está disponível (aprender  *somente* zsh, fish, etc,  é tentador quando voce usa o seu próprio laptop, mas restringe você em muitas situações, por exemplo quando você quer  usar servidores de outros).
 
-- Aprenda pelo menos um editor baseado em texto bem. Idealmente o Vim (`vi`), como não existe nenhuma competição aleatória de edição em um terminal ( mesmo se você usa o Emacs, uma grande IDE, ou um moderno editor hipster a maioria do tempo).
+- Aprenda bem pelo menos um editor de text tradicional. Idealmente o Vim (`vi`), já que nenhum outro funciona tão bem nos   terminais aleatorios que a gente encontra por ai (mesmo que  você prefira usar o Emacs, um  IDE, ou um  editor hipster  a maior parte  do tempo).
 
-- Saiba como ler a documentação com o `man` (por curiosidade, `man man` lista os números das seções, exemplo. 1 se refere aos comandos "regular", 5 é sobre arquivos/convenções, e 8 se diz respeito a administração). Procure outras documentos do man com o `apropos`. Saiba que alguns dos comandos não são executáveis, mas sim built-ins(embutidos) no bash, os quais você poderá conseguir ajuda com `help` e `help -d`.
+- Saiba como ler a documentação com o `man` (para os  curiosos, `man man` lista os números das seções, por exemplo, 1 se refere aos comandos "regulares", 5 é sobre arquivos/convenções, e 8 se diz respeito a administração). Procure outros documentos do manual com o `apropos`. Saiba que alguns dos comandos não são executáveis, mas sim built-ins(embutidos) no bash, pra esses você poderá conseguir ajuda com `help` e `help -d`.
 
-- Aprenda a respeito do redirecionamento da saída e entrada usando `>` e `<` e pipes usando `|`. Aprenda sobre o stdout e stdin.
+- Aprenda como fazer redirecionamento de saída e entrada usando `>` e `<` e pipes usando `|`. Aprenda sobre o stdout e stdin.
 
-- Aprenda sobre a expansão de arquivos glob com `*` ( e talvez `?` e `{`...`}`) e entendendo as diferenças entre aspas duplas `"` e aspas simples `'`. (Veja mais em variáveis de expansão abaixo.)
+- Aprenda sobre a expansão de arquivos glob com `*` ( e talvez `?` e `{`...`}`) e entenda as diferenças entre aspas duplas `"` e aspas simples `'`. (Veja mais em variáveis de expansão abaixo.)
 
-- Esteja familiar com o gerenciamento de jobs no Bash: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+- Se familiarize com o gerenciamento de jobs em Bash: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
 - Aprenda `ssh`, e o básico de autenticação sem senha, através do `ssh-agent`, `ssh-add`, etc.
 
-- Gerenciamento básico de arquivos: `ls` e `ls -l` (em particular, aprenda o que cada coluna significa no `ls -l` significa), `less`, `head`, `tail` e `tail -f` (ou ainda melhor, `less +F`), `ln` e `ln -s`(aprenda as diferenças e vantagens de soft links versos hard links), `chown`, `chmod`, `du` (para um rápido resumo do uso do disco: `du -sk *`). Para gerenciamento do sistema de arquivos, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Gerenciamento básico de arquivos: `ls` e `ls -l` (em particular, aprenda o que cada coluna  no `ls -l` significa), `less`, `head`, `tail` e `tail -f` (ou  melhor ainda, `less +F`), `ln` e `ln -s`(aprenda as diferenças e vantagens de soft links comparados a hard links), `chown`, `chmod`, `du` (para um rápido resumo do uso do disco: `du -sk *`). Para gerenciamento do sistema de arquivos, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
 - Gerenciamento básico da rede: `ip` ou `ifconfig`, `dig`.
 
-- Sabia bem expressões regulares, e as várias flags para `grep`/`egrep`. As `-i`, `-o`, `-A`, e `-B` são opções que é importante saber.
+- Saiba bem como usar expressões regulares, e as várias flags para `grep`/`egrep`. As `-i`, `-o`, `-A`, e `-B` são opções que é importante conhecer.
 
-- Aprenda a usar `apt-get`, `yum`, `dnf` ou `pacman` (dependendo da distribuição) para procurar e instalar pacotes. E garanta que você possui o `pip` para instalar ferramentas baseadas em Python (algumas abaixo são fáceis de instalar através do `pip`).
+- Aprenda a usar `apt-get`, `yum`, `dnf` ou `pacman` (dependendo da distribuição) para procurar e instalar pacotes. E garanta que você possui o `pip` para instalar ferramentas baseadas em Python (algumas das abaixo são  mais fáceis de instalar através do `pip`).
 
 
 ## Uso diário 
 
-- No Bash, use **Tab** para completar argumentos e **ctrl-r** para pesquisar através do histórico de comandos.
+- Usando Bash, use **Tab** para completar argumentos e **ctrl-r** para pesquisar através a história dos comandos.
 
 - No Bash, utilize **ctrl-w** para deletar a última palavra, e **ctrl-u** para deletar tudo e voltar para o início da linha. Use **alt-b** e **alt-f** para se mover por palavras, **ctrl-k** para apagar até o final da linha, **ctrl-l** para limpar a tela. Consulte `man readline` para todos os keybindings padrões do Bash. Existem muitos. Por exemplo **alt-.** circula através dos argumentos anteriores, e **alt-*** expande um glob. 
 
-- Como alternativa, se você ama os keybinds ao estilo do vi, use `set -o vi`.
+- Alternativamente, se você adora os keybinds  do vi, use `set -o vi`.
 
 - Para ver os comandos recentes, `history`. Existem também muitas abreviações como `!$` (último argumento) e `!!` último comando, embora estes sejam muitas vezes facilmente substituídos por **ctrl-r** e **alt-.**.
 
-- Volte atrás para o diretório de trabalho anterior: `cd -`.
+- Pra voltar  para o diretório anterior de trabalho: `cd -`.
 
-- Se você está na metade do caminho ao digitar um comando, mas mudou de ideia, tecle **alt-#** para adicionar um `#` ao início e defina este como um comentário (ou use **ctrl-a**. **#**. **enter**). Mais tarde você poderá recuperar o comando através do `history`.
+- Se você está na metade do caminho ao digitar um comando, mas mudou de ideia, tecle **alt-#** para adicionar um `#` ao início da linha e definir esta como um comentário (ou use **ctrl-a**. **#**. **enter**). Mais tarde você poderá recuperar o comando através da `history`.
 
 - Use `xargs` (ou `parallel`). Estes são muito poderosos. Note que você pode controlar como os vários items são executados por linha (`-L`) assim como o paralelismo (`-P`). Se você não tem certeza se isto é a coisa certa a se fazer, use `xargs echo` primeiro. O `-I{}` também é muito útil. Exemplos:
 ```bash
@@ -92,7 +91,7 @@ Notas:
 
 - Use `nohup` ou `disown` se você deseja por o processo em background executando para sempre.
 
-- Verifique quais processos estão escutando através `netstat -lntp` ou `ss -plat` (para TCP; adicione `-u` para UDP).
+- Verifique quais processos estão escutando através de `netstat -lntp` ou `ss -plat` (para TCP; adicione `-u` para UDP).
 
 - Veja também `lsof` para abrir sockets e arquivos.
 
@@ -317,7 +316,7 @@ Alguns exemplos de como reunir os comandos.
 
 - `printenv`: imprime as variáveis de ambiente (útil em debug e scripts). 
 
-- `look`: procura palavras Inglesas (ou linhas em um arquivo) começando com uma string.
+- `look`: procura palavras inglesas (ou linhas em um arquivo) começando com uma string.
 
 - `cut ` e `paste` e `join`: manipulação de dados.
 
@@ -389,7 +388,7 @@ Alguns exemplos de como reunir os comandos.
 
 - `mtr`: melhor traceroute para debugar a rede.
 
-- `cssh`: Visualização concorrente do shell.
+- `cssh`: Visualização concorrente da shell.
 
 - `rsync`: Sincroniza arquivos e pastas através do SSH. 
 
@@ -403,7 +402,7 @@ Alguns exemplos de como reunir os comandos.
 
 - `dstat`: Estatísticas úteis do sistema. 
 
-- [`glances`](https://github.com/nicolargo/glances): Resumo em alto nível, de multi subsistemas. 
+- [`glances`](https://github.com/nicolargo/glances): Resumo de alto nível, de multi subsistemas. 
 
 - `iostat`: Estatísticas de uso do CPU e do disco. 
 
@@ -435,16 +434,16 @@ Alguns exemplos de como reunir os comandos.
 
 ## Mais conteúdo 
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): Uma lista refinada de ferramentas do shell e outros recursos.
+- [awesome-shell](https://github.com/alebcay/awesome-shell): Uma lista refinada de ferramentas da shell e outros recursos.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) para escrever shell scripts melhores. 
 
 ## Aviso 
 
-Com a exceção de tarefas muito pequenas, o código é escrito para que outros possam ler. Junto com o poder vem a responsabilidade. O fato de você *poder* fazer algo no Bash não necessariamente significa que você deve! ;)
+Com a exceção de tarefas muito pequenas,  código é escrito para que outros possam ler. Junto com o poder vem a responsabilidade. O fato de você *poder* fazer algo usando Bash não significa necessariamente  que você deve! ;)
 
 
 ## Licença 
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
 
-Este trabalho está licenciado sobre uma [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+Este trabalho está licenciado com uma [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
