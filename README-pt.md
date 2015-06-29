@@ -40,11 +40,11 @@ Notas:
 
 ## Básico 
 
-- Aprenda o básico sobre Bash. Na verdade, digite `man bash` e pelo menos entenda superficialmente o seu funcionamento; é bastante simples de ler e nem é tão grande assim. Shells alternativas podem ser legais, mas  Bash é a mais poderosa e sempre está disponível (aprender  *somente* zsh, fish, etc,  é tentador quando voce usa o seu próprio laptop, mas restringe você em muitas situações, por exemplo quando você quer  usar servidores de outros).
+- Aprenda o básico sobre Bash. Na verdade, digite `man bash` e pelo menos entenda superficialmente o seu funcionamento; é bastante simples de ler e nem é tão grande assim. Shells alternativas podem ser legais, mas  Bash é a mais poderosa e sempre está disponível (aprender  *somente* zsh, fish, etc,  é tentador quando você usa o seu próprio notebook, mas restringe você em muitas situações, por exemplo quando você quer  usar servidores de outros).
 
-- Aprenda bem pelo menos um editor de text tradicional. Idealmente o Vim (`vi`), já que nenhum outro funciona tão bem nos   terminais aleatorios que a gente encontra por ai (mesmo que  você prefira usar o Emacs, um  IDE, ou um  editor hipster  a maior parte  do tempo).
+- Aprenda bem pelo menos um editor de text tradicional. Idealmente o Vim (`vi`), já que nenhum outro funciona tão bem nos   terminais aleatórios que a gente encontra por ai (mesmo que  você prefira usar o Emacs, um  IDE, ou um  editor hipster  a maior parte  do tempo).
 
-- Saiba como ler a documentação com o `man` (para os  curiosos, `man man` lista os números das seções, por exemplo, 1 se refere aos comandos "regulares", 5 é sobre arquivos/convenções, e 8 se diz respeito a administração). Procure outros documentos do manual com o `apropos`. Saiba que alguns dos comandos não são executáveis, mas sim built-ins(embutidos) no bash, pra esses você poderá conseguir ajuda com `help` e `help -d`.
+- Saiba como ler a documentação com o `man` (para os  curiosos, `man man` lista os números das seções, por exemplo, 1 se refere aos comandos "regulares", 5 é sobre arquivos/convenções, e 8  diz respeito a administração). Procure outros documentos do manual com o `apropos`. Saiba que alguns dos comandos não são executáveis, mas sim built-ins(embutidos) no bash, pra esses você poderá conseguir ajuda com `help` e `help -d`.
 
 - Aprenda como fazer redirecionamento de saída e entrada usando `>` e `<` e pipes usando `|`. Aprenda sobre o stdout e stdin.
 
@@ -67,7 +67,7 @@ Notas:
 
 - Usando Bash, use **Tab** para completar argumentos e **ctrl-r** para pesquisar através a história dos comandos.
 
-- No Bash, utilize **ctrl-w** para deletar a última palavra, e **ctrl-u** para deletar tudo e voltar para o início da linha. Use **alt-b** e **alt-f** para se mover por palavras, **ctrl-k** para apagar até o final da linha, **ctrl-l** para limpar a tela. Consulte `man readline` para todos os keybindings padrões do Bash. Existem muitos. Por exemplo **alt-.** circula através dos argumentos anteriores, e **alt-*** expande um glob. 
+- Em Bash, utilize **ctrl-w** para deletar a última palavra, e **ctrl-u** para deletar tudo e voltar para o início da linha. Use **alt-b** e **alt-f** para se mover por palavras, **ctrl-k** para apagar até o final da linha, **ctrl-l** para limpar a tela. Consulte `man readline` para todos os keybindings padrões do Bash. Existem muitos. Por exemplo **alt-.** circula através dos argumentos anteriores, e **alt-*** expande um glob. 
 
 - Alternativamente, se você adora os keybinds  do vi, use `set -o vi`.
 
@@ -89,7 +89,7 @@ Notas:
 
 - Saiba os vários sinais que você pode enviar para um processo. Por exemplo, para suspender um processo, use `kill -STOP [pid]`. Para saber a lista completas dos sinais, veja `man 7 signal`.
 
-- Use `nohup` ou `disown` se você deseja por o processo em background executando para sempre.
+- Use `nohup` ou `disown` se você deseja por o processo no background, executando para sempre.
 
 - Verifique quais processos estão escutando através de `netstat -lntp` ou `ss -plat` (para TCP; adicione `-u` para UDP).
 
@@ -97,7 +97,7 @@ Notas:
 
 - Em scripts Bash, use `set -x` para debugar a saída. Utilize modos estritos sempre que for possível. Use `set -e` para abortar em caso de erros. Use `set -o pipefail` para também ser restrito a respeito dos erros (embora este tópico seja um pouco sútil). Para scripts mais desenvolvidos, use também `trap`.
 
-- Em Bash scripts, subshells (escrito com parênteses) são formas convenientes de agrupar comandos. Um exemplo comum é temporariamente mover para um diretório de trabalho diferente, e.g.
+- Em Bash scripts, subshells (escrito com parênteses) são formas convenientes de agrupar comandos. Um exemplo comum é temporariamente se mover para um diretório de trabalho diferente, e.g.
 ```bash
       # faz algo no diretório corrente
       (cd /some/other/dir && other-command)
@@ -132,9 +132,9 @@ Notas:
       ControlPersist yes
 ```
 
-- Algumas outras opções relevantes para o ssh são sensíveis a segurança e deveriam ser habilitadas com cuidado, por exemplo para subrede ou host ou em redes confiáveis: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+- Algumas outras opções relevantes para o ssh tem problemas de segurança e devem ser habilitadas com muito cuidado, por exemplo somente para subrede ou host ou em redes confiaveis (de confiança): `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Para conseguir as permissões em arquivo em forma octal, o qual é útil para as configurações do sistema mas não disponível no `ls` e fácil de se confundir, use algo como:
+- Para conseguir as permissões em arquivo em forma octal, o que é útil para a configuraçao do sistema mas não disponível no `ls` e fácil de se confundir, use algo como:
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
@@ -173,7 +173,7 @@ Notas:
 
 - Aprenda a respeito do `tee` para copiar da entrada padrão (stdin) para um arquivo e também para a saída padrão (stdout), como no `ls -al | tee file.txt`.
 
-- Aprenda que as configurações de localização afetam várias ferramentas da linha de comando em formas sutis, incluindo a ordem da ordenação e performance. A maioria das instalações do Linux irá definir `LANG` ou outras variáveis de localização para o US English. Mas esteja ciente de que a ordem da ordenação irá mudar, caso você altere a localização. E saiba que as rotinas do i18n podem fazer o `sort` ou outros comandos executarem *muitas vezes* mais lentos. Em algumas situações (como o conjunto de operações ou as operações únicas abaixo) você pode seguramente ignorar a lentidão das rotinas do i18n inteiramente e usar a ordem baseada nos bytes, usando `export LC_ALL=C`.
+- Aprenda que as configurações de localização afetam várias ferramentas da linha de comando em formas sutis, incluindo a ordem da ordenação e performance. A maioria das instalações do Linux irá definir `LANG` ou outras variáveis de localização para o ingles dos USA. Mas esteja ciente de que a ordem da ordenação irá mudar, caso você altere a localização. E saiba que as rotinas do i18n podem fazer o `sort` ou outros comandos executarem *muitas vezes* mais devagar. Em algumas situações (como o conjunto de operações ou as operações únicas abaixo) você pode seguramente eliminar a lentidão das rotinas do i18n inteiramente e usar a ordem baseada nos bytes, usando `export LC_ALL=C`.
 
 - Aprenda o básico sobre `awk` e `sed` para obtenção de informações simples de dados. Por exemplo, somar todos os números na terceira coluna de um arquivo de texto: `awk '{ x += $3 } END { print x }'`. Isto é provavelmente 3X mais rápido e 3X mais curto do que o equivalente em Python.
 
@@ -226,7 +226,7 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - Para saber o status da memória, execute e entenda a saída do `free` `vmstat`. Em particular, esteja ciente de que o valor "cached", é mantido pelo kernel Linux como um arquivo de cache, então este efetivamente conta como um valor de memória disponível. 
 
-- Debugar um sistema java é uma "kettle of fish", mas um simples truque nas máquinas virtuais Oracle ou algum outro tipo de JVM é que você pode executar `kill -3 <pid>` e um completo rastreamento da pilha(stack trace) e resumo da heap (incluindo detalhes geracionais do garbage collector, os quais podem ser altamente informativos) serão vazados para stderr/logs.
+- Debugar um sistema java é uma outra historia, mas um simples truque nas máquinas virtuais Oracle ou algum outro tipo de JVM é que você pode executar `kill -3 <pid>` e um completo rastreamento da pilha(stack trace) e resumo do heap (incluindo detalhes geracionais do garbage collector, os quais podem ser altamente informativos) serão vazados para stderr/logs.
 
 - Use `mtr` como uma melhor alternativa ao traceroute, para identificar problemas na rede.
 
@@ -244,22 +244,22 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - Aprenda sobre como se conectar a um processo em execução com o `gdb` e obter informações sobre a stack trace.
 
-- Utilize `/proc`. Este é incrivelmente útil em algumas vezes quando se deseja debugar problemas vivos. Exemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Utilize `/proc`. Este é incrivelmente útil em algumas vezes quando se deseja debugar problemas ao vivo. Exemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
-- Quando estiver debugando o porque de algo ter dado errado no passado, `sar` pode ser de muita utilidade. Este exibe as estatísticas históricas da CPU, memória, rede e etc.
+- Quando estiver debugando o porque de algo ter dado errado no passado, `sar` pode ser de muita utilidade. Ele exibe as estatísticas históricas da CPU, memória, rede e etc.
 
 - Para análises de performance mais profundas do sistema, dê uma olhada em `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), e [`sysdig`](https://github.com/draios/sysdig).
 
 - Confirme qual a sua distribuição do Linux usando (funciona na maioria das distros): `lsb_release -a`.
 
-- Use `dmesg` sempre que algo estiver agindo de maneira estranha (isto poderia ser um hardware ou problemas de driver).
+- Use `dmesg` sempre que algo estiver agindo de maneira estranha (isto pode ser um problema de hardware ou problema de driver).
 
 
 ## One-liners
 
 Alguns exemplos de como reunir os comandos.
 
-- É notavelmente útil algumas vezes, que você quer obter a interseção, união e a diferença de arquivos de texto através de `sort`/`uniq`. Suponha que `a` e `b` são arquivos de texto que são únicos. Desse modo é rápido, e funciona em arquivos de tamanhos arbitrários, podem até possuírem gigabytes. (Ordenação não é limitada por memória, embora você possa precisar usar a opção `-T` se `/tmp` está em uma partição pequena.) Veja também a nota sobre `LC_ALL` a cima e as opções `-u` do `sort`(vamos deixar isso claro abaixo).
+- O seguinte é notavelmente e frequentemente útil: muitas vezes você quer obter a interseção, união e a diferença de arquivos de texto através de `sort`/`uniq`. Suponha que `a` e `b` são arquivos de texto que são "uniqued" únicos. Esse modo é rápido, e funciona em arquivos de tamanhos arbitrários, podem até possuírem gigabytes. (Sorting não é limitado por memória, embora você possa precisar usar a opção `-T` se `/tmp` está em uma partição pequena.) Veja também a nota sobre `LC_ALL` acima e as opções `-u` do `sort`(vamos deixar isso claro abaixo).
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
@@ -274,7 +274,7 @@ Alguns exemplos de como reunir os comandos.
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- Se você quer visualizar tamanhos/datas em uma árvore de arquivos, isto é como uma `ls -l` recursivo, mas é mais fácil de ler do que `ls -lR`:
+- Se você quer visualizar tamanhos/datas em uma árvore de arquivos, isto é como um `ls -l` recursivo, mas é mais fácil de ler do que `ls -lR`:
 ```sh
       find . -type f -ls
 ```
@@ -439,7 +439,7 @@ Alguns exemplos de como reunir os comandos.
 
 ## Aviso 
 
-Com a exceção de tarefas muito pequenas,  código é escrito para que outros possam ler. Junto com o poder vem a responsabilidade. O fato de você *poder* fazer algo usando Bash não significa necessariamente  que você deve! ;)
+Com a exceção de tarefas muito pequenas,  código é normalmente escrito para que outros possam ler. Junto com o poder vem a responsabilidade. O fato de você *poder* fazer algo usando Bash não significa necessariamente  que você deve! ;)
 
 
 ## Licença 
