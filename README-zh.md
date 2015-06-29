@@ -81,8 +81,8 @@
 
 - 使用`xargs` ( 或`parallel`)。他们非常给力。注意到你可以控制每行参数个数(`-L`)和最大并行数 (`-P`)。如果你不确定它们是否会按你想的那样工作，先使用`xargs echo`查看一下。此外，使用`-I{}`会很方便。例如:
 ```bash
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
+find . -name '*.py' | xargs grep some_function
+cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
 - `pstree -p`有助于展示进程树。
@@ -101,16 +101,16 @@
 
 - 在Bash脚本中，子shell(使用括号`(...)`)是一种便捷的方式去组织参数。一个常见的例子是临时地移动工作路径，代码如下：
 ```bash
-      # do something in current dir
-      (cd /some/other/dir && other-command)
-      # continue in original dir
+# do something in current dir
+(cd /some/other/dir && other-command)
+# continue in original dir
 ```
 
 - 在Bash中，注意到其中有许多形式的扩展。检查变量是否存在: `${name:?error message}`。例如，当Bash脚本需要一个参数时，可以使用这样的代码`input_file=${1:?usage: $0 input_file}`。数学表达式: `i=$(( (i + 1) % 5 ))`。序列: `{1..10}`。 截断字符串: `${var%suffix}`和`${var#prefix}`。例如，假设`var=foo.pdf`，那么`echo ${var%.pdf}.txt`将输出`foo.txt`。
 
 - 通过使用`<(some command)`可以将输出视为文件。例如，对比本地文件`/etc/hosts`和一个远程文件:
 ```sh
-      diff /etc/hosts <(ssh somehost cat /etc/hosts)
+diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
 - 了解Bash中的"here documents"，例如`cat <<EOF ...`。
@@ -125,20 +125,20 @@
 
 - 对ssh设置做一些小优化可能是很有用的，例如这个`~/.ssh/config`文件包含了防止特定环境下断开连接、压缩数据、多通道等选项：
 ```
-      TCPKeepAlive=yes
-      ServerAliveInterval=15
-      ServerAliveCountMax=6
-      Compression=yes
-      ControlMaster auto
-      ControlPath /tmp/%r@%h:%p
-      ControlPersist yes
+TCPKeepAlive=yes
+ServerAliveInterval=15
+ServerAliveCountMax=6
+Compression=yes
+ControlMaster auto
+ControlPath /tmp/%r@%h:%p
+ControlPersist yes
 ```
 
 - 部分其他的关于ssh的选项是安全敏感且应当小心启用的。例如在可信任的网络中: `StrictHostKeyChecking=no`，`ForwardAgent=yes`
 
 - 获取文件的八进制格式权限，使用类似如下的代码：
 ```sh
-      stat -c '%A %a %n' /etc/timezone
+stat -c '%A %a %n' /etc/timezone
 ```
 
 - 使用[`percol`](https://github.com/mooz/percol)可以交互式地从另一个命令输出中选取值。
@@ -181,15 +181,15 @@
 
 - 替换一个或多个文件中出现的字符串:
 ```sh
-      perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
+perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
 - 依据某种模式批量重命名多个文件，使用`rename`。对于复杂的重命名规则，[`repren`](https://github.com/jlevy/repren)或许有帮助。
 ```sh
-      # Recover backup files foo.bak -> foo:
-      rename 's/\.bak$//' *.bak
-      # Full rename of filenames，directories，and contents foo -> bar:
-      repren --full --preserve-case --from foo --to bar .
+# Recover backup files foo.bak -> foo:
+rename 's/\.bak$//' *.bak
+# Full rename of filenames，directories，and contents foo -> bar:
+repren --full --preserve-case --from foo --to bar .
 ```
 
 - 使用`shuf`从一个文件中随机选取行。
@@ -210,7 +210,7 @@
 
 - 使用`iconv`更改文本编码。而更高级的用法，可以使用`uconv`，它支持一些高级的Unicode功能。例如，这条命令将所有元音字母转为小写并移除了:
 ```sh
-      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
+uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
 - 拆分文件，查看`split`(按大小拆分)和`csplit`(按模式拆分)。
@@ -263,43 +263,43 @@
 
 - 当你需要对文本文件做集合交、并、差运算时，结合使用`sort`/`uniq`很有帮助。假设`a`与`b`是两内容不同的文件。这种方式效率很高，并且在小文件和上G的文件上都能运用 (`sort`不被内存大小约束，尽管在`/tmp`在一个小的根分区上时你可能需要`-T`参数)，参阅前文中关于`LC_ALL`和`sort`的`-u`参数的部分。
 ```sh
-      cat a b | sort | uniq > c   # c is a union b
-      cat a b | sort | uniq -d > c   # c is a intersect b
-      cat a b b | sort | uniq -u > c   # c is set difference a - b
+cat a b | sort | uniq > c   # c is a union b
+cat a b | sort | uniq -d > c   # c is a intersect b
+cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
 - 使用`grep . *`来阅读检查目录下所有文件的内容，例如检查一个充满配置文件的目录比如`/sys`、`/proc`、`/etc`。
 
 - 计算文本文件第三列中所有数的和(可能比同等作用的Python代码块三倍且代码量少三倍):
 ```sh
-      awk '{ x += $3 } END { print x }' myfile
+awk '{ x += $3 } END { print x }' myfile
 ```
 
 - 如果你想在文件树上查看大小\日期，这可能看起来像递归版的`ls -l`但比`ls -lR`更易于理解:
 ```sh
-      find . -type f -ls
+find . -type f -ls
 ```
 
 - 尽可能的使用`xargs`或`parallel`。注意到你可以控制每行参数个数(`-L`)和最大并行数 (`-P`)。如果你不确定它们是否会按你想的那样工作，先使用`xargs echo`查看一下。此外，使用`-I{}`会很方便。例如:
 ```sh
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
+find . -name '*.py' | xargs grep some_function
+cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
 - 假设你有一个类似于web服务器日志文件的文本文件，并且一个确定的值只会出现在某些行上，假设一个`acct_id`参数在URI中。如果你想计算出每个`acct_id`值有多少次请求，使用如下代码:
 ```sh
-      cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
+cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
 - 运行这个函数从这篇文档中随机获取一条小技巧(解析Markdown文件并抽取项目):
 ```sh
-      function taocl() {
-        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
-          pandoc -f markdown -t html |
-          xmlstarlet fo --html --dropdtd |
-          xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
-          xmlstarlet unesc | fmt -80
-      }
+function taocl() {
+  curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
+    pandoc -f markdown -t html |
+    xmlstarlet fo --html --dropdtd |
+    xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
+    xmlstarlet unesc | fmt -80
+}
 ```
 
 
