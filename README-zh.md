@@ -219,7 +219,7 @@
 
 ## 系统调试
 
-- `curl` 和 `curl -I` 可以便捷地被应用于 web 调试中，它们的好兄弟 `wget` 也可以，或者是更潮流的 [`httpie`](https://github.com/jakubroztocil/httpie)。
+- `curl` 和 `curl -I` 可以便捷地被应用于 web 调试中，它们的好兄弟 `wget` 也可以，或者是更潮的 [`httpie`](https://github.com/jakubroztocil/httpie)。
 
 - 使用 `iostat`、`netstat`、`top` (`htop` 更佳)和 `dstat` 去获取硬盘、cpu 和网络的状态。熟练掌握这些工具可以使你快速的对系统的当前状态有一个大概的认识。
 
