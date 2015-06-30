@@ -144,7 +144,7 @@
 
 - 使用 [`percol`](https://github.com/mooz/percol) 可以交互式地从另一个命令输出中选取值。
 
-- 使用 `fpp`（[PathPicker]（https://github.com/facebook/PathPicker)）可以与基于另一个命令(例如 `git`）输出的文件交互。
+- 使用 `fpp`（[PathPicker](https://github.com/facebook/PathPicker)）可以与基于另一个命令(例如 `git`）输出的文件交互。
 
 - 将 web 服务器上当前目录下所有的文件（以及子目录）暴露给你所处网络的所有用户，使用：
 `python -m SimpleHTTPServer 7777` （使用端口 7777 和 Python 2）或`python -m http.server 7777` （使用端口 7777 和 Python 3）。
@@ -249,7 +249,7 @@
 
 - 当调试一些之前出现的问题的时候，`sar` 非常有用。它展示了 cpu、内存以及网络等的历史数据。
 
-- 关于更深层次的系统分析以及性能分析，看看 `stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](http://en.wikipedia.org/wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig）。
+- 关于更深层次的系统分析以及性能分析，看看 `stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](http://en.wikipedia.org/wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
 - 查看你当前使用的 Linux 发行版（大部分发行版有效）：`lsb_release -a`
 
