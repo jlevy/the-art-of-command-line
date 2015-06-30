@@ -251,7 +251,7 @@
 
 - 关于更深层次的系统分析以及性能分析，看看 `stap`([SystemTap](https://sourceware.org/systemtap/wiki))，[`perf`](http://en.wikipedia.org/wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
-- 查看你当前使用的 Linux 发型版(大部分发行版有效): `lsb_release -a`
+- 查看你当前使用的 Linux 发行版(大部分发行版有效): `lsb_release -a`
 
 - 无论什么东西工作得很欢乐时试试 `dmesg` (可能是硬件或驱动问题)。
 
@@ -269,7 +269,7 @@
 
 - 使用 `grep . *` 来阅读检查目录下所有文件的内容，例如检查一个充满配置文件的目录比如 `/sys`、`/proc`、`/etc`。
 
-- 计算文本文件第三列中所有数的和(可能比同等作用的 Python 代码块三倍且代码量少三倍):
+- 计算文本文件第三列中所有数的和(可能比同等作用的 Python 代码快三倍且代码量少三倍):
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
