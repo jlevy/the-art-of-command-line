@@ -150,6 +150,7 @@ Notes:
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
+-For switching between directories while working on multiple directories use `pushd` to push the directories in a stack and you can easily remove them using `popd`, which will remove the topmost directory in the stack or rotate the stack forward or backward using `pushd+n` or `pushd-n`. where `n` is the number of times to rotate the stack. To view all the directories in the stack use `dirs`
 
 ## Processing files and data
 
@@ -255,7 +256,6 @@ Notes:
 - Confirm what Linux distribution you're using (works on most distros): `lsb_release -a`
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
-
 
 ## One-liners
 
