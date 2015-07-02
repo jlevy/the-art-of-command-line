@@ -18,14 +18,14 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Fluency on the command line is a skill often neglected or considered arcane, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways. This is a selection of notes and tips on using the command-line that I've found useful when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot.
+커맨드라인을 능숙하게 다루는것은 도외시되거나 신비스럽게 여겨진다. 하지만 커맨드라인은 명백하고도 미묘한 방법으로 엔지니어가 하는 작업의 유연성과 생산성을 향상시킨다. 이 문서는 리눅스에서 작업을 하면서 찾은 노트와 팁들의 모음이다. 몇 가지는 기초적이고, 몇가지는 상당히 구체적이며, 세련되거나, 잘 알려지지 않은 것이다. 이 문서는 그리 길지 않지만, 여기 있는 모든것을 사용할 수 있게 되고, 기억해낼 수 있게 된다면, 많은 것을 알게되는 것이다.
 
-Much of this
-[originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
-[appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
-on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
+여기있는 대부분의 것은
+[원래](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
+[Quora에](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
+ [올라온](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know) 것이다.
 but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
-
+하지만 거기에 관심을 가지기보다, Github를 이용하는 것이 더 가치있는 것처럼 보인다. 여기엔 더 재능있는 사람들이 손쉽게 개선안을 제안할 수 있는 곳이다. 만약 문제가 있거나, 더 나아질 수 있는 내용이 보인다면, 이슈를 제출하거나 풀 리퀘스트를 보내달라! (물론 meta 섹션과 이미 존재하는 풀 리퀘스트와 이슈를 봐주기를 바란다.)
 
 ## Meta
 
