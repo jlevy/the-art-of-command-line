@@ -64,29 +64,29 @@ Notas:
 - Aprenda el uso de `apt-get`, `yum`, `dnf` o `pacman` (dependiendo de la dismtribución "distro") para buscar e instalar paquetes. Y asegurate que tienes `pip` para instalar la herramienta de linea de comando basada en Python (un poco más abajo esta super fácil para instalar vía `pip`).
 
 
-## Everyday use
+## De uso diario
 
-- In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
+- En Bash, se usa **Tab** para completar los argumentos y **ctrl-r** para buscar, a través, del historial de comandos.
 
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+- En Bash, se usa **ctrl-w** para borrar la última palabra, y **ctrl-u** para borrar to delete todo el camino hasta el inicio de la línea. Se usa **alt-b** y **alt-f** para moverse entre letras, **ctrl-k** para eliminar hasta el final de la línea, **ctrl-l** para limpiar la panatalla. Ver `man readline` para todos los atajos de teclado por defecto en Bash. Son una gran cantidad. Por ejemplo **alt-.** cicla, a través, de los comandos previos, y **alt-*** expande un glob.
 
-- Alternatively, if you love vi-style key-bindings, use `set -o vi`.
+- Alternativamente, si tu amas los atajos de teclado vi-style, usa `set -o vi`.
 
-- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
+- Para ver los últimos comandos, `history`. También existen abreviaciones, tales como, `!$` (último argumento) y `!!` último comando, auque sin facílmente remplazados con **ctrl-r** y **alt-.**.
 
-- To go back to the previous working directory: `cd -`
+- Para volver al diretorio de trabajo previo: `cd -`
 
-- If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
+- Si estas a mitad de camino de escritura de un comando pero cambias de opinión, presiona **alt-#** para agregar un `#` al princio y lo agrega como comantario (o usar **ctrl-a**, **#**, **enter**). Para que puedas entonces regresar a este luego vía comando historyYou can then return to it later via command history.
 
-- Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
+- `Se usa `xargs` (or `parallel`). Este es muy poderoso. Nota: tú puedes controlar muchos items por ejecutados por línea (`-L`) tamabién, es conocido como paralelismo (`-P`). Si no estas seguro, esto puede ser la cosa correcta, usa `xargs echo` primero. También, `-I{}` es comodo. Ejemplos:
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- `pstree -p` is a helpful display of the process tree.
+- `pstree -p` es útil para mostrar el árbol de procesos.
 
-- Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
+- Se usa `pgrep` y `pkill` para encontrar o señalar procesos por su nombre (`-f` es de mucha ayuda).
 
 - Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
 
