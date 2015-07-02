@@ -24,22 +24,21 @@
 [원래](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [Quora에](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
  [올라온](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know) 것이다.
-but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
 하지만 거기에 관심을 가지기보다, Github를 이용하는 것이 더 가치있는 것처럼 보인다. 여기엔 더 재능있는 사람들이 손쉽게 개선안을 제안할 수 있는 곳이다. 만약 문제가 있거나, 더 나아질 수 있는 내용이 보인다면, 이슈를 제출하거나 풀 리퀘스트를 보내달라! (물론 meta 섹션과 이미 존재하는 풀 리퀘스트와 이슈를 봐주기를 바란다.)
 
 ## Meta
 
-Scope:
+범위:
 
-- This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
-- The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
-- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion. 
+- 이 가이드는 초심자와 경험자 모두를 위한 것입니다. 목표는 범위(전부 다 중요합니다!), 구체성(대부분의 일반적인 케이스에 대한 구체적인 예제), 그리고 간결함(쉽게 마주치지 않는, 중요하지 않고, 지엽적인 것을 피함) 입니다. 모든 팁은 특정 상황에서 매우 중요하거나, 여러 대안들 사이에서의 시간을 확연하게 절약합니다.
+- 이 문서는 리눅스를 위한것입니다. 일부는 MacOS에서 똑같이 적용되지 않습니다(Cygwin에서 조차 말이죠).
+- 인터랙티브 Bash에 초점이 맞추어져있습니다만, 대부분의 팁은 다른 쉘이나, general Bash 스크립트에서도 동작합니다.
+- 이 문서는 "스탠다드" 유닉스 커맨드와 특정 패키지 설치를 필요로 하는 것 둘 자 포함하고 있습니다. 여기서 다루는 스탠다드 커맨드와 특정 패키지에 대한 것은 포함될만큼 충분히 중요합니다.
 
-Notes:
+노트:
 
-- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (as appropriate) to install new programs.
-- Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
+- 이 문서를 한 파일로 유지하기 위해서, 컨텐츠들은 암시적으로 레퍼런스 형태로 포함되어있습니다. 한 개념이나 명령어에 대해 알게 된 후에, 다른곳에서 그에대한 좀 더 자세한 정보를 찾을 수 있을만큼 독자들은 똑똑합니다. `apt-get`, `yum`, `dnf`, `pacman`, `pip`, `brew` (혹은 적절한 다른 것)을 이용해 새 프로그램을 설치하세요.
+- [Explainshell](http://explainshell.com/)을 이용해서 각각의 커맨드, 옵션, 파이프나 그 외 등등이 어떤것인지 알아보십시오.
 
 
 ## Basics
