@@ -379,7 +379,7 @@ A few examples of piecing together commands:
 
 - `split `and `csplit`: splitting files
 
-- `sponge`: read all input to memory before wriring it, useful for reading from then writing to the same file (for example, `grep -v something some-file | sponge some-file`)
+- `sponge`: read all input before wriring it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
 
 - `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
 
