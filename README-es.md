@@ -148,33 +148,33 @@ Notas:
 `python -m SimpleHTTPServer 7777` (para el puerto 7777 y Python 2) y `python -m http.server 7777` (para 7777 y Python 3).
 
 
-## Processing files and data
+## Procesamiento de archivos y datos
 
-- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
+- Para localizar un archivo por nombre en el directorio actual, `find . -iname '*something*'` (o similar). Para encontrar un archivo en cualquier lado por nombre, usar `locate something` (pero tenga en mente `updatedb` quizas no haya indexado recientement los archivos creados).
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Por lo general buscar por la fuente o archivos de datos (más avanzado que `grep -r`), usar [`ag`](https://github.com/ggreer/the_silver_searcher).
 
-- To convert HTML to text: `lynx -dump -stdin`
+- Para convertir HTML a text: `lynx -dump -stdin`
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- Para Markdown, HTML, y todos los tipos de conversión de documentos, probar [`pandoc`](http://pandoc.org/).
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- Si debes manipular XML, `xmlstarlet` es viejo pero bueno.
 
-- For JSON, use `jq`.
+- Para JSON, usa `jq`.
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Para archivos Excel o CSV, [csvkit](https://github.com/onyxfish/csvkit) provee `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
+- Para Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) es conveniente y [`s4cmd`](https://github.com/bloomreach/s4cmd) es el mas rápido. Hecho por Amazon [`aws`](https://github.com/aws/aws-cli) es esencial para otras tareas relacionadas al AWS.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below.
+- Conocer acerca `sort` y `uniq`, incluyendo opciones de uniq `-u` y `-d` -- ver unas lineas mas abajo.
 
-- Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+- Conocer acerca `cut`, `paste`, y `join` para manipular archivos de texto. Muchas personas usan `cut` pero se olvidan acerca de `join`.
 
-- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+- Conocer acerca `wc` para contar nuevas líneas (`-l`), caractéres (`-m`), palabras (`-w`) y bytes (`-c`).
 
-- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+- Conocer acerca `tee` para copiar desde el stdin hacia un archivo y también hacia el stdout, así `ls -al | tee file.txt`.
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- Conocer que locale afecta muchas herramientas de línea de comando en forma delicada, incluyendo el orden del ordenamiento (compaginación) y rendimeinto. La mayoria de las instalaciones de Linux configuran `LANG` u otras variables de localización para la configuración local como US English. Pero este alerta, el ordenamiento puede cambiar su cambia la localización. Y también las rutinas i18n pueden hacer que sort u otros comandos se ejecuten *muchas mas veces* mas lentos. En algunas situaciones (tales como la realización de operaciones u operaciones singulares debajo) puede de forma segura ignorar las turinas lentas i18n por completo y utilizar el sort tradcional basado en byte, usando `export LC_ALL=C`.
 
 - Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
 
