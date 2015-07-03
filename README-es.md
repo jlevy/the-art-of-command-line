@@ -1,4 +1,5 @@
-[ Languages: [中文](README-zh.md), [Español](README-es.md) ]
+[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md) ]
+
 
 # El Arte del Terminal
 
