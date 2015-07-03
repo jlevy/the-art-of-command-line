@@ -12,6 +12,7 @@
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
+- [MacOS only](#macos-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
@@ -32,7 +33,7 @@ but given the interest there, it seems it's worth using Github, where people mor
 Scope:
 
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
+- This is written for Linux, with the exception of the "[MacOS only](#macos-only)" section. Many of the other items apply or can be installed on other Unices or MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion. 
 
@@ -433,6 +434,21 @@ A few examples of piecing together commands:
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+
+
+## MacOS only
+
+These are items relevant *only* on MacOS.
+
+- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on MacOS many of the above commands.
+
+- Copy output of any command with `pbcopy` and paste input with `pbpaste`.
+
+- To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
+
+- Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
+
+- Be aware MacOS is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed).
 
 
 ## More resources
