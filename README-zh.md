@@ -18,7 +18,7 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-熟练使用命令行是一种常常被忽视或被认为难以掌握的技能，但实际上，它可以提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时发现的一些关于命令行的使用的小技巧的摘要。这些小技巧有基础的、相当复杂的甚至晦涩难懂的。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
+熟练使用命令行是一种常常被忽视或被认为难以掌握的技能，但实际上，它可以提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时发现的一些关于命令行的使用的小技巧的摘要。有些小技巧是有基础的，而另外一些是相当复杂的甚至晦涩难懂的。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
 
 这里的大部分内容
 [首次](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
@@ -431,6 +431,20 @@
 - `lshw`，`lscpu`，`lspci`，`lsusb` 和 `dmidecode`：查看硬件信息，包括 CPU、BIOS、RAID、显卡、USB设备等
 
 - `fortune`，`ddate` 和 `sl`： 额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否“有用”
+
+## 仅限Mac系统
+
+以下是*仅限于* Mac系统的技巧
+
+- 用`brew` (Homebrew)或者`port` (MacPorts)进行包管理。这些可以用来在Mac系统上安装以上的大多数命令
+
+- 用`pbcopy`复制任何命令的输出到桌面端，用`pbpaste`粘贴从别处的输入
+
+- 用`open` 或者 `open -a /Applications/Whatever.app` 通过桌面软件打开文件
+
+- Spotlight: 用`mdfind` 搜索文件，用`mdls`列出元数据（例如照片的EXIF信息）
+
+- 注意Mac系统是基于BSD UNIX的，许多命令（例如`ps`, `ls`, `tail`, `awk`, `sed`）都和Linux中有些微的不同，这些极大的被System V-style Unix和GNU工具影响。你可以通过标题为"BSD General Commands Manual"的man页面发现这些不同。在有些情况下GNU版本的命令也可能被安装（例如`gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed）。如果要写跨平台的Bash脚本，避免使用这些命令（例如，考虑Python或者`perl`）或者仔细的测试。
 
 
 ## 更多资源
