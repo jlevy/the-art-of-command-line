@@ -153,6 +153,11 @@ Notes:
 
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
 
+- `alias` - when you have some favirite commands you write a lot. example:
+ ```bash
+ alias myproc='ps aux | grep username'
+ ```
+ After this, just type: myproc
 
 ## Processing files and data
 
@@ -278,6 +283,18 @@ A few examples of piecing together commands:
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
+
+- `sponge`: from moreutils -  soak up standard input and write to a file. I you want to change a file that is the source of a pipline: Instead of:
+```bash
+cat file | sort | uniq  | iconv -f utf8 -t latin1 > /tmp/file && mv /tmp/file file
+```
+
+You can do:
+
+```bash
+cat file | sort | uniq  | iconv -f utf8 -t latin1 | sponge file
+```
+
 
 - If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
 ```sh
