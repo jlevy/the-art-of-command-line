@@ -1,6 +1,10 @@
-[ Languages: [中文](README-zh.md) ]
+[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md) ]
+
+
 
 # The Art of Command Line
+
+[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 - [Meta](#meta)
 - [Basics](#basics)
@@ -9,6 +13,7 @@
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
+- [MacOS only](#macos-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
@@ -29,7 +34,7 @@ but given the interest there, it seems it's worth using Github, where people mor
 Scope:
 
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux. Many but not all items apply equally to MacOS (or even Cygwin).
+- This is written for Linux, with the exception of the "[MacOS only](#macos-only)" section. Many of the other items apply or can be installed on other Unices or MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion. 
 
@@ -47,7 +52,7 @@ Notes:
 
 - Know how to read documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`. Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`.
 
-- Learn about redirection of output and input using `>` and `<` and pipes using `|`. Learn about stdout and stderr.
+- Learn about redirection of output and input using `>` and `<` and pipes using `|`. Know `>` overwrites the output file and `>>` appends. Learn about stdout and stderr.
 
 - Learn about file glob expansion with `*` (and perhaps `?` and `{`...`}`) and quoting and the difference between double `"` and single `'` quotes. (See more on variable expansion below.)
 
@@ -55,7 +60,7 @@ Notes:
 
 - Know `ssh`, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
-- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -sk *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -hk *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
 - Basic network management: `ip` or `ifconfig`, `dig`.
 
@@ -96,6 +101,8 @@ Notes:
 
 - See also `lsof` for open sockets and files.
 
+- Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
+
 - In Bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
 
 - In Bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
@@ -118,7 +125,7 @@ Notes:
 
 - Use `man ascii` for a good ASCII table, with hex and decimal values. For general encoding info, `man unicode`, `man utf-8`, and `man latin1` are helpful.
 
-- Use `screen` or `tmux` to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
+- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
 
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
@@ -140,12 +147,14 @@ Notes:
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- For interactive selection of values from the output of another command, use [`percol`](https://github.com/mooz/percol).
+- For interactive selection of values from the output of another command, use [`percol`](https://github.com/mooz/percol) or [`fzf`](https://github.com/junegunn/fzf).
 
 - For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
+
+- For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
 
 
 ## Processing files and data
@@ -166,7 +175,7 @@ Notes:
 
 - For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below.
+- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
 
 - Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
 
@@ -193,9 +202,7 @@ Notes:
 
 - Use `shuf` to shuffle or select random lines from a file.
 
-- Know `sort`'s options. Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line.
-
-- Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`
+- Know `sort`'s options. For numbers, use `-n`, or `-h` for handling human-readable numbers (e.g. from `du -h`). Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line. Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`.
 
 - If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
 
@@ -251,7 +258,7 @@ Notes:
 
 - For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
 
-- Confirm what Linux distribution you're using (works on most distros): `lsb_release -a`
+- Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
@@ -363,6 +370,8 @@ A few examples of piecing together commands:
 
 - `comm`: compare sorted files line by line
 
+- `pv`: monitor the progress of data through a pipe
+
 - `hd` and `bvi`: dump or edit binary files
 
 - `strings`: extract text from binary files
@@ -372,6 +381,8 @@ A few examples of piecing together commands:
 - `iconv` or `uconv`: conversion for text encodings
 
 - `split `and `csplit`: splitting files
+
+- `sponge`: read all input before wriring it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
 
 - `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
 
@@ -427,9 +438,24 @@ A few examples of piecing together commands:
 
 - `lsblk`: List block devices: a tree view of your disks and disk paritions
 
-- `lshw`: hardware information
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+
+
+## MacOS only
+
+These are items relevant *only* on MacOS.
+
+- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on MacOS many of the above commands.
+
+- Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
+
+- To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
+
+- Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
+
+- Be aware MacOS is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
 
 
 ## More resources
@@ -447,4 +473,4 @@ With the exception of very small tasks, code is written so others can read it. W
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/).
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
