@@ -176,14 +176,14 @@ Notas:
 
 - Conocer que locale afecta muchas herramientas de línea de comando en forma delicada, incluyendo el orden del ordenamiento (compaginación) y rendimeinto. La mayoria de las instalaciones de Linux configuran `LANG` u otras variables de localización para la configuración local como US English. Pero este alerta, el ordenamiento puede cambiar su cambia la localización. Y también las rutinas i18n pueden hacer que sort u otros comandos se ejecuten *muchas mas veces* mas lentos. En algunas situaciones (tales como la realización de operaciones u operaciones singulares debajo) puede de forma segura ignorar las turinas lentas i18n por completo y utilizar el sort tradcional basado en byte, usando `export LC_ALL=C`.
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- Conozca esencial `awk` y `sed` para mapeo de datos sencillo. Por ejemplo, sumar todos lo números en la tercera columna de un archivo de texto: `awk '{ x += $3 } END { print x }'`. Esto es probablemente 3X más rápido y 3X más corto que su equivalente en Python.
 
-- To replace all occurrences of a string in place, in one or more files:
+- Para remplanzar todas las ocurrencias de un string en su lugar, en uno o más archivos:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
+- Para renombrar varios archivos a la vez de acuerdo a un patron, usar `rename`. Para renombramientos complejos, [`repren`](https://github.com/jlevy/repren) may help.
 ```sh
       # Recover backup files foo.bak -> foo:
       rename 's/\.bak$//' *.bak
@@ -191,107 +191,107 @@ Notas:
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- Use `shuf` to shuffle or select random lines from a file.
+- Usar `shuf` para mezclar o seleccionar líneas aleatoreas desde un archivo.
 
-- Know `sort`'s options. Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line.
+- Conozca las opciones de `sort`. Conozca el trabajo principal de (`-t` y `-k`). En particular, este atento que lo necesitara para escribir`-k1,1` para ordenar por solo el primer campo; `-k1` significa ordenar de acuerdo a toda la línea.
 
-- Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`
+- Orden estable (`sort -s`) puede ser útil. Por ejemplo, para organizar el primer por el campo 2, entonces secundariamente de hacerlo por el campo 1, Puedes usar `sort -k1,1 | sort -s -k2,2`
 
-- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- Si tu siempre necesitas escribir un tab literal en una línea de comandos en Bash (Ej. para el argumento -t de ordenar), presione **ctrl-v** **[Tab]** o escriba `$'\t'` (El último es mejor porque puedes copiarlo/pegarlo).
 
-- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
+- Las herramientas estandar para reparar el código fuente son `diff` y `patch`. Ver también `diffstat` para resumen estadístico de una diff. Nota `diff -r` trabaja con directorios por completo. Usar`diff -r tree1 tree2 | diffstat` para el resumen de cambios.
 
-- For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
+- Para archivos binarios, usar `hd` para sencillos "hex dumps" y `bvi` para edición de binario.
 
-- Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+- También para archivos binarios, `strings` (además de `grep`, etc.) permite encontrar en el texto bits.
 
-- For binary diffs (delta compression), use `xdelta3`.
+- Para diffs binaria (delta compression), usar `xdelta3`.
 
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
+- Para convertir To convert la codificación del texto, probar `iconv`. O `uconv` para el uso avanzado; este soporta este soporta algunos elementos Unicode avanzados. Por ejemplo, este coloca en minúsculas y remueve todos los acentos (por expanción y colocandolos a ellos):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
+- Para dividir archivos en multiples partes, consultar `split` (para dividir por tamaño) y `csplit` (para dividir por un patrón).
 
-- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
+- Usar `zless`, `zmore`, `zcat`, y `zgrep` para operar sobre archivos comprimidos.
 
 
-## System debugging
+## Depuración del sistema
 
-- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
+- Para depuración web, `curl` y `curl -I` son prácticos, o sus equivalentes `wget`, o el más moderno [`httpie`](https://github.com/jakubroztocil/httpie).
 
-- To know disk/cpu/network status, use `iostat`, `netstat`, `top` (or the better `htop`), and (especially) `dstat`. Good for getting a quick idea of what's happening on a system.
+- Para el estado del disco/cpu/red, usar `iostat`, `netstat`, `top` (o el mejor `htop`), y (especialmente) `dstat`. Bueno para recibir una idea rápida de lo que esta pasando en tu sistema.
 
-- For a more in-depth system overview, use [`glances`](https://github.com/nicolargo/glances). It presents you with several system level statistics in one terminal window. Very helpful for quickly checking on various subsystems.
+- Para una resumen en mayor profundidad, usar [`glances`](https://github.com/nicolargo/glances). Este se presenta con varios niveles de estadística en un solo terminal. Muy útil para una verificación rápida de vaios subsistemas.
 
-- To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
+- Para conocer el estado de la memoria, ejecutar y entender la salida de `free` y `vmstat`. En particular, tener en cuenta el valor "cached" es memoria mantenida por el kernel Linux como un archivo de cache, entonces efectivamente cuenta como valor para "free".
 
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs.
+- El sistema de deputación de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y de otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la collección de basura generacional, la cual puede ser altamente informativa) seran descargados al stderr/logs.
 
-- Use `mtr` as a better traceroute, to identify network issues.
+- Usar `mtr` como un mejor traceroute, para identificar los problemas en la red.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- Para mirara porque el disco esta lleno, `ncdu` ahorra tiempo sobre los comandos usual como `du -sh *`.
 
-- To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
+- Para encontrar cual socket o proceso  esta utilizando el ancho de banda, prueba `iftop` o `nethogs`.
 
-- The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
+- La herramienta `ab` (viene con Apache) es útil para una verificación rapida y sucia del rendimiento del servidor web. Para pruebas de carga más complejas, prueba `siege`.
 
-- For more serious network debugging, `wireshark`, `tshark`, or `ngrep`.
+- Para depuración de redes más serias, `wireshark`, `tshark`, o `ngrep`.
 
-- Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
+- Conozca acerca `strace` y `ltrace`. Estas son de utilidad si un programa esta fallando, guindando, o estrellando, y no conoces por qué?, o si quieres tener una idea general del rendimiento. Note la opción de elaboración de perfiles (`-c`), y la habilidad de adjuntar a un proceso en ejecución (`-p`).
 
-- Know about `ldd` to check shared libraries etc.
+- Conozca acerca `ldd` para verificar librerias compartidas etc.
 
-- Know how to connect to a running process with `gdb` and get its stack traces.
+- Conozca como conectarse a un proceso en ejecución con `gdb` y obtener su traza de pilas.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Usar `/proc`. Este es extraordinariamente útil algunas veces cuando hay problemas de deputación en vivo. Ejemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
-- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- Cuando se depura porque algo salio más en el pasado, `sar` puede ser muy útil. Este muestra la estadistica historica en CPU, memoria, red, etc.
 
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
+- Para sistemas y analisís de rendimiento de mayor profundidad, ver `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
 
-- Confirm what Linux distribution you're using (works on most distros): `lsb_release -a`
+- Confirmar que distribución de Linux estas utilizando (trabaja en a mayoría de los distros): `lsb_release -a`
 
-- Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
+- Usar `dmesg` siempre que algo actue comico (esto podría ser problemas con el hardware o driver).
 
 
 ## One-liners
 
-A few examples of piecing together commands:
+Algunos ejemplos de comandos reunidos:
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+- Este es remarcablemente útil en ocasiones que hay que realizar intersección, unión, y diferencia de archivos de texto via `sort`/`uniq`. Considere `a` y `b` son archivos de texto que son ya unicos. Esto es rápido, y trabaja con archivos de tamaño arbitrario, hasta varios gigabytes. (Sort no esta limitado por la memoria, aunque quizas necesites utilizar la opción `-T` si `/tmp` esta en una pequeña partición raíz.) Ver también la nota acerca `LC_ALL` y las opciones de `sort`, `-u` (dejado de lado para clarificar mas abajo).
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Use `grep . *` to visually examine all contents of all files in a directory, e.g. for directories filled with config settings, like `/sys`, `/proc`, `/etc`.
+- Usar `grep . *` para visualmente examinar todo el contenido de todos los archivos de un directorio, Ej. para directorios llenos con parametros de configuración, como `/sys`, `/proc`, `/etc`.
 
 
-- Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
+- Sumar todos os números en la tercera columna de un archivo de texto (esto es probablemente 3X más rapido 3X menor código que el equivalente en Python):
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- Si quiere ver tamaños/fechas en un árbol de archivos, esto es como hacer recursivo `ls -l` pero es mas facil de leer que `ls -lR`:
 ```sh
       find . -type f -ls
 ```
 
-- Use `xargs` or `parallel` whenever you can. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use xargs echo first. Also, `-I{}` is handy. Examples:
+- Usar `xargs` o `parallel` cuando pueda. Considere que puede controlar algunos elementos ejecutados por línea (`-L`) así como paralelismo (`-P`). Si no esta seguro de estar haciendo la cosa correcta, use primero xargs echo. También, `-I{}` es práctico. Ejemplos:
 ```sh
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
+- Digamos que tiene un archivo de texto, como un log de un servidor web, y un cierto valor comienza a aparecer en algunas líneas, tales como un parametro `acct_id` que esta presente en el URL. Si quieres un recuento de cuantas peticiones ""request hay por cada `acct_id`:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- Run this function to get a random tip from this document (parses Markdown and extracts an item):
+- Ejecta esta función para obtener un consejo aleatoreo desde este documento (analiza el Markdown y extrae un elemento):
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -303,148 +303,148 @@ A few examples of piecing together commands:
 ```
 
 
-## Obscure but useful
+## Obscuro pero útil
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `expr`: ejecuta operaciones aritmeticas o booleanas o evalua expresiones regulares
 
-- `m4`: simple macro processor
+- `m4`: macro procesador sencillo
 
-- `yes`: print a string a lot
+- `yes`: imprime un string sin fin
 
-- `cal`: nice calendar
+- `cal`: lindo calendario
 
-- `env`: run a command (useful in scripts)
+- `env`: ejecuta un comando (útil en scripts)
 
-- `printenv`: print out environment variables (useful in debugging and scripts)
+- `printenv`: imprime las variables del ambiente (útil en depuración y scripts)
 
-- `look`: find English words (or lines in a file) beginning with a string
+- `look`: buscar palabras en English (o líneas en un archivo) comanzando con un string
 
-- `cut `and `paste` and `join`: data manipulation
+- `cut`, `paste` y `join`: manipulación de datos
 
-- `fmt`: format text paragraphs
+- `fmt`: formato de texto de parrafo
 
-- `pr`: format text into pages/columns
+- `pr`: formato de texto en páginas/columnas
 
-- `fold`: wrap lines of text
+- `fold`: envolturas de líneas de texto
 
-- `column`: format text into columns or tables
+- `column`: formato de texto en columnas o tablas
 
-- `expand` and `unexpand`: convert between tabs and spaces
+- `expand` y `unexpand`: convertidor entre tabs y espacios
 
-- `nl`: add line numbers
+- `nl`: agrega números de línea
 
-- `seq`: print numbers
+- `seq`: imprime números
 
-- `bc`: calculator
+- `bc`: calculadora
 
-- `factor`: factor integers
+- `factor`: factorización de enteros
 
-- `gpg`: encrypt and sign files
+- `gpg`: cifrado y firmas digitales
 
-- `toe`: table of terminfo entries
+- `toe`: tabla de información de terminos
 
-- `nc`: network debugging and data transfer
+- `nc`: deputación del entorno de red y transferencia de datos
 
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+- `socat`: socket relay y redireccionador de puerto tcp (similar a `netcat`)
 
-- `slurm`: network trafic visualization
+- `slurm`: visualización del tráfico de red
 
-- `dd`: moving data between files or devices
+- `dd`: moviliza data entre archivos y dispositivos
 
-- `file`: identify type of a file
+- `file`: identifica el typo de archivo
 
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+- `tree`: muestra directorios y subdirectorios como un árbol anidado; parecido a `ls` pero recursivo
 
-- `stat`: file info
+- `stat`: información del archivo
 
-- `tac`: print files in reverse
+- `tac`: imprime archivos en forma inversa
 
-- `shuf`: random selection of lines from a file
+- `shuf`: selección de líneas de un archivo de forma aleatorea
 
-- `comm`: compare sorted files line by line
+- `comm`: compara archivos ordenados línea por línea
 
-- `hd` and `bvi`: dump or edit binary files
+- `hd` y `bvi`: descarga o edita archivos binarios
 
-- `strings`: extract text from binary files
+- `strings`: extrae textos de archivos binarios
 
-- `tr`: character translation or manipulation
+- `tr`: traducción y manipulación de caracter
 
-- `iconv` or `uconv`: conversion for text encodings
+- `iconv` o `uconv`: conversión de codificaciones de texto
 
-- `split `and `csplit`: splitting files
+- `split` y `csplit`: división de archivos
 
-- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+- `units`: unidades de conversión y calculaciones; convierte furlongs por fortnight para twips por blink (ver también `/usr/share/units/definitions.units`)
 
-- `7z`: high-ratio file compression
+- `7z`: conpresión de archivos de alto nivel 
 
-- `ldd`: dynamic library info
+- `ldd`: información de libreria dinamica
 
-- `nm`: symbols from object files
+- `nm`: archivo de objeto de simbolos
 
-- `ab`: benchmarking web servers
+- `ab`: benchmarking de servdores web
 
-- `strace`: system call debugging
+- `strace`: depuración de llamadas del sistema
 
-- `mtr`: better traceroute for network debugging
+- `mtr`: mejor traceroute para la deputación de la red
 
-- `cssh`: visual concurrent shell
+- `cssh`: shell concurrent visual
 
-- `rsync`: sync files and folders over SSH
+- `rsync`: sincronización de archivos y carpetas sobre SSH
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- `wireshark` y `tshark`: captura de paquetes y depuración de la red
 
-- `ngrep`: grep for the network layer
+- `ngrep`: grep para la capa de la red
 
-- `host` and `dig`: DNS lookups
+- `host` y `dig`: consulta DNS
 
-- `lsof`: process file descriptor and socket info
+- `lsof`: descriptor de archivo de procesos y información de socket
 
-- `dstat`: useful system stats
+- `dstat`: sistema de estadisticas útil
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- [`glances`](https://github.com/nicolargo/glances):vistazo de multi-subsistemas, de alto nivel
 
-- `iostat`: CPU and disk usage stats
+- `iostat`: estadísticas del CPU y uso del disco
 
-- `htop`: improved version of top
+- `htop`: version mejorada de top
 
-- `last`: login history
+- `last`: historial de login
 
-- `w`: who's logged on
+- `w`: quien esta authenticado?
 
-- `id`: user/group identity info
+- `id`: información de identidad de usuario/grupo
 
-- `sar`: historic system stats
+- `sar`: sistema de estadisticas historico
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- `iftop` o `nethogs`: utilización de la red por un socket o process
 
-- `ss`: socket statistics
+- `ss`: estadisticas de socket
 
-- `dmesg`: boot and system error messages
+- `dmesg`: arranque y sistema de mensajes de error
 
-- `hdparm`: SATA/ATA disk manipulation/performance
+- `hdparm`: manipulación/rendimiento de discos SATA/ATA
 
-- `lsb_release`: Linux distribution info
+- `lsb_release`: información de la distribución de Linux
 
-- `lsblk`: List block devices: a tree view of your disks and disk paritions
+- `lsblk`: Lista de bloques de dispositivos: un árbol de vista de sus discos y particiones de disco
 
-- `lshw`: hardware information
+- `lshw`: información de hardware
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+- `fortune`, `ddate`, y `sl`: um, bien, este depende si tiene la consideración de locomotoras de vapor y citas Zippy "práctico"
 
 
-## More resources
+## Más recursos
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+- [awesome-shell](https://github.com/alebcay/awesome-shell): Una lista curada de herramientas shell y recursos.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) para escribir mejores script shell.
 
 
-## Disclaimer
+## Advertencia
 
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+Con excepción de pequeñas tareas, el código está escrito para que otros puedan leerlo. Con el poder llega la responsabilidad. El hecho de que tú *puedes* hacer algo en Bash no necesaria mente significa que debas hacerlo! ;)
 
 
-## License
+## Licencia
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/).
+Este trabajo esta licenciado bajo [Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/).
