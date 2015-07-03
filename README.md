@@ -252,7 +252,7 @@ Notes:
 
 - For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
 
-- Confirm what Linux distribution you're using (works on most distros): `lsb_release -a`
+- Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
