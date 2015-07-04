@@ -467,13 +467,15 @@ These are items relevant *only* on MacOS.
 - Be aware MacOS is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
 
 
-## More resources
+## 더 많은 자료
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
+- [awesome-shell](https://github.com/alebcay/awesome-shell): 쉘 도구와 리소스를 모아둔 목록
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+- 더 좋은 쉘 스크립트 작성을 위한 [Strict 모드](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
 
 
-## Disclaimer
+## 면책 조항
 
 With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
 
@@ -482,4 +484,4 @@ With the exception of very small tasks, code is written so others can read it. W
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) 라이센스 하에 작업되었습니다.
