@@ -200,6 +200,8 @@ Notes:
       repren --full --preserve-case --from foo --to bar .
 ```
 
+- Use `mmv` to move/copy/append/link multiple files and directories by wildcard patterns. Rename file extension name: `mmv '*.JPG' '#1.jpg'`. 
+
 - Use `shuf` to shuffle or select random lines from a file.
 
 - Know `sort`'s options. For numbers, use `-n`, or `-h` for handling human-readable numbers (e.g. from `du -h`). Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line. Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`.
