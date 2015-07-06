@@ -66,67 +66,67 @@
 - Обучитесь использованию системами управления пакетами `apt-get`, `yum`, `dnf` или `pacman` (в зависимости от дистрибутива). Занйте как искать и устанавливать пакеты и обязательно имейте установленым `pip` для установки командных утилит, написаных на Python (некоторые из тех, что вы найдете ниже легче всего установить через `pip`)
 
 
-## Everyday use
+## Ежедневное использование
 
-- In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
+- Используйте таб в Баше для автокомплита аргументов к командам и **ctrl-r** для поиска по истории командной строки
 
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+- Используйте **ctrl-w** в Баше для того, чтобы удалить последнее слово в команде; **ctrl-u** для того, что бы удалить команду полностью. Используйте **alt-b** и **alt-f** для того, чтобы бегать между словами команды, **ctrl-k** для того, чтобы прыгнуть к концу строки, **ctrl-l** для того, чтобы очистить экран. Гляньте на `man readline` чтобы узнать о всех шорткатах Баша. Их много! Например, **alt-.** бежит по предыдущим аргументам команды, а **alt-*** расширяет глоб.??
 
-- Alternatively, if you love vi-style key-bindings, use `set -o vi`.
+– Если Вам нравятся шорткаты Вима сделайте `set -o vi`.
 
-- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
+- Для того, чтобы посмотреть историю введите `history`. Так же существует множество аббривиатур, например `!$` – последний аргумент, `!!` – последняя команда, хотя эти аббривиатуры часто заменяются шорткатами **ctrl-r** и **alt-.**.
 
-- To go back to the previous working directory: `cd -`
+- Для того, чтобы прыгнуть к последней рабочей директории – `cd -`
 
-- If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
+- Если Вы написали команду наполовину и вдруг передумали нажмите **alt-#** для того, чтобы добавить `#` к началу и отправьте комманду как комментарий. Потом вы сможете вернуться к ней через историю.
 
-- Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
+- Не забывайте использовать `xargs` (или `parallel`). Это очень мощная штука. Обратите внимание, что Вы можете контролировать количество команд на каждую строку, а так же параллельность. Если Вы не уверены, что делаете что-то правильно, начните с `xargs echo`. Еще `-I{}` – полезная штука. Примеры:
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- `pstree -p` is a helpful display of the process tree.
+- `pstree -p` – полезный тип вывода дерева процессов.
 
-- Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
+- Используйте `pgrep` или `pkill` для того чтобы находить/слать сигналы к процессам по имени (`-f` помогает).
 
-- Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
+- Знайте разные сигналы, которые можно слать процессам. Например, чтобы приостановить процесс используйте `kill -STOP [pid]`. Для полного списка посмотрите `man 7 signal`.
 
-- Use `nohup` or `disown` if you want a background process to keep running forever.
+- Используйте `nohup` или `disown` для того, чтобы процесс в фоне выполнялся бесконечно.
 
-- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
+- Узнайте какие процессы слушают порты через `netstat -lntp` или `ss -plat` (для TCP; добавьте `-u` для UDP).
 
-- See also `lsof` for open sockets and files.
+- Так же `lsof` для того, чтобы посмотреть открытые сокеты и файлы.
 
-- Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
+- Используйте `alias` для того, чтобы алиасить часто используемые команды. Например, `alias ll='ls -latr'` создаст новый алиас `ll`.
 
-- In Bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
+- В Баш скритах используйте `set -x` для того, чтобы дебажить аутпут. Используйте строгие режимы везде, где возможно. Используйте `set -e` для того, чтобы прекращать выполнение при ошибках. Используйте `set -o pipefail` для того, чтобы строго относится к ошибкам (это немного глубокая тема). Для более сложных скриптов так же используйте `trap`.
 
-- In Bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
+- В Баш скриптах, подоболочки (subshells) – удобный способ группировать команды. Один из самых распространенных примеров – временно передвинуться в другую рабочую директорию, вот так:
 ```bash
       # do something in current dir
       (cd /some/other/dir && other-command)
       # continue in original dir
 ```
 
-- In Bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a Bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
+- В Баше много типов пространства переменных. Проверить, существует ли переменная – `${name:?error message}`. Например, если Баш-скрипту нужен всего один аргумент просто напишите `input_file=${1:?usage: $0 input_file}`. Арифметическая область видимости: `i=$(( (i + 1) % 5 ))`. Последовательности: `{1..10}`. Обрезка строк: `${var%suffix}` и `${var#prefix}`. Например, если `var=foo.pdf` тогда `echo ${var%.pdf}.txt` выведет `foo.txt`.
 
-- The output of a command can be treated like a file via `<(some command)`. For example, compare local `/etc/hosts` with a remote one:
+- Вывод любой команды можно обратить в файл через `<(some command)`. Например, сравнение локального файла `/etc/hosts с удаленным:
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- Know about "here documents" in Bash, as in `cat <<EOF ...`.
+- Знайте про heredoc-синтаксис в Баше, работает он вот так `cat <<EOF ...`.
 
-- In Bash, redirect both standard output and standard error via: `some-command >logfile 2>&1`. Often, to ensure a command does not leave an open file handle to standard input, tying it to the terminal you are in, it is also good practice to add `</dev/null`.
+- В Баше перенаправляйте стандартный вывод, а так же стандартные ошибки вот так: `some-command >logfile 2>&1`. Зачастую для того, чтобы убедится, что команда не оставит открытым файл, привязав его к открытому терминалу считается хорошей практикой добавлять `</dev/null`.
 
-- Use `man ascii` for a good ASCII table, with hex and decimal values. For general encoding info, `man unicode`, `man utf-8`, and `man latin1` are helpful.
+- Используйте `man ascii` для хорошей ASCII таблицы, с hex и десятичными значениями. Для информации по основным кодировкам полезны: `man unicode`, `man utf-8`, и `man latin1`.
 
-- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
+- Используйте `screen` или [`tmux`](https://tmux.github.io/) для того, чтобы иметь несколько экранов в одном терминале, это особенно полезно, когда вы работаете с удаленным сервером, тогда Вы можете подключаться/отключаться от сессий. Более минималистичный подход для этого – использование `dtach`.
 
-- In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
+- В SSH полезно знать как port tunnel с флагами `-L` и `-D` (и иногда `-R`), например для того, чтобы зайти на сайт с удаленного сервера.
 
-- It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, use compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
+- Еще может быть полезно оптимизировать вашу SSH конфигурацию, например этот файл `~/.ssh/config` содержит настройки, которые помогают избегать потерянные подключения в некоторых сетевых окружениях, используйте сжатие (которое полезно с scp через медленные подключения) и увеличьте количество каналов к одному серверу через этот конфиг вот так:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -137,21 +137,21 @@
       ControlPersist yes
 ```
 
-- A few other options relevant to ssh are security sensitive and should be enabled with care, e.g. per subnet or host or in trusted networks: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+- Некоторые другие настройки SSH могут сильно повлиять на безопасность и должны меняться осторожно, например для конкретной подсети или конкретной машины или в домашних сетях: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
+- Для того, чтобы получить разрешения файла в восьмеричном виде, что полезно для конфигурации систем, но нельзя получить из `ls`, можно использовать что-то типа:
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- For interactive selection of values from the output of another command, use [`percol`](https://github.com/mooz/percol) or [`fzf`](https://github.com/junegunn/fzf).
+- Для интерактивного выделения результатов других команд используйте [`percol`](https://github.com/mooz/percol) or [`fzf`](https://github.com/junegunn/fzf).
 
-- For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
+- Для работы с файлами, список которых дала другая команда (например Git) используйте `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
-- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
+- Для того чтобы быстро поднять веб-сервер в текущей директории (и поддерикториях), который доступен для всех в вашей сети используйте:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
-- For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
+- Для того, чтобы выполнить определенную команду с привилегиями, используйте `sudo` (для рута) и `sudo -u` (для другого пользователя). Используйте `su` или `sudo bash` для того чтобы запустить шелл от имени этого пользователя. Используйте `su -` для того, чтобы симулировать свежий логин от рута или другого пользователя.
 
 
 ## Processing files and data
