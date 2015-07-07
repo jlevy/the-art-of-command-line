@@ -1,4 +1,4 @@
-[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md) ]
+[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
 
 # El Arte del Terminal
 
@@ -25,8 +25,8 @@ Gran parte esta
 [appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
 pero debido al interés mostrado ahí, parece que vale la pena usar Github, donde las personas con mayor talento que facílmente sugerir mejoras. Si yo vez un error o algo que podría ser mejor, por favor, cree un issue o PR! (Por supuesto revise la sección meta de PRs/issues primero.)
-                                                                                                                   
-                                                                                                                   
+
+
 ## Meta
 
 Alcance:
@@ -34,7 +34,7 @@ Alcance:
 - Esta guía es para ambos el principiante y el experimentado. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar facilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente ahorra tiempo comparada con otras alternativas.
 - Esta escrito para Linux, con excepción de la sección "[Solo para MacOS](#macos-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
 - Se enficá en Bash interactivo, Aunque muchos de los consejos se aplican para otros shells y al Bash scripting por lo general.
-- Esta incluye ambos comandos "estándar" Unix commands así como aquellos que requiren la instalación especial de in paquete -- siempre que sea suficientemente importante para ameritar su inclusión. 
+- Esta incluye ambos comandos "estándar" Unix commands así como aquellos que requiren la instalación especial de in paquete -- siempre que sea suficientemente importante para ameritar su inclusión.
 
 Notas:
 
@@ -384,7 +384,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `units`: unidades de conversión y calculaciones; convierte furlongs por fortnight para twips por blink (ver también `/usr/share/units/definitions.units`)
 
-- `7z`: conpresión de archivos de alto nivel 
+- `7z`: conpresión de archivos de alto nivel
 
 - `ldd`: información de libreria dinamica
 
@@ -469,6 +469,6 @@ Con excepción de pequeñas tareas, el código está escrito para que otros pued
 
 ## Licencia
 
-[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 Este trabajo esta licenciado bajo [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).

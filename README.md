@@ -1,4 +1,4 @@
-[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md) ]
+[ [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
 
 
 
@@ -36,7 +36,7 @@ Scope:
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux, with the exception of the "[MacOS only](#macos-only)" section. Many of the other items apply or can be installed on other Unices or MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
-- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion. 
+- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.
 
 Notes:
 
@@ -471,6 +471,6 @@ With the exception of very small tasks, code is written so others can read it. W
 
 ## License
 
-[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
