@@ -24,7 +24,7 @@ Gran parte está en
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-pero debido al interés mostrado ahí, parece que vale la pena usar Github, donde existen personas con mayor talento que fácilmente pueden sugerir mejoras. Si ve un error o algo que podría ser mejor, por favor, cree un issue o PR! (Por supuesto revise la sección meta de PRs/issues primero.)
+pero debido al interés mostrado, parece que vale la pena usar Github, donde existen personas más talentosas, que fácilmente pueden sugerir mejoras. Si ve un error o algo que podría ser mejor, por favor, cree un issue o PR! (Por supuesto revise la sección meta de PRs/issues primero.)
 
 
 ## Meta
@@ -71,7 +71,7 @@ Notas:
 
 - En Bash, se usa **Tab** para completar los argumentos y **ctrl-r** para buscar, a través del historial de comandos.
 
-- En Bash, se usa **ctrl-w** para borrar la última palabra, y **ctrl-u** para borrar todo el camino desde el inicio de la línea. Se usa **alt-b** y **alt-f** para moverse entre letras, **ctrl-k** para eliminar hasta el final de la línea, **ctrl-l** para limpiar la panatalla. Ver `man readline` para todos los atajos de teclado por defecto en Bash. Son una gran cantidad. Por ejemplo **alt-.** realiza un ciclo a través de los comandos previos, y **alt-*** expande un glob.
+- En Bash, se usa **ctrl-w** para borrar la última palabra, y **ctrl-u** para borrar todo el camino hasta el inicio de la línea. Se usa **alt-b** y **alt-f** para moverse entre letras, **ctrl-k** para eliminar hasta el final de la línea, **ctrl-l** para limpiar la panatalla. Ver `man readline` para todos los atajos de teclado por defecto en Bash. Son una gran cantidad. Por ejemplo **alt-.** realiza un ciclo a través de los comandos previos, y **alt-*** expande un glob.
 
 - Alternativamente, si amas los atajos de teclado vi-style, usa `set -o vi`.
 
@@ -181,9 +181,9 @@ Notas:
 
 - Conocer acerca `tee` para copiar desde el stdin hacia un archivo y también hacia el stdout, así `ls -al | tee file.txt`.
 
-- Conocer que `locale` afecta muchas herramientas de línea de comando en forma delicada, incluyendo el orden del ordenamiento (compaginación) y rendimiento. La mayoria de las instalaciones de Linux configuran `LANG` u otras variables de localización para la configuración local como US English. Pero esté alerta, el ordenamiento puede cambiar si cambia la localización. Y también las rutinas i18n pueden hacer que sort u otros comandos se ejecuten *muchas mas veces* mas lentos. En algunas situaciones (tales como la realización de operaciones u operaciones singulares debajo) puede de forma segura ignorar las turinas lentas i18n por completo y utilizar el sort tradcional basado en byte, usando `export LC_ALL=C`.
+- Conocer que `locale` afecta muchas herramientas de línea de comando en forma delicada, incluyendo el orden del ordenamiento (compaginación) y rendimiento. La mayoría de las instalaciones de Linux configuran `LANG` u otras variables de localización para la configuración local como US English. Pero esté alerta, el ordenamiento puede cambiar si cambia la localización. Y también las rutinas i18n pueden hacer que `sort` u otros comandos se ejecuten **muchas veces** más lentos. En algunas situaciones (tales como la realización de operaciones u operaciones singulares debajo) puede de forma segura ignorar las turinas lentas i18n por completo y utilizar el sort tradicional basado en byte, usando `export LC_ALL=C`.
 
-- Conozca `awk` y `sed` para mapeo de datos sencillos. Por ejemplo, sumar todos lo números en la tercera columna de un archivo de texto: `awk '{ x += $3 } END { print x }'`. Esto es probablemente 3X más rápido y 3X más corto que su equivalente en Python.
+- Conozca aspectos básicos de `awk` y `sed` para manejo de datos. Por ejemplo, sumar todos lo números en la tercera columna de un archivo de texto: `awk '{ x += $3 } END { print x }'`. Esto es probablemente 3X más rápido y 3X más corto que su equivalente en Python.
 
 - Para remplazar todas las ocurrencias de un string en su lugar, en uno o más archivos:
 ```sh
@@ -198,7 +198,7 @@ Notas:
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- Usar `shuf` para mezclar o seleccionar líneas aleatoreas desde un archivo.
+- Usar `shuf` para mezclar o seleccionar líneas aleatorias desde un archivo.
 
 - Conozca las opciones de `sort`. Para números, use `-n`, o `-h` para manipulación de números humanamente leibles (Ej. desde `du -h`). Conozca el trabajo principal de (`-t` y `-k`). En particular, este atento que lo necesitara para escribir`-k1,1` para ordenar por solo el primer campo; `-k1` significa ordenar de acuerdo a toda la línea. Orden estable (`sort -s`) puede ser útil. Por ejemplo, para organizar el primer por el campo 2, entonces secundariamente hacerlo por el campo 1, Puedes usar `sort -k1,1 | sort -s -k2,2`.
 
@@ -212,7 +212,7 @@ Notas:
 
 - Para diffs binaria (delta compression), usar `xdelta3`.
 
-- Para convertir To convert la codificación del texto, probar `iconv`. O `uconv` para el uso avanzado; este soporta este soporta algunos elementos Unicode avanzados. Por ejemplo, este coloca en minúsculas y remueve todos los acentos (por expanción y colocandolos a ellos):
+- Para convertir la codificación del texto, probar `iconv`. O `uconv` para el uso avanzado; este soporta este soporta algunos elementos Unicode avanzados. Por ejemplo, este coloca en minúsculas y remueve todos los acentos (por expanción y colocandolos a ellos):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
@@ -265,7 +265,7 @@ Notas:
 
 Algunos ejemplos de comandos reunidos:
 
-- Este es remarcablemente útil en ocasiones que hay que realizar intersección, unión, y diferencia de archivos de texto via `sort`/`uniq`. Considere `a` y `b` son archivos de texto que son ya unicos. Esto es rápido, y trabaja con archivos de tamaño arbitrario, hasta varios gigabytes. (Sort no esta limitado por la memoria, aunque quizas necesites utilizar la opción `-T` si `/tmp` esta en una pequeña partición raíz.) Ver también la nota acerca `LC_ALL` y las opciones de `sort`, `-u` (dejado de lado para clarificar mas abajo).
+- Este es notablemente útil en ocasiones que hay que realizar intersección, unión, y diferencia de archivos de texto via `sort`/`uniq`. Considere `a` y `b` son archivos de texto que son ya únicos. Esto es rápido, y trabaja con archivos de tamaño arbitrario, hasta varios gigabytes. (Sort no esta limitado por la memoria, aunque quizás necesites utilizar la opción `-T` si `/tmp` esta en una pequeña partición raíz.) Ver también la nota acerca `LC_ALL` y las opciones de `sort`, `-u` (dejado de lado para clarificar mas abajo).
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
@@ -296,7 +296,7 @@ Algunos ejemplos de comandos reunidos:
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- Ejecta esta función para obtener un consejo aleatoreo desde este documento (analiza el Markdown y extrae un elemento):
+- Ejecuta esta función para obtener un consejo aleatorio desde este documento (analiza el Markdown y extrae un elemento):
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -380,7 +380,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `split` y `csplit`: división de archivos
 
-- `sponge`: lee todas las entradas antes de escribirlo, útil para lectura desde useful for reading y luego la escritura hacia el mismo archivo, Ej., `grep -v something some-file | sponge some-file`
+- `sponge`: lee todas las entradas antes de escribirlo, útil para vista previa y posterior escritura hacia el mismo archivo, Ej., `grep -v something some-file | sponge some-file`
 
 - `units`: unidades de conversión y calculaciones; convierte furlongs por fortnight para twips por blink (ver también `/usr/share/units/definitions.units`)
 
