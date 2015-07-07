@@ -1,19 +1,19 @@
-[ На других языках: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md) ]
+[ На других языках: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
 
 # Искусство командной строки
 
 [![Вступайте в англоязычный чат проекта https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-- [Описание](#meta)
-- [Основы](#basics)
-- [Ежедневное использование](#everyday-use)
-- [Процессинг файлов и информации](#processing-files-and-data)
-- [Системный дебаггинг](#system-debugging)
-- [В одну строчку](#one-liners)
-- [Сложно, но полезно](#obscure-but-useful)
+- [Описание](#описание)
+- [Основы](#основы)
+- [Ежедневное использование](#ежедневное-использование)
+- [Процессинг файлов и информации](#процессинг-файлов-и-информации)
+- [Системный дебаггинг](#системный-дебаггинг)
+- [В одну строчку](#В-одну-строчку)
+- [Сложно, но полезно](#Сложно,-но-полезно)
 - [MacOS only](#macos-only)
-- [Больше информации по теме](#more-resources)
-- [Дисклеймер](#disclaimer)
+- [Больше информации по теме](#больше-информации-по-теме)
+- [Дисклеймер](#дисклеймер)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
