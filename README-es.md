@@ -32,7 +32,7 @@ pero debido al interés mostrado, parece que vale la pena usar Github, donde exi
 Alcance:
 
 - Esta guía es tanto para el principiante como para el experimentado. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar fácilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente ahorra tiempo comparada con otras alternativas.
-- Esta escrito para Linux, con excepción de la sección "[Solo para MacOS](#macos-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros UNIX o MacOS (o incluso Cygwin).
+- Esta escrito para Linux, con excepción de la sección "[Solo para MacOS](#macos-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
 - Se enfoca en Bash interactivo, aunque muchos de los consejos se aplican para otros shells y al Bash scripting por lo general.
 - Esta incluye ambos comandos "estándar" Unix, así como aquellos que requieren la instalación especial de un paquete -- siempre que sea suficientemente importante para ameritar su inclusión.
 
@@ -79,7 +79,7 @@ Notas:
 
 - Para volver al diretorio de trabajo previo: `cd -`
 
-- Si estas a mitad de camino de escritura de un comando pero cambias de opinión, presiona **alt-#** para agregar un `#` al princio y lo agrega como comantario (o usar **ctrl-a**, **#**, **enter**). Para que puedas entonces regresar a este luego vía comando history.
+- Si estas a mitad de camino de escritura de un comando pero cambias de opinión, presiona **alt-#** para agregar un `#` al principio y lo agrega como comentario (o usar **ctrl-a**, **#**, **enter**). Para que puedas entonces regresar a este luego vía comando `history`.
 
 - Se usa `xargs` (or `parallel`). Esto es muy poderoso. Nota: puedes controlar muchos items ejecutados por línea (`-L`), tamabién es conocido como paralelismo (`-P`). Si no estas seguro, este puede ser el camino correcto, usa `xargs echo` primero. También, `-I{}` es comodo. Ejemplos:
 ```bash
@@ -101,33 +101,33 @@ Notas:
 
 - Usar `alias` para crear atajos para comandos comúnmente usados. Por ejemplo, `alias ll="las -latr"` crea un nuevo alias `ll`
 
-- En guiones Bash, usa `set -x` para depurar la salida. Utiliza el modo estricto cuando se posible. Utiliza `set -e` para abortar en errores. Utiliza `set -o pipefail` también, para ser estrictos sobre los errores (auque este tema es un poco delicado). Para guiones más complejos, también se puede utilizar `trap`.
+- En scripts Bash, usa `set -x` para depurar la salida. Utiliza el modo estricto cuando se posible. Utiliza `set -e` para abortar en errores. Utiliza `set -o pipefail` también, para ser estrictos sobre los errores (aunque este tema es un poco delicado). Para scripts más complejos, también se puede utilizar `trap`.
 
-- En guiones Bash, subshells (escritos con parentesís) son maneras convenientes para agrupar los comandos. Un ejemplo común es para moverse temporalmente hacia un directorio diferente del de trabajo, Ej.
+- En scripts Bash, subshells (escritos con parentesís) son maneras convenientes para agrupar los comandos. Un ejemplo común es para moverse temporalmente hacia un directorio diferente del de trabajo, Ej.
 ```bash
       # do something in current dir
       (cd /some/other/dir && other-command)
       # continue in original dir
 ```
 
-- En Bash, considere que hay muchas formas de expansión de variables. Verificar la existencia de una variable: `${name:?error message}`. Por ejemplo, si un guión Bash requiere un único argumento, solo escriba `input_file=${1:?usage: $0 input_file}`. Expansión arítmetica: `i=$(( (i + 1) % 5 ))`. Secuencias: `{1..10}`. Reducción de strings: `${var%suffix}` y `${var#prefix}`. Por ejemplo si `var=foo.pdf`, entonces `echo ${var%.pdf}.txt` imprime `foo.txt`.
+- En Bash, considere que hay muchas formas de expansión de variables. Verificar la existencia de una variable: `${name:?error message}`. Por ejemplo, si un script Bash requiere un único argumento, solo escriba `input_file=${1:?usage: $0 input_file}`. Expansión arítmetica: `i=$(( (i + 1) % 5 ))`. Secuencias: `{1..10}`. Reducción de strings: `${var%suffix}` y `${var#prefix}`. Por ejemplo si `var=foo.pdf`, entonces `echo ${var%.pdf}.txt` imprime `foo.txt`.
 
-- La salida de un comando puede ser tratado como un archivo, via `<(some command)`. Por ejemplo, compare local `/etc/hosts` con uno remoto:
+- La salida de un comando puede ser tratado como un archivo, vía `<(some command)`. Por ejemplo, compare local `/etc/hosts` con uno remoto:
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
 - Conocer acerca "here documents" en Bash, así también `cat <<EOF ...`.
 
-- En Bash, redireccionar salida estandar y error estandar, via: `some-command >logfile 2>&1`. Frecuentemente, para garantizar que un comando no haya dejado abierto un archivo para controlar la entrada estandar vinculada al terminal en el que te encuentras y también como buena practica puedes agregar `</dev/null`.
+- En Bash, redireccionar salida estándar y error estándar, via: `some-command >logfile 2>&1`. Frecuentemente, para garantizar que un comando no haya dejado abierto un archivo para controlar la entrada estándar vinculada al terminal en el que te encuentras y también como buena practica puedes agregar `</dev/null`.
 
 - Use `man ascii` para una buena tabla ASCII, con valores hexadecimal y decimales. Para información de codificación general, `man unicode`, `man utf-8`, y `man latin1` son de utilidad.
 
-- Use `screen` o [`tmux`](https://tmux.github.io/) para multiplexar la pantalla, espcialmente útil en sessiones ss remotas y para desconectar y reconectar a una sessión. Una alternativa más minimalista para persistencia de la sessión solo sería `dtach`.
+- Use `screen` o [`tmux`](https://tmux.github.io/) para multiplexar la pantalla, especialmente útil en sesiones ss remotas y para desconectar y reconectar a una sesión. Una alternativa más minimalista para persistencia de la sesión solo sería `dtach`.
 
 - En ssh, conocer como hacer un port tunnel con `-L` o `-D` (y de vez en cuando `-R`) es útil, Ej. para acceder sitio web desde un servidor remoto.
 
-- esto puede ser útil para hacer algunas optimizaciones para su configuración ssh; por ejemplo, Este, `~/.ssh/config` contiene la configuracion para evitar desxonexiones en ciertos entornos de red, usar comprensión (la cual es muy útil con scp sobre conexiones con un ancho de banda pequeño), y multiplexar canales para el mismo servidor con un archivo de control local:
+- esto puede ser útil para hacer algunas optimizaciones para su configuración ssh; por ejemplo, Este, `~/.ssh/config` contiene la configuracion para evitar desconexiones en ciertos entornos de red, usar comprensión (la cual es muy útil con scp sobre conexiones con un ancho de banda pequeño), y multiplexar canales para el mismo servidor con un archivo de control local:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -140,7 +140,7 @@ Notas:
 
 - Unas pocas otras opciones relevantes para ssh son are sensitivas a la seguridad y deben ser activadas con cuidado, Ej. "per subnet", "host" o "in trusted networks: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Para optener permiso sobre un archivo en forma octal form, el cual es útil para la configuración del sistema pero no disponible con `ls` y fácil de estropear, usando algo como
+- Para obtener permiso sobre un archivo en forma octal form, el cual es útil para la configuración del sistema pero no disponible con `ls` y fácil de estropear, usando algo como
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
@@ -152,7 +152,7 @@ Notas:
 - Para un servidor web sencillo para todos los archivos en el directorio actual (y subdirectorios), disponible para cualquiera en tu red, usa:
 `python -m SimpleHTTPServer 7777` (para el puerto 7777 y Python 2) y `python -m http.server 7777` (para 7777 y Python 3).
 
-- Para ejecutar un comando con privilagios, usando `sudo` (para root) o `sudo -u` (para otro usuario). Usar `su` o `sudo bash` para realmente ejecutar un shell como este usuario. Usar `su -` para simular un login fresco como root u otro usuario.
+- Para ejecutar un comando con privilegios, usando `sudo` (para root) o `sudo -u` (para otro usuario). Usar `su` o `sudo bash` para realmente ejecutar un shell como este usuario. Usar `su -` para simular un login fresco como root u otro usuario.
 
 
 ## Procesamiento de archivos y datos
@@ -200,11 +200,11 @@ Notas:
 
 - Usar `shuf` para mezclar o seleccionar líneas aleatorias desde un archivo.
 
-- Conozca las opciones de `sort`. Para números, use `-n`, o `-h` para manipulación de números humanamente leibles (Ej. desde `du -h`). Conozca el trabajo principal de (`-t` y `-k`). En particular, este atento que lo necesitara para escribir`-k1,1` para ordenar por solo el primer campo; `-k1` significa ordenar de acuerdo a toda la línea. Orden estable (`sort -s`) puede ser útil. Por ejemplo, para organizar el primer por el campo 2, entonces secundariamente hacerlo por el campo 1, Puedes usar `sort -k1,1 | sort -s -k2,2`.
+- Conozca las opciones de `sort`. Para números, use `-n`, o `-h` para manipulación de números humanamente leíbles (Ej. desde `du -h`). Conozca el trabajo principal de (`-t` y `-k`). En particular, este atento que lo necesitara para escribir`-k1,1` para ordenar por solo el primer campo; `-k1` significa ordenar de acuerdo a toda la línea. Orden estable (`sort -s`) puede ser útil. Por ejemplo, para organizar el primer por el campo 2, entonces secundariamente hacerlo por el campo 1, Puedes usar `sort -k1,1 | sort -s -k2,2`.
 
 - Si necesitas siempre escribir un tab literal en una línea de comandos en Bash (Ej. para el argumento -t de ordenar), presione **ctrl-v** **[Tab]** o escriba `$'\t'` (El último es mejor porque puedes copiarlo/pegarlo).
 
-- Las herramientas estandar para reparar el código fuente son `diff` y `patch`. Ver también `diffstat` para resumen estadístico de una diff. Nota `diff -r` trabaja con directorios por completo. Usar`diff -r tree1 tree2 | diffstat` para el resumen de cambios.
+- Las herramientas estándar para reparar el código fuente son `diff` y `patch`. Ver también `diffstat` para resumen estadístico de una diff. Nota `diff -r` trabaja con directorios por completo. Usar`diff -r tree1 tree2 | diffstat` para el resumen de cambios.
 
 - Para archivos binarios, usar `hd` para sencillos "hex dumps" y `bvi` para edición de binario.
 
@@ -232,7 +232,7 @@ Notas:
 
 - Para conocer el estado de la memoria, ejecutar y entender la salida de `free` y `vmstat`. En particular, tener en cuenta el valor "cached" es memoria mantenida por el kernel Linux como un archivo de cache, entonces efectivamente cuenta como valor para "free".
 
-- El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y de otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la collección de basura generacional, la cual puede ser altamente informativa) seran descargados al stderr/logs.
+- El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y de otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la colección de basura generacional, la cual puede ser altamente informativa) serán descargados al stderr/logs.
 
 - Usar `mtr` como un mejor traceroute, para identificar los problemas en la red.
 
@@ -240,7 +240,7 @@ Notas:
 
 - Para encontrar cual socket o proceso  esta utilizando el ancho de banda, prueba `iftop` o `nethogs`.
 
-- La herramienta `ab` (viene con Apache) es útil para una verificación rapida y sucia del rendimiento del servidor web. Para pruebas de carga más complejas, prueba `siege`.
+- La herramienta `ab` (viene con Apache) es útil para una verificación rápida y sucia del rendimiento del servidor web. Para pruebas de carga más complejas, prueba `siege`.
 
 - Para depuración de redes más serias, `wireshark`, `tshark`, o `ngrep`.
 
@@ -250,7 +250,7 @@ Notas:
 
 - Conozca como conectarse a un proceso en ejecución con `gdb` y obtener su traza de pilas.
 
-- Usar `/proc`. Este es extraordinariamente útil algunas veces cuando hay problemas de deputación en vivo. Ejemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Usar `/proc`. Este es extraordinariamente útil algunas veces cuando hay problemas de depuración en vivo. Ejemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
 - Cuando se depura porque algo salio más en el pasado, `sar` puede ser muy útil. Este muestra la estadistica historica en CPU, memoria, red, etc.
 
@@ -258,14 +258,14 @@ Notas:
 
 - Confirmar que OS te encuentras con `uname` o `uname -a` (información general Unix/kernel) o `lsb_release -a` (Linux distro info).
 
-- Usar `dmesg` siempre que algo actue comico (esto podría ser problemas con el hardware o driver).
+- Usar `dmesg` siempre que algo actúe raro (esto podría ser problemas con el hardware o driver).
 
 
 ## One-liners
 
 Algunos ejemplos de comandos reunidos:
 
-- Este es notablemente útil en ocasiones que hay que realizar intersección, unión, y diferencia de archivos de texto via `sort`/`uniq`. Considere `a` y `b` son archivos de texto que son ya únicos. Esto es rápido, y trabaja con archivos de tamaño arbitrario, hasta varios gigabytes. (Sort no esta limitado por la memoria, aunque quizás necesites utilizar la opción `-T` si `/tmp` esta en una pequeña partición raíz.) Ver también la nota acerca `LC_ALL` y las opciones de `sort`, `-u` (dejado de lado para clarificar mas abajo).
+- Este es notablemente útil en ocasiones que hay que realizar intersección, unión, y diferencia de archivos de texto vía `sort`/`uniq`. Considere `a` y `b` como archivos de texto que son únicos. Esto es rápido, y trabaja con archivos de tamaño arbitrario, hasta varios gigabytes. (Sort no esta limitado por la memoria, aunque quizás necesites utilizar la opción `-T` si `/tmp` esta en una pequeña partición raíz.) Ver también la nota acerca `LC_ALL` y las opciones de `sort`, `-u` (dejado de lado para clarificar mas abajo).
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
@@ -275,7 +275,7 @@ Algunos ejemplos de comandos reunidos:
 - Usar `grep . *` para visualmente examinar todo el contenido de todos los archivos de un directorio, Ej. para directorios llenos con parametros de configuración, como `/sys`, `/proc`, `/etc`.
 
 
-- Sumar todos os números en la tercera columna de un archivo de texto (esto es probablemente 3X más rapido 3X menor código que el equivalente en Python):
+- Sumar todos os números en la tercera columna de un archivo de texto (esto es probablemente 3X más rápido 3X menor código que el equivalente en Python):
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
@@ -322,7 +322,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `printenv`: imprime las variables del ambiente (útil en depuración y scripts)
 
-- `look`: buscar palabras en English (o líneas en un archivo) comanzando con un string
+- `look`: buscar palabras en English (o líneas en un archivo) comenzando con un string
 
 - `cut`, `paste` y `join`: manipulación de datos
 
