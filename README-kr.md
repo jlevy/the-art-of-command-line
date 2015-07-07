@@ -18,13 +18,13 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-커맨드라인을 능숙하게 다루는것은 도외시되거나 신비스럽게 여겨진다. 하지만 커맨드라인은 명백하고도 미묘한 방법으로 엔지니어가 하는 작업의 유연성과 생산성을 향상시킨다. 이 문서는 리눅스에서 작업을 하면서 찾은 노트와 팁들의 모음이다. 몇 가지는 기초적이고, 몇가지는 상당히 구체적이며, 세련되거나, 잘 알려지지 않은 것이다. 이 문서는 그리 길지 않지만, 여기 있는 모든것을 사용할 수 있게 되고, 기억해낼 수 있게 된다면, 많은 것을 알게되는 것이다.
+커맨드라인을 능숙하게 다루는것은 도외시되거나 신비스럽게 여겨집니다. 하지만 커맨드라인은 명백하고도 미묘한 방법으로 엔지니어가 하는 작업의 유연성과 생산성을 향상시십니다. 이 문서는 리눅스에서 작업을 하면서 찾은 노트와 팁들의 모음입니다. 몇 가지는 기초적이고, 몇가지는 상당히 구체적이며, 세련되고, 잘 알려지지 않은 것입니다. 이 문서는 그리 길지 않지만, 여기 있는 모든것을 사용할 수 있게 되고, 기억해낼 수 있게 된다면, 많은 것을 알게되는 것입니다.
 
 여기있는 대부분의 것은
 [원래](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [Quora에](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
- [올라온](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know) 것이다.
-하지만 거기에 관심을 가지기보다, Github를 이용하는 것이 더 가치있는 것처럼 보인다. 여기엔 더 재능있는 사람들이 손쉽게 개선안을 제안할 수 있는 곳이다. 만약 문제가 있거나, 더 나아질 수 있는 내용이 보인다면, 이슈를 제출하거나 풀 리퀘스트를 보내달라! (물론 meta 섹션과 이미 존재하는 풀 리퀘스트와 이슈를 봐주기를 바란다.)
+ [올라온](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know) 것입니.
+하지만 거기에 관심을 가지기보다, Github를 이용하는 것이 더 가치있는 것처럼 보입니다. 여기엔 더 재능있는 사람들이 손쉽게 개선안을 제안할 수 있는 곳이죠. 만약 문제가 있거나, 더 나아질 수 있는 내용이 보인다면, 이슈를 제출하거나 풀 리퀘스트를 보내주세요! (물론 meta 섹션과 이미 존재하는 풀 리퀘스트와 이슈를 봐주기를 바랍니다.)
 
 ## Meta
 
@@ -33,23 +33,23 @@
 - 이 가이드는 초심자와 경험자 모두를 위한 것입니다. 목표는 범위(전부 다 중요합니다!), 구체성(대부분의 일반적인 케이스에 대한 구체적인 예제), 그리고 간결함(쉽게 마주치지 않는, 중요하지 않고, 지엽적인 것을 피함) 입니다. 모든 팁은 특정 상황에서 매우 중요하거나, 여러 대안들 사이에서의 시간을 확연하게 절약합니다.
 - 이 문서는 리눅스를 위한것입니다. 일부는 MacOS에서 똑같이 적용되지 않습니다(Cygwin에서 조차 말이죠).
 - 인터랙티브 Bash에 초점이 맞추어져있습니다만, 대부분의 팁은 다른 쉘이나, general Bash 스크립트에서도 동작합니다.
-- 이 문서는 "스탠다드" 유닉스 커맨드와 특정 패키지 설치를 필요로 하는 것 둘 자 포함하고 있습니다. 여기서 다루는 스탠다드 커맨드와 특정 패키지에 대한 것은 포함될만큼 충분히 중요합니다.
+- 이 문서는 "스탠다드" 유닉스 커맨드와 특정 패키지 설치를 필요로 하는 것 둘 다 포함하고 있습니다. 여기서 다루는 스탠다드 커맨드와 특정 패키지에 대한 것은 포함될만큼 충분히 중요합니다.
 
 노트:
 
-- 이 문서를 한 파일로 유지하기 위해서, 컨텐츠들은 암시적으로 레퍼런스 형태로 포함되어있습니다. 한 개념이나 명령어에 대해 알게 된 후에, 다른곳에서 그에대한 좀 더 자세한 정보를 찾을 수 있을만큼 독자들은 똑똑합니다. `apt-get`, `yum`, `dnf`, `pacman`, `pip`, `brew` (혹은 적절한 다른 것)을 이용해 새 프로그램을 설치하세요.
+- 이 문서를 한 파일로 유지하기 위해서, 컨텐츠들은 암시적인 레퍼런스 형태로 포함되어있습니다. 한 개념이나 명령어에 대해 알게 된 후에, 다른곳에서 그에대한 좀 더 자세한 정보를 찾을 수 있을만큼 당신은 똑똑할것입니다. `apt-get`, `yum`, `dnf`, `pacman`, `pip`, `brew` (혹은 적절한 다른 것)을 이용해 새 프로그램을 설치하세요.
 - [Explainshell](http://explainshell.com/)을 이용해서 각각의 커맨드, 옵션, 파이프나 그 외 등등이 어떤것인지 알아보십시오.
 
 
 ## Basics
 
-- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
+- 기본 Bash를 배우세요. 말하자면, 최소한 `man bash`를 실행하고, 전부를 훑어 보세요. 매뉴얼의 내용은 따라가기 쉬우며 그리 길지 않습니다. 다른 쉘들 또한 좋습니다만, Bash는 강력하고 언제나 사용가능합니다( *오직* zsh, fish, 그 외의 쉘만을 당신의 노트북에서 시도하면서 배우는 경우에는, 많은 경우 제한이 생길것입니다. 이미 존재하는 서버를 사용하는 것등의 일에서 말이죠).
 
-- Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
+- 텍스트 기반 에디터를 최소한 하나정도 다룰 수 있게 배우세요. Vim(`Vi`)가 이상적입니다. 터미널에서 온갖 작업을 하는데 다른 실질적인 경쟁자가 없기 때문이죠(Emacs, 대형 IDE 또는 모던 힙스터스러운 에디터를 대부분의 작업에 사용한다고 해도 말이죠).
 
-- Know how to read documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`. Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`.
+- `man`을 이용해서 문서를 읽는 법을 배우세요(호기심 많은 사람을 위해서 하는 얘기입니다만, `man man`은 섹션 번호들의 목록을 표시합니다. 예를 들어 1은 "regular" 커맨드, 5는 files/conventions, 그리고 8은 administration이죠). `apropos`를 히용해서 man 페이지를 찾으세요. 몇몇 커맨드는 실행가능한 커맨드가 아니라는 것을 알아두세요. 하지만 Bash 빌트인 함수들은 `help`와 `help -d`를 이용해서 도움말을 볼 수 있습니다.
 
-- Learn about redirection of output and input using `>` and `<` and pipes using `|`. Learn about stdout and stderr.
+- `>`와 `<`, `|`를 이용한 파이프를 사용해서 입력과 출력의 리다이렉션을 배우세요. stdout(역주: 표준 출력)과 stderr(역주: 표준 에러 출력)에 대해서 배우세요. 
 
 - Learn about file glob expansion with `*` (and perhaps `?` and `{`...`}`) and quoting and the difference between double `"` and single `'` quotes. (See more on variable expansion below.)
 
