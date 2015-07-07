@@ -7,7 +7,7 @@
 - [Meta](#meta)
 - [Fundamentos](#basics)
 - [De uso diario](#everyday-use)
-- [Procesamieto de archivos y datos](#processing-files-and-data)
+- [Procesamiento de archivos y datos](#processing-files-and-data)
 - [Depuración del sistema](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscuro pero útil](#obscure-but-useful)
@@ -18,70 +18,70 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Fluidez en el terminal es una destreza a menudo abandonada y considerada arcaica, pero esta mejora s flexibilidad y productividad como ingeniero en ambas formas obvia y sutil. Esta es una selección de notas y consejos al uar el terminal que encontré útil cuando trabajó en Linux. Algunos consejos son elementales, y algunos bastante específico, sofisiticados, o oscuros. Esta página no es larga, pero si usa y and recuerda todos los puntos aquí, ustedes saben un montón.
+La fluidez en el terminal es una destreza a menudo abandonada y considerada arcaica, pero esta mejora su flexibilidad y productividad como ingeniero en formas obvia y sutil. Esta es una selección de notas y consejos al usar el terminal que encuentro útil cuando trabajo en Linux. Algunos consejos son elementales y algunos bastante específicos, sofisticados u oscuros. Esta página no es larga, pero si usa y recuerda todos los puntos aquí mostrados, ustedes sabrán un montón.
 
-Gran parte esta
+Gran parte está en
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-pero debido al interés mostrado ahí, parece que vale la pena usar Github, donde las personas con mayor talento que facílmente sugerir mejoras. Si yo vez un error o algo que podría ser mejor, por favor, cree un issue o PR! (Por supuesto revise la sección meta de PRs/issues primero.)
+pero debido al interés mostrado ahí, parece que vale la pena usar Github, donde existen personas con mayor talento que fácilmente pueden sugerir mejoras. Si ve un error o algo que podría ser mejor, por favor, cree un issue o PR! (Por supuesto revise la sección meta de PRs/issues primero.)
 
 
 ## Meta
 
 Alcance:
 
-- Esta guía es para ambos el principiante y el experimentado. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar facilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente ahorra tiempo comparada con otras alternativas.
-- Esta escrito para Linux, con excepción de la sección "[Solo para MacOS](#macos-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
-- Se enficá en Bash interactivo, Aunque muchos de los consejos se aplican para otros shells y al Bash scripting por lo general.
-- Esta incluye ambos comandos "estándar" Unix commands así como aquellos que requiren la instalación especial de in paquete -- siempre que sea suficientemente importante para ameritar su inclusión.
+- Esta guía es tanto para el principiante como para el experimentado. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar fácilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente ahorra tiempo comparada con otras alternativas.
+- Esta escrito para Linux, con excepción de la sección "[Solo para MacOS](#macos-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros UNIX o MacOS (o incluso Cygwin).
+- Se enfoca en Bash interactivo, aunque muchos de los consejos se aplican para otros shells y al Bash scripting por lo general.
+- Esta incluye ambos comandos "estándar" Unix, así como aquellos que requieren la instalación especial de un paquete -- siempre que sea suficientemente importante para ameritar su inclusión.
 
 Notas:
 
-- Para mantener esto en una página, el contenido esta incluido implicitamente por referencia. Tú eres suficientemente inteligente para ver profundamente los detalles en otros lugares, cuando conoces la idea o comando command en Google. Usar `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (según proceda) para instalar los nuevos programas.
-- Usar [Explainshell](http://explainshell.com/) para obtener detalles de ayuda sobre que comandos, options, pipes, etc.
+- Para mantener esto en una página, el contenido esta incluido implícitamente por referencia. Usted es suficientemente inteligente para ver profundamente los detalles en otros lugares, cuando conoces la idea o comando en Google. Usar `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (según proceda) para instalar los nuevos programas.
+- Usar [Explainshell](http://explainshell.com/) para obtener detalles de ayuda sobre que comandos, opciones, pipes, etc.
 
 
 ## Fundamentos
 
-- Aprenda conocimiento básicos de Bash. De hecho, escriba `man bash` y al menos echelé un vistazo a todo la cosa; Es bastante fácil de seguir y no es tan largo. Alternar entre shells puede ser agradable, pero Bash es poderoso y siempre esta disponible (Por conocimiento *solo* zsh, fish, etc., aunque resulte tentador en tu propia laptop, los restringe en muchas situaciones, tales como el uso de servidores existentes).
+- Aprenda conocimientos básicos de Bash, de hecho, escriba `man bash` y al menos échele un vistazo a toda la cosa. Es bastante fácil de seguir y no es tan largo. Alternar entre shells puede ser agradable, pero Bash es poderoso y siempre esta disponible (conocer *solo* zsh, fish, etc., aunque resulte tentador en tu propia laptop, los restringe en muchas situaciones, tales como el uso de servidores existentes).
 
-- Aprenda almenos un editor de texto bien. Idealmente Vim (`vi`), como no hay realmente una competencia para la edción aleatorea en un terminal (incluso si usted usa Emacs, un gran IDE, o un editor alternativo (hipster) moderno la mayor parte del tiempo).
+- Aprenda bien al menos un editor de texto, idealmente Vim (`vi`), como no hay realmente una competencia para la edición aleatoria en un terminal (incluso si usa Emacs, un gran IDE, o un editor alternativo (hipster) moderno la mayor parte del tiempo).
 
-- Conozca como leer la documentation con `man` (Para curiosos, `man man` lista las secciones enumeradas, ej. 1 es comandos "regulares", 5 son archivos/convenciones, y 8 are para administración). En en las páginas de man `apropos`. Conozca que alguno de los comandos no son ejecutables, paro son Bash builtins, y que ouede obtener ayuda sobre ellos con `help` y `help -d`.
+- Conozca como leer la documentación con `man` (Para curiosos, `man man` lista las secciones enumeradas, ej. 1 es comandos "regulares", 5 son archivos/convenciones, y 8 are para administración). En en las páginas de man `apropos`. Conozca que alguno de los comandos no son ejecutables, pero son Bash builtins, y que puede obtener ayuda sobre ellos con `help` y `help -d`.
 
-- Aprenda sobre redirección de salida y entrada `>` y `<` and pipes utilizando `|`. Conozca `>` sobre escribe el archivo de salida y `>>` añade. Aprenda sobre stdout y stderr.
+- Aprenda sobre redirección de salida y entrada (`>` y `<`); pipes utilizando `|`. Conozca que `>` sobrescribe el archivo de salida y `>>` añade. Aprenda sobre stdout y stderr.
 
-- Aprenda sobre expansión de archivos glob con `*` (y tal vez `?` y `{`...`}`) y quoting y la diferencia entre doble `"` y simple `'` quotes. (Ver mas en expansión variable más abajo.)
+- Aprenda sobre expansión de archivos glob con `*` (y tal vez `?` y `{`...`}`) y quoting y la diferencia entre doble `"` y simple `'` quotes. (Ver más en expansión de variables más abajo.)
 
-- Familiarizate con administración de trabajo en Bash: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+- Familiarízate con la administración de trabajo en Bash: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
-- Conoce `ssh`, y lo básico de authenticacion sin password, via `ssh-agent`, `ssh-add`, etc.
+- Conoce `ssh` y lo básico de autenticación sin contraseña, vía `ssh-agent`, `ssh-add`, etc.
 
-- Adminisración de archivos básica: `ls` y `ls -l` (en particular, aprenda el significado de cada columna en `ls -l`), `less`, `head`, `tail` y `tail -f` (o incluso mejor, `less +F`), `ln` y `ln -s` (aprenda las diferencias y ventajas entre hard y soft links), `chown`, `chmod`, `du` (para un rápido resumen del uso del disco: `du -hk *`). Para administración de filesystem, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Administración de archivos básica: `ls` y `ls -l` (en particular, aprenda el significado de cada columna en `ls -l`), `less`, `head`, `tail` y `tail -f` (o incluso mejor, `less +F`), `ln` y `ln -s` (aprenda las diferencias y ventajas entre enlaces hard y soft), `chown`, `chmod`, `du` (para un resumen rápido del uso del disco: `du -hk *`). Para administración de archivos de sistema, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
-- Administración de redes básico: `ip` o `ifconfig`, `dig`.
+- Administración básica de redes: `ip` o `ifconfig`, `dig`.
 
-- Conozca expresiones regulares bien, y varias banderas (flags) para `grep`/`egrep`. El `-i`, `-o`, `-A`, y `-B` son opciones dignas de ser conocidas.
+- Conozca bien las expresiones regulares y varias opciones (flags) para `grep`/`egrep`. Las opciones `-i`, `-o`, `-A`, y `-B` son dignas de ser recordadas.
 
-- Aprenda el uso de `apt-get`, `yum`, `dnf` o `pacman` (dependiendo de la dismtribución "distro") para buscar e instalar paquetes. Y asegurate que tienes `pip` para instalar la herramienta de linea de comando basada en Python (un poco más abajo esta super fácil para instalar vía `pip`).
+- Aprenda el uso de `apt-get`, `yum`, `dnf` o `pacman` (dependiendo de la distribución "distro") para buscar e instalar paquetes. Y asegúrate que tienes `pip` para instalar la herramienta de línea de comando basada en Python (un poco más abajo esta explicado como instalar vía `pip`).
 
 
 ## De uso diario
 
-- En Bash, se usa **Tab** para completar los argumentos y **ctrl-r** para buscar, a través, del historial de comandos.
+- En Bash, se usa **Tab** para completar los argumentos y **ctrl-r** para buscar, a través del historial de comandos.
 
-- En Bash, se usa **ctrl-w** para borrar la última palabra, y **ctrl-u** para borrar to delete todo el camino hasta el inicio de la línea. Se usa **alt-b** y **alt-f** para moverse entre letras, **ctrl-k** para eliminar hasta el final de la línea, **ctrl-l** para limpiar la panatalla. Ver `man readline` para todos los atajos de teclado por defecto en Bash. Son una gran cantidad. Por ejemplo **alt-.** cicla, a través, de los comandos previos, y **alt-*** expande un glob.
+- En Bash, se usa **ctrl-w** para borrar la última palabra, y **ctrl-u** para borrar todo el camino desde el inicio de la línea. Se usa **alt-b** y **alt-f** para moverse entre letras, **ctrl-k** para eliminar hasta el final de la línea, **ctrl-l** para limpiar la panatalla. Ver `man readline` para todos los atajos de teclado por defecto en Bash. Son una gran cantidad. Por ejemplo **alt-.** realiza un ciclo a través de los comandos previos, y **alt-*** expande un glob.
 
-- Alternativamente, si tu amas los atajos de teclado vi-style, usa `set -o vi`.
+- Alternativamente, si amas los atajos de teclado vi-style, usa `set -o vi`.
 
 - Para ver los últimos comandos, `history`. También existen abreviaciones, tales como, `!$` (último argumento) y `!!` último comando, auque sin facílmente remplazados con **ctrl-r** y **alt-.**.
 
 - Para volver al diretorio de trabajo previo: `cd -`
 
-- Si estas a mitad de camino de escritura de un comando pero cambias de opinión, presiona **alt-#** para agregar un `#` al princio y lo agrega como comantario (o usar **ctrl-a**, **#**, **enter**). Para que puedas entonces regresar a este luego vía comando historyYou can then return to it later via command history.
+- Si estas a mitad de camino de escritura de un comando pero cambias de opinión, presiona **alt-#** para agregar un `#` al princio y lo agrega como comantario (o usar **ctrl-a**, **#**, **enter**). Para que puedas entonces regresar a este luego vía comando history.
 
-- `Se usa `xargs` (or `parallel`). Este es muy poderoso. Nota: tú puedes controlar muchos items por ejecutados por línea (`-L`) tamabién, es conocido como paralelismo (`-P`). Si no estas seguro, esto puede ser la cosa correcta, usa `xargs echo` primero. También, `-I{}` es comodo. Ejemplos:
+- Se usa `xargs` (or `parallel`). Esto es muy poderoso. Nota: puedes controlar muchos items ejecutados por línea (`-L`), tamabién es conocido como paralelismo (`-P`). Si no estas seguro, este puede ser el camino correcto, usa `xargs echo` primero. También, `-I{}` es comodo. Ejemplos:
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
@@ -101,16 +101,16 @@ Notas:
 
 - Usar `alias` para crear atajos para comandos comúnmente usados. Por ejemplo, `alias ll="las -latr"` crea un nuevo alias `ll`
 
-- En Bash scripts, usa `set -x` para depurar la salida. Utiliza el modo estricto cuando se posible. Utiliza `set -e` para abortar en errores. Utiliza `set -o pipefail` también, para ser estrictos sobre los errores (auque este tema es un poco delicado). Para scripts más complejos, también se puede utilizar `trap`.
+- En guiones Bash, usa `set -x` para depurar la salida. Utiliza el modo estricto cuando se posible. Utiliza `set -e` para abortar en errores. Utiliza `set -o pipefail` también, para ser estrictos sobre los errores (auque este tema es un poco delicado). Para guiones más complejos, también se puede utilizar `trap`.
 
-- En Bash scripts, subshells (escritos con parentesís) son maneras convenientes para agrupar los comandos. Un ejemplo común es para moverse temporalment hacia un diferente directorio de trabajo, Ej.
+- En guiones Bash, subshells (escritos con parentesís) son maneras convenientes para agrupar los comandos. Un ejemplo común es para moverse temporalmente hacia un directorio diferente del de trabajo, Ej.
 ```bash
       # do something in current dir
       (cd /some/other/dir && other-command)
       # continue in original dir
 ```
 
-- En Bash, considere que hay muchas formas de expansión de vaiables. Verificar la existencia de una variable: `${name:?error message}`. Por ejemplo, si un script Bash requiere un único argumento, solo escriba `input_file=${1:?usage: $0 input_file}`. Expansión arítmetica: `i=$(( (i + 1) % 5 ))`. Secuencias: `{1..10}`. Reducción de strings: `${var%suffix}` y `${var#prefix}`. Por ejemplo si `var=foo.pdf`, entonces `echo ${var%.pdf}.txt` imprime `foo.txt`.
+- En Bash, considere que hay muchas formas de expansión de variables. Verificar la existencia de una variable: `${name:?error message}`. Por ejemplo, si un guión Bash requiere un único argumento, solo escriba `input_file=${1:?usage: $0 input_file}`. Expansión arítmetica: `i=$(( (i + 1) % 5 ))`. Secuencias: `{1..10}`. Reducción de strings: `${var%suffix}` y `${var#prefix}`. Por ejemplo si `var=foo.pdf`, entonces `echo ${var%.pdf}.txt` imprime `foo.txt`.
 
 - La salida de un comando puede ser tratado como un archivo, via `<(some command)`. Por ejemplo, compare local `/etc/hosts` con uno remoto:
 ```sh
@@ -119,11 +119,11 @@ Notas:
 
 - Conocer acerca "here documents" en Bash, así también `cat <<EOF ...`.
 
-- En Bash, redireccionar ambas salida estandar y error estandar, via: `some-command >logfile 2>&1`. Frecuentemente, para garantizar que un comando no haya dejado abierto un archivo para controlar la entrada estandar, vinculado al terminal en el que te encuentras, esta también como buena practica puedes agregar `</dev/null`.
+- En Bash, redireccionar salida estandar y error estandar, via: `some-command >logfile 2>&1`. Frecuentemente, para garantizar que un comando no haya dejado abierto un archivo para controlar la entrada estandar vinculada al terminal en el que te encuentras y también como buena practica puedes agregar `</dev/null`.
 
-- Usa `man ascii` para una buena tabla ASCII, con valores hexadecimal y decimales. Para información de codificación general, `man unicode`, `man utf-8`, y `man latin1` son de utilidad.
+- Use `man ascii` para una buena tabla ASCII, con valores hexadecimal y decimales. Para información de codificación general, `man unicode`, `man utf-8`, y `man latin1` son de utilidad.
 
-- Usa `screen` o [`tmux`](https://tmux.github.io/) para multiplexar la pantalla, espcialmente útil en sessiones ss remotas y para desconectar y reconectar a una sessión. Una alternativa más minimalista para persistencia de la sessión solo sería `dtach`.
+- Use `screen` o [`tmux`](https://tmux.github.io/) para multiplexar la pantalla, espcialmente útil en sessiones ss remotas y para desconectar y reconectar a una sessión. Una alternativa más minimalista para persistencia de la sessión solo sería `dtach`.
 
 - En ssh, conocer como hacer un port tunnel con `-L` o `-D` (y de vez en cuando `-R`) es útil, Ej. para acceder sitio web desde un servidor remoto.
 
@@ -181,16 +181,16 @@ Notas:
 
 - Conocer acerca `tee` para copiar desde el stdin hacia un archivo y también hacia el stdout, así `ls -al | tee file.txt`.
 
-- Conocer que locale afecta muchas herramientas de línea de comando en forma delicada, incluyendo el orden del ordenamiento (compaginación) y rendimeinto. La mayoria de las instalaciones de Linux configuran `LANG` u otras variables de localización para la configuración local como US English. Pero este alerta, el ordenamiento puede cambiar su cambia la localización. Y también las rutinas i18n pueden hacer que sort u otros comandos se ejecuten *muchas mas veces* mas lentos. En algunas situaciones (tales como la realización de operaciones u operaciones singulares debajo) puede de forma segura ignorar las turinas lentas i18n por completo y utilizar el sort tradcional basado en byte, usando `export LC_ALL=C`.
+- Conocer que `locale` afecta muchas herramientas de línea de comando en forma delicada, incluyendo el orden del ordenamiento (compaginación) y rendimiento. La mayoria de las instalaciones de Linux configuran `LANG` u otras variables de localización para la configuración local como US English. Pero esté alerta, el ordenamiento puede cambiar si cambia la localización. Y también las rutinas i18n pueden hacer que sort u otros comandos se ejecuten *muchas mas veces* mas lentos. En algunas situaciones (tales como la realización de operaciones u operaciones singulares debajo) puede de forma segura ignorar las turinas lentas i18n por completo y utilizar el sort tradcional basado en byte, usando `export LC_ALL=C`.
 
-- Conozca esencial `awk` y `sed` para mapeo de datos sencillo. Por ejemplo, sumar todos lo números en la tercera columna de un archivo de texto: `awk '{ x += $3 } END { print x }'`. Esto es probablemente 3X más rápido y 3X más corto que su equivalente en Python.
+- Conozca `awk` y `sed` para mapeo de datos sencillos. Por ejemplo, sumar todos lo números en la tercera columna de un archivo de texto: `awk '{ x += $3 } END { print x }'`. Esto es probablemente 3X más rápido y 3X más corto que su equivalente en Python.
 
-- Para remplanzar todas las ocurrencias de un string en su lugar, en uno o más archivos:
+- Para remplazar todas las ocurrencias de un string en su lugar, en uno o más archivos:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- Para renombrar varios archivos a la vez de acuerdo a un patron, usar `rename`. Para renombramientos complejos, [`repren`](https://github.com/jlevy/repren) may help.
+- Para renombrar varios archivos a la vez de acuerdo a un patrón, usar `rename`. Para renombramientos complejos, [`repren`](https://github.com/jlevy/repren) may help.
 ```sh
       # Recover backup files foo.bak -> foo:
       rename 's/\.bak$//' *.bak
@@ -202,7 +202,7 @@ Notas:
 
 - Conozca las opciones de `sort`. Para números, use `-n`, o `-h` para manipulación de números humanamente leibles (Ej. desde `du -h`). Conozca el trabajo principal de (`-t` y `-k`). En particular, este atento que lo necesitara para escribir`-k1,1` para ordenar por solo el primer campo; `-k1` significa ordenar de acuerdo a toda la línea. Orden estable (`sort -s`) puede ser útil. Por ejemplo, para organizar el primer por el campo 2, entonces secundariamente hacerlo por el campo 1, Puedes usar `sort -k1,1 | sort -s -k2,2`.
 
-- Si tu siempre necesitas escribir un tab literal en una línea de comandos en Bash (Ej. para el argumento -t de ordenar), presione **ctrl-v** **[Tab]** o escriba `$'\t'` (El último es mejor porque puedes copiarlo/pegarlo).
+- Si necesitas siempre escribir un tab literal en una línea de comandos en Bash (Ej. para el argumento -t de ordenar), presione **ctrl-v** **[Tab]** o escriba `$'\t'` (El último es mejor porque puedes copiarlo/pegarlo).
 
 - Las herramientas estandar para reparar el código fuente son `diff` y `patch`. Ver también `diffstat` para resumen estadístico de una diff. Nota `diff -r` trabaja con directorios por completo. Usar`diff -r tree1 tree2 | diffstat` para el resumen de cambios.
 
@@ -232,7 +232,7 @@ Notas:
 
 - Para conocer el estado de la memoria, ejecutar y entender la salida de `free` y `vmstat`. En particular, tener en cuenta el valor "cached" es memoria mantenida por el kernel Linux como un archivo de cache, entonces efectivamente cuenta como valor para "free".
 
-- El sistema de deputación de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y de otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la collección de basura generacional, la cual puede ser altamente informativa) seran descargados al stderr/logs.
+- El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y de otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la collección de basura generacional, la cual puede ser altamente informativa) seran descargados al stderr/logs.
 
 - Usar `mtr` como un mejor traceroute, para identificar los problemas en la red.
 
@@ -246,7 +246,7 @@ Notas:
 
 - Conozca acerca `strace` y `ltrace`. Estas son de utilidad si un programa esta fallando, guindando, o estrellando, y no conoces por qué?, o si quieres tener una idea general del rendimiento. Note la opción de elaboración de perfiles (`-c`), y la habilidad de adjuntar a un proceso en ejecución (`-p`).
 
-- Conozca acerca `ldd` para verificar librerias compartidas etc.
+- Conozca acerca `ldd` para verificar librerías compartidas etc.
 
 - Conozca como conectarse a un proceso en ejecución con `gdb` y obtener su traza de pilas.
 
@@ -254,7 +254,7 @@ Notas:
 
 - Cuando se depura porque algo salio más en el pasado, `sar` puede ser muy útil. Este muestra la estadistica historica en CPU, memoria, red, etc.
 
-- Para sistemas y analisís de rendimiento de mayor profundidad, ver `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
+- Para sistemas y análisis de rendimiento de mayor profundidad, ver `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
 
 - Confirmar que OS te encuentras con `uname` o `uname -a` (información general Unix/kernel) o `lsb_release -a` (Linux distro info).
 
@@ -308,9 +308,9 @@ Algunos ejemplos de comandos reunidos:
 ```
 
 
-## Obscuro pero útil
+## Oscuro pero útil
 
-- `expr`: ejecuta operaciones aritmeticas o booleanas o evalua expresiones regulares
+- `expr`: ejecuta operaciones aritméticas o booleanas o evalúa expresiones regulares
 
 - `m4`: macro procesador sencillo
 
@@ -346,9 +346,9 @@ Algunos ejemplos de comandos reunidos:
 
 - `gpg`: cifrado y firmas digitales
 
-- `toe`: tabla de información de terminos
+- `toe`: tabla de información de términos
 
-- `nc`: deputación del entorno de red y transferencia de datos
+- `nc`: depuración del entorno de red y transferencia de datos
 
 - `socat`: socket relay y redireccionador de puerto tcp (similar a `netcat`)
 
@@ -384,17 +384,17 @@ Algunos ejemplos de comandos reunidos:
 
 - `units`: unidades de conversión y calculaciones; convierte furlongs por fortnight para twips por blink (ver también `/usr/share/units/definitions.units`)
 
-- `7z`: conpresión de archivos de alto nivel
+- `7z`: compresión de archivos de alto nivel
 
-- `ldd`: información de libreria dinamica
+- `ldd`: información de librería dinámica
 
 - `nm`: archivo de objeto de simbolos
 
-- `ab`: benchmarking de servdores web
+- `ab`: benchmarking de servidores web
 
 - `strace`: depuración de llamadas del sistema
 
-- `mtr`: mejor traceroute para la deputación de la red
+- `mtr`: mejor traceroute para la depuración de la red
 
 - `cssh`: shell concurrent visual
 
@@ -408,25 +408,25 @@ Algunos ejemplos de comandos reunidos:
 
 - `lsof`: descriptor de archivo de procesos y información de socket
 
-- `dstat`: sistema de estadisticas útil
+- `dstat`: sistema de estadísticas útil
 
 - [`glances`](https://github.com/nicolargo/glances):vistazo de multi-subsistemas, de alto nivel
 
 - `iostat`: estadísticas del CPU y uso del disco
 
-- `htop`: version mejorada de top
+- `htop`: versión mejorada de top
 
 - `last`: historial de login
 
-- `w`: quien esta authenticado?
+- `w`: quien esta autenticado?
 
 - `id`: información de identidad de usuario/grupo
 
-- `sar`: sistema de estadisticas historico
+- `sar`: sistema de estadísticas histórico
 
 - `iftop` o `nethogs`: utilización de la red por un socket o process
 
-- `ss`: estadisticas de socket
+- `ss`: estadísticas de socket
 
 - `dmesg`: arranque y sistema de mensajes de error
 
@@ -449,11 +449,11 @@ Estos son puntos relevantes *solo* en MacOS.
 
 - Copiar la salida de cualquier comando para una aplicación desktop con `pbcopy` y pegar desde una entrada con `pbpaste`.
 
-- Para abrir un archivo con una applicación desktop, usar `open` o `open -a /Applications/Whatever.app`.
+- Para abrir un archivo con una aplicación desktop, usar `open` o `open -a /Applications/Whatever.app`.
 
 - Spotlight: Busca archivos con `mdfind` y listar metadata (como información de foto EXIF) con `mdls`.
 
-- Tenga encuenta que MacOS esta basado en BSD Unix, y cualquier commando (por ejemplo `ps`, `ls`, `tail`, `awk`, `sed`) tiene variaciones discretas variaciones por cada Linux, que esta en gran parte influenciado por el sistema Unix V-style y herramientas GNU. Puedes frecuentemente decirme la diferencia por señalar unas páginas man que tienen el encabezado "BSD General Commands Manual." En algunos casos versiones GNU pueden ser instalados, también (tales como `gawk` y `gsed` para awk y sed del GNU). Si escribe cross-platform scripts Bash, evita tales comandos (por ejemplo, considerando Python o `perl`) o probar con mucho cuidado.
+- Tenga encuenta que MacOS esta basado en BSD Unix, y cualquier comando (por ejemplo `ps`, `ls`, `tail`, `awk`, `sed`) tiene variaciones discretas variaciones por cada Linux, que esta en gran parte influenciado por el sistema Unix V-style y herramientas GNU. Puedes frecuentemente decirme la diferencia por señalar unas páginas man que tienen el encabezado "BSD General Commands Manual." En algunos casos versiones GNU pueden ser instalados, también (tales como `gawk` y `gsed` para awk y sed del GNU). Si escribe cross-platform scripts Bash, evita tales comandos (por ejemplo, considerando Python o `perl`) o probar con mucho cuidado.
 
 
 ## Más recursos
