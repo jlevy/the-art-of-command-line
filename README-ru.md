@@ -204,25 +204,23 @@
 
 - Если вам когда-нибудь придется написать код таба в терминале, например для сортировки по табу с флагом -t, используйте шорткат **ctrl-v** **[Tab]** или напишите `$'\t'`. Последнее лучше, потому что его можно скопировать.
 
+- Стандартные инструменты для патчинга исходников это `diff` и `patch`. Так же посмотрите на `diffstat` для просмотра статистики диффа. `diff -r` работает для по всей директории. Используйте `diff -r tree1 tree2 | diffstat` для полной сводки изменений.
 
+- Для бинарников используйте `hd` для простых hex-дампом и `bvi` для двоичного изменения бинарников.
 
-- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
+- `strings` (в связке `grep` или чем-то похожем) помогает найти строки в бинарниках.
 
-- For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
+- Для того, чтобы посмотреть разницу в бинарниках (дельта кодирование) используйте `xdelta3`.
 
-- Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+- Для конвертирования кодировок используйте `iconv`. Для более сложных задач – `uconv`, он поддерживает некоторые сложные фичи Юникода. Например эта команда переводит строки из файла в нижний регистр и убирает ударения (кои бывают, например, в Испанском)
 
-- For binary diffs (delta compression), use `xdelta3`.
-
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
+- Для того, чтобы разбить файл на куски используйте `split` (разбивает на куски по размеру), или `csplit` (по шаблону или регулярному выражению)
 
-- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
-
+- Используйте `zless`, `zmore`, `zcat`, и `zgrep` для работы с сжатыми файлами.
 
 ## System debugging
 
@@ -445,20 +443,17 @@ A few examples of piecing together commands:
 
 ## MacOS only
 
-These are items relevant *only* on MacOS.
-Некоторые вещи релевантны только для Мака.
+Некоторые вещи релевантны *только* для Мака.
 
 - Системы управлением пакетами – `brew` (Homebrew) и `port` (MacPorts). Они могут быть использованы для того, чтобы установить большинство програм, упомянутых в этом документе.
 
+- Копируйте аутпут консольных программ в десктопные через `pbcopy`, и вставляйте инпут через `pbpaste`.
 
-- Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
+- Для того, чтобы открыть файл или десктопную программу типа Finder используйте `open`, вот так `open -a /Applications/Whatever.app`.
 
-- To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
+- Spotlight: Ищите файлы в консоле через `mdfind` и смотрите метадату (например EXIF информацию фотографий) через `mdls`.
 
-- Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
-
-- Be aware MacOS is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
-
+- Не забывайте, что MacOS основан на BSD Uni и многие команды (например `ps`, `ls`, `tail`, `awk`, `sed`) имеют некоторые небольшие различия с линуксовыми. Это обусловлено влянием `UNIX System V` и `GNU Tools`. Разницу можно заметить увидив заголовок "BSD General Commands Manual." к манам програм. В некоторых случаях, на Мак можно поставить GNU-версии программ, например `gawk` и `gsed`. Когда пишите кроссплатформенные Bash-скрипты, старайтесь избегать команды, которые могут различаться (например, лучше используйте Python или `perl`), или тщательно все тестируйте.
 
 ## Больше информации по теме
 
@@ -470,7 +465,7 @@ These are items relevant *only* on MacOS.
 
 За небольшим исключением, весь код написан так, что другие его смогут прочитать.
 
-With the exception of very small tasks, code is written so others can read it. Кому много дано, с того много и спрашивается. Тот факт, что что-то может быть написано в Баше, вовсе не означает что оно должно быть там написано. ;)
+Кому много дано, с того много и спрашивается. Тот факт, что что-то может быть написано в Баше, вовсе не означает что оно должно быть там написано. ;)
 
 
 ## Лицензия
