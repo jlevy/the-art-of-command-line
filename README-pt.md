@@ -1,7 +1,7 @@
-[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md) ]
+[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
 
 
-# A arte da linha de comando 
+# A arte da linha de comando
 
 - [Meta](#meta)
 - [Básico](#básico)
@@ -30,15 +30,15 @@ Escopo:
 - Este guia é destinado tanto aos iniciantes quanto aos usuários mais experientes. Os objetivos são *abrangencia*  (tudo que é importante), *especificidade* (dar exemplos concretos dos casos de usos mais comuns), e *brevidade* (evitar coisas que não são tão essenciais ou digressões que você pode facilmente encontrar pela internet). Todas as dicas são essenciais em alguma situação ou trazem uma economia notável de tempo em relação a outras alternativas.
 - Este guia é escrito para o Linux. Muitos, mas não todos os items, se aplicam igualmente para o MacOS (ou mesmo o Cygwin).
 - O foco está na interatividade com  Bash, embora muitas dicas aqui sejam aplicáveis a outras `shells' e tambem a scripts em Bash, em geral.
-- Incluimos tanto comandos no Unix "padrão", quanto comandos que requeiram instalação de pacotes adicionais -- desde que estes sejam importantes o suficiente para merecerem sua inclusão nessa lista. 
+- Incluimos tanto comandos no Unix "padrão", quanto comandos que requeiram instalação de pacotes adicionais -- desde que estes sejam importantes o suficiente para merecerem sua inclusão nessa lista.
 
 Notas:
 
 - Para manter este guia em uma única página, o conteúdo implícito será incluído por referência. Você é competente o suficiente para verificar mais detalhes em outros lugares, desde que você já tenha entendido a ideia ou saiba o que procurar no Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (quando adequado) para instalar novos programas.
-- Use [Explainshell](http://explainshell.com/) para encontrar informações úteis sobre o que fazem os comandos, as opções, pipes e etc. 
+- Use [Explainshell](http://explainshell.com/) para encontrar informações úteis sobre o que fazem os comandos, as opções, pipes e etc.
 
 
-## Básico 
+## Básico
 
 - Aprenda o básico sobre Bash. Na verdade, digite `man bash` e pelo menos entenda superficialmente o seu funcionamento; é bastante simples de ler e nem é tão grande assim. Shells alternativas podem ser legais, mas  Bash é a mais poderosa e sempre está disponível (aprender  *somente* zsh, fish, etc,  é tentador quando você usa o seu próprio notebook, mas restringe você em muitas situações, por exemplo quando você quer  usar servidores de outros).
 
@@ -63,11 +63,11 @@ Notas:
 - Aprenda a usar `apt-get`, `yum`, `dnf` ou `pacman` (dependendo da distribuição) para procurar e instalar pacotes. E garanta que você possui o `pip` para instalar ferramentas baseadas em Python (algumas das abaixo são  mais fáceis de instalar através do `pip`).
 
 
-## Uso diário 
+## Uso diário
 
 - Usando Bash, use **Tab** para completar argumentos e **ctrl-r** para pesquisar através a história dos comandos.
 
-- Em Bash, utilize **ctrl-w** para deletar a última palavra, e **ctrl-u** para deletar tudo e voltar para o início da linha. Use **alt-b** e **alt-f** para se mover por palavras, **ctrl-k** para apagar até o final da linha, **ctrl-l** para limpar a tela. Consulte `man readline` para todos os keybindings padrões do Bash. Existem muitos. Por exemplo **alt-.** circula através dos argumentos anteriores, e **alt-*** expande um glob. 
+- Em Bash, utilize **ctrl-w** para deletar a última palavra, e **ctrl-u** para deletar tudo e voltar para o início da linha. Use **alt-b** e **alt-f** para se mover por palavras, **ctrl-k** para apagar até o final da linha, **ctrl-l** para limpar a tela. Consulte `man readline` para todos os keybindings padrões do Bash. Existem muitos. Por exemplo **alt-.** circula através dos argumentos anteriores, e **alt-*** expande um glob.
 
 - Alternativamente, se você adora os keybinds  do vi, use `set -o vi`.
 
@@ -111,7 +111,7 @@ Notas:
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- Saiba sobre "documentos aqui" no Bash, como em `cat <<EOF ...`. 
+- Saiba sobre "documentos aqui" no Bash, como em `cat <<EOF ...`.
 
 - No Bash, redirecionar a saída padrão (stdout) e a saída de erro padrão (stderr) através de: `algum-comando >logfile 2> $1`. Muitas vezes, para garantir que um comando não deixa um arquivo aberto para manipular a entrada padrão, digitando isso no terminal que você está, é uma boa prática adicionar um `</dev/null`.
 
@@ -121,7 +121,7 @@ Notas:
 
 - No ssh, saber como realizar um túnel de portas com `-L` ou `-D` (e ocasionalmente `-R`) é útil, para por exemplo acessar sites webs de um servidor remoto.
 
-- Pode ser útil realizar algumas otimizações em suas configurações do ssh; por exemplo, o arquivo `~/.ssh/config` contém configurações para evitar que conexões sejam dropadas em certos ambientes de rede, use compressão (muito útil quando se está usando o scp através de uma conexão lenta), e multiplexação de canais do mesmo servidor com um arquivo de controle local: 
+- Pode ser útil realizar algumas otimizações em suas configurações do ssh; por exemplo, o arquivo `~/.ssh/config` contém configurações para evitar que conexões sejam dropadas em certos ambientes de rede, use compressão (muito útil quando se está usando o scp através de uma conexão lenta), e multiplexação de canais do mesmo servidor com um arquivo de controle local:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -147,7 +147,7 @@ Notas:
 `python -m SimpleHTTPServer 7777` (para a porta 7777 e Python 2) e `python -m http.server 7777` (para a porta 7777 e Python 3).
 
 
-## Processamento de arquivos e dados 
+## Processamento de arquivos e dados
 
 - Para localizar um arquivo pelo nome no diretório atual, `find . -iname '*something*'` (ou similar). Para procurar um arquivo em qualquer lugar pelo nome, use `locate something` (mas tenha em mente que o `updatedb` pode não ter indexado arquivos criados recentemente).
 
@@ -216,7 +216,7 @@ Notas:
 Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 
-## Debugando o sistema 
+## Debugando o sistema
 
 - Para web debug, `curl` e `curl -I` são úteis, ou os equivalentes `wget`, or uma alternativa mais moderna [`httpie`](https://github.com/jakubroztocil/httpie).
 
@@ -224,7 +224,7 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - Para um resumo mais aprofundado do sistema, use [`glances`](https://github.com/nicolargo/glances). Este lhe apresenta vários níveis de estatísticas do sistema em uma janela do terminal. Muito útil para uma rápida verificação em vários subsistemas.
 
-- Para saber o status da memória, execute e entenda a saída do `free` `vmstat`. Em particular, esteja ciente de que o valor "cached", é mantido pelo kernel Linux como um arquivo de cache, então este efetivamente conta como um valor de memória disponível. 
+- Para saber o status da memória, execute e entenda a saída do `free` `vmstat`. Em particular, esteja ciente de que o valor "cached", é mantido pelo kernel Linux como um arquivo de cache, então este efetivamente conta como um valor de memória disponível.
 
 - Debugar um sistema java é uma outra historia, mas um simples truque nas máquinas virtuais Oracle ou algum outro tipo de JVM é que você pode executar `kill -3 <pid>` e um completo rastreamento da pilha(stack trace) e resumo do heap (incluindo detalhes geracionais do garbage collector, os quais podem ser altamente informativos) serão vazados para stderr/logs.
 
@@ -302,19 +302,19 @@ Alguns exemplos de como reunir os comandos.
 ```
 
 
-## Obscuros mas úteis 
+## Obscuros mas úteis
 
-- `expr`: executa operações boleanas ou aritméticas ou avalia expressões regulares. 
+- `expr`: executa operações boleanas ou aritméticas ou avalia expressões regulares.
 
-- `m4`: simples processador de macros. 
+- `m4`: simples processador de macros.
 
-- `yes`: imprime uma string muitas vezes. 
+- `yes`: imprime uma string muitas vezes.
 
-- `cal`: calendário legal. 
+- `cal`: calendário legal.
 
 - `env`: executa um comando (útil em scripts).
 
-- `printenv`: imprime as variáveis de ambiente (útil em debug e scripts). 
+- `printenv`: imprime as variáveis de ambiente (útil em debug e scripts).
 
 - `look`: procura palavras inglesas (ou linhas em um arquivo) começando com uma string.
 
@@ -328,69 +328,69 @@ Alguns exemplos de como reunir os comandos.
 
 - `column`: formata texto em colunas ou tabelas.
 
-- `expand` e `unexpand`: converte entre tabs e espaços. 
+- `expand` e `unexpand`: converte entre tabs e espaços.
 
-- `nl`: adiciona números as linhas. 
+- `nl`: adiciona números as linhas.
 
-- `seq`: imprime números. 
+- `seq`: imprime números.
 
-- `bc`: calculadora. 
+- `bc`: calculadora.
 
-- `factor`: fatora inteiros. 
+- `factor`: fatora inteiros.
 
-- `gpg`: criptografa e assina arquivos. 
+- `gpg`: criptografa e assina arquivos.
 
-- `toe`: tabela de entradas dos tipos de terminais. 
+- `toe`: tabela de entradas dos tipos de terminais.
 
-- `nc`: ferramenta de debug de rede e transferência de dados. 
+- `nc`: ferramenta de debug de rede e transferência de dados.
 
 - `socat`: socket relay e encaminhamento de portas tcp (similar ao `netcat`)
 
-- `slurm`: visualização do tráfego da rede. 
+- `slurm`: visualização do tráfego da rede.
 
 - `dd`: move os dados entre arquivos ou dispositivos.
 
-- `file`: identifica o tipo do arquivo. 
+- `file`: identifica o tipo do arquivo.
 
-- `tree`: mostra os diretórios e subdiretórios como um árvore de dependências; como `ls` mas recursivo. 
+- `tree`: mostra os diretórios e subdiretórios como um árvore de dependências; como `ls` mas recursivo.
 
-- `stat`: informações do arquivo. 
+- `stat`: informações do arquivo.
 
-- `tac`: imprime arquivos na ordem reversa. 
+- `tac`: imprime arquivos na ordem reversa.
 
 - `shuf`: seleção random de linhas de um arquivo.
 
-- `comm`: compara uma lista de arquivos ordenadas linha por linha. 
+- `comm`: compara uma lista de arquivos ordenadas linha por linha.
 
-- `pv`: monitora o progresso dos dados através de um pipe. 
+- `pv`: monitora o progresso dos dados através de um pipe.
 
 - `hd` e `bvi`: dump ou edita arquivos binários.
 
 - `strings`: extrai texto de arquivos binários.
 
-- `tr`: tradução e manipulação de caracteres. 
+- `tr`: tradução e manipulação de caracteres.
 
 - `iconv` ou `uconv`: conversor de codificações de texto.
 
-- `split ` e `csplit`: divisão de arquivos. 
+- `split ` e `csplit`: divisão de arquivos.
 
 - `units`: conversor de unidades e cálculos; converte furlongs por quinzena para twips per blink (veja também `/usr/share/units/definitions.units`)
 
 - `7z`: Compressor de arquivos de alto desempenho.
 
-- `ldd`: informações dinâmicas das bibliotecas. 
+- `ldd`: informações dinâmicas das bibliotecas.
 
 - `nm`: símbolos de arquivos objetos.
 
 - `ab`: benchmarking para web servers.
 
-- `strace`: Debug para chamadas de sistema. 
+- `strace`: Debug para chamadas de sistema.
 
 - `mtr`: melhor traceroute para debugar a rede.
 
 - `cssh`: Visualização concorrente da shell.
 
-- `rsync`: Sincroniza arquivos e pastas através do SSH. 
+- `rsync`: Sincroniza arquivos e pastas através do SSH.
 
 - `wireshark` e `tshark`: captura de pacotes e debug de rede.
 
@@ -398,25 +398,25 @@ Alguns exemplos de como reunir os comandos.
 
 - `host` e `dig`: Consultas DNS.
 
-- `lsof`: Arquivo de descritores dos processos e informações dos sockets. 
+- `lsof`: Arquivo de descritores dos processos e informações dos sockets.
 
-- `dstat`: Estatísticas úteis do sistema. 
+- `dstat`: Estatísticas úteis do sistema.
 
-- [`glances`](https://github.com/nicolargo/glances): Resumo de alto nível, de multi subsistemas. 
+- [`glances`](https://github.com/nicolargo/glances): Resumo de alto nível, de multi subsistemas.
 
-- `iostat`: Estatísticas de uso do CPU e do disco. 
+- `iostat`: Estatísticas de uso do CPU e do disco.
 
-- `htop`: Versão do top melhorada. 
+- `htop`: Versão do top melhorada.
 
-- `last`: histórico de logins. 
+- `last`: histórico de logins.
 
-- `w`: quem está logado. 
+- `w`: quem está logado.
 
-- `id`: Informações sobre a identidade do user/group. 
+- `id`: Informações sobre a identidade do user/group.
 
-- `sar`: histórico dos estados do sistema. 
+- `sar`: histórico dos estados do sistema.
 
-- `iftop` ou `nethogs`: Utilização da rede por sockets ou processos. 
+- `iftop` ou `nethogs`: Utilização da rede por sockets ou processos.
 
 - `ss`: Estatísticas dos sockets.
 
@@ -430,20 +430,20 @@ Alguns exemplos de como reunir os comandos.
 
 - `lshw` e `lspci`: informações do hardware, incluindo RAID, gráficos, etc.
 
-- `fortune`, `ddate`, e `sl`: um, bem, isto depende de você considerar locomotivas a vapor e citações Zippy "úteis". 
+- `fortune`, `ddate`, e `sl`: um, bem, isto depende de você considerar locomotivas a vapor e citações Zippy "úteis".
 
-## Mais conteúdo 
+## Mais conteúdo
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Uma lista refinada de ferramentas da shell e outros recursos.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) para escrever shell scripts melhores. 
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) para escrever shell scripts melhores.
 
-## Aviso 
+## Aviso
 
 Com a exceção de tarefas muito pequenas,  código é normalmente escrito para que outros possam ler. Junto com o poder vem a responsabilidade. O fato de você *poder* fazer algo usando Bash não significa necessariamente  que você deve! ;)
 
 
-## Licença 
+## Licença
 
-[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 Este trabalho está licenciado com uma [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
