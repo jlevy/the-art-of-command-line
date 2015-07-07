@@ -18,7 +18,7 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-La fluidez en el terminal es una destreza a menudo abandonada y considerada arcaica, pero esta mejora su flexibilidad y productividad como ingeniero en formas obvia y sutil. Esta es una selección de notas y consejos al usar el terminal que encuentro útil cuando trabajo en Linux. Algunos consejos son elementales y algunos bastante específicos, sofisticados u oscuros. Esta página no es larga, pero si usa y recuerda todos los puntos aquí mostrados, ustedes sabrán un montón.
+La fluidez en el terminal es una destreza a menudo abandonada y considerada arcaica, pero esta mejora su flexibilidad y productividad como ingeniero en formas obvia y sutil. Esta es una selección de notas y consejos al usar el terminal que encontré útiles al trabajar en Linux. Algunos consejos son elementales y algunos bastante específicos, sofisticados u oscuros. Esta página no es larga, pero si usa y recuerda todos los puntos aquí mostrados, ustedes sabrán un montón.
 
 Gran parte está en
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
@@ -50,7 +50,7 @@ Notas:
 
 - Conozca como leer la documentación con `man` (Para curiosos, `man man` lista las secciones enumeradas, ej. 1 es comandos "regulares", 5 son archivos/convenciones, y 8 are para administración). En en las páginas de man `apropos`. Conozca que alguno de los comandos no son ejecutables, pero son Bash builtins, y que puede obtener ayuda sobre ellos con `help` y `help -d`.
 
-- Aprenda sobre redirección de salida y entrada (`>` y `<`); pipes utilizando `|`. Conozca que `>` sobrescribe el archivo de salida y `>>` añade. Aprenda sobre stdout y stderr.
+- Aprenda sobre redirección de salida >, entrada < y pipes utilizando `|`. Conozca que `>` sobrescribe el archivo de salida y `>>` añade. Aprenda sobre stdout y stderr.
 
 - Aprenda sobre expansión de archivos glob con `*` (y tal vez `?` y `{`...`}`) y quoting y la diferencia entre doble `"` y simple `'` quotes. (Ver más en expansión de variables más abajo.)
 
