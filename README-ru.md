@@ -9,7 +9,7 @@
 - [Ежедневное использование](#everyday-use)
 - [Процессинг файлов и информации](#processing-files-and-data)
 - [Системный дебаггинг](#system-debugging)
-- [Команды в одну строчку](#one-liners)
+- [В одну строчку](#one-liners)
 - [Сложно, но полезно](#obscure-but-useful)
 - [MacOS only](#macos-only)
 - [Больше информации по теме](#more-resources)
@@ -222,48 +222,47 @@
 
 - Используйте `zless`, `zmore`, `zcat`, и `zgrep` для работы с сжатыми файлами.
 
-## System debugging
+## Системный дебаггинг
 
-- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
+- Дле веб-дебаггинга используйте `curl` и `curl -I`, или их альтернативу `wget`. Так же есть более современные альтернативы, типа [`httpie`](https://github.com/jakubroztocil/httpie).
 
-- To know disk/cpu/network status, use `iostat`, `netstat`, `top` (or the better `htop`), and (especially) `dstat`. Good for getting a quick idea of what's happening on a system.
+- Чтобы получить информацию о диске/CPU/сети используйте `iostat`, `netstat`, `top` (или лучшую альтернатву `htop`) и особенно `dstat`. Хороший старт для того, чтобы понимать что происходит в системе.
 
-- For a more in-depth system overview, use [`glances`](https://github.com/nicolargo/glances). It presents you with several system level statistics in one terminal window. Very helpful for quickly checking on various subsystems.
+- Для более детальной информации используйте [`glances`](https://github.com/nicolargo/glances). Эта программа показывает сразу несколько разных статистик в одном окне терминале. Полезно, когда следите за сразу несколькими системами.
 
-- To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
+- Для того, чтобы следить за памятью научитесь понимать `free` и `vmstat`. В частности не забывайте, что кешированые значения ("cached" value) – это память, которую держит ядро и эти значения являются частью `free`.
 
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs.
+- Дебаггинг Джавы – совсем другая рыбка, но некоторые манипуляции над виртуальной машиной Оракла или любой другой позволит вам использовать делать `kill -3 <pid>` и трассировать сводки стека и хипа (включая детали работы сборщика мусора, которые бывают очень полезными), и их можно дампнуть в stderr или логи.
 
-- Use `mtr` as a better traceroute, to identify network issues.
+- Используйте `mtr` для лучшей трассировки, чтобы находить проблемы сети.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- Для того, чтобы узнать почему диск полностью забит используйте `ncdu`, это сохраняет время по сравнению с тем же `du -sh *`.
 
-- To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
+- Для того, чтобы узнать какой сокет или процесс использует интернет используйте `iftop` или `nethogs`.
 
-- The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
+- `ab`, которая поставляется вместе в Апачем полезна для быстрой нетщательной проверки производительности веб-сервера. Для более серьезного лоад-тестинга используйте `siege`.
 
-- For more serious network debugging, `wireshark`, `tshark`, or `ngrep`.
+- Для более серьезного дебаггинга сетей используйте `wireshark`, `tshark`, и `ngrep`.
 
-- Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
+- Знайте про `strace` и `ltrace`. Эти команды могут быть полезны, если программа падает или висит и вы не знаете почему, или если вы хотите протестировать производительность программы. Не забывайте про возможность дебаггинга (`-c`) и возможностью прицепиться к процессу (`-p`).
 
-- Know about `ldd` to check shared libraries etc.
+- Не забывайте про `ldd` для проверки системных библиотек.
 
-- Know how to connect to a running process with `gdb` and get its stack traces.
+- Знайте как прицепиться к бегущему процессу через `gdb` и получить трассировку стека.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Используйте `/proc`. Иногда он невероятно полезен для дебага запущенных программ. Примеры: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
-- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- Когда дебажете что-то, что сломалось в прошлом используйте `sar` – бывает очень полезно. Показывает историю CPU, памяти, сети и т.д.
 
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
+- Для анализа более глубоких систем и производительности посмотрите на `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), и [`sysdig`](https://github.com/draios/sysdig).
 
-- Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
+- Узнайте какая у вас операционка через `uname` or `uname -a` (основная Unix-информация/информация о ядре) или `lsb_release -a` (информация о дистрибутиве).
 
-- Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
+- Используйте `dmesg` когда что-то ведет себя совсем странно (например железо или драйвера).
 
+## В одну строчку
 
-## One-liners
-
-A few examples of piecing together commands:
+Давайте соберем все вместе и напишем несколько комманд:
 
 - It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
 ```sh
@@ -272,31 +271,32 @@ A few examples of piecing together commands:
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Use `grep . *` to visually examine all contents of all files in a directory, e.g. for directories filled with config settings, like `/sys`, `/proc`, `/etc`.
+- Используйте `grep . *` для того, чтобы визуально посмотреть что находится в директории, особенно послезно когда у вас много конфигов типа `/sys`, `/proc`, `/etc`.
 
 
-- Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
+- Получить сумму всех чисел, которые находятся в третьей колонки текстового файла. (Скорее всего, это раза в 3 быстрее и раза в 3 проще чем делать это в Питоне):
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- Если вам нужно посмотреть размеры и даты создания древа файлов используйте:
 ```sh
       find . -type f -ls
 ```
+Это почти как рекурсивная `ls -l, но более читабельно чем `ls -lR`:
 
-- Use `xargs` or `parallel` whenever you can. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use xargs echo first. Also, `-I{}` is handy. Examples:
+- Используйте `xargs` (или `parallel`). Это очень мощная штука. Обратите внимание, что Вы можете контролировать количество команд на каждую строку, а так же параллельность. Если Вы не уверены, что делаете что-то правильно, начните с `xargs echo`. Еще `-I{}` – полезная штука. Примеры:
 ```sh
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
+- Давайте представим, что у нас есть какой-то текстовый файл, например лог какого-то сервера и на каких-то строках появляется значение, строки с которой нам интересны, например `acct_id`. Давайте подсчитаем сколько таких запросов в нашем логе:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- Run this function to get a random tip from this document (parses Markdown and extracts an item):
+- Запустите этот скрипт чтобы получить случайный совет из этой инструкции:
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
