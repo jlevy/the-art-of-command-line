@@ -11,7 +11,7 @@
 - [Системный дебаггинг](#system-debugging)
 - [Команды в одну строчку](#one-liners)
 - [Сложно, но полезно](#obscure-but-useful)
-- [Только для Маководов](#macos-only)
+- [MacOS only](#macos-only)
 - [Больше информации по теме](#more-resources)
 - [Дисклеймер](#disclaimer)
 
@@ -31,7 +31,7 @@
 Основное:
 
 - Данная публикация предназначена как для новичков, так и для опытных людей. Цели: *объемность* (собрать все важные аспекты использования командной строки), *практичность* (давать конкретные примеры для самых частых юзкейсов) и *краткость* (не стоит углубляться в неочевидные вещи, о которых можно почитать в другом месте).
-- Этот документ написан для пользователей Linux, с единственным исключеним – секцией "[Только для Маководов](#macos-only)". Все остальное подходит и может быть установлено под все UNIX/MacOS системы (и даже Cygwin).
+- Этот документ написан для пользователей Linux, с единственным исключеним – секцией "[MacOS only](#macos-only)". Все остальное подходит и может быть установлено под все UNIX/MacOS системы (и даже Cygwin).
 - Фокусируемся на интерактивном Баше, но многие вещи так же могут быть использованы с другими шеллами; и в общем приминимы к Баш-скирптингу
 - Эта инструкция включает в себя стандартные Unix комманды и те, для которых нужно устанавливать сторонние пакеты – они настолько полезны, что стоят того, чтобы их установили
 
@@ -154,54 +154,57 @@
 - Для того, чтобы выполнить определенную команду с привилегиями, используйте `sudo` (для рута) и `sudo -u` (для другого пользователя). Используйте `su` или `sudo bash` для того чтобы запустить шелл от имени этого пользователя. Используйте `su -` для того, чтобы симулировать свежий логин от рута или другого пользователя.
 
 
-## Processing files and data
+## Процессинг файлов и информации
 
-- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
+- Для того, чтобы найти файл в текущей директории сделайте `find . -iname '*something*'`. Для того, чтобы искать файл по всей системе используйте `locate something` (но не забывайте, что `updatedb` мог еще не проидексировать недавно созданные файлы).
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Для основого поиска по содержимому файлов (более сложному, чем `grep -r`) используйте [`ag`](https://github.com/ggreer/the_silver_searcher).
 
-- To convert HTML to text: `lynx -dump -stdin`
+- Для конвертации HTML в текст: `lynx -dump -stdin`
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- Для конвертации разных типов разметки (HTML, маркдаун и т.д.) попробуйте [`pandoc`](http://pandoc.org/).
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- Если нужно работать с XML, есть старая но хорошая утилита – `xmlstarlet`.
 
-- For JSON, use `jq`.
+- Для работы с JSON используйте `jq`.
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Для работы с Excel и CSV-файлами используйте [csvkit](https://github.com/onyxfish/csvkit) (программа предоставляет команды `in2csv`, `csvcut`, `csvjoin`, `csvgrep` и т.д.)
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
+- Для работы с Amazon S3 удобно работать с [`s3cmd`](https://github.com/s3tools/s3cmd) и [`s4cmd`](https://github.com/bloomreach/s4cmd) (последний работает быстрее). Для остальных сервисов Амазона используйте стандартный [`aws`](https://github.com/aws/aws-cli).
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
+- Знайте про `sort` и `uniq`, включая флаги `-u` и `-d`, смотрите примеры ниже. Еще гляньте на `comm`.
 
-- Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+- Знайте про `cut`, `paste`, и `join` для работы с текстовыми файлами. Многие люди используют `cut` забыв про `join`.
 
-- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+- Знайте о `wc`: для подсчета переводов строк (`-l`), для символов – (`-m`), для слов – words (`-w`), для байтового подсчета – (`-c`).
 
-- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+- Знайте про `tee`, для копирования в файл из stdin и stdout, что-то типа `ls -al | tee file.txt`.
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- Не забывайте, что Ваша локаль влияет на многие команды, включая порядки сортировки, сравнение и производительность. Многие дистрибутивы Linux автоматически выставляют `LANG` или любую другую переменную в подходящую для Вашего региона. Из-за этого результаты функций сортировки могут работать непредсказуемо. Рутины `i18n` могут значительно снизить производительность сортировок. В некоторых случаях можно полностью этого избегать (за исключением редких случаев), сортируя традиционно побайтово, для этого `export LC_ALL=C`
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- Знайте основы `awk` и `sed` для простых манипуляций с данными. Например, чтобы получить сумму всех чисел, которые находятся в третьей колонки текстового файла можно использовать `awk '{ x += $3 } END { print x }'`. Скорее всего, это раза в 3 быстрее и раза в 3 проще чем делать это в Питоне.
 
-- To replace all occurrences of a string in place, in one or more files:
+- Чтобы заменить все нахождения подстроки в одном или нескольких файлах:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
+Для того, чтобы переименовать сразу много файлов по шаблону, используйте  `rename`. Для сложных переименований может помочь [`repren`](https://github.com/jlevy/repren):
+
 ```sh
-      # Recover backup files foo.bak -> foo:
+      # Восстановить бекапы из foo.bak в foo:
       rename 's/\.bak$//' *.bak
-      # Full rename of filenames, directories, and contents foo -> bar:
+      # Полное переименование имен файлов, папок и содержимого файлов из foo в bar.
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- Use `shuf` to shuffle or select random lines from a file.
+- Используйте `shuf` для того, чтобы перемешать строки или выбрать случайную строчку из файла.
 
-- Know `sort`'s options. For numbers, use `-n`, or `-h` for handling human-readable numbers (e.g. from `du -h`). Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line. Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`.
+- Знайте флаги `sort`а. Для чисел используйте `-n`, для работы с человекочитаемыми числами используйте `-h` (например `du -h`). Знайте как работают ключи (`-t` и `-k`). В частности, не забывайте что вам нужно писать `-k1,1` для того, чтобы отсортировать только первое поле; `-k1` значит сортировка учитывая всю строчку. Так же стабильная сортировка может быть полезной (`sort -s`). Например для того, чтобы отсортировать самое важное по второму полю, а второстепенное по первому можно использовать sort -k1,1 | sort -s -k2,2`.
 
-- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- Если вам когда-нибудь придется написать код таба в терминале, например для сортировки по табу с флагом -t, используйте шорткат **ctrl-v** **[Tab]** или напишите `$'\t'`. Последнее лучше, потому что его можно скопировать.
+
+
 
 - The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
 
@@ -443,8 +446,10 @@ A few examples of piecing together commands:
 ## MacOS only
 
 These are items relevant *only* on MacOS.
+Некоторые вещи релевантны только для Мака.
 
-- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on MacOS many of the above commands.
+- Системы управлением пакетами – `brew` (Homebrew) и `port` (MacPorts). Они могут быть использованы для того, чтобы установить большинство програм, упомянутых в этом документе.
+
 
 - Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
 
