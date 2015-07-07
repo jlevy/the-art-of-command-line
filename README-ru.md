@@ -72,7 +72,7 @@
 
 - Используйте **ctrl-w** в Баше для того, чтобы удалить последнее слово в команде; **ctrl-u** для того, что бы удалить команду полностью. Используйте **alt-b** и **alt-f** для того, чтобы бегать между словами команды, **ctrl-k** для того, чтобы прыгнуть к концу строки, **ctrl-l** для того, чтобы очистить экран. Гляньте на `man readline` чтобы узнать о всех шорткатах Баша. Их много! Например, **alt-.** бежит по предыдущим аргументам команды, а **alt-*** расширяет глоб.??
 
-– Если Вам нравятся шорткаты Вима сделайте `set -o vi`.
+- Если Вам нравятся шорткаты Вима сделайте `set -o vi`.
 
 - Для того, чтобы посмотреть историю введите `history`. Так же существует множество аббривиатур, например `!$` – последний аргумент, `!!` – последняя команда, хотя эти аббривиатуры часто заменяются шорткатами **ctrl-r** и **alt-.**.
 
@@ -264,14 +264,14 @@
 
 Давайте соберем все вместе и напишем несколько комманд:
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+- Это довольно круто, что можно найти множественные пересечения файлов, соединить отсортированные файлы и посмотреть разницу в нескольких файлов через `sort`/`uniq`. Это быстрый подход и работает на файлах любого размера (включая многогигабайтные файлы). (Сортировка не ограничена памятью, но возможно вам придется добавить `-T` если `/tmp` находится на небольшом логическом диске). Еще посмотрите то что было сказано выше о `LC_ALL`. Флаг сорта `-u` option не используется ниже чтобы было понятнее:
 ```sh
-      cat a b | sort | uniq > c   # c is a union b
-      cat a b | sort | uniq -d > c   # c is a intersect b
+      cat a b | sort | uniq > c        # c is a union b
+      cat a b | sort | uniq -d > c     # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Используйте `grep . *` для того, чтобы визуально посмотреть что находится в директории, особенно послезно когда у вас много конфигов типа `/sys`, `/proc`, `/etc`.
+- Используйте `grep . *` для того, чтобы посмотреть содержимое всех файлов в директории, особенно послезно когда у вас много конфигов типа `/sys`, `/proc`, `/etc`.
 
 
 - Получить сумму всех чисел, которые находятся в третьей колонки текстового файла. (Скорее всего, это раза в 3 быстрее и раза в 3 проще чем делать это в Питоне):
@@ -308,138 +308,137 @@
 ```
 
 
-## Obscure but useful
+## Сложно, но полезно
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `expr`: для выполнения арифметических и булевых операций, а так же регулярных выражений
 
-- `m4`: simple macro processor
+- `m4`: простенький макро-процессор
 
-- `yes`: print a string a lot
+- `yes`: вывод строки в бесконечном цикле
 
-- `cal`: nice calendar
+- `cal`: классный календарь
 
-- `env`: run a command (useful in scripts)
+- `env`: для того, чтобы выполнить команду (полезно в Bash-скриптах)
 
 - `printenv`: print out environment variables (useful in debugging and scripts)
 
-- `look`: find English words (or lines in a file) beginning with a string
+- `look`: найти английские слова (или строки) в файле
 
-- `cut `and `paste` and `join`: data manipulation
+- `cut `, `paste` и `join`: манипуляция данными
 
-- `fmt`: format text paragraphs
+- `fmt`: форматировка параграфов в тексте
 
-- `pr`: format text into pages/columns
+- `pr`: отформатировать текст в страницы/колонки
 
-- `fold`: wrap lines of text
+- `fold`: (обернуть) ограничить длину строк в файле
 
-- `column`: format text into columns or tables
+- `column`: форматировать текст в колонки или таблицы
 
-- `expand` and `unexpand`: convert between tabs and spaces
+- `expand` и `unexpand`: конвертация между табами и пробелами
 
-- `nl`: add line numbers
+- `nl`: добавить номера строк
 
-- `seq`: print numbers
+- `seq`: вывести числа
 
-- `bc`: calculator
+- `bc`: калькулятор
 
-- `factor`: factor integers
+- `factor`: возвести числа в степень
 
-- `gpg`: encrypt and sign files
+- `gpg`: зашифровать и подписать файлы
 
-- `toe`: table of terminfo entries
+- `toe`: таблица терминалов terminfo с описанием
 
-- `nc`: network debugging and data transfer
+- `nc`: дебаггинг сети и передачи данных
 
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+- `socat`: переключатель сокетов и перенаправление tcp-портов (похоже на `netcat`)
 
-- `slurm`: network trafic visualization
+- `slurm`: визуализация трафика сети
 
-- `dd`: moving data between files or devices
+- `dd`: перенос информации между файлами и девайсами
 
-- `file`: identify type of a file
+- `file`: узнать тип файла
 
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+- `tree`: показать директории и сабдиректории в виде дерева; как `ls`, но рекурсивно
 
-- `stat`: file info
+- `stat`: информация о файле
 
-- `tac`: print files in reverse
+- `tac`: вывести файл наоборот (ласипан)
 
-- `shuf`: random selection of lines from a file
+- `shuf`: случайная выборка строк из файла
 
-- `comm`: compare sorted files line by line
+- `comm`: построчно сравнить отсортированные файлы
 
-- `pv`: monitor the progress of data through a pipe
+- `pv`: мониторинг прогресса прохождения информации через пайп
 
-- `hd` and `bvi`: dump or edit binary files
+- `hd` и `bvi`: дамп и редактирование бинарников
 
-- `strings`: extract text from binary files
+- `strings`: найти текст в бинарникх
 
-- `tr`: character translation or manipulation
+- `tr`: манипуляция с char (символьным типом)
 
-- `iconv` or `uconv`: conversion for text encodings
+- `iconv` и `uconv`: конвертация кодировок
 
-- `split `and `csplit`: splitting files
+- `split` и `csplit`: разбить файлы
 
-- `sponge`: read all input before writing it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
+- `sponge`: прочитать весь инпут перед тем, как его записать, полезно когда читаешь из того же файла, куда записываешь, например вот так: `grep -v something some-file | sponge some-file`
 
-- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+- `units`: конвертер, метры в келометры, версты в пяди (смотрите `/usr/share/units/definitions.units`)
 
-- `7z`: high-ratio file compression
+- `7z`: архиватор с высокой степенью сжатия
 
-- `ldd`: dynamic library info
+- `ldd`: показывает зависимости программы от системных библиотек
 
-- `nm`: symbols from object files
+- `nm`: получаем названия всех функций, которые определены в .o или .a
 
-- `ab`: benchmarking web servers
+- `ab`: бенчмаркинг веб-серверов
 
-- `strace`: system call debugging
+- `strace`: дебаг системных вызовов
 
-- `mtr`: better traceroute for network debugging
+- `mtr`: лучшей трассировка для дебаггинга сети
 
-- `cssh`: visual concurrent shell
+- `cssh`: несколько терминалов в одном UI
 
-- `rsync`: sync files and folders over SSH
+- `rsync`: синхронизация файлов и папок через SSH
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- `wireshark` и `tshark`: перехват пакетов и дебаг сети
 
-- `ngrep`: grep for the network layer
+- `ngrep`: grep для слоя сети (network layer)
 
-- `host` and `dig`: DNS lookups
+- `host` и `dig`: узнать DNS
 
-- `lsof`: process file descriptor and socket info
+- `lsof`: процессинг дискрипторов и информация о сокетах
 
-- `dstat`: useful system stats
+- `dstat`: полезная статистика системы
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- [`glances`](https://github.com/nicolargo/glances): высокоуровневая, многосистемная статистика
 
-- `iostat`: CPU and disk usage stats
+- `iostat`: статистика CPU и использования жесткого диска
 
-- `htop`: improved version of top
+- `htop`: улучшенная версия top
 
-- `last`: login history
+- `last`: история логинов в систему
 
-- `w`: who's logged on
+- `w`: под каким пользователем вы сидите
 
-- `id`: user/group identity info
+- `id`: информация о пользователе/группе
 
-- `sar`: historic system stats
+- `sar`: история системной статистики
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- `iftop` или `nethogs`: использование сети конкретным сокетом или процессом
 
-- `ss`: socket statistics
+- `ss`: статистика сокетов
 
-- `dmesg`: boot and system error messages
+- `dmesg`: ошибки бута и ошибки системы
 
-- `hdparm`: SATA/ATA disk manipulation/performance
+- `hdparm`: манипуляция с SATA/ATA
 
-- `lsb_release`: Linux distribution info
+- `lsb_release`: информация о дистрибутиве Linux
 
-- `lsblk`: List block devices: a tree view of your disks and disk paritions
+- `lsblk`: cписок блочных устройств компьютера: древо ваших дисков и логических дисков
 
-- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: информация о железе включая, CPU, BIOS, RAID, графику, девайсы, и т.д.
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
-
+- `fortune`, `ddate`, и `sl`: хм, не знаю будут ли вам "полезны" веселые цитатки и поезда, пересекающие ваш терминал :)
 
 ## MacOS only
 
