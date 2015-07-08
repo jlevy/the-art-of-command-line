@@ -436,8 +436,8 @@ A few examples of piecing together commands:
 
 ## More resources
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+- [awesome-shell](https://github.com/alebcay/awesome-shell): 쉘에 대한 툴과 리소스들이 잘 정리되어 있는 리스트입니다.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/): 보다 나은 쉘스크립트를 작성하기 위한 정보글입니다.
 
 
 ## Disclaimer
@@ -449,4 +449,4 @@ With the exception of very small tasks, code is written so others can read it. W
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+이 저작물은 [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)에 따라 이용할 수 있습니다.
