@@ -448,37 +448,28 @@ A few examples of piecing together commands:
 These are items relevant *only* on MacOS.
 *MacOS에서만* 해당되는 항목이다.
 
-- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on MacOS many of the above commands.
 - `brew` (Homebrew)나 `port` (MacPorts)를 패키지 메니저로 사용합니다. 보다 많은 명령어를 MacOS에 설치하여 사용할 수 있습니다.
 
-- Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
 - `pbcopy`를 이용하여 데스크탑 어플리케이션에 명령어 출력물을 복사하거나 `pbpaste`를 이용해 붙여넣기를 할 수 있습니다.
 
-- To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
 - 데스크탑 어플리케이션에서 파일을 열기위해, `open` 또는 `open -a /Applications/Whatever.app`을 사용하면 됩니다.
 
-- Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
 - Spotlight: `mdfind`를 이용해 파일을 찾고, `mdls`를 이용해 메타데이타 (사진 EXIF 정보와 같은) 목록을 볼 수 있습니다.
 
-- Be aware MacOS is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
-- MacOS는 BSD Unix 기반이며 많은 명령어들 (예로 `ps`, `ls`, `tail`, `awk`, `sed`) 
-
+- MacOS는 BSD Unix 기반이며 많은 명령어들을 (예로 `ps`, `ls`, `tail`, `awk`, `sed`) 사용할 수 있으며, 이것들은 Linux 버전들과 미묘한 차이가 있습니다. 그리고 크게는 System V-style Unix와 GNU 도구들에 많은 영향을 받았습니다. 이런 내용들을 man 페이지 상단의 "BSD General Commands Manual." 라는 문구를 통해 알 수 있습니다. 가끔은 GNU 버전이 설치되기도합니다. (예로, GNU awk와 sed인 `gawk`와 `gsed`에서). 만약 이종 플랫폼간 Bash 스크립트를 작성하려면, 동일한 명령어 (예로, 파이썬이나 `perl`과 같은)나 테스트시 주의해야합니다.
 
 ## 더 많은 자료
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
 - [awesome-shell](https://github.com/alebcay/awesome-shell): 쉘 도구와 리소스를 모아둔 목록
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
 - 더 좋은 쉘 스크립트 작성을 위한 [Strict 모드](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
 
 
 ## 면책 조항
 
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
-
+매우 작은 작업을 제외한 코드들은 다른 사람이 읽을 수 있도록 작성됩니다. 그러니 이 내용은 작성자 전원에게 책임이 있습니다. Bash에서 뭔가를 *할 수 있다는* 것이 당신이 뭔가를 해야된다는 것을 강요하는 것이 아니다! ;)
 
 ## 라이센스
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) 라이센스 하에 작업되었습니다.
+[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) 라이센스 하에 작성되었습니다.
