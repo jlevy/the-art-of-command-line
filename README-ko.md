@@ -1,4 +1,4 @@
-[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [한국어](README-ko.md) ]
+[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
 
 
 # The Art of Command Line
@@ -7,23 +7,14 @@
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 - [메타](#메타)
-- [Basics](#basics)
 - [기본](#기본)
-- [Everyday use](#everyday-use)
-- [매일 사용](#매일-사용)
-- [Processing files and data](#processing-files-and-data)
+- [자주 사용](#자주-사용)
 - [파일과 데이타 처리](#파일과-데이타-처리)
-- [System debugging](#system-debugging)
 - [시스템 디버깅](#시스템-디버깅)
-- [One-liners](#one-liners)
 - [한줄로](#한줄로)
-- [Obscure but useful](#obscure-but-useful)
-- [유명하진 않지만 사용하기 좋은](#유명하지-않지만-사용하기-좋은)
-- [MacOS only](#macos-only)
+- [유명하진 않지만 사용하기 편한](#유명하지-않지만-사용하기-편한)
 - [맥용](#맥용)
-- [More resources](#more-resources)
 - [더 많은 자료](#더-많은-자료)
-- [Disclaimer](#disclaimer)
 - [면책 조항](#면책-조항)
 
 
@@ -38,7 +29,7 @@ on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-
 but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
 
 
-## Meta
+## 메타
 
 Scope:
 
@@ -53,7 +44,7 @@ Notes:
 - Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
 
 
-## Basics
+## 기본
 
 - Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
@@ -78,7 +69,7 @@ Notes:
 - Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
 
-## Everyday use
+## 자주 사용
 
 - In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
 
@@ -166,7 +157,7 @@ Notes:
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
 
 
-## Processing files and data
+## 파일과 데이타 처리
 
 - To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
 
@@ -233,7 +224,7 @@ Notes:
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
 
-## System debugging
+## 시스템 디버깅
 
 - For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
 
@@ -272,7 +263,7 @@ Notes:
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
 
-## One-liners
+## 한줄로
 
 A few examples of piecing together commands:
 
@@ -319,7 +310,7 @@ A few examples of piecing together commands:
 ```
 
 
-## Obscure but useful
+## 유명하진 않지만 사용하기 편한
 
 - `expr`: perform arithmetic or boolean operations or evaluate regular expressions
 
@@ -452,19 +443,25 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-## MacOS only
+## 맥용
 
 These are items relevant *only* on MacOS.
+*MacOS에서만* 해당되는 항목이다.
 
 - Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on MacOS many of the above commands.
+- `brew` (Homebrew)나 `port` (MacPorts)를 패키지 메니저로 사용합니다. 보다 많은 명령어를 MacOS에 설치하여 사용할 수 있습니다.
 
 - Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
+- `pbcopy`를 이용하여 데스크탑 어플리케이션에 명령어 출력물을 복사하거나 `pbpaste`를 이용해 붙여넣기를 할 수 있습니다.
 
 - To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
+- 데스크탑 어플리케이션에서 파일을 열기위해, `open` 또는 `open -a /Applications/Whatever.app`을 사용하면 됩니다.
 
 - Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
+- Spotlight: `mdfind`를 이용해 파일을 찾고, `mdls`를 이용해 메타데이타 (사진 EXIF 정보와 같은) 목록을 볼 수 있습니다.
 
 - Be aware MacOS is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
+- MacOS는 BSD Unix 기반이며 많은 명령어들 (예로 `ps`, `ls`, `tail`, `awk`, `sed`) 
 
 
 ## 더 많은 자료
