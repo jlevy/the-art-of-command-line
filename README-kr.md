@@ -309,17 +309,17 @@ A few examples of piecing together commands:
 
 - `m4`: simple macro processor
 
-- `yes`: print a string a lot
+- `yes`: 어떠한 한 문장을 매우 많이 출력합니다
 
-- `cal`: nice calendar
+- `cal`: 간단한 달력을 보여줍니다
 
-- `env`: run a command (useful in scripts)
+- `env`: 어떤 한 커맨드를 실행합니다(스크립트를 만들때 유용합니다)
 
-- `printenv`: print out environment variables (useful in debugging and scripts)
+- `printenv`: 환경 변수들을 출력합니다(디버깅을 할때나 스크립트를 만들때 유용합니다)
 
 - `look`: find English words (or lines in a file) beginning with a string
 
-- `cut `and `paste` and `join`: data manipulation
+- `cut `과 `paste` 그리고 `join`: 데이터를 수정할때 사용합니다
 
 - `fmt`: format text paragraphs
 
@@ -333,105 +333,105 @@ A few examples of piecing together commands:
 
 - `nl`: add line numbers
 
-- `seq`: print numbers
+- `seq`: 숫자들을 출력하는데 사용합니다
 
-- `bc`: calculator
+- `bc`: 간단한 계산기를 실행합니다
 
-- `factor`: factor integers
+- `factor`: 정수들을 인수분해하는데 사용합니다
 
-- `gpg`: encrypt and sign files
+- `gpg`: 파일들을 암호화하고 서명하는데 사용합니다
 
 - `toe`: table of terminfo entries
 
 - `nc`: network debugging and data transfer
 
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+- `socat`: 소켓 릴레이나 TCP 포트로 내용을 전달할때 사용합니다(`netcat`과 비슷합니다)
 
-- `slurm`: network trafic visualization
+- `slurm`: 네트워크 상황을 시각화하여 보여줍니다
 
-- `dd`: moving data between files or devices
+- `dd`: 파일들이나 디바이스들 간에 데이터를 옮길때 사용합니다
 
-- `file`: identify type of a file
+- `file`: 파일의 종류를 알아내는데 사용합니다
 
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+- `tree`: 디렉토리들과 그 하위 디렉토리를 마치 ls를 반복적으로 입력한 것처럼 트리의 형태로 보여줍니다
 
-- `stat`: file info
+- `stat`: 파일의 정보를 보여줍니다
 
-- `tac`: print files in reverse
+- `tac`: 파일의 내용을 역순으로 출력합니다
 
-- `shuf`: random selection of lines from a file
+- `shuf`: 파일의 각 줄들을 임의의 순서로 출력합니다
 
-- `comm`: compare sorted files line by line
+- `comm`: 정렬된 파일들을 각 라인별로 비교합니다
 
-- `pv`: monitor the progress of data through a pipe
+- `pv`: 파이프를 통해서 프로세스의 정보를 모니터링하는데 사용합니다
 
-- `hd` and `bvi`: dump or edit binary files
+- `hd` and `bvi`: 바이너리 파일을 수정하거나 덤프를 얻어오는데 사용합니다
 
-- `strings`: extract text from binary files
+- `strings`: 바이너리 파일들에서 특정 문장을 추출하는데 사용합니다
 
-- `tr`: character translation or manipulation
+- `tr`: 문자를 변환하거나 조작하는데 사용합니다
 
-- `iconv` or `uconv`: conversion for text encodings
+- `iconv` or `uconv`: 문서의 인코딩방식을 변환하는데 사용합니다
 
-- `split `and `csplit`: splitting files
+- `split `and `csplit`: 파일들을 쪼개는데 사용합니다
 
 - `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
 
-- `7z`: high-ratio file compression
+- `7z`: 고효율의 파일 압축프로그램입니다
 
-- `ldd`: dynamic library info
+- `ldd`: 동적 라이브러리들의 정보를 보여줍니다
 
-- `nm`: symbols from object files
+- `nm`: 오브젝트 파일들에 포함된 심볼정보를 얻어옵니다
 
-- `ab`: benchmarking web servers
+- `ab`: 웹 서버를 벤치 마킹하는데 사용합니다
 
-- `strace`: system call debugging
+- `strace`: 시스템 콜을 디버깅할때 사용합니다
 
-- `mtr`: better traceroute for network debugging
+- `mtr`: 네트워크 디버깅시에 traceroute보다 더 낫습니다
 
-- `cssh`: visual concurrent shell
+- `cssh`: 쉘을 동시에 여러개 사용할때 사용합니다
 
-- `rsync`: sync files and folders over SSH
+- `rsync`: SSH를 통해서 파일과 폴더들을 동기화 할때 사용합니다
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- `wireshark` and `tshark`: 패킷정보를 가져오며 네트워킹을 디버깅하는데 사용합니다
 
-- `ngrep`: grep for the network layer
+- `ngrep`: 네트워크 환경에서 grep과 같은 역할을 합니다
 
-- `host` and `dig`: DNS lookups
+- `host` and `dig`: DNS 정보를 보여줍니다
 
-- `lsof`: process file descriptor and socket info
+- `lsof`: 프로세스 파일 디스크립터와 소켓의 정보를 보여줍니다
 
-- `dstat`: useful system stats
+- `dstat`: 유용한 시스템 정보를 보여줍니다
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- [`glances`](https://github.com/nicolargo/glances): 보다 고차원의 여러 서브시스템들의 정보를 한번에 보여줍니다
 
-- `iostat`: CPU and disk usage stats
+- `iostat`: CPU 나 디스크의 사용량 정보를 보여줍니다
 
-- `htop`: improved version of top
+- `htop`: 보다 개선된 형태의 top을 보여줍니다
 
-- `last`: login history
+- `last`: 로그인 했던 정보들을 보여줍니다
 
-- `w`: who's logged on
+- `w`: 현재 누가 로그인했는지 보여줍니다
 
-- `id`: user/group identity info
+- `id`: 현재 유저나 그룹에 대한 식별 정보를 보여줍니다
 
-- `sar`: historic system stats
+- `sar`: 시스템 상태에 대한 정보를 보여줍니다
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- `iftop` or `nethogs`: 소켓 또는 프로세스를 이용하여 네트워크를 정보를 보여줍니다
 
-- `ss`: socket statistics
+- `ss`: 소켓에 관한 통계자료들을 보여줍니다
 
-- `dmesg`: boot and system error messages
+- `dmesg`: 부팅 메시지와 시스템 에러 메시지들을 보여줍니다
 
-- `hdparm`: SATA/ATA disk manipulation/performance
+- `hdparm`: SATA/ATA disk들의 정보를 수정하거나 그것들이 작동하도록 합니다.
 
-- `lsb_release`: Linux distribution info
+- `lsb_release`: Linux 배포판의 정보를 보여줍니다
 
-- `lsblk`: List block devices: a tree view of your disks and disk paritions
+- `lsblk`: 블록 디바이스들의 목록을 보여줍니다 : 여러분의 디스크들이나 디스크파티션들을 트리의 형태로 보여줍니다
 
-- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: CPU, BIOS, RAID, graphics, devices 등의 하드웨어 정보를 보여줍니다
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+- `fortune`, `ddate`, 그리고 `sl`: 에... 증기기관차를 생각하고있고 그것을 인용하고 싶다면 이것은 "유용"합니다
 
 
 ## More resources
