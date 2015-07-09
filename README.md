@@ -208,7 +208,7 @@ Notes:
 
 - The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
 
-- For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
+- For binary files, use `hd`, `hexdump` or `xxd` for simple hex dumps and `bvi` or `biew` for binary editing.
 
 - Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
 
@@ -372,7 +372,7 @@ A few examples of piecing together commands:
 
 - `pv`: monitor the progress of data through a pipe
 
-- `hd` and `bvi`: dump or edit binary files
+- `hd`, `hexdump`, `xxd`, `biew` and `bvi`: dump or edit binary files
 
 - `strings`: extract text from binary files
 
