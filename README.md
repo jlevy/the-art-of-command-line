@@ -234,6 +234,7 @@ Notes:
 - To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
 
 - Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs.
+  Also default JDKs `jps`, `jstat`, `jstack`, `jmap` are quite usefull, take a look at their help. For more advanced cases use something like [SJK by Alexey Rogozin](https://github.com/aragozin/jvm-tools).
 
 - Use `mtr` as a better traceroute, to identify network issues.
 
