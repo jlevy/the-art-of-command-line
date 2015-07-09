@@ -305,9 +305,9 @@ A few examples of piecing together commands:
 
 ## Obscure but useful
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `expr`: 산술적이거나 논리적인 작업을 수행하거나 정규표현식을 검증할때 사용합니다
 
-- `m4`: simple macro processor
+- `m4`: 간단한 메크로 수행기를 실행합니다
 
 - `yes`: 어떠한 한 문장을 매우 많이 출력합니다
 
@@ -317,21 +317,21 @@ A few examples of piecing together commands:
 
 - `printenv`: 환경 변수들을 출력합니다(디버깅을 할때나 스크립트를 만들때 유용합니다)
 
-- `look`: find English words (or lines in a file) beginning with a string
+- `look`: 어떤 문자열로 시작하는 영단어(혹은 파일의 어떤 한 줄)을 찾습니다
 
 - `cut `과 `paste` 그리고 `join`: 데이터를 수정할때 사용합니다
 
-- `fmt`: format text paragraphs
+- `fmt`: 문단의 서식을 지정합니다
 
-- `pr`: format text into pages/columns
+- `pr`: 문서의 페이지나 컬럼 서식을 지정합니다
 
-- `fold`: wrap lines of text
+- `fold`: 문서의 각 라인들을 특정한 길이에 맞게 수정합니다
 
-- `column`: format text into columns or tables
+- `column`: 문서의 컬럼이나 테이블의 서식을 지정합니다
 
-- `expand` and `unexpand`: convert between tabs and spaces
+- `expand` and `unexpand`: 탭을 공백으로 바꾸어주거나 공백을 탭으로 바꾸어줍니다
 
-- `nl`: add line numbers
+- `nl`: 줄 번호를 추가해줍니다
 
 - `seq`: 숫자들을 출력하는데 사용합니다
 
@@ -341,9 +341,9 @@ A few examples of piecing together commands:
 
 - `gpg`: 파일들을 암호화하고 서명하는데 사용합니다
 
-- `toe`: table of terminfo entries
+- `toe`: terminfo 엔트리들의 테이블(table of terminfo entries)
 
-- `nc`: network debugging and data transfer
+- `nc`: 네트워크를 디버깅하거나 데이터를 전송할때 사용합니다
 
 - `socat`: 소켓 릴레이나 TCP 포트로 내용을 전달할때 사용합니다(`netcat`과 비슷합니다)
 
@@ -375,7 +375,7 @@ A few examples of piecing together commands:
 
 - `split `and `csplit`: 파일들을 쪼개는데 사용합니다
 
-- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+- `units`: 단위를 변환하거나 계산하는데 사용합니다 예를들어 furlongs/fortnight 단위를 twips/blink로 변환합니다 (`/usr/share/units/definitions.units`를 참고하세요)
 
 - `7z`: 고효율의 파일 압축프로그램입니다
 
