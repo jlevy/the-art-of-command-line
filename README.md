@@ -191,6 +191,10 @@ Notes:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
+Or use `sed` (it's more lightweight but its default regexp syntax differs from `perl`'s one, be carefull)
+```sh
+      sed -i.bak 's/old-string/new-string/g' my-files-*.txt
+```
 
 - To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
 ```sh
