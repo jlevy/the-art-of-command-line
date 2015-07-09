@@ -153,31 +153,31 @@
 
 ## Processing files and data
 
-- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
+- 현재 디렉토리에서 파일을 이름으로 찾으려면 `find . -iname '*something*'` (또는 비슷하게)를 사용하면 됩니다. 어느곳에 있든 파일을 이름으로 찾으려면 `locate something`을 사용하세요(하지만 인내를 가져야합니다. `updatedb`가 최근에 생성된 파일을 인덱싱하지 않았을 수 있습니다).
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- 소스나 데이터 파일들에서 일반적인 검색을 할때는(`grep -r`보다 더 복잡할때), [`ag`](https://github.com/ggreer/the_silver_searcher)를 사용하세요.
 
-- To convert HTML to text: `lynx -dump -stdin`
+- HTML을 텍스트로 변환할때는 `lynx -dump -stdin`를 사용하세요.
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- 마크다운, HTML, 그리고 모든 종류의 문서 변환에는 [`pandoc`](http://pandoc.org/)을 시도해보세요.
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- XML을 반드시 다뤄야한다면, `xmlstarlet`을 사용하세요. 오래되었지만 좋습니다.
 
-- For JSON, use `jq`.
+- JSON에는 `jq`를 사용하세요.
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Excel이나 CSV파일에는 [csvkit](https://github.com/onyxfish/csvkit)가 `in2csv`, `csvcut`, `csvjoin`, `csvgrep`외 다른 도구들을 제공합니다..
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
+- Amazon S3를 다룰때는 [`s3cmd`](https://github.com/s3tools/s3cmd)가 편리합니다. 그리고 [`s4cmd`](https://github.com/bloomreach/s4cmd)는 빠릅니다. Amazon의  [`aws`](https://github.com/aws/aws-cli)는 다른 AWS 관련 작업에 핵심적인 도구입니다.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
+- `sort`와 `uniq`에 대해서 알아두세요. uniq의 `-u`, `-d`옵션을 포함해서 말이죠. 하단의 one-liner를 보세요. 그리고 `comm`도 보세요.
 
-- Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+- 텍스트 파일들을 다루는 `cut`, `paste` 그리고 `join`에 대해서 알아두세요. 많은 사람들이 `cut`을 사용하지만 `join`에 대해서는 잊고 있습니다.
 
-- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+- `wc`를 이용해서 행(`-l`), 캐릭터(`-m`), 단어(`-w`) 그리고 바이트(`-c`)를 세는 것을 알아두세요.
 
-- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+- `tee`를 이용해서 `ls -al | tee file.txt`처럼, 표준입력(stdin)에서 복사해서 파일로 보내거나, 표준 출력(stdout)으로 보내는 것을 알아두세요.
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- 로케일이 커맨드라인 도구에 정렬 순서(collation)와 퍼포먼스를 포함해서 미묘하게 영향을 끼치는 것을 알아두세요. 대부분의 리눅스 설치는 `LANG`이나 다른 로케일 변수를 US English와 같은 로컬 세팅으로 설정합니다. 하지만 로케일을 바꿀 경우 정렬도 바뀔 것이라는 것에 주의하세요. 그리고 i18n 루틴들도 정렬이나 다른 커맨드들을 *몇 배* 느리게 할 수 있습니다. `export LC_ALL=C`를 사용하여, 어떤 상황에서는( 밑에 있는 집합(set) 작업이나, 유일성 작업등) i18n의 느린 루틴들을 통채로 안전하게 무시할 수 있습니다. 그리고 전통적인 바이트 기반의 정렬 순서를 사용할 수 있습니다.
 
 - Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
 
