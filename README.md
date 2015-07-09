@@ -73,7 +73,7 @@ Notes:
 
 - In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
 
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. [There are a lot](http://ss64.com/bash/syntax-keyboard.html). For example **alt-.** inserts last argument of previous command, and **ctrl-x *** [expands a glob](http://superuser.com/questions/215950/how-to-expand-on-bash-command-line).
 
 - Alternatively, if you love vi-style key-bindings, use `set -o vi`.
 
@@ -287,12 +287,6 @@ A few examples of piecing together commands:
       find . -type f -ls
 ```
 
-- Use `xargs` or `parallel` whenever you can. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use xargs echo first. Also, `-I{}` is handy. Examples:
-```sh
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
-```
-
 - Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
@@ -400,7 +394,7 @@ A few examples of piecing together commands:
 
 - `cssh`: visual concurrent shell
 
-- `rsync`: sync files and folders over SSH
+- `rsync`: sync files and folders over SSH or in local file system
 
 - `wireshark` and `tshark`: packet capture and network debugging
 
@@ -443,7 +437,7 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-## MacOS only
+## MacOS X only
 
 These are items relevant *only* on MacOS.
 
