@@ -86,45 +86,46 @@
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- `pstree -p` is a helpful display of the process tree.
+- `pstree -p`는 프로세스 트리를 표시하는데 도움이 됩니다.
 
-- Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
+- `pgrep`과 `pkill`을 사용해서 프로세스를 찾거나 시그널을 보내세요(`-f`가 유용합니다).
 
-- Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
+- 프로세스에 보낼 수 있는 다양한 시그널을 알아두세요. 예를 들어, 프로세스를 일시중지 할 때는 `kill -STOP [pid]`를 사용합니다. 전체 목록은 `man 7 signal`에서 볼 수 있습니다.
 
-- Use `nohup` or `disown` if you want a background process to keep running forever.
+- 백그라운드 프로세스를 영원히 돌아가게 만들고 싶다면, `nohup`이나 `disown`을 사용하세요.
 
-- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
+- 어떤 프로세스가 리스닝(역주: 특정 포트로 들어오는 패킷 리스닝)을 하고 있는지 알려면 `netstat -lntp`나 `ss -plat`을 사용해서 알 수 있습니다(TCP일 경우입니다. UDP의 경우 `-u`옵션을 추가하세요).
 
-- See also `lsof` for open sockets and files.
+- `lsof`를 이용해서 열려있는 소켓과 파일을 볼 수 있습니다.
 
-- In Bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
+- Bash 스크립트에서 `set -x`를 사용하면 디버깅용 출력을 사용하게 됩니다. 스트릭트 모드(strict mode)가 가능할때면 사용하세요. `set -e`를 사용하면 에러가 났을때 중단시키게됩니다. `set -o pipefail`을 사용하면 에러에 대해서 강경한 기준을 적용합니다(이 주제가 조금 미묘하지만 말이죠). 더 복잡한 스크립트의 경우 `trap`또한 사용합니다.
 
-- In Bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
+- Bash 스크립트에서 (괄호로 둘러쌓여 작성된) 서브쉘은 커맨드를 그룹으로 묶는 편리한 방법입니다. 일반적인 예로, 임시로 다른 디렉토리로 이동하여 작업하는 것이 있습니다.
 ```bash
       # do something in current dir
       (cd /some/other/dir && other-command)
       # continue in original dir
 ```
 
-- In Bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a Bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
+- Bash 에는 여러가지 다양한 변수 확장이 있다는 것을 알아두세요. 변수가 존재하는지 확인하려면 `${name:?error message}`를 사용하세요. 예를 들어 Bash 스크립트가 하나의 argument를 요구한다면, `input_file=${1:?usage: $0 input_file}`를 사용하세요. 산술 확장은 `i=$(( (i + 1) % 5 ))` 처럼 사용합니다. 순열은 `{1...10}`처럼 사용합니다. 문자열 트리밍(trimmin)은 `${var%suffix}`이나 `${var#prefix}`처럼 사용할 수 있습니다. 예를들어 `var=foo.pdf`라면, `echo ${var$.pdf}.txt`는 `foo.txt`를 출력합니다.
 
-- The output of a command can be treated like a file via `<(some command)`. For example, compare local `/etc/hosts` with a remote one:
+- 커맨드의 실행 결과 출력물은 `<(some command)`처럼 이용해서 파일처럼 다뤄질 수 있습니다. 예를들어 로컬의 `/etc/hosts`를 리모트의 것과 비교하려면 다음처럼 하면 됩니다.
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- Know about "here documents" in Bash, as in `cat <<EOF ...`.
+- `cat << EOF...`같은 "here documents"에 대해서 알아두세요.
 
-- In Bash, redirect both standard output and standard error via: `some-command >logfile 2>&1`. Often, to ensure a command does not leave an open file handle to standard input, tying it to the terminal you are in, it is also good practice to add `</dev/null`.
+- Bash에서 표준 출력(standard output)과 표준 에러(standard error) 둘 다 `some-command > logfile 2>&1`같은 명령어로 리다이렉트할 수 있습니다. 종종, 커맨드가 열린 파일 핸들을 남기지 않는 것을 확실히 하기 위해, 현재 작업중인 터미널에서 명령어에 `</dev/null`을 덧붙이는 것은 좋은 습관입니다.
 
-- Use `man ascii` for a good ASCII table, with hex and decimal values. For general encoding info, `man unicode`, `man utf-8`, and `man latin1` are helpful.
+- `man ascii`를 사용해서 헥스값과 10진 값이 같이 있는 훌륭한 ASCII 테이블을 볼 수 있습니다. 일반적인 인코딩 정보를 보려면 `man unicode`, `man utf-8` 그리고 `man latin1`을 이용할 수 있습니다.
 
-- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
+- `screen`을 이용하거나  [`tmux`](https://tmux.github.io/)를 이용해서 화면을 다중분할할 수 있습니다. 특히 리모트 ssh 세션을 떼어내고(detach) 다시 붙이는데(re-attach)하는데 유용합니다. 세션을 영구히 유지하는 최소한의 대안은 오직 `dtach`밖에 없습니다.
 
-- In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
+- ssh에서 `-L`이나 `-D`(가끔 `-R`)를 이용해서 포트 터널링하는 것을 알아두시면 유용합니다. 예를 들어 리모트 서버를 경유해서 웹사이트에 접속한다거나 할 때 말이죠.
 
-- It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, use compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
+- 몇가지 ssh 설정을 최적화하는 것은 유용할 수 있습니다. 예를들어 `~/.ssh/config`는 특정 네트워크 환경에서 연결이 끊기는 것을 회피하기 위해 압축을 사용하는 설정들을 담고 있습니다(특히 scp 명령어를 낮은 대역폭 연결에서 사용하는 경우에 도움이 됩니다. 그리고  로컬 제어 파일에서 같은 서버로 연결하는 채널을 다중화할 수 있습니다.
+
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -135,7 +136,7 @@
       ControlPersist yes
 ```
 
-- A few other options relevant to ssh are security sensitive and should be enabled with care, e.g. per subnet or host or in trusted networks: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+-  ssh의 몇 가지 옵션들은 보안에 민감한 옵션이며 주의를 가지고 사용되어야합니다. 예를 들어 서브넷, 호스트 또는 신뢰되는 네트워크에서 `StrictHostKeyChecking=no`, `ForwardAgent=yes`을 사용하는 것 등입니다.
 
 - To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
 ```sh
