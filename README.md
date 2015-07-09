@@ -156,6 +156,11 @@ Notes:
 
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
 
+- Take a look at `xclip` for clipboard exchange between console and graphical application. Samples:
+```sh
+      ls -la | xclip -i # to primary buffer, can be inserted by middle-click
+      xclip -o | echo # from selection/clipboard to echo
+```
 
 ## Processing files and data
 
