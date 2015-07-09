@@ -138,17 +138,17 @@
 
 -  ssh의 몇 가지 옵션들은 보안에 민감한 옵션이며 주의를 가지고 사용되어야합니다. 예를 들어 서브넷, 호스트 또는 신뢰되는 네트워크에서 `StrictHostKeyChecking=no`, `ForwardAgent=yes`을 사용하는 것 등입니다.
 
-- To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
+- 시스템 설정에 유용하지만 `ls`로 얻을 수 없고 쉽게 엉망이 되기 쉬운 파일의 권한을 8진법 형태로 얻으려면, 다음과 같은 커맨드를 사용하세요.
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- For interactive selection of values from the output of another command, use [`percol`](https://github.com/mooz/percol).
+- 다른 커맨드의 출력과 상호작용하면서 값을 선택하려면  [`percol`](https://github.com/mooz/percol)을 사용하세요.
 
-- For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
+- 다른 커맨드(예를 들면 `git`)의 출력에 기반하는 파일과 상호작용하려면, `fpp` ([PathPicker](https://github.com/facebook/PathPicker))를 사용하세요.
 
-- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
-`python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
+- 현재 네트워크에 있는 사용자들에게 현재 디렉토리에 있는 모든 파일(과 하위 디렉토리)를 위한 단순한 웹서버를 원한다면 다음을 사용하세요:
+`python -m SimpleHTTPServer 7777` (7777포트, Python 2) 그리고 `python -m http.server 7777` (7777포트, Python 3).
 
 
 ## Processing files and data
