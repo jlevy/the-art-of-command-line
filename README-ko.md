@@ -11,7 +11,7 @@
 - [자주 사용](#자주-사용)
 - [파일과 데이터 처리](#파일과-데이터-처리)
 - [시스템 디버깅](#시스템-디버깅)
-- [한줄로](#한줄로)
+- [한줄로 사용하기](#한줄로-사용하기)
 - [유명하진 않지만 사용하면 편한](#유명하지-않지만-사용하면-편한)
 - [맥용](#맥용)
 - [더 많은 자료](#더-많은-자료)
@@ -263,11 +263,12 @@ Notes:
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
 
-## 한줄로
+## 한줄로 사용하기
 
-A few examples of piecing together commands:
+명령어 조합의 몇가지 예:
 
 - It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+- `sort`/`uniq`를 사용하여 텍스트 파일의 교차점, 조합, 차이점을 확인이 필요할때 상당한 도움이 될껍니다. 가령 `a`와 `b`가 유일한 텍스트 파일이라합시다. 이것이 임의의 크기인 파일을(그게 기가바이트라고 해도) 빠르게 작업할 수 있습니다. (Sort는 메모리 제한에 걸리지 않습니다만, 만약 루트 파티션이 작은 경우, `/tmp`를 사용하기위해 `-T`옵션을 사용하면됩니다.) 위의 `LC_ALL`에대한 내용은 `sort`의 `-u`옵션을 확인하십시오. (아래 예제에 집중하기 위해서 생략)
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
