@@ -260,41 +260,39 @@
 
 ## One-liners
 
-A few examples of piecing together commands:
+커맨드들을 한데 묶어서 사용하는 예제들
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
-- `sort`/`uniq`를 사용하여 텍스트 파일의 교차점, 조합, 차이점을 확인이 필요할때 상당한 도움이 될껍니다. 가령 `a`와 `b`가 유일한 텍스트 파일이라합시다. 이것이 임의의 크기인 파일을(그게 기가바이트라고 해도) 빠르게 작업할 수 있습니다. (Sort는 메모리 제한에 걸리지 않습니다만, 만약 루트 파티션이 작은 경우, `/tmp`를 사용하기위해 `-T`옵션을 사용하면됩니다.) 위의 `LC_ALL`에대한 내용은 `sort`의 `-u`옵션을 확인하십시오. (아래 예제에 집중하기 위해서 생략)
+- `sort`/`uniq`를 사용하여 텍스트 파일의 교차점, 조합, 차이점을 확인이 필요할때 상당한 도움이 될겁니다. 가령 `a`와 `b`가 유일한 값들만을 가진 텍스트 파일이라합시다. 이것이 임의의 크기인 파일을(그게 기가바이트라고 해도) 빠르게 작업할 수 있습니다. (Sort는 메모리 제한에 걸리지 않습니다만, 만약 루트 파티션이 작은 경우, `/tmp`를 사용하기위해 `-T`옵션을 사용하면됩니다.) 위의 `LC_ALL`에대한 내용은 `sort`의 `-u`옵션을 확인하십시오. (아래 예제에 집중하기 위해서 생략)
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Use `grep . *` to visually examine all contents of all files in a directory, e.g. for directories filled with config settings, like `/sys`, `/proc`, `/etc`.
+- `grep . *`을 사용해서 디렉토리 안의 모든 파일을 비주얼하게 살펴 볼 수 있습니다. 예를들어 `/sys`, `/proc`, `/etc` 같이 설정 값들로 가득한 디렉토리에 말이죠.
 
-
-- Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
+- 텍스트 파일의 세번째 열의 숫자들의 모든 값을 더하는 것은 이렇게 합니다. 이 방법은 같은 일을 하는 파이썬 코드보다 3배정도 빠르고, 1/3정도의 길이밖에 안됩니다.
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- 파일 트리에서 크기와 날짜를 보려면 이렇게 하세요. 이 명령어는 `ls -l`을 재귀적으로 수행하는 것과 같지만, `ls -lR`보다 더 읽기 쉽습니다.
 ```sh
       find . -type f -ls
 ```
 
-- Use `xargs` or `parallel` whenever you can. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use xargs echo first. Also, `-I{}` is handy. Examples:
+- 할수만 있다면 `xargs`나 `parallel`을 사용하세요. 라인당 몇개의 아이템이 실행되게 할 것인지(`-L`) 그걸 병렬로 할 것인지(`-P`)를 제어할 수 있다는걸 기억하세요.  제대로 하고있는지 확신할 수 없다면 `xargs echo`를 먼저 실행해보세요. 또 `-I{}`도 간편합니다.:
 ```sh
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
+- 웹서버 로그같은 텍스트 파일이 있다고 합시다. 그리고 URL 파라메터에 나타나는 `acct_id`같은 특정 값이 몇몇 행에 나타난다고 해보죠. 각각의 `acct_id`에 대해 얼마나 많은 요청이 있었는지 알고 싶다면 다음처럼 할 수 있습니다.
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- Run this function to get a random tip from this document (parses Markdown and extracts an item):
+- 다음 함수를 실행하면 이 문서에 있는 팁 중 임의의 것을 얻을 수 있습니다(마크다운을 파싱하고 항목을 추출합니다).
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -304,6 +302,8 @@ A few examples of piecing together commands:
           xmlstarlet unesc | fmt -80
       }
 ```
+
+
 
 
 ## Obscure but useful
