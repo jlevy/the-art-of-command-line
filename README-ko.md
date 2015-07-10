@@ -1,21 +1,21 @@
-[ [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
-
+[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
 
 
 # The Art of Command Line
+# 커멘드 라인 멋짐에 대해
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-- [Meta](#meta)
-- [Basics](#basics)
-- [Everyday use](#everyday-use)
-- [Processing files and data](#processing-files-and-data)
-- [System debugging](#system-debugging)
-- [One-liners](#one-liners)
-- [Obscure but useful](#obscure-but-useful)
-- [MacOS only](#macos-only)
-- [More resources](#more-resources)
-- [Disclaimer](#disclaimer)
+- [메타](#메타)
+- [기본](#기본)
+- [자주 사용](#자주-사용)
+- [파일과 데이터 처리](#파일과-데이터-처리)
+- [시스템 디버깅](#시스템-디버깅)
+- [한줄로 사용하기](#한줄로-사용하기)
+- [유명하진 않지만 사용하면 편한](#유명하지-않지만-사용하면-편한)
+- [맥용](#맥용)
+- [더 많은 자료](#더-많은-자료)
+- [면책 조항](#면책-조항)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -29,7 +29,7 @@ on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-
 but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
 
 
-## Meta
+## 메타
 
 Scope:
 
@@ -44,7 +44,7 @@ Notes:
 - Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
 
 
-## Basics
+## 기본
 
 - Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
@@ -69,7 +69,7 @@ Notes:
 - Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
 
-## Everyday use
+## 자주 사용
 
 - In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
 
@@ -157,7 +157,7 @@ Notes:
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
 
 
-## Processing files and data
+## 파일과 데이터 처리
 
 - To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
 
@@ -224,7 +224,7 @@ Notes:
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
 
-## System debugging
+## 시스템 디버깅
 
 - For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
 
@@ -263,11 +263,12 @@ Notes:
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
 
-## One-liners
+## 한줄로 사용하기
 
-A few examples of piecing together commands:
+명령어 조합의 몇가지 예:
 
 - It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+- `sort`/`uniq`를 사용하여 텍스트 파일의 교차점, 조합, 차이점을 확인이 필요할때 상당한 도움이 될껍니다. 가령 `a`와 `b`가 유일한 텍스트 파일이라합시다. 이것이 임의의 크기인 파일을(그게 기가바이트라고 해도) 빠르게 작업할 수 있습니다. (Sort는 메모리 제한에 걸리지 않습니다만, 만약 루트 파티션이 작은 경우, `/tmp`를 사용하기위해 `-T`옵션을 사용하면됩니다.) 위의 `LC_ALL`에대한 내용은 `sort`의 `-u`옵션을 확인하십시오. (아래 예제에 집중하기 위해서 생략)
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
@@ -310,167 +311,165 @@ A few examples of piecing together commands:
 ```
 
 
-## Obscure but useful
+## 유명하진 않지만 사용하면 편한
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `expr`: 산술 또는 boolean 연산을 수행하거나 정규 표현식을 평가하는데 사용합니다.
 
-- `m4`: simple macro processor
+- `m4`: 간단한 매크로 프로세서
 
-- `yes`: print a string a lot
+- `yes`: 많은 양의 문자열 출력합니다.
 
-- `cal`: nice calendar
+- `cal`: 꽤 괜찮은 달력
 
-- `env`: run a command (useful in scripts)
+- `env`: 명령어 실행합니다. (스크립트 작성시 유용함)
 
-- `printenv`: print out environment variables (useful in debugging and scripts)
+- `printenv`: 환경 변수 출력합니다. (디버깅하거나 스크립트 작성시 유용함)
 
-- `look`: find English words (or lines in a file) beginning with a string
+- `look`: 문자열로 시작하는 영어 단어나 파일에 있는 라인을 찾습니다.
 
-- `cut `and `paste` and `join`: data manipulation
+- `cut`, `paste`, `join`: 데이터를 조작합니다.
 
-- `fmt`: format text paragraphs
+- `fmt`: 텍스트 구문 서식
 
-- `pr`: format text into pages/columns
+- `pr`: 페이지 / 컬럼 텍스트 서식
 
-- `fold`: wrap lines of text
+- `fold`: 텍스트 줄 바꿈
 
-- `column`: format text into columns or tables
+- `column`: 열이나 테이블로 텍스트 서식 변경합니다.
 
-- `expand` and `unexpand`: convert between tabs and spaces
+- `expand`, `unexpand`: 탭에서 스페이스로, 스페이스에서 탭으로 변경
 
-- `nl`: add line numbers
+- `nl`: 줄번호를 추가합니다.
 
-- `seq`: print numbers
+- `seq`: 숫자 출력를 출력합니다.
 
-- `bc`: calculator
+- `bc`: 계산기
 
-- `factor`: factor integers
+- `factor`: 정수 인자
 
-- `gpg`: encrypt and sign files
+- `gpg`: 암호화한 서명 파일을 생성합니다.
 
-- `toe`: table of terminfo entries
+- `toe`: terminfo 항목 표룰 나타냅니다.
 
-- `nc`: network debugging and data transfer
+- `nc`: 네트워크 디버깅과 데이터 변환합니다.
 
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+- `socat`: 소켓 릴레이 및 TCP 포트 전달자 (`netcat`과 유사)
 
-- `slurm`: network trafic visualization
+- `slurm`: 네트워크 트래픽 시각화합니다.
 
-- `dd`: moving data between files or devices
+- `dd`: 파일이나 장치간 데이터 이동합니다.
 
-- `file`: identify type of a file
+- `file`: 파일 유형 확인합니다.
 
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+- `tree`: 디렉토리와 하위 디렉토리를 중첩 트리로 표현. `ls`와 비슷하나 반복하여 보여줍니다.
 
-- `stat`: file info
+- `stat`: 파일 정보를 표시합니다.
 
-- `tac`: print files in reverse
+- `tac`: 역으로 파일을 출력합니다.
 
-- `shuf`: random selection of lines from a file
+- `shuf`: 파일에서 줄을 무작위로 선택합니다.
 
-- `comm`: compare sorted files line by line
+- `comm`: 줄별로 정렬된 파일 줄을 비교합니다.
 
-- `pv`: monitor the progress of data through a pipe
+- `pv`: 파이프를 통해 처리되는 데이터를 감시합니다.
 
-- `hd` and `bvi`: dump or edit binary files
+- `hd`, `bvi`: 바이너리 파일을 덤프하거나 수정합니다.
 
-- `strings`: extract text from binary files
+- `strings`: 바이너리 파일에서 텍스트를 추출합니다.
 
-- `tr`: character translation or manipulation
+- `tr`: 문자를 변경하거나 조작합니다.
 
-- `iconv` or `uconv`: conversion for text encodings
+- `iconv`, `uconv`: 텍스트의 인코딩을 변경합니다.
 
-- `split `and `csplit`: splitting files
+- `split`, `csplit`: 파일을 분할합니다.
 
-- `sponge`: read all input before writing it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
+- `sponge`: 수정되는 내용을 읽어 입력합니다. 동일한 파일에 데이터를 변경하여 작성하기 유용합니다. 예로, `  grep -v something some-file | sponge some-file` 
 
-- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+- `units`: 단위를 계산하거나 변환합니다. 2주당 펄롱을 1깜박임당 트윕으로 변환합니다. (관련해서는 `/usr/share/units/definitions.units`를 확인하세요.)
 
-- `7z`: high-ratio file compression
+- `7z`: 높은 비율을 자랑하는 파일 압축기
 
-- `ldd`: dynamic library info
+- `ldd`: 동적 라이브러리 정보를 나타냅니다.
 
-- `nm`: symbols from object files
+- `nm`: 오브젝트 파일의 심볼을 나타냅니다.
 
-- `ab`: benchmarking web servers
+- `ab`: 웹서버 벤치마킹에 사용합니다.
 
-- `strace`: system call debugging
+- `strace`: 시스템 콜을 디버깅합니다.
 
-- `mtr`: better traceroute for network debugging
+- `mtr`: 네트워크 디버깅을위한 더 나은 경로를 추적합니다.
 
-- `cssh`: visual concurrent shell
+- `cssh`: 동시에 여러 쉘 작업을 할 수 있습니다.
 
-- `rsync`: sync files and folders over SSH
+- `rsync`: SSH를 이용하여 파일이나 폴더를 동기화합니다.
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- `wireshark`, `tshark`: 패킷 캡처하고 네트워크를 디버깅합니다.
 
-- `ngrep`: grep for the network layer
+- `ngrep`: 네트워크 레이어를 grep 합니다.
 
-- `host` and `dig`: DNS lookups
+- `host`, `dig`: DNS를 조회합니다.
 
-- `lsof`: process file descriptor and socket info
+- `lsof`: 프로세스 파일 서술자(descriptor)와 소켓 정보를 나타냅니다.
 
-- `dstat`: useful system stats
+- `dstat`: 시스템 통계를 내는대 유용합니다.
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- [`glances`](https://github.com/nicolargo/glances): 높은 수준의 다중 서브시스템 모니터링 툴
 
-- `iostat`: CPU and disk usage stats
+- `iostat`: CPU, 디스크 사용량 상태를 나타냅니다.
 
-- `htop`: improved version of top
+- `htop`: top의 개선 버전
 
-- `last`: login history
+- `last`: 로그인 이력을 확인합니다.
 
-- `w`: who's logged on
+- `w`: 지금 누가 로그인 되어있는지를 확인합니다.
 
-- `id`: user/group identity info
+- `id`: 사용자 / 그룹 계정 정보를 확인합니다.
 
-- `sar`: historic system stats
+- `sar`: 시스템 상태에 대한 이력을 확인하는 도구입니다.
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- `iftop`, `nethogs`: 소켓이나 프로세스용 네트워크 유틸입니다.
 
-- `ss`: socket statistics
+- `ss`: 소켓 통계를 보여줍니다.
 
-- `dmesg`: boot and system error messages
+- `dmesg`: 부팅과 시스템 에러 메시지를 확인할 수 있습니다.
 
-- `hdparm`: SATA/ATA disk manipulation/performance
+- `hdparm`: SATA/ATA 디스크 조작하거나 성능을 확인할 수 있습니다.
 
-- `lsb_release`: Linux distribution info
+- `lsb_release`: 리눅스 배포판 정보를 확인할 수 있습니다.
 
-- `lsblk`: List block devices: a tree view of your disks and disk paritions
+- `lsblk`: 블록 장치 목록(List block devices): 디스크와 디스크 파티션에 대한 목록을 트리형식으로 보여줍니다.
 
-- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: CPU, BIOS, RAID, 그래픽, 장치 등이 포함되어있는 하드웨어 정보를 확인할 수 있습니다.
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+- `fortune`, `ddate`, `sl`: 음... 어떤 방식으로 사용하느냐에 따라 "유용하게" 사용할 수 있습니다.
 
 
-## MacOS only
+## 맥용
 
-These are items relevant *only* on MacOS.
+*MacOS에서만* 해당되는 항목입니다.
 
-- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on MacOS many of the above commands.
+- `brew` (Homebrew)나 `port` (MacPorts)를 패키지 메니저로 사용합니다. 보다 많은 명령어를 MacOS에 설치하여 사용할 수 있습니다.
 
-- Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
+- `pbcopy`를 이용하여 데스크탑 어플리케이션에 명령어 출력물을 복사하거나 `pbpaste`를 이용해 붙여넣기를 할 수 있습니다.
 
-- To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
+- 데스크탑 어플리케이션에서 파일을 열기위해, `open` 또는 `open -a /Applications/Whatever.app`을 사용하면 됩니다.
 
-- Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
+- Spotlight: `mdfind`를 이용해 파일을 찾고, `mdls`를 이용해 메타데이타 (사진 EXIF 정보와 같은) 목록을 볼 수 있습니다.
 
-- Be aware MacOS is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
+- MacOS는 BSD Unix 기반이며 많은 명령어들을 (예로 `ps`, `ls`, `tail`, `awk`, `sed`) 사용할 수 있으며, 이것들은 Linux 버전들과 미묘한 차이가 있습니다. 그리고 크게는 System V-style Unix와 GNU 도구들에 많은 영향을 받았습니다. 이런 내용들을 man 페이지 상단의 "BSD General Commands Manual." 라는 문구를 통해 알 수 있습니다. 가끔은 GNU 버전이 설치되기도합니다. (예로, GNU awk와 sed인 `gawk`와 `gsed`에서). 만약 이종 플랫폼간 Bash 스크립트를 작성하려면, 동일한 명령어 (예로, 파이썬이나 `perl`과 같은)나 테스트시 주의해야합니다.
 
+## 더 많은 자료
 
-## More resources
+- [awesome-shell](https://github.com/alebcay/awesome-shell): 쉘 도구와 리소스를 모아둔 목록
+- 더 좋은 쉘 스크립트 작성을 위한 [Strict 모드](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
 
+## 면책 조항
 
-## Disclaimer
+매우 작은 작업을 제외한 코드들은 다른 사람이 읽을 수 있도록 작성됩니다. 그러니 이 내용은 작성자 전원에게 책임이 있습니다. Bash에서 뭔가를 *할 수 있다는* 것이 당신이 뭔가를 해야된다는 것을 강요하는 것이 아니다! ;)
 
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
-
-
-## License
+## 라이센스
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) 라이센스 하에 작성되었습니다.
