@@ -221,41 +221,41 @@
 
 ## System debugging
 
-- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
+- 웹 디버깅을 위해서는 `curl` 와 `curl -I` 가 도움이 되고, `wget`도 꽤 도움이 됩니다. 그외에 보다 현대적인 방식으로는 [`httpie`](https://github.com/jakubroztocil/httpie)이 있습니다.
 
-- To know disk/cpu/network status, use `iostat`, `netstat`, `top` (or the better `htop`), and (especially) `dstat`. Good for getting a quick idea of what's happening on a system.
+- 디스크/cpu/네트워크의 상태를 알기 위해서는 각각 `iostat`, `netstat`, `top` (혹은 더 나은 명령어인 `htop`), 그리고 특히 `dstat`을 사용하세요. 시스템에 어떠한일이 일어났는지를 빠르게 알아내는데 매우 좋습니다.
 
-- For a more in-depth system overview, use [`glances`](https://github.com/nicolargo/glances). It presents you with several system level statistics in one terminal window. Very helpful for quickly checking on various subsystems.
+- 보다 시스템의 심층적인 면들을 보려면 [`glances`](https://github.com/nicolargo/glances)를 사용해보세요. 이 커맨드는 한 터미널에서 여러 시스템 수준의 통계자료들을 보여줍니다. 빠르게 여러 서브시스템들을 체크하는데 매우 큰 도움이 될 것입니다.
 
-- To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
+- 메모리의 상태를 알아보려면 `free` 와 `vmstat`를 실행하고 그 결과를 해석해보세요. 특히, "cached" 값은 Linux kernel에 의해 file cache로 잡혀있는 메모리 라는 것을 알고 있어야 하고 그래서 "free"값에 대해서 보다 효율적으로 계산할 수 있습니다.
 
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs.
+- Java 시스템의 디버깅은 조금 다른상황입니다. 하지만 Oracle과 그 외의 회사에서 만든 다른 JVM들에서는 `kill -3 <pid>`를 실행하면 전체 stack trace정보와 heap의 정보(시기별로 가비지 콜렉터의 세부적인 내용같은 매우 유용한 정보)를 요약하여 stderr나 로그로 출력해주므로 간단하게 정보를 얻어올 수 있습니다.
 
-- Use `mtr` as a better traceroute, to identify network issues.
+- 네트워크 이슈들을 알아보기 위해서는 traceroute를 사용할수도 있지만 이보다 더 좋은 `mtr`를 사용하세요.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- 디스크가 왜 가득찼는지 알아보기 위해서 `ncdu`를 사용해보세요.  일반적으로 사용하는 `du -sh *`와 같은 커멘드를 사용하는 것보다는 시간을 줄일 수 있습니다.
 
-- To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
+- 어떠한 소켓이나 프로세스가 사용하는 대역폭(bandwidth)를 찾아보려면 `iftop`나 `nethogs`를 사용하세요.
 
-- The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
+- `ab`라는 툴(Apache에 딸려있는)은 신속하고 간단하게(quick-and-dirty) 웹서버의 성능을 체크하는데 유용합니다. 보다 복잡한 부하 테스트를 할때는 `siege`를 사용해보세요.
 
-- For more serious network debugging, `wireshark`, `tshark`, or `ngrep`.
+- 보다 심각한 경우의 네트워크 디버깅을 위해서는 `wireshark`, `tshark` 또는 `ngrep`를 사용하세요.
 
-- Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
+- `strace` 와 `ltrace`에 대해서 알아보세요. 이 커맨드들은 만일 어떤 프로그램에서 failing, hanging 혹은 crashing이 일어나거나 그 외에 여러분이 무슨이유인지 알지 못하는 상황이나 성능에 대한 대략적인 내용을 얻고자 할때 유용할 것입니다. 특히 프로파일링을 위한 옵션(`-c`)과 현재 실행중인 프로세스에 붙이기 위한 옵션(`-p`)을 기억하세요.
 
-- Know about `ldd` to check shared libraries etc.
+- 공유 라이브러리(shared libraries) 등을 체크하기 위해서는 `ldd`에 대해 알아보세요.
 
-- Know how to connect to a running process with `gdb` and get its stack traces.
+- `gdb`를 가지고 현재 실행중인 프로세스에 연결하고 그 프로세스의 stack trace들을 얻는 방법을 알아보세요.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- `/proc`를 사용하세요. 이것은 현재 발생하고 있는 문제를 디버깅할때 종종 놀랍도록 큰 도움이 될것입니다. 예시: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
-- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- 과거에 왜 무엇인가가 잘못되었는지를 디버깅할때에는 `sar`가 매우 유용할 것입니다. 이 커맨드는 CPU, memory, network 등의 통계 내역을 보여줍니다.
 
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
+- 시스템의 보다 깊은곳을 보거나 퍼포먼스를 분석하기 위해서는, `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)),나 [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), 그리고 [`sysdig`](https://github.com/draios/sysdig)를 사용해보세요.
 
-- Confirm what Linux distribution you're using (works on most distros): `lsb_release -a`
+- 여러분이 사용하는 Linux의 배포판이 무엇인지 확인(대부분의 배포판에서 작동합니다): `lsb_release -a`
 
-- Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
+- 언제든지 무언가가 정말로 재미있는 반응을 보인다면 `dmesg`를 사용해보세요 (아마도 하드웨어나 드라이버의 문제일 것입니다).
 
 
 ## One-liners
