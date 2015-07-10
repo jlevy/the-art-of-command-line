@@ -10,11 +10,11 @@
 - [Osnove](#osnove)
 - [Vsakodnevna uporaba](#vsakodnevna-uporaba)
 - [Procesiranje datotek in podatkov](#procesiranje-datotek-in-podatkov)
-- [Sistemsko razhroščevanje](#sistemsko-razhroscevanje)
+- [Sistemsko razhroščevanje](#sistemsko-razhroščevanje)
 - [V eni vrstici](#v-eni-vrstici)
 - [Nepregledno vendar uporabno](#nejasno-vendar-uporabno)
 - [Samo za MacOS](#samo-za-macos)
-- [Več virov](#vec-virov)
+- [Več virov](#več-virov)
 - [Pogoji uporabe](#pogoji-uporabe)
 
 
@@ -159,40 +159,40 @@ Opombe:
 
 ## Procesiranje datotek in podatkov
 
-- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
+- Da locirate datoteko po imenu v trenutnem direktoriju, `find . -iname '*something*'` (ali podobno). Da najdete datoteko kjerkoli po imenu, uporabite `locate something` (vendar imejte v mislih, da `updatedb` morda ni poindeksiral nazadnje ustvarjenih datotek).
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Za splošno iskanje skozi izvor ali podatke datotek (bolj napredno od `grep -r`), uporabite [`ag`](https://github.com/ggreer/the_silver_searcher).
 
-- To convert HTML to text: `lynx -dump -stdin`
+- Da pretvorite HTML v tekst: `lynx -dump -stdin`
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- Za Markdown, HTML in vse vrste pretvorb dokumentov poskusite [`pandoc`](http://pandoc.org/).
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- Če morate upravljati z XML, je `xmlstarlet` star vendar dober.
 
-- For JSON, use `jq`.
+- Za JSON, use `jq`.
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Za Excel ali CSV datoteke, ponuja [csvkit](https://github.com/onyxfish/csvkit) `in2csv`, `csvcut`, `csvjoin`, `csvgrep` itd.
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
+- Za Amazon S3 je priročen [`s3cmd`](https://github.com/s3tools/s3cmd) in [`s4cmd`](https://github.com/bloomreach/s4cmd) je hitrejši. Amazon-ov [`aws`](https://github.com/aws/aws-cli) je bistven za druga AWS-povezava opravila.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
+- Naučite se o `sort` in `uniq` vključno z uniq-ovima opcijama `-u` in `-d` -- glejte spodaj sekcijo v eni vrstici. Glejte tudi `comm`.
 
-- Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+- Naučite se o `cut`, `paste` in `join` za manipuliranje tekstovnih datotek. Mnogi uporabljajo `cut` vendar pozabijo na `join`.
 
-- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+- Naučite se o `wc`, da preštejete nove vrstice (`-l`), znake (`-m`), besede (`-w`) in bajte (`-c`).
 
-- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+- Naučite se o `tee`, da prekopirate iz stdin v datoteko in tudi v stdout, kot pri `ls -al | tee file.txt`.
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- Vedite, da lokalizacija vpliva na veliko orodij ukazne vrstice na subtilne načine, vključno z vrstnim redom (kolokacijo) in uspešnostjo. Večina namestitev Linux-a bo nastavila `LANG` ali druge spremenljivke lokalizacije na lokalne nastavitve kot je US English. Vendar bodite pozorni, saj se bo vrstni red spremenil, če spremenite lokalizacijo. In vedite, da rutine i18n lahko naredijo sortiranje ali druge ukaze poganjajo *nekajkrat* počasneje. V nekaterih situacijah (kot je skupek operacij ali unikatnih operacij spodaj) lahko varno ignorirate počasne rutine i18n v celoti in uporabite tradicionalne vrstne rede na osnovi bajtov z uporabo `export LC_ALL=C`.
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- Spoznajte osnove `awk` in `sed` za enostavno manipuliranje podatkov. Na primer, povzetek vseh številk v tretjem stolpcu tekstovne datoteke: `awk '{ x += $3 } END { print x }'`. To je verjetno 3X hitrejše in 3X krajše kot ekvivalent v Python-u.
 
-- To replace all occurrences of a string in place, in one or more files:
+- Da zamenjate vsa pojavljanja niza na mestu v eni ali večih datotekah:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
+- Da preimenujete mnoge datoteke naenkrat glede na vzorec, uporabite `rename`. Za kompleksna preimenovanja, [`repren`](https://github.com/jlevy/repren) lahko pomaga.
 ```sh
       # Recover backup files foo.bak -> foo:
       rename 's/\.bak$//' *.bak
@@ -200,28 +200,28 @@ Opombe:
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- Use `shuf` to shuffle or select random lines from a file.
+- Uporabite `shuf` za naključno mešanje ali izbiro naključnih vrstic iz datoteke.
 
-- Know `sort`'s options. For numbers, use `-n`, or `-h` for handling human-readable numbers (e.g. from `du -h`). Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line. Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`.
+- Vedite o opcijah `sort`. Za številke, uporavite `-n` ali `-h` za upravljanje številk človeku prijazne za branje (npr. iz `du -h`). Vedite, kako delujejo ključi (`-t` in `-k`). Še posebej pazite, da potrebujete zapisati `-k1,1`, da razzvrstite samo po prvem polju; `-k1` pomeni razvrščanje glede na celotno vrstico. Stabilno razvrščanje (`sort -s`) je lahko uporabno. Na primer, da sortirate najprej po polju 2 in nato po polju 1, lahko uporabite `sort -k1,1 | sort -s -k2,2`.
 
-- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- Če kadarkoli potrebujete zapisati tab dobesedno v ukazni vrstici v Bash-u (npr. za sortiranje argumenta -t), pritisnite **ctrl-v** **[Tab]** ali zapišite `$'\t'` (slednji je boljši, saj ga lahko kopirate in prilepite).
 
-- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
+- Standardna orodja za popravljanje izvorne kode so `diff` in `patch`. Glejte tudi `diffstat` za povzetek statistike diff-a. Bodite pozorni, saj `diff -r` deluje za celotne direktorije. Uporabite `diff -r tree1 tree2 | diffstat` za povzetek sprememb.
 
-- For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
+- Za binarne datoteke, uporabite `hd` za enostavne heksadecimalne izpise in `bvi` za binarno urejanje.
 
-- Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+- Tudi za binarne datoteke, `strings` (plus `grep` itd.) vam omogoča najti bite v tekstu.
 
-- For binary diffs (delta compression), use `xdelta3`.
+- Za binarne diff-e (delta kompresije) uporabite `xdelta3`.
 
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
+- Da pretvorite enkodiranje teksta, poskusite `iconv`. Ali `uconv` za bolj napredno uporabo; podpira nekaj naprednih Unicode stvari. Na primer, ta ukaz spremeni v male črke in odstrani vse poudarke (z razširitvijo in njihovo opustitvijo):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
+- Da razcepite datoteke na dele, glejte `split` (da razcepite po velikosti) in `csplit` (da razcepite po vzorcu).
 
-- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
+- Uporabite `zless`, `zmore`, `zcat` in `zgrep` za operiranje na kompresiranih datotekah.
 
 
 ## Sistemsko razhroščevanje
