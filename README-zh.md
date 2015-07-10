@@ -1,4 +1,4 @@
-[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md) ]
+[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
 
 
 # 命令行的艺术
@@ -11,6 +11,7 @@
 - [系统调试](#系统调试)
 - [一行代码](#一行代码)
 - [冷门但有用](#冷门但有用)
+- [仅限 Mac 系统](#仅限-mac-系统)
 - [更多资源](#更多资源)
 - [免责声明](#免责声明)
 - [授权条款](#授权条款)
@@ -18,7 +19,7 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-熟练使用命令行是一种常常被忽视或被认为难以掌握的技能，但实际上，它可以提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时发现的一些关于命令行的使用的小技巧的摘要。这些小技巧有基础的、相当复杂的甚至晦涩难懂的。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
+熟练使用命令行是一种常常被忽视或被认为难以掌握的技能，但实际上，它可以提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时发现的一些关于命令行的使用的小技巧的摘要。有些小技巧是非常基础的，而另外一些则是相当复杂的甚至晦涩难懂的。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
 
 这里的大部分内容
 [首次](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
@@ -31,7 +32,7 @@
 涵盖范围：
 
 - 这篇文章对刚接触命令行的新手以及具有命令行使用经验的人都有用处。本文致力于做到覆盖面广（尽量包括一切重要的内容），具体（给出最常见的具体的例子）以及简洁（避免一些不必要的东西以及一些偏题的可以在其他地方翻阅到文献的东西）。 每个小技巧在某个特定情境下都是基本的或能够显著地节约时间。
-- 本文为 Linux 所写，但很多内容（并非所有的）同样适用于 MacOS 甚至 Cygwin。
+- 本文为 Linux 所写，除了[仅限 Mac 系统](#仅限-mac-系统)节。其它节中的大部分内容都适用于其它 Unix 系统或 Mac 系统，甚至 Cygwin。
 - 本文关注于交互式 Bash，尽管很多技巧适用于其他 shell 或 Bash 脚本。
 - 本文包括了“标准的”Unix 命令和需要安装特定包的命令，只要它们足够重要。
 
@@ -49,7 +50,7 @@
 
 - 学会如何使用 `man` 命令去阅读文档。学会使用 `apropos` 去查找文档。了解有些命令并不对应可执行文件，而是Bash内置的，可以使用 `help` 和 `help -d` 命令获取帮助信息。
 
-- 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。了解标准输出 stdout 和标准错误 stderr。
+- 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。明白 `>` 会覆盖了输出文件而 `>>` 是在文件未添加。了解标准输出 stdout 和标准错误 stderr。
 
 - 学会使用通配符 `*` （或许再算上 `?` 和 `{`...`}`） 和引用以及引用中 `'` 和 `"` 的区别。
 
@@ -98,6 +99,8 @@
 
 - 有关打开套接字和文件，请参阅 `lsof`。
 
+- 使用`alias`来创建常用命令的快捷形式。例如：`alias ll='ls -latr'`使你可以方便地执行`ls -latr`命令。
+
 - 在 Bash 脚本中，使用 `set -x` 去调试输出，尽可能的使用严格模式，使用 `set -e` 令脚本在发生错误时退出而不是继续运行，使用 `set -o pipefail` 严谨地对待错误（尽管问题可能很微妙）。当牵扯到很多脚本时，使用 `trap`。
 
 - 在 Bash 脚本中，子 shell（使用括号`(...)`）是一种便捷的方式去组织参数。一个常见的例子是临时地移动工作路径，代码如下：
@@ -142,13 +145,14 @@
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- 使用 [`percol`](https://github.com/mooz/percol) 可以交互式地从另一个命令输出中选取值。
+- 使用 [`percol`](https://github.com/mooz/percol) 或者 [`fzf`](https://github.com/junegunn/fzf) 可以交互式地从另一个命令输出中选取值。
 
 - 使用 `fpp`（[PathPicker](https://github.com/facebook/PathPicker)）可以与基于另一个命令(例如 `git`）输出的文件交互。
 
 - 将 web 服务器上当前目录下所有的文件（以及子目录）暴露给你所处网络的所有用户，使用：
 `python -m SimpleHTTPServer 7777` （使用端口 7777 和 Python 2）或`python -m http.server 7777` （使用端口 7777 和 Python 3）。
 
+- 以某种权限执行命令，使用`sudo`（root 权限）或`sudo -u`（其他用户）。使用`su`或者`sudo bash`来启动一个以对应用户权限运行的 shell。使用`su -`模拟其他用户的登录。
 
 ## 文件及数据处理
 
@@ -195,7 +199,7 @@
 
 - 使用 `shuf` 从一个文件中随机选取行。
 
-- 了解 `sort` 的参数。明白键的工作原理（`-t` 和 `-k`）。例如，注意到你需要 `-k1，1` 来仅按第一个域来排序，而 `-k1` 意味着按整行排序。稳定排序（`sort -s`）在某些情况下很有用。例如，以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用 `sort -k1，1 | sort -s -k2，2`。处理可读性数字（例如 `du -h` 的输出）的时候使用 `sort -h` 。
+- 了解 `sort` 的参数。处理数字方面，使用 `-n` 或者 `-h` 来处理可读性数字（例如 `du -h` 的输出）。明白键的工作原理（`-t` 和 `-k`）。例如，注意到你需要 `-k1，1` 来仅按第一个域来排序，而 `-k1` 意味着按整行排序。稳定排序（`sort -s`）在某些情况下很有用。例如，以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用 `sort -k1，1 | sort -s -k2，2`。
 
 - 如果你想在 Bash 命令行中写 tab 制表符，按下 **ctrl-v** **[Tab]** 或键入 `$'\t'` （后者可能更好，因为你可以复制粘贴它）。
 
@@ -251,9 +255,9 @@
 
 - 关于更深层次的系统分析以及性能分析，看看 `stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](http://en.wikipedia.org/wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
-- 查看你当前使用的 Linux 发行版（大部分发行版有效）：`lsb_release -a`
+- 查看你当前使用的系统，使用 `uname` 或者 `uname -a` （Unix／kernel 信息） or `lsb_release -a` （Linux 发行版信息）。
 
-- 无论什么东西工作得很欢乐时试试 `dmesg` （可能是硬件或驱动问题）。
+- 无论什么东西工作得很欢乐时试试 `dmesg`（可能是硬件或驱动问题）。
 
 
 ## 一行代码
@@ -431,6 +435,20 @@
 - `lshw`，`lscpu`，`lspci`，`lsusb` 和 `dmidecode`：查看硬件信息，包括 CPU、BIOS、RAID、显卡、USB设备等
 
 - `fortune`，`ddate` 和 `sl`： 额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否“有用”
+
+## 仅限 Mac 系统
+
+以下是*仅限于* Mac 系统的技巧
+
+- 用 `brew` （Homebrew）或者 `port` （MacPorts）进行包管理。这些可以用来在 Mac 系统上安装以上的大多数命令。
+
+- 用 `pbcopy` 复制任何命令的输出到桌面应用，用 `pbpaste` 粘贴输入。
+
+- 用 `open` 或者 `open -a /Applications/Whatever.app` 使用桌面应用打开文件。
+
+- Spotlight： 用 `mdfind` 搜索文件，用 `mdls` 列出元数据（例如照片的 EXIF 信息）。
+
+- 注意 Mac 系统是基于 BSD UNIX 的，许多命令（例如 `ps`， `ls`， `tail`， `awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
 
 
 ## 更多资源
