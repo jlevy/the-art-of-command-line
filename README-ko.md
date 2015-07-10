@@ -180,14 +180,14 @@
 
 - 로케일이 커맨드라인 도구에 정렬 순서(collation)와 퍼포먼스를 포함해서 미묘하게 영향을 끼치는 것을 알아두세요. 대부분의 리눅스 설치는 `LANG`이나 다른 로케일 변수를 US English와 같은 로컬 세팅으로 설정합니다. 하지만 로케일을 바꿀 경우 정렬도 바뀔 것이라는 것에 주의하세요. 그리고 i18n 루틴들도 정렬이나 다른 커맨드들을 *몇 배* 느리게 할 수 있습니다. `export LC_ALL=C`를 사용하여, 어떤 상황에서는( 밑에 있는 집합(set) 작업이나, 유일성 작업등) i18n의 느린 루틴들을 통채로 안전하게 무시할 수 있습니다. 그리고 전통적인 바이트 기반의 정렬 순서를 사용할 수 있습니다.
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- 간단한 데이터 조작을 할때 `awk`와 `sed`를 이용하는 것을 알아두세요. 예를 들어 텍스트 파일의 세번째 열의 숫자들의 모든 값을 더하는 것은 이렇게 합니다: `awk '{ x += $3 } END { print x }'`. 이 방법은 같은 일을 하는 파이썬 코드보다 3배정도 빠르고, 1/3정도의 길이밖에 안됩니다.
 
-- To replace all occurrences of a string in place, in one or more files:
+- 하나 이상의 파일에서 추가적인 파일을 생성하지 않고  문자열 바꾸려면 다음과 같이 하세요.
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
+- 한번에 많은 파일을 패턴에 따라서 이름 바꾸기를 하려면, `rename`을 사용하세요. 보다 복잡한 이름 바꾸기는, [`repren`](https://github.com/jlevy/repren)이 도움이 될것입니다.
 ```sh
       # Recover backup files foo.bak -> foo:
       rename 's/\.bak$//' *.bak
@@ -195,28 +195,28 @@
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- Use `shuf` to shuffle or select random lines from a file.
+`shuf`를 사용해서 파일안의 임의의 행을 선택하거나, 섞을 수 있습니다.
 
-- Know `sort`'s options. Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line. Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`. For handling human-readable numbers (e.g. from `du -h`) use `sort -h`.
+- `sort`의 옵션들을 알아두세요. 키가 어떻게 작동하는지 알아두세요(`-t`와 `-k`). 특별히, 첫번째 필드로만 정렬해야 한다면 `-k1,1`을 적어야 한다는걸 주의하세요. `-k1`은 모든 행에 대해서 정렬하라는 뜻입니다.  안정적인 정렬(`sort -s`)도 유용합니다. 예를들어, 먼저 2번 필드로 정렬하고, 그 다음에 1번 필드로 정렬할 경우, `sort -k1,1 | sort -s -k2,2`처럼 할 수 있습니다. 사람이 읽을 수 있게 작성한 숫자의 경우(`du -h`와 같은 형태), `sort -h`를 사용하세요.
 
-- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- 만약 탭(tab)문자를 Bash 커맨드 라인에 사용해야 할 필요가 생길 경우(예를 들면 -t argument를 이용해 정렬 할 때), **ctrl-v** **[Tab]**키를 누르거나, `$'\t'`를 쓰세요(문자쪽이 복사나 붙여넣기를 할 수 있어 더 낫습니다.).
 
-- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
+- 소스코드를 패치하는 기본 도구는 `diff`와 `patch`입니다. diff의 통계 요약을 보려면 `diffstat`를 보세요. `diff -r`은 모든 디렉토리에 대해 작업을 수행하는걸 알아두세요. `diff -r tree1 tree2 | diffstat`으로 변경 내역의 요약을 볼 수 있습니다.
 
-- For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
+- 바이너리 파일을 간단하게 hex 덤프를 뜨고 싶을 때는 `hd`를 쓰세요. 바이너리 파일을 수정할때는 `bvi`를 사용하세요.
 
-- Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+-  `strings` (그리고 `grep`, 등) 을 사용해서 바이너리 파일 안에서 문자열 비트를 찾을 수 있습니다.
 
-- For binary diffs (delta compression), use `xdelta3`.
+- 바이너리 파일을 diff하려면(델타 압축), `xdelta3`를 사용하세요.
 
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
+- 텍스트 파일 인코딩을 변경하려면 `iconv`를 시도해보세요. 또는 `uconv`는 더 복잡한 목적에 사용할 수 있습니다. `uconv`는 몇가지 복잡한 유니코드를 지원합니다. 예를들어, 소문자화하고 모든 악센트를 제거하는(확장하고, 떨어트리는 것을 이용해서) 커맨드는 다음과 같습니다.
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
+- 파일을 여러 조각으로 나누려면 `split`(파일을 사이즈로 나눔)이나 `csplit`(파일을 패턴으로 나눔)을 보세요.
 
-- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
+-  `zless`, `zmore`, `zcat` 그리고`zgrep`을 이용해서 압축된 파일에 대해 작업하세요.
 
 
 ## System debugging
