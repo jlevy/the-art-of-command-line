@@ -226,17 +226,19 @@ Notes:
 - Use `scp` to copy files to/from server or between two servers. Learn to set up ssh keys to avoid entering passwords for scp and ssh logins to servers.
 ```sh
     # Basic usage - scp [[user@]host1:]file1 ... [[user@]host2:]file2
-    scp local.txt username@remotehost.com:/some/directory/on/remote/  # Copy local.txt to remote directory
-    scp -r localdir username@remotehost.com:/some/directory/on/remote/ # Copy local directory recursively to server
-    scp -r username@remotehost.com:/some/directory/on/remote/ . #Copy all contents of remote directory to current directory
-    scp -r username@remotehost1.com:/some/directory/on/remote1/ username@remotehost2.com:/some/directory/on/remote2/ # Copy directories between two servers.
+    # Copy local.txt to remote directory
+    scp local.txt username@remotehost.com:/some/directory/on/remote/
+    # Copy directory contents recursively between two servers.
+    scp -r username@remotehost1.com:/some/directory/on/remote1/ username@remotehost2.com:/some/directory/on/remote2/ 
 ```
 
 - Use `rsync` to keep directories in sync. rsync minimizes data transfers by copying only the changed files.
 ```sh
-    rsync -a ~/localdir username@remotehost:/some/remote/dir #Push all changes of localdir to remote directory. 
+    #Push all changes of localdir to remote directory.
+    rsync -a ~/localdir username@remotehost:/some/remote/dir
+    #Pull all changes from remote directory to local.
     # -z enables compression. -P shows progress and allows resuming interrupted transfers.
-    rsync -azP username@remotehost:/some/remote/dir ~/localdir #Pull all changes from remote directory to local.
+    rsync -azP username@remotehost:/some/remote/dir ~/localdir
 ```
 
 
