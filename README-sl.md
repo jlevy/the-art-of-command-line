@@ -1,4 +1,4 @@
-[ Jeziki: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md) ]
+[ Jeziki: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [Slovenščina](README-sl.md), [中文](README-zh.md) ]
 
 
 
@@ -64,7 +64,7 @@ Opombe:
 
 - Osnovno upravljanje omrežja: `ip` or `ifconfig`, `dig`.
 
-- Vedite tudi splošne izraze in različne zastavice za `grep`/`egrep`. Opcije `-i`, `-o`, `-A` in `-B` so vredne znanja.
+- Poznajte tudi splošne izraze in različne zastavice za `grep`/`egrep`. Opcije `-i`, `-o`, `-A` in `-B` so vredne znanja.
 
 - Naučite se uporabljati `apt-get`, `yum`, `dnf` ali `pacman` (odvisno od distribucije), da najdete in namestite pakete. In zagotovite, da imate `pip`, da lahko nameščate orodja ukazne vrstice na osnovi Python-a (nekaj spodnjih je najenostavneje namestiti preko `pip`).
 
@@ -93,9 +93,9 @@ Opombe:
 
 - Uporabite `pgrep` in `pkill`, da najdete ali signalizirate procese po imenu (`-f` je v pomoč).
 
-- Vedite različne signale, katerim lahko pošljete procese. Na primer, da suspendirate proces, uporabite `kill -STOP [pid]`. Za celotni seznam glejte `man 7 signal`
+- Poznajte različne signale, katerim lahko pošljete procese. Na primer, da suspendirate proces, uporabite `kill -STOP [pid]`. Za celotni seznam glejte `man 7 signal`
 
-- Uporabite `nohup` ali `disown`, če želite proces iz ozadja, da vedno poteka.
+- Uporabite `nohup` ali `disown`, če želite, da proces iz ozadja vedno poteka.
 
 - Preverite, kateri procesi se poslušajo preko `netstat -lntp` ali `ss -plat` (za TCP; dodajte `-u` za UDP).
 
@@ -119,7 +119,7 @@ Opombe:
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- Spoznajte "here dokumente" v Bash-u, kot pri `cat <<EOF ...`.
+- Spoznajte t.i. "here" dokumente v Bash-u, kot pri `cat <<EOF ...`.
 
 - V Bash-u je preusmeritev obeh standardov izpisa in standardnih napak preko: `some-command >logfile 2>&1`. Pogosto zagotavlja, da ukaz ne pusti ročaja odprte datoteke za standardni vnos, kar ga veže na terminal v katerem se nahajate, je tudi dobra praksa, da dodate `</dev/null`.
 
@@ -129,7 +129,7 @@ Opombe:
 
 - V ssh je poznavanje, kako usmeriti tunel z `-L` ali `-D` (in občasno `-R`) je uporaben, npr. za dostopanje do spletnih strani iz oddaljenega strežnika.
 
-- Lahko je uporabno, da se naredi nekaj optimizacij na vaših nastavitvah ssh; na primer, ta `~/.ssh/config` vsebuje nastavitve za izogib padle povezave v določenih okoljih omrežja, uporabite kompresijo (ki je v pomoč s scp preko nizko pasovnih povezav) in multiplicirajte kanale na isti strežnik z lokalno krmilno datoteko:
+- Lahko je uporabno, da se naredi nekaj optimizacij na vaših nastavitvah ssh; na primer, ta `~/.ssh/config` vsebuje nastavitve za izogib padle povezave v določenih okoljih omrežja, uporablja kompresijo (ki je v pomoč s scp preko nizko pasovnih povezav) in multiplicira kanale na isti strežnik z lokalno krmilno datoteko:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -140,7 +140,7 @@ Opombe:
       ControlPersist yes
 ```
 
-- Nekaj ostalih opcij relevantnih za ssh so varnostno občutljive in bi morale biti omogočene s pazljivostjo, npr. na subnet ali gostitelja ali v zaupljivih omrežjih: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+- Nekaj ostalih opcij relevantnih za ssh je varnostno občutljivih in bi morale biti omogočene s pazljivostjo, npr. na podomrežju ali gostitelju ali v zaupljivih omrežjih: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
 - Da dobite pravice na datoteki v osmiškem zapisu, ki je uporaben za nastavitve sistema vendar ni na voljo pri `ls` in enostaven za mešanje, uporabite nekaj takega kot je
 ```sh
@@ -154,7 +154,7 @@ Opombe:
 - Za enostaven spletni strežnik za vse datoteke v trenutnem direktoriju (in poddirektorijih), ki so na voljo komurkoli v vašem omrežju, uporabite:
 `python -m SimpleHTTPServer 7777` (za port 7777 in Python 2) in `python -m http.server 7777` (za port 7777 in Python 3).
 
-- Za poogn ukaza s privilegiji, uporabite `sudo` (za root) ali `sudo -u` (za drugega uporabnika). Uporabite `su` ali `sudo bash`, da dejansko poženete lupino kot ta uporabnik. Uporabite `su -`, da simulirate svežo prijavo kot root ali drug uporabnik.
+- Za pogon ukaza s privilegiji, uporabite `sudo` (za root) ali `sudo -u` (za drugega uporabnika). Uporabite `su` ali `sudo bash`, da dejansko poženete lupino kot ta uporabnik. Uporabite `su -`, da simulirate svežo prijavo kot root ali drug uporabnik.
 
 
 ## Procesiranje datotek in podatkov
@@ -171,9 +171,9 @@ Opombe:
 
 - Za JSON, use `jq`.
 
-- Za Excel ali CSV datoteke, ponuja [csvkit](https://github.com/onyxfish/csvkit) `in2csv`, `csvcut`, `csvjoin`, `csvgrep` itd.
+- Za Excel ali CSV datoteke, [csvkit](https://github.com/onyxfish/csvkit) ponuja `in2csv`, `csvcut`, `csvjoin`, `csvgrep` itd.
 
-- Za Amazon S3 je priročen [`s3cmd`](https://github.com/s3tools/s3cmd) in [`s4cmd`](https://github.com/bloomreach/s4cmd) je hitrejši. Amazon-ov [`aws`](https://github.com/aws/aws-cli) je bistven za druga AWS-povezava opravila.
+- Za Amazon S3 je priročen [`s3cmd`](https://github.com/s3tools/s3cmd) in [`s4cmd`](https://github.com/bloomreach/s4cmd) je hitrejši. Amazon-ov [`aws`](https://github.com/aws/aws-cli) je bistven za druga AWS-povezana opravila.
 
 - Naučite se o `sort` in `uniq` vključno z uniq-ovima opcijama `-u` in `-d` -- glejte spodaj sekcijo v eni vrstici. Glejte tudi `comm`.
 
@@ -183,7 +183,7 @@ Opombe:
 
 - Naučite se o `tee`, da prekopirate iz stdin v datoteko in tudi v stdout, kot pri `ls -al | tee file.txt`.
 
-- Vedite, da lokalizacija vpliva na veliko orodij ukazne vrstice na subtilne načine, vključno z vrstnim redom (kolokacijo) in uspešnostjo. Večina namestitev Linux-a bo nastavila `LANG` ali druge spremenljivke lokalizacije na lokalne nastavitve kot je US English. Vendar bodite pozorni, saj se bo vrstni red spremenil, če spremenite lokalizacijo. In vedite, da rutine i18n lahko naredijo sortiranje ali druge ukaze poganjajo *nekajkrat* počasneje. V nekaterih situacijah (kot je skupek operacij ali unikatnih operacij spodaj) lahko varno ignorirate počasne rutine i18n v celoti in uporabite tradicionalne vrstne rede na osnovi bajtov z uporabo `export LC_ALL=C`.
+- Vedite, da lokalizacija vpliva na veliko orodij ukazne vrstice na subtilne načine, vključno z vrstnim redom (kolokacijo) in uspešnostjo. Večina namestitev Linux-a bo nastavila `LANG` ali druge spremenljivke lokalizacije na lokalne nastavitve kot je US English. Vendar bodite pozorni, saj se bo vrstni red spremenil, če spremenite lokalizacijo. In vedite, da rutine i18n lahko naredijo sortiranje ali poganjanje drugih ukazov *nekajkrat* počasnejše. V nekaterih situacijah (kot je skupek operacij ali unikatnih operacij spodaj) lahko v celoti varno ignorirate počasne rutine i18n in uporabite tradicionalne vrstne rede na osnovi bajtov z uporabo `export LC_ALL=C`.
 
 - Spoznajte osnove `awk` in `sed` za enostavno manipuliranje podatkov. Na primer, povzetek vseh številk v tretjem stolpcu tekstovne datoteke: `awk '{ x += $3 } END { print x }'`. To je verjetno 3X hitrejše in 3X krajše kot ekvivalent v Python-u.
 
@@ -192,7 +192,7 @@ Opombe:
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- Da preimenujete mnoge datoteke naenkrat glede na vzorec, uporabite `rename`. Za kompleksna preimenovanja, [`repren`](https://github.com/jlevy/repren) lahko pomaga.
+- Da preimenujete mnoge datoteke naenkrat glede na vzorec, uporabite `rename`. Za kompleksna preimenovanja lahko pomaga [`repren`](https://github.com/jlevy/repren).
 ```sh
       # Recover backup files foo.bak -> foo:
       rename 's/\.bak$//' *.bak
@@ -202,15 +202,15 @@ Opombe:
 
 - Uporabite `shuf` za naključno mešanje ali izbiro naključnih vrstic iz datoteke.
 
-- Vedite o opcijah `sort`. Za številke, uporavite `-n` ali `-h` za upravljanje številk človeku prijazne za branje (npr. iz `du -h`). Vedite, kako delujejo ključi (`-t` in `-k`). Še posebej pazite, da potrebujete zapisati `-k1,1`, da razzvrstite samo po prvem polju; `-k1` pomeni razvrščanje glede na celotno vrstico. Stabilno razvrščanje (`sort -s`) je lahko uporabno. Na primer, da sortirate najprej po polju 2 in nato po polju 1, lahko uporabite `sort -k1,1 | sort -s -k2,2`.
+- Poznajte opcije za `sort`. Za številke uporabite `-n` ali `-h` za upravljanje številk človeku prijaznih za branje (npr. iz `du -h`). Vedite, kako delujejo ključi (`-t` in `-k`). Še posebej pazite, da morate zapisati `-k1,1`, da razvrstite samo po prvem polju; `-k1` pomeni razvrščanje glede na celotno vrstico. Stabilno razvrščanje (`sort -s`) je lahko uporabno. Na primer, da sortirate najprej po polju 2 in nato po polju 1, lahko uporabite `sort -k1,1 | sort -s -k2,2`.
 
-- Če kadarkoli potrebujete zapisati tab dobesedno v ukazni vrstici v Bash-u (npr. za sortiranje argumenta -t), pritisnite **ctrl-v** **[Tab]** ali zapišite `$'\t'` (slednji je boljši, saj ga lahko kopirate in prilepite).
+- Če kadarkoli potrebujete zapisati tabulator dobesedno v ukazni vrstici v Bash-u (npr. za sortiranje argumenta -t), pritisnite **ctrl-v** **[Tab]** ali zapišite `$'\t'` (slednji je boljši, saj ga lahko kopirate in prilepite).
 
 - Standardna orodja za popravljanje izvorne kode so `diff` in `patch`. Glejte tudi `diffstat` za povzetek statistike diff-a. Bodite pozorni, saj `diff -r` deluje za celotne direktorije. Uporabite `diff -r tree1 tree2 | diffstat` za povzetek sprememb.
 
-- Za binarne datoteke, uporabite `hd` za enostavne heksadecimalne izpise in `bvi` za binarno urejanje.
+- Pri binarnih datotekah uporabite `hd` za enostavne heksadecimalne izpise in `bvi` za binarno urejanje.
 
-- Tudi za binarne datoteke, `strings` (plus `grep` itd.) vam omogoča najti bite v tekstu.
+- `strings` (plus `grep` itd.) vam omogoča najti bite v tekstu tudi za binarne datoteke.
 
 - Za binarne diff-e (delta kompresije) uporabite `xdelta3`.
 
@@ -226,7 +226,7 @@ Opombe:
 
 ## Sistemsko razhroščevanje
 
-- Za spletno razhroščevanje, `curl` in `curl -I` sta priročna ali pa njun `wget` ekvivalent, ali bolj moderen [`httpie`](https://github.com/jakubroztocil/httpie).
+- Za spletno razhroščevanje, sta priročna `curl` in `curl -I` ali pa njun ekvivalent `wget`, ali bolj moderen [`httpie`](https://github.com/jakubroztocil/httpie).
 
 - Da izveste status diska/procesorja/omrežja, uporabite `iostat`, `netstat`, `top` (ali bolje `htop`) in (posebno) `dstat`. Dobro za dobiti hitro idejo, kaj se dogaja na sistemu.
 
@@ -234,7 +234,7 @@ Opombe:
 
 - Da izveste status spomina, poženite in razumite izpis `free` in `vmstat`. Še posebej bodite pozorni, da je vrednost "cached" držana v spominu s strani jedra Linux-a kot datoteka predpomnilnika, tako da efektivno šteje proti vrednosti "free".
 
-- Sistemsko razhroščevanje Java je drugačen tip, vendar enostaven trik na JVM-jih Oracle-a in nekaterih ostalih je, da lahko poženete `kill -3 <pid>` in sledite celotnemu stack-u in povzetku kopic (vključno s podbrobnostmi zbirke splošnih smeti, ki so lahko zelo informativne), ki bodo oddane v stderr/logs.
+- Sistemsko razhroščevanje Java je drugačen tip, vendar enostaven trik na JVM-jih Oracle-a in nekaterih ostalih je, da lahko poženete `kill -3 <pid>` in sledite celotnemu stack-u in povzetku kopic (vključno s podrobnostmi zbirke splošnih smeti, ki so lahko zelo informativne), ki bodo oddane v stderr/logs.
 
 - Uporabite `mtr` kot boljši usmerjevalnik sledenja za identifikacijo težav omrežja.
 
@@ -246,15 +246,15 @@ Opombe:
 
 - Za bolj resno razhroščevanje omrežja, `wireshark`, `tshark` ali `ngrep`.
 
-- Poznajte `strace` in `ltrace`. Ta sta v pomoč, če program ni uspešen, se ustavlja ali poruši in ne veste zakaj ali če želite dobiti splošno idejo o uspešnosti. Bodite pozorni, saj opcija profiliranja (`-c`) in zmožnost dodajanja k procesu, ki se poganja (`-p`).
+- Poznajte `strace` in `ltrace`. Ta sta v pomoč, če program ni uspešen, se ustavlja ali poruši in ne veste zakaj, ali če želite dobiti splošno idejo o uspešnosti. Bodite pozorni na opcijo profiliranja (`-c`) in zmožnost dodajanja k procesu, ki se poganja (`-p`).
 
-- Pozanjte o `ldd`, da preverite deljene knjižnice itd.
+- Poznajte `ldd`, da preverite deljene knjižnice itd.
 
 - Vedite, kako se povezati k procesu v pogonu z `gdb` in dobiti njegove sledi skladovnice.
 
-- Uporabite `/proc`. Je včasih izjemno v pomoč, ko se razhroščuje probleme v živo. Primeri: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Uporabite `/proc`. Včasih je izjemno v pomoč, ko se razhroščuje probleme v živo. Primeri: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
-- Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, `sar` je lahko zelo uporaben. Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
+- Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, je lahko zelo uporaben `sar`. Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
 
 - Za globlje analize sistema in uspešnosti, poglejte `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)) in [`sysdig`](https://github.com/draios/sysdig).
 
@@ -267,7 +267,7 @@ Opombe:
 
 Nekaj primerov sestavljanja ukazov skupaj:
 
-- Včasih je izredno v pomoč, da lahko nastavite presek, unijo in razliko tekstovnih datotek preko `sort`/`uniq`. Predpostavimo `a` in `b` sta tekstovni datoteki, ki sta že unikatni. To je hitro in deluje na datotekah arbitrarne velikosti, do nekaj gigabajtov. (Urejanje ni omejeno glede na spomin, čeprav morda potrebujete uporabiti opcijo `-T` če je `/tmp` na majhni root particiji.) Glejte tudi pombo o `LC_ALL` zgoraj in `sort`-ovo opcijo `-u` (puščeno zaradi jasnosti spodaj).
+- Včasih je izredno v pomoč, da lahko nastavite presek, unijo in razliko tekstovnih datotek preko `sort`/`uniq`. Predpostavimo `a` in `b` sta tekstovni datoteki, ki sta že unikatni. To je hitro in deluje na datotekah arbitrarnih velikosti do nekaj gigabajtov. (Urejanje ni omejeno glede na spomin, čeprav morda potrebujete uporabiti opcijo `-T`, če je `/tmp` na majhni root particiji.) Glejte tudi opombo o `LC_ALL` zgoraj in `sort`-ovo opcijo `-u` (puščeno zaradi jasnosti spodaj).
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
@@ -326,7 +326,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `look`: najde angleške besede (ali vrstice v datoteki) začenši z nizom
 
-- `cut` in `paste` in `join`: manipulacija podatkov
+- `cut`, `paste` in `join`: manipulacija podatkov
 
 - `fmt`: oblikuje odstavke teksta
 
@@ -334,7 +334,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `fold`: ovije vrstice teksta
 
-- `column`: oblkuje tekst v stolpce ali tabele
+- `column`: oblikuje tekst v stolpce ali tabele
 
 - `expand` in `unexpand`: pretvori med tabulatorji in presledki
 
@@ -384,7 +384,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `sponge`: prebere vse vnose pred pisanjem, uporabno za branje iz njih in nato za pisanje v isto datoteko, npr. `grep -v something some-file | sponge some-file`
 
-- `units`: pretvorba enot in kalkulacije; pretvori furlong-e (osmino milje) na štirinajst dni v twip-e na blink (see also `/usr/share/units/definitions.units`)
+- `units`: pretvorba enot in kalkulacije; pretvori furlonge (osmino milje) na štirinajst dni v dvajsetine točke na blink (glejte tudi `/usr/share/units/definitions.units`)
 
 - `7z`: kompresija datoteke visokega razmerja
 
@@ -408,7 +408,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `host` in `dig`: pogled DNS
 
-- `lsof`: procesira deskriptorje datoteke in inforamcije vtičnice
+- `lsof`: procesira deskriptorje datoteke in informacije vtičnice
 
 - `dstat`: uporabna statistika sistema
 
@@ -447,26 +447,26 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 To so elementi pomembni *samo* za MacOS.
 
-- Upravljanje paketov z `brew` (Homebrew) in/ali `port` (MacPorts). Te so lahko uporabljeni za namestitev na MacOS mnogih zgornjih ukazov.
+- Upravljanje paketov z `brew` (Homebrew) in/ali `port` (MacPorts). Te so lahko uporabljeni za namestitev mnogih zgornjih ukazov na MacOS.
 
 - Kopirajte izpis katerega koli ukaza na namizno aplikacijo s `pbcopy` in prilepite vnos iz ene s `pbpaste`.
 
-- Da oprete datoteko z namizno aplikacijo, uporabite `open` ali `open -a /Applications/Whatever.app`.
+- Da odprete datoteko z namizno aplikacijo, uporabite `open` ali `open -a /Applications/Whatever.app`.
 
 - Spotlight: Poiščite datoteke z `mdfind` in izpišite meta podatke (kot so EXIF informacije fotografije) z `mdls`.
 
-- Bodite pozorni, saj je MacOS osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
+- Bodite pozorni, saj je MacOS osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
 
 
 ## Več virov
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+- [awesome-shell](https://github.com/alebcay/awesome-shell): urejan seznam orodij lupine in virov.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
 
 
 ## Pogoji uporabe
 
-Z izjemo zelo majhnih opravil, je koda napisana tako, da jo lahko ostali berejo. Z močjo pride odgovornost. Dejstvo, da *lahko* naredite nekaj v Bash-u ne pomeni nujno, da bi morali! ;)
+Z izjemo zelo majhnih opravil je koda napisana tako, da jo lahko ostali berejo. Z močjo pride odgovornost. Dejstvo, da *lahko* naredite nekaj v Bash-u ne pomeni nujno, da bi morali! ;)
 
 
 ## Licenca
