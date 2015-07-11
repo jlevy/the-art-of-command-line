@@ -12,7 +12,7 @@
 - [Procesiranje datotek in podatkov](#procesiranje-datotek-in-podatkov)
 - [Sistemsko razhroščevanje](#sistemsko-razhroščevanje)
 - [V eni vrstici](#v-eni-vrstici)
-- [Nepregledno vendar uporabno](#nejasno-vendar-uporabno)
+- [Nepregledno vendar uporabno](#nepregledno-vendar-uporabno)
 - [Samo za MacOS](#samo-za-macos)
 - [Več virov](#več-virov)
 - [Pogoji uporabe](#pogoji-uporabe)
