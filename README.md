@@ -326,7 +326,7 @@ A few examples of piecing together commands:
 
 - `look`: find English words (or lines in a file) beginning with a string
 
-- `cut `and `paste` and `join`: data manipulation
+- `cut` and `paste` and `join`: data manipulation
 
 - `fmt`: format text paragraphs
 
@@ -380,7 +380,7 @@ A few examples of piecing together commands:
 
 - `iconv` or `uconv`: conversion for text encodings
 
-- `split `and `csplit`: splitting files
+- `split` and `csplit`: splitting files
 
 - `sponge`: read all input before writing it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
 
@@ -436,7 +436,7 @@ A few examples of piecing together commands:
 
 - `lsb_release`: Linux distribution info
 
-- `lsblk`: List block devices: a tree view of your disks and disk paritions
+- `lsblk`: list block devices: a tree view of your disks and disk paritions
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
