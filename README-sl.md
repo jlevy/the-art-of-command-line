@@ -312,135 +312,135 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 ## Nepregledno vendar uporabno
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `expr`: izvede aritmetične ali logične operacije ali oceni splošne izraze
 
-- `m4`: simple macro processor
+- `m4`: enostaven makro procesor
 
-- `yes`: print a string a lot
+- `yes`: velikokrat izpiše niz
 
-- `cal`: nice calendar
+- `cal`: lep koledar
 
-- `env`: run a command (useful in scripts)
+- `env`: požene ukaz (uporabno v skriptah)
 
-- `printenv`: print out environment variables (useful in debugging and scripts)
+- `printenv`: izpiše spremenljivke okolja (uporabno pri razhroščevanju in v skriptah)
 
-- `look`: find English words (or lines in a file) beginning with a string
+- `look`: najde angleške besede (ali vrstice v datoteki) začenši z nizom
 
-- `cut `and `paste` and `join`: data manipulation
+- `cut` in `paste` in `join`: manipulacija podatkov
 
-- `fmt`: format text paragraphs
+- `fmt`: oblikuje odstavke teksta
 
-- `pr`: format text into pages/columns
+- `pr`: oblikuje tekst v strani/stolpce
 
-- `fold`: wrap lines of text
+- `fold`: ovije vrstice teksta
 
-- `column`: format text into columns or tables
+- `column`: oblkuje tekst v stolpce ali tabele
 
-- `expand` and `unexpand`: convert between tabs and spaces
+- `expand` in `unexpand`: pretvori med tabulatorji in presledki
 
-- `nl`: add line numbers
+- `nl`: doda vrstice številk
 
-- `seq`: print numbers
+- `seq`: izpiše številke
 
-- `bc`: calculator
+- `bc`: kalkulator
 
-- `factor`: factor integers
+- `factor`: celo številski faktorji
 
-- `gpg`: encrypt and sign files
+- `gpg`: enkriptira in podpiše datoteke
 
-- `toe`: table of terminfo entries
+- `toe`: tabela vnosov terminfo
 
-- `nc`: network debugging and data transfer
+- `nc`: rahroščevanje omrežja in prenos podatkov
 
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+- `socat`: rele vtičnice in odpravnik tcp porta (podobno kot `netcat`)
 
-- `slurm`: network trafic visualization
+- `slurm`: vizualizacija prometa omrežja
 
-- `dd`: moving data between files or devices
+- `dd`: premikanje podatkov med datotekami in napravami
 
-- `file`: identify type of a file
+- `file`: identifikacija tipa datoteke
 
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+- `tree`: prikaže direktorije in poddirektorije kot gnezdeno drevo; kot `ls` vendar rekurzivno
 
-- `stat`: file info
+- `stat`: informacije datoteke
 
-- `tac`: print files in reverse
+- `tac`: izpiše datoteke v obratnem redu
 
-- `shuf`: random selection of lines from a file
+- `shuf`: naključna izbira vrstic iz datoteke
 
-- `comm`: compare sorted files line by line
+- `comm`: primerja sortirane datoteke vrstico za vrstico
 
-- `pv`: monitor the progress of data through a pipe
+- `pv`: nadzira napredek podatkov skozi cev
 
-- `hd` and `bvi`: dump or edit binary files
+- `hd` in `bvi`: izvrže ali uredi binarne datoteke
 
-- `strings`: extract text from binary files
+- `strings`: izvleče tekst iz binarnih datotek
 
-- `tr`: character translation or manipulation
+- `tr`: prevod znakov ali manipulacija
 
-- `iconv` or `uconv`: conversion for text encodings
+- `iconv` ali `uconv`: pretvorba enkodiranja teksta
 
-- `split `and `csplit`: splitting files
+- `split` in `csplit`: cepljenje datotek
 
-- `sponge`: read all input before writing it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
+- `sponge`: prebere vse vnose pred pisanjem, uporabno za branje iz njih in nato za pisanje v isto datoteko, npr. `grep -v something some-file | sponge some-file`
 
-- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+- `units`: pretvorba enot in kalkulacije; pretvori furlong-e (osmino milje) na štirinajst dni v twip-e na blink (see also `/usr/share/units/definitions.units`)
 
-- `7z`: high-ratio file compression
+- `7z`: kompresija datoteke visokega razmerja
 
-- `ldd`: dynamic library info
+- `ldd`: informacije dinamične knjižnice
 
-- `nm`: symbols from object files
+- `nm`: simboli iz datotek objekta
 
-- `ab`: benchmarking web servers
+- `ab`: merjenje uspešnosti spletnih strežnikov
 
-- `strace`: system call debugging
+- `strace`: razhroščevanje sistemskega klica
 
-- `mtr`: better traceroute for network debugging
+- `mtr`: boljše sledenje usmerjanja za razhroščevanje omrežja
 
-- `cssh`: visual concurrent shell
+- `cssh`: vizualna sočasna lupina
 
-- `rsync`: sync files and folders over SSH
+- `rsync`: sinhronizacija datotek in map preko SSH
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- `wireshark` in `tshark`: zajem paketov in razhroščevanje omrežja
 
-- `ngrep`: grep for the network layer
+- `ngrep`: grep za nivo omrežja
 
-- `host` and `dig`: DNS lookups
+- `host` in `dig`: pogled DNS
 
-- `lsof`: process file descriptor and socket info
+- `lsof`: procesira deskriptorje datoteke in inforamcije vtičnice
 
-- `dstat`: useful system stats
+- `dstat`: uporabna statistika sistema
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- [`glances`](https://github.com/nicolargo/glances): visoko nivojski, večkratni podsistemski pregled
 
-- `iostat`: CPU and disk usage stats
+- `iostat`: statistika procesorja in diska
 
-- `htop`: improved version of top
+- `htop`: izboljšana verzija top
 
-- `last`: login history
+- `last`: zgodovina prijav
 
-- `w`: who's logged on
+- `w`: kdo je prijavljen
 
-- `id`: user/group identity info
+- `id`: informacije identifikacije uporabnika/skupine
 
-- `sar`: historic system stats
+- `sar`: statistika zgodovine sistema
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- `iftop` ali `nethogs`: izkoriščenost omrežja po vtičnici ali procesu
 
-- `ss`: socket statistics
+- `ss`: statistika vtičnice
 
-- `dmesg`: boot and system error messages
+- `dmesg`: sporočila napak zagona in sistema
 
-- `hdparm`: SATA/ATA disk manipulation/performance
+- `hdparm`: manipulacija/uspešnost SATA/ATA disk-a
 
-- `lsb_release`: Linux distribution info
+- `lsb_release`: informacije distribucije Linux
 
-- `lsblk`: List block devices: a tree view of your disks and disk paritions
+- `lsblk`: izpiše blokovne naprave: drevesni pogled vaših diskov in particij diska
 
-- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: informacije strojne opreme, vključno s procesorjem, BIOS-om, RAID-om, grafiko, napravami itd.
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+- `fortune`, `ddate` in `sl`: hm, torej zavisi glede na to ali smatrate parne lokomotive in dinamične kotacije "uporabne"
 
 
 ## Samo za MacOS
