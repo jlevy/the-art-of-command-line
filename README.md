@@ -353,7 +353,7 @@ A few examples of piecing together commands:
 
 - `socat`: socket relay and tcp port forwarder (similar to `netcat`)
 
-- `slurm`: network trafic visualization
+- [`slurm`](https://github.com/mattthias/slurm): network trafic visualization
 
 - `dd`: moving data between files or devices
 
