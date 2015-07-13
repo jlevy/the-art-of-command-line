@@ -168,7 +168,7 @@ Opombe:
 
 - Če morate upravljati z XML, je `xmlstarlet` star vendar dober.
 
-- Za JSON, use `jq`.
+- Za JSON, use [`jq`](http://stedolan.github.io/jq/).
 
 - Za Excel ali CSV datoteke, [csvkit](https://github.com/onyxfish/csvkit) ponuja `in2csv`, `csvcut`, `csvjoin`, `csvgrep` itd.
 
@@ -345,7 +345,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `factor`: celo številski faktorji
 
-- `gpg`: enkriptira in podpiše datoteke
+- [`gpg`](https://gnupg.org/): enkriptira in podpiše datoteke
 
 - `toe`: tabela vnosov terminfo
 
@@ -353,7 +353,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `socat`: rele vtičnice in odpravnik tcp porta (podobno kot `netcat`)
 
-- `slurm`: vizualizacija prometa omrežja
+- [`slurm`](https://github.com/mattthias/slurm): vizualizacija prometa omrežja
 
 - `dd`: premikanje podatkov med datotekami in napravami
 
