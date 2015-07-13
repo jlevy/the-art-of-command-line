@@ -128,7 +128,7 @@ Notas:
 
 - En ssh, conocer como hacer un port tunnel con `-L` o `-D` (y de vez en cuando `-R`) es útil, Ej. para acceder sitio web desde un servidor remoto.
 
-- esto puede ser útil para hacer algunas optimizaciones para su configuración ssh; por ejemplo, Este, `~/.ssh/config` contiene la configuracion para evitar desconexiones en ciertos entornos de red, usar comprensión (la cual es muy útil con scp sobre conexiones con un ancho de banda pequeño), y multiplexar canales para el mismo servidor con un archivo de control local:
+- esto puede ser útil para hacer algunas optimizaciones para su configuración ssh; por ejemplo, Este, `~/.ssh/config` contiene la configuracion para evitar desconexiones en ciertos entornos de red, utiliza la comprensión (cual es útil con scp sobre conexiones con un ancho de banda pequeña), y la multiplexíon de los canales para el mismo servidor con un archivo de control local:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -168,7 +168,7 @@ Notas:
 
 - Si debes manipular XML, `xmlstarlet` es viejo pero bueno.
 
-- Para JSON, usa `jq`.
+- Para JSON, usa [`jq`](http://stedolan.github.io/jq/).
 
 - Para archivos Excel o CSV, [csvkit](https://github.com/onyxfish/csvkit) provee `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
@@ -176,7 +176,7 @@ Notas:
 
 - Conocer acerca `sort` y `uniq`, incluyendo opciones de uniq `-u` y `-d` -- ver unas lineas mas abajo.
 
-- Conocer acerca `cut`, `paste`, y `join` para manipular archivos de texto. Muchas personas usan `cut` pero se olvidan acerca de `join`.
+- Conocer acerca `cut`, `paste` y `join` para manipular archivos de texto. Muchas personas usan `cut` pero se olvidan acerca de `join`.
 
 - Conocer acerca `wc` para contar nuevas líneas (`-l`), caractéres (`-m`), palabras (`-w`) y bytes (`-c`).
 
@@ -345,7 +345,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `factor`: factorización de enteros
 
-- `gpg`: cifrado y firmas digitales
+- [`gpg`](https://gnupg.org/): cifrado y firmas digitales
 
 - `toe`: tabla de información de términos
 
@@ -353,7 +353,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `socat`: socket relay y redireccionador de puerto tcp (similar a `netcat`)
 
-- `slurm`: visualización del tráfico de red
+- [`slurm`](https://github.com/mattthias/slurm): visualización del tráfico de red
 
 - `dd`: moviliza data entre archivos y dispositivos
 
@@ -435,7 +435,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `lsb_release`: información de la distribución de Linux
 
-- `lsblk`: Lista de bloques de dispositivos: un árbol de vista de sus discos y particiones de disco
+- `lsblk`: lista de bloques de dispositivos: un árbol de vista de sus discos y particiones de disco
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: información de hardware, incluyendo CPU, BIOS, RAID, grafícos, dispositivos, etc.
 
