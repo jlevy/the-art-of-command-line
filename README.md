@@ -345,7 +345,7 @@ A few examples of piecing together commands:
 
 - `factor`: factor integers
 
-- `gpg`: encrypt and sign files
+- [`gpg`](https://gnupg.org/): encrypt and sign files
 
 - `toe`: table of terminfo entries
 
@@ -353,7 +353,7 @@ A few examples of piecing together commands:
 
 - `socat`: socket relay and tcp port forwarder (similar to `netcat`)
 
-- `slurm`: network trafic visualization
+- [`slurm`](https://github.com/mattthias/slurm): network trafic visualization
 
 - `dd`: moving data between files or devices
 
