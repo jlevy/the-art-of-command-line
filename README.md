@@ -72,11 +72,7 @@ Notes:
 
 - In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
 
-<<<<<<< HEAD
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. [There are a lot](http://ss64.com/bash/syntax-keyboard.html). For example **alt-.** inserts last argument of previous command, and **ctrl-x *** [expands a glob](http://superuser.com/questions/215950/how-to-expand-on-bash-command-line).
-=======
 - In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-a** to move cursor to beginning of line,  **ctrl-e** to move cursor to end of line, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
->>>>>>> e9b5dce3a4b6e81447b046f2809ff106a78b9270
 
 - Alternatively, if you love vi-style key-bindings, use `set -o vi`.
 
