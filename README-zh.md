@@ -434,7 +434,7 @@
 
 - `lshw`，`lscpu`，`lspci`，`lsusb` 和 `dmidecode`：查看硬件信息，包括 CPU、BIOS、RAID、显卡、USB设备等
 
-- `fortune`，`ddate` 和 `sl`： 额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否“有用”
+- `fortune`，`ddate` 和 `sl`：额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否“有用”
 
 ## 仅限 Mac 系统
 
@@ -448,13 +448,13 @@
 
 - Spotlight： 用 `mdfind` 搜索文件，用 `mdls` 列出元数据（例如照片的 EXIF 信息）。
 
-- 注意 Mac 系统是基于 BSD UNIX 的，许多命令（例如 `ps`， `ls`， `tail`， `awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
+- 注意 Mac 系统是基于 BSD UNIX 的，许多命令（例如 `ps`，`ls`，`tail`，`awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
 
 
 ## 更多资源
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell)： 一份精心组织的命令行工具及资源的列表。
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)： 为了编写更好的脚本文件。
+- [awesome-shell](https://github.com/alebcay/awesome-shell)：一份精心组织的命令行工具及资源的列表。
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)：为了编写更好的脚本文件。
 
 
 ## 免责声明
