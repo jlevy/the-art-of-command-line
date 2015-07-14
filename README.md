@@ -126,6 +126,8 @@ Notes:
 
 - Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
 
+- Use [`mosh`](https://mosh.mit.edu/) Mobile Shell to wrap your ssh sessions over a stateless UDP so that you never have to manually reconnect when on the road, or when your internet connection gets temporarilly dropped.
+
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
 - It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, uses compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
