@@ -233,7 +233,7 @@ Opombe:
 
 - Da izveste status spomina, poženite in razumite izpis `free` in `vmstat`. Še posebej bodite pozorni, da je vrednost "cached" držana v spominu s strani jedra Linux-a kot datoteka predpomnilnika, tako da efektivno šteje proti vrednosti "free".
 
-- Sistemsko razhroščevanje Java je drugačen tip, vendar enostaven trik na JVM-jih Oracle-a in nekaterih ostalih je, da lahko poženete `kill -3 <pid>` in sledite celotnemu stack-u in povzetku kopic (vključno s podrobnostmi zbirke splošnih smeti, ki so lahko zelo informativne), ki bodo oddane v stderr/logs.
+- Sistemsko razhroščevanje Java je drugačen tip, vendar enostaven trik na JVM-jih Oracle-a in nekaterih ostalih je, da lahko poženete `kill -3 <pid>` in sledite celotnemu stack-u in povzetku kopic (vključno s podrobnostmi zbirke splošnih smeti, ki so lahko zelo informativne), ki bodo oddane v stderr/logs. JDK-jevi `jps`, `jstat`, `jstack`, `jmap` so uporabni. [SJK Tools](https://github.com/aragozin/jvm-tools) so bolj napredni.
 
 - Uporabite `mtr` kot boljši usmerjevalnik sledenja za identifikacijo težav omrežja.
 
@@ -284,12 +284,6 @@ Nekaj primerov sestavljanja ukazov skupaj:
 - Če želite videti velikost/datume v drevesu datotek, je to kot rekurzivni `ls -l` vendar enostavnejše za branje kot `ls -lR`:
 ```sh
       find . -type f -ls
-```
-
-- Uporabite `xargs` ali `parallel` kadarkoli lahko. Bodite pozorni, saj lahko kontrolirate kolikokrat izvršite na vrstico (`-L`) kot tudi paralelnost (`-P`). Če niste prepričani, da bo naredilo pravilno stvar, uporabite najprej xargs echo. Priročen je tudi `-I{}`. Primeri:
-```sh
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
 - Recimo, da imate tekstovno datoteko, kot dnevnik spletnega strežnika in določena vrednost se pojavi na nekaterih vrsticah, kot parameter `acct_id`, ki je prisoten v URL-ju. Če želite ujemanja, koliko je zahtevkov za vsak `acct_id`:
