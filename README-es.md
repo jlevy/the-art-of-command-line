@@ -233,7 +233,7 @@ Notas:
 
 - Para conocer el estado de la memoria, ejecutar y entender la salida de `free` y `vmstat`. En particular, tener en cuenta el valor "cached" es memoria mantenida por el kernel Linux como un archivo de cache, entonces efectivamente cuenta como valor para "free".
 
-- El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y de otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la colección de basura generacional, la cual puede ser altamente informativa) serán descargados al stderr/logs.
+- El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y de otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la colección de basura generacional, la cual puede ser altamente informativa) serán descargados al stderr/logs. Las herramientas `jps`, `jstat`, `jstack`, `jmap` del JDK son útiles. [SJK tools](https://github.com/aragozin/jvm-tools) son más avanzadas.
 
 - Usar `mtr` como un mejor traceroute, para identificar los problemas en la red.
 
@@ -284,12 +284,6 @@ Algunos ejemplos de comandos reunidos:
 - Si quiere ver tamaños/fechas en un árbol de archivos, esto es como hacer recursivo `ls -l` pero es mas facil de leer que `ls -lR`:
 ```sh
       find . -type f -ls
-```
-
-- Usar `xargs` o `parallel` cuando pueda. Considere que puede controlar algunos elementos ejecutados por línea (`-L`) así como paralelismo (`-P`). Si no esta seguro de estar haciendo la cosa correcta, use primero xargs echo. También, `-I{}` es práctico. Ejemplos:
-```sh
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
 - Digamos que tiene un archivo de texto, como un log de un servidor web, y un cierto valor comienza a aparecer en algunas líneas, tales como un parametro `acct_id` que esta presente en el URL. Si quieres un recuento de cuantas peticiones ""request hay por cada `acct_id`:
