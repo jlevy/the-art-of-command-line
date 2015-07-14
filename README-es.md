@@ -1,4 +1,5 @@
-[ Languages: [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
+[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md) ]
+
 
 # El Arte del Terminal
 
@@ -58,7 +59,7 @@ Notas:
 
 - Conoce `ssh` y lo básico de autenticación sin contraseña, vía `ssh-agent`, `ssh-add`, etc.
 
-- Administración de archivos básica: `ls` y `ls -l` (en particular, aprenda el significado de cada columna en `ls -l`), `less`, `head`, `tail` y `tail -f` (o incluso mejor, `less +F`), `ln` y `ln -s` (aprenda las diferencias y ventajas entre enlaces hard y soft), `chown`, `chmod`, `du` (para un resumen rápido del uso del disco: `du -hk *`). Para administración de archivos de sistema, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Administración de archivos básica: `ls` y `ls -l` (en particular, aprenda el significado de cada columna en `ls -l`), `less`, `head`, `tail` y `tail -f` (o incluso mejor, `less +F`), `ln` y `ln -s` (aprenda las diferencias y ventajas entre enlaces hard y soft), `chown`, `chmod`, `du` (para un resumen rápido del uso del disco: `du -hs *`). Para administración de archivos de sistema, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
 - Administración básica de redes: `ip` o `ifconfig`, `dig`.
 
@@ -71,7 +72,7 @@ Notas:
 
 - En Bash, se usa **Tab** para completar los argumentos y **ctrl-r** para buscar, a través del historial de comandos.
 
-- En Bash, se usa **ctrl-w** para borrar la última palabra, y **ctrl-u** para borrar todo el camino hasta el inicio de la línea. Se usa **alt-b** y **alt-f** para moverse entre letras, **ctrl-k** para eliminar hasta el final de la línea, **ctrl-l** para limpiar la panatalla. Ver `man readline` para todos los atajos de teclado por defecto en Bash. Son una gran cantidad. Por ejemplo **alt-.** realiza un ciclo a través de los comandos previos, y **alt-*** expande un glob.
+- En Bash, se usa **ctrl-w** para borrar la última palabra, y **ctrl-u** para borrar todo el camino hasta el inicio de la línea. Se usa **alt-b** y **alt-f** para moverse entre letras, **ctrl-a** para mover el cursor al principio de la línea,  **ctrl-e** para mover el cursor al final de la línea,  **ctrl-k** para eliminar hasta el final de la línea, **ctrl-l** para limpiar la panatalla. Ver `man readline` para todos los atajos de teclado por defecto en Bash. Son una gran cantidad. Por ejemplo **alt-.** realiza un ciclo a través de los comandos previos, y **alt-*** expande un glob.
 
 - Alternativamente, si amas los atajos de teclado vi-style, usa `set -o vi`.
 
@@ -127,7 +128,7 @@ Notas:
 
 - En ssh, conocer como hacer un port tunnel con `-L` o `-D` (y de vez en cuando `-R`) es útil, Ej. para acceder sitio web desde un servidor remoto.
 
-- esto puede ser útil para hacer algunas optimizaciones para su configuración ssh; por ejemplo, Este, `~/.ssh/config` contiene la configuracion para evitar desconexiones en ciertos entornos de red, usar comprensión (la cual es muy útil con scp sobre conexiones con un ancho de banda pequeño), y multiplexar canales para el mismo servidor con un archivo de control local:
+- esto puede ser útil para hacer algunas optimizaciones para su configuración ssh; por ejemplo, Este, `~/.ssh/config` contiene la configuracion para evitar desconexiones en ciertos entornos de red, utiliza la comprensión (cual es útil con scp sobre conexiones con un ancho de banda pequeña), y la multiplexíon de los canales para el mismo servidor con un archivo de control local:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -167,7 +168,7 @@ Notas:
 
 - Si debes manipular XML, `xmlstarlet` es viejo pero bueno.
 
-- Para JSON, usa `jq`.
+- Para JSON, usa [`jq`](http://stedolan.github.io/jq/).
 
 - Para archivos Excel o CSV, [csvkit](https://github.com/onyxfish/csvkit) provee `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
@@ -175,7 +176,7 @@ Notas:
 
 - Conocer acerca `sort` y `uniq`, incluyendo opciones de uniq `-u` y `-d` -- ver unas lineas mas abajo.
 
-- Conocer acerca `cut`, `paste`, y `join` para manipular archivos de texto. Muchas personas usan `cut` pero se olvidan acerca de `join`.
+- Conocer acerca `cut`, `paste` y `join` para manipular archivos de texto. Muchas personas usan `cut` pero se olvidan acerca de `join`.
 
 - Conocer acerca `wc` para contar nuevas líneas (`-l`), caractéres (`-m`), palabras (`-w`) y bytes (`-c`).
 
@@ -344,7 +345,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `factor`: factorización de enteros
 
-- `gpg`: cifrado y firmas digitales
+- [`gpg`](https://gnupg.org/): cifrado y firmas digitales
 
 - `toe`: tabla de información de términos
 
@@ -352,7 +353,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `socat`: socket relay y redireccionador de puerto tcp (similar a `netcat`)
 
-- `slurm`: visualización del tráfico de red
+- [`slurm`](https://github.com/mattthias/slurm): visualización del tráfico de red
 
 - `dd`: moviliza data entre archivos y dispositivos
 
@@ -434,7 +435,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `lsb_release`: información de la distribución de Linux
 
-- `lsblk`: Lista de bloques de dispositivos: un árbol de vista de sus discos y particiones de disco
+- `lsblk`: lista de bloques de dispositivos: un árbol de vista de sus discos y particiones de disco
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: información de hardware, incluyendo CPU, BIOS, RAID, grafícos, dispositivos, etc.
 

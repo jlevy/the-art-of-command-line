@@ -1,5 +1,4 @@
-[ [English](README.md), [Español](README-es.md), [Português](README-pt.md), [中文](README-zh.md), [Русский](README-ru.md) ]
-
+[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md) ]
 
 
 # The Art of Command Line
@@ -60,7 +59,7 @@ Notes:
 
 - Know `ssh`, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
-- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -hk *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -hs *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
 - Basic network management: `ip` or `ifconfig`, `dig`.
 
@@ -73,7 +72,11 @@ Notes:
 
 - In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
 
+<<<<<<< HEAD
 - In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. [There are a lot](http://ss64.com/bash/syntax-keyboard.html). For example **alt-.** inserts last argument of previous command, and **ctrl-x *** [expands a glob](http://superuser.com/questions/215950/how-to-expand-on-bash-command-line).
+=======
+- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-a** to move cursor to beginning of line,  **ctrl-e** to move cursor to end of line, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+>>>>>>> e9b5dce3a4b6e81447b046f2809ff106a78b9270
 
 - Alternatively, if you love vi-style key-bindings, use `set -o vi`.
 
@@ -129,7 +132,7 @@ Notes:
 
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
-- It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, use compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
+- It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, uses compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -169,7 +172,7 @@ Notes:
 
 - If you must handle XML, `xmlstarlet` is old but good.
 
-- For JSON, use `jq`.
+- For JSON, use [`jq`](http://stedolan.github.io/jq/).
 
 - For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
@@ -320,7 +323,7 @@ A few examples of piecing together commands:
 
 - `look`: find English words (or lines in a file) beginning with a string
 
-- `cut `and `paste` and `join`: data manipulation
+- `cut`, `paste` and `join`: data manipulation
 
 - `fmt`: format text paragraphs
 
@@ -340,7 +343,7 @@ A few examples of piecing together commands:
 
 - `factor`: factor integers
 
-- `gpg`: encrypt and sign files
+- [`gpg`](https://gnupg.org/): encrypt and sign files
 
 - `toe`: table of terminfo entries
 
@@ -348,7 +351,7 @@ A few examples of piecing together commands:
 
 - `socat`: socket relay and tcp port forwarder (similar to `netcat`)
 
-- `slurm`: network trafic visualization
+- [`slurm`](https://github.com/mattthias/slurm): network trafic visualization
 
 - `dd`: moving data between files or devices
 
@@ -374,7 +377,7 @@ A few examples of piecing together commands:
 
 - `iconv` or `uconv`: conversion for text encodings
 
-- `split `and `csplit`: splitting files
+- `split` and `csplit`: splitting files
 
 - `sponge`: read all input before writing it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
 
@@ -430,7 +433,7 @@ A few examples of piecing together commands:
 
 - `lsb_release`: Linux distribution info
 
-- `lsblk`: List block devices: a tree view of your disks and disk paritions
+- `lsblk`: list block devices: a tree view of your disks and disk paritions
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
