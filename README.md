@@ -186,7 +186,7 @@ Notes:
 
 - Know basic `awk` and `sed` for simple data munging. For example:
     - summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
-    - Find every `.log` file in the current directory (and all of its subdirectories) and monitor them simultaneously: `find . -type f -name "*.log" | awk '{print}' ORS=' ' | sed 's/^/tail -f /' | sh`
+    - Find every `.log` file in the current directory (and all of its subdirectories) and monitor them simultaneously: `find . -type f -name "*.log" | sed 's/\s/\\ /g' | awk '{print}' ORS=' ' | sed 's/^/tail -f /' | sh`
 
 - To replace all occurrences of a string in place, in one or more files:
 ```sh
