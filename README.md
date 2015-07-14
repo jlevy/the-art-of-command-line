@@ -393,7 +393,7 @@ A few examples of piecing together commands:
 
 - `cssh`: visual concurrent shell
 
-- `rsync`: sync files and folders over SSH
+- `rsync`: sync files and folders over SSH or in local file system
 
 - `wireshark` and `tshark`: packet capture and network debugging
 
@@ -436,7 +436,7 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-## MacOS only
+## MacOS X only
 
 These are items relevant *only* on MacOS.
 
