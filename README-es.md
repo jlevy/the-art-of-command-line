@@ -12,7 +12,7 @@
 - [Depuración del sistema](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscuro pero útil](#obscure-but-useful)
-- [Solo para MacOS](#macos-only)
+- [Solo para MacOS X](#macos-x-only)
 - [Más recursos](#more-resources)
 - [Advertencia](#disclaimer)
 
@@ -33,7 +33,7 @@ pero debido al interés mostrado, parece que vale la pena usar Github, donde exi
 Alcance:
 
 - Esta guía es tanto para el principiante como para el experimentado. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar fácilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente ahorra tiempo comparada con otras alternativas.
-- Esta escrito para Linux, con excepción de la sección "[Solo para MacOS](#macos-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
+- Esta escrito para Linux, con excepción de la sección "[Solo para MacOS X](#macos-x-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
 - Se enfoca en Bash interactivo, aunque muchos de los consejos se aplican para otros shells y al Bash scripting por lo general.
 - Esta incluye ambos comandos "estándar" Unix, así como aquellos que requieren la instalación especial de un paquete -- siempre que sea suficientemente importante para ameritar su inclusión.
 
@@ -393,7 +393,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `cssh`: shell concurrent visual
 
-- `rsync`: sincronización de archivos y carpetas sobre SSH
+- `rsync`: sincronización de archivos y carpetas sobre SSH o en sistemas de archivos locales
 
 - `wireshark` y `tshark`: captura de paquetes y depuración de la red
 
@@ -436,7 +436,7 @@ Algunos ejemplos de comandos reunidos:
 - `fortune`, `ddate`, y `sl`: um, bien, este depende si tiene la consideración de locomotoras de vapor y citas Zippy "práctico"
 
 
-## Solo para MacOS
+## Solo para MacOS X
 
 Estos son puntos relevantes *solo* en MacOS.
 
