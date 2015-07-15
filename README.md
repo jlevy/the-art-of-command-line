@@ -124,7 +124,12 @@ Notes:
 
 - Use `man ascii` for a good ASCII table, with hex and decimal values. For general encoding info, `man unicode`, `man utf-8`, and `man latin1` are helpful.
 
-- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. A more minimal alternative for session persistence only is `dtach`.
+- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. 
+  A more minimal alternative for session persistence only is `dtach`.
+  See `tmux` example in [here](examples/tmux.conf).
+  Uses example of `tmux`:
+  - __new__: `tmux -S /tmp/tm_session new`
+  - __get__: `tmux -S /tmp/tm_session attach -d`
 
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
