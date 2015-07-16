@@ -166,7 +166,7 @@
 
 - 如果你不得不处理 XML，`xmlstarlet` 宝刀未老。
 
-- 使用 `jq` 处理 JSON。
+- 使用 [`jq`](http://stedolan.github.io/jq/) 处理 JSON。
 
 - Excel 或 CSV 文件的处理，[csvkit](https://github.com/onyxfish/csvkit) 提供了 `in2csv`，`csvcut`，`csvjoin`，`csvgrep` 等工具。
 
@@ -231,7 +231,7 @@
 
 - 若要了解内存状态，运行并理解 `free` 和 `vmstat` 的输出。尤其注意“cached”的值，它指的是 Linux 内核用来作为文件缓存的内存大小，因此它与空闲内存无关。
 
-- Java 系统调试则是一件截然不同的事，一个可以用于 Oracle 的 JVM 或其他 JVM 上的调试的小技巧是你可以运行 `kill -3 <pid>` 同时一个完整的栈轨迹和堆概述（包括 GC 的细节）会被保存到标准输出/日志文件。
+- Java 系统调试则是一件截然不同的事，一个可以用于 Oracle 的 JVM 或其他 JVM 上的调试的小技巧是你可以运行 `kill -3 <pid>` 同时一个完整的栈轨迹和堆概述（包括 GC 的细节）会被保存到标准输出/日志文件。JDK 中的 `jps`，`jstat`，`jstack`，`jmap` 很有用。[SJK tools](https://github.com/aragozin/jvm-tools) 更高级.
 
 - 使用 `mtr` 去跟踪路由，用于确定网络问题。
 
@@ -281,12 +281,6 @@
 - 如果你想在文件树上查看大小\日期，这可能看起来像递归版的 `ls -l` 但比 `ls -lR` 更易于理解：
 ```sh
       find . -type f -ls
-```
-
-- 尽可能的使用 `xargs` 或 `parallel`。注意到你可以控制每行参数个数（`-L`）和最大并行数（`-P`）。如果你不确定它们是否会按你想的那样工作，先使用 `xargs echo` 查看一下。此外，使用 `-I{}` 会很方便。例如：
-```sh
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
 - 假设你有一个类似于 web 服务器日志文件的文本文件，并且一个确定的值只会出现在某些行上，假设一个 `acct_id` 参数在URI中。如果你想计算出每个 `acct_id` 值有多少次请求，使用如下代码：
@@ -394,7 +388,7 @@
 
 - `cssh`：可视化的并发 shell
 
-- `rsync`：通过 ssh 同步文件和文件夹
+- `rsync`：通过 ssh 或本地文件系统同步文件和文件夹
 
 - `wireshark` 和 `tshark`：抓包和网络调试工具
 
@@ -434,7 +428,7 @@
 
 - `lshw`，`lscpu`，`lspci`，`lsusb` 和 `dmidecode`：查看硬件信息，包括 CPU、BIOS、RAID、显卡、USB设备等
 
-- `fortune`，`ddate` 和 `sl`： 额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否“有用”
+- `fortune`，`ddate` 和 `sl`：额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否“有用”
 
 ## 仅限 Mac 系统
 
@@ -448,13 +442,13 @@
 
 - Spotlight： 用 `mdfind` 搜索文件，用 `mdls` 列出元数据（例如照片的 EXIF 信息）。
 
-- 注意 Mac 系统是基于 BSD UNIX 的，许多命令（例如 `ps`， `ls`， `tail`， `awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
+- 注意 Mac 系统是基于 BSD UNIX 的，许多命令（例如 `ps`，`ls`，`tail`，`awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
 
 
 ## 更多资源
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell)： 一份精心组织的命令行工具及资源的列表。
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)： 为了编写更好的脚本文件。
+- [awesome-shell](https://github.com/alebcay/awesome-shell)：一份精心组织的命令行工具及资源的列表。
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)：为了编写更好的脚本文件。
 
 
 ## 免责声明
