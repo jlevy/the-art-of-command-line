@@ -63,7 +63,7 @@ Notas:
 
 - Administración básica de redes: `ip` o `ifconfig`, `dig`.
 
-- Conozca bien las expresiones regulares y varias opciones (flags) para `grep`/`egrep`. Las opciones `-i`, `-o`, `-A`, y `-B` son dignas de ser recordadas.
+- Conozca bien las expresiones regulares y varias opciones (flags) para `grep`/`egrep`. Las opciones `-i`, `-o`, `-v`, `-A`, y `-B` son dignas de ser recordadas.
 
 - Aprenda el uso de `apt-get`, `yum`, `dnf` o `pacman` (dependiendo de la distribución "distro") para buscar e instalar paquetes. Y asegúrate que tienes `pip` para instalar la herramienta de línea de comando basada en Python (un poco más abajo esta explicado como instalar vía `pip`).
 
