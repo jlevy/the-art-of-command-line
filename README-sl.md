@@ -63,7 +63,7 @@ Opombe:
 
 - Osnovno upravljanje omrežja: `ip` or `ifconfig`, `dig`.
 
-- Poznajte tudi splošne izraze in različne zastavice za `grep`/`egrep`. Opcije `-i`, `-o`, `-A` in `-B` so vredne znanja.
+- Poznajte tudi splošne izraze in različne zastavice za `grep`/`egrep`. Opcije `-i`, `-o`, `-v`, `-A` in `-B` so vredne poznavanja.
 
 - Naučite se uporabljati `apt-get`, `yum`, `dnf` ali `pacman` (odvisno od distribucije), da najdete in namestite pakete. In zagotovite, da imate `pip`, da lahko nameščate orodja ukazne vrstice na osnovi Python-a (nekaj spodnjih je najenostavneje namestiti preko `pip`).
 
