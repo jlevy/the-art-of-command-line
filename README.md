@@ -357,6 +357,8 @@ A few examples of piecing together commands:
 
 - `stat`: file info
 
+- `time`: execute and time a command
+
 - `tac`: print files in reverse
 
 - `shuf`: random selection of lines from a file
