@@ -96,6 +96,8 @@ Notes:
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
 
+- Know how long the system is running. Use `uptime` or `w` command and note the value in the third field of first row. That tells the current uptime of the system.
+
 - Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
 
 - See also `lsof` for open sockets and files.
@@ -251,9 +253,9 @@ Notes:
 
 - Know how to connect to a running process with `gdb` and get its stack traces.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (Where xxx is used to denote process id or pid)
 
-- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, disk activites etc.
 
 - For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
 
@@ -432,6 +434,10 @@ A few examples of piecing together commands:
 - `lsblk`: list block devices: a tree view of your disks and disk paritions
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
+
+- `lsmod`: List the currently loaded kernel modules.
+
+- `modinfo`: Use `modinfo <module-name>` to get the details of a specific kernel module.
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
