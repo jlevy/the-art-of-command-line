@@ -8,7 +8,7 @@
 - [Meta](#meta)
 - [Fundamentos](#basics)
 - [Uso diario](#everyday-use)
-- [Procesando archivos y datos](#processing-files-and-data)
+- [Procesamiento archivos y datos](#processing-files-and-data)
 - [Depuración del sistema](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscuro pero útil](#obscure-but-useful)
