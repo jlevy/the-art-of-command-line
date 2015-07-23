@@ -158,62 +158,62 @@ Notas:
 
 ## Procesamiento de archivos y datos
 
-- Para localizar un archivo por nombre en el directorio actual, `find . -iname '*something*'` (o similar). Para encontrar un archivo en cualquier lado por nombre, usar `locate something` (pero tenga en mente `updatedb` quizás no haya indexado recientemente los archivos creados).
+- Para localizar un archivo por nombre en el directorio actual, `find . -iname '*something*'` (o similar). Para encontrar un archivo en cualquier lado por nombre, use `locate something` (pero tenga en mente que `updatedb` quizás no haya indexado recientemente los archivos creados).
 
-- Por lo general buscar por la fuente o archivos de datos (más avanzado que `grep -r`), usar [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Para busqueda general sobre la fuente o archivos de datos (más avanzado que `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
 
-- Para convertir HTML a texto: `lynx -dump -stdin`
+- Para convertir HTML a texto: `lynx -dump -stdin`.
 
-- Para Markdown, HTML, y todos los tipos de conversión de documentos, probar [`pandoc`](http://pandoc.org/).
+- Para Markdown, HTML, y todos los tipos de conversión de documentos, pruebe [`pandoc`](http://pandoc.org/).
 
-- Si debes manipular XML, `xmlstarlet` es viejo pero bueno.
+- Si debe manipular XML, `xmlstarlet` es viejo pero bueno.
 
-- Para JSON, usa [`jq`](http://stedolan.github.io/jq/).
+- Para JSON, use [`jq`](http://stedolan.github.io/jq/).
 
 - Para archivos Excel o CSV, [csvkit](https://github.com/onyxfish/csvkit) provee `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
 - Para Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) es conveniente y [`s4cmd`](https://github.com/bloomreach/s4cmd) es el mas rápido. Hecho por Amazon [`aws`](https://github.com/aws/aws-cli) es esencial para otras tareas relacionadas al AWS.
 
-- Conocer acerca `sort` y `uniq`, incluyendo opciones de uniq `-u` y `-d` -- ver unas líneas más abajo.
+- Conocer acerca de `sort` y `uniq`, incluyendo las opciones de uniq `-u` y `-d` -- ver one-liners más abajo.
 
-- Conocer acerca `cut`, `paste` y `join` para manipular archivos de texto. Muchas personas usan `cut` pero se olvidan acerca de `join`.
+- Conocer acerca de `cut`, `paste` y `join` para manipular archivos de texto. Muchas personas usan `cut` pero se olvidan acerca de `join`.
 
-- Conocer acerca `wc` para contar nuevas líneas (`-l`), caracteres (`-m`), palabras (`-w`) y bytes (`-c`).
+- Conocer acerca de `wc` para contar saltos de línea (`-l`), caracteres (`-m`), palabras (`-w`) y bytes (`-c`).
 
-- Conocer acerca `tee` para copiar desde el stdin hacia un archivo y también hacia el stdout, así `ls -al | tee file.txt`.
+- Conocer acerca de `tee` para copiar desde el stdin hacia un archivo y también hacia el stdout, así `ls -al | tee file.txt`.
 
-- Conocer que `locale` afecta muchas herramientas de línea de comando en forma delicada, incluyendo el orden del ordenamiento (compaginación) y rendimiento. La mayoría de las instalaciones de Linux configuran `LANG` u otras variables de localización para la configuración local como US English. Pero esté alerta, el ordenamiento puede cambiar si cambia la localización. Y también las rutinas i18n pueden hacer que `sort` u otros comandos se ejecuten **muchas veces** más lentos. En algunas situaciones (tales como la realización de operaciones u operaciones singulares debajo) puede de forma segura ignorar las rutinas lentas i18n por completo y utilizar el sort tradicional basado en byte, usando `export LC_ALL=C`.
+- Sepa que `locale` afecta muchas herramientas de la línea de comandos en forma delicada, incluyendo el orden del ordenamiento (compaginación) y rendimiento. La mayoría de las instalaciones de Linux configuran `LANG` u otras variables de localización para la configuración local como US English. Pero tenga en cuenta que el ordenamiento va a cambiar si cambia `locale`. Y también las rutinas i18n pueden hacer que `sort` u otros comandos se ejecuten *muchas veces* más lentos. En algunas situaciones (tales como la realización de operaciones u operaciones singulares debajo) puede de forma segura ignorar las lentas rutinas i18n por completo y utilizar el sort tradicional basado en byte, usando `export LC_ALL=C`.
 
-- Conozca aspectos básicos de `awk` y `sed` para manejo de datos. Por ejemplo, sumar todos lo números en la tercera columna de un archivo de texto: `awk '{ x += $3 } END { print x }'`. Esto es probablemente 3X más rápido y 3X más corto que su equivalente en Python.
+- Conozca aspectos básicos de `awk` y `sed` para manejo de datos. Por ejemplo, sumar todos lo números en la tercera columna de un archivo de texto: `awk '{ x += $3 } END { print x }'`. Esto es probablemente 3 veces más rápido y 3 veces más corto que su equivalente en Python.
 
 - Para reemplazar todas las ocurrencias de un string en su lugar, en uno o más archivos:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- Para renombrar varios archivos a la vez de acuerdo a un patrón, usar `rename`. Para renombramientos complejos, [`repren`](https://github.com/jlevy/repren) may help.
+- Para renombrar varios archivos a la vez de acuerdo a un patrón, usar `rename`. Para renombramientos complejos, [`repren`](https://github.com/jlevy/repren) puede ayudar.
 ```sh
-      # Recover backup files foo.bak -> foo:
+      # Recuperar archivos de respaldo foo.bak -> foo:
       rename 's/\.bak$//' *.bak
-      # Full rename of filenames, directories, and contents foo -> bar:
+      # Renombramiento completo de archivos, carpetas y contenidos foo -> bar:
       repren --full --preserve-case --from foo --to bar .
 ```
 
 - Usar `shuf` para mezclar o seleccionar líneas aleatorias desde un archivo.
 
-- Conozca las opciones de `sort`. Para números, use `-n`, o `-h` para manipulación de números humanamente leíbles (Ej. desde `du -h`). Conozca el trabajo principal de (`-t` y `-k`). En particular, este atento que lo necesitará para escribir`-k1,1` para ordenar por solo el primer campo; `-k1` significa ordenar de acuerdo a toda la línea. Orden estable (`sort -s`) puede ser útil. Por ejemplo, para organizar el primer por el campo 2, entonces secundariamente hacerlo por el campo 1, Puedes usar `sort -k1,1 | sort -s -k2,2`.
+- Conozca las opciones de `sort`. Para números, use `-n`, o `-h` para manipulación de números humanamente leíbles (Ej. desde `du -h`). Conozca ecomo trabajan `-t` y `-k`. En particular, este atento a que necesitará escribir `-k1,1` para ordenar por solo el primer campo; `-k1` significa ordenar de acuerdo a toda la línea. Orden estable (`sort -s`) puede ser útil. Por ejemplo, para ordenar primero por el campo 2, luego secundariamente hacerlo por el campo 1, Puedes usar `sort -k1,1 | sort -s -k2,2`.
 
-- Si necesitas siempre escribir un tab literal en una línea de comandos en Bash (Ej. para el argumento -t de ordenar), presione **ctrl-v** **[Tab]** o escriba `$'\t'` (El último es mejor porque puedes copiarlo/pegarlo).
+- Si alguna vez necesita escribir un tab literal en una línea de comandos en Bash (Ej. para el argumento -t para 'sort'), presione **ctrl-v** **[Tab]** o escriba `$'\t'` (el último es mejor porque puede copiarlo/pegarlo).
 
-- Las herramientas estándar para reparar el código fuente son `diff` y `patch`. Ver también `diffstat` para resumen estadístico de una diff. Nota `diff -r` trabaja con directorios por completo. Usar`diff -r tree1 tree2 | diffstat` para el resumen de cambios.
+- Las herramientas estándar para reparar el código fuente son `diff` y `patch`. Ver también `diffstat` para resumen estadístico de una diff. Note que `diff -r` trabaja completamente con directorios. Usar`diff -r tree1 tree2 | diffstat` para un resumen de cambios.
 
 - Para archivos binarios, usar `hd` para sencillos "hex dumps" y `bvi` para edición de binario.
 
-- También para archivos binarios, `strings` (además de `grep`, etc.) permite encontrar en el texto bits.
+- También para archivos binarios, `strings` (además de `grep`, etc.) permite encontrar fragmentos de texto.
 
-- Para diffs binaria (delta compression), usar `xdelta3`.
+- Para diffs binarias (delta compression), usar `xdelta3`.
 
-- Para convertir la codificación del texto, probar `iconv`. O `uconv` para el uso avanzado; este soporta este soporta algunos elementos Unicode avanzados. Por ejemplo, este coloca en minúsculas y remueve todos los acentos (por expanción y colocándolos a ellos):
+- Para convertir la codificación del texto, probar `iconv`. O `uconv` para uso más avanzado; este soporta algunos elementos Unicode avanzados. Por ejemplo, este comando coloca en minúsculas y remueve todas los acentos (expandiéndolos y colocándolos):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
@@ -225,39 +225,39 @@ Notas:
 
 ## Depuración del sistema
 
-- Para depuración web, `curl` y `curl -I` son prácticos, o sus equivalentes `wget`, o el más moderno [`httpie`](https://github.com/jakubroztocil/httpie).
+- Para depuración web, `curl` y `curl -I` son prácticos, o sus equivalentes en `wget`, o el más moderno [`httpie`](https://github.com/jakubroztocil/httpie).
 
-- Para el estado del disco/cpu/red, usar `iostat`, `netstat`, `top` (o el mejor `htop`), y (especialmente) `dstat`. Bueno para recibir una idea rápida de lo que está pasando en tu sistema.
+- Para conocer el estado del disco/cpu/red, usar `iostat`, `netstat`, `top` (o el mejor `htop`), y (especialmente) `dstat`. Bueno para recibir una idea rápida de qué está pasando en un sistema.
 
-- Para una resumen en mayor profundidad, usar [`glances`](https://github.com/nicolargo/glances). Este se presenta con varios niveles de estadística en un solo terminal. Muy útil para una verificación rápida de varios subsistemas.
+- Para una visión general en mayor profundidad, usar [`glances`](https://github.com/nicolargo/glances). Este se presenta con varios niveles de estadística en un solo terminal. Muy útil para una verificación rápida de varios subsistemas.
 
-- Para conocer el estado de la memoria, ejecutar y entender la salida de `free` y `vmstat`. En particular, tener en cuenta el valor "cached" es memoria mantenida por el kernel Linux como un archivo de cache, entonces efectivamente cuenta como valor para "free".
+- Para conocer el estado de la memoria, ejecutar y entender la salida de `free` y `vmstat`. En particular, tener en cuenta el valor "en caché" es mantenido en memoria por el kernel Linux como un archivo de cache, por lo que efectivamente cuenta como valor para "free".
 
-- El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y de otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la colección de basura generacional, la cual puede ser altamente informativa) serán descargados al stderr/logs. Las herramientas `jps`, `jstat`, `jstack`, `jmap` del JDK son útiles. [SJK tools](https://github.com/aragozin/jvm-tools) son más avanzadas.
+- El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la colección de basura generacional, la cual puede ser altamente informativa) serán descargados al stderr/logs. Las herramientas `jps`, `jstat`, `jstack`, `jmap` del JDK son útiles. [SJK tools](https://github.com/aragozin/jvm-tools) son más avanzadas.
 
 - Usar `mtr` como un mejor traceroute, para identificar los problemas en la red.
 
-- Para mirara porque el disco está lleno, `ncdu` ahorra tiempo sobre los comandos usual como `du -sh *`.
+- Para buscar por qué el disco está lleno, `ncdu` ahorra tiempo sobre los comandos usuales como `du -sh *`.
 
-- Para encontrar cual socket o proceso está utilizando el ancho de banda, prueba `iftop` o `nethogs`.
+- Para encontrar cual socket o proceso está utilizando ancho de banda, pruebe `iftop` o `nethogs`.
 
-- La herramienta `ab` (viene con Apache) es útil para una verificación rápida y sucia del rendimiento del servidor web. Para pruebas de carga más complejas, prueba `siege`.
+- La herramienta `ab` (viene con Apache) es útil para una verificación "rápida y sucia" del rendimiento del servidor web. Para pruebas de carga más complejas, pruebe `siege`.
 
-- Para depuración de redes más serias, `wireshark`, `tshark`, o `ngrep`.
+- Para depuración mas seria de redes, `wireshark`, `tshark`, o `ngrep`.
 
-- Conozca acerca `strace` y `ltrace`. Estas son de utilidad si un programa está fallando, guindando, o estrellando, y no conoces por qué?, o si quieres tener una idea general del rendimiento. Note la opción de elaboración de perfiles (`-c`), y la habilidad de adjuntar a un proceso en ejecución (`-p`).
+- Conozca acerca de `strace` y `ltrace`. Estas puede ser de utilidad si un programa está fallando, está suspendido, o está "congelado/colgado/crasheado", y no sabe por qué, o si quieres tener una idea general del rendimiento. Note la opción de elaboración de perfiles, o "profiling", (`-c`), y la habilidad de adjuntar a un proceso en ejecución (`-p`).
 
-- Conozca acerca `ldd` para verificar librerías compartidas etc.
+- Conozca acerca de `ldd` para verificar librerías compartidas etc.
 
 - Conozca como conectarse a un proceso en ejecución con `gdb` y obtener su traza de pilas.
 
-- Usar `/proc`. Este es extraordinariamente útil algunas veces cuando hay problemas de depuración en vivo. Ejemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Usar `/proc`. Es extraordinariamente útil algunas veces cuando se depuran problemas en vivo. Ejemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
-- Cuando se depura porque algo salió más en el pasado, `sar` puede ser muy útil. Este muestra la estadística histórica en CPU, memoria, red, etc.
+- Cuando se depura porque algo salió mal en el pasado, `sar` puede ser muy útil. Este muestra la estadística histórica en CPU, memoria, red, etc.
 
-- Para sistemas y análisis de rendimiento de mayor profundidad, ver `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
+- Para analisis de sistemas y de rendimiento mas profundos, vea `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
 
-- Confirmar que OS te encuentras con `uname` o `uname -a` (información general Unix/kernel) o `lsb_release -a` (Linux distro info).
+- Confirme en que OS se encuentra con `uname` o `uname -a` (información general en Unix/kernel) o `lsb_release -a` (información en Linux distro).
 
 - Usar `dmesg` siempre que algo actúe raro (esto podría ser problemas con el hardware o driver).
 
@@ -266,17 +266,17 @@ Notas:
 
 Algunos ejemplos de comandos reunidos:
 
-- Este es notablemente útil en ocasiones que hay que realizar intersección, unión, y diferencia de archivos de texto vía `sort`/`uniq`. Considere `a` y `b` como archivos de texto que son únicos. Esto es rápido, y trabaja con archivos de tamaño arbitrario, hasta varios gigabytes. (Sort no está limitado por la memoria, aunque quizás necesites utilizar la opción `-T` si `/tmp` está en una pequeña partición raíz.) Ver también la nota acerca `LC_ALL` y las opciones de `sort`, `-u` (dejado de lado para clarificar más abajo).
+- Es notablemente útil en ocasiones que pueda realizar intersección, unión, y diferencia de conjuntos de archivos de texto vía `sort`/`uniq`. Suponga `a` y `b` como archivos de texto que son únicos. Esto es rápido, y trabaja con archivos de tamaño arbitrario, hasta varios gigabytes. (Sort no está limitado por la memoria, aunque quizás necesite utilizar la opción `-T` si `/tmp` está en una pequeña partición de raíz.) Vea también la nota acerca de `LC_ALL` y las opciones de `sort`, `-u` (dejado de lado para clarificar más abajo).
 ```sh
-      cat a b | sort | uniq > c   # c is a union b
-      cat a b | sort | uniq -d > c   # c is a intersect b
-      cat a b b | sort | uniq -u > c   # c is set difference a - b
+      cat a b | sort | uniq > c   # c es a union b
+      cat a b | sort | uniq -d > c   # c es a intersectado con b
+      cat a b b | sort | uniq -u > c   # c es el conjunto diferencia a - b
 ```
 
-- Usar `grep . *` para visualmente examinar todo el contenido de todos los archivos de un directorio, Ej. para directorios llenos con parámetros de configuración, como `/sys`, `/proc`, `/etc`.
+- Usar `grep . *` para examinar visualmente todos los contenidos de todos los archivos en un directorio, por ejemplo, para directorios llenos con parámetros de configuración, como `/sys`, `/proc`, `/etc`.
 
 
-- Sumar todos los números en la tercera columna de un archivo de texto (esto es probablemente 3X más rápido 3X menor código que el equivalente en Python):
+- Sumar todos los números en la tercera columna de un archivo de texto (esto es probablemente 3 veces más rápido y 3 veces menos código que el equivalente en Python):
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
@@ -286,7 +286,7 @@ Algunos ejemplos de comandos reunidos:
       find . -type f -ls
 ```
 
-- Digamos que tiene un archivo de texto, como un log de un servidor web, y un cierto valor comienza a aparecer en algunas líneas, tales como un parámetro `acct_id` que está presente en el URL. Si quieres un recuento de cuantas peticiones ""request hay por cada `acct_id`:
+- Digamos que tiene un archivo de texto, como un log de un servidor web, y un cierto valor comienza a aparecer en algunas líneas, tales como un parámetro `acct_id` que está presente en la URL. Si quieres un recuento de cuantas peticiones ("request") hay por cada `acct_id`:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
@@ -305,7 +305,7 @@ Algunos ejemplos de comandos reunidos:
 
 ## Oscuro pero útil
 
-- `expr`: ejecuta operaciones aritméticas o booleanas o evalúa expresiones regulares
+- `expr`: ejecuta operaciones aritméticas o booleanas, o evalúa expresiones regulares
 
 - `m4`: procesador de macro sencillo 
 
@@ -315,21 +315,21 @@ Algunos ejemplos de comandos reunidos:
 
 - `env`: ejecuta un comando (útil en scripts)
 
-- `printenv`: imprime las variables del ambiente (útil en depuración y scripts)
+- `printenv`: imprime las variables del entorno (útil en depuración y scripts)
 
 - `look`: buscar palabras en inglés (o líneas en un archivo) comenzando con un string
 
 - `cut`, `paste` y `join`: manipulación de datos
 
-- `fmt`: formato de texto de párrafo
+- `fmt`: da formato a párrafos de texto
 
-- `pr`: formato de texto en páginas/columnas
+- `pr`: da formato al texto en páginas/columnas
 
-- `fold`: envolturas de líneas de texto
+- `fold`: envuelve líneas de texto
 
-- `column`: formato de texto en columnas o tablas
+- `column`: da formato al texto en columnas o tablas
 
-- `expand` y `unexpand`: convertidor entre tabuladores y espacios
+- `expand` y `unexpand`: conversión entre tabuladores y espacios
 
 - `nl`: agrega números de línea
 
@@ -343,15 +343,15 @@ Algunos ejemplos de comandos reunidos:
 
 - `toe`: tabla de información de términos
 
-- `nc`: depuración del entorno de red y transferencia de datos
+- `nc`: depuración de la red y transferencia de datos
 
 - `socat`: socket relay y redireccionador de puerto tcp (similar a `netcat`)
 
 - [`slurm`](https://github.com/mattthias/slurm): visualización del tráfico de red
 
-- `dd`: moviliza data entre archivos y dispositivos
+- `dd`: moviliza data entre archivos o dispositivos
 
-- `file`: identifica el tipo de archivo
+- `file`: identifica el tipo de un archivo
 
 - `tree`: muestra directorios y subdirectorios como un árbol anidado; parecido a `ls` pero recursivo
 
@@ -359,31 +359,31 @@ Algunos ejemplos de comandos reunidos:
 
 - `tac`: imprime archivos en forma inversa
 
-- `shuf`: selección de líneas de un archivo de forma aleatoria
+- `shuf`: selección aleatoria de líneas de un archivo
 
 - `comm`: compara archivos ordenados línea por línea
 
-- `pv`: monitor del progreso de datos, a través, de un tubo
+- `pv`: monitorea el progreso de datos a través de un tubo
 
 - `hd` y `bvi`: descarga o edita archivos binarios
 
-- `strings`: extrae textos de archivos binarios
+- `strings`: extrae texto de archivos binarios
 
-- `tr`: traducción y manipulación de caracteres
+- `tr`: traducción o manipulación de caracteres
 
 - `iconv` o `uconv`: conversión de codificaciones de texto
 
 - `split` y `csplit`: división de archivos
 
-- `sponge`: lee todas las entradas antes de escribirlo, útil para vista previa y posterior escritura hacia el mismo archivo, Ej., `grep -v something some-file | sponge some-file`
+- `sponge`: lee todas las entradas antes de escribirlo, útil para vista previa y posterior escritura sobre el mismo archivo, Ej., `grep -v something some-file | sponge some-file`
 
-- `units`: unidades de conversión y calculaciones; convierte furlongs por fortnight para twips por blink (ver también `/usr/share/units/definitions.units`)
+- `units`: unidades de conversión y cálculos; convierte furlongs por fortnight a twips por blink (ver también `/usr/share/units/definitions.units`)
 
 - `7z`: compresión de archivos de alto nivel
 
 - `ldd`: información de librería dinámica
 
-- `nm`: archivo de objeto de símbolos
+- `nm`: símbolos de archvios objeto
 
 - `ab`: benchmarking de servidores web
 
@@ -391,49 +391,49 @@ Algunos ejemplos de comandos reunidos:
 
 - `mtr`: mejor traceroute para la depuración de la red
 
-- `cssh`: shell concurrent visual
+- `cssh`: shell concurrente visual
 
-- `rsync`: sincronización de archivos y carpetas sobre SSH o en sistemas de archivos locales
+- `rsync`: sincronización de archivos y carpetas sobre SSH o en sistema de archivos locales
 
 - `wireshark` y `tshark`: captura de paquetes y depuración de la red
 
 - `ngrep`: grep para la capa de la red
 
-- `host` y `dig`: consulta DNS
+- `host` y `dig`: consultas DNS
 
-- `lsof`: descriptor de archivo de procesos y información de socket
+- `lsof`: descriptor de archivo de procesos e información de socket
 
 - `dstat`: sistema de estadísticas útil
 
-- [`glances`](https://github.com/nicolargo/glances):vistazo de multi-subsistemas, de alto nivel
+- [`glances`](https://github.com/nicolargo/glances): visión general de multi-subsistemas, de alto nivel
 
-- `iostat`: estadísticas del CPU y uso del disco
+- `iostat`: estadísticas de la CPU y uso del disco
 
 - `htop`: versión mejorada de top
 
 - `last`: historial de login
 
-- `w`: quien está autenticado?
+- `w`: quién está autenticado
 
 - `id`: información de identidad de usuario/grupo
 
-- `sar`: sistema de estadísticas histórico
+- `sar`: estadísticas históricas del sistema
 
-- `iftop` o `nethogs`: utilización de la red por un socket o process
+- `iftop` o `nethogs`: utilización de la red por un socket o proceso
 
 - `ss`: estadísticas de socket
 
-- `dmesg`: arranque y sistema de mensajes de error
+- `dmesg`: mensajes de error del arranque y del sistema 
 
 - `hdparm`: manipulación/rendimiento de discos SATA/ATA
 
 - `lsb_release`: información de la distribución de Linux
 
-- `lsblk`: lista de bloques de dispositivos: un árbol de vista de sus discos y particiones de disco
+- `lsblk`: lista dispositivos de bloque: una vista de arbol de sus discos y particiones de disco
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: información de hardware, incluyendo CPU, BIOS, RAID, gráficos, dispositivos, etc.
 
-- `fortune`, `ddate`, y `sl`: um, bien, este depende si tiene la consideración de locomotoras de vapor y citas Zippy "práctico"
+- `fortune`, `ddate`, y `sl`: um, bien, depende de si considera las locomotoras de vapor y citas Zippy "útiles"
 
 
 ## Solo para MacOS X
@@ -442,28 +442,28 @@ Estos son puntos relevantes *solo* en MacOS.
 
 - Administración de paquetes con `brew` (Homebrew) y/o `port` (MacPorts). Estos pueden ser utilizados para instalar en MacOS muchos de los comandos de arriba.
 
-- Copiar la salida de cualquier comando para una aplicación desktop con `pbcopy` y pegar desde una entrada con `pbpaste`.
+- Copie la salida de cualquier comando en una aplicación de escritorio con `pbcopy` y pegue una entrada desde una con `pbpaste`.
 
-- Para abrir un archivo con una aplicación desktop, usar `open` o `open -a /Applications/Whatever.app`.
+- Para abrir un archivo con una aplicación de escritorio, use `open` o `open -a /Applications/Whatever.app`.
 
-- Spotlight: Busca archivos con `mdfind` y listar metadata (como información de foto EXIF) con `mdls`.
+- Spotlight: Busque archivos con `mdfind` y liste metadata (tal como información de foto EXIF) con `mdls`.
 
-- Tenga en cuenta que MacOS está basado en BSD Unix, y cualquier comando (por ejemplo `ps`, `ls`, `tail`, `awk`, `sed`) tiene variaciones discretas variaciones por cada Linux, que está en gran parte influenciado por el sistema Unix V-style y herramientas GNU. Puedes frecuentemente decirme la diferencia por señalar unas páginas man que tienen el encabezado "BSD General Commands Manual." En algunos casos versiones GNU pueden ser instalados, también (tales como `gawk` y `gsed` para awk y sed del GNU). Si escribe cross-platform scripts Bash, evita tales comandos (por ejemplo, considerando Python o `perl`) o probar con mucho cuidado.
+- Tenga en cuenta que MacOS está basado en BSD Unix, y muchos comandos (por ejemplo `ps`, `ls`, `tail`, `awk`, `sed`) tienen muchas variaciones discretas respecto de Linux, que está en gran parte influenciado por el sistema Unix V-style y herramientas GNU. Comunmente puede diferenciar al notar que una página man tienen el encabezado "BSD General Commands Manual." En algunos casos versiones GNU pueden ser instaladas también (tales como `gawk` y `gsed` para GNU awk y sed). Si escribe scripts Bash multiplataforma, evite tales comandos (por ejemplo, considere Python o `perl`) o probar cuidadosamente.
 
 
 ## Más recursos
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): Una lista curada de herramientas shell y recursos.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) para escribir mejores script shell.
+- [awesome-shell](https://github.com/alebcay/awesome-shell): Una lista curada de herramientas y recursos para la shell.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) para escribir mejores scripts shell.
 
 
 ## Advertencia
 
-Con excepción de pequeñas tareas, el código está escrito para que otros puedan leerlo. Con el poder llega la responsabilidad. El hecho de que tú *puedes* hacer algo en Bash no necesariamente significa que debas hacerlo! ;)
+Con la excepción de tareas muy pequeñas, el código está escrito para que otros puedan leerlo. Con el poder llega la responsabilidad. El hecho de que usted *puede* hacer algo en Bash no necesariamente significa que deba hacerlo! ;)
 
 
 ## Licencia
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-Este trabajo esta licenciado bajo [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+Este trabajo está licenciado bajo [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
