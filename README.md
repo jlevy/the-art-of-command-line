@@ -100,7 +100,7 @@ Notes:
 
 - See also `lsof` for open sockets and files.
 
-- See `uptime` or `w` to know the how long the system is running. Follow the value after the word 'up' in the output. 
+- See `uptime` or `w` to know the how long the system has been running.
 
 - Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
 
@@ -253,7 +253,7 @@ Notes:
 
 - Know how to connect to a running process with `gdb` and get its stack traces.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline, ``/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where xxx is the process id or pid).
+- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where `xxx` is the process id or pid).
 
 - When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
 
@@ -441,9 +441,7 @@ A few examples of piecing together commands:
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
-- `lsmod`: List currently loaded kernel modules.
-
-- `modinfo`: Show details of a particular kernel module. 
+- `lsmod` and `modifno`: List and show details of kernel modules.
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
