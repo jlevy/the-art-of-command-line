@@ -174,7 +174,7 @@ Notas:
 
 - Para Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) es conveniente y [`s4cmd`](https://github.com/bloomreach/s4cmd) es el mas rápido. Hecho por Amazon [`aws`](https://github.com/aws/aws-cli) es esencial para otras tareas relacionadas al AWS.
 
-- Conocer acerca de `sort` y `uniq`, incluyendo las opciones de uniq `-u` y `-d` -- ver one-liners más abajo.
+- Conocer acerca de `sort` y `uniq`, incluyendo las opciones de uniq `-u` y `-d` -- ver [one-liners](https://github.com/jlevy/the-art-of-command-line/blob/master/README-es.md#one-liners) más abajo.
 
 - Conocer acerca de `cut`, `paste` y `join` para manipular archivos de texto. Muchas personas usan `cut` pero se olvidan acerca de `join`.
 
@@ -184,7 +184,7 @@ Notas:
 
 - Sepa que `locale` afecta muchas herramientas de la línea de comandos en forma delicada, incluyendo el orden del ordenamiento (compaginación) y rendimiento. La mayoría de las instalaciones de Linux configuran `LANG` u otras variables de localización para la configuración local como US English. Pero tenga en cuenta que el ordenamiento va a cambiar si cambia `locale`. Y también las rutinas i18n pueden hacer que `sort` u otros comandos se ejecuten *muchas veces* más lentos. En algunas situaciones (tales como la realización de operaciones u operaciones singulares debajo) puede de forma segura ignorar las lentas rutinas i18n por completo y utilizar el sort tradicional basado en byte, usando `export LC_ALL=C`.
 
-- Conozca aspectos básicos de `awk` y `sed` para manejo de datos. Por ejemplo, sumar todos lo números en la tercera columna de un archivo de texto: `awk '{ x += $3 } END { print x }'`. Esto es probablemente 3 veces más rápido y 3 veces más corto que su equivalente en Python.
+- Conozca los aspectos básicos de `awk` y `sed` para manejo de datos. Por ejemplo, sumar todos lo números en la tercera columna de un archivo de texto: `awk '{ x += $3 } END { print x }'`. Esto es probablemente 3 veces más rápido y 3 veces más corto que su equivalente en Python.
 
 - Para reemplazar todas las ocurrencias de un string en su lugar, en uno o más archivos:
 ```sh
@@ -225,25 +225,25 @@ Notas:
 
 ## Depuración del sistema
 
-- Para depuración web, `curl` y `curl -I` son prácticos, o sus equivalentes en `wget`, o el más moderno [`httpie`](https://github.com/jakubroztocil/httpie).
+- Para depuración web, `curl` y `curl -I` son prácticos, o como sus equivalentes `wget`, o el más moderno [`httpie`](https://github.com/jakubroztocil/httpie).
 
 - Para conocer el estado del disco/cpu/red, usar `iostat`, `netstat`, `top` (o el mejor `htop`), y (especialmente) `dstat`. Bueno para recibir una idea rápida de qué está pasando en un sistema.
 
 - Para una visión general en mayor profundidad, usar [`glances`](https://github.com/nicolargo/glances). Este se presenta con varios niveles de estadística en un solo terminal. Muy útil para una verificación rápida de varios subsistemas.
 
-- Para conocer el estado de la memoria, ejecutar y entender la salida de `free` y `vmstat`. En particular, tener en cuenta el valor "en caché" es mantenido en memoria por el kernel Linux como un archivo de cache, por lo que efectivamente cuenta como valor para "free".
+- Para conocer el estado de la memoria, ejecutar y entender la salida de `free` y `vmstat`. En particular, tener en cuenta el valor "cached" es mantenido en memoria por el kernel Linux como un archivo de cache, por lo que efectivamente cuenta como valor para "free".
 
 - El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la colección de basura generacional, la cual puede ser altamente informativa) serán descargados al stderr/logs. Las herramientas `jps`, `jstat`, `jstack`, `jmap` del JDK son útiles. [SJK tools](https://github.com/aragozin/jvm-tools) son más avanzadas.
 
 - Usar `mtr` como un mejor traceroute, para identificar los problemas en la red.
 
-- Para buscar por qué el disco está lleno, `ncdu` ahorra tiempo sobre los comandos usuales como `du -sh *`.
+- Para examinar por qué el disco está lleno, `ncdu` ahorra tiempo sobre los comandos usuales como `du -sh *`.
 
-- Para encontrar cual socket o proceso está utilizando ancho de banda, pruebe `iftop` o `nethogs`.
+- Para encontrar cual socket o proceso está utilizando el ancho de banda, pruebe `iftop` o `nethogs`.
 
 - La herramienta `ab` (viene con Apache) es útil para una verificación "rápida y sucia" del rendimiento del servidor web. Para pruebas de carga más complejas, pruebe `siege`.
 
-- Para depuración mas seria de redes, `wireshark`, `tshark`, o `ngrep`.
+- Para una depuración mas seria de redes, `wireshark`, `tshark`, o `ngrep`.
 
 - Conozca acerca de `strace` y `ltrace`. Estas puede ser de utilidad si un programa está fallando, está suspendido, o está "congelado/colgado/crasheado", y no sabe por qué, o si quieres tener una idea general del rendimiento. Note la opción de elaboración de perfiles, o "profiling", (`-c`), y la habilidad de adjuntar a un proceso en ejecución (`-p`).
 
@@ -255,7 +255,7 @@ Notas:
 
 - Cuando se depura porque algo salió mal en el pasado, `sar` puede ser muy útil. Este muestra la estadística histórica en CPU, memoria, red, etc.
 
-- Para analisis de sistemas y de rendimiento mas profundos, vea `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
+- Para análisis de sistemas y de rendimiento más profundos, vea `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
 
 - Confirme en que OS se encuentra con `uname` o `uname -a` (información general en Unix/kernel) o `lsb_release -a` (información en Linux distro).
 
@@ -268,7 +268,7 @@ Algunos ejemplos de comandos reunidos:
 
 - Es notablemente útil en ocasiones que pueda realizar intersección, unión, y diferencia de conjuntos de archivos de texto vía `sort`/`uniq`. Suponga `a` y `b` como archivos de texto que son únicos. Esto es rápido, y trabaja con archivos de tamaño arbitrario, hasta varios gigabytes. (Sort no está limitado por la memoria, aunque quizás necesite utilizar la opción `-T` si `/tmp` está en una pequeña partición de raíz.) Vea también la nota acerca de `LC_ALL` y las opciones de `sort`, `-u` (dejado de lado para clarificar más abajo).
 ```sh
-      cat a b | sort | uniq > c   # c es a union b
+      cat a b | sort | uniq > c   # c es a unido con b
       cat a b | sort | uniq -d > c   # c es a intersectado con b
       cat a b b | sort | uniq -u > c   # c es el conjunto diferencia a - b
 ```
@@ -351,7 +351,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `dd`: moviliza data entre archivos o dispositivos
 
-- `file`: identifica el tipo de un archivo
+- `file`: identifica el tipo de archivo
 
 - `tree`: muestra directorios y subdirectorios como un árbol anidado; parecido a `ls` pero recursivo
 
@@ -367,7 +367,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `hd` y `bvi`: descarga o edita archivos binarios
 
-- `strings`: extrae texto de archivos binarios
+- `strings`: extrae texto desde archivos binarios
 
 - `tr`: traducción o manipulación de caracteres
 
@@ -429,7 +429,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `lsb_release`: información de la distribución de Linux
 
-- `lsblk`: lista dispositivos de bloque: una vista de arbol de sus discos y particiones de disco
+- `lsblk`: lista de dispositivos de bloque: una vista tipo arbol de sus discos y particiones de disco
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: información de hardware, incluyendo CPU, BIOS, RAID, gráficos, dispositivos, etc.
 
@@ -442,7 +442,7 @@ Estos son puntos relevantes *solo* en MacOS.
 
 - Administración de paquetes con `brew` (Homebrew) y/o `port` (MacPorts). Estos pueden ser utilizados para instalar en MacOS muchos de los comandos de arriba.
 
-- Copie la salida de cualquier comando en una aplicación de escritorio con `pbcopy` y pegue una entrada desde una con `pbpaste`.
+- Copie la salida de cualquier comando en una aplicación de escritorio con `pbcopy` y pegue una entrada con `pbpaste`.
 
 - Para abrir un archivo con una aplicación de escritorio, use `open` o `open -a /Applications/Whatever.app`.
 
