@@ -100,6 +100,8 @@ Notes:
 
 - See also `lsof` for open sockets and files.
 
+- See `uptime` or `w` to know the how long the system is running. Follow the value after the word 'up' in the output. 
+
 - Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
 
 - In Bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
@@ -251,7 +253,7 @@ Notes:
 
 - Know how to connect to a running process with `gdb` and get its stack traces.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline, ``/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where xxx is the process id or pid).
 
 - When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
 
@@ -409,7 +411,11 @@ A few examples of piecing together commands:
 
 - [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
 
-- `iostat`: CPU and disk usage stats
+- `iostat`: Disk usage stats
+
+- `mpstat`: CPU usage stats
+
+- `vmstat`: Memory usage stats
 
 - `htop`: improved version of top
 
@@ -434,6 +440,10 @@ A few examples of piecing together commands:
 - `lsblk`: list block devices: a tree view of your disks and disk paritions
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
+
+- `lsmod`: List currently loaded kernel modules.
+
+- `modinfo`: Show details of a particular kernel module. 
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
