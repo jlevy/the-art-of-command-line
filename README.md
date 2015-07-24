@@ -1,4 +1,4 @@
-[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [中文](README-zh.md) ]
+[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md) ]
 
 
 # The Art of Command Line
@@ -12,7 +12,7 @@
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
-- [MacOS only](#macos-only)
+- [MacOS X only](#macos-x-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
@@ -33,7 +33,7 @@ but given the interest there, it seems it's worth using Github, where people mor
 Scope:
 
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux, with the exception of the "[MacOS only](#macos-only)" section. Many of the other items apply or can be installed on other Unices or MacOS (or even Cygwin).
+- This is written for Linux, with the exception of the "[MacOS X only](#macos-x-only)" section. Many of the other items apply or can be installed on other Unices or MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.
 
@@ -63,7 +63,7 @@ Notes:
 
 - Basic network management: `ip` or `ifconfig`, `dig`.
 
-- Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-A`, and `-B` options are worth knowing.
+- Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-v`, `-A`, `-B`, and `-C` options are worth knowing.
 
 - Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
@@ -100,6 +100,8 @@ Notes:
 
 - See also `lsof` for open sockets and files.
 
+- See `uptime` or `w` to know the how long the system has been running.
+
 - Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
 
 - In Bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
@@ -128,7 +130,7 @@ Notes:
 
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
-- It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, use compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
+- It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, uses compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -168,7 +170,7 @@ Notes:
 
 - If you must handle XML, `xmlstarlet` is old but good.
 
-- For JSON, use `jq`.
+- For JSON, use [`jq`](http://stedolan.github.io/jq/).
 
 - For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
@@ -233,7 +235,7 @@ Notes:
 
 - To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
 
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs.
+- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs. The JDK's `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) are more advanced.
 
 - Use `mtr` as a better traceroute, to identify network issues.
 
@@ -251,7 +253,7 @@ Notes:
 
 - Know how to connect to a running process with `gdb` and get its stack traces.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where `xxx` is the process id or pid).
 
 - When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
 
@@ -284,12 +286,6 @@ A few examples of piecing together commands:
 - If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
 ```sh
       find . -type f -ls
-```
-
-- Use `xargs` or `parallel` whenever you can. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use xargs echo first. Also, `-I{}` is handy. Examples:
-```sh
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
 - Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
@@ -325,7 +321,7 @@ A few examples of piecing together commands:
 
 - `look`: find English words (or lines in a file) beginning with a string
 
-- `cut` and `paste` and `join`: data manipulation
+- `cut`, `paste` and `join`: data manipulation
 
 - `fmt`: format text paragraphs
 
@@ -345,7 +341,7 @@ A few examples of piecing together commands:
 
 - `factor`: factor integers
 
-- `gpg`: encrypt and sign files
+- [`gpg`](https://gnupg.org/): encrypt and sign files
 
 - `toe`: table of terminfo entries
 
@@ -353,7 +349,7 @@ A few examples of piecing together commands:
 
 - `socat`: socket relay and tcp port forwarder (similar to `netcat`)
 
-- `slurm`: network trafic visualization
+- [`slurm`](https://github.com/mattthias/slurm): network trafic visualization
 
 - `dd`: moving data between files or devices
 
@@ -362,6 +358,8 @@ A few examples of piecing together commands:
 - `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
 
 - `stat`: file info
+
+- `time`: execute and time a command
 
 - `tac`: print files in reverse
 
@@ -399,7 +397,7 @@ A few examples of piecing together commands:
 
 - `cssh`: visual concurrent shell
 
-- `rsync`: sync files and folders over SSH
+- `rsync`: sync files and folders over SSH or in local file system
 
 - `wireshark` and `tshark`: packet capture and network debugging
 
@@ -413,7 +411,11 @@ A few examples of piecing together commands:
 
 - [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
 
-- `iostat`: CPU and disk usage stats
+- `iostat`: Disk usage stats
+
+- `mpstat`: CPU usage stats
+
+- `vmstat`: Memory usage stats
 
 - `htop`: improved version of top
 
@@ -439,10 +441,12 @@ A few examples of piecing together commands:
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
+- `lsmod` and `modifno`: List and show details of kernel modules.
+
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-## MacOS only
+## MacOS X only
 
 These are items relevant *only* on MacOS.
 

@@ -1,4 +1,4 @@
-[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [中文](README-zh.md) ]
+[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md) ]
 
 
 # The Art of Command Line
@@ -24,14 +24,14 @@
 여기있는 대부분의 것은
 [원래](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [Quora에](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
- [올라온](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know) 것입니.
+ [올라온](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know) 것입니다.
 하지만 거기에 관심을 가지기보다, Github를 이용하는 것이 더 가치있는 것처럼 보입니다. 여기엔 더 재능있는 사람들이 손쉽게 개선안을 제안할 수 있는 곳이죠. 만약 문제가 있거나, 더 나아질 수 있는 내용이 보인다면, 이슈를 제출하거나 풀 리퀘스트를 보내주세요! (물론 meta 섹션과 이미 존재하는 풀 리퀘스트와 이슈를 봐주기를 바랍니다.)
 
 ## Meta
 
 범위:
 
-- 이 가이드는 초심자와 경험자 모두를 위한 것입니다. 목표는 범위(전부 다 중요합니다!), 구체성(대부분의 일반적인 케이스에 대한 구체적인 예제), 그리고 간결함(쉽게 마주치지 않는, 중요하지 않고, 지엽적인 것을 피함) 입니다. 모든 팁은 특정 상황에서 매우 중요하거나, 여러 대안들 사이에서의 시간을 확연하게 절약합니다.
+- 이 가이드는 초보자와 경험자 모두를 위한 것입니다. 목표는 범위(전부 다 중요합니다!), 구체성(대부분의 일반적인 케이스에 대한 구체적인 예제), 그리고 간결함(쉽게 마주치지 않는, 중요하지 않고, 지엽적인 것을 피함) 입니다. 모든 팁은 특정 상황에서 매우 중요하거나, 여러 대안들 사이에서의 시간을 확연하게 절약합니다.
 - 이 문서는 리눅스를 위한것입니다. "[MacOS only](#macos-only)"세션을 제외하고 말이죠. 일부는 MacOS에서 똑같이 적용되지 않습니다(Cygwin에서 조차 말이죠).
 - 인터랙티브 Bash에 초점이 맞추어져있습니다만, 대부분의 팁은 다른 쉘이나, general Bash 스크립트에서도 동작합니다.
 - 이 문서는 "스탠다드" 유닉스 커맨드와 특정 패키지 설치를 필요로 하는 것 둘 다 포함하고 있습니다. 여기서 다루는 스탠다드 커맨드와 특정 패키지에 대한 것은 포함될만큼 충분히 중요합니다.
@@ -50,7 +50,7 @@
 
 - `man`을 이용해서 문서를 읽는 법을 배우세요(호기심 많은 사람을 위해서 하는 얘기입니다만, `man man`은 섹션 번호들의 목록을 표시합니다. 예를 들어 1은 "regular" 커맨드, 5는 files/conventions, 그리고 8은 administration이죠). `apropos`를 히용해서 man 페이지를 찾으세요. 몇몇 커맨드는 실행가능한 커맨드가 아니라는 것을 알아두세요. 하지만 Bash 빌트인 함수들은 `help`와 `help -d`를 이용해서 도움말을 볼 수 있습니다.
 
-- `>`와 `<`, `|`를 이용한 파이프를 사용해서 입력과 출력의 리다이렉션을 배우세요. `>`는 출력 파일을 덮어 씌우고, `>>`는 덧붙이는걸 알아두세요. stdout(역주: 표준 출력)과 stderr(역주: 표준 에러 출력)에 대해서 배우세요. 
+- `>`와 `<`, `|`를 이용한 파이프를 사용해서 입력과 출력의 리다이렉션을 배우세요. `>`는 출력 파일을 덮어 씌우고, `>>`는 덧붙이는걸 알아두세요. stdout(역주: 표준 출력)과 stderr(역주: 표준 에러 출력)에 대해서 배우세요.
 
 - `*`(그리고 아마도 `?`과 `{`...`}`)을 이용하는 파일 글롭(glob) 확장을 배우세요. 그리고 쌍따옴표`"`와 홑따옴표`'`의 차이를 배우세요. (변수 확장에 대해서 더 보려면 아래를 참조하세요)
 
@@ -471,6 +471,6 @@
 
 ## License
 
-[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 이 저작물은 [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)에 따라 이용할 수 있습니다.
