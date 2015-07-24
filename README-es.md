@@ -63,7 +63,7 @@ Notas:
 
 - Administración básica de redes: `ip` o `ifconfig`, `dig`.
 
-- Conozca bien las expresiones regulares y varias opciones (flags) para `grep`/`egrep`. Las opciones `-i`, `-o`, `-v`, `-A`, y `-B` son dignas de ser recordadas.
+- Conozca bien las expresiones regulares y varias opciones (flags) para `grep`/`egrep`. Las opciones `-i`, `-o`, `-v`, `-A`, `-B` y `-C` son dignas de ser recordadas.
 
 - Aprenda el uso de `apt-get`, `yum`, `dnf` o `pacman` (dependiendo de la distribución "distro") para buscar e instalar paquetes. Y asegúrate que tienes `pip` para instalar la herramienta de línea de comando basada en Python (un poco más abajo esta explicado como instalar vía `pip`).
 
@@ -99,6 +99,8 @@ Notas:
 - Verifica que procesos están escuchando vía `netstat -lntp` o `ss -plat` (para TCP; agrega `-u` para UDP).
 
 - Consulta también `lsof` para abrir sockets y archivos.
+
+- Consulta `uptime` o `w` para conocer cuánto tiempo el sistema ha estado corriendo.
 
 - Usar `alias` para crear atajos para comandos comúnmente usados. Por ejemplo, `alias ll="las -latr"` crea un nuevo alias `ll`
 
@@ -251,7 +253,7 @@ Notas:
 
 - Conozca como conectarse a un proceso en ejecución con `gdb` y obtener su traza de pilas.
 
-- Usar `/proc`. Este es extraordinariamente útil algunas veces cuando hay problemas de depuración en vivo. Ejemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Usar `/proc`. Este es extraordinariamente útil algunas veces cuando hay problemas de depuración en vivo. Ejemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`  (donde `xxx` es el id o pid del proceso).
 
 - Cuando se depura porque algo salió más en el pasado, `sar` puede ser muy útil. Este muestra la estadística histórica en CPU, memoria, red, etc.
 
@@ -357,6 +359,8 @@ Algunos ejemplos de comandos reunidos:
 
 - `stat`: información del archivo
 
+- `time`: ejecuta y calcula el tiempo de ejecución de un comando
+
 - `tac`: imprime archivos en forma inversa
 
 - `shuf`: selección de líneas de un archivo de forma aleatoria
@@ -407,7 +411,11 @@ Algunos ejemplos de comandos reunidos:
 
 - [`glances`](https://github.com/nicolargo/glances):vistazo de multi-subsistemas, de alto nivel
 
-- `iostat`: estadísticas del CPU y uso del disco
+- `iostat`: estadísticas del uso del disco duro
+
+- `mpstat`: estadísticas del uso del CPU
+
+- `vmstat`: estadísticas del uso de la memoria
 
 - `htop`: versión mejorada de top
 
@@ -431,7 +439,9 @@ Algunos ejemplos de comandos reunidos:
 
 - `lsblk`: lista de bloques de dispositivos: un árbol de vista de sus discos y particiones de disco
 
-- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: información de hardware, incluyendo CPU, BIOS, RAID, gráficos, dispositivos, etc.
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: información de hardware, incluyendo CPU, BIOS, RAID, gráficos, dispositivos, etc
+ 
+- `lsmod` y `modifno`: lista y muestra detalles de los módulos del kernel
 
 - `fortune`, `ddate`, y `sl`: um, bien, este depende si tiene la consideración de locomotoras de vapor y citas Zippy "práctico"
 
