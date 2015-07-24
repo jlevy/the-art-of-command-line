@@ -63,7 +63,7 @@ Opombe:
 
 - Osnovno upravljanje omrežja: `ip` or `ifconfig`, `dig`.
 
-- Poznajte tudi splošne izraze in različne zastavice za `grep`/`egrep`. Opcije `-i`, `-o`, `-v`, `-A` in `-B` so vredne poznavanja.
+- Poznajte tudi splošne izraze in različne zastavice za `grep`/`egrep`. Opcije `-i`, `-o`, `-v`, `-A`, `-B` in `-C` so vredne poznavanja.
 
 - Naučite se uporabljati `apt-get`, `yum`, `dnf` ali `pacman` (odvisno od distribucije), da najdete in namestite pakete. In zagotovite, da imate `pip`, da lahko nameščate orodja ukazne vrstice na osnovi Python-a (nekaj spodnjih je najenostavneje namestiti preko `pip`).
 
@@ -99,6 +99,8 @@ Opombe:
 - Preverite, kateri procesi se poslušajo preko `netstat -lntp` ali `ss -plat` (za TCP; dodajte `-u` za UDP).
 
 - Glejte tudi `lsof` za odprte priključke in datoteke.
+
+- Glejte `uptime` ali `w`, da izveste, koliko časa se sistem poganja.
 
 - Uporabite `alias`, da ustvarite bližnjice za pogosto uporabljene ukaze. Na primer, `alias ll='ls -latr'` ustvari nov alias `ll`.
 
@@ -251,7 +253,7 @@ Opombe:
 
 - Vedite, kako se povezati k procesu v pogonu z `gdb` in dobiti njegove sledi skladovnice.
 
-- Uporabite `/proc`. Včasih je izjemno v pomoč, ko se razhroščuje probleme v živo. Primeri: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- Uporabite `/proc`. Včasih je izjemno v pomoč, ko se razhroščuje probleme v živo. Primeri: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, ``/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (kjer je `xxx` id procesa ali pid).
 
 - Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, je lahko zelo uporaben `sar`. Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
 
@@ -357,6 +359,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `stat`: informacije datoteke
 
+- `time`: izvrši in da ukaz v čas
+
 - `tac`: izpiše datoteke v obratnem redu
 
 - `shuf`: naključna izbira vrstic iz datoteke
@@ -407,7 +411,11 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - [`glances`](https://github.com/nicolargo/glances): visoko nivojski, večkratni podsistemski pregled
 
-- `iostat`: statistika procesorja in diska
+- `iostat`: statistika uporabe diska
+
+- `mpstat`: statistika uporabe procesorja
+
+- `vmstat`: statistika uporabe spomina
 
 - `htop`: izboljšana verzija top
 
@@ -432,6 +440,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
 - `lsblk`: izpiše blokovne naprave: drevesni pogled vaših diskov in particij diska
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: informacije strojne opreme, vključno s procesorjem, BIOS-om, RAID-om, grafiko, napravami itd.
+
+- `lsmod` in `modinfo`: izpišeta in prikažeta podrobnosti o modulih jedra.
 
 - `fortune`, `ddate` in `sl`: hm, torej zavisi glede na to ali smatrate parne lokomotive in dinamične kotacije "uporabne"
 
