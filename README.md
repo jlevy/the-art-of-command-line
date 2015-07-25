@@ -250,6 +250,22 @@ Notes:
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
+- To see text output nicely aligned, use `column`:
+```sh
+ $ cat names.txt 
+ First Last Nickname
+ Kimberly Jones Kimmie
+ Robert Smith Bob
+ Christina Alvarez Tina
+ Manuel Santana Manny
+
+  $ column -t names.txt 
+  First      Last     Nickname
+  Kimberly   Jones    Kimmie
+  Robert     Smith    Bob
+  Christina  Alvarez  Tina
+  Manuel     Santana  Manny
+```
 
 ## System debugging
 
