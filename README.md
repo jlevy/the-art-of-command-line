@@ -239,7 +239,7 @@ Notes:
 
 - Use `mtr` as a better traceroute, to identify network issues.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh * | sort -h`.
 
 - To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
 
@@ -467,6 +467,7 @@ These are items relevant *only* on MacOS.
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html) : How to do it Correctly.
 
 
 ## Disclaimer
