@@ -465,6 +465,7 @@ These are items relevant *only* on MacOS.
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+- [shellcheck](https://github.com/koalaman/shellcheck) - A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
 
 
 ## Disclaimer
