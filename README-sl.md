@@ -433,6 +433,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `dmesg`: sporočila napak zagona in sistema
 
+- `sysctl`: ogled in nastavitev parametrov jedra Linux pri pogonu
+
 - `hdparm`: manipulacija/uspešnost SATA/ATA disk-a
 
 - `lsb_release`: informacije distribucije Linux
