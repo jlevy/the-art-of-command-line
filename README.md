@@ -433,6 +433,8 @@ A few examples of piecing together commands:
 
 - `dmesg`: boot and system error messages
 
+- `sysctl`: view and configure Linux kernel parameters at run time
+
 - `hdparm`: SATA/ATA disk manipulation/performance
 
 - `lsb_release`: Linux distribution info
