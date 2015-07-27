@@ -433,6 +433,8 @@ Algunos ejemplos de comandos reunidos:
 
 - `dmesg`: mensajes de error del arranque y del sistema 
 
+- `sysctl`: examina y configura los parámetros de kernel de Linux en tiempo de ejecución
+
 - `hdparm`: manipulación/rendimiento de discos SATA/ATA
 
 - `lsb_release`: información de la distribución de Linux
