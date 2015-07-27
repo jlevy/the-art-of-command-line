@@ -12,7 +12,7 @@
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
-- [MacOS only](#macos-only)
+- [MacOS X only](#macos-x-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
@@ -32,7 +32,7 @@
 범위:
 
 - 이 가이드는 초보자와 경험자 모두를 위한 것입니다. 목표는 범위(전부 다 중요합니다!), 구체성(대부분의 일반적인 케이스에 대한 구체적인 예제), 그리고 간결함(쉽게 마주치지 않는, 중요하지 않고, 지엽적인 것을 피함) 입니다. 모든 팁은 특정 상황에서 매우 중요하거나, 여러 대안들 사이에서의 시간을 확연하게 절약합니다.
-- 이 문서는 리눅스를 위한것입니다. "[MacOS only](#macos-only)"세션을 제외하고 말이죠. 일부는 MacOS에서 똑같이 적용되지 않습니다(Cygwin에서 조차 말이죠).
+- 이 문서는 리눅스를 위한것입니다. "[MacOS X only](#macos-x-only)"세션을 제외하고 말이죠. 일부는 MacOS에서 똑같이 적용되지 않습니다(Cygwin에서 조차 말이죠).
 - 인터랙티브 Bash에 초점이 맞추어져있습니다만, 대부분의 팁은 다른 쉘이나, general Bash 스크립트에서도 동작합니다.
 - 이 문서는 "스탠다드" 유닉스 커맨드와 특정 패키지 설치를 필요로 하는 것 둘 다 포함하고 있습니다. 여기서 다루는 스탠다드 커맨드와 특정 패키지에 대한 것은 포함될만큼 충분히 중요합니다.
 
@@ -62,7 +62,7 @@
 
 - 기본 네트워크 관리: `ip` 또는 `ifconfig`, `dig`.
 
-- 정규표현식(regular expression)을 잘 알아두세요. 그리고 `grep`/`egrep`의 다양한 플래그도 알아두세요. `-i`, `-o`, `-A`와 `-B` 옵션은 알아둘 가치가 있습니다.
+- 정규표현식(regular expression)을 잘 알아두세요. 그리고 `grep`/`egrep`의 다양한 플래그도 알아두세요. `-i`, `-o`, `-v`,`-A`, `-B`와 `-C` 옵션은 알아둘 가치가 있습니다.
 
 - `apt-get`, `yum`, `dnf` 또는 `pacman`을 이용하여 패키지를 찾고 설치하는 법을 배우세요. 그리고 `pip`가 설치되어있는지 확인해서, 파이선 기반의 커맨드 라인 도구를 설치할 수 있도록 하세요(밑에 설명된 것중 몇가지는 `pip`를 이용해 설치하는게 제일 쉽습니다.
 
@@ -100,6 +100,8 @@
 - `lsof`를 이용해서 열려있는 소켓과 파일을 볼 수 있습니다.
 
 - Bash 스크립트에서 `set -x`를 사용하면 디버깅용 출력을 사용하게 됩니다. 스트릭트 모드(strict mode)가 가능할때면 사용하세요. `set -e`를 사용하면 에러가 났을때 중단시키게됩니다. `set -o pipefail`을 사용하면 에러에 대해서 강경한 기준을 적용합니다(이 주제가 조금 미묘하지만 말이죠). 더 복잡한 스크립트의 경우 `trap`또한 사용합니다.
+
+- `uptime`이나 `w`를 이용해서 시스템이 얼마나 오래 실행중인지 알 수 있습니다.
 
 - 자주 사용되는 커맨드에 대해서 `alias`를 이용해서 숏컷을 만드세요. 예를들어, `alias ll='las -latr'`은 새 단축명령 `ll`을 만듭니다.
 
@@ -168,7 +170,7 @@
 
 - XML을 반드시 다뤄야한다면, `xmlstarlet`을 사용하세요. 오래되었지만 좋습니다.
 
-- JSON에는 `jq`를 사용하세요.
+- JSON에는 [`jq`](http://stedolan.github.io/jq/)를 사용하세요.
 
 - Excel이나 CSV파일에는 [csvkit](https://github.com/onyxfish/csvkit)가 `in2csv`, `csvcut`, `csvjoin`, `csvgrep`외 다른 도구들을 제공합니다..
 
@@ -233,7 +235,7 @@
 
 - 메모리의 상태를 알아보려면 `free` 와 `vmstat`를 실행하고 그 결과를 해석해보세요. 특히, "cached" 값은 Linux kernel에 의해 file cache로 잡혀있는 메모리 라는 것을 알고 있어야 하고 그래서 "free"값에 대해서 보다 효율적으로 계산할 수 있습니다.
 
-- Java 시스템의 디버깅은 조금 다른상황입니다. 하지만 Oracle과 그 외의 회사에서 만든 다른 JVM들에서는 `kill -3 <pid>`를 실행하면 전체 stack trace정보와 heap의 정보(시기별로 가비지 콜렉터의 세부적인 내용같은 매우 유용한 정보)를 요약하여 stderr나 로그로 출력해주므로 간단하게 정보를 얻어올 수 있습니다.
+- Java 시스템의 디버깅은 조금 다른상황입니다. 하지만 Oracle과 그 외의 회사에서 만든 다른 JVM들에서는 `kill -3 <pid>`를 실행하면 전체 stack trace정보와 heap의 정보(시기별로 가비지 콜렉터의 세부적인 내용같은 매우 유용한 정보)를 요약하여 stderr나 로그로 출력해주므로 간단하게 정보를 얻어올 수 있습니다. JDK의 `jps`, `jstat`, `jstack`, `jmap` 명령은 유용합니다. [SJK tools](https://github.com/aragozin/jvm-tools)은 더 고급 정보를 다룰 수 있습니다.
 
 - 네트워크 이슈들을 알아보기 위해서는 traceroute를 사용할수도 있지만 이보다 더 좋은 `mtr`를 사용하세요.
 
@@ -251,7 +253,7 @@
 
 - `gdb`를 가지고 현재 실행중인 프로세스에 연결하고 그 프로세스의 stack trace들을 얻는 방법을 알아보세요.
 
-- `/proc`를 사용하세요. 이것은 현재 발생하고 있는 문제를 디버깅할때 종종 놀랍도록 큰 도움이 될것입니다. 예시: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
+- `/proc`를 사용하세요. 이것은 현재 발생하고 있는 문제를 디버깅할때 종종 놀랍도록 큰 도움이 될것입니다. 예시:`/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (`xxx`는 프로세스 id나 pid입니다).
 
 - 과거에 왜 무엇인가가 잘못되었는지를 디버깅할때에는 `sar`가 매우 유용할 것입니다. 이 커맨드는 CPU, memory, network 등의 통계 내역을 보여줍니다.
 
@@ -283,12 +285,6 @@
 - 파일 트리에서 크기와 날짜를 보려면 이렇게 하세요. 이 명령어는 `ls -l`을 재귀적으로 수행하는 것과 같지만, `ls -lR`보다 더 읽기 쉽습니다.
 ```sh
       find . -type f -ls
-```
-
-- 할수만 있다면 `xargs`나 `parallel`을 사용하세요. 라인당 몇개의 아이템이 실행되게 할 것인지(`-L`) 그걸 병렬로 할 것인지(`-P`)를 제어할 수 있다는걸 기억하세요.  제대로 하고있는지 확신할 수 없다면 `xargs echo`를 먼저 실행해보세요. 또 `-I{}`도 간편합니다.:
-```sh
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
 - 웹서버 로그같은 텍스트 파일이 있다고 합시다. 그리고 URL 파라메터에 나타나는 `acct_id`같은 특정 값이 몇몇 행에 나타난다고 해보죠. 각각의 `acct_id`에 대해 얼마나 많은 요청이 있었는지 알고 싶다면 다음처럼 할 수 있습니다.
@@ -326,7 +322,7 @@
 
 - `look`: 어떤 문자열로 시작하는 영단어(혹은 파일의 어떤 한 줄)을 찾습니다
 
-- `cut `과 `paste` 그리고 `join`: 데이터를 수정할때 사용합니다
+- `cut `, `paste` 그리고 `join`: 데이터를 수정할때 사용합니다
 
 - `fmt`: 문단의 서식을 지정합니다
 
@@ -346,7 +342,7 @@
 
 - `factor`: 정수들을 인수분해하는데 사용합니다
 
-- `gpg`: 파일들을 암호화하고 서명하는데 사용합니다
+- [`gpg`](https://gnupg.org/): 파일들을 암호화하고 서명하는데 사용합니다
 
 - `toe`: terminfo 엔트리들의 테이블(table of terminfo entries)
 
@@ -354,7 +350,7 @@
 
 - `socat`: 소켓 릴레이나 TCP 포트로 내용을 전달할때 사용합니다(`netcat`과 비슷합니다)
 
-- `slurm`: 네트워크 상황을 시각화하여 보여줍니다
+- [`slurm`](https://github.com/mattthias/slurm): 네트워크 상황을 시각화하여 보여줍니다
 
 - `dd`: 파일들이나 디바이스들 간에 데이터를 옮길때 사용합니다
 
@@ -363,6 +359,8 @@
 - `tree`: 디렉토리들과 그 하위 디렉토리를 마치 ls를 반복적으로 입력한 것처럼 트리의 형태로 보여줍니다
 
 - `stat`: 파일의 정보를 보여줍니다
+
+- `time`: execute and time a command
 
 - `tac`: 파일의 내용을 역순으로 출력합니다
 
@@ -400,7 +398,7 @@
 
 - `cssh`: 쉘을 동시에 여러개 사용할때 사용합니다
 
-- `rsync`: SSH를 통해서 파일과 폴더들을 동기화 할때 사용합니다
+- `rsync`: SSH를 이용해 원격 파일 시스템이나, 로컬 파일시스템의 파일과 폴더들을 동기화 할때 사용합니다
 
 - `wireshark` and `tshark`: 패킷정보를 가져오며 네트워킹을 디버깅하는데 사용합니다
 
@@ -414,7 +412,11 @@
 
 - [`glances`](https://github.com/nicolargo/glances): 보다 고차원의 여러 서브시스템들의 정보를 한번에 보여줍니다
 
-- `iostat`: CPU 나 디스크의 사용량 정보를 보여줍니다
+- `iostat`: 디스크의 사용량 정보를 보여줍니다
+
+- `mpstat`: CPU 사용량 정보를 보여줍니다.
+
+- `vmstat`: 메모리 사용량 정보를 보여줍니다.
 
 - `htop`: 보다 개선된 형태의 top을 보여줍니다
 
@@ -440,10 +442,12 @@
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: CPU, BIOS, RAID, graphics, devices 등의 하드웨어 정보를 보여줍니다
 
+- `lsmod`와 `modifno`: 커널 모듈의 상세정보를 목록으로 보여줍니다.
+
 - `fortune`, `ddate`, 그리고 `sl`: 에... 증기기관차를 생각하고있고 그것을 인용하고 싶다면 이것은 "유용"합니다
 
 
-## MacOS only
+## MacOS X only
 
 *MacOS에서만* 해당되는 항목입니다.
 
