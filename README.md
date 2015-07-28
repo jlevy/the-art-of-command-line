@@ -456,6 +456,8 @@ These are items relevant *only* on MacOS.
 
 - Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
 
+- To use enable use of the Option key in Mac OS Terminal as an alt key (such as used in the commands above like **alt-b**, **alt-f**, etc.), open Preferences -> Profiles -> Keyboard and select "Use Option as Meta key".
+
 - To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
 
 - Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
