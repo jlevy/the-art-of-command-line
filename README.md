@@ -331,7 +331,7 @@ A few examples of piecing together commands:
 
 - `fold`: wrap lines of text
 
-- `column`: format text into fixed-width columns or tables
+- `column`: format text fields into aligned, fixed-width columns or tables
 
 - `expand` and `unexpand`: convert between tabs and spaces
 
