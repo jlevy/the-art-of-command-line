@@ -293,6 +293,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
+- Da neprekinjeno nadzirate spremembe, uporabite `watch`, npr. preverite spremembe datotek v direktoriju z `watch -d -n 2 'ls -rtlh | tail'` ali med odpravljanjem težav vaših nastavitev wifi z `watch -d -n 2 ifconfig`.
+
 - Poženite to funkcijo, da dobite naključni nasvet iz tega dokumenta (razčleni Markdown in izvleče element):
 ```sh
       function taocl() {
@@ -329,7 +331,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `fold`: ovije vrstice teksta
 
-- `column`: oblikuje tekst v stolpce ali tabele
+- `column`: oblikuje tekstovna polja v poravnane stolpce s fiksno širino ali tabele
 
 - `expand` in `unexpand`: pretvori med tabulatorji in presledki
 
@@ -360,6 +362,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
 - `stat`: informacije datoteke
 
 - `time`: izvrši in da ukaz v čas
+
+- `watch`: večkrat požene ukaz in prikazuje rezultate in/ali poudari spremembe
 
 - `tac`: izpiše datoteke v obratnem redu
 
@@ -456,6 +460,8 @@ To so elementi pomembni *samo* za MacOS.
 
 - Kopirajte izpis katerega koli ukaza na namizno aplikacijo s `pbcopy` in prilepite vnos iz ene s `pbpaste`.
 
+- Da omogočite uporabo topke Option v Mac OS Terminalu kot tipka alt (kot je uporabljena v ukazih zgoraj kot **alt-b**, **alt-f** itd), odprite Preferences -> Profiles -> Keyboard in izberite "Use Option as Meta key".
+
 - Da odprete datoteko z namizno aplikacijo, uporabite `open` ali `open -a /Applications/Whatever.app`.
 
 - Spotlight: Poiščite datoteke z `mdfind` in izpišite meta podatke (kot so EXIF informacije fotografije) z `mdls`.
@@ -467,7 +473,7 @@ To so elementi pomembni *samo* za MacOS.
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): urejan seznam orodij lupine in virov.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
-
+- [shellcheck](https://github.com/koalaman/shellcheck) - lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
 
 ## Pogoji uporabe
 
