@@ -229,7 +229,9 @@ Notes:
 
 - For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
 
-- To know current disk/cpu/network status, the classic tools are `iostat`, `netstat`, and `top` (or the better `htop`). Use `iostat -mxz 15` for basic CPU and detailed per-partition disk stats and performance insight.
+- To know current cpu/disk status, the classic tools are `top` (or the better `htop`), `iostat`, and `iotop`. Use `iostat -mxz 15` for basic CPU and detailed per-partition disk stats and performance insight.
+
+- For network connection details, use `netstat` and `ss`.
 
 - For a quick overview of what's happening on a system, `dstat` is especially useful. For broadest overview with details, use [`glances`](https://github.com/nicolargo/glances).
 
