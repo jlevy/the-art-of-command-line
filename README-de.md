@@ -19,13 +19,13 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Fluency on the command line is a skill often neglected or considered arcane, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways. This is a selection of notes and tips on using the command-line that I've found useful when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot.
+Der flüssige Umgang mit der Kommandozeile ist eine oft vernachlässigte oder als undurchsichtig empfundene Fähigkeit, steigert jedoch Flexibilität und Produktivität eines Informatikers auf offensichtliche als auch subtile Weise. Was folgt, ist eine Auswahl an Notizen und Tipps im Umgang mit der Kommandozeile, welche ich beim Arbeiten mit Linux zu schätzen gelernt habe. Manche dieser Hinweise beinhalten Grundwissen, andere sind sehr spezifisch, fortgeschritten oder auch eigenartig. Die Seite ist nicht lang, aber wenn du alle Punkte verstanden hast und anwenden kannst, weißt du eine ganze Menge.
 
-Much of this
-[originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
-[appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
-on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-but given the interest there, it seems it's worth using Github, where people more talented than I can readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
+Vieles davon
+[erschien](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
+[ursprünglich](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
+auf [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
+aber angesichts des Interesses scheint es vielversprechend, Github zu nutzen, wo talentiertere Menschen als ich es bin kontinuierlich Verbesserungen vorschlagen können. Wenn du einen Fehler entdeckst oder etwas, das man besser machen könnte, erstelle ein Issue oder einen PR! (Lies aber bitte zuerst die Kurzbeschreibung und überprüfe bereits vorhandene Issues/PRs.)
 
 
 ## Meta
