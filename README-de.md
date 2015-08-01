@@ -43,29 +43,29 @@ Hinweise:
 - Nutze [Explainshell](http://explainshell.com/), um einen hilfreichen Einblick zu erhalten, was es mit Befehlen, Optionen, Pipes etc. auf sich hat.
 
 
-## Basics
+## Grundlagen
 
-- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
+- Lerne einfache Bash. Tatsächlich, gib `man bash` ein und überfliege das Ganze zumindest; es ist leicht zu verstehen und nicht allzu lang. Alternative Shells sind nett, aber Bash ist mächtig und immer verfügbar (*nur* zsh, fish, etc. zu lernen ist auf dem eigenen Laptop vielleicht reizvoll, beschränkt jedoch deine Möglichkeiten in vielerlei Hinsicht, etwa beim Arbeiten mit bestehenden Servern).
 
-- Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
+- Lerne mindestens einen Text-basierten Editor zu benutzen. Idealerweise Vim (`vi`), da es letztlich keinen vergleichbaren Mitbewerber für gelegentliche Einsätze in einem Terminal gibt (selbst dann, wenn man eine große Entwicklungsumgebung wie Emacs oder die meiste Zeit einen modernen Hipster-Editor benutzt).
 
-- Know how to read documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`. Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`.
+- Wisse, wie man Dokumentationen mit `man` liest (für Neugierige, `man man` listet Abschnittsnummern, bspw. stehen unter 1 "reguläre" Befehle, 5 beinhaltet Dateien/Konventionen und unter 8 solche zur Rechnerverwaltung). Finde man-Seiten mit `apropos`. Wisse, dass manche Befehle keine ausführbaren Dateien, sondern Bash-Builtins sind, und dass du Hilfe zu diesen mit `help` und `help -d` erhälst.
 
-- Learn about redirection of output and input using `>` and `<` and pipes using `|`. Know `>` overwrites the output file and `>>` appends. Learn about stdout and stderr.
+- Lerne etwas über die Umleitung von Ein- und Ausgaben per `>` und `<` sowie `|` für Pipes. Wisse, dass `>` die Ausgabedatei überschreibt und `>>` etwas anhängt. Lerne etwas über stdout und stderr.
 
-- Learn about file glob expansion with `*` (and perhaps `?` and `{`...`}`) and quoting and the difference between double `"` and single `'` quotes. (See more on variable expansion below.)
+- Lerne etwas über die Dateinamenerweiterung mittels `*` (und möglicherweise `?` und `{`...`}`) sowie Anführungszeichen, etwa den Unterschied zwischen doppelten `"` und einfachen `'`. (Mehr zur Variablenerweiterung findest du unten.)
 
-- Be familiar with Bash job management: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+- Sei vertraut mit Bash-Jobmanagement: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
-- Know `ssh`, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
+- Kenne `ssh` und die Grundlagen passwortloser Authentifizierung mittels `ssh-agent`, `ssh-add`, etc.
 
-- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -hs *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Grundlegende Dateiverwaltung: `ls` and `ls -l` (und spezieller, lerne die Funktion jeder einzelnen Spalte von `ls -l` kennen), `less`, `head`, `tail` und `tail -f` (oder noch besser, `less +F`), `ln` und `ln -s` (lerne die Unterschiede und Vorteile von Hard- und Softlinks), `chown`, `chmod`, `du` (für eine Kurzzusammenfassung der Festplattenbelegung: `du -hs *`). Für Dateisystemmanagement, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
-- Basic network management: `ip` or `ifconfig`, `dig`.
+- Grundlagen der Netzwerkverwaltung: `ip` oder `ifconfig`, `dig`.
 
-- Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-v`, `-A`, `-B`, and `-C` options are worth knowing.
+- Kenne reguläre Ausdrücke gut, und die verschiedenen Statusindikatoren zu `grep`/`egrep`. Die Optionen `-i`, `-o`, `-v`, `-A`, `-B`, und `-C` sind gut zu wissen.
 
-- Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
+- Lerne den Umgang mit `apt-get`, `yum`, `dnf` oder `pacman` (je nach Distribution), um Pakete zu finden bzw. zu installieren. Und stell sicher, dass du `pip` hast, um Python-basierte Kommandozeilen-Tools nutzen zu können (einige der untenstehenden werden am einfachsten über `pip` installiert).
 
 
 ## Everyday use
