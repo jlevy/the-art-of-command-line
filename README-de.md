@@ -39,8 +39,8 @@ Umfang:
 
 Hinweise:
 
-- Um eine Seite nicht zu sprengen, ist ihr Inhalt durchgängig anhand von Verweisen aufgelistet. Du bist schlau genug, anderswo zusätzliche Informationen nachzuschlagen, sobald du die Idee bzw. den Befehl dahinter kennst. Benutze `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (je nachdem), um neue Programme zu installieren.
-- Nutze [Explainshell](http://explainshell.com/), um einen hilfreichen Einblick zu erhalten, was es mit Befehlen, Optionen, Pipes etc. auf sich hat.
+- Um eine Seite nicht zu sprengen, ist ihr Inhalt durchgängig anhand von Verweisen aufgelistet. Du bist schlau genug, anderswo zusätzliche Informationen nachzuschlagen, sobald du die Idee bzw. den Befehl dahinter kennst. Verwende `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (je nachdem), um neue Programme zu installieren.
+- Verwende [Explainshell](http://explainshell.com/), um einen hilfreichen Einblick zu erhalten, was es mit Befehlen, Optionen, Pipes etc. auf sich hat.
 
 
 ## Grundlagen
@@ -53,9 +53,9 @@ Hinweise:
 
 - Lerne etwas über die Umleitung von Ein- und Ausgaben per `>` und `<` sowie `|` für Pipes. Wisse, dass `>` die Ausgabedatei überschreibt und `>>` etwas anhängt. Lerne etwas über stdout und stderr.
 
-- Lerne etwas über die Dateinamenerweiterung mittels `*` (und möglicherweise `?` und `{`...`}`) sowie Anführungszeichen, etwa den Unterschied zwischen doppelten `"` und einfachen `'`. (Mehr zur Variablenerweiterung findest du unten.)
+- Lerne etwas über die Dateinamenerweiterung mittels `*` (und eventuell `?` und `{`...`}`) sowie Anführungszeichen, etwa den Unterschied zwischen doppelten `"` und einfachen `'`. (Mehr zur Variablenerweiterung findest du unten.)
 
-- Sei vertraut mit Bash-Jobmanagement: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+- Mach dich vertraut mit Bash-Jobmanagement: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
 - Kenne `ssh` und die Grundlagen passwortloser Authentifizierung mittels `ssh-agent`, `ssh-add`, etc.
 
@@ -68,49 +68,49 @@ Hinweise:
 - Lerne den Umgang mit `apt-get`, `yum`, `dnf` oder `pacman` (je nach Distribution), um Pakete zu finden bzw. zu installieren. Und stell sicher, dass du `pip` hast, um Python-basierte Kommandozeilen-Tools nutzen zu können (einige der untenstehenden werden am einfachsten über `pip` installiert).
 
 
-## Everyday use
+## Täglicher Gebrauch
 
-- In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
+- In Bash kannst du mit **Tab** Parameter vervollständigen und mit **ctrl-r** bereits benutzte Befehle durchsuchen.
 
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-a** to move cursor to beginning of line,  **ctrl-e** to move cursor to end of line, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+- In Bash kannst du mit **ctrl-w** das letzte Wort löschen und mit **ctrl-u** alles bis zum Anfang einer Zeile. Verwende **alt-b** und **alt-f**, um dich Wort für Wort fortzubewegen, springe mit **ctrl-a** zum Beginn einer Zeile,  mit **ctrl-e** zum Ende einer Zeile, lösche mit **ctrl-k** alles bis zum Ende einer Zeile und bereinige mit **ctrl-l** den Bildschirm. Siehe `man readline` für alle voreingestellten Tastenbelegungen in Bash. Davon gibt's viele. Zum Beispiel **alt-.** wechselt durch vorherige Parameter und **alt-*** erweitert ein Suchmuster.
 
-- Alternatively, if you love vi-style key-bindings, use `set -o vi`.
+- Alternativ, falls du vi-artige Tastenbelegungen magst, verwende `set -o vi`.
 
-- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
+- Um kürzich genutzte Befehle zu sehen, `history`. Es gibt außerdem viele Abkürzungen wie etwa `!$` (letzter Parameter) und `!!` (letzter Befehl), wenngleich diese oft einfach ersetzt werden durch **ctrl-r** und **alt-.**.
 
-- To go back to the previous working directory: `cd -`
+- Um ins vorangegangene Arbeitsverzeichnis zu gelangen: `cd -`
 
 - If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
 
-- Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
+- Verwende `xargs` (oder `parallel`). Es ist sehr mächtig. Beachte, wie du viele Dinge pro Zeile (`-L`) als auch parallel (`-P`) ausführen kannst. Wenn du dir nicht sicher bist, ob das Richtige dabei herauskommt, verwende zunächst `xargs echo`. Außerdem ist`-I{}` nützlich. Beispiele:
 ```bash
-      find . -name '*.py' | xargs grep some_function
+      find . -name '*.py' | xargs grep irgendeine_funktion
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- `pstree -p` is a helpful display of the process tree.
+- `pstree -p` liefert eine hilfreiche Anzeige des Prozessbaums.
 
-- Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
+- Verwende `pgrep` und `pkill`, um Prozesse anhand eines Namens zu finden oder festzustellen (`-f` ist hilfreich).
 
-- Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
+- Kenne die verschiedenen Signale, die du Prozessen senden kannst. Um einen Prozess etwa zu unterbrechen, verwende `kill -STOP [pid]`. Für die vollständige Liste, siehe `man 7 signal`
 
-- Use `nohup` or `disown` if you want a background process to keep running forever.
+- Verwende `nohup` oder `disown`, wenn du einen Hintergrundprozess für immer laufen lassen willst.
 
-- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
+- Überprüfe mithörende Prozesse mit `netstat -lntp` oder `ss -plat` (für TCP; füge `-u` für UDP hinzu).
 
-- See also `lsof` for open sockets and files.
+- Siehe zudem `lsof` für offene Sockets und Dateien.
 
-- See `uptime` or `w` to know the how long the system has been running.
+- Siehe `uptime` oder `w`, um die laufende Betriebszeit des Systems zu erfahren,
 
-- Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
+- Verwende `alias`, um Verknüpfungen für gebräuchliche Befehle zu erstellen. So erstellt etwa `alias ll='ls -latr'` den neuen Alias `ll`.
 
-- In Bash scripts, use `set -x` for debugging output. Use strict modes whenever possible. Use `set -e` to abort on errors. Use `set -o pipefail` as well, to be strict about errors (though this topic is a bit subtle). For more involved scripts, also use `trap`.
+- Verwende in Bash-Skripts `set -x` zur Fehlerbehebung. Benutze strict modes wann immer möglich. Verwende `set -e` zum Abbruch bei Fehlern. Benutze `set -o pipefail` ebenfalls, um mit Fehlern präzise zu arbeiten (auch wenn dieses Thema etwas heikel ist). Verwende für etwas komplexere Skripte weiterhin `trap`.
 
-- In Bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
+- In Bash-Skripts stellen Subshells (geschrieben in runden Klammern) einen praktischen Weg dar, Befehle zusammenzufassen. Ein gebräuchliches Beispiel ist die vorübergehende Arbeit in einem anderen Arbeitsverzeichnis:
 ```bash
-      # do something in current dir
-      (cd /some/other/dir && other-command)
-      # continue in original dir
+      # erledige etwas im aktuellen Verzeichnis
+      (cd /irgendein/anderes/verzeichnis && anderer-befehl)
+      # fahre fort im aktuellen Verzeichnis
 ```
 
 - In Bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a Bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
