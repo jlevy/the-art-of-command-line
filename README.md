@@ -70,7 +70,7 @@ Notes:
 
 ## Everyday use
 
-- In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history.
+- In Bash, use **Tab** to complete arguments and **ctrl-r** to search through command history. When searching through history, keep pressing **ctrl-r** to cycle through the search results. Hit **Enter** to execute the found command, or hit the right arrow to put the result in the current line to allow editing.
 
 - In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-a** to move cursor to beginning of line,  **ctrl-e** to move cursor to end of line, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
 
@@ -78,7 +78,9 @@ Notes:
 
 - To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
 
-- To go back to the previous working directory: `cd -`
+- To go back to the previous working directory: `cd -`. Simply typing `cd` without any arguments will take you to your home directory.
+
+- To go to the start of the line, use **ctrl-a**. To go to the end of the line, use **ctrl-e**.
 
 - If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
 
