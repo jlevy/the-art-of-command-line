@@ -70,7 +70,7 @@ Opombe:
 
 ## Vsakodnevna uporaba
 
-- V Bash-u uporabite **Tab** za dokončanje argumentov in **ctrl-r**, da iščete skozi zgodovino ukazov.
+- V Bash-u uporabite **Tab** za dokončanje argumentov in **ctrl-r**, da iščete skozi zgodovino ukazov (po pritiski, vtipkajte za iskanje, pritisnite **ctrl-r** s ponavljanjem za kroženje skozi več ujemanj, pritisnite **Enter**, da izvršite najdeni ukaz, ali pritisnite desno puščico, da date trenutni rezultat v trenutno vrstico in omogočite urejanje).
 
 - V Bash-u uporabite **ctrl-w**, da izbrišete zadnjo besedo in **ctrl-u**, da izbrišete vse do začetka vrstice. Uporabite **alt-b** in **alt-f**, da se premikate po besedah, **ctrl-a**, da premaknete kurzor na začetek vrstice, **ctrl-e**, da premaknete kurzor na konec vrstice, **ctrl-k**, da ubijete do začetka vrstice, **ctrl-l**, da počistite zaslon. Glejte `man readline` za vse privzete vezave tipk v Bash-u. Na voljo jih je veliko. Na primer **alt-.** kroži skozi prejšnje argumente in **alt-*** razširi glob.
 
@@ -229,9 +229,11 @@ Opombe:
 
 - Za spletno razhroščevanje, sta priročna `curl` in `curl -I` ali pa njun ekvivalent `wget`, ali bolj moderen [`httpie`](https://github.com/jakubroztocil/httpie).
 
-- Da izveste status diska/procesorja/omrežja, uporabite `iostat`, `netstat`, `top` (ali bolje `htop`) in (posebno) `dstat`. Dobro za dobiti hitro idejo, kaj se dogaja na sistemu.
+- Da izveste trenutni status diska/procesorja/omrežja, so na voljo klasična orodja `top`, (ali bolje `htop`), `iostat` in `iotop` . Uporabite `iostat -mxz 15` za osnovno statistiko CPU in podrobno na particijo statistiko diska in vpogled v uspešnost.
 
-- Za hiter podrobnejši pregled sistema uporabite [`glances`](https://github.com/nicolargo/glances). Predstavi vam nekaj statistik nivoja sistema v enem oknu terminala. Zelo uporabno za hitro preverjanje na različnih podsistemih.
+- Za podrobnosti omrežne povezave uporabite `netstat` in `ss`.
+
+- Za hiter pregled, kaj se dogaja na sistemu, je `dstat` posebno uporaben. Za širši pregled s podrobnostmi uporabite [`glances`](https://github.com/nicolargo/glances).
 
 - Da izveste status spomina, poženite in razumite izpis `free` in `vmstat`. Še posebej bodite pozorni, da je vrednost "cached" držana v spominu s strani jedra Linux-a kot datoteka predpomnilnika, tako da efektivno šteje proti vrednosti "free".
 
