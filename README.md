@@ -449,7 +449,7 @@ A few examples of piecing together commands:
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
-- `lsmod` and `modifno`: List and show details of kernel modules.
+- `lsmod` and `modinfo`: List and show details of kernel modules.
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
