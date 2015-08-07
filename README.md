@@ -224,6 +224,11 @@ Notes:
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
+- To convert files between different systems, which encode newlines differently, you have `dos2unix` and `unix2dos`. If these commands are not present, you may use the following `awk` scripts.
+```sh
+      awk '{ sub("\r$", ""); print }' winfile.txt > unixfile.txt
+      awk 'sub("$", "\r")' unixfile.txt > winfile.txt
+```
 
 ## System debugging
 
