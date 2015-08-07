@@ -11,7 +11,7 @@
 - [系统调试](#系统调试)
 - [一行代码](#一行代码)
 - [冷门但有用](#冷门但有用)
-- [仅限 Mac 系统](#仅限-mac-系统)
+- [仅限 MacOS X 系统](#仅限-macos-x-系统)
 - [更多资源](#更多资源)
 - [免责声明](#免责声明)
 - [授权条款](#授权条款)
@@ -32,7 +32,7 @@
 涵盖范围：
 
 - 这篇文章对刚接触命令行的新手以及具有命令行使用经验的人都有用处。本文致力于做到覆盖面广（尽量包括一切重要的内容），具体（给出最常见的具体的例子）以及简洁（避免一些不必要的东西以及一些偏题的可以在其他地方翻阅到文献的东西）。 每个小技巧在某个特定情境下都是基本的或能够显著地节约时间。
-- 本文为 Linux 所写，除了[仅限 Mac 系统](#仅限-mac-系统)节。其它节中的大部分内容都适用于其它 Unix 系统或 Mac 系统，甚至 Cygwin。
+- 本文为 Linux 所写，除了[仅限 MacOS X 系统](#仅限-macos-x-系统)节。其它节中的大部分内容都适用于其它 Unix 系统或 MacOS 系统，甚至 Cygwin。
 - 本文关注于交互式 Bash，尽管很多技巧适用于其他 shell 或 Bash 脚本。
 - 本文包括了“标准的”Unix 命令和需要安装特定包的命令，只要它们足够重要。
 
@@ -62,7 +62,7 @@
 
 - 学习基本的网络管理：`ip` 或 `ifconfig`，`dig`。
 
-- 熟悉正则表达式，以及 `grep`／`egrep` 里不同参数的作用，例如 `-i`，`-o`，`-A`，和 `-B`。
+- 熟悉正则表达式，以及 `grep`／`egrep` 里不同参数的作用，例如 `-i`，`-o`，`-v`，`-A`，`-B` 和 `-C`。
 
 - 学会使用 `apt-get`，`yum`，`dnf` 或 `pacman` （取决于你使用的 Linux 发行版）来查找或安装包。确保你的环境中有 `pip` 来安装基于 Python 的命令行工具 （部分程序使用 `pip` 来安装会很简单）。
 
@@ -98,6 +98,8 @@
 - 使用 `netstat -lntp` 或 `ss -plat` 检查哪些进程在监听端口（默认是检查 TCP 端口; 使用参数 `-u` 检查 UDP 端口）。
 
 - 有关打开套接字和文件，请参阅 `lsof`。
+
+- 使用 `uptime` 或 `w` 来查看系统已经运行多长时间。
 
 - 使用`alias`来创建常用命令的快捷形式。例如：`alias ll='ls -latr'`使你可以方便地执行`ls -latr`命令。
 
@@ -249,7 +251,7 @@
 
 - 了解如何运用 `gdb` 连接到一个运行着的进程并获取它的堆栈轨迹。
 
-- 学会使用 `/proc`。它在调试正在出现的问题的时候有时会效果惊人。比如：`/proc/cpuinfo`，`/proc/xxx/cwd`，`/proc/xxx/exe`，`/proc/xxx/fd/`，`/proc/xxx/smaps`。
+- 学会使用 `/proc`。它在调试正在出现的问题的时候有时会效果惊人。比如：`/proc/cpuinfo`，`/proc/meminfo`，`/proc/cmdline`，`/proc/xxx/cwd`，`/proc/xxx/exe`，`/proc/xxx/fd/`，`/proc/xxx/smaps`（这里的 `xxx` 表示进程的 id 或 pid）。
 
 - 当调试一些之前出现的问题的时候，`sar` 非常有用。它展示了 cpu、内存以及网络等的历史数据。
 
@@ -354,6 +356,8 @@
 
 - `stat`：文件信息
 
+- `time`：执行命令，并计算执行时间
+
 - `tac`：反向输出文件
 
 - `shuf`：文件中随机选取几行
@@ -402,7 +406,11 @@
 
 - [`glances`](https://github.com/nicolargo/glances)：高层次的多子系统总览
 
-- `iostat`：CPU 和硬盘状态
+- `iostat`：硬盘使用状态
+
+- `mpstat`: CPU 使用状态
+
+- `vmstat`: 内存使用状态
 
 - `htop`：top 的加强版
 
@@ -420,6 +428,8 @@
 
 - `dmesg`：引导及系统错误信息
 
+- `sysctl`: 在内核运行时动态地查看和修改内核的运行参数
+
 - `hdparm`：SATA/ATA 磁盘更改及性能分析
 
 - `lsb_release`：Linux 发行版信息
@@ -428,11 +438,13 @@
 
 - `lshw`，`lscpu`，`lspci`，`lsusb` 和 `dmidecode`：查看硬件信息，包括 CPU、BIOS、RAID、显卡、USB设备等
 
+- `lsmod` 和 `modifno`：列出内核模块，并显示其细节
+
 - `fortune`，`ddate` 和 `sl`：额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否“有用”
 
-## 仅限 Mac 系统
+## 仅限 MacOS X 系统
 
-以下是*仅限于* Mac 系统的技巧
+以下是*仅限于* MacOS 系统的技巧
 
 - 用 `brew` （Homebrew）或者 `port` （MacPorts）进行包管理。这些可以用来在 Mac 系统上安装以上的大多数命令。
 
@@ -442,7 +454,7 @@
 
 - Spotlight： 用 `mdfind` 搜索文件，用 `mdls` 列出元数据（例如照片的 EXIF 信息）。
 
-- 注意 Mac 系统是基于 BSD UNIX 的，许多命令（例如 `ps`，`ls`，`tail`，`awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
+- 注意 MacOS 系统是基于 BSD UNIX 的，许多命令（例如 `ps`，`ls`，`tail`，`awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
 
 
 ## 更多资源
