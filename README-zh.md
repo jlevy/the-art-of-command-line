@@ -438,7 +438,7 @@
 
 - `lshw`，`lscpu`，`lspci`，`lsusb` 和 `dmidecode`：查看硬件信息，包括 CPU、BIOS、RAID、显卡、USB设备等
 
-- `lsmod` 和 `modifno`：列出内核模块，并显示其细节
+- `lsmod` 和 `modinfo`：列出内核模块，并显示其细节
 
 - `fortune`，`ddate` 和 `sl`：额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否“有用”
 
