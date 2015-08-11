@@ -74,7 +74,7 @@ Notes:
 
 - In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-a** to move cursor to beginning of line,  **ctrl-e** to move cursor to end of line, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
 
-- Alternatively, if you love vi-style key-bindings, use `set -o vi`.
+- Alternatively, if you love vi-style key-bindings, use `set -o vi`. There are only two line editing interfaces currently available in bash, `vi` mode and `emacs` mode. You can use `set -o emacs` to change back to the default style, or use `set +o vi` to disable `vi` mode and fall into the raw interface in which none style is used.
 
 - To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
 
