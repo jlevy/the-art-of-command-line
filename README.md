@@ -176,6 +176,8 @@ Notes:
 
 - If you must handle XML, `xmlstarlet` is old but good.
 
+- Handling, parsing sgml, html then `onsgmls` can be used.
+
 - For JSON, use [`jq`](http://stedolan.github.io/jq/).
 
 - For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
