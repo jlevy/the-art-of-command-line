@@ -395,6 +395,8 @@ A few examples of piecing together commands:
 
 - `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
 
+- `apg`: generates random passwords
+
 - `7z`: high-ratio file compression
 
 - `ldd`: dynamic library info
@@ -458,8 +460,6 @@ A few examples of piecing together commands:
 - `lsmod` and `modinfo`: List and show details of kernel modules.
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
-
-- `apg`: generates several random passwords.
 
 
 ## MacOS X only
