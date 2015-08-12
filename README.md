@@ -228,6 +228,8 @@ Notes:
 
 - To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
 
+- To manipulate date and time expressions, use `dateadd`, `datediff`, `strptime` etc. from [`dateutils`](http://www.fresse.org/dateutils).
+
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
 
