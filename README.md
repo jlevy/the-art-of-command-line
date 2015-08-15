@@ -157,6 +157,16 @@ Notes:
 
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
 
+- Loops: To perform operations on many files or with multiple arguments, use `for` loops. Example:
+```sh
+for filename in *.txt; do echo "Found $filename"; done
+```
+
+- Loops for values with spaces (normal `for` loop will split filenames on spaces):
+
+```sh
+find . -iname '*.txt' | while read filename; do cp "$filename" /tmp; done
+```
 
 ## Processing files and data
 
