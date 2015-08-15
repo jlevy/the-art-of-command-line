@@ -53,7 +53,7 @@ Opombe:
 
 - Naučite se o preusmeritvi izpisa in vnosa z uporabo `>` in `<` ter uporabo cevi `|`. Vedite, da `>` prepiše izpis datoteke in `>>` ga pripne. Naučite se o stdout in stderr.
 
-- Naučite se o razširitvi datotek glob z `*` (in mogoče `?` ter `{`...`}`) in citiranje ter razliko med dvojnim `"` in enojnim `'` citatom. (Poglejte več o razširitvi spremenljivk spodaj.)
+- Naučite se o razširitvi datotek glob z `*` (in mogoče `?` ter `[`...`]`) in citiranje ter razliko med dvojnim `"` in enojnim `'` citatom. (Poglejte več o razširitvi spremenljivk spodaj.)
 
 - Seznanite se z upravljanjem nalog Bash-a: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill` itd.
 
@@ -70,11 +70,14 @@ Opombe:
 
 ## Vsakodnevna uporaba
 
-- V Bash-u uporabite **Tab** za dokončanje argumentov in **ctrl-r**, da iščete skozi zgodovino ukazov (po pritiski, vtipkajte za iskanje, pritisnite **ctrl-r** s ponavljanjem za kroženje skozi več ujemanj, pritisnite **Enter**, da izvršite najdeni ukaz, ali pritisnite desno puščico, da date trenutni rezultat v trenutno vrstico in omogočite urejanje).
+- V Bash-u uporabite **Tab** za dokončanje argumentov ali izpis vseh ukazov, ki so na voljo, in **ctrl-r**, da iščete skozi zgodovino ukazov (po pritiski, vtipkajte za iskanje, pritisnite **ctrl-r** s ponavljanjem za kroženje skozi več ujemanj, pritisnite **Enter**, da izvršite najdeni ukaz, ali pritisnite desno puščico, da date trenutni rezultat v trenutno vrstico in omogočite urejanje).
 
 - V Bash-u uporabite **ctrl-w**, da izbrišete zadnjo besedo in **ctrl-u**, da izbrišete vse do začetka vrstice. Uporabite **alt-b** in **alt-f**, da se premikate po besedah, **ctrl-a**, da premaknete kurzor na začetek vrstice, **ctrl-e**, da premaknete kurzor na konec vrstice, **ctrl-k**, da ubijete do začetka vrstice, **ctrl-l**, da počistite zaslon. Glejte `man readline` za vse privzete vezave tipk v Bash-u. Na voljo jih je veliko. Na primer **alt-.** kroži skozi prejšnje argumente in **alt-*** razširi glob.
 
-- Alternativno, če imate radi vi-stilske vezave tipk, uporabite `set -o vi`.
+
+- Alternativno, če imate radi vi-stilske vezave tipk, uporabite `set -o vi` (in `set -o emacs` za povrnitev nazaj).
+
+- Za urejanje dolgih ukazov, po nastavitvi vašega urejevalnika (na primer `export EDITOR=vim`), **ctrl-x** **ctrl-e** bo odprlo trenutni ukaz v urejevalniku za več vrstično urejanje. Ali v stilu vi, **escape-v**.
 
 - Da vidite nedavne ukaze, `history`. Na voljo je tudi veliko okrajšav, kot je `!$` (zadnji argument) in `!!` zadnji ukaz, čeprav so te pogostokrat enostavno zamenjani s **ctrl-r** in **alt-.**.
 
@@ -114,6 +117,9 @@ Opombe:
 ```
 
 - V Bash-u bodite pozorni, saj je veliko vrst razširjenih spremenljivk. Preverjanje, če spremenljivka obstaja: `${name:?error message}`. Na primer, če skripta Bash zahteva en argument, samo napišite `input_file=${1:?usage: $0 input_file}`. Aritmetična raširitev: `i=$(( (i + 1) % 5 ))`. Sekvence: `{1..10}`. Obrezovanje nizov: `${var%suffix}` in `${var#prefix}`. Na primer, če je `var=foo.pdf`, potem `echo ${var%.pdf}.txt` izpiše `foo.txt`.
+
+- Lupinska razširitev zavitih oklepajev z `{`...`}` lahko pomaga zmanjšati potrebo po ponovnem vpisovanju podobnega teksta in avtomatizira kombiniranje elementov. To je v pomoč v primerih kot je `mv foo.{txt,pdf} some-dir` (ki premakne obe datoteki), `cp somefile{,.bak}` (kar razširi v 
+`cp somefile somefile.bak`) ali `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (kar razširi vse možne kombinacije in ustvari drevo direktorijev).
 
 - Izpis ukaza se lahko tretira kot datoteko preko `<(some command)`. Na primer, primerjajte lokalno `/etc/hosts` z oddaljeno:
 ```sh
@@ -207,7 +213,7 @@ Opombe:
 
 - Če kadarkoli potrebujete zapisati tabulator dobesedno v ukazni vrstici v Bash-u (npr. za sortiranje argumenta -t), pritisnite **ctrl-v** **[Tab]** ali zapišite `$'\t'` (slednji je boljši, saj ga lahko kopirate in prilepite).
 
-- Standardna orodja za popravljanje izvorne kode so `diff` in `patch`. Glejte tudi `diffstat` za povzetek statistike diff-a. Bodite pozorni, saj `diff -r` deluje za celotne direktorije. Uporabite `diff -r tree1 tree2 | diffstat` za povzetek sprememb.
+- Standardna orodja za popravljanje izvorne kode so `diff` in `patch`. Glejte tudi `diffstat` za povzetek statistike diff-a in `sdiff` za diff drug ob drugem. Bodite pozorni, saj `diff -r` deluje za celotne direktorije. Uporabite `diff -r tree1 tree2 | diffstat` za povzetek sprememb. Uporabite `vimdiff` za primerjanje in urejanje datotek.
 
 - Pri binarnih datotekah uporabite `hd` za enostavne heksadecimalne izpise in `bvi` za binarno urejanje.
 
@@ -221,6 +227,8 @@ Opombe:
 ```
 
 - Da razcepite datoteke na dele, glejte `split` (da razcepite po velikosti) in `csplit` (da razcepite po vzorcu).
+
+- Za manipuliranje izrazov datuma in časa, uporabite `dateadd`, `datediff`, `strptime` itd. iz [`dateutils`](http://www.fresse.org/dateutils).
 
 - Uporabite `zless`, `zmore`, `zcat` in `zgrep` za operiranje na kompresiranih datotekah.
 
@@ -389,6 +397,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `units`: pretvorba enot in kalkulacije; pretvori furlonge (osmino milje) na štirinajst dni v dvajsetine točke na blink (glejte tudi `/usr/share/units/definitions.units`)
 
+- `apg`: generira naključna gesla
+
 - `7z`: kompresija datoteke visokega razmerja
 
 - `ldd`: informacije dinamične knjižnice
@@ -475,7 +485,8 @@ To so elementi pomembni *samo* za MacOS.
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): urejan seznam orodij lupine in virov.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
-- [shellcheck](https://github.com/koalaman/shellcheck) - lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
+- [shellcheck](https://github.com/koalaman/shellcheck): lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Na žalost kompleksne podrobnosti, kako pravilno ravnati z imeni datotek v lupinskih skriptah.
 
 ## Pogoji uporabe
 
