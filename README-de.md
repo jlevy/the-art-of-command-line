@@ -160,29 +160,29 @@ Hinweise:
 
 ## Umgang mit Dateien und Daten
 
-- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
+- Um eine Datei im aktuellen Verzeichnis anhand des Namens zu finden, `find . -iname '*irgendwas*'`. Um eine Datei unabhängig vom Verzeichnis anhand des Namens zu finden, verwende `locate irgendwas` (bedenke jedoch, dass `updatedb` kürzlich erstellte Datein möglicherweise noch nicht indexiert hat).
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Für das allgemeine Durchsuchen von (Quell-)Dateien (fortgeschrttener als `grep -r`), verwende [`ag`](https://github.com/ggreer/the_silver_searcher).
 
-- To convert HTML to text: `lynx -dump -stdin`
+- Um HTML in Text zu konvertieren: `lynx -dump -stdin`
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- Für Markdown, HTML und viele andere Dokumentkonvertieren, versuch's mit [`pandoc`](http://pandoc.org/).
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- Wenn du mit XML arbeiten musst, `xmlstarlet` ist alt, aber gut.
 
-- For JSON, use [`jq`](http://stedolan.github.io/jq/).
+- Für JSON, verwende [`jq`](http://stedolan.github.io/jq/).
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Für Excel- bzw. CSV-Dateien hält [csvkit](https://github.com/onyxfish/csvkit) `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc bereit.
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) is essential for other AWS-related tasks.
+- Für Amazon S3 ist [`s3cmd`](https://github.com/s3tools/s3cmd) praktisch und [`s4cmd`](https://github.com/bloomreach/s4cmd) schneller. Amazons [`aws`](https://github.com/aws/aws-cli) ist essentiell für andere AWS-bezogene Aufgaben.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
+- Kenne `sort` und `uniq`, letzteres einschließlich der Optionen `-u` und `-d` -- siehe die Einzeiler unten. Siehe auch `comm`.
 
-- Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+- Kenne `cut`, `paste` und `join` zur Arbeit mit Textdateien. Viele Leute nutzen `cut`, vergessen aber `join`.
 
-- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+- Kenne `wc`, um neue Zeilen (`-l`), Zeichen (`-m`), Wörter (`-w`) und Bytes (`-c`) zu zählen.
 
-- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+- Kenne `tee`, um von stdin in eine Datei und sogar nach stdout zu kopieren, wie etwa mit `ls -al | tee datei.txt`.
 
 - Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
 
