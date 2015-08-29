@@ -1,4 +1,6 @@
-﻿原文のコミット [bb0c38c0899339e836c37eead4a9534b06c56662](https://github.com/jlevy/the-art-of-command-line/blob/bb0c38c0899339e836c37eead4a9534b06c56662/README.md)
+﻿[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md) ]
+
+原文のコミット [bb0c38c0899339e836c37eead4a9534b06c56662](https://github.com/jlevy/the-art-of-command-line/blob/bb0c38c0899339e836c37eead4a9534b06c56662/README.md)
 
 # The Art of Command Line
 
