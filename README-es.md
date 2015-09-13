@@ -53,7 +53,7 @@ Notas:
 
 - Aprende sobre redirección de salida `>`, entrada `<` y pipes utilizando `|`. Conozca que `>` sobrescribe el archivo de salida y `>>` añade. Aprende sobre stdout y stderr.
 
-- Aprende sobre expansión de archivos glob con `*` (y tal vez `?` y `{`...`}`) y quoting y la diferencia entre comillas dobles `"` y simples `'`. (Ver más en expansión de variables más abajo.)
+- Aprende sobre expansión de archivos glob con `*` (y tal vez `?` y `[`...`]`) y quoting y la diferencia entre comillas dobles `"` y simples `'`. (Ver más en expansión de variables más abajo.)
 
 - Familiarízate con la administración de trabajo en Bash: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
@@ -70,7 +70,7 @@ Notas:
 
 ## De uso diario
 
-- En Bash, se usa **Tab** para completar los argumentos y **ctrl-r** para buscar a través del historial de comandos.
+- En Bash, se usa **Tab** para completar los argumentos o lista todos los comandos disponibles y **ctrl-r** para buscar a través del historial de comandos (despues de presionar, escribe la búsqueda, presiona **ctrl-r** repetidamente para hacer un ciclo a través de más coincidencias, presiona **Enter** para ejecurar el comando encontrado, o presiona la flecha derecha para poner el resultado en la línea actual y editar).
 
 - En Bash, se usa **ctrl-w** para borrar la última palabra, y **ctrl-u** para borrar todo hacia atrás hasta el inicio de la línea. Se usa **alt-b** y **alt-f** para moverse entre palabras, **ctrl-a** para mover el cursor al principio de la línea,  **ctrl-e** para mover el cursor al final de la línea,  **ctrl-k** para eliminar hasta el final de la línea, **ctrl-l** para limpiar la pantalla. Ver `man readline` para todos los atajos de teclado por defecto en Bash. Son una gran cantidad. Por ejemplo **alt-.** realiza un ciclo a través de los comandos previos, y **alt-*** expande un glob.
 
