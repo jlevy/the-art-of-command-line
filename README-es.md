@@ -74,7 +74,9 @@ Notas:
 
 - En Bash, se usa **ctrl-w** para borrar la última palabra, y **ctrl-u** para borrar todo hacia atrás hasta el inicio de la línea. Se usa **alt-b** y **alt-f** para moverse entre palabras, **ctrl-a** para mover el cursor al principio de la línea,  **ctrl-e** para mover el cursor al final de la línea,  **ctrl-k** para eliminar hasta el final de la línea, **ctrl-l** para limpiar la pantalla. Ver `man readline` para todos los atajos de teclado por defecto en Bash. Son una gran cantidad. Por ejemplo **alt-.** realiza un ciclo a través de los comandos previos, y **alt-*** expande un glob.
 
-- Alternativamente, si amas los atajos de teclado vi-style, usa `set -o vi`.
+- Alternativamente, si amas los atajos de teclado vi-style, usa `set -o vi`. (y `set -o emacs` para regresar a la anterior).
+
+- Para editar largos comandos, después de configurar to editor (por ejemplo `export EDITOR=vim`), **ctrl-x** **ctrl-e** se abrirá el comando actual en un editor para editar multiples líneas. O en estilo vi, **escape-v**.
 
 - Para ver los últimos comandos, `history`. También existen abreviaciones, tales como, `!$` (último argumento) y `!!` último comando, aunque son fácilmente remplazados con **ctrl-r** y **alt-.**.
 
@@ -104,7 +106,11 @@ Notas:
 
 - Usa `alias` para crear atajos para comandos comúnmente usados. Por ejemplo, `alias ll="las -latr"` crea el alias `ll`
 
-- En Bash scripts, usa `set -x` para depurar la salida. Usa el modo estricto cuando se posible. Usa `set -e` para abortar en caso de errores. Usa `set -o pipefail` también, para ser estrictos sobre los errores (aunque este tema es un poco delicado). Para scripts más complejos, usa también `trap`.
+- En Bash scripts, usa `set -x` (o su variantes `set -v`, que registra las entradas sin procesar, incluyendo variables sin expander y comantarios) para depurar la salida. Usa el modo estricto al menos que tengas una buena razón para no hacerlo: Usa `set -e` para abortar en caso de errores (códigos de salida distintos a cero). Usa `set -u` para detectar uso de variables no definidas. Considera `set -o pipefail` también, para los errores con pipes, también (estudiar mas sobre este como un tema delicado). Para scripts más complejos, usa también `trap`. en EXIT o ERR. Un hábito útil es para comenzar un script como este, el cual detectará y abortará con errores comunes e imprimirá un mensaje:
+```bash
+    set -euo pipefail
+    trap "echo 'error: Falló del Script: ver arriba comando que falló'" ERR
+```
 
 - En Bash scripts, subshells (escritos con paréntesis) son maneras convenientes para agrupar los comandos. Un ejemplo común es temporalmente moverse hacia un directorio de trabajo diferente, Ej.
 ```bash
