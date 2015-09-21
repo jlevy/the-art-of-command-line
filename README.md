@@ -376,6 +376,10 @@ A few examples of piecing together commands:
 
 - `time`: execute and time a command
 
+- `lockfile`: create semaphore file that can only be removed by `rm -f`
+
+- `logrotate`: rotate, compress and mail logs.
+
 - `watch`: run a command repeatedly, showing results and/or highlighting changes
 
 - `tac`: print files in reverse
