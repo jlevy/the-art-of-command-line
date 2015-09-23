@@ -202,6 +202,32 @@ Notes:
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
+- To strip URLs from surrounding HTML:
+```sh
+    $ cat example.html 
+    Some text <a href="http://example.com/roar.mp3">Lion roar</a> So cool!<br/>
+    More stuff <a href="http://example.com/bird.mp3">Bird call</a>Pretty<br/>
+    No link on this line.
+    Some text <a href="http://example.com/crickets.mp3">Crickets</a>Relaxing.<br/>
+    Some text <a href="http://example.com/beach.mp3">Ocean waves.</a>Meditate!<br/>
+    More junk.
+
+    $ perl -ne 'print if s/^.*href="([^"]+)".*$/$1/' example.html 
+    http://example.com/roar.mp3
+    http://example.com/bird.mp3
+    http://example.com/crickets.mp3
+    http://example.com/beach.mp3
+
+    # Make a script to download all the files.
+    $ perl -ne 'print if s/^.*href="([^"]+)".*$/wget $1/' example.html > download.sh
+
+    $ cat download.sh 
+    wget http://example.com/roar.mp3
+    wget http://example.com/bird.mp3
+    wget http://example.com/crickets.mp3
+    wget http://example.com/beach.mp3
+```
+
 - To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
 ```sh
       # Recover backup files foo.bak -> foo:
