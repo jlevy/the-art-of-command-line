@@ -137,8 +137,6 @@ Notes:
 
 - Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. `byobu` can enhance screen or tmux providing more information and easier management. A more minimal alternative for session persistence only is `dtach`.
 
-- Use [`mosh`](https://mosh.mit.edu/) Mobile Shell to wrap your ssh sessions over a stateless UDP so that you never have to manually reconnect when on the road, or when your internet connection gets temporarilly dropped.
-
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
 - It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, uses compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
@@ -153,6 +151,8 @@ Notes:
 ```
 
 - A few other options relevant to ssh are security sensitive and should be enabled with care, e.g. per subnet or host or in trusted networks: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+
+- Consider [`mosh`](https://mosh.mit.edu/) an an alternative to ssh that uses UDP, avoiding dropped connections and adding convenience on the road (requires server-side setup).
 
 - To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
 ```sh
