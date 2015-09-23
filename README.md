@@ -183,7 +183,7 @@ Notes:
 
 - For JSON, use [`jq`](http://stedolan.github.io/jq/).
 
-- For Yaml, use `shyaml`.
+- For YAML, use [`shyaml`](https://github.com/0k/shyaml).
 
 - For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
