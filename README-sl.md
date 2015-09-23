@@ -59,7 +59,7 @@ Opombe:
 
 - Spoznajte `ssh` in osnove avtentikacije brez gesla, preko `ssh-agent`, `ssh-add` itd.
 
-- Osnovno upravljanje datotek: `ls` in `ls -l` (še posebej se naučite, kaj vsak stolpec v `ls -l` pomeni), `less`, `head`, `tail` in `tail -f` (ali celo boljše, `less +F`), `ln` in `ln -s` (naučite se razlike in prednosti trdih in mehkih povezav), `chown`, `chmod`, `du` (za hiter povzetek uporabe diska: `du -hs *`). Za upravljanje datotečnega sistema, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Osnovno upravljanje datotek: `ls` in `ls -l` (še posebej se naučite, kaj vsak stolpec v `ls -l` pomeni), `less`, `head`, `tail` in `tail -f` (ali celo boljše, `less +F`), `ln` in `ln -s` (naučite se razlike in prednosti trdih in mehkih povezav), `chown`, `chmod`, `du` (za hiter povzetek uporabe diska: `du -hs *`). Za upravljanje datotečnega sistema, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Naučite se, kaj je inode (`ls -i` or `df -i`).
 
 - Osnovno upravljanje omrežja: `ip` or `ifconfig`, `dig`.
 
@@ -135,7 +135,7 @@ Opombe:
 
 - Uporabite `man ascii` za dobro tabelo ASCII s heksadecimalnimi in decimalnimi vrednostmi. Za splošne informacije enkodiranja so priročni `man unicode`, `man utf-8` in `man latin1`.
 
-- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. Bolj minimalna alternativa za samo obstojnost sej je `dtach`.
+- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. `byobu` lahko poveča t.i. screen ali tmux s ponujanjem več informacij in enostavnejšim upravljanjem. Bolj minimalna alternativa za samo obstojnost sej je `dtach`.
 
 - V ssh je poznavanje, kako usmeriti tunel z `-L` ali `-D` (in občasno `-R`) je uporaben, npr. za dostopanje do spletnih strani iz oddaljenega strežnika.
 
@@ -151,6 +151,8 @@ Opombe:
 ```
 
 - Nekaj ostalih opcij relevantnih za ssh je varnostno občutljivih in bi morale biti omogočene s pazljivostjo, npr. na podomrežju ali gostitelju ali v zaupljivih omrežjih: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+
+- Premislite o [`mosh`](https://mosh.mit.edu/) kot alternativi za ssh, ki uporablja UDP, da se izognete padlim povezavam in dodate priročnost, ko ste na poti (zahteva nastavitev strežniške strani).
 
 - Da dobite pravice na datoteki v osmiškem zapisu, ki je uporaben za nastavitve sistema vendar ni na voljo pri `ls` in enostaven za mešanje, uporabite nekaj takega kot je
 ```sh
@@ -180,6 +182,8 @@ Opombe:
 - Če morate upravljati z XML, je `xmlstarlet` star vendar dober.
 
 - Za JSON, use [`jq`](http://stedolan.github.io/jq/).
+
+- Za YAML, uporabite [`shyaml`]((https://github.com/0k/shyaml).
 
 - Za Excel ali CSV datoteke, [csvkit](https://github.com/onyxfish/csvkit) ponuja `in2csv`, `csvcut`, `csvjoin`, `csvgrep` itd.
 
@@ -375,6 +379,10 @@ Nekaj primerov sestavljanja ukazov skupaj:
 - `stat`: informacije datoteke
 
 - `time`: izvrši in da ukaz v čas
+
+- `lockfile`: ustvari semaforno datoteko, ki je lahko odstranjena samo z `rm -f`
+
+- `logrotate`: rotiranje, kompresiranje in pošiljanje dnevnikov po e-pošti.
 
 - `watch`: večkrat požene ukaz in prikazuje rezultate in/ali poudari spremembe
 
