@@ -187,7 +187,7 @@ Opombe:
 
 - Za Excel ali CSV datoteke, [csvkit](https://github.com/onyxfish/csvkit) ponuja `in2csv`, `csvcut`, `csvjoin`, `csvgrep` itd.
 
-- Za Amazon S3 je priročen [`s3cmd`](https://github.com/s3tools/s3cmd) in [`s4cmd`](https://github.com/bloomreach/s4cmd) je hitrejši. Amazon-ov [`aws`](https://github.com/aws/aws-cli) je bistven za druga AWS-povezana opravila.
+- Za Amazon S3 je priročen [`s3cmd`](https://github.com/s3tools/s3cmd) in [`s4cmd`](https://github.com/bloomreach/s4cmd) je hitrejši. Amazon-ov [`aws`](https://github.com/aws/aws-cli) in izboljšan [`saws`](https://github.com/donnemartin/saws) sta bistvena za druga AWS-povezana opravila.
 
 - Naučite se o `sort` in `uniq` vključno z uniq-ovima opcijama `-u` in `-d` -- glejte spodaj sekcijo v eni vrstici. Glejte tudi `comm`.
 
