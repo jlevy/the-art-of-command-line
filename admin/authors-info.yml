@@ -2,11 +2,16 @@
 
 header: |
   This work is the result of the effort of many people around the world.
-  Contributors are listed in alphabetical order by GitHub id.
-  This file is maintained only in English.
+  Contributors are listed in alphabetical order by GitHub login.
 
 footer: |
+  Numbers link to commits/issues.
+  For simplicity, this file is maintained only in English.
+
   If you see inaccuracies or omissions, please file an issue, or edit the authors-info.yml file, regenerate, and file a PR.
+
+exclude:
+  gitter-badger
 
 roles:
   jlevy: original author and maintainer
