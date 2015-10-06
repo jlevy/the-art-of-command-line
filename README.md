@@ -295,7 +295,7 @@ A few examples of piecing together commands:
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Use `grep . *` to visually examine all contents of all files in a directory, e.g. for directories filled with config settings, like `/sys`, `/proc`, `/etc`.
+- Use `grep . * | less` to quickly examine the contents of all files in a directory - each line is paired with the filename. This can be useful for directories filled with config settings like those in `/sys`, `/proc`, `/etc`.
 
 
 - Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
