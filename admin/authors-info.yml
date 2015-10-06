@@ -1,0 +1,38 @@
+# This file is used to configure the "ghizmo assemble-authors" command.
+
+header: |
+  This work is the result of the effort of many people around the world.
+  Contributors are listed in alphabetical order by GitHub login.
+
+footer: |
+  Numbers link to commits/issues.
+  For simplicity, this file is maintained only in English.
+
+  If you see inaccuracies or omissions, please file an issue, or edit the authors-info.yml file, regenerate, and file a PR.
+
+exclude:
+  gitter-badger
+
+roles:
+  jlevy: original author and maintainer
+  ceoaliongroo: translator and maintainer (es)
+  aaossa: translator (es)
+  BishopWolf: translator (es)
+  doublemarket: translator and maintainer (ja)
+  Ungsik-Yun: translator and maintainer (ko)
+  Snowcat8436: translator (ko)
+  ujuc: translator (ko)
+  hunkim: translator (ko)
+  niltonvasques : translator and maintainer (pt)
+  vcvpaiva: translator (pt)
+  olegberman: translator and maintainer (ru)
+  spmbt: translator (ru)
+  osmero: translator (ru)
+  grigory-rechistov: translator (ru)
+  kastian: translator (ru)
+  githubashto: translator (ru)
+  peterkokot: translator and maintainer (sl)
+  Psycho7: translator and maintainer (zh)
+  xuchunyang: translator (zh)
+  stevenlordiam: translator (zh)
+  Armour: translator (zh)
