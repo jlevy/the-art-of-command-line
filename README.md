@@ -155,7 +155,7 @@ Notes:
 
 - A few other options relevant to ssh are security sensitive and should be enabled with care, e.g. per subnet or host or in trusted networks: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Consider [`mosh`](https://mosh.mit.edu/) an an alternative to ssh that uses UDP, avoiding dropped connections and adding convenience on the road (requires server-side setup).
+- Consider [`mosh`](https://mosh.mit.edu/) an alternative to ssh that uses UDP, avoiding dropped connections and adding convenience on the road (requires server-side setup).
 
 - To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
 ```sh
@@ -371,7 +371,7 @@ A few examples of piecing together commands:
 
 - `socat`: socket relay and tcp port forwarder (similar to `netcat`)
 
-- [`slurm`](https://github.com/mattthias/slurm): network trafic visualization
+- [`slurm`](https://github.com/mattthias/slurm): network traffic visualization
 
 - `dd`: moving data between files or devices
 
