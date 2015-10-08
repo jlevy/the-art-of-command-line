@@ -217,6 +217,11 @@ Opombe:
       repren --full --preserve-case --from foo --to bar .
 ```
 
+- Kot pravi stran vodiča, je `rsync` resnično hiter in izredno vsestransko orodje kopiranja datotek. Znano je po sinhronizaciji med napravami vendar je enakovredno uporaben tudi lokalno. Je tudi eden izmed [najhitrejših načinov](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) za izbris velikega števila datotek:
+```sh
+mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
+```
+
 - Uporabite `shuf` za naključno mešanje ali izbiro naključnih vrstic iz datoteke.
 
 - Poznajte opcije za `sort`. Za številke uporabite `-n` ali `-h` za upravljanje številk človeku prijaznih za branje (npr. iz `du -h`). Vedite, kako delujejo ključi (`-t` in `-k`). Še posebej pazite, da morate zapisati `-k1,1`, da razvrstite samo po prvem polju; `-k1` pomeni razvrščanje glede na celotno vrstico. Stabilno razvrščanje (`sort -s`) je lahko uporabno. Na primer, da sortirate najprej po polju 2 in nato po polju 1, lahko uporabite `sort -k1,1 | sort -s -k2,2`.
@@ -295,7 +300,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Uporabite `grep . *`, da vizualno preučite vse vsebine vseh datotek v direktoriju, npr. za direktorije napolnjene s konfiguracijskimi nastavitvami, kot so `/sys`, `/proc`, `/etc`.
+- Uporabite `grep . *`, da hitro preučite vsebine vseh datotek v direktoriju (vsaka vrstica ima par z imenom datoteke) ali `head -100 *` (da iima vsaka datoteka glavo). To je lahko uporabno za direktorije napolnjene s konfiguracijskimi nastavitvami, kot so tiste v `/sys`, `/proc`, `/etc`.
 
 
 - Povzetje vseh številk v tretjem stolpcu tekstovne datoteke (to je verjetno 3X hitrejše in 3X manj kode kot Python-ov ekvivalent):
