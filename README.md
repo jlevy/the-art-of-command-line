@@ -288,6 +288,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
+- When you are in a broken system (e.g you have broken coreutils or stuck in an initrd), check if you have busybox. It is a small application often compiled statically that you can use to act as ls, vi, cat, ... To to do, symlink /bin/busybox to /bin/ls, or call busybox ls directly.
 
 ## One-liners
 
