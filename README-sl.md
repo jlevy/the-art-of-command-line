@@ -1,4 +1,6 @@
-[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md) ]
+[ Languages:
+[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md)
+]
 
 
 # Umetnost ukazne vrstice
@@ -19,13 +21,14 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Jedrnatost v ukazni vrstici je znanje, ki je pogostokrat zanemarjeno ali smatrano za zastarelo, vendar izboljša vašo fleksibilnost in produktivnost kot inženir na očitne in neočitne načine. To so izbrani zapiski in nasveti glede uporabe ukazne vrstice, ki sem jo našel uporabno pri delu z Linux-om. Nekateri nasveti so elementarni in nekateri so precej določeni, sofisticirani ali nepregledni. Ta stran ni dolga, vendar če lahko uporabite in se spomnite vseh elementov tu, boste vedeli veliko.
+Jedrnatost v ukazni vrstici je znanje, ki je pogostokrat zanemarjeno ali smatrano za zastarelo, vendar izboljša vašo fleksibilnost in produktivnost kot inženir na očitne in neočitne načine. To so izbrani zapiski in nasveti glede uporabe ukazne vrstice, ki smo jo našli uporabno pri delu z Linux-om. Nekateri nasveti so elementarni in nekateri so precej določeni, sofisticirani ali nepregledni. Ta stran ni dolga, vendar če lahko uporabite in se spomnite vseh elementov tu, boste vedeli veliko.
 
+To delo je rezultat [mnogih avtorjev in prevajalcev](AUTHORS.md).
 Veliko tega
 se [prvotno](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [pojavi](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 na [Quori](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-vendar glede na dani interes tu, izgleda vredno uporabe GitHub-a, kjer ljudje bolj talentirani kot jaz lahko bralno predlagajo izboljšave. Če opazite napako ali nekaj, kar je lahko bolje, prosim, pošljite težavo ali zahtevek potega (PR)! (Seveda, prosim preglejte meta sekcijo in obstoječe težave/zahtevke potega najprej.)
+vendar glede na dani interes tu, izgleda vredno uporabe GitHub-a, kjer lahko ljudje bolj talentirani od prvotnega avtorja takoj predlagajo izboljšave. Če opazite napako ali nekaj, kar je lahko bolje, prosim, pošljite težavo ali zahtevek potega (PR)! (Seveda, prosim preglejte meta sekcijo in obstoječe težave/zahtevke potega najprej.)
 
 
 ## Meta
@@ -53,13 +56,13 @@ Opombe:
 
 - Naučite se o preusmeritvi izpisa in vnosa z uporabo `>` in `<` ter uporabo cevi `|`. Vedite, da `>` prepiše izpis datoteke in `>>` ga pripne. Naučite se o stdout in stderr.
 
-- Naučite se o razširitvi datotek glob z `*` (in mogoče `?` ter `{`...`}`) in citiranje ter razliko med dvojnim `"` in enojnim `'` citatom. (Poglejte več o razširitvi spremenljivk spodaj.)
+- Naučite se o razširitvi datotek glob z `*` (in mogoče `?` ter `[`...`]`) in citiranje ter razliko med dvojnim `"` in enojnim `'` citatom. (Poglejte več o razširitvi spremenljivk spodaj.)
 
 - Seznanite se z upravljanjem nalog Bash-a: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill` itd.
 
 - Spoznajte `ssh` in osnove avtentikacije brez gesla, preko `ssh-agent`, `ssh-add` itd.
 
-- Osnovno upravljanje datotek: `ls` in `ls -l` (še posebej se naučite, kaj vsak stolpec v `ls -l` pomeni), `less`, `head`, `tail` in `tail -f` (ali celo boljše, `less +F`), `ln` in `ln -s` (naučite se razlike in prednosti trdih in mehkih povezav), `chown`, `chmod`, `du` (za hiter povzetek uporabe diska: `du -hs *`). Za upravljanje datotečnega sistema, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Osnovno upravljanje datotek: `ls` in `ls -l` (še posebej se naučite, kaj vsak stolpec v `ls -l` pomeni), `less`, `head`, `tail` in `tail -f` (ali celo boljše, `less +F`), `ln` in `ln -s` (naučite se razlike in prednosti trdih in mehkih povezav), `chown`, `chmod`, `du` (za hiter povzetek uporabe diska: `du -hs *`). Za upravljanje datotečnega sistema, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Naučite se, kaj je inode (`ls -i` or `df -i`).
 
 - Osnovno upravljanje omrežja: `ip` or `ifconfig`, `dig`.
 
@@ -70,11 +73,14 @@ Opombe:
 
 ## Vsakodnevna uporaba
 
-- V Bash-u uporabite **Tab** za dokončanje argumentov in **ctrl-r**, da iščete skozi zgodovino ukazov.
+- V Bash-u uporabite **Tab** za dokončanje argumentov ali izpis vseh ukazov, ki so na voljo, in **ctrl-r**, da iščete skozi zgodovino ukazov (po pritiski, vtipkajte za iskanje, pritisnite **ctrl-r** s ponavljanjem za kroženje skozi več ujemanj, pritisnite **Enter**, da izvršite najdeni ukaz, ali pritisnite desno puščico, da date trenutni rezultat v trenutno vrstico in omogočite urejanje).
 
 - V Bash-u uporabite **ctrl-w**, da izbrišete zadnjo besedo in **ctrl-u**, da izbrišete vse do začetka vrstice. Uporabite **alt-b** in **alt-f**, da se premikate po besedah, **ctrl-a**, da premaknete kurzor na začetek vrstice, **ctrl-e**, da premaknete kurzor na konec vrstice, **ctrl-k**, da ubijete do začetka vrstice, **ctrl-l**, da počistite zaslon. Glejte `man readline` za vse privzete vezave tipk v Bash-u. Na voljo jih je veliko. Na primer **alt-.** kroži skozi prejšnje argumente in **alt-*** razširi glob.
 
-- Alternativno, če imate radi vi-stilske vezave tipk, uporabite `set -o vi`.
+
+- Alternativno, če imate radi vi-stilske vezave tipk, uporabite `set -o vi` (in `set -o emacs` za povrnitev nazaj).
+
+- Za urejanje dolgih ukazov, po nastavitvi vašega urejevalnika (na primer `export EDITOR=vim`), **ctrl-x** **ctrl-e** bo odprlo trenutni ukaz v urejevalniku za več vrstično urejanje. Ali v stilu vi, **escape-v**.
 
 - Da vidite nedavne ukaze, `history`. Na voljo je tudi veliko okrajšav, kot je `!$` (zadnji argument) in `!!` zadnji ukaz, čeprav so te pogostokrat enostavno zamenjani s **ctrl-r** in **alt-.**.
 
@@ -104,7 +110,11 @@ Opombe:
 
 - Uporabite `alias`, da ustvarite bližnjice za pogosto uporabljene ukaze. Na primer, `alias ll='ls -latr'` ustvari nov alias `ll`.
 
-- V skriptah Bash uporabite `set -x` za razhroščevanje izpisa. Uporabite striktni način, kadarkoli je možno. Uporabite `set -e`, da prekinete na napakah. Uporabite tudi `set -o pipefail`, da ste striktni glede napak (čeprav je ta tema nekoliko subtilna). Za bolj vključene skripte uporabite tudi `trap`.
+- V skriptah Bash uporabite `set -x` (ali varianto `set -v`, ki beleži dnevnik surovega izpisa, vključno z nerazširjenimi spremenljivkami in komentarji) za razhroščevanje izpisa. Uporabite striktni način razen, če imate dober razlog, da ga ne: Uporabite `set -e`, da preskočite napake (neničelna koda izhoda). Uporabite `set -u`, da zaznate uporabo nenastavljenih spremenljivk. Premislite tudi o `set -o pipefail`, da na napakah znotraj pip, (vendar preberite o tem več, če boste to uporabili, saj je ta tema nekoliko subtilna). Za bolj vključene skripte, uporabite tudi `trap` pri EXIT ali ERR. Uporabna navada je tako začeti skripto, kar bo naredilo, da lahko zazna ali prekliče na pogostih napakah in izpiše sporočilo:
+```bash
+      set -euo pipefail
+      trap "echo 'error: Script failed: see failed command above'" ERR
+```
 
 - V skriptah Bash so podlupine (napisane z oklepaji) priročen način za grupiranje ukazov. Skupen primer je začasno premakniti na različen delovni direktorij, npr.
 ```bash
@@ -115,6 +125,8 @@ Opombe:
 
 - V Bash-u bodite pozorni, saj je veliko vrst razširjenih spremenljivk. Preverjanje, če spremenljivka obstaja: `${name:?error message}`. Na primer, če skripta Bash zahteva en argument, samo napišite `input_file=${1:?usage: $0 input_file}`. Aritmetična raširitev: `i=$(( (i + 1) % 5 ))`. Sekvence: `{1..10}`. Obrezovanje nizov: `${var%suffix}` in `${var#prefix}`. Na primer, če je `var=foo.pdf`, potem `echo ${var%.pdf}.txt` izpiše `foo.txt`.
 
+- Lupinska razširitev zavitih oklepajev z `{`...`}` lahko pomaga zmanjšati potrebo po ponovnem vpisovanju podobnega teksta in avtomatizira kombiniranje elementov. To je v pomoč v primerih kot je `mv foo.{txt,pdf} some-dir` (ki premakne obe datoteki), `cp somefile{,.bak}` (kar razširi v `cp somefile somefile.bak`) ali `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (kar razširi vse možne kombinacije in ustvari drevo direktorijev).
+
 - Izpis ukaza se lahko tretira kot datoteko preko `<(some command)`. Na primer, primerjajte lokalno `/etc/hosts` z oddaljeno:
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
@@ -122,11 +134,11 @@ Opombe:
 
 - Spoznajte t.i. "here" dokumente v Bash-u, kot pri `cat <<EOF ...`.
 
-- V Bash-u je preusmeritev obeh standardov izpisa in standardnih napak preko: `some-command >logfile 2>&1`. Pogosto zagotavlja, da ukaz ne pusti ročaja odprte datoteke za standardni vnos, kar ga veže na terminal v katerem se nahajate, je tudi dobra praksa, da dodate `</dev/null`.
+- V Bash-u je preusmeritev obeh standardov izpisa in standardnih napak preko: `some-command >logfile 2>&1` ali `some-command &>logfile`. Pogosto zagotavlja, da ukaz ne pusti ročaja odprte datoteke za standardni vnos, kar ga veže na terminal v katerem se nahajate, je tudi dobra praksa, da dodate `</dev/null`.
 
 - Uporabite `man ascii` za dobro tabelo ASCII s heksadecimalnimi in decimalnimi vrednostmi. Za splošne informacije enkodiranja so priročni `man unicode`, `man utf-8` in `man latin1`.
 
-- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. Bolj minimalna alternativa za samo obstojnost sej je `dtach`.
+- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. `byobu` lahko poveča t.i. screen ali tmux s ponujanjem več informacij in enostavnejšim upravljanjem. Bolj minimalna alternativa za samo obstojnost sej je `dtach`.
 
 - V ssh je poznavanje, kako usmeriti tunel z `-L` ali `-D` (in občasno `-R`) je uporaben, npr. za dostopanje do spletnih strani iz oddaljenega strežnika.
 
@@ -142,6 +154,8 @@ Opombe:
 ```
 
 - Nekaj ostalih opcij relevantnih za ssh je varnostno občutljivih in bi morale biti omogočene s pazljivostjo, npr. na podomrežju ali gostitelju ali v zaupljivih omrežjih: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+
+- Premislite o [`mosh`](https://mosh.mit.edu/) kot alternativi za ssh, ki uporablja UDP, da se izognete padlim povezavam in dodate priročnost, ko ste na poti (zahteva nastavitev strežniške strani).
 
 - Da dobite pravice na datoteki v osmiškem zapisu, ki je uporaben za nastavitve sistema vendar ni na voljo pri `ls` in enostaven za mešanje, uporabite nekaj takega kot je
 ```sh
@@ -172,9 +186,11 @@ Opombe:
 
 - Za JSON, use [`jq`](http://stedolan.github.io/jq/).
 
+- Za YAML, uporabite [`shyaml`]((https://github.com/0k/shyaml).
+
 - Za Excel ali CSV datoteke, [csvkit](https://github.com/onyxfish/csvkit) ponuja `in2csv`, `csvcut`, `csvjoin`, `csvgrep` itd.
 
-- Za Amazon S3 je priročen [`s3cmd`](https://github.com/s3tools/s3cmd) in [`s4cmd`](https://github.com/bloomreach/s4cmd) je hitrejši. Amazon-ov [`aws`](https://github.com/aws/aws-cli) je bistven za druga AWS-povezana opravila.
+- Za Amazon S3 je priročen [`s3cmd`](https://github.com/s3tools/s3cmd) in [`s4cmd`](https://github.com/bloomreach/s4cmd) je hitrejši. Amazon-ov [`aws`](https://github.com/aws/aws-cli) in izboljšan [`saws`](https://github.com/donnemartin/saws) sta bistvena za druga AWS-povezana opravila.
 
 - Naučite se o `sort` in `uniq` vključno z uniq-ovima opcijama `-u` in `-d` -- glejte spodaj sekcijo v eni vrstici. Glejte tudi `comm`.
 
@@ -201,15 +217,20 @@ Opombe:
       repren --full --preserve-case --from foo --to bar .
 ```
 
+- Kot pravi stran vodiča, je `rsync` resnično hiter in izredno vsestransko orodje kopiranja datotek. Znano je po sinhronizaciji med napravami vendar je enakovredno uporaben tudi lokalno. Je tudi eden izmed [najhitrejših načinov](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) za izbris velikega števila datotek:
+```sh
+mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
+```
+
 - Uporabite `shuf` za naključno mešanje ali izbiro naključnih vrstic iz datoteke.
 
 - Poznajte opcije za `sort`. Za številke uporabite `-n` ali `-h` za upravljanje številk človeku prijaznih za branje (npr. iz `du -h`). Vedite, kako delujejo ključi (`-t` in `-k`). Še posebej pazite, da morate zapisati `-k1,1`, da razvrstite samo po prvem polju; `-k1` pomeni razvrščanje glede na celotno vrstico. Stabilno razvrščanje (`sort -s`) je lahko uporabno. Na primer, da sortirate najprej po polju 2 in nato po polju 1, lahko uporabite `sort -k1,1 | sort -s -k2,2`.
 
 - Če kadarkoli potrebujete zapisati tabulator dobesedno v ukazni vrstici v Bash-u (npr. za sortiranje argumenta -t), pritisnite **ctrl-v** **[Tab]** ali zapišite `$'\t'` (slednji je boljši, saj ga lahko kopirate in prilepite).
 
-- Standardna orodja za popravljanje izvorne kode so `diff` in `patch`. Glejte tudi `diffstat` za povzetek statistike diff-a. Bodite pozorni, saj `diff -r` deluje za celotne direktorije. Uporabite `diff -r tree1 tree2 | diffstat` za povzetek sprememb.
+- Standardna orodja za popravljanje izvorne kode so `diff` in `patch`. Glejte tudi `diffstat` za povzetek statistike diff-a in `sdiff` za diff drug ob drugem. Bodite pozorni, saj `diff -r` deluje za celotne direktorije. Uporabite `diff -r tree1 tree2 | diffstat` za povzetek sprememb. Uporabite `vimdiff` za primerjanje in urejanje datotek.
 
-- Pri binarnih datotekah uporabite `hd` za enostavne heksadecimalne izpise in `bvi` za binarno urejanje.
+- Pri binarnih datotekah uporabite `hd`, `hexdump` ali `xxd` za enostavne heksadecimalne izpise in `bvi` ali `biew` za binarno urejanje.
 
 - `strings` (plus `grep` itd.) vam omogoča najti bite v tekstu tudi za binarne datoteke.
 
@@ -222,6 +243,8 @@ Opombe:
 
 - Da razcepite datoteke na dele, glejte `split` (da razcepite po velikosti) in `csplit` (da razcepite po vzorcu).
 
+- Za manipuliranje izrazov datuma in časa, uporabite `dateadd`, `datediff`, `strptime` itd. iz [`dateutils`](http://www.fresse.org/dateutils).
+
 - Uporabite `zless`, `zmore`, `zcat` in `zgrep` za operiranje na kompresiranih datotekah.
 
 
@@ -229,9 +252,11 @@ Opombe:
 
 - Za spletno razhroščevanje, sta priročna `curl` in `curl -I` ali pa njun ekvivalent `wget`, ali bolj moderen [`httpie`](https://github.com/jakubroztocil/httpie).
 
-- Da izveste status diska/procesorja/omrežja, uporabite `iostat`, `netstat`, `top` (ali bolje `htop`) in (posebno) `dstat`. Dobro za dobiti hitro idejo, kaj se dogaja na sistemu.
+- Da izveste trenutni status diska/procesorja/omrežja, so na voljo klasična orodja `top`, (ali bolje `htop`), `iostat` in `iotop` . Uporabite `iostat -mxz 15` za osnovno statistiko CPU in podrobno na particijo statistiko diska in vpogled v uspešnost.
 
-- Za hiter podrobnejši pregled sistema uporabite [`glances`](https://github.com/nicolargo/glances). Predstavi vam nekaj statistik nivoja sistema v enem oknu terminala. Zelo uporabno za hitro preverjanje na različnih podsistemih.
+- Za podrobnosti omrežne povezave uporabite `netstat` in `ss`.
+
+- Za hiter pregled, kaj se dogaja na sistemu, je `dstat` posebno uporaben. Za širši pregled s podrobnostmi uporabite [`glances`](https://github.com/nicolargo/glances).
 
 - Da izveste status spomina, poženite in razumite izpis `free` in `vmstat`. Še posebej bodite pozorni, da je vrednost "cached" držana v spominu s strani jedra Linux-a kot datoteka predpomnilnika, tako da efektivno šteje proti vrednosti "free".
 
@@ -275,7 +300,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Uporabite `grep . *`, da vizualno preučite vse vsebine vseh datotek v direktoriju, npr. za direktorije napolnjene s konfiguracijskimi nastavitvami, kot so `/sys`, `/proc`, `/etc`.
+- Uporabite `grep . *`, da hitro preučite vsebine vseh datotek v direktoriju (vsaka vrstica ima par z imenom datoteke) ali `head -100 *` (da iima vsaka datoteka glavo). To je lahko uporabno za direktorije napolnjene s konfiguracijskimi nastavitvami, kot so tiste v `/sys`, `/proc`, `/etc`.
 
 
 - Povzetje vseh številk v tretjem stolpcu tekstovne datoteke (to je verjetno 3X hitrejše in 3X manj kode kot Python-ov ekvivalent):
@@ -292,6 +317,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
+
+- Da neprekinjeno nadzirate spremembe, uporabite `watch`, npr. preverite spremembe datotek v direktoriju z `watch -d -n 2 'ls -rtlh | tail'` ali med odpravljanjem težav vaših nastavitev wifi z `watch -d -n 2 ifconfig`.
 
 - Poženite to funkcijo, da dobite naključni nasvet iz tega dokumenta (razčleni Markdown in izvleče element):
 ```sh
@@ -329,7 +356,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `fold`: ovije vrstice teksta
 
-- `column`: oblikuje tekst v stolpce ali tabele
+- `column`: oblikuje tekstovna polja v poravnane stolpce s fiksno širino ali tabele
 
 - `expand` in `unexpand`: pretvori med tabulatorji in presledki
 
@@ -361,6 +388,12 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `time`: izvrši in da ukaz v čas
 
+- `lockfile`: ustvari semaforno datoteko, ki je lahko odstranjena samo z `rm -f`
+
+- `logrotate`: rotiranje, kompresiranje in pošiljanje dnevnikov po e-pošti.
+
+- `watch`: večkrat požene ukaz in prikazuje rezultate in/ali poudari spremembe
+
 - `tac`: izpiše datoteke v obratnem redu
 
 - `shuf`: naključna izbira vrstic iz datoteke
@@ -369,7 +402,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `pv`: nadzira napredek podatkov skozi cev
 
-- `hd` in `bvi`: izvrže ali uredi binarne datoteke
+- `hd`, `hexdump`, `xxd`, `biew` in `bvi`: izvrže ali uredi binarne datoteke
 
 - `strings`: izvleče tekst iz binarnih datotek
 
@@ -382,6 +415,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
 - `sponge`: prebere vse vnose pred pisanjem, uporabno za branje iz njih in nato za pisanje v isto datoteko, npr. `grep -v something some-file | sponge some-file`
 
 - `units`: pretvorba enot in kalkulacije; pretvori furlonge (osmino milje) na štirinajst dni v dvajsetine točke na blink (glejte tudi `/usr/share/units/definitions.units`)
+
+- `apg`: generira naključna gesla
 
 - `7z`: kompresija datoteke visokega razmerja
 
@@ -456,17 +491,24 @@ To so elementi pomembni *samo* za MacOS.
 
 - Kopirajte izpis katerega koli ukaza na namizno aplikacijo s `pbcopy` in prilepite vnos iz ene s `pbpaste`.
 
+- Da omogočite uporabo topke Option v Mac OS Terminalu kot tipka alt (kot je uporabljena v ukazih zgoraj kot **alt-b**, **alt-f** itd), odprite Preferences -> Profiles -> Keyboard in izberite "Use Option as Meta key".
+
 - Da odprete datoteko z namizno aplikacijo, uporabite `open` ali `open -a /Applications/Whatever.app`.
 
 - Spotlight: Poiščite datoteke z `mdfind` in izpišite meta podatke (kot so EXIF informacije fotografije) z `mdls`.
 
 - Bodite pozorni, saj je MacOS osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
 
+- Da dobite informacije o izdaji MacOS, uporabite `sw_vers`.
+
 
 ## Več virov
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): urejan seznam orodij lupine in virov.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Bolj poglobljen vodič za Mac OS ukazno vrstico.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
+- [shellcheck](https://github.com/koalaman/shellcheck): lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Na žalost kompleksne podrobnosti, kako pravilno ravnati z imeni datotek v lupinskih skriptah.
 
 
 ## Pogoji uporabe
