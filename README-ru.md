@@ -1,4 +1,6 @@
-[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md) ]
+[ Languages:
+[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md)
+]
 
 
 # Искусство командной строки
@@ -12,7 +14,7 @@
 - [Системный дебаггинг](#Системный-дебаггинг)
 - [В одну строчку](#В-одну-строчку)
 - [Сложно, но полезно](#Сложно-но-полезно)
-- [MacOS X only](#Macos-x-only)
+- [MacOS X only](#macos-x-only)
 - [Больше информации по теме](#Больше-информации-по-теме)
 - [Дисклеймер](#Дисклеймер)
 
