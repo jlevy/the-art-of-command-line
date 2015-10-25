@@ -78,7 +78,7 @@ Contributors are listed in alphabetical order by GitHub login.
 * [Alex F. (youmee)](https://github.com/youmee) — [1+](https://github.com/jlevy/the-art-of-command-line/commits?author=youmee)/[1+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Ayoumee)
 * [Zack Piper (zackp30)](https://github.com/zackp30) — [2+](https://github.com/jlevy/the-art-of-command-line/commits?author=zackp30)/[1+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Azackp30)
 * [Xudong Zhang (zxdvd)](https://github.com/zxdvd) — [1+](https://github.com/jlevy/the-art-of-command-line/commits?author=zxdvd)/[1+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Azxdvd)
-* [Stepan Babala (stepan0904)](https://github.com/stepan0904) — [1+](https://github.com/jlevy/the-art-of-command-line/commits?author=stepan0904)/[1+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Astepan0904) — _translator (ua)_
+* [Stepan Babala (stepan0904)](https://github.com/stepan0904) — [1+](https://github.com/jlevy/the-art-of-command-line/commits?author=stepan0904)/[0](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Astepan0904) — _translator (ua)_
 
 Numbers link to commits/issues.
 For simplicity, this file is maintained only in English.
