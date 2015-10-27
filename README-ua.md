@@ -337,3 +337,8 @@
 Той факт, що щось може бути написано на Bash, зовсім не означає, що воно має бути на ньому написано. ;)
 
 
+## Лицензія
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+
+Ця работа і переклад на Українську мову розповсюджується за ліцензією [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
