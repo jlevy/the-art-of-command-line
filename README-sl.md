@@ -1,5 +1,5 @@
 [ Languages:
-[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md)
+[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md), [Українська](README-ua.md)
 ]
 
 
@@ -21,13 +21,14 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Jedrnatost v ukazni vrstici je znanje, ki je pogostokrat zanemarjeno ali smatrano za zastarelo, vendar izboljša vašo fleksibilnost in produktivnost kot inženir na očitne in neočitne načine. To so izbrani zapiski in nasveti glede uporabe ukazne vrstice, ki sem jo našel uporabno pri delu z Linux-om. Nekateri nasveti so elementarni in nekateri so precej določeni, sofisticirani ali nepregledni. Ta stran ni dolga, vendar če lahko uporabite in se spomnite vseh elementov tu, boste vedeli veliko.
+Jedrnatost v ukazni vrstici je znanje, ki je pogostokrat zanemarjeno ali smatrano za zastarelo, vendar izboljša vašo fleksibilnost in produktivnost kot inženir na očitne in neočitne načine. To so izbrani zapiski in nasveti glede uporabe ukazne vrstice, ki smo jo našli uporabno pri delu z Linux-om. Nekateri nasveti so elementarni in nekateri so precej določeni, sofisticirani ali nepregledni. Ta stran ni dolga, vendar če lahko uporabite in se spomnite vseh elementov tu, boste vedeli veliko.
 
+To delo je rezultat [mnogih avtorjev in prevajalcev](AUTHORS.md).
 Veliko tega
 se [prvotno](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [pojavi](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 na [Quori](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-vendar glede na dani interes tu, izgleda vredno uporabe GitHub-a, kjer ljudje bolj talentirani kot jaz lahko bralno predlagajo izboljšave. Če opazite napako ali nekaj, kar je lahko bolje, prosim, pošljite težavo ali zahtevek potega (PR)! (Seveda, prosim preglejte meta sekcijo in obstoječe težave/zahtevke potega najprej.)
+vendar glede na dani interes tu, izgleda vredno uporabe GitHub-a, kjer lahko ljudje bolj talentirani od prvotnega avtorja takoj predlagajo izboljšave. Če opazite napako ali nekaj, kar je lahko bolje, prosim, pošljite težavo ali zahtevek potega (PR)! (Seveda, prosim preglejte meta sekcijo in obstoječe težave/zahtevke potega najprej.)
 
 
 ## Meta
@@ -216,6 +217,11 @@ Opombe:
       repren --full --preserve-case --from foo --to bar .
 ```
 
+- Kot pravi stran vodiča, je `rsync` resnično hiter in izredno vsestransko orodje kopiranja datotek. Znano je po sinhronizaciji med napravami vendar je enakovredno uporaben tudi lokalno. Je tudi eden izmed [najhitrejših načinov](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) za izbris velikega števila datotek:
+```sh
+mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
+```
+
 - Uporabite `shuf` za naključno mešanje ali izbiro naključnih vrstic iz datoteke.
 
 - Poznajte opcije za `sort`. Za številke uporabite `-n` ali `-h` za upravljanje številk človeku prijaznih za branje (npr. iz `du -h`). Vedite, kako delujejo ključi (`-t` in `-k`). Še posebej pazite, da morate zapisati `-k1,1`, da razvrstite samo po prvem polju; `-k1` pomeni razvrščanje glede na celotno vrstico. Stabilno razvrščanje (`sort -s`) je lahko uporabno. Na primer, da sortirate najprej po polju 2 in nato po polju 1, lahko uporabite `sort -k1,1 | sort -s -k2,2`.
@@ -224,7 +230,7 @@ Opombe:
 
 - Standardna orodja za popravljanje izvorne kode so `diff` in `patch`. Glejte tudi `diffstat` za povzetek statistike diff-a in `sdiff` za diff drug ob drugem. Bodite pozorni, saj `diff -r` deluje za celotne direktorije. Uporabite `diff -r tree1 tree2 | diffstat` za povzetek sprememb. Uporabite `vimdiff` za primerjanje in urejanje datotek.
 
-- Pri binarnih datotekah uporabite `hd` za enostavne heksadecimalne izpise in `bvi` za binarno urejanje.
+- Pri binarnih datotekah uporabite `hd`, `hexdump` ali `xxd` za enostavne heksadecimalne izpise in `bvi` ali `biew` za binarno urejanje.
 
 - `strings` (plus `grep` itd.) vam omogoča najti bite v tekstu tudi za binarne datoteke.
 
@@ -294,7 +300,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Uporabite `grep . *`, da vizualno preučite vse vsebine vseh datotek v direktoriju, npr. za direktorije napolnjene s konfiguracijskimi nastavitvami, kot so `/sys`, `/proc`, `/etc`.
+- Uporabite `grep . *`, da hitro preučite vsebine vseh datotek v direktoriju (vsaka vrstica ima par z imenom datoteke) ali `head -100 *` (da iima vsaka datoteka glavo). To je lahko uporabno za direktorije napolnjene s konfiguracijskimi nastavitvami, kot so tiste v `/sys`, `/proc`, `/etc`.
 
 
 - Povzetje vseh številk v tretjem stolpcu tekstovne datoteke (to je verjetno 3X hitrejše in 3X manj kode kot Python-ov ekvivalent):
@@ -396,7 +402,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `pv`: nadzira napredek podatkov skozi cev
 
-- `hd` in `bvi`: izvrže ali uredi binarne datoteke
+- `hd`, `hexdump`, `xxd`, `biew` in `bvi`: izvrže ali uredi binarne datoteke
 
 - `strings`: izvleče tekst iz binarnih datotek
 
@@ -493,10 +499,13 @@ To so elementi pomembni *samo* za MacOS.
 
 - Bodite pozorni, saj je MacOS osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
 
+- Da dobite informacije o izdaji MacOS, uporabite `sw_vers`.
+
 
 ## Več virov
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): urejan seznam orodij lupine in virov.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Bolj poglobljen vodič za Mac OS ukazno vrstico.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
 - [shellcheck](https://github.com/koalaman/shellcheck): lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Na žalost kompleksne podrobnosti, kako pravilno ravnati z imeni datotek v lupinskih skriptah.
