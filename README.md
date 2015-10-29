@@ -386,6 +386,8 @@ A few examples of piecing together commands:
 
 - `time`: execute and time a command
 
+- `timeout`: execute a command for specified amount of time and stop the process when the specified amount of time completes.
+
 - `lockfile`: create semaphore file that can only be removed by `rm -f`
 
 - `logrotate`: rotate, compress and mail logs.
