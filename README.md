@@ -207,11 +207,13 @@ Notes:
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files and/or search and search and replace within files, try [`repren`](https://github.com/jlevy/repren). The `rename` command also does renames on some Linux distributions (but it is less consistently available).
+- To rename multiple files and/or search and replace within files, try [`repren`](https://github.com/jlevy/repren). (In some cases the `rename` command also allows multiple renames, but be careful as its functionality is not the same on all Linux distributions.)
 ```sh
       # Full rename of filenames, directories, and contents foo -> bar:
       repren --full --preserve-case --from foo --to bar .
-      # Recover backup files foo.bak -> foo:
+      # Recover backup files whatever.bak -> whatever:
+      repren --renames --from '(.*)\.bak' --to '\1' *.bak
+      # Same as above, using rename, if available:
       rename 's/\.bak$//' *.bak
 ```
 
