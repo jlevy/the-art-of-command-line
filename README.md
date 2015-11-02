@@ -207,12 +207,12 @@ Notes:
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
+- To rename many files and/or search and search and replace within files, try [`repren`](https://github.com/jlevy/repren). The `rename` command also does renames on some Linux distributions (but it is less consistently available).
 ```sh
-      # Recover backup files foo.bak -> foo:
-      rename 's/\.bak$//' *.bak
       # Full rename of filenames, directories, and contents foo -> bar:
       repren --full --preserve-case --from foo --to bar .
+      # Recover backup files foo.bak -> foo:
+      rename 's/\.bak$//' *.bak
 ```
 
 - As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
