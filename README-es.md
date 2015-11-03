@@ -1,5 +1,5 @@
 [ Languages: 
-[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md) 
+[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md) 
 ]
 
 
@@ -208,12 +208,14 @@ Notas:
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- Para renombrar varios archivos a la vez de acuerdo a un patrón, usa `rename`. Para renombramientos complejos, [`repren`](https://github.com/jlevy/repren) puede ayudar.
+- Para renombrar multiples y/o buscar y remplazar dentro de archivos, intenta [`repren`](https://github.com/jlevy/repren). (En algunos casos el comando `rename` también permite multiples renombramientos, pero sea cuidadoso ya que esta funcionalidad no es igual en todas las distribuciones de Linux.)
 ```sh
-      # Recuperar archivos de respaldo foo.bak -> foo:
-      rename 's/\.bak$//' *.bak
       # Renombramiento completo de archivos, carpetas y contenidos foo -> bar:
       repren --full --preserve-case --from foo --to bar .
+      # Recuperar archivos de respaldo cualquier.bak -> cualquier:
+      repren --renames --from '.*)\.bak' --to '\1' *.bak
+      # Igual que arriba, utilizando rename, si esta disponible:
+      rename 's/\.bak$//' *.bak
 ```
 
 - Como dice la página de man, `rsync` es una muy rápida y extraordinariamente versatil herramienta de copiado. Esta se conoce por la sincronización entre máquinas pero es igualmente útil localmente. Esta también se encuentra entre las [formas más rápidas](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) para borrar un gran número de archivos:
@@ -386,6 +388,8 @@ Algunos ejemplos de comandos reunidos:
 - `stat`: información del archivo
 
 - `time`: ejecuta y calcula el tiempo de ejecución de un comando
+
+- `timeout`: ejecuta un comando especificando una cantidad de tiempo y deteniendo el proceso cuando la cantidad de tiempo especificado se completa.
 
 - `lockfile`: crea un archivo semáforo que puedes solo ser removido con `rm -f`
 
