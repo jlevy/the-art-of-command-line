@@ -475,13 +475,15 @@
 
 - 用 `pbcopy` 复制任何命令的输出到桌面应用，用 `pbpaste` 粘贴输入。
 
-- 在终端中将 Option 键视为 alt 键，Preferences -> Profiles -> Keyboard 勾选上 "Use Option as Meta key"。
+- 若要在 Mac OS 终端中将 Option 键视为 alt 键（例如在上面介绍的 **alt-b**, **alt-f** 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
 
 - 用 `open` 或者 `open -a /Applications/Whatever.app` 使用桌面应用打开文件。
 
 - Spotlight： 用 `mdfind` 搜索文件，用 `mdls` 列出元数据（例如照片的 EXIF 信息）。
 
 - 注意 MacOS 系统是基于 BSD UNIX 的，许多命令（例如 `ps`，`ls`，`tail`，`awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
+
+- 用 `sw_vers` 获取 MacOS 的版本信息。
 
 
 ## 更多资源
