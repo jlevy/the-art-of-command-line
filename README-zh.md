@@ -6,6 +6,7 @@
 # 命令行的艺术
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 - [必读](#必读)
 - [基础](#基础)
 - [日常使用](#日常使用)
@@ -23,7 +24,7 @@
 
 熟练使用命令行是一种常常被忽视或被认为难以掌握的技能，但实际上，它可以提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时发现的一些关于命令行的使用的小技巧的摘要。有些小技巧是非常基础的，而另外一些则是相当复杂的甚至晦涩难懂的。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
 
-这里的大部分内容
+这篇文章是[许多作者和译者](AUTHORS.md)共同的成果。这里的大部分内容
 [首次](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [出现](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，但考虑到这里的人们都具有学习的天赋且乐于接受别人的建议，使用 Github 来做这件事是更佳的选择。如果你在本文中发现了错误或者存在可以改善的地方，请果断提交 Issue 或 Pull Request！(当然在提交前请看一下必读节和已有的 PR/issue）。
