@@ -487,9 +487,10 @@
 ## 更多资源
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell)：一份精心组织的命令行工具及资源的列表。
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)：为了编写更好的脚本文件。.
-- [shellcheck](https://github.com/koalaman/shellcheck)：一个 shell 脚本分析工具，基本上等同于 bash／sh／zsh 的 lint。
-- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)：在 shell 脚本里正确处理文件名的好工具。
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line)：一份针对 Mac OS 命令行的更深入的指南。
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)：为了编写更好的脚本文件。
+- [shellcheck](https://github.com/koalaman/shellcheck)：一个静态 shell 脚本分析工具，本质上是 bash／sh／zsh 的 lint。
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)：有关如何在 shell 脚本里正确处理文件名的细枝末节。
 
 
 ## 免责声明
