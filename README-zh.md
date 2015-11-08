@@ -175,13 +175,15 @@
 
 - 使用 [`ag`](https://github.com/ggreer/the_silver_searcher) 在源代码或数据文件里检索（比 `grep -r` 更好）。
 
-- 将HTML转为文本：`lynx -dump -stdin`
+- 将 HTML 转为文本：`lynx -dump -stdin`
 
 - Markdown，HTML，以及所有文档格式之间的转换，试试 [`pandoc`](http://pandoc.org/)。
 
 - 如果你不得不处理 XML，`xmlstarlet` 宝刀未老。
 
 - 使用 [`jq`](http://stedolan.github.io/jq/) 处理 JSON。
+
+- 使用 [`shyaml`](https://github.com/0k/shyaml) 处理 YAML。
 
 - Excel 或 CSV 文件的处理，[csvkit](https://github.com/onyxfish/csvkit) 提供了 `in2csv`，`csvcut`，`csvjoin`，`csvgrep` 等工具。
 
@@ -204,12 +206,19 @@
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- 依据某种模式批量重命名多个文件，使用 `rename`。对于复杂的重命名规则，[`repren`](https://github.com/jlevy/repren) 或许有帮助。
+- 使用 [`repren`](https://github.com/jlevy/repren) 来批量重命名，或是在多个文件中搜索替换。（有些时候 `rename` 命令也可以批量重命名，但要注意，它在不同 Linux 发行版中的功能并不完全一样。）
 ```sh
-      # Recover backup files foo.bak -> foo:
-      rename 's/\.bak$//' *.bak
-      # Full rename of filenames，directories，and contents foo -> bar:
+      # Full rename of filenames, directories, and contents foo -> bar:
       repren --full --preserve-case --from foo --to bar .
+      # Recover backup files whatever.bak -> whatever:
+      repren --renames --from '(.*)\.bak' --to '\1' *.bak
+      # Same as above, using rename, if available:
+      rename 's/\.bak$//' *.bak
+```
+
+- 根据 man 页面的描述，`rsync` 真的是一个快速且非常灵活的文件复制工具。它通常被用于机器间的同步，但在本地也同样有用。它同时也是删除大量文件的[最快方法](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html)之一：
+```sh
+mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
 - 使用 `shuf` 从一个文件中随机选取多行。
@@ -222,7 +231,7 @@
 
 - 对于二进制文件，使用 `hd` 使其以十六进制显示以及使用 `bvi` 来编辑二进制。
 
-- 同样对于二进制文件，使用 `strings`（包括 `grep` 等等）允许你查找一些文本。
+- 同样对于二进制文件，`strings`（包括 `grep` 等等）允许你查找一些文本。
 
 - 二进制文件对比（Delta 压缩），使用 `xdelta3`。
 
@@ -233,7 +242,9 @@
 
 - 拆分文件，查看 `split`（按大小拆分）和 `csplit`（按模式拆分）。
 
-- 使用 `zless`，`zmore`，`zcat` 和 `zgrep`对压缩过的文件进行操作。
+- 用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`, `datediff`, `strptime` 等工具操作日期和时间表达式。
+
+- 使用 `zless`，`zmore`，`zcat` 和 `zgrep` 对压缩过的文件进行操作。
 
 
 ## 系统调试
