@@ -72,7 +72,7 @@
 
 ## 日常使用
 
-- 在 Bash 中，可以使用 **Tab** 自动补全参数，使用 **ctrl-r** 搜索命令行历史。
+- 在 Bash 中，可以使用 **Tab** 自动补全参数，使用 **ctrl-r** 搜索命令行历史（在按下之后，键入便可以搜索，重复按下 **ctrl-r** 会在更多匹配中循环，按下 **Enter** 会执行找到的命令，按下右方向键会将结果放入当前行中，使你可以进行编辑）。
 
 - 在 Bash 中，可以使用 **ctrl-w** 删除你键入的最后一个单词，使用 **ctrl-u** 删除整行，使用 **alt-b** 和 **alt-f** 以单词为单位移动光标，使用 **ctrl-a** 将光标移至行首，使用 **ctrl-e** 将光标移至行尾，使用 **ctrl-k** 删除光标至行尾的所有内容，使用 **ctrl-l** 清屏。键入 `man readline` 查看 Bash 中的默认快捷键，内容很多。例如 **alt-.** 循环地移向前一个参数，以及 **alt-*** 展开通配符。
 
@@ -106,7 +106,7 @@
 
 - 使用 `uptime` 或 `w` 来查看系统已经运行多长时间。
 
-- 使用`alias`来创建常用命令的快捷形式。例如：`alias ll='ls -latr'`使你可以方便地执行`ls -latr`命令。
+- 使用 `alias` 来创建常用命令的快捷形式。例如：`alias ll='ls -latr'` 使你可以方便地执行`ls -latr`命令。
 
 - 在 Bash 脚本中，使用 `set -x` 去调试输出，尽可能的使用严格模式，使用 `set -e` 令脚本在发生错误时退出而不是继续运行，使用 `set -u` 来检查是否使用了未赋值的变量，使用 `set -o pipefail` 严谨地对待错误（尽管问题可能很微妙）。当牵扯到很多脚本时，使用 `trap`。一个好的习惯是在脚本文件开头这样写，这会使它检测一些错误，并在错误发生时中断程序并输出信息：
 ```bash
@@ -114,16 +114,16 @@
       trap "echo 'error: Script failed: see failed command above'" ERR
 ```
 
-- 在 Bash 脚本中，子 shell（使用括号`(...)`）是一种便捷的方式去组织参数。一个常见的例子是临时地移动工作路径，代码如下：
+- 在 Bash 脚本中，子 shell（使用括号 `(...)`）是一种组织参数的便捷方式。一个常见的例子是临时地移动工作路径，代码如下：
 ```bash
       # do something in current dir
       (cd /some/other/dir && other-command)
       # continue in original dir
 ```
 
-- 在 Bash 中，注意到其中有许多形式的扩展。检查变量是否存在：`${name:?error message}`。例如，当 Bash 脚本需要一个参数时，可以使用这样的代码 `input_file=${1:?usage: $0 input_file}`。数学表达式：`i=$(( (i + 1) % 5 ))`。序列：`{1..10}`。 截断字符串：`${var%suffix}` 和 `${var#prefix}`。例如，假设 `var=foo.pdf`，那么 `echo ${var%.pdf}.txt` 将输出 `foo.txt`。
+- 在 Bash 中，要注意其中有许多形式的扩展。检查变量是否存在：`${name:?error message}`。例如，当 Bash 脚本需要一个参数时，可以使用这样的代码 `input_file=${1:?usage: $0 input_file}`。数学表达式：`i=$(( (i + 1) % 5 ))`。序列：`{1..10}`。截断字符串：`${var%suffix}` 和 `${var#prefix}`。例如，假设 `var=foo.pdf`，那么 `echo ${var%.pdf}.txt` 将输出 `foo.txt`。
 
-- 使用括号扩展（`{`...`}`）可以减少不必要的重复输入相似文本以及文本组合。
+- 使用括号扩展（`{`...`}`）来减少输入相似文本，并自动化文本组合。这在某些情况下会很有用，例如 `mv foo.{txt,pdf} some-dir`（同时移动两个文件），`cp somefile{,.bak}`（会被扩展成 `cp somefile somefile.bak`）或者 `mkdir -p test-{a,b,c}/subtest-{1,2,3}`（会被扩展成所有可能的组合，并创建一个目录树）。
 
 - 通过使用 `<(some command)` 可以将输出视为文件。例如，对比本地文件 `/etc/hosts` 和一个远程文件：
 ```sh
