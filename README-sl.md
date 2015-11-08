@@ -1,6 +1,4 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
+[ Languages: [English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md) ]
 
 
 # Umetnost ukazne vrstice
@@ -209,12 +207,14 @@ Opombe:
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- Da preimenujete mnoge datoteke naenkrat glede na vzorec, uporabite `rename`. Za kompleksna preimenovanja lahko pomaga [`repren`](https://github.com/jlevy/repren).
+- Da preimenujete več datotek in/ali poiščete in poiščete in zamenjate znotraj datotek, poskusite [`repren`](https://github.com/jlevy/repren). (V nekaterih primerih ukaz `rename` tudi omogoča preimenovanje, vendar bodite pozorni, saj funkcionalnost ni enaka na vseh distribucijah Linux).
 ```sh
-      # Recover backup files foo.bak -> foo:
-      rename 's/\.bak$//' *.bak
       # Full rename of filenames, directories, and contents foo -> bar:
       repren --full --preserve-case --from foo --to bar .
+      # Recover backup files whatever.bak -> whatever:
+      repren --renames --from '(.*)\.bak' --to '\1' *.bak
+      # Same as above, using rename, if available:
+      rename 's/\.bak$//' *.bak
 ```
 
 - Kot pravi stran vodiča, je `rsync` resnično hiter in izredno vsestransko orodje kopiranja datotek. Znano je po sinhronizaciji med napravami vendar je enakovredno uporaben tudi lokalno. Je tudi eden izmed [najhitrejših načinov](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) za izbris velikega števila datotek:
@@ -243,14 +243,14 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Da razcepite datoteke na dele, glejte `split` (da razcepite po velikosti) in `csplit` (da razcepite po vzorcu).
 
-- Za manipuliranje izrazov datuma in časa, uporabite `dateadd`, `datediff`, `strptime` itd. iz [`dateutils`](http://www.fresse.org/dateutils).
+- Za manipuliranje izrazov datuma in časa, uporabite `dateadd`, `datediff`, `strptime` itd. iz [`dateutils`](http://www.fresse.org/dateutils/).
 
 - Uporabite `zless`, `zmore`, `zcat` in `zgrep` za operiranje na kompresiranih datotekah.
 
 
 ## Sistemsko razhroščevanje
 
-- Za spletno razhroščevanje, sta priročna `curl` in `curl -I` ali pa njun ekvivalent `wget`, ali bolj moderen [`httpie`](https://github.com/jakubroztocil/httpie).
+- Za spletno razhroščevanje, sta priročna `curl` in `curl -I` ali pa njun ekvivalent `wget`, ali bolj moderen [`httpie`](https://github.com/jkbrzt/httpie).
 
 - Da izveste trenutni status diska/procesorja/omrežja, so na voljo klasična orodja `top`, (ali bolje `htop`), `iostat` in `iotop` . Uporabite `iostat -mxz 15` za osnovno statistiko CPU in podrobno na particijo statistiko diska in vpogled v uspešnost.
 
@@ -282,7 +282,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, je lahko zelo uporaben `sar`. Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
 
-- Za globlje analize sistema in uspešnosti, poglejte `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)) in [`sysdig`](https://github.com/draios/sysdig).
+- Za globlje analize sistema in uspešnosti, poglejte `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)) in [`sysdig`](https://github.com/draios/sysdig).
 
 - Preverite na katerem operacijskem sistemu ste z `uname` ali `uname -a` (splošne informacije Unix-a/jedra) ali `lsb_release -a` (informacije distribucuje Linux).
 
@@ -387,6 +387,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
 - `stat`: informacije datoteke
 
 - `time`: izvrši in da ukaz v čas
+
+- `timeout`: izvršite ukaz za določen čas in ustavite proces, ko se določen čas konča.
 
 - `lockfile`: ustvari semaforno datoteko, ki je lahko odstranjena samo z `rm -f`
 
