@@ -208,12 +208,14 @@ Notas:
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- Para renombrar varios archivos a la vez de acuerdo a un patrón, usa `rename`. Para renombramientos complejos, [`repren`](https://github.com/jlevy/repren) puede ayudar.
+- Para renombrar multiples y/o buscar y remplazar dentro de archivos, intenta [`repren`](https://github.com/jlevy/repren). (En algunos casos el comando `rename` también permite multiples renombramientos, pero sea cuidadoso ya que esta funcionalidad no es igual en todas las distribuciones de Linux.)
 ```sh
-      # Recuperar archivos de respaldo foo.bak -> foo:
-      rename 's/\.bak$//' *.bak
       # Renombramiento completo de archivos, carpetas y contenidos foo -> bar:
       repren --full --preserve-case --from foo --to bar .
+      # Recuperar archivos de respaldo cualquier.bak -> cualquier:
+      repren --renames --from '.*)\.bak' --to '\1' *.bak
+      # Igual que arriba, utilizando rename, si esta disponible:
+      rename 's/\.bak$//' *.bak
 ```
 
 - Como dice la página de man, `rsync` es una muy rápida y extraordinariamente versatil herramienta de copiado. Esta se conoce por la sincronización entre máquinas pero es igualmente útil localmente. Esta también se encuentra entre las [formas más rápidas](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) para borrar un gran número de archivos:
@@ -242,14 +244,14 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Para dividir archivos en múltiples partes, consulta `split` (para dividir por tamaño) y `csplit` (para dividir por un patrón).
 
-- Para manipular expresiones de fecha y tiempo, usa `dateadd`, `datediff`, `strptime` etc. de [`dateutils`](http://www.fresse.org/dateutils).
+- Para manipular expresiones de fecha y tiempo, usa `dateadd`, `datediff`, `strptime` etc. de [`dateutils`](http://www.fresse.org/dateutils/).
 
 - Usa `zless`, `zmore`, `zcat`, y `zgrep` para operar sobre archivos comprimidos.
 
 
 ## Depuración del sistema
 
-- Para depuración web, `curl` y `curl -I` son prácticos, o como sus equivalentes `wget`, o el más moderno [`httpie`](https://github.com/jakubroztocil/httpie).
+- Para depuración web, `curl` y `curl -I` son prácticos, o como sus equivalentes `wget`, o el más moderno [`httpie`](https://github.com/jkbrzt/httpie).
 
 - Para conocer el estado del cpu/disco, las clásicas herramientas son `top` (o mejor `htop`), `iostat`, y `iotop`. Usa `iostat -mxz 15` para CPU básicas y estadísticas detalladas y visión de rendimiento por partición del disco. 
 
@@ -281,7 +283,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Cuando se depura porque algo salió mal en el pasado, `sar` puede ser muy útil. Este muestra la estadística histórica en CPU, memoria, red, etc.
 
-- Para sistemas y análisis de rendimiento de mayor profundidad, examina `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
+- Para sistemas y análisis de rendimiento de mayor profundidad, examina `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
 
 - Comprueba en que OS se encuentra con `uname` o `uname -a` (información general en Unix/kernel) o `lsb_release -a` (información en Linux distro).
 
@@ -386,6 +388,8 @@ Algunos ejemplos de comandos reunidos:
 - `stat`: información del archivo
 
 - `time`: ejecuta y calcula el tiempo de ejecución de un comando
+
+- `timeout`: ejecuta un comando especificando una cantidad de tiempo y deteniendo el proceso cuando la cantidad de tiempo especificado se completa.
 
 - `lockfile`: crea un archivo semáforo que puedes solo ser removido con `rm -f`
 
