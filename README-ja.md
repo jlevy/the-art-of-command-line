@@ -1,5 +1,5 @@
 [ Languages:
-[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md)
+[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
 ]
 
 原文のコミット [bb0c38c0899339e836c37eead4a9534b06c56662](https://github.com/jlevy/the-art-of-command-line/blob/bb0c38c0899339e836c37eead4a9534b06c56662/README.md)
@@ -20,21 +20,21 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/cowsay.png)
 
-コマンドラインで流れるように操作ができるということは、軽く見られたり他人から理解されないスキルだとみなされることもあるでしょう。しかしそのスキルは、明らかにかすぐ分かるようかは問わず、エンジニアとしてのあなたの柔軟性や生産性を改善してくれるものです。ここでは、Linuxでコマンドラインを使う上で便利だと思ったメモやTipsの数々を挙げてみます。あるものは基礎的ですが、非常に詳しいもの、洗練されたもの、曖昧なものもあります。このページはそんなに長いものではないですが、ここに書いてあることの全てを使ったり思い出すことができれば、かなり詳しくなれるでしょう。
+コマンドラインで流れるように操作ができるということは、軽く見られたり他人から理解されないスキルだとみなされることもあるだろう。しかしそのスキルは、明らかにかすぐ分かるようかは問わず、エンジニアとしてのあなたの柔軟性や生産性を改善してくれるものだ。ここでは、Linuxでコマンドラインを使う上で便利だと思ったメモやTipsの数々を挙げてみる。あるものは基礎的だが、非常に詳しいもの、洗練されたもの、曖昧なものもある。このページはそんなに長いものではないが、ここに書いてあることの全てを使ったり思い出すことができれば、かなり詳しくなれるだろう。
 
-ここに書いてあることの多くは、[元々](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)[Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)に[書かれて](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)いたものが多いですが、私よりももっと優れた人たちがすぐに改善案を出すことができるGithubに置くのがよいのではと思ったのです(訳注 : 原文はGithub上にあります)。間違いやもっとこうした方がよいという点があれば、イシューを登録するかプルリクエストをください！(もちろん、メタ情報の項や既存のプルリクエスト、イシューをまず確認してください)
+ここに書いてあることの多くは、[元々](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)[Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)に[書かれて](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)いたものが多いが、私よりももっと優れた人たちがすぐに改善案を出すことができるGithubに置くのがよいのではと思った(訳注 : 原文はGithub上にある)。間違いやもっとこうした方がよいという点があれば、イシューを登録するかプルリクエストを送ってほしい！(もちろん、メタ情報の項や既存のプルリクエスト、イシューをまず確認しよう)
 
 ## メタ情報
 
 対象 :
 
-- このガイドは、初心者向けでも経験者向きでもあります。幅広く(書いてあることは全て重要)、かつ明確で(多くのケースに対して具体的な例を付ける)、そして簡潔(他の場所で見つけられるような重要でないことや脱線したことは省く)であることをゴールにしています。各項目は、多くの場面において必須であるか、他の方法に比べて劇的に時間を節約してくれるでしょう。
-- Linux向けに書いています。多くはMacOS(あるいはCygwin)でも使えますが、全部ではありません。
-- インタラクティブなBashを使うことを想定していますが、多くの項目は他のシェルやBashのスクリプトでも使えるでしょう。
+- このガイドは、初心者向けでも経験者向きでもある。幅広く(書いてあることは全て重要)、かつ明確で(多くのケースに対して具体的な例を付ける)、そして簡潔(他の場所で見つけられるような重要でないことや脱線したことは省く)であることをゴールにしている。各項目は、多くの場面において必須であるか、他の方法に比べて劇的に時間を節約してくれるだろう。
+- Linux向けに書いている。多くはMacOS(あるいはCygwin)でも使えるが、全部ではない。
+- インタラクティブなBashを使うことを想定しているが、多くの項目は他のシェルやBashのスクリプトでも使えるだろう。
 
 注意 :
 
-- 1ページ内に収めるために、内容には暗黙的に書かれていることがあります。ここで取りかかりを知ったりコマンドが分かれば、詳細をどこかで調べたりするくらいはできるでしょう。新しいプログラムをインストールするには、`apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew`(どれか適したもの)を使いましょう。
+- 1ページ内に収めるために、内容には暗黙的に書かれていることがある。ここで取りかかりを知ったりコマンドが分かれば、詳細をどこかで調べたりするくらいはできるだろう。新しいプログラムをインストールするには、`apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew`(どれか適したもの)を使おう。
 - コマンドやオプション、パイプを分解して理解する手助けに、[Explainshell](http://explainshell.com/)を使おう。
 
 ## 基本
@@ -447,10 +447,10 @@
 
 ## 免責事項
 
-ごく一部の例外はありますが、コードは誰でも読めるように書かれています。力には責任が伴います。Bashで*できる*からといって、そうすべき必要があるという意味ではありません！ ;)
+ごく一部の例外はありますが、コードは誰でも読めるように書かれている。力には責任が伴う。Bashで*できる*からといって、そうすべき必要があるという意味ではない！ ;)
 
 ## ライセンス
 
-[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/) 
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-このドキュメントは[Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/)でライセンスされます。
+このドキュメントは[Creative Commons Attribution-ShareAlike 4.0 International Licene](http://creativecommons.org/licenses/by-sa/4.0/)でライセンスされる。

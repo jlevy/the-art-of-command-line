@@ -1,5 +1,5 @@
 [ Languages:
-[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md)
+[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
 ]
 
 
@@ -21,13 +21,14 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Jedrnatost v ukazni vrstici je znanje, ki je pogostokrat zanemarjeno ali smatrano za zastarelo, vendar izboljša vašo fleksibilnost in produktivnost kot inženir na očitne in neočitne načine. To so izbrani zapiski in nasveti glede uporabe ukazne vrstice, ki sem jo našel uporabno pri delu z Linux-om. Nekateri nasveti so elementarni in nekateri so precej določeni, sofisticirani ali nepregledni. Ta stran ni dolga, vendar če lahko uporabite in se spomnite vseh elementov tu, boste vedeli veliko.
+Jedrnatost v ukazni vrstici je znanje, ki je pogostokrat zanemarjeno ali smatrano za zastarelo, vendar izboljša vašo fleksibilnost in produktivnost kot inženir na očitne in neočitne načine. To so izbrani zapiski in nasveti glede uporabe ukazne vrstice, ki smo jo našli uporabno pri delu z Linux-om. Nekateri nasveti so elementarni in nekateri so precej določeni, sofisticirani ali nepregledni. Ta stran ni dolga, vendar če lahko uporabite in se spomnite vseh elementov tu, boste vedeli veliko.
 
+To delo je rezultat [mnogih avtorjev in prevajalcev](AUTHORS.md).
 Veliko tega
 se [prvotno](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [pojavi](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 na [Quori](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-vendar glede na dani interes tu, izgleda vredno uporabe GitHub-a, kjer ljudje bolj talentirani kot jaz lahko bralno predlagajo izboljšave. Če opazite napako ali nekaj, kar je lahko bolje, prosim, pošljite težavo ali zahtevek potega (PR)! (Seveda, prosim preglejte meta sekcijo in obstoječe težave/zahtevke potega najprej.)
+vendar glede na dani interes tu, izgleda vredno uporabe GitHub-a, kjer lahko ljudje bolj talentirani od prvotnega avtorja takoj predlagajo izboljšave. Če opazite napako ali nekaj, kar je lahko bolje, prosim, pošljite težavo ali zahtevek potega (PR)! (Seveda, prosim preglejte meta sekcijo in obstoječe težave/zahtevke potega najprej.)
 
 
 ## Meta
@@ -208,12 +209,19 @@ Opombe:
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- Da preimenujete mnoge datoteke naenkrat glede na vzorec, uporabite `rename`. Za kompleksna preimenovanja lahko pomaga [`repren`](https://github.com/jlevy/repren).
+- Da preimenujete več datotek in/ali poiščete in poiščete in zamenjate znotraj datotek, poskusite [`repren`](https://github.com/jlevy/repren). (V nekaterih primerih ukaz `rename` tudi omogoča preimenovanje, vendar bodite pozorni, saj funkcionalnost ni enaka na vseh distribucijah Linux).
 ```sh
-      # Recover backup files foo.bak -> foo:
-      rename 's/\.bak$//' *.bak
       # Full rename of filenames, directories, and contents foo -> bar:
       repren --full --preserve-case --from foo --to bar .
+      # Recover backup files whatever.bak -> whatever:
+      repren --renames --from '(.*)\.bak' --to '\1' *.bak
+      # Same as above, using rename, if available:
+      rename 's/\.bak$//' *.bak
+```
+
+- Kot pravi stran vodiča, je `rsync` resnično hiter in izredno vsestransko orodje kopiranja datotek. Znano je po sinhronizaciji med napravami vendar je enakovredno uporaben tudi lokalno. Je tudi eden izmed [najhitrejših načinov](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) za izbris velikega števila datotek:
+```sh
+mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
 - Uporabite `shuf` za naključno mešanje ali izbiro naključnih vrstic iz datoteke.
@@ -224,7 +232,7 @@ Opombe:
 
 - Standardna orodja za popravljanje izvorne kode so `diff` in `patch`. Glejte tudi `diffstat` za povzetek statistike diff-a in `sdiff` za diff drug ob drugem. Bodite pozorni, saj `diff -r` deluje za celotne direktorije. Uporabite `diff -r tree1 tree2 | diffstat` za povzetek sprememb. Uporabite `vimdiff` za primerjanje in urejanje datotek.
 
-- Pri binarnih datotekah uporabite `hd` za enostavne heksadecimalne izpise in `bvi` za binarno urejanje.
+- Pri binarnih datotekah uporabite `hd`, `hexdump` ali `xxd` za enostavne heksadecimalne izpise in `bvi` ali `biew` za binarno urejanje.
 
 - `strings` (plus `grep` itd.) vam omogoča najti bite v tekstu tudi za binarne datoteke.
 
@@ -237,14 +245,14 @@ Opombe:
 
 - Da razcepite datoteke na dele, glejte `split` (da razcepite po velikosti) in `csplit` (da razcepite po vzorcu).
 
-- Za manipuliranje izrazov datuma in časa, uporabite `dateadd`, `datediff`, `strptime` itd. iz [`dateutils`](http://www.fresse.org/dateutils).
+- Za manipuliranje izrazov datuma in časa, uporabite `dateadd`, `datediff`, `strptime` itd. iz [`dateutils`](http://www.fresse.org/dateutils/).
 
 - Uporabite `zless`, `zmore`, `zcat` in `zgrep` za operiranje na kompresiranih datotekah.
 
 
 ## Sistemsko razhroščevanje
 
-- Za spletno razhroščevanje, sta priročna `curl` in `curl -I` ali pa njun ekvivalent `wget`, ali bolj moderen [`httpie`](https://github.com/jakubroztocil/httpie).
+- Za spletno razhroščevanje, sta priročna `curl` in `curl -I` ali pa njun ekvivalent `wget`, ali bolj moderen [`httpie`](https://github.com/jkbrzt/httpie).
 
 - Da izveste trenutni status diska/procesorja/omrežja, so na voljo klasična orodja `top`, (ali bolje `htop`), `iostat` in `iotop` . Uporabite `iostat -mxz 15` za osnovno statistiko CPU in podrobno na particijo statistiko diska in vpogled v uspešnost.
 
@@ -276,7 +284,7 @@ Opombe:
 
 - Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, je lahko zelo uporaben `sar`. Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
 
-- Za globlje analize sistema in uspešnosti, poglejte `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)) in [`sysdig`](https://github.com/draios/sysdig).
+- Za globlje analize sistema in uspešnosti, poglejte `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)) in [`sysdig`](https://github.com/draios/sysdig).
 
 - Preverite na katerem operacijskem sistemu ste z `uname` ali `uname -a` (splošne informacije Unix-a/jedra) ali `lsb_release -a` (informacije distribucuje Linux).
 
@@ -294,7 +302,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Uporabite `grep . *`, da vizualno preučite vse vsebine vseh datotek v direktoriju, npr. za direktorije napolnjene s konfiguracijskimi nastavitvami, kot so `/sys`, `/proc`, `/etc`.
+- Uporabite `grep . *`, da hitro preučite vsebine vseh datotek v direktoriju (vsaka vrstica ima par z imenom datoteke) ali `head -100 *` (da iima vsaka datoteka glavo). To je lahko uporabno za direktorije napolnjene s konfiguracijskimi nastavitvami, kot so tiste v `/sys`, `/proc`, `/etc`.
 
 
 - Povzetje vseh številk v tretjem stolpcu tekstovne datoteke (to je verjetno 3X hitrejše in 3X manj kode kot Python-ov ekvivalent):
@@ -382,6 +390,8 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `time`: izvrši in da ukaz v čas
 
+- `timeout`: izvršite ukaz za določen čas in ustavite proces, ko se določen čas konča.
+
 - `lockfile`: ustvari semaforno datoteko, ki je lahko odstranjena samo z `rm -f`
 
 - `logrotate`: rotiranje, kompresiranje in pošiljanje dnevnikov po e-pošti.
@@ -396,7 +406,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `pv`: nadzira napredek podatkov skozi cev
 
-- `hd` in `bvi`: izvrže ali uredi binarne datoteke
+- `hd`, `hexdump`, `xxd`, `biew` in `bvi`: izvrže ali uredi binarne datoteke
 
 - `strings`: izvleče tekst iz binarnih datotek
 
@@ -493,10 +503,13 @@ To so elementi pomembni *samo* za MacOS.
 
 - Bodite pozorni, saj je MacOS osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
 
+- Da dobite informacije o izdaji MacOS, uporabite `sw_vers`.
+
 
 ## Več virov
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): urejan seznam orodij lupine in virov.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Bolj poglobljen vodič za Mac OS ukazno vrstico.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
 - [shellcheck](https://github.com/koalaman/shellcheck): lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Na žalost kompleksne podrobnosti, kako pravilno ravnati z imeni datotek v lupinskih skriptah.
