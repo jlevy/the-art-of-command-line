@@ -1,4 +1,6 @@
-[ Traduzioni: [English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md) ]
+[ Languages:
+[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
+]
 
 
 # The Art of Command Line (Traduzione Italiana)
@@ -19,7 +21,7 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Saper usare con una certa facilità la linea di comando è spesso visto come una sorta di "sapere arcano". Anche se può sembrare, in realtà non è decisamente così: può migliorare la tua produttività e la tua flessibilità in modi che neanche immagini. Questa che stai per leggere è una selezione di trucchi e di consigli che riguardano la linea di comando, che abbiamo trovato utili lavorando con Linux. Alcune di queste nozioni sono elementari, altre molto specifiche, se non sofisticate e, a volte, oscure. 
+Saper usare con una certa facilità la linea di comando è spesso visto come una sorta di "sapere arcano". Anche se può sembrare, in realtà non è decisamente così: può migliorare la tua produttività e la tua flessibilità in modi che neanche immagini. Questa che stai per leggere è una selezione di trucchi e di consigli che riguardano la linea di comando, che abbiamo trovato utili lavorando con Linux. Alcune di queste nozioni sono elementari, altre molto specifiche, se non sofisticate e, a volte, oscure.
 
 Non c'è da preoccuparsi, comunque: la pagina che stai scorrendo non è molto lunga e non ti ruberà molto tempo. Prenderci dimestichezza, saperla usare quando necessario, te ne renderà ancora di più.
 
