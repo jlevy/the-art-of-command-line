@@ -12,7 +12,7 @@
 - [日常使用](#日常使用)
 - [文件及数据处理](#文件及数据处理)
 - [系统调试](#系统调试)
-- [单行代码](#单行代码)
+- [单行脚本](#单行脚本)
 - [冷门但有用](#冷门但有用)
 - [仅限 MacOS X 系统](#仅限-macos-x-系统)
 - [更多资源](#更多资源)
@@ -189,7 +189,7 @@
 
 - 关于 Amazon S3，[`s3cmd`](https://github.com/s3tools/s3cmd) 很方便而 [`s4cmd`](https://github.com/bloomreach/s4cmd) 更快。Amazon 官方的 [`aws`](https://github.com/aws/aws-cli) 以及  [`saws`](https://github.com/donnemartin/saws) 是其他 AWS 相关工作的基础。
 
-- 了解如何使用 `sort` 和 `uniq`，包括 uniq 的 `-u` 参数和 `-d` 参数，详见后文单行代码节。另外可以了解一下 `comm`。
+- 了解如何使用 `sort` 和 `uniq`，包括 uniq 的 `-u` 参数和 `-d` 参数，详见后文单行脚本节。另外可以了解一下 `comm`。
 
 - 了解如何使用 `cut`，`paste` 和 `join` 来更改文件。很多人都会使用 `cut`，但几乎都不会使用 `join`。
 
@@ -288,7 +288,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - 无论什么东西工作得很欢乐时试试 `dmesg`（可能是硬件或驱动问题）。
 
 
-## 单行代码
+## 单行脚本
 
 一些命令组合的例子：
 
