@@ -8,15 +8,15 @@
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 - [Meta](#meta)
-- [Fundamentos](#basics)
-- [Uso diario](#everyday-use)
-- [Procesamiento archivos y datos](#processing-files-and-data)
-- [Depuración del sistema](#system-debugging)
+- [Fundamentos](#fundamentos)
+- [Uso diario](#de-uso-diario)
+- [Procesamiento archivos y datos](#procesamiento-de-archivos-y-datos)
+- [Depuración del sistema](#depuración-del-sistema)
 - [One-liners](#one-liners)
-- [Obscuro pero útil](#obscure-but-useful)
-- [Solo para MacOS X](#macos-x-only)
-- [Más recursos](#more-resources)
-- [Advertencia](#disclaimer)
+- [Obscuro pero útil](#oscuro-pero-útil)
+- [Solo para MacOS X](#solo-para-macos-x)
+- [Más recursos](#más-recursos)
+- [Advertencia](#advertencia)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
