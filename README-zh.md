@@ -6,12 +6,13 @@
 # 命令行的艺术
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 - [必读](#必读)
 - [基础](#基础)
 - [日常使用](#日常使用)
 - [文件及数据处理](#文件及数据处理)
 - [系统调试](#系统调试)
-- [一行代码](#一行代码)
+- [单行脚本](#单行脚本)
 - [冷门但有用](#冷门但有用)
 - [仅限 MacOS X 系统](#仅限-macos-x-系统)
 - [更多资源](#更多资源)
@@ -21,9 +22,9 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-熟练使用命令行是一种常常被忽视或被认为难以掌握的技能，但实际上，它可以提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时发现的一些关于命令行的使用的小技巧的摘要。有些小技巧是非常基础的，而另外一些则是相当复杂的甚至晦涩难懂的。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
+熟练使用命令行是一种常常被忽视，或被认为难以掌握的技能，但实际上，它会提高你作为工程师的灵活性以及生产力。本文是一份我在 Linux 上工作时，发现的一些命令行使用技巧的摘要。有些技巧非常基础，而另一些则相当复杂，甚至晦涩难懂。这篇文章并不长，但当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。
 
-这里的大部分内容
+这篇文章是[许多作者和译者](AUTHORS.md)共同的成果。这里的大部分内容
 [首次](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [出现](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，但考虑到这里的人们都具有学习的天赋且乐于接受别人的建议，使用 Github 来做这件事是更佳的选择。如果你在本文中发现了错误或者存在可以改善的地方，请果断提交 Issue 或 Pull Request！(当然在提交前请看一下必读节和已有的 PR/issue）。
@@ -33,7 +34,7 @@
 
 涵盖范围：
 
-- 这篇文章对刚接触命令行的新手以及具有命令行使用经验的人都有用处。本文致力于做到覆盖面广（尽量包括一切重要的内容），具体（给出最常见的具体的例子）以及简洁（避免一些不必要的东西以及一些偏题的可以在其他地方翻阅到文献的东西）。 每个小技巧在某个特定情境下都是基本的或能够显著地节约时间。
+- 这篇文章对刚接触命令行的新手以及具有命令行使用经验的人都有用处。本文致力于做到*覆盖面广*（尽量包括一切重要的内容），*具体*（给出最常见的具体的例子）以及*简洁*（避免不必要的，或是可以在其他地方轻松查到的细枝末节）。每个技巧在特定情境下或是基本的，或是能显著节约时间。
 - 本文为 Linux 所写，除了[仅限 MacOS X 系统](#仅限-macos-x-系统)节。其它节中的大部分内容都适用于其它 Unix 系统或 MacOS 系统，甚至 Cygwin。
 - 本文关注于交互式 Bash，尽管很多技巧也适用于其他 shell 或 Bash 脚本。
 - 本文包括了“标准的”Unix 命令和需要安装特定包的命令，只要它们足够重要。
@@ -71,7 +72,7 @@
 
 ## 日常使用
 
-- 在 Bash 中，可以使用 **Tab** 自动补全参数，使用 **ctrl-r** 搜索命令行历史。
+- 在 Bash 中，可以使用 **Tab** 自动补全参数，使用 **ctrl-r** 搜索命令行历史（在按下之后，键入便可以搜索，重复按下 **ctrl-r** 会在更多匹配中循环，按下 **Enter** 会执行找到的命令，按下右方向键会将结果放入当前行中，使你可以进行编辑）。
 
 - 在 Bash 中，可以使用 **ctrl-w** 删除你键入的最后一个单词，使用 **ctrl-u** 删除整行，使用 **alt-b** 和 **alt-f** 以单词为单位移动光标，使用 **ctrl-a** 将光标移至行首，使用 **ctrl-e** 将光标移至行尾，使用 **ctrl-k** 删除光标至行尾的所有内容，使用 **ctrl-l** 清屏。键入 `man readline` 查看 Bash 中的默认快捷键，内容很多。例如 **alt-.** 循环地移向前一个参数，以及 **alt-*** 展开通配符。
 
@@ -105,7 +106,7 @@
 
 - 使用 `uptime` 或 `w` 来查看系统已经运行多长时间。
 
-- 使用`alias`来创建常用命令的快捷形式。例如：`alias ll='ls -latr'`使你可以方便地执行`ls -latr`命令。
+- 使用 `alias` 来创建常用命令的快捷形式。例如：`alias ll='ls -latr'` 使你可以方便地执行`ls -latr`命令。
 
 - 在 Bash 脚本中，使用 `set -x` 去调试输出，尽可能的使用严格模式，使用 `set -e` 令脚本在发生错误时退出而不是继续运行，使用 `set -u` 来检查是否使用了未赋值的变量，使用 `set -o pipefail` 严谨地对待错误（尽管问题可能很微妙）。当牵扯到很多脚本时，使用 `trap`。一个好的习惯是在脚本文件开头这样写，这会使它检测一些错误，并在错误发生时中断程序并输出信息：
 ```bash
@@ -113,16 +114,16 @@
       trap "echo 'error: Script failed: see failed command above'" ERR
 ```
 
-- 在 Bash 脚本中，子 shell（使用括号`(...)`）是一种便捷的方式去组织参数。一个常见的例子是临时地移动工作路径，代码如下：
+- 在 Bash 脚本中，子 shell（使用括号 `(...)`）是一种组织参数的便捷方式。一个常见的例子是临时地移动工作路径，代码如下：
 ```bash
       # do something in current dir
       (cd /some/other/dir && other-command)
       # continue in original dir
 ```
 
-- 在 Bash 中，注意到其中有许多形式的扩展。检查变量是否存在：`${name:?error message}`。例如，当 Bash 脚本需要一个参数时，可以使用这样的代码 `input_file=${1:?usage: $0 input_file}`。数学表达式：`i=$(( (i + 1) % 5 ))`。序列：`{1..10}`。 截断字符串：`${var%suffix}` 和 `${var#prefix}`。例如，假设 `var=foo.pdf`，那么 `echo ${var%.pdf}.txt` 将输出 `foo.txt`。
+- 在 Bash 中，要注意其中有许多形式的扩展。检查变量是否存在：`${name:?error message}`。例如，当 Bash 脚本需要一个参数时，可以使用这样的代码 `input_file=${1:?usage: $0 input_file}`。数学表达式：`i=$(( (i + 1) % 5 ))`。序列：`{1..10}`。截断字符串：`${var%suffix}` 和 `${var#prefix}`。例如，假设 `var=foo.pdf`，那么 `echo ${var%.pdf}.txt` 将输出 `foo.txt`。
 
-- 使用括号扩展（`{`...`}`）可以减少不必要的重复输入相似文本以及文本组合。
+- 使用括号扩展（`{`...`}`）来减少输入相似文本，并自动化文本组合。这在某些情况下会很有用，例如 `mv foo.{txt,pdf} some-dir`（同时移动两个文件），`cp somefile{,.bak}`（会被扩展成 `cp somefile somefile.bak`）或者 `mkdir -p test-{a,b,c}/subtest-{1,2,3}`（会被扩展成所有可能的组合，并创建一个目录树）。
 
 - 通过使用 `<(some command)` 可以将输出视为文件。例如，对比本地文件 `/etc/hosts` 和一个远程文件：
 ```sh
@@ -174,7 +175,7 @@
 
 - 使用 [`ag`](https://github.com/ggreer/the_silver_searcher) 在源代码或数据文件里检索（比 `grep -r` 更好）。
 
-- 将HTML转为文本：`lynx -dump -stdin`
+- 将 HTML 转为文本：`lynx -dump -stdin`
 
 - Markdown，HTML，以及所有文档格式之间的转换，试试 [`pandoc`](http://pandoc.org/)。
 
@@ -182,11 +183,13 @@
 
 - 使用 [`jq`](http://stedolan.github.io/jq/) 处理 JSON。
 
+- 使用 [`shyaml`](https://github.com/0k/shyaml) 处理 YAML。
+
 - Excel 或 CSV 文件的处理，[csvkit](https://github.com/onyxfish/csvkit) 提供了 `in2csv`，`csvcut`，`csvjoin`，`csvgrep` 等工具。
 
 - 关于 Amazon S3，[`s3cmd`](https://github.com/s3tools/s3cmd) 很方便而 [`s4cmd`](https://github.com/bloomreach/s4cmd) 更快。Amazon 官方的 [`aws`](https://github.com/aws/aws-cli) 以及  [`saws`](https://github.com/donnemartin/saws) 是其他 AWS 相关工作的基础。
 
-- 了解如何使用 `sort` 和 `uniq`，包括 uniq 的 `-u` 参数和 `-d` 参数，详见后文一行代码节。另外可以了解一下 `comm`。
+- 了解如何使用 `sort` 和 `uniq`，包括 uniq 的 `-u` 参数和 `-d` 参数，详见后文单行脚本节。另外可以了解一下 `comm`。
 
 - 了解如何使用 `cut`，`paste` 和 `join` 来更改文件。很多人都会使用 `cut`，但几乎都不会使用 `join`。
 
@@ -203,12 +206,19 @@
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- 依据某种模式批量重命名多个文件，使用 `rename`。对于复杂的重命名规则，[`repren`](https://github.com/jlevy/repren) 或许有帮助。
+- 使用 [`repren`](https://github.com/jlevy/repren) 来批量重命名，或是在多个文件中搜索替换。（有些时候 `rename` 命令也可以批量重命名，但要注意，它在不同 Linux 发行版中的功能并不完全一样。）
 ```sh
-      # Recover backup files foo.bak -> foo:
-      rename 's/\.bak$//' *.bak
-      # Full rename of filenames，directories，and contents foo -> bar:
+      # Full rename of filenames, directories, and contents foo -> bar:
       repren --full --preserve-case --from foo --to bar .
+      # Recover backup files whatever.bak -> whatever:
+      repren --renames --from '(.*)\.bak' --to '\1' *.bak
+      # Same as above, using rename, if available:
+      rename 's/\.bak$//' *.bak
+```
+
+- 根据 man 页面的描述，`rsync` 真的是一个快速且非常灵活的文件复制工具。它通常被用于机器间的同步，但在本地也同样有用。它同时也是删除大量文件的[最快方法](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html)之一：
+```sh
+mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
 - 使用 `shuf` 从一个文件中随机选取多行。
@@ -221,7 +231,7 @@
 
 - 对于二进制文件，使用 `hd` 使其以十六进制显示以及使用 `bvi` 来编辑二进制。
 
-- 同样对于二进制文件，使用 `strings`（包括 `grep` 等等）允许你查找一些文本。
+- 同样对于二进制文件，`strings`（包括 `grep` 等等）允许你查找一些文本。
 
 - 二进制文件对比（Delta 压缩），使用 `xdelta3`。
 
@@ -232,7 +242,9 @@
 
 - 拆分文件，查看 `split`（按大小拆分）和 `csplit`（按模式拆分）。
 
-- 使用 `zless`，`zmore`，`zcat` 和 `zgrep`对压缩过的文件进行操作。
+- 用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`, `datediff`, `strptime` 等工具操作日期和时间表达式。
+
+- 使用 `zless`，`zmore`，`zcat` 和 `zgrep` 对压缩过的文件进行操作。
 
 
 ## 系统调试
@@ -247,7 +259,7 @@
 
 - 若要了解内存状态，运行并理解 `free` 和 `vmstat` 的输出。尤其注意“cached”的值，它指的是 Linux 内核用来作为文件缓存的内存大小，因此它与空闲内存无关。
 
-- Java 系统调试则是一件截然不同的事，一个可以用于 Oracle 的 JVM 或其他 JVM 上的调试的小技巧是你可以运行 `kill -3 <pid>` 同时一个完整的栈轨迹和堆概述（包括 GC 的细节）会被保存到标准输出/日志文件。JDK 中的 `jps`，`jstat`，`jstack`，`jmap` 很有用。[SJK tools](https://github.com/aragozin/jvm-tools) 更高级.
+- Java 系统调试则是一件截然不同的事，一个可以用于 Oracle 的 JVM 或其他 JVM 上的调试的技巧是你可以运行 `kill -3 <pid>` 同时一个完整的栈轨迹和堆概述（包括 GC 的细节）会被保存到标准输出/日志文件。JDK 中的 `jps`，`jstat`，`jstack`，`jmap` 很有用。[SJK tools](https://github.com/aragozin/jvm-tools) 更高级.
 
 - 使用 `mtr` 去跟踪路由，用于确定网络问题。
 
@@ -276,7 +288,7 @@
 - 无论什么东西工作得很欢乐时试试 `dmesg`（可能是硬件或驱动问题）。
 
 
-## 一行代码
+## 单行脚本
 
 一些命令组合的例子：
 
@@ -287,14 +299,14 @@
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- 使用 `grep . *` 来阅读检查目录下所有文件的内容，例如检查一个充满配置文件的目录比如 `/sys`、`/proc`、`/etc`。
+- 使用 `grep . *`（每行都会附上文件名）或者 `head -100 *`（每个文件有一个标题）来阅读检查目录下所有文件的内容。这在检查一个充满配置文件的目录（如 `/sys`、`/proc`、`/etc`）时特别好用。
 
 - 计算文本文件第三列中所有数的和（可能比同等作用的 Python 代码快三倍且代码量少三倍）：
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- 如果你想在文件树上查看大小\日期，这可能看起来像递归版的 `ls -l` 但比 `ls -lR` 更易于理解：
+- 如果你想在文件树上查看大小/日期，这可能看起来像递归版的 `ls -l` 但比 `ls -lR` 更易于理解：
 ```sh
       find . -type f -ls
 ```
@@ -304,7 +316,7 @@
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- 运行这个函数从这篇文档中随机获取一条小技巧（解析 Markdown 文件并抽取项目）：
+- 运行这个函数从这篇文档中随机获取一条技巧（解析 Markdown 文件并抽取项目）：
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -474,7 +486,7 @@
 
 - 用 `pbcopy` 复制任何命令的输出到桌面应用，用 `pbpaste` 粘贴输入。
 
-- 在终端中将 Option 键视为 alt 键，Preferences -> Profiles -> Keyboard 勾选上 "Use Option as Meta key"。
+- 若要在 Mac OS 终端中将 Option 键视为 alt 键（例如在上面介绍的 **alt-b**, **alt-f** 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
 
 - 用 `open` 或者 `open -a /Applications/Whatever.app` 使用桌面应用打开文件。
 
@@ -482,18 +494,21 @@
 
 - 注意 MacOS 系统是基于 BSD UNIX 的，许多命令（例如 `ps`，`ls`，`tail`，`awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
 
+- 用 `sw_vers` 获取 MacOS 的版本信息。
+
 
 ## 更多资源
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell)：一份精心组织的命令行工具及资源的列表。
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)：为了编写更好的脚本文件。.
-- [shellcheck](https://github.com/koalaman/shellcheck)：一个 shell 脚本分析工具，基本上等同于 bash／sh／zsh 的 lint。
-- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)：在 shell 脚本里正确处理文件名的好工具。
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line)：一份针对 Mac OS 命令行的更深入的指南。
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)：为了编写更好的脚本文件。
+- [shellcheck](https://github.com/koalaman/shellcheck)：一个静态 shell 脚本分析工具，本质上是 bash／sh／zsh 的 lint。
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)：有关如何在 shell 脚本里正确处理文件名的细枝末节。
 
 
 ## 免责声明
 
-除去特别微小的任务，记录下这些代码以便他人查看。责任往往伴随着能力，*可以*做并不意味着应该做。
+除去特别微小的任务，编写代码是出于方便阅读的目的。能力往往伴随着责任。你 *可以* 在 Bash 中做一些事并不意味着你应该去做！;)
 
 
 ## 授权条款
