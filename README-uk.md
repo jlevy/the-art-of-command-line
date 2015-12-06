@@ -326,6 +326,7 @@
 ##Інші-джерела
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Розширює Shell.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): A more in-depth guide for the Mac OS command line.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) щоб краще писати Shell скрипти.
 - [shellcheck](https://github.com/koalaman/shellcheck): A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
@@ -337,7 +338,7 @@
 Той факт, що щось може бути написано на Bash, зовсім не означає, що воно має бути на ньому написано. ;)
 
 
-## Лицензія
+## Ліцензія
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
