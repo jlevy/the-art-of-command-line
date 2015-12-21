@@ -29,6 +29,15 @@ Une bonne partie a été [publiée](http://www.quora.com/What-are-some-lesser-kn
 Si vous voyez une erreur ou quelque chose à améliorer, veuillez remplir un ticket ou soumettre un *pull request* ! (Bien sûr, veuillez d'abord consulter la section [Méta](#meta) ainsi que les *pull requests* et tickets actifs.)
 
 
+## Autres ressources
+
+- [awesome-shell](https://github.com/alebcay/awesome-shell)&nbsp;: une liste organisée d'outils et ressources pour le shell.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): un guide plus approfondi sur la ligne de commande pour Mac OS.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)&nbsp;: pour écrire de meilleurs scripts shell.
+- [shellcheck](https://github.com/koalaman/shellcheck)&nbsp;: un outil d'analyse statique des scripts shell. L'équivalent de lint pour bash, sh et zsh.
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)&nbsp;: les points de détail, malheureusement compliqués, sur la manière de manipuler correctement les noms de fichiers dans les scripts shell.
+
+
 ## Avertissement
 
 Sauf pour de petites tâches, le code est écrit de sorte que d'autres personnes puissent le lire.
