@@ -29,6 +29,159 @@ Une bonne partie a été [publiée](http://www.quora.com/What-are-some-lesser-kn
 Si vous voyez une erreur ou quelque chose à améliorer, veuillez remplir un ticket ou soumettre un *pull request* ! (Bien sûr, veuillez d'abord consulter la section [Méta](#meta) ainsi que les *pull requests* et tickets actifs.)
 
 
+## Obscures mais utiles
+
+- `expr` : effectue des operations arithmétiques et booléenne, et évalue des expressions régulières.
+
+- `m4` : simple macro processeur.
+
+- `yes` : affiche une chaîne de caractères indéfiniment.
+
+- `cal` : un calendrier sympathique.
+
+- `env` : exécute une commande (utile dans les scripts).
+
+- `printenv` : imprime les variables d'environnement (utile pour le débogage et dans les scripts).
+
+- `look` : trouve les mots anglais (ou les lignes d'un fichier) commençant par une chaîne donnée.
+
+- `cut`, `paste` and `join` : manipulation des données.
+
+- `fmt` : formate du texte.
+
+- `pr` : formate un texte en page ou en colonne.
+
+- `fold` : coupe des lignes de texte.
+
+- `column` : formate un texte en colonnes alignées, de largeurs fixes ou en tables.
+
+- `expand` et `unexpand` : convertit les tabulations en espaces et vice-versa.
+
+- `nl` : numérote les lignes d'un fichier.
+
+- `seq` : affiche une suite de nombres.
+
+- `bc` : une calculatrice.
+
+- `factor` : factorise des nombres entiers.
+
+- [`gpg`](https://gnupg.org/) : chiffre et signe les fichiers.
+
+- `toe` : table des entrées terminfo.
+
+- `nc` : debogage réseau et transfert de données.
+
+- `socat` : relai et réacheminement de port TCP (semblable à `netcat`).
+
+- [`slurm`](https://github.com/mattthias/slurm) : visualisation du trafic réseau.
+
+- `dd` : déplacer les données entre les fichiers ou les périphériques.
+
+- `file` : détermine le type d'un fichier
+
+- `tree` : affiche les répertoires et sous-répertoires sous la forme d'un arbre (comme `ls` mais récursivement).
+
+- `stat` : affiche des informations sur un fichier.
+
+- `time`: exécute et chronomètre une commande.
+
+- `timeout`: exécute une commande avec une limite de temps et stoppe le processus après la durée indiquée.
+
+- `lockfile` : crée un fichier sémaphore qui ne peut être supprimé que par `rm -f`
+
+- `logrotate` : permet la rotation, la compression et l'envoi des fichiers journaux par courrier électronique.
+
+- `watch` : exécute une commande périodiquement, affiche le résultat et surligne les différences entre les résultats.
+
+- `tac` : affiche des fichiers à l'envers.
+
+- `shuf` : affiche une permutation aléatoire des lignes d'un fichier.
+
+- `comm` : compare ligne à ligne deux fichiers triés.
+
+- `pv` : surveille la progression des données à travers un tube.
+
+- `hd`, `hexdump`, `xxd`, `biew` et `bvi` : dump et édition de fichiers binaires.
+
+- `strings` : extraire du texte de fichiers binaires.
+
+- `tr` : conversion et manipulation de caractères.
+
+- `iconv` ou `uconv` : conversion entre différents encodages de caractères.
+
+- `split` et `csplit` : découpage de fichiers.
+
+- `sponge` : lit l'entrée standart avant de l'écrire. Utile pour lire depuis un fichier puis écrire dans le même fichier, p.ex., `grep -v something some-file | sponge some-file`
+
+- `units` : conversions d'unités et calculs. Convertit des furlongs par fortnight en twips par blink (voir aussi `/usr/share/units/deifinitions.units`).
+
+- `apg` : génère des mots de passe aléatoires.
+
+- `7z` : compresse des fichiers avec taux de compression élevé.
+
+- `ldd` : affiche des informations sur les bibliothèques partagées.
+
+- `nm` : affiche les symboles contenus dans un fichier objet.
+
+- `ab` : mesure les performances de serveurs web
+
+- `strace`: trace les appels système.
+
+- `mtr`: un traceroute amélioré pour débugguer un réseau.
+
+- `cssh` : visual concurrent shell
+
+- `rsync` : synchronise des fichiers et des dossiers via SSH ou localement.
+
+- `wireshark` et `tshark`: capture de paquets et dépannage réseau.
+
+- `ngrep` : grep pour les couches réseau.
+
+- `host` et `dig`: interroge les serveurs DNS.
+
+- `lsof` : process file descriptor and socket info.
+
+- `dstat` : statistiques sur les ressources système.
+
+- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+
+- `iostat` : statistiques sur l'usage des disques.
+
+- `mpstat` : statistiques sur l'usage des CPUs.
+
+- `vmstat` : statistiques sur l'usage de la mémoire.
+
+- `htop` : version améliorée de top.
+
+- `last` : historique des connexions.
+
+- `w` : montre qui est connecté.
+
+- `id` : affiche les informations sur un utilisateur et ses groupes.
+
+- `sar` : statistiques sur l'activité du système
+
+- `iftop` ou `nethogs` : utilisation du réseau par un socket ou un processus.
+
+- `ss` : statistiques relatives aux sockets.
+
+- `dmesg` : messages lors du démarrage et erreurs système.
+
+- `sysctl` : visualise et configure les paramètres du noyau Linux à chaud.
+
+- `hdparm` : manipulation et performances d'un disque SATA ou ATA.
+
+- `lsb_release` : informations sur la distribution Linux.
+
+- `lsblk` : affiche les périphériques blocs (une arborescence de vos disques et partitions).
+
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode` : informations sur le matériel, comprenant le CPU, le BIOS, le RAID, la carte graphique, les périphériques, etc.
+
+- `lsmod` et `modinfo` : liste des modules du noyau et informations les concernant.
+
+- `fortune`, `ddate` et `sl` : euh, bon, seulement si vous considérez les locomotives à vapeur et les citations de Jean-Claude Van Damme « utiles ».
+
+
 ## Uniquement OS X
 
 Ce qui suit ne s'applique *qu'*à Mac OS.
