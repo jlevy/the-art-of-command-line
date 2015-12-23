@@ -29,6 +29,26 @@ Une bonne partie a été [publiée](http://www.quora.com/What-are-some-lesser-kn
 Si vous voyez une erreur ou quelque chose à améliorer, veuillez remplir un ticket ou soumettre un *pull request* ! (Bien sûr, veuillez d'abord consulter la section [Méta](#meta) ainsi que les *pull requests* et tickets actifs.)
 
 
+## Méta
+
+Contexte :
+
+- Ce guide est destiné aux utilisateurs débutants et chevronnés.
+Les objectifs sont l'*envergure* (tout est important), la *spécificité* (donner des exemples concrets des cas les plus courants) et la *concision* (éviter tout ce qui n'est pas essentiel et les digressions disponibles facilement ailleurs).
+Chaque astuce est indispensable dans certaines situations ou fait gagner un temps considérable par rapport aux solutions alternatives.
+- Il est écrit pour Linux, à l'exception de la section « [Uniquement OS X](#uniquement-os-X) ».
+Beaucoup des autres items s'appliquent ou peuvent être installés sur d'autres Unices ou Mac OS (ou même Cygwin).
+- L'accent est mis sur l'utilisation intéractive de Bash, bien que de nombreuses astuces s'appliquent aux autres shells et à l'écriture de scripts Bash.
+- Il inclut les commandes « standard » d'Unix aussi bien que celles qui nécessitent l'installation des paquets spéciaux &mdash; tant qu'ils sont suffisamment importants pour mériter d'être mentionnés.
+
+Remarques :
+
+- Afin que tout tienne sur une seule page, le contenu est implicitement inclus par référence.
+Vous êtes suffisamment intelligents pour chercher les renseignements ailleurs une fois que vous avez l'idée ou la commande à googler.
+Utilisez `apt-get`, `yum`, `dnf`, `pacman`, `pip` ou `brew` (selon votre distribution ou OS) pour installer de nouveaux programmes.
+- Utilisez [Explainshell](http://explainshell.com) pour obtenir de l'aide à propos des commandes, options, tubes, etc.
+
+
 ## Obscures mais utiles
 
 - `expr` : effectue des operations arithmétiques et booléenne, et évalue des expressions régulières.
