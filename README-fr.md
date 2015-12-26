@@ -49,6 +49,57 @@ Utilisez `apt-get`, `yum`, `dnf`, `pacman`, `pip` ou `brew` (selon votre distrib
 - Utilisez [Explainshell](http://explainshell.com) pour obtenir de l'aide à propos des commandes, options, tubes, etc.
 
 
+## Débogage du système
+
+- Pour du débogage web, `curl` et `curl -I` sont pratiques, de même que leurs
+équivalents avec `wget`  ou le plus moderne [`httpie`](https://github.com/jkbrzt/httpie).
+
+- Pour connaître l'état courant du CPU ou du disque, les outils conventionnels sont `top` (ou `htop` meilleur), `iostat` et `iotop`.
+Utilisez `iostat -mxz 15` pour des statistiques de base concernant le CPU, des statistiques détaillées pour les disques et un aperçu des performances.
+
+- Pour des informations sur les connexions réseaux, utilisez `netstat` et `ss`.
+
+- Pour un rapide aperçu de ce qui se passe dans le système, `dstat` est particulièrement utile. 
+Pour un aperçu plus étendu et détaillé, utilisez [`glances`](https://github.com/nicolargo/glances).
+
+- Pour connaître l'état de la mémoire, exécutez `free` et `vmstat` et comprenez leurs sorties.
+En particulier, ayez à l'esprit que la valeur du « cache » est la mémoire utilisée par le noyau Linux comme cache de fichiers, donc compte comme de la mémoire « libre ».
+
+- Le système de debogage de Java est une autre paire de manche, cependant un truc simple sur la JVM d'Oracle et quelques autres JVMs consiste à exécuter `kill -3 <pid>` pour obtenir une trace complète des appels et une empreinte de la mémoire (y compris des détails sur le ramasse-miettes qui peuvent être hautement instructifs) dans stderr ou des fichiers journaux.
+Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil SJK](https://github.com/aragozin/jvm-tools) est plus avancé.
+
+- Utilisez `mtr` comme un `traceroute` amélioré pour identifier les problèmes de réseau.
+
+- Pour déterminer les raisons pour lesquelles un disque est plein, `ncdu` permet de gagner du temps par rapport aux commandes habituelles telles que `du -sh *`.
+
+- Pour trouver quel socket ou processus utilise la bande passante essayez `iftop` ou `nethogs`.
+
+- L'outil `ab` (fourni avec Apache) est utile pour une vérification rapide et grossière des performances d'un serveur web.
+Pour des tests de charge plus complexes servez-vous de `siege`.
+
+- Pour du debogage réseau plus sérieux : `wireshark`, `tshark` ou `ngrep`.
+
+- Connaîssez `strace` et `ltrace`.
+Ces commandes peuvent être utiles si un programme fonctionne mal ou plante et que vous n'en connaissez pas la raison, ou si vous voulez vous faire une idée des performances.
+Remarquez l'option de profilage (`-c`) et la possibilité de les rattacher à un processus en cours d'exécution (`-p`).
+
+- Connaîssez `ldd` pour afficher les bibliothèques partagées, etc.
+
+- Sachez comment vous connecter à un processus en cours avec `gdb` et récupérer la trace d'appels.
+
+- Utilisez `/proc`. C'est parfois incroyablement utile pour résoudre des problèmes en live.
+Exemples&nbsp;: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd`, `/proc/xxx/smaps` (où `xxx` est l'identifiant du processus ou pid).
+
+- Pour comprendre pourquoi quelque chose a mal tourné antérieurement, `sar` peut-être très utile.
+Elle fournit un historique concernant l'usage du CPU, de la mémoire, du réseau, etc.
+
+- Pour une analyse plus approfondie du système et des performances, regardez `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux) et [`sysdig`](https://github.com/draios/sysdig).
+
+- Vérifiez quel OS vous utilisez avec `uname` ou `uname -a` (information général sur l'Unix et le noyau) ou `lsb_release -a` (informations sur la distribution Linux).
+
+- Utilisez `dmesg` à chaque fois que quelque chose de bizarre se produit (pour des problèmes liés au matériel ou aux drivers).
+
+
 ## Obscures mais utiles
 
 - `expr` : effectue des operations arithmétiques et booléenne, et évalue des expressions régulières.
