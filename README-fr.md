@@ -49,6 +49,107 @@ Utilisez `apt-get`, `yum`, `dnf`, `pacman`, `pip` ou `brew` (selon votre distrib
 - Utilisez [Explainshell](http://explainshell.com) pour obtenir de l'aide à propos des commandes, options, tubes, etc.
 
 
+## Traitement des fichiers et des données
+
+- Pour localiser un fichier par son nom dans le répertoire courant, `find . -iname '*something*'` (ou autres).
+Pour trouver un fichier n'importe où par son nom, utilisez `locate something` (mais n'oubliez pas que `updatedb` peut ne pas avoir indexé les fichiers récemment créés).
+
+- Pour une recherche à travers les fichiers sources ou fichiers de données (plus poussée que `grep -r`), utilisez [`ag`](https://github.com/ggreer/the_silver_searcher).
+
+- Pour convertir du HTML en texte brut : `lynx -dump -stdin`.
+
+- Pour le Markdown, HTML et les conversions dans toutes sortes de formats, essayez [`pandoc`](http://pandoc.org).
+
+- Si vous devez manipuler du XML, le vieux `xmlstarlet` marche bien.
+
+- Pour le JSON, utilisez [`jq`](http://stedolan.github.io/jq/).
+
+- Pour le YAML, utilisez [`shyaml`](https://github.com/0k/shyaml).
+
+- Pour les fichiers Excel ou CSV, [csvkit](https://github.com/onyxfish/csvkit) fournit `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+
+- Pour Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) est pratique et [`s4cmd`](https://github.com/bloomreach/s4cmd) est plus rapide.
+L'outil d'Amazon [`aws`](https://github.com/aws/aws-cli) et la version améliorée [`saws`](https://github.com/donnemartin/saws) sont indispensables pour les autres tâches liées à AWS.
+
+- Connaissez `sort` et `uniq`, y compris les options `-u` et `-d` de `uniq` (voir les unilignes plus bas). Voir aussi `comm`.
+
+- Connaissez `cut`, `paste` et `join` pour manipuler les fichiers textes.
+Beaucoup de personnes utilisent `cut` mais oublient `join`.
+
+- Connaissez `wc` pour compter les lignes (`-l`), les caractères (`-m`), les mots (`-w`) et les octets (`-c`).
+
+- Connaissez `tee` pour copier depuis stdin vers un fichier ou vers stdout, comme dans `ls -al | tee file.txt`.
+
+- Sachez que la locale affecte de nombreux outils en ligne de commande de manière subtile, comme l'ordre pour les tris (collation) et les performances.
+La plupart des installateurs Linux définissent la variable `LANG` ou d'autres variables locales d'environnement pour configurer une locale telle que US English.
+Mais ayez à l'esprit que le tri sera modifié si vous changez la locale.
+Et sachez que les routines i18n peuvent rendre les opérations de tri et d'autres commandes *beaucoup* plus lentes.
+Dans certains cas (tels que les opérations concernant les ensembles et l'unicité abordées ci-dessous) vous pouvez, sans risque, complètement ignorer les lentes routines i18n et utiliser l'ordre classique basé sur les octets à l'aide de `export LC_ALL=C`.
+
+- Connaissez `awk` et `sed` pour de l'analyse de données élémentaire.
+Par exemple, pour effectuer la somme de tous les nombres de la troisième colonne d'un fichier texte&nbsp;: `awk '{ x += $3 } END { print x}'`.
+C'est probablement trois fois plus rapide et trois fois plus petit que son équivalent en Python.
+
+- Pour remplacer toutes les occurences d'une chaîne de caractères dans un ou plusieurs fichiers&nbsp;:
+```sh
+    perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
+```
+
+- Pour renommer de multiple fichiers ou effectuer des recherches et remplacements dans des fichiers, essayez [`repren`](https://github.com/jlevy/repren) (dans certains cas la commande `rename` permet aussi de renommer de multiples fichiers, mais soyez prudent car ses fonctionnalités ne sont pas les mêmes sur toutes les distributions Linux).
+```sh
+    # Renomme les répertoires, les fichiers et leurs contenus à l'aide
+    # de la substitution foo -> bar :
+    repren --full --preserve-case --from foo --to bar .
+    # Restaure des fichiers de sauvegarde à l'aide de la
+    # substitution whatever.bak -> whatever :
+    repren --renames --from '(.*)\.bak' --to '\1' *.bak
+    # Même chose que ci-dessus avec rename s'il est disponible :
+    rename 's/\.bak$//' *.bak
+```
+
+- Selon sa page de manuel, `rsync` est un outil de duplication de fichiers vraiment rapide et incroyablement polyvalent.
+Il est connu pour faire de la synchronisation entre machines, mais est également utile pour un usage local.
+Il est aussi parmi les outils [les plus rapides](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) pour effacer un grand nombre de fichiers&nbsp;:
+```sh
+    mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
+```
+
+- Utilisez `shuf` pour mélanger ou sélectionner aléatoirement des lignes d'un fichier.
+
+- Connaissez les options de `sort`.
+Pour les nombres, utilisez `-n`, ou `-h` pour traiter des nombres dans un format lisible par un humain (p.&nbsp;ex. issus de `du -h`).
+Sachez comment les clés fonctionnent (`-t` et `-k`).
+En particulier, faites attention à bien écrire `-k1,1` pour trier selon le premier champ uniquement&nbsp;: `-k1` signifie que l'on trie selon la ligne entière.
+Le tri stable (`sort -s`) peut s'avérer utile.
+Par exemple, pour trier d'abord selon le champ 2, puis selon le champ 1, vous pouvez utiliser `sort -k1,1 | sort -s -k2,2`.
+
+- Si jamais vous avez besoin d'écrire un caractère de tabulation dans une ligne de commande en Bash (p.&nbsp;ex pour le paramètre de l'option de tri `-t`), entrez **ctrl-v** **[Tab]** ou écrivez `$'\t'` (préférable car vous pouvez la copier-coller).
+
+- Les outils habituels pour *patcher* un code source sont `diff` et `patch`.
+Voir aussi `diffstat` pour un relevé statistique d'un diff et `sdiff` pour un affichage côte à côte d'un diff.
+Remarquez que `diff -r` marche avec des répertoires entiers.
+Utilisez `diff -r tree1 tree2 | diffstat` pour obtenir un résumé des changements.
+Utilisez `vimdiff` pour comparer et éditer des fichiers.
+
+- Pour les fichiers binaires, utilisez `hd`, `hexdump` ou `xxd` pour un affichage simple en hexadécimal et `bvi`, `biew` pour éditer des fichiers binaires.
+
+- Également pour les fichiers binaires, `strings` (ainsi que `grep`, etc) vous permet d'y trouver des bouts de texte.
+
+- Pour effectuer des différences entre des fichiers binaires (compression différentielle), utilisez `xdelta3`.
+
+- Pour changer l'encodage d'un texte, essayer `iconv`, ou `uconv` pour un usage plus sophistiqué : il permet quelques trucs avancés avec l'Unicode.
+Par exemple, cette commande met en minuscules et retire tous les accents (en les développant et les écartant)&nbsp;:
+```sh
+      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
+```
+
+- Pour découper des fichiers en morceaux, voyez `split` pour un découpage en morceaux de taille donnée et `csplit` pour un découpage en morceaux délimités par un motif.
+
+- Pour manipuler des dates et des heures, utilisez `dateadd`, `datediff`, `strptime`, etc. fournis par [`dateutils`](http://www.fresse.org/dateutils/).
+
+- Utilisez `zless`, `zmore`, `zcat` et `zgrep` pour opérer sur des fichiers compressés.
+
+
 ## Débogage du système
 
 - Pour du débogage web, `curl` et `curl -I` sont pratiques, de même que leurs
