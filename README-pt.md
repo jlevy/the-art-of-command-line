@@ -9,7 +9,7 @@
 - [Básico](#básico)
 - [Uso diário](#uso-diário)
 - [Processamento de arquivos e dados](#processamento-de-arquivos-e-dados)
-- [Debugando o sistema](#debugs-do-sistema)
+- [Debugando o sistema](#debugando-o-sistema)
 - [One-liners](#one-liners)
 - [Obscuros mas úteis](#obscuros-mas-úteis)
 - [Mais conteúdo](#mais-conteúdo)
@@ -18,19 +18,19 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Fluência na linha de comando é uma habilidade muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como  *desenvolvedor* de diversas maneiras, sutis ou não. Este texto descreve uma seleção de notas e dicas de uso da linha de comando  que me parecem muito uteis, quando usando o Linux. Algumas dicas são elementares, e outras são mais específicas, sofisticadas ou obscuras. Esta página  é curta, mas se você souber usar e lembrar todos os items que estão aqui, então você está mandando bem.
+Fluência na linha de comando é uma habilidade muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como  *desenvolvedor* de diversas maneiras, sutis ou não. Este texto descreve uma seleção de notas e dicas de uso da linha de comando  que me parecem muito uteis, quando usando o Linux. Algumas dicas são elementares, e outras são mais específicas, sofisticadas ou obscuras. Esta página  é curta, mas se você souber usar e lembrar todos os itens que estão aqui, então você está mandando bem.
 
 Muito do que está aqui [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareceu](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 no [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-mas dado o interesse por lá,  me pareceu importante usar o Github, onde pessoas mais talentosas do que eu,  poderiam sugerir melhorias facilmente. Se você descobrir um erro ou algo que poderia ser melhorado, por favor abra um issue ou um PR! (E claro, por favor veja as `meta sections' e PRs/issues existentes, primeiro.)
+mas dado o interesse por lá,  me pareceu importante usar o GitHub, onde pessoas mais talentosas do que eu,  poderiam sugerir melhorias facilmente. Se você descobrir um erro ou algo que poderia ser melhorado, por favor abra um issue ou um PR! (E claro, por favor veja a seção meta e PRs/issues existentes, primeiro.)
 
 ## Meta
 
 Escopo:
 
 - Este guia é destinado tanto aos iniciantes quanto aos usuários mais experientes. Os objetivos são *abrangencia*  (tudo que é importante), *especificidade* (dar exemplos concretos dos casos de usos mais comuns), e *brevidade* (evitar coisas que não são tão essenciais ou digressões que você pode facilmente encontrar pela internet). Todas as dicas são essenciais em alguma situação ou trazem uma economia notável de tempo em relação a outras alternativas.
-- Este guia é escrito para o Linux. Muitos, mas não todos os items, se aplicam igualmente para o MacOS (ou mesmo o Cygwin).
+- Este guia é escrito para o Linux. Muitos, mas não todos os itens, se aplicam igualmente para o MacOS (ou mesmo o Cygwin).
 - O foco está na interatividade com  Bash, embora muitas dicas aqui sejam aplicáveis a outras `shells' e tambem a scripts em Bash, em geral.
 - Incluimos tanto comandos no Unix "padrão", quanto comandos que requeiram instalação de pacotes adicionais -- desde que estes sejam importantes o suficiente para merecerem sua inclusão nessa lista.
 
@@ -79,7 +79,7 @@ Notas:
 
 - Se você está na metade do caminho ao digitar um comando, mas mudou de ideia, tecle **alt-#** para adicionar um `#` ao início da linha e definir esta como um comentário (ou use **ctrl-a**. **#**. **enter**). Mais tarde você poderá recuperar o comando através da `history`.
 
-- Use `xargs` (ou `parallel`). Estes são muito poderosos. Note que você pode controlar como os vários items são executados por linha (`-L`) assim como o paralelismo (`-P`). Se você não tem certeza se isto é a coisa certa a se fazer, use `xargs echo` primeiro. O `-I{}` também é muito útil. Exemplos:
+- Use `xargs` (ou `parallel`). Estes são muito poderosos. Note que você pode controlar como os vários itens são executados por linha (`-L`) assim como o paralelismo (`-P`). Se você não tem certeza se isto é a coisa certa a se fazer, use `xargs echo` primeiro. O `-I{}` também é muito útil. Exemplos:
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
@@ -378,7 +378,7 @@ Alguns exemplos de como reunir os comandos.
 
 - `units`: conversor de unidades e cálculos; converte furlongs por quinzena para twips per blink (veja também `/usr/share/units/definitions.units`)
 
-- `7z`: Compressor de arquivos de alto desempenho.
+- `7z`: compressor de arquivos de alto desempenho.
 
 - `ldd`: informações dinâmicas das bibliotecas.
 
@@ -386,49 +386,49 @@ Alguns exemplos de como reunir os comandos.
 
 - `ab`: benchmarking para web servers.
 
-- `strace`: Debug para chamadas de sistema.
+- `strace`: debug para chamadas de sistema.
 
 - `mtr`: melhor traceroute para debugar a rede.
 
-- `cssh`: Visualização concorrente da shell.
+- `cssh`: visualização concorrente da shell.
 
-- `rsync`: Sincroniza arquivos e pastas através do SSH.
+- `rsync`: sincroniza arquivos e pastas através do SSH.
 
 - `wireshark` e `tshark`: captura de pacotes e debug de rede.
 
 - `ngrep`: grep para a camada de rede.
 
-- `host` e `dig`: Consultas DNS.
+- `host` e `dig`: consultas DNS.
 
-- `lsof`: Arquivo de descritores dos processos e informações dos sockets.
+- `lsof`: arquivo de descritores dos processos e informações dos sockets.
 
-- `dstat`: Estatísticas úteis do sistema.
+- `dstat`: estatísticas úteis do sistema.
 
-- [`glances`](https://github.com/nicolargo/glances): Resumo de alto nível, de multi subsistemas.
+- [`glances`](https://github.com/nicolargo/glances): resumo de alto nível, de multi subsistemas.
 
-- `iostat`: Estatísticas de uso do CPU e do disco.
+- `iostat`: estatísticas de uso do CPU e do disco.
 
-- `htop`: Versão do top melhorada.
+- `htop`: versão do top melhorada.
 
 - `last`: histórico de logins.
 
 - `w`: quem está logado.
 
-- `id`: Informações sobre a identidade do user/group.
+- `id`: informações sobre a identidade do user/group.
 
 - `sar`: histórico dos estados do sistema.
 
-- `iftop` ou `nethogs`: Utilização da rede por sockets ou processos.
+- `iftop` ou `nethogs`: utilização da rede por sockets ou processos.
 
-- `ss`: Estatísticas dos sockets.
+- `ss`: estatísticas dos sockets.
 
-- `dmesg`: Mensagens de erro do sistema e do boot.
+- `dmesg`: mensagens de erro do sistema e do boot.
 
-- `hdparm`: Manipulação/performance de discos SATA/ATA.
+- `hdparm`: manipulação/performance de discos SATA/ATA.
 
-- `lsb_release`: Informações sobre a distribuição do Linux.
+- `lsb_release`: informações sobre a distribuição do Linux.
 
-- `lsblk`: Lista os blocos dos dispositivos: uma visualização em forma de árvore dos seus discos e partições do disco.
+- `lsblk`: lista os blocos dos dispositivos: uma visualização em forma de árvore dos seus discos e partições do disco.
 
 - `lshw` e `lspci`: informações do hardware, incluindo RAID, gráficos, etc.
 
