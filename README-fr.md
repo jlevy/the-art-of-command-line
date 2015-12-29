@@ -201,6 +201,53 @@ Elle fournit un historique concernant l'usage du CPU, de la mémoire, du réseau
 - Utilisez `dmesg` à chaque fois que quelque chose de bizarre se produit (pour des problèmes liés au matériel ou aux drivers).
 
 
+## Unilignes
+
+Quelques exemples d'assemblages de commandes&nbsp;:
+
+- Il est quelques fois extrèmement utile de pouvoir faire une intersection, union ou différence de fichiers texte à l'aide de `sort` et `uniq`.
+Supposez que `a` et `b` soient des fichiers texte ne contenant pas de lignes répétées.
+C'est rapide et fonctionne sur des fichiers de taille quelconque jusqu'à plusieurs gigaoctets (le tri n'est pas limité par la capacité mémoire bien que vous puissiez avoir besoin d'utiliser l'option `-T` si `/tmp` est sur une petite partition racine).
+Voyez aussi la remarque à propos de `LC_ALL` ci-dessus et l'option `-u` de `sort` (omise ci-dessous pour plus de clarté).
+```sh
+    cat a b | sort | uniq > c       # c est l'union de a et b
+    cat a b | sort | uniq -d > c    # c est l'intersection de a et b
+    cat a b b | sort | uniq -u > c  # c est la difference  a - b
+```
+
+- Utilisez `grep . *` pour rapidement inspecter les contenus des fichiers d'un repértoire (chaque ligne est précédé du nom du fichier) ou `head -100 *` (chaque fichier a un titre).
+Cela peut être utile pour des répertoires remplis de fichiers de configuration comme ceux de `/sys`, `/proc`, `/etc`.
+
+- Pour ajouter les nombres de la troisième colonne d'un fichier texte (c'est probablement trois fois plus rapide et trois fois plus petit que son équivalent en Python)&nbsp;:
+```sh
+    awk '{ x += $3 } END { print x }' myfile
+```
+
+- Pour visualiser les tailles et les dates des fichiers d'une arborescence, une sorte de `ls -l` récursive, mais plus facile à lire que `ls -lR`&nbsp;:
+```sh
+    find . -type f -ls
+```
+
+- Supposons que vous ayez un fichier texte comme un fichier journal de serveur web et q'une certaine valeur, comme un paramètre `acct_id` présent dans l'URL, figure à certaines lignes. 
+Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_id`&nbsp;:
+```sh
+    cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
+```
+
+- Pour surveiller en permanence tout changement, utilisez `watch`, par exemple vérifiez les modifications dans les fichiers d'un répertoire avec `watch -d -n 2 'ls -rtlh | tail'` ou surveillez les paramètres de votre réseau tout en dépannant la configuration de votre wifi avec `watch -d -n 2 ifconfig`.
+
+- Exécutez cette fonction pour afficher aléatoirement une astuce de ce texte (analyse le le code en Markdown et en extrait un élément d'une liste)&nbsp;:
+```sh
+     function taocl() {
+        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
+          pandoc -f markdown -t html |
+          xmlstarlet fo --html --dropdtd |
+          xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
+          xmlstarlet unesc | fmt -80
+      }
+```
+
+
 ## Obscures mais utiles
 
 - `expr` : effectue des operations arithmétiques et booléenne, et évalue des expressions régulières.
