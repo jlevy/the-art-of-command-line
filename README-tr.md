@@ -8,7 +8,7 @@
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 - [Meta](#meta)
-- [Basics](#basics)
+- [Temeller](#basics)
 - [Everyday use](#everyday-use)
 - [Processing files and data](#processing-files-and-data)
 - [System debugging](#system-debugging)
@@ -33,17 +33,17 @@ but given the interest there, it seemed worth using GitHub, where people more ta
 
 ## Meta
 
-Scope:
+Kapsam:
 
-- This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux, with the exception of the "[MacOS X only](#macos-x-only)" section. Many of the other items apply or can be installed on other Unices or MacOS (or even Cygwin).
-- The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
-- It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.
+- Bu kılavuz hem başlangıç hem de profesyoneller içindir. Hedefler *geniş* (önemli herşey), *belirlilik* (yaygın kullanılan somut örnekler), and *özlülük* (konu dışı ve gerekli olmayan bilgilerden uzak durmak). Her ipuçu bazi durumlarda gerekli veya önemli ölçüde zaman kazandırır alternatif kaynaklarla karşılaştırdıgimizda.
+- Bu kaynak Linux için yazilmistir, "[MacOS X only](#macos-x-only)" bölümü istisna. Diğer öğelerin çoğu Unice(Unix-gibi)'lerde veya MacOS (hatta Cygwin ) üzerinde aynıdır veya yüklenebilir.
+- Etkileşimli Bash asıl hedef ancak çogu bilgi diger shell`lerde ve genel Bash scripting(komut dizisi oluşturma)`de aynıdır.
+- "Standart" Unix komutlarını ve ozel paket program yüklemek gereken komutları içerir. --Yani onemli olan her sey dahil olmayi hak etmistir.
 
 Notes:
 
-- To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (as appropriate) to install new programs.
-- Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
+- Bir sayfayi gecmemek icin icerik dolayli olarak referans olarak verilmistir. Fikri ve komutu bildiginiz zaman daha detaylarini bakacak kadar zaten zekisiniz. (Uygun oldukca) Yeni program yuklemek icin su komutlari kullanin `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew`.
+- Komutlarin, seceneklerin veya veri yollarinin vs. ne yaptigi hakinda kullanisli bir analiz elde etmek icin [Explainshell](http://explainshell.com/)`i ziyaret edin.
 
 
 ## Basics
