@@ -3,7 +3,7 @@
 ]
 
 
-# Komut İstemi Sanati
+# Komut İstemi Sanatı
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
