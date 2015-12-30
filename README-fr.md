@@ -49,6 +49,42 @@ Utilisez `apt-get`, `yum`, `dnf`, `pacman`, `pip` ou `brew` (selon votre distrib
 - Utilisez [Explainshell](http://explainshell.com) pour obtenir de l'aide à propos des commandes, options, tubes, etc.
 
 
+## Notions de base
+
+- Apprenez les bases de Bash. 
+En fait, tapez `man bash` et parcourez toute la page&#8239;; elle est relativement facile à suivre et pas si longue.
+Les shells alternatives peuvent être intéressants, mais Bash est puissant et toujours disponible (apprendre *seulement* zsh, fish, etc., bien que cela soit tentant sur votre ordinateur portable, vous limite dans bien des situations, comme par exemple lors de l'utilisation de serveurs existants).
+
+- Apprenez à bien utiliser au moins un éditeur en mode texte.
+Idéalement Vim (`vi`), car il n'a pas vraiment de concurrent lorsqu'il s'agit d'éditer un texte dans un terminal de manière inopinée (même si la plupart du temps vous utilisez Emacs, un gros EDI ou l'un de ces nouveaux éditeurs à la mode).
+
+- Sachez comment lire une documentation avec `man` (pour les curieux, `man man` énumère les numéros des sections, par exemple 1 pour les commandes utilisateur, 5 pour les formats de fichier et les conventions et 8 pour tout ce qui concerne l'administration système).
+Trouvez les pages de manuel avec `apropos`.
+Sachez que certaines commandes ne sont pas des exécutables, mais des commandes internes de Bash et que vous pouvez obtenir de l'aide à leur sujet avec `help` et `help -d`.
+
+- Apprenez les redirections des entrées et des sorties au moyen de `>` et `<` et les tuyaux à l'aide de `|`.
+Sachez que `>` écrase le fichier de sortie et `>>` sert à ajouter.
+Renseignez-vous sur stdout et stderr.
+
+- Apprenez à propos de l'expansion des noms de fichiers avec `*` (et peut-être `?` et `[`...`]`), des mécanismes de citation et de la différence entre les guillemets `"` et les apostrophes `'` (voir ci-dessous pour en savoir plus sur l'expansion des variables).
+
+- Familiarisez-vous avec la gestion des processus de Bash&nbsp;: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+
+- Apprenez `ssh` et les principes de l'authentification sans mot de passe à l'aide de `ssh-agent`, `ssh-add`, etc.
+
+- Les bases de la gestion des fichiers&nbsp;: `ls` et `ls -l` (en particulier, apprenez la signification de chacune des colonnes de `ls -l`), `less`, `head`, `tail` et `tail -f` (ou mieux, `less +F`), `ln` et `ln -s` (apprenez les différences et les avantages des liens durs par rapport aux liens symboliques), `chown`, `chmod`, `du` (pour un rapide résumé de l'espace disque occupé&nbsp;: `du -hs *`).
+Pour la gestion du système de fichiers&nbsp;: `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+Apprenez ce qu'est un inode (`ls -i` ou `df -i`).
+
+- Les bases de l'administration réseau&nbsp;: `ip` ou `ifconfig`, `dig`.
+
+- Apprenez les expressions régulières et les différents drapeaux de `grep` et `egrep`.
+Les options `-i`, `-o`, `-v`, `-A`, `-B` et `-C` méritent d'être connues.
+
+- Apprenez à utiliser `apt-get`, `yum`, `dnf` ou `pacman` (selon la distribution) pour trouver et installer des paquets.
+Assurez-vous d'avoir `pip` pour installer des outils en ligne de commande écrits en Python (quelques-uns ci-dessous s'installent plus facilement à l'aide de `pip`).
+
+
 ## Traitement des fichiers et des données
 
 - Pour localiser un fichier par son nom dans le répertoire courant, `find . -iname '*something*'` (ou autres).
