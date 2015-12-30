@@ -14,7 +14,7 @@
 - [Sistemsko razhroščevanje](#sistemsko-razhroščevanje)
 - [V eni vrstici](#v-eni-vrstici)
 - [Nepregledno vendar uporabno](#nepregledno-vendar-uporabno)
-- [Samo za MacOS X](#samo-za-macos-x)
+- [Samo za OS X](#samo-za-os-x)
 - [Več virov](#več-virov)
 - [Pogoji uporabe](#pogoji-uporabe)
 
@@ -36,7 +36,7 @@ vendar glede na dani interes tu, izgleda vredno uporabe GitHub-a, kjer lahko lju
 Obseg:
 
 - Ta vodič je tako za začetnike kot za poznavalce. Cilji so *širina* (vse pomembno), *specifičnost* (podaja konkretne primere najpogostejših primerov uporabe) in *kratkost* (izogiba se stvarem, ki niso bistvene ali se odmikajo, kar lahko enostavno pogledate drugje). Vsak nasvet je bistven v določeni situaciji ali bistveno prihrani čas pred alternativami.
-- To je napisano za Linux z izjemo sekcije "[Samo za MacOS X](#samo-za-macos-x)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali MacOS (ali celo Cygwin).
+- To je napisano za Linux z izjemo sekcije "[Samo za OS X](#samo-za-os-x)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali MacOS (ali celo Cygwin).
 - Poudarek je na interaktivnosti Bash-a, čeprav mnogo nasvetov velja za ostale lupine in splošno skriptanje Bash-a.
 - Vključuje tako "standardne" ukaze Unix-a kot tudi tiste, ki zahtevajo namestitev posebnih paketov -- dokler so dovolj pomembni, da zaslužijo vključitev.
 
@@ -487,7 +487,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 - `fortune`, `ddate` in `sl`: hm, torej zavisi glede na to ali smatrate parne lokomotive in dinamične kotacije "uporabne"
 
 
-## Samo za MacOS X
+## Samo za OS X
 
 To so elementi pomembni *samo* za MacOS.
 
