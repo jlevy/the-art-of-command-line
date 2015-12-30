@@ -206,7 +206,7 @@ Note:
 
 - Ricorda che le impostazioni riguardo la localizzazione influiscono un sacco su alcuni tool da linea di comando, in molti modi. Ad esempio sugli ordinamenti (collation) e performance. Molte installazioni Linux impostano `LANG` ed altre variabili correlate automaticamente su US English (inglese americano). Se decidi di cambiare lingua, non è detto quindi che le cose rimangano così come sono. Alcuni comandi, addirittura, potrebbero diventare immediatamente molto più lenti.
 
-- Impara le basi di `awk` e `sed` per manipolare dati. Ad esempio, per sommare tutti i numeri nella terza colonna di un file di testo, usa `awk '{ x += $3 } END { print x }'`. Probabilmente tre volte più veloce e tre volt epiù corto del suo equivalente in Python.
+- Impara le basi di `awk` e `sed` per manipolare dati. Ad esempio, per sommare tutti i numeri nella terza colonna di un file di testo, usa `awk '{ x += $3 } END { print x }'`. Probabilmente tre volte più veloce e tre volte più corto del suo equivalente in Python.
 
 - Per rimpiazzare tutte le occorrenze di una stringa, in uno o più file:
 
