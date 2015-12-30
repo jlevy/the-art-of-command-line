@@ -1,5 +1,5 @@
-[ Languages: 
-[English](README.md), [Español](README-es.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
+[ Languages:
+[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
 ]
 
 
@@ -8,15 +8,15 @@
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 - [Meta](#meta)
-- [Fundamentos](#basics)
-- [Uso diario](#everyday-use)
-- [Procesamiento archivos y datos](#processing-files-and-data)
-- [Depuración del sistema](#system-debugging)
+- [Fundamentos](#fundamentos)
+- [Uso diario](#de-uso-diario)
+- [Procesamiento archivos y datos](#procesamiento-de-archivos-y-datos)
+- [Depuración del sistema](#depuración-del-sistema)
 - [One-liners](#one-liners)
-- [Obscuro pero útil](#obscure-but-useful)
-- [Solo para MacOS X](#macos-x-only)
-- [Más recursos](#more-resources)
-- [Advertencia](#disclaimer)
+- [Obscuro pero útil](#oscuro-pero-útil)
+- [Solo para MacOS X](#solo-para-macos-x)
+- [Más recursos](#más-recursos)
+- [Advertencia](#advertencia)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -24,7 +24,7 @@
 La fluidez en el terminal es una destreza a menudo abandonada y considerada arcaica, pero esta mejora su flexibilidad y productividad como ingeniero en formas obvia y sutil. Esta es una selección de notas y consejos al usar el terminal que encontramos útiles al trabajar en Linux. Algunos consejos son elementales y algunos bastante específicos, sofisticados u oscuros. Esta página no es larga, pero si puedes usar y recordar todos los puntos aquí mostrados, sabrás un montón.
 
 Este trabajo es el resultado de [muchos autores y traductores](AUTHORS.md).
-La mayor parte 
+La mayor parte
 [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareció](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
@@ -253,7 +253,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Para depuración web, `curl` y `curl -I` son prácticos, o como sus equivalentes `wget`, o el más moderno [`httpie`](https://github.com/jkbrzt/httpie).
 
-- Para conocer el estado del cpu/disco, las clásicas herramientas son `top` (o mejor `htop`), `iostat`, y `iotop`. Usa `iostat -mxz 15` para CPU básicas y estadísticas detalladas y visión de rendimiento por partición del disco. 
+- Para conocer el estado del cpu/disco, las clásicas herramientas son `top` (o mejor `htop`), `iostat`, y `iotop`. Usa `iostat -mxz 15` para CPU básicas y estadísticas detalladas y visión de rendimiento por partición del disco.
 
 - Para detalles de la conexión de red, usa `netstat` y `ss`.
 
@@ -337,7 +337,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `expr`: ejecuta operaciones aritméticas o booleanas o evalúa expresiones regulares
 
-- `m4`: procesador de macro sencillo 
+- `m4`: procesador de macro sencillo
 
 - `yes`: imprime un string sin fin
 
@@ -469,7 +469,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `ss`: estadísticas de socket
 
-- `dmesg`: mensajes de error del arranque y del sistema 
+- `dmesg`: mensajes de error del arranque y del sistema
 
 - `sysctl`: examina y configura los parámetros de kernel de Linux en tiempo de ejecución
 
@@ -480,7 +480,7 @@ Algunos ejemplos de comandos reunidos:
 - `lsblk`: lista de dispositivos de bloque: una vista tipo arbol de sus discos y particiones de disco
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: información de hardware, incluyendo CPU, BIOS, RAID, gráficos, dispositivos, etc
- 
+
 - `lsmod` y `modinfo`: lista y muestra detalles de los módulos del kernel
 
 - `fortune`, `ddate`, y `sl`: um, bien, depende de si considera las locomotoras de vapor y citas Zippy "útiles"
