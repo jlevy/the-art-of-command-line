@@ -14,7 +14,7 @@
 - [Depuración del sistema](#depuración-del-sistema)
 - [One-liners](#one-liners)
 - [Obscuro pero útil](#oscuro-pero-útil)
-- [Solo para MacOS X](#solo-para-macos-x)
+- [Solo para OS X](#solo-para-os-x)
 - [Más recursos](#más-recursos)
 - [Advertencia](#advertencia)
 
@@ -36,7 +36,7 @@ pero debido al interés mostrado, parecía valer la pena usar Github, donde pers
 Alcance:
 
 - Esta guía es tanto para principiantes como para experimentados. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar fácilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente puede ahorrar tiempo comparado con otras alternativas.
-- Esta escrito para Linux, con excepción de la sección "[Solo para MacOS X](#macos-x-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
+- Esta escrito para Linux, con excepción de la sección "[Solo para OS X](#os-x-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
 - Se enfoca en Bash interactivo, aunque muchos de los consejos se aplican para otros shells y al Bash scripting por lo general.
 - Incluye tanto comandos "estándar" Unix, así como aquellos que requieren la instalación especial de un paquete -- siempre que sea suficientemente importante para ameritar su inclusión.
 
@@ -486,7 +486,7 @@ Algunos ejemplos de comandos reunidos:
 - `fortune`, `ddate`, y `sl`: um, bien, depende de si considera las locomotoras de vapor y citas Zippy "útiles"
 
 
-## Solo para MacOS X
+## Solo para OS X
 
 Estos son puntos relevantes *únicamente* para MacOS.
 
