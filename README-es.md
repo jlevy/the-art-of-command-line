@@ -13,7 +13,7 @@
 - [Procesamiento archivos y datos](#procesamiento-de-archivos-y-datos)
 - [Depuración del sistema](#depuración-del-sistema)
 - [One-liners](#one-liners)
-- [Obscuro pero útil](#oscuro-pero-útil)
+- [Obscuro pero útil](#obscuro-pero-útil)
 - [Solo para MacOS X](#solo-para-macos-x)
 - [Más recursos](#más-recursos)
 - [Advertencia](#advertencia)
@@ -28,7 +28,7 @@ La mayor parte
 [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareció](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-pero debido al interés mostrado, parecía valer la pena usar Github, donde personas más talentosas que el author original pudiendo fácilmente sugerir mejoras. Si ve un error o algo que podría ser mejor, por favor, crea un issue o PR! (Por supuesto primero revisa la sección meta de PRs/issues.)
+pero debido al interés mostrado, parecía valer la pena usar Github, donde personas más talentosas que el autor original pudiendo fácilmente sugerir mejoras. Si ve un error o algo que podría ser mejor, por favor, crea un issue o PR! (Por supuesto primero revisa la sección meta de PRs/issues.)
 
 
 ## Meta
@@ -173,7 +173,7 @@ Notas:
 
 ## Procesamiento de archivos y datos
 
-- Para localizar un archivo por nombre en el directorio actual, `find . -iname '*something*'` (o similar). Para encontrar un archivo en cualquier lado por nombre, usa `locate something` (pero tenga en mente que `updatedb` quizás no haya indexado recientemente los archivos creados).
+- Para localizar un archivo por nombre en el directorio actual, `find . -iname '*algo*'` (o similar). Para encontrar un archivo en cualquier lado por nombre, usa `locate something` (pero tenga en mente que `updatedb` quizás no haya indexado recientemente los archivos creados).
 
 - Para búsqueda general a través de archivos fuente o de datos (más avanzado que `grep -r`), usa [`ag`](https://github.com/ggreer/the_silver_searcher).
 
@@ -306,7 +306,7 @@ Algunos ejemplos de comandos reunidos:
 
 - Sumar todos los números en la tercera columna de un archivo de texto (esto es probablemente 3 veces más rápido y 3 veces menos código que el equivalente en Python):
 ```sh
-      awk '{ x += $3 } END { print x }' myfile
+      awk '{ x += $3 } END { print x }' miarchivo
 ```
 
 - Si quiere examinar tamaños/fechas en un árbol de archivos, esto es como un `ls -l` recursivo pero es más fácil de leer que `ls -lR`:
@@ -333,7 +333,7 @@ Algunos ejemplos de comandos reunidos:
 ```
 
 
-## Oscuro pero útil
+## Obscuro, pero útil
 
 - `expr`: ejecuta operaciones aritméticas o booleanas o evalúa expresiones regulares
 
