@@ -28,7 +28,7 @@ La mayor parte
 [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareció](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-pero debido al interés mostrado, parecía valer la pena usar Github, donde personas más talentosas que el author original pudiendo fácilmente sugerir mejoras. Si ve un error o algo que podría ser mejor, por favor, crea un issue o PR! (Por supuesto primero revisa la sección meta de PRs/issues.)
+pero debido al interés mostrado, parecía valer la pena usar Github, donde personas más talentosas que el autor original pudiendo fácilmente sugerir mejoras. Si ve un error o algo que podría ser mejor, por favor, crea un issue o PR! (Por supuesto primero revisa la sección meta de PRs/issues.)
 
 
 ## Meta
