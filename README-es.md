@@ -13,7 +13,7 @@
 - [Procesamiento archivos y datos](#procesamiento-de-archivos-y-datos)
 - [Depuración del sistema](#depuración-del-sistema)
 - [One-liners](#one-liners)
-- [Obscuro pero útil](#oscuro-pero-útil)
+- [Obscuro pero útil](#obscuro-pero-útil)
 - [Solo para MacOS X](#solo-para-macos-x)
 - [Más recursos](#más-recursos)
 - [Advertencia](#advertencia)
@@ -333,7 +333,7 @@ Algunos ejemplos de comandos reunidos:
 ```
 
 
-## Oscuro pero útil
+## Obscuro, pero útil
 
 - `expr`: ejecuta operaciones aritméticas o booleanas o evalúa expresiones regulares
 
