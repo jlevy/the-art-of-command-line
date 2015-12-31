@@ -14,7 +14,7 @@
 - [Debug sistema](#debug-sistema)
 - [One-liner](#one-liner)
 - [Oscuri ma utili](#oscuri-ma-utili)
-- [MacOS X](#macos-x)
+- [OS X](#os-x)
 - [Ulteriori risorse](#ulteriori-risorse)
 - [Disclaimer](#disclaimer)
 
@@ -35,7 +35,7 @@ Una buona parte di ciò che leggi è [apparsa](http://www.quora.com/What-are-som
 Obiettivi:
 
 - Questa guida è adatta sia a principianti che ad utenti con più conoscenze. Ci proponiamo di seguire tre principi fondamentali: *ampiezza* (cerchiamo di includere tutto quello che serve), *specificità* (dando degli esempi concreti) e *brevità* (evitando tutto il futile e il superfluo). Ogni consiglio viene dato con l'obiettivo di salvare del tempo prezioso.
-- Questa guida è stata scritta per Linux, con alcune eccezioni per che abbiamo riportato nella sezione "[MacOS X](#macos-x-only)". In ogni caso, molti dei consigli che vedrai si applicano tranquillamente ad altri sistemi operativi Unix e a MacOS.
+- Questa guida è stata scritta per Linux, con alcune eccezioni per che abbiamo riportato nella sezione "[OS X](#os-x-only)". In ogni caso, molti dei consigli che vedrai si applicano tranquillamente ad altri sistemi operativi Unix e a MacOS.
 - Il focus principale sarà su interactive Bash, nonostante non sia esclusivamente così.
 - Verranno inclusi comandi "base" Unix, ma anche altri che necessiteranno di installazioni separate.
 
@@ -500,7 +500,7 @@ Qualche esempio di combinazione di più comandi comandi:
 - `fortune`, `ddate`, e `sl`: mmmh, beh, dipende molto da quanto consideri le locomotive a vapore e le citazioni di Zippy "utili".
 
 
-## MacOS X
+## OS X
 
 Consiera questa sezione come un'esclusiva MacOS.
 
