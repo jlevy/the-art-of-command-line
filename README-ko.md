@@ -14,7 +14,7 @@
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
-- [MacOS X only](#macos-x-only)
+- [OS X only](#os-x-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
@@ -34,7 +34,7 @@
 범위:
 
 - 이 가이드는 초보자와 경험자 모두를 위한 것입니다. 목표는 범위(전부 다 중요합니다!), 구체성(대부분의 일반적인 케이스에 대한 구체적인 예제), 그리고 간결함(쉽게 마주치지 않는, 중요하지 않고, 지엽적인 것을 피함) 입니다. 모든 팁은 특정 상황에서 매우 중요하거나, 여러 대안들 사이에서의 시간을 확연하게 절약합니다.
-- 이 문서는 리눅스를 위한것입니다. "[MacOS X only](#macos-x-only)"세션을 제외하고 말이죠. 일부는 MacOS에서 똑같이 적용되지 않습니다(Cygwin에서 조차 말이죠).
+- 이 문서는 리눅스를 위한것입니다. "[OS X only](#os-x-only)"세션을 제외하고 말이죠. 일부는 MacOS에서 똑같이 적용되지 않습니다(Cygwin에서 조차 말이죠).
 - 인터랙티브 Bash에 초점이 맞추어져있습니다만, 대부분의 팁은 다른 쉘이나, general Bash 스크립트에서도 동작합니다.
 - 이 문서는 "스탠다드" 유닉스 커맨드와 특정 패키지 설치를 필요로 하는 것 둘 다 포함하고 있습니다. 여기서 다루는 스탠다드 커맨드와 특정 패키지에 대한 것은 포함될만큼 충분히 중요합니다.
 
@@ -449,7 +449,7 @@
 - `fortune`, `ddate`, 그리고 `sl`: 에... 증기기관차를 생각하고있고 그것을 인용하고 싶다면 이것은 "유용"합니다
 
 
-## MacOS X only
+## OS X only
 
 *MacOS에서만* 해당되는 항목입니다.
 
