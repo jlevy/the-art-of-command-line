@@ -40,13 +40,13 @@ Kapsam:
 - Etkileşimli Bash asıl hedef ancak çogu bilgi diger shell`lerde ve genel Bash scripting(komut dizisi oluşturma)`de aynıdır.
 - "Standart" Unix komutlarını ve ozel paket program yüklemek gereken komutları içerir. --Yani onemli olan her sey dahil olmayi hak etmistir.
 
-Notes:
+Notlar:
 
 - Bir sayfayi gecmemek icin icerik dolayli olarak referans olarak verilmistir. Fikri ve komutu bildiginiz zaman daha detaylarini bakacak kadar zaten zekisiniz. (Uygun oldukca) Yeni program yuklemek icin su komutlari kullanin `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew`.
 - Komutlarin, seceneklerin veya veri yollarinin vs. ne yaptigi hakinda kullanisli bir analiz elde etmek icin [Explainshell](http://explainshell.com/)`i ziyaret edin.
 
 
-## Basics
+## Temeller
 
 - Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
