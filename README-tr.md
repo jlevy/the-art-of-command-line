@@ -8,7 +8,7 @@
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 - [Meta](#meta)
-- [Temeller](#basics)
+- [Temeller](#temeller)
 - [Everyday use](#everyday-use)
 - [Processing files and data](#processing-files-and-data)
 - [System debugging](#system-debugging)
