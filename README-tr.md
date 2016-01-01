@@ -48,7 +48,7 @@ Notlar:
 
 ## Temeller
 
-- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
+- Temel Bash`i ögren. Aslinda, `man bash` yaz ve en azindan hepsini hizla gozden gecir; cok uzun olmadigi gibi takip etmesi de kolay. Alternatif shell`ler guzel olabilir, ancak Bash gucle ve kullanisli (*sadece* zsh, fish, etc.`i ogrenmek, kendi laptopunda deneyerek, bircok durumda kisitlayarak, mesela mevcut sunuculari kullanarak).
 
 - Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
 
