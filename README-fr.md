@@ -85,6 +85,134 @@ Les options `-i`, `-o`, `-v`, `-A`, `-B` et `-C` méritent d'être connues.
 Assurez-vous d'avoir `pip` pour installer des outils en ligne de commande écrits en Python (quelques-uns ci-dessous s'installent plus facilement à l'aide de `pip`).
 
 
+## Utilisation quotidienne
+
+- En Bash, utilisez **Tab** pour compléter les arguments ou lister toutes les commandes disponibles, et **ctrl-r** pour rechercher dans l'historique des commandes (tapez pour rechercher, appuyez sur **ctrl-r** plusieurs fois pour parcourir les différentes correspondances, appuyez sur **Enter** pour exécuter la commande trouvée ou sur la flèche droite pour l'éditer).
+
+- En Bash, utilisez **ctrl-w** pour effacer le dernier mot et **ctrl-u** pour effacer le contenu de la ligne jusqu'au curseur.
+Utilisez **alt-b** et **alt-f** pour se déplacer mot par mot, **ctrl-a** pour déplacer le curseur au début de la ligne, **ctrl-e** pour déplacer le curseur à la fin de la ligne, **ctrl-k** pour effacer depuis le curseur jusqu'à la fin de la ligne, **ctrl-l** pour effacer l'écran.
+Voir `man readline` pour la liste des raccourcis clavier par défault de Bash.
+Il y en a beaucoup.
+Par exemple **alt-.** fait défiler les arguments précédents et **alt-*** développe un glob.
+
+- Autrement, si vous adorez les raccourcis clavier de vi, utilisez `set -o vi` (et `set -o emacs` pour revenir à l'état initial).
+
+- Pour éditer de longues commandes, après avoir configuré votre éditeur (par exemple `export EDITOR=vim`), **ctrl-x** **ctrl-e** (**escape-v** dans le mode vi) ouvre un éditeur pour éditer la commande courante.
+
+- Pour voir les commandes récentes, `history`.
+Il y a aussi beaucoup abréviations telles que `!$` (dernier argument) et `!!` (dernière commande), bien que celles-ci soient souvent remplacées par **ctrl-r** et **alt-.**.
+
+- Pour revenir au répertoire précédent&nbsp;: `cd -`.
+
+- Si vous êtes au milieu de la saisie d'une commande mais que vous changez d'avis, tapez **alt-#** pour ajouter `#` au début de la ligne et la saisir comme un commentaire (ou utilisez **ctrl-a**, **#**, **enter**).
+Vous pouvez alors y revenir plus tard à l'aide de la commande history.
+
+- Utilisez `xargs` (ou `parallel`). 
+C'est très puissant.
+Remarquez que vous pouvez contrôler le nombre d'items à exécuter par ligne (`-L`) ainsi que le parallélisme (`-P`).
+Si vous n'êtes pas sûr s'il fera les choses correctement, utilisez d'abord `xargs echo`.
+`-I{}` est également pratique.
+Exemples&nbsp;:
+```bash
+      find . -name '*.py' | xargs grep some_function
+      cat hosts | xargs -I{} ssh root@{} hostname
+```
+
+- `pstree -p` fournit un affichage utile des processus sous la forme d'un arbre.
+
+- `pgrep` et `pkill` pour rechercher ou envoyer un signal à des processus en fonction de leur nom (`-f` est utile).
+
+- Apprenez les différents signaux que vous pouvez envoyer aux processus.
+Par exemple, pour arrêter un processus, utiliser `kill -STOP [pid]`.
+Pour la liste complète, consultez `man 7 signal`.
+
+- Utilisez `nohup` ou `disown` pour qu'un processus en arrière-plan reste actif indéfiniment.
+
+- Vérifiez quels sont les processus qui écoutent à l'aide de `netstat -lntp` ou `ss -plat` (pour TCP; ajoutez `-u` pour UDP).
+
+- Regardez `lsof` pour la liste des fichiers et *sockets* ouverts.
+
+- Voyez `uptime` ou `w` pour savoir depuis combien de temps le système fonctionne.
+
+- Utilisez `alias` pour créer des raccourcis pour les commandes fréquemment utilisées.
+Par exemple, `alias ll='ls -latr'` crée un nouvel alias `ll`.
+
+- Dans les scripts Bash, utilisez `set -x` (ou la variante `set -v` qui enregistre les entrées brutes, y compris les variables non référencées et les commentaires) pour l'affichage d'informations de débogage.
+Utilisez les modes stricts à moins que vous ayez une bonne raison de ne pas le faire&nbsp;: utilisez `set -e` pour interrompre le script en cas d'erreur (code de sortie non nul).
+Utilisez `set -u` pour détecter l'utilisation d'une variable non initialisée.
+Envisagez aussi `set -o pipefail` pour détecter les erreurs dans les tubes (renseignez-vous sur le sujet car ce sujet est un peu délicat).
+Pour des scripts plus compliqués, servez-vous également de `trap` pour intercepter EXIT ou ERR.
+Une bonne habitude est de commencer un script comme cela, ce qui lui permettra de détecter les erreurs courantes, de s'interrompre et d'afficher un message&nbsp;:
+```bash
+      set -euo pipefail
+      trap "echo 'error: Script failed: see failed command above'" ERR
+```
+
+- Dans les scripts Bash, les sous-shells (placés entre parenthèses) sont commodes pour grouper des commandes.
+Un exemple typique consiste à se déplacer temporairement dans un autre répertoire de travail, p.&nbsp;ex.
+```bash
+      # faire quelque chose dans le répertoire courant
+      (cd /some/other/dir && other-command)
+      # continue dans le répertoire original
+```
+
+- Remarquez qu'en Bash il y a de nombreux types d'expansion des variables.
+Vérifier l'existence d'une variable&nbsp;: `${name:?error message}`.
+Par exemple, si un script Bash exige un unique argument, il vous suffit d'écrire `input_file=${1:?usage: $0 input_file}`.
+L'expansion arithmétique&nbsp; `i=$(( (i + 1) % 5 ))`. Suites&nbsp;: `{1..10}`. Suppression de sous-chaînes&nbsp;: `${var%suffix}` et `${var#prefix}`. Par exemple,  si `var=foo.pdf`, alors `echo ${var%.pdf}.txt` affiche `foo.txt`.
+
+- La sortie d'une commande peut être traitée comme un fichier à l'aide de `<(some command)`.
+Par exemple, pour comparer le fichier local `/etc/hosts` avec un fichier distant&nbsp;:
+```sh
+      diff /etc/hosts <(ssh somehost cat /etc/hosts)
+```
+
+- Renseignez-vous à propos des « here documents » en Bash, comme dans `cat <<EOF ...`.
+
+- En Bash, redirigez à la fois la sortie standard et la sortie des erreurs à l'aide de `some-command > logfile 2>&1` ou `some-command &>logfile`.
+Souvent, pour s'assurer qu'une commande de laisse pas un descripteur de fichier ouvert sur l'entrée standard, le l'attachant au terminal dans lequel vous vous trouvez, c'est une bonne pratique d'ajouter `</dev/null`.
+
+- Utilisez `man ascii` pour une bonne table ASCII avec les valeurs décimales et hexadécimales.
+Pour des informations générales sur l'encodage, `man unicode`, `man utf-8` et `man latin1` sont utiles.
+
+- Utilisez `screen` ou [`tmux`](https://tmux.github.io/) pour multiplexer une fenêtre de terminal, particulièrement utile pour des sessions SSH distante et pour se détacher et se rattacher à une session.
+`byobu` peut améliorer screen ou tmux en fournissant plus d'informations et une gestion facilitée.
+Une alternative plus légère pour la persistance des sessions seulement est `dtach`.
+
+- C'est utile de savoir comment créer un tunnel SSH avec `-L` ou `-D` (et occasionnellement `-R`), par exemple pour accéder des sites web à partir d'un serveur distant.
+
+- Il peut être intéressant d'effectuer quelques optimisations à votre configuration de ssh&#8239;; par exemple, le fichier `~/.ssh/config` contient des paramètres pour éviter les pertes de connexion dans certains environnements réseaux, pour utiliser la compression (ce qui est utile avec scp sur des connexions à faible bande passante), et pour le multiplexage de canaux vers le même serveur avec un fichier de contrôle local&nbsp;:
+```
+      TCPKeepAlive=yes
+      ServerAliveInterval=15
+      ServerAliveCountMax=6
+      Compression=yes
+      ControlMaster auto
+      ControlPath /tmp/%r@%h:%p
+      ControlPersist yes
+```
+
+- Quelques autres options relatives à ssh sont sensibles pour la sécurité et ne devraient être activées qu'avec la plus grande prudence. Par exemple, sur des sous-réseaux, des hôtes ou des réseaux sûrs&nbsp;: `StrictHostKeyChecking=no`, `ForwardAgent=yes`.
+
+- Envisagez [`mosh`](https://mosh.mit.edu/) comme une alternative à ssh qui utilises UDP, évitant ainsi les pertes de connexion et ajoutant du confort en situation de mobilité (exige une installation côté serveur).
+
+- Pour obtenir les permissions d'un fichier en octal, utile pour configurer le système mais pas disponible à l'aide de `ls`, utilisez quelque chose comme
+```sh
+      stat -c '%A %a %n' /etc/timezone
+```
+
+- Pour une sélection intéractive de valeurs issues de la sortie d'une commande, utilisez [`percol`](https://github.com/mooz/percol) ou [`fzf`](https://github.com/junegunn/fzf).
+
+- Pour intéragir avec les fichiers provenant de la sortie d'une commande (p.&nbsp;ex. `git`), utilisez `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
+
+
+- Créez un simple serveur web pour partager les fichiers du répertoire courant (et ses sous-répertoires) avec `python -m SimpleHTTPServer 7777` (port 7777 et Python 2)  et `python -m http.server 7777` (port 7777 et Python 3).
+
+- Pour exécuter une commande avec des privilèges, utiliser `sudo` (en tant que root) ou `sudo -u` (en tant qu'un autre utilisateur).
+Utilisez `su` ou `sudo bash` pour exécuter un shell sous cette utilisateur.
+Utilisez `su -` pour simuler une nouvelle connexion en tant que root ou un autre utilisateur.
+
+
 ## Traitement des fichiers et des données
 
 - Pour localiser un fichier par son nom dans le répertoire courant, `find . -iname '*something*'` (ou autres).
