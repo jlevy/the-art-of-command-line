@@ -21,29 +21,29 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-La fluidez en el terminal es una destreza a menudo abandonada y considerada arcaica, pero esta habilidad mejora tu flexibilidad y productividad como ingeniero de formas obvias y sutiles. Esta es una selección de notas y consejos para usar el terminal que encontramos útiles al trabajar en Linux. Algunos consejos son elementales y algunos bastante específicos, sofisticados u oscuros. Esta página no es larga, pero si puedes usar y recordar todos los puntos aquí mostrados, sabrás un montón.
+La fluidez en el terminal es una destreza a menudo abandonada y considerada arcaica, pero ésta mejora tu flexibilidad y productividad como ingeniero de formas obvias y sutiles. Esta es una selección de notas y consejos para usar el terminal que encontramos útiles al trabajar en Linux. Algunos consejos son elementales y algunos bastante específicos, sofisticados u oscuros. Esta página no es larga, pero si puedes usar y recordar todos los puntos aquí mostrados, sabrás un montón.
 
 Este trabajo es el resultado de [muchos autores y traductores](AUTHORS.md).
 La mayor parte
 [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareció](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-pero debido al interés mostrado, parecía valer la pena usar Github, donde personas más talentosas que el autor original pudieran sugergir mejoras fácilmente. Si encuentras un error o algo que podría mejorarse, por favor, ¡crea un issue o PR! (Por supuesto primero revisa la sección meta de PRs/issues.)
+pero debido al interés mostrado, parecía valer la pena usar Github, donde personas más talentosas que el autor original pudieran sugergir mejoras fácilmente. Si ves un error o algo que podría mejorarse, por favor, ¡crea un issue o PR! (Por supuesto primero revisa la sección meta de PRs/issues.)
 
 
 ## Meta
 
 Alcance:
 
-- Esta guía es tanto para principiantes como para expertos. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar fácilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente puede ahorrar tiempo comparado con otras alternativas.
-- Está escrita para Linux, con excepción de la sección "[Solo para OS X](#os-x-only)". Muchos de los otros puntos sirven o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
-- Se concentra en Bash interactivo, aunque muchos de los consejos sirven para otros shells y en general para el scripting en Bash.
-- Incluye tanto comandos "estándar" Unix como algunos que requieren la instalación de un paquete especial -- siempre que sea lo suficientemente importante para justificar su inclusión.
+- Esta guía es tanto para principiantes como para experimentados. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar fácilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente puede ahorrar tiempo comparado con otras alternativas.
+- Está escrita para Linux, con excepción de la sección "[Solo para OS X](#os-x-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
+- Se centra en Bash interactivo, aunque muchos de los consejos se aplican para otros shells y en general para el Bash scripting.
+- Incluye tanto comandos "estándar" Unix como algunos que requieren la instalación de un paquete especial -- siempre que sea lo suficientemente importante para merecer su inclusión.
 
 Notas:
 
-- Para mantener esto en una página, el contenido está incluido implícitamente por referencia. Eres lo suficientemente inteligente para consultar más detalles en otros lugares buscando en Google una vez conoces la idea o el comando. Usa `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (según proceda) para instalar los nuevos programas.
-- Usa [Explainshell](http://explainshell.com/) para obtener una ayuda detallada sobre que hacen los comandos, las opcioneslas pipes, etc.
+- Para mantener esto en una página, el contenido está incluido implícitamente por referencia. Eres lo suficientemente inteligente para consultar más detalles en otros lugares cuando conoces la idea o comando, con Google. Usa `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (según proceda) para instalar los nuevos programas.
+- Usa [Explainshell](http://explainshell.com/) para obtener detalles de ayuda sobre que hacen los comandos, las opciones, las pipes, etc.
 
 
 ## Fundamentos
