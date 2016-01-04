@@ -37,7 +37,7 @@ Alcance:
 
 - Esta guía es tanto para principiantes como para experimentados. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar fácilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente puede ahorrar tiempo comparado con otras alternativas.
 - Está escrita para Linux, con excepción de la sección "[Solo para OS X](#os-x-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
-- Se centra en Bash interactivo, aunque muchos de los consejos se aplican para otros shells y en general para el Bash scripting.
+- Se centra en Bash interactivo, aunque muchos de los consejos aplican para otros shells y en general para el Bash scripting.
 - Incluye tanto comandos "estándar" Unix como algunos que requieren la instalación de un paquete especial -- siempre que sea lo suficientemente importante para merecer su inclusión.
 
 Notas:
