@@ -502,3 +502,23 @@ Tyto věci jsou relevantní pouze pro MacOS.
 
 - K získání informací o verzi vydání MacOS použijte `sw_vers`.
 
+
+## Dalsi zdroje
+
+- [awesome-shell](https://github.com/alebcay/awesome-shell): Organizovaný seznam shellových nástrojů a zdrojů.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Průvodce Mac OS příkazovou řádkou více do hloubky.
+- [Přísný mód](http://redsymbol.net/articles/unofficial-bash-strict-mode/) pro psaní lepších shellových scriptů.
+- [shellcheck](https://github.com/koalaman/shellcheck): Nástroj pro statickou analýzu shellových scriptů. V podstatě lint pro bash/sh/zsh.
+- [Souborové názvy a cesty v shellu](http://www.dwheeler.com/essays/filenames-in-shell.html): Bohužel velmi komplexní drobnosti o korektní práci se souborovými jmény v shellových scriptech.
+
+
+## Zřeknutí se odpovědnosti
+
+S vyjímkou velmi malých úkolů je kód psán tak, aby ho ostatní mohli přečíst. S mocí přichází zodpovědnost. Skutečnost, že něco *můžete* v Bashi udělat nemusí nutně znamenat, že byste měli! ;)
+
+
+## License
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+
+Tato práce je licencována pod [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
