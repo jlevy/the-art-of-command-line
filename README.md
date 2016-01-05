@@ -310,7 +310,7 @@ A few examples of piecing together commands:
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- To see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
 ```sh
       find . -type f -ls
 ```
