@@ -331,3 +331,155 @@ Pár příkladů na spojování příkazů:
       }
 ```
 
+## Neobvykle ale uzitecne
+
+- `expr`: provede aritmetické nebo logické operace nebo vyhodnotí regulární výrazy
+
+- `m4`: jednoduchý procesor maker
+
+- `yes`: tiskne řetězec hodněkrát
+
+- `cal`: hezký kalendář
+
+- `env`: provede příkaz (užitečné ve scriptech)
+
+- `printenv`: vypíše proměnné prostředí (užitečné při ladění a ve scriptech)
+
+- `look`: najde anglická slova (nebo řádky v souboru) začínající řetězcem
+
+- `cut`, `paste` a `join`: manipulace s daty
+
+- `fmt`: formátuje text do odstavců
+
+- `pr`: formátuje text do stránek/sloupců
+
+- `fold`: zalamuje řádky textu
+
+- `column`: formátuje textová pole do zarovnaných sloupců nebo tabulek s danou šířkou
+
+- `expand` a `unexpand`: převádí tabulátory a mezery
+
+- `nl`: přidá čísla řádků
+
+- `seq`: tiskne čísla
+
+- `bc`: kalkulačka
+
+- `factor`: provádí faktorizaci celých čísel (15 = 5 a 3)
+
+- [`gpg`](https://gnupg.org/): šifruje a podepisuje soubory
+
+- `toe`: tabulka informací o dostupných terminálech
+
+- `nc`: síťové ladění a přenos dat
+
+- `socat`: socketové relé a tcp port přesměrování (podobné `netcat`)
+
+- [`slurm`](https://github.com/mattthias/slurm): visualizace síťového provozu
+
+- `dd`: přesun dat mezi soubory nebo zařízeními
+
+- `file`: identifikuje typ souboru
+
+- `tree`: zobrazí adresáře a podadresáře jako vnořený strom; podobně jako `ls` ale rekurzivně
+
+- `stat`: informace o souboru
+
+- `time`: provede a načasuje příkaz
+
+- `timeout`: provádí příkaz po specifikovanou dobu a zastaví proces když daná doba uplyne
+
+- `lockfile`: vytvoří semaforový soubor, který lze odstranit pouze pomocí `rm -f`
+
+- `logrotate`: rotuje, komprimuje a posílá logy emailem
+
+- `watch`: spouští opakovaně příkaz a zobrazuje výsledky a/nebo zvýrazňuje změny
+
+- `tac`: tiskne soubory pozpátku (po řádcích)
+
+- `shuf`: náhodně vybere řádky ze souboru
+
+- `comm`: porovná seřazení soubory řádek po řádku
+
+- `pv`: monitoruje postup dat skrz rouru
+
+- `hd`, `hexdump`, `xxd`, `biew` a `bvi`: vypíše nebo edituje binární soubory
+
+- `strings`: vypreparuje textové řetězce z binárních souborů
+
+- `tr`: překládá znaky nebo s nimi manipuluje
+
+- `iconv` nebo `uconv`: převod pro kódování textu
+
+- `split` a `csplit`: dělí soubory
+
+- `sponge`: čte všechen vstup před tím než ho zapíše, užitečné prro čtení a následný zápis do téhož souboru, např. `grep -v neco nejaky-soubor | sponge nejaky-soubor`
+
+- `units`: převody jednotek a výpočty; převádí jednotky mezi sebou, (viz. `/usr/share/units/definitions.units`)
+
+- `apg`: generuje náhodná hesla
+
+- `7z`: vysoko poměrová datová komprese
+
+- `ldd`: informace o dynamických knihovnách
+
+- `nm`: vypíše symboly z objektových souborů
+
+- `ab`: zátěžové testy webserverů
+
+- `strace`: ladění systému
+
+- `mtr`: vylepšení traceroute pro síťové ladění
+
+- `cssh`: vizuální souběžný shell
+
+- `rsync`: synchronizuje soubory a adresáře přes SSH nebo v lokálním systému souborů
+
+- `wireshark` a `tshark`: zachytávání packetů a síťové ladění
+
+- `ngrep`: grep pro síťovou vrstvu
+
+- `host` a `dig`: DNS vyhledávání
+
+- `lsof`: zpracovává souborové popisovače (descriptory) a informace o socketech
+
+- `dstat`: užitečné systémové informace
+
+- [`glances`](https://github.com/nicolargo/glances): vysoko úrovňový, multi-systémový přehled
+
+- `iostat`: statistiky využití disku
+
+- `mpstat`: statistiky využití CPU
+
+- `vmstat`: statistiky využití paměti
+
+- `htop`: vylepšená verze top (správa procesů)
+
+- `last`: historie přihlášení
+
+- `w`: kdo je přihlášen
+
+- `id`: informace o identitě uživatele/skupiny
+
+- `sar`: historické systémové statistiky
+
+- `iftop` nebo `nethogs`: využití sítě pro proces nebo socket
+
+- `ss`: statistika socketů
+
+- `dmesg`: bootovací a systémové chybové zprávy
+
+- `sysctl`: zobrazení a konfigurace parametrů Linuxového kernelu za běhu
+
+- `hdparm`: SATA/ATA disková manipulace/výkon
+
+- `lsb_release`: informace o Linuxové distribuci
+
+- `lsblk`: seznam blokových zařízení: stromové zobrazení disků a diskových oddílů
+
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: informace o hardwaru zahrnující CPU, BIOS, RAID, grafiku, zařízení, atd.
+
+- `lsmod` a `modinfo`: seznam a detaily kernelových modulů
+
+- `fortune`, `ddate`, a `sl`: hm, no, záleží jestli považujete parní lokomotivy a Zippyho citáty za "užitečné"
+
