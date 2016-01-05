@@ -289,3 +289,45 @@ Příklady:
 
 - Použijte `dmesg` kdykoli se něco chová neočekávaně (může jít o hardwarový nebo driverový problém).
 
+
+## Jednoradkove prikazy
+
+Pár příkladů na spojování příkazů:
+
+- Někdy je pozoruhodně užitečné dělat průnik, sjednocení a rozdíl textových souborů pomocí `sort`/`uniq`. Předpokládejte, že `a` a `b` jsou unikátní textové soubory. Toto je rychlé a funguje na souborech libovolné velikosti až do mnoha gigabytů. (Třídění pomocí `sort` není omezeé pamětí, ale je možné že budete muset použít `-T` přepínač pokud se `/tmp` nachází na malém diskovém oddílu). Podívejte se také na poznámku o LC_ALL výše a přepínač `sortu` `-u` (vynechaný pro přehlednost).
+```sh
+      cat a b | sort | uniq > c   # c je sjednocení b
+      cat a b | sort | uniq -d > c   # c je průnik b
+      cat a b b | sort | uniq -u > c   # c je rozdíl a - b
+```
+
+- Použijte `grep .*` pro rychlé prošetření obsahu všech souborů v adresáři (každý soubor je spojen s názvem souboru) nebo `head -100 *` (aby každý soubor měl záhlaví). Může být užitečné pro adresáře s konfiguračními soubory jko jsou například `/sys`, `/proc` a `/etc`.
+
+- Součet všech čísel ve třetím sloupci textového souboru (pravděpodobně 3x rychlejší a 3x méně kódu než ekvivalentní funkce v Pythonu):
+```sh
+      awk '{ x += $3 } END { print x }' mujsoubor
+```
+
+- Pokud chcete zobrazit velikosti/datumy na souborovém stromu, následující příkaz je jako rekurzivní `ls -l`, ale jedodušší na čtení než `ls -lR`:
+```sh
+      find . -type f -ls
+```
+
+- Řekněme, že máte textový soubor, jako log webového serveru, a jisté hodnoty, které se objevují na některých řádcích, jako například `acct_id` parametr, který se vyskytuje v URL. Pokud chcete záznam kolik požadavků pro každý `acct_id`:
+```sh
+      cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
+```
+
+- K průběžnému monitorování změn použijte `watch`, například změn souborů v adresáři pomocí `watch -d -n 2 'ls -rth | tail'` nebo síťových nastavení při řešení potíží nastavení wifi: `watch -d -n 2 ifconfig`.
+
+- Spusťte tuto funkci k získání náhodného tipu z tohoto dokumentu (parsuje Markdown a vyextrahuje jednu položku):
+```sh
+      function taocl() {
+        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
+          pandoc -f markdown -t html |
+          xmlstarlet fo --html --dropdtd |
+          xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
+          xmlstarlet unesc | fmt -80
+      }
+```
+
