@@ -483,3 +483,22 @@ Pár příkladů na spojování příkazů:
 
 - `fortune`, `ddate`, a `sl`: hm, no, záleží jestli považujete parní lokomotivy a Zippyho citáty za "užitečné"
 
+
+## Pouze pro OS X
+
+Tyto věci jsou relevantní pouze pro MacOS.
+
+- Balíčky spravované pomocí `brew` (Homebrew) a/nebo `port` (MacPorts). Mohou být použity k instalaci mnoha předešlých příkazů na MacOS.
+
+- Kopírujte výstup jakéhokoli příkazu do desktopové aplikace pomocí `pbcopy` a vložte vstup z nějaké pomocí `pbpaste`.
+
+- K povolení klávesy Option v Terminálu Mac OS jako klávesu Alt (pro použití v příkazech jako **alt-b**, **alt-f**, atd.), otevřete Předvolby -> Profily -> Klávesnice a zvolte "Použít Option jako Meta klávesu".
+
+- K otevření souboru za pomoci desktopové aplikace použijte `open` nebo `open -a /Aplikace/Cokoli.app`.
+
+- Spotlight: Prohledávejte soubory s `mdfind` a vypište metadata (například EXIF informace fotografie) pomocí `mdls`.
+
+- Nezapomínejte, že MacOS je založen na BSD Unixu a mnoho příkazů (například `ps`, `ls`, `tail`, `awk`, `sed`) mají spoustu jemných odlišností od Linuxu, což je z velké části ovlivněno System V (System Five) stylem Unixu a GNU nástroji. Mnohokrát mmůžete rozdíl poznat podle manuálové stránky mající v nadpise "BSD General Commands Manual". V některých případech mohou být GNU veerze instalovány také (třeba `gawk` a `gsed` pro GNU awk a sed). Pokud píšete multi-platformní Bashové scripty, vyhýbejte se takovým příkazům (například, zvažte Python či `perl`) nebo pečlivě testujte.
+
+- K získání informací o verzi vydání MacOS použijte `sw_vers`.
+
