@@ -169,3 +169,82 @@ Příklady:
 `python -m SimpleHTTPServer 7777` (pro port 7777 a Python 2) a `python -m http.server 7777` (pro port 7777 a Python 3).
 
 - Pro spuštění příkazu s právy použijte `sudo` (pro roota) nebo `sudo -u` (pro jiného uživatele). Používejte `su` nebo `sudo bash` pokud chcete aby shell běžel skutečně pod daným uživatelem. Použitím `su -` simulujte čerstvé přihlášení jako root nebo jiný uživatel.
+
+
+## Zpracovani souboru a dat
+
+- K nalezení souboru podle jména v pracovním adresáři: `find . -iname '*something*'` (nebo podobně). K nalezení souboru podle jména kdekoliv na disku, použijte `locate jmeno` (pamatujte, že `updatedb` nemuselo nutně zaindexovat nedávno vytvořené soubory).
+
+- Pro obecné prohledávání zdrojů nebo datových souborů (více sofistikované než `grep -r`), použijte [`ag`](https://github.com/ggreer/the_silver_searcher).
+
+- Převeďte HTML na text pomocí `lynx -dump -stdin`.
+
+- Vyzkoušejte [`pandoc`](http://pandoc.org/) pro Markdown, HTML a všechny druhy převodu dokumentů.
+
+- Pokud musíte pracovat s XML `xmlstarlet` je starý, ale dobrý.
+
+- Pro JSON použijte [`jq`](http://stedolan.github.io/jq/).
+
+- Pro YAML, použijte [`shyaml`](https://github.com/0k/shyaml).
+
+- Pro Excel nebo CSV suobory, [csvkit](https://github.com/onyxfish/csvkit) poskytuje `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, atd.
+
+- Pro Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) je pohodlnější a  [`s4cmd`](https://github.com/bloomreach/s4cmd) je rychlejší. [`aws`](https://github.com/aws/aws-cli) od Amazonu a vylepšený [`saws`](https://github.com/donnemartin/saws) jsou nezbytné pro ostatní AWS úkoly.
+
+- Mějte přehled o `sort` a `uniq`, včetně přepínače `-u` pro `uniq` a `-d` -- shlédněte jednořádkové příklady níže. A také `comm`.
+
+- Mějte přehled také o `cut`, `paste` a `join` pro manipulaci s textovými soubory. Mnoho lidí používá `cut`, ale zapomínají na `join`.
+
+- Udržujte přehled také o `wc` na počítání nových řádků (`-l`), znaků (`-m`), slov (`-w`) a bytů (`-c`).
+
+- A přehled je dobré mít také o `tee` pro kopírování ze stdin do souboru a na stdout, podobně jako za použití `ls -la | tee soubor.txt`.
+
+- Mějte na paměti, že nastavení lokalizace ovlivňuje mnoho příkazů v shellu mnoha způsoby včetně pořadí při třídění a výkonu. Většina Linuxových instalací nastaví `LANG` nebo jinou lokalizační proměnnou na lokální nastavení jako americká angličtina. Nezapomínejte však, že vaše třídění se změní změníte-li lokalizaci. A myslete na to, že i18n rutiny mohou způsobit, že třídění nebo jiné příkazy mohou běžet **mnohokrát** pomaleji. V některých situacích (při nastavování nebo testu unikátnost jako níže) lze bezpečně ignorovat pomalé i18n rutiny úplně a použít tradiční bytový pořádek pří třídění s `export LC_ALL=C`.
+
+- Měli byste znáz základní `awk` a `sed` pro jednoduché operace s daty. Například sčítání všech čísel ve třetím sloupci textového souboru: `awk '{ x += $3 } END { print x }'`. Tento příkaz je pravděpodobně 3x rychlejší a obsahuje 3x méně kódu než jeho ekvivalent v Pythonu.
+
+- K nahrazení všech výskytů řetězce v jedno místě nebo ve více souborech:
+```sh
+      perl -pi.bak -e 's/stary-retezec/novy-retezec/g' moje-soubory-*.txt
+```
+
+- K přejmenování více souborů a/nebo vyhledávání a nahrazení uvnitř těchto souborů zkuste [`repren`](https://github.com/jlevy/repren). (V některých případech příkazech `rename` také dovoluje vícenásobné přejmenování, ale buďte opatrní neboť není stejný na všech Linuxových distribucích).
+```sh
+      # Plne jméno souboru, adresaru a obsahu foo -> bar:
+      repren --full --preserve-case --from foo --to bar .
+      # Obnov zalozni soubory cokoliv.bak -> cokoli:
+      repren --renames --from '(.*)\.bak' --to '\1' *.bak
+      # Stejne jako vyse za pouziti jmena pokud mozne:
+      rename 's/\.bak$//' *.bak
+```
+
+- Jak říká manuálová stránka, `rsync` je skutečně rychlý a neobyčejně univerzální nástroj na kopírování souborů. Je znám pro synchronizaci mezi stroji, ale je také stejně užitečný lokálně. Jde také o jednu z [nejrychlejších cest](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) k odstranění velkého množství souborů:
+```sh
+      mkdir prazdny && rsync -r --delete prazdny/ nejaky-adr && rmdir nejaky-adr
+```
+
+- Použijte `shuf` k zamíchání nebo vybrání náhodných řádek ze souboru.
+
+- Mějte přehled v `sort` možnostech. Pro čísla, použijte `-n` nebo `-h` pro práci s lidsky čitelnými čísly (například z `du -h`). Pochopte jak fungují klíče (`-t` a `-k`). Zejména mějte na paměti, že musíte psát `-k,1` pro třídění za použití pouze prvního pole; `-k1` znamená třídění podle celého řádku. Stabilní třídění (`sort -s`) může být užitečné. Například k setřídění primárně podle druhého pole a sekundárně podle druhého pole můžete použít `sort -k1,1 | sort -s -k2,2`.
+
+- Pokud někdy potřebujete zapsat znak tabulátor do příkazové řádky v Bashi (například pro -t argument pro třídění), stiskněte press **ctrl-v** **[Tab]** nebo napište $'\t'` (druhá možnost je lepší, protože výsledek můžete zkopírovat/vložit).
+
+- Standardní nástroje pro porovnávání zdrojového kódu jsou `diff` a `patch`. Za zmínku stojí také `diffstat` zobrazující statistiky z diffu a `sdiff` pro rozdíly bok po boku. Nezapomeňte, že `diff -r` funguje pro celé adresáře. Použijte `diff -r strom1 strom2 | diffstat` pro shrnutí změn. A `vimdiff` pro porovnání a úpravu souborů.
+
+- Pro binární soubory použijte `hd`, `hexdump` nebo `xxd` pro jednoduché hex dumpy a `bvi` nebo `biew` pro editaci binárek.
+
+- Pro binární soubory můžete také použít `strings` (například spolu s `grep`, atd), což je nástroj pro hledání částí textu.
+
+- Pro binární rozdíly (delta komprese) použijte `xdelta3`.
+
+- Pro konverzi testových kódování zkuste `iconv`. Nebo `uconv` pro pokročilejší použití; podporuje některé pokročilé Unicode věci. Například tento příkaz mění text na malé znaky a odstraňuje akcenty (jejich rozvinutím a zahozením):
+```sh
+      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
+```
+
+- Na rozdělení souborů do částí zkuste `split` (na rozdělení podle velikosti) a `csplit` (na rozdělení podle řetězce).
+
+- K manipulaci s datem a časem použijte `dateadd`, `datediff`, `strptime` atd. z [`dateutils`](http://www.fresse.org/dateutils/).
+
+- Použijte `zless`, `zmore`, `zcat`, a `zgrep` k operacím s komprimovanými soubory.
+
