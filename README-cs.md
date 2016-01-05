@@ -248,3 +248,44 @@ Příklady:
 
 - Použijte `zless`, `zmore`, `zcat`, a `zgrep` k operacím s komprimovanými soubory.
 
+
+## Ladeni systemu
+
+- Pro webové ladění jsou vhodn0 `curl` a `curl /I` nebo jejich `wget` ekvivalenty nebo více moderní [`httpie`](https://github.com/jkbrzt/httpie).
+
+- Pro zjištění současného procesorového/diskového stavu, klasické nástroje jako `top` (nebo lépe `htop`). Použijte `iostat -mxz 15` pro základní CPU a detailní diskové stavy pro každý diskový oddíl a výkonostní porozumnění.
+
+- Pro detaily ohledně síťové konektivity použijte `netstat` a `ss`.
+
+- Rychlý přehled co se děje v systému získáte pomocí užitečného `dstat`. Pro širší přehled s detaily použijte [`glances`](https://github.com/nicolargo/glances).
+
+- Na zjištění stavu paměti spusťte `free` a `vmstat` a pokuste se porozumět jejich výstupům. Zejména dbejte na "cached" hodnotu což je paměť držená Linuxovým kernelem jako souborová cache, tudíž se počítá do "volné" paměťi.
+
+- Java ladění je odlišný šálek čaje, ale jednoduchý trik na Javu od Oraclu a některé jiné JVM je, že stále můžete použít `kill -3 <pid>` a plný detail objektů na zásobníku a souhrn haldy (včetně obecnějších detailů z **garbage collectoru**, které mohou být nesmírně informativní) bude zapsán do stderr/logs. Nástroje JDK jako `jps`, `jstat`, `jstack` a `jmap` jsou také užitečné, avšak [SJK tools](https://github.com/aragozin/jvm-tools)  jsou více pokročilé.
+
+- Použijte `mtr` jako lepší `traceroute` pro identifikování potíží se sítí.
+
+- Pro zjištění proč jedisk plný, `ncdu` šetří čas oproti obvyklým příkazům jako `du /sh *`.
+
+- Ke zjištění který socket nebo proces zahlcuje pásmo zkuste `iftop` nebo `nethogs`.
+
+- Nástroj `ab` (přibalený k Apachi) je užitečný pro rychlé a hrubé zkontrolování výkonosti webového serveru. Komplexnější měření umožňuje `siege`.
+
+- Pro důslednější síťové ladění, `wireshark`, `tshark` nebo `ngrep` jsou to pravé.
+
+- Nezapomínejte na `strace` a `ltrace`. Mohou být nápomocné zejména pokud některý program selhává, zasekává se nebo padá a nevíte proč nebo pokud chcete mít obecnou představu o výkonu. Myslete na přepínač profilingu (`-c`) a schopnost připnout se k běžícímu procesu (`-p`).
+
+- Dynamické knihovny vám umožní zkontrolovat `ldd`.
+
+- Je důležité umět se připojit k běžícímu procesu za pomoci `gdb` a získat výpis jeho chodu.
+
+- Používejte `/proc`. Je úžasně nápomocný v okamžicích kdy laděíte živé problémy. Příklady: /proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (kde `xxx` je id nebo pid procesu.).
+
+- Když zjišťujete proč se něco v minulosti pokazilo, `sar` může být nedocenitelný. Ukazuje historické statistiky CPU, paměti, sítě, atd.
+
+- Pro hlubší systémovou a výkonostní analýzu se podívejte na `stap`([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), a [`sysdig`](https://github.com/draios/sysdig).
+
+- Zkontrolujte na jakém jste OS za pomoci `uname` nebo `uname -a` (obecné Unix/kernel informace) nebo `lsb_release -a` (v Linuxových distribucích).
+
+- Použijte `dmesg` kdykoli se něco chová neočekávaně (může jít o hardwarový nebo driverový problém).
+
