@@ -3,13 +3,13 @@
 ]
 
 
-# The Art of Command Line
+# فن سطور اﻷوامر
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-- [Meta](#meta)
-- [Basics](#basics)
-- [Everyday use](#everyday-use)
+- [مقدمة](#مقدمة)
+- [المبادئ](#المبادئ)
+- [اﻹستعمال اليومي](#اﻹستعمال اليومي)
 - [Processing files and data](#processing-files-and-data)
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
@@ -31,7 +31,7 @@ on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-
 but given the interest there, it seemed worth using GitHub, where people more talented than the original author could readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
 
 
-## Meta
+## مقدمة
 
 Scope:
 
@@ -46,7 +46,7 @@ Notes:
 - Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
 
 
-## Basics
+## المبادئ
 
 - Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
@@ -71,7 +71,7 @@ Notes:
 - Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
 
-## Everyday use
+## اﻹستعمال اليومي
 
 - In Bash, use **Tab** to complete arguments or list all available commands and **ctrl-r** to search through command history (after pressing, type to search, press **ctrl-r** repeatedly to cycle through more matches, press **Enter** to execute the found command, or hit the right arrow to put the result in the current line to allow editing).
 
@@ -310,7 +310,7 @@ A few examples of piecing together commands:
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- To see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
 ```sh
       find . -type f -ls
 ```
