@@ -38,9 +38,9 @@ Maintaining the guide in several languages is a little confusing, so here is the
 
 Translations to new languages are always welcome, especially if you can maintain the translation!
 
+- To get it started, fork the repo, then submit a PR with the single file README-xx.md added, where xx is the lowercase language code. (Use standard two-letter ISO language codes, i.e. the same as is used by Wikipedia, not the code for a single country.)
 - If there is not an issue for your language, file one so people know you are working on it and we can arrange. Confirm you are native level in the language and are willing to maintain the translation, so it's not orphaned.
 - If the translation is in progress but stalled, offer to help.
-- To get it started, fork the repo, then submit a PR with the single file README-xx.md added, where xx is the lowercase language code. (Use standard two-letter ISO language codes, i.e. the same as is used by Wikipedia, not the code for a single country.)
 - Invite friends to review if possible. If desired, feel free to invite friends to help your original translation by letting them fork your repo, then merging their PRs.
 - When done, indicate on the PR that it's ready to be merged into the main repo.
 
