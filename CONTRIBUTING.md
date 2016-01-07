@@ -36,7 +36,8 @@ Maintaining the guide in several languages is a little confusing, so here is the
 
 ### Adding translations to new languages
 
-- Translations to new languages are always welcome, especially if you can maintain the translation!
+Translations to new languages are always welcome, especially if you can maintain the translation!
+
 - If there is not an issue for your language, file one so people know you are working on it and we can arrange. Confirm you are native level in the language and are willing to maintain the translation, so it's not orphaned.
 - If the translation is in progress but stalled, offer to help.
 - To get it started, fork the repo, then submit a PR with the single file README-xx.md added, where xx is the lowercase language code. (Use standard two-letter ISO language codes, i.e. the same as is used by Wikipedia, not the code for a single country.)
