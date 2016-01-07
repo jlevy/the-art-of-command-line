@@ -10,7 +10,7 @@ Here are few notes before you jump in.
 ### Style
 
 - Stay close to the existing style of the document when possible.
-- Remember to focus on brevity, specificity, and utility.
+- Remember to focus on **brevity**, **specificity**, and **utility**.
 - Avoid long explanations and instead prefer links to resources.
 
 ### Using issues and PRs
