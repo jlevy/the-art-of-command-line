@@ -27,14 +27,14 @@ Maintaining the guide in several languages is a little confusing, so here is the
 - Each translation has a maintainer to update the translation as the original evolves and to review others' changes. This doesn't require a lot of time, but review by the maintainer is important to maintain quality.
 - See the [AUTHORS.md](AUTHORS.md) file for current maintainers. (This file is generated from the [authors-info.yml](admin/authors-info.yml) file.)
 
-Changes to translations:
+### Changes to translations
 
 - Changes to content should be made to the English version first, and then translated to each other language.
 - Changes that improve translations should be made directly on the file for that language. PRs should only modify one language at a time.
 - Submit a PR with changes to the file in that language. Each language has a maintainer, who reviews changes in that language. Then the primary maintainer @jlevy merges it in.
 - Prefix PRs and issues with language codes if they are for that translation only, e.g. "es: Improve grammar", so maintainers can find them easily.
 
-Adding translations to new languages:
+### Adding translations to new languages
 
 - Translations to new languages are always welcome, especially if you can maintain the translation!
 - If there is not an issue for your language, file one so people know you are working on it and we can arrange. Confirm you are native level in the language and are willing to maintain the translation, so it's not orphaned.
