@@ -452,37 +452,37 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-## MacOS X only
+## Nur MacOS X
 
-These are items relevant *only* on MacOS.
+Diese Hinweise sind *nur* für MacOS relevant.
 
-- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on MacOS many of the above commands.
+- Paketverwaltung mit `brew` (Homebrew) und/oder `port` (MacPorts). Mit diesen Tools kann man viele der obrigen Programme für MacOs installieren.
 
-- Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
+- Kopiere die Ausgabe jedes Kommandos an eine Desktop App mit `pbcopy` und füge die Eingabe von einer solchen ein mit `pbpaste`.
 
-- To enable the Option key in Mac OS Terminal as an alt key (such as used in the commands above like **alt-b**, **alt-f**, etc.), open Preferences -> Profiles -> Keyboard and select "Use Option as Meta key".
+- Um die Option Taste als alt Taste in einer Mac OS Konsole zu nutzen (so wie in den obrigen Kommandos wie **alt-b**, **alt-f**, etc.), öffne Einstellungen -> Profile -> Tastatur und aktiviere
+  "Benutze Option Taste als Meta Taste"
 
-- To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
+- Um eine Datei mit einer Desktopanwendung zu öffnen, kann man `open` oder `open -a /Applications/Whatever.app` benutzen.
 
-- Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
+- Spotlight: Dateisuche mit `mdfind` und Ausgabe von Metadaten (wie z.B. photo EXIF info) mit `mdls`.
 
-- Be aware MacOS is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
+- Man sollte sich bewusst sein, dass MacOS auf BSD Unix basiert und sich viele Kommandos (wie z.B. `ps`, `ls`, `tail`, `awk`, `sed`) bezüglich subtiler Kleinigkeiten von Linux, dass stark von System V-style Unix und GNU tools beeinflusst ist, unterscheiden. Oft kann man den Unterschied daran erkennen, dass eine man page die Überschrift  "BSD General Commands Manual" trägt. In manchen Fällen kann auch die GNU version installiert werden (wie z.B. bei `gawk` und `gsed` für GNU awk und sed). Falls man cross-platform Bash Skripte schreiben möchte, sollte man solche Kommandos vermeiden (und z.B. Python oder `perl` in Betracht ziehen) oder sorgfätig testen.
 
+## Mehr Quellen
 
-## More resources
-
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
-- [shellcheck](https://github.com/koalaman/shellcheck) - A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
-
-
-## Disclaimer
-
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+- [awesome-shell](https://github.com/alebcay/awesome-shell): Eine hilfreiche Liste von Shell Werkzeugen und Quellen
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) um bessere Shell Skripte zu schreiben
+- [shellcheck](https://github.com/koalaman/shellcheck) - Ein statisches Analysetool für Shell Skripte. Im Grunde lint für bash/sh/zsh.
 
 
-## License
+## Haftungsausschluss 
+
+Mit der Ausnahme einiger sehr kleiner Aufgaben ist der Code so geschrieben, dass andere ihn lesen können. Mit Macht kommt Verantwortung. Die Tatsache etwas in Bash tuen zu *können*, heißt nicht
+zwangsläufig, dass Du es tuen solltest! 
+
+## Lizenz
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+Dieses Werk ist lizensiert gemäß der [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
