@@ -42,7 +42,7 @@ Contributors are listed in alphabetical order by GitHub login.
 * [Ivgeni "Iv" Segal (isegal)](https://github.com/isegal) — [1+](https://github.com/jlevy/the-art-of-command-line/commits?author=isegal)/[1+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Aisegal)
 * [Alan Brogan (jalanb)](https://github.com/jalanb) — [2+](https://github.com/jlevy/the-art-of-command-line/commits?author=jalanb)/[3+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Ajalanb)
 * [James Kolce (jameskolce)](https://github.com/jameskolce) — [1+](https://github.com/jlevy/the-art-of-command-line/commits?author=jameskolce)/[1+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Ajameskolce)
-* [Joshua Levy (jlevy)](https://github.com/jlevy) — [115+](https://github.com/jlevy/the-art-of-command-line/commits?author=jlevy)/[20+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Ajlevy) — _original author and maintainer_
+* [Joshua Levy (jlevy)](https://github.com/jlevy) — [116+](https://github.com/jlevy/the-art-of-command-line/commits?author=jlevy)/[20+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Ajlevy) — _original author and maintainer_
 * [Jesse Sightler (jsight)](https://github.com/jsight) — [1+](https://github.com/jlevy/the-art-of-command-line/commits?author=jsight)/[1+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Ajsight)
 * [Konstantin Mikhaylov (jtraub)](https://github.com/jtraub) — [1+](https://github.com/jlevy/the-art-of-command-line/commits?author=jtraub)/[1+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Ajtraub)
 * [Wael M. Nasreddine (kalbasit)](https://github.com/kalbasit) — [1+](https://github.com/jlevy/the-art-of-command-line/commits?author=kalbasit)/[1+](https://github.com/jlevy/the-art-of-command-line/issues?q=author%3Akalbasit)
@@ -99,6 +99,9 @@ Contributors are listed in alphabetical order by GitHub login.
 
 Numbers link to commits/issues.
 For simplicity, this file is maintained only in English.
+
+If your name does not appear as you would like it above, verify your name on your GitHub profile.
+Also confirm that your commits are using the correct e-mail to it is linked to your profile.
 
 If you see inaccuracies or omissions, please file an issue, or edit the authors-info.yml file, regenerate, and file a PR.
 

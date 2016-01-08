@@ -8,6 +8,9 @@ footer: |
   Numbers link to commits/issues.
   For simplicity, this file is maintained only in English.
 
+  If your name does not appear as you would like it above, verify your name on your GitHub profile.
+  Also confirm that your commits are using the correct e-mail to it is linked to your profile.
+
   If you see inaccuracies or omissions, please file an issue, or edit the authors-info.yml file, regenerate, and file a PR.
 
 exclude:
