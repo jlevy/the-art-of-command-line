@@ -1,5 +1,5 @@
 [ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md), [Czech](README-cs.md)
+[Čeština](README-cs.md), [English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
 ]
 
 原文のコミット [ee4b00bc396087d27231f60512aeb77b19ce734e](https://github.com/jlevy/the-art-of-command-line/blob/ee4b00bc396087d27231f60512aeb77b19ce734e/README.md)
