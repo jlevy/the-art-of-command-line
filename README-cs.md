@@ -1,6 +1,5 @@
-[ Languages:
-[Čeština](README-cs.md), [English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
+🌍
+*[Čeština](README-cs.md)∙[English](README.md)∙[Español](README-es.md)∙[Italiano](README-it.md)∙[日本語](README-ja.md)∙[한국어](README-ko.md)∙[Português](README-pt.md)∙[Русский](README-ru.md)∙[Slovenščina](README-sl.md)∙[Українська](README-uk.md)∙[中文](README-zh.md)*
 
 
 # Umění příkazové řádky
@@ -24,7 +23,7 @@
 Plynulost práce na příkazové řádce je umění často opomíjené nebo považované za překonané, ale zlepšuje vaši flexibilitu a produktivitu jako inženýr jak očividně tak nenápadně. Toto je výběr poznámek a tipů pro použití příkazové řádky které shledáváme užitečnými při práci na Linuxu. Některé tipy jsou základní a některé jsou velmi specifické, komplikované či nejasné. Tato stránka není dlouhá, ale pokud dokážete použít a vybavit si všechny věci zde zmíněné, máte dostatečně rozsáhlé vědomosti.
 
 Tato práce je výsledkem [mnoha autorů a překladatelů](AUTHORS.md).
-Mnoho se 
+Mnoho se
 [původně](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [objevilo](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 na webu [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
@@ -116,7 +115,7 @@ Příklady:
       trap "echo 'error: Script selhal: neuspesny prikaz vyse'" ERR
 ```
 
-- V Bash scriptech jsou subshelly (psané s kulatými závorkami) vhodným způsobem shlukování příkazů. Běžným příkladem budiž dočasný přesun do jiného pracovního adresáře, například: 
+- V Bash scriptech jsou subshelly (psané s kulatými závorkami) vhodným způsobem shlukování příkazů. Běžným příkladem budiž dočasný přesun do jiného pracovního adresáře, například:
 ```bash
       # udelej neco v soucasnem pracovnim adresari
       (cd /nejaky/jiny/adresar && jiny-prikaz)
@@ -157,7 +156,7 @@ Příklady:
 
 - Zvažte [`mosh`](https://mosh.mit.edu/) jako alternativu k ssh, která používá UDP, vyhýbá se padlým spojením a přidává pohodlí na cestách (vyžaduje nastavení na serveru).
 
-- K získání oprávnění k souboru v osmičkové formě, což je užitečné pro systémovou konfiguraci, ale nedostupné v `ls` a lehko zpackatelné, použijte něco jako 
+- K získání oprávnění k souboru v osmičkové formě, což je užitečné pro systémovou konfiguraci, ale nedostupné v `ls` a lehko zpackatelné, použijte něco jako
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
