@@ -1,6 +1,5 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md), [Czech](README-cs.md)
-]
+🌍
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
 
 
 # The Art of Command Line
@@ -24,12 +23,12 @@
 Fluency on the command line is a skill often neglected or considered arcane, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways. This is a selection of notes and tips on using the command-line that we've found useful when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot.
 
 This work is the result of [many authors and translators](AUTHORS.md).
-Much of this
+Some of this
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-but given the interest there, it seemed worth using GitHub, where people more talented than the original author could readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
-
+but it has since moved to GitHub, where people more talented than the original author have made numerous improvements.
+[**Please contribute**](/CONTRIBUTING.md) if you see an error or something that could be better!
 
 ## Meta
 

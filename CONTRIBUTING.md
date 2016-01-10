@@ -22,9 +22,10 @@ Here are few notes before you jump in.
 
 ## Translations
 
-Maintaining the guide in several languages is a little confusing, so here is the process:
+The guide is now available in many languages. Here is the process for maintaining translations:
 
-- This original version and content of the guide is maintained in English. It has been translated to several other languages
+- This original version and content of the guide is maintained in English.
+- Translations follow the content of the original. Unfortunately, contributors must speak at least some English, so that translations do not diverge.
 - Each translation has a maintainer to update the translation as the original evolves and to review others' changes. This doesn't require a lot of time, but review by the maintainer is important to maintain quality.
 - See the [AUTHORS.md](AUTHORS.md) file for current maintainers. (This file is generated from the [authors-info.yml](admin/authors-info.yml) file.)
 
@@ -43,6 +44,7 @@ Translations to new languages are always welcome, especially if you can maintain
 - If it is not in progress, file an issue for your language so people know you are working on it and we can arrange. Confirm you are native level in the language and are willing to maintain the translation, so it's not orphaned.
 - To get it started, fork the repo, then submit a PR with the single file README-xx.md added, where xx is the lowercase language code. (Use standard two-letter ISO language codes, i.e. the same as is used by Wikipedia, not the code for a single country.)
 - Invite friends to review if possible. If desired, feel free to invite friends to help your original translation by letting them fork your repo, then merging their PRs.
+- Add links to your translation at the top of every README*.md file. (For consistency, the link should be added in alphabetical order by ISO code, and the anchor text should be in the native language.)
 - When done, indicate on the PR that it's ready to be merged into the main repo.
 
 ### Further questions
