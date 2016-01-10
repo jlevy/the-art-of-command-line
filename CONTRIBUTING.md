@@ -22,9 +22,10 @@ Here are few notes before you jump in.
 
 ## Translations
 
-Maintaining the guide in several languages is a little confusing, so here is the process:
+The guide is now available in many languages. Here is the process for maintaining translations:
 
-- This original version and content of the guide is maintained in English. It has been translated to several other languages
+- This original version and content of the guide is maintained in English.
+- Translations follow the content of the original. Unfortunately, contributors must speak at least some English, so that translations do not diverge.
 - Each translation has a maintainer to update the translation as the original evolves and to review others' changes. This doesn't require a lot of time, but review by the maintainer is important to maintain quality.
 - See the [AUTHORS.md](AUTHORS.md) file for current maintainers. (This file is generated from the [authors-info.yml](admin/authors-info.yml) file.)
 
