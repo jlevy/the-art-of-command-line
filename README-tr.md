@@ -48,17 +48,17 @@ Notlar:
 
 ## Temeller
 
-- Temel Bashi ögren. Aslinda, `man bash` yaz ve en azindan hepsini hizla gozden gecir; cok uzun olmadigi gibi takip etmesi de kolay. Alternatif shelller guzel olabilir, ancak Bash gucle ve kullanisli (*sadece* zsh, fish, etc.`i ogrenmek, kendi laptopunda deneyerek, bircok durumda kisitlayarak, mesela mevcut sunuculari kullanarak).
+- Temel Bashi ögren. Aslinda, `man bash` yaz ve en azindan hepsini hizla gozden gecir; cok uzun olmadigi gibi takip etmesi de kolay. Alternatif shelller guzel olabilir, ancak Bash güçlü ve kullanisli (*sadece* zsh, fish, etc.`i ogrenmek, kendi laptopunda deneyerek, bircok durumda kisitlayarak, mesela mevcut sunuculari kullanarak).
 
-- Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
+- En az 1 metin temelli metin düzenleyiciyi iyice ogrenin. Ideal olarak Vim (`vi`), aslinda terminal metin duzenleyicileri arasinda fazla bir rekabet yok (Emacs kullansaniz dahi, meshur bir IDE, veya yenilik iceren bir metin duzenleyici).
 
-- Know how to read documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`. Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`.
+- Dökümantasyonlari `man` ile okumayi bilin (meraklı ve arastirmacilar icin, `man man` bolum numaralarini listeler, mesela 1 siradan komutlar, 5  dosyalar/uzlasilmis kullanislar, and 8 de admin icindir). Man sayfalarini `apropos` komutu ile bulun. Bazi komutlarin calistirilamaz oldugunu da bilin, ancak Bash oluşumiçler, ve `help` ve `help -d` yi kullanarak bu komutlar hakkinda da yardim alabileceginizi de.
 
-- Learn about redirection of output and input using `>` and `<` and pipes using `|`. Know `>` overwrites the output file and `>>` appends. Learn about stdout and stderr.
+- Cikis ve giris yönlendirmesi icin `>` ve `<` kullanmayi bilin ve veri yollarini da bilin  `|` \` kullanarak. `>` dosyanin uzerine yazar ve `>>` dosyaya ekler. stdout ve stderr de ogrenin.
 
-- Learn about file glob expansion with `*` (and perhaps `?` and `[`...`]`) and quoting and the difference between double `"` and single `'` quotes. (See more on variable expansion below.)
+- Genelleme yapmak icin `*` de kullanmayi bilin (ve bir ihtimalle `?` ve `[`...`]`) and  cift `"` ve tek `'` tirnak isareti arasindaki farki da bilin. (Degisken genellemesi hakkinda asagidan daha fazla bilgi alabilirsiniz.)
 
-- Be familiar with Bash job management: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+- Bash is veya gorev yonetimine da asina olun: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, vs.
 
 - Know `ssh`, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
 
