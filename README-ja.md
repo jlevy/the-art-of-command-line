@@ -1,8 +1,8 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
+🌍
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
 
-原文のコミット [bb0c38c0899339e836c37eead4a9534b06c56662](https://github.com/jlevy/the-art-of-command-line/blob/bb0c38c0899339e836c37eead4a9534b06c56662/README.md)
+
+原文のコミット [ee4b00bc396087d27231f60512aeb77b19ce734e](https://github.com/jlevy/the-art-of-command-line/blob/ee4b00bc396087d27231f60512aeb77b19ce734e/README.md)
 
 # The Art of Command Line
 
@@ -15,6 +15,7 @@
 - [システムのデバッグ](#system-debugging)
 - [ワンライナー](#one-liners)
 - [目立たないが便利なもの](#obscure-but-useful)
+- [OS X用のもの](#os-x-only)
 - [さらなるリソース](#more-resources)
 - [免責事項](#disclaimer)
 
@@ -22,14 +23,14 @@
 
 コマンドラインで流れるように操作ができるということは、軽く見られたり他人から理解されないスキルだとみなされることもあるだろう。しかしそのスキルは、明らかにかすぐ分かるようかは問わず、エンジニアとしてのあなたの柔軟性や生産性を改善してくれるものだ。ここでは、Linuxでコマンドラインを使う上で便利だと思ったメモやTipsの数々を挙げてみる。あるものは基礎的だが、非常に詳しいもの、洗練されたもの、曖昧なものもある。このページはそんなに長いものではないが、ここに書いてあることの全てを使ったり思い出すことができれば、かなり詳しくなれるだろう。
 
-ここに書いてあることの多くは、[元々](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)[Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)に[書かれて](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)いたものが多いが、私よりももっと優れた人たちがすぐに改善案を出すことができるGithubに置くのがよいのではと思った(訳注 : 原文はGithub上にある)。間違いやもっとこうした方がよいという点があれば、イシューを登録するかプルリクエストを送ってほしい！(もちろん、メタ情報の項や既存のプルリクエスト、イシューをまず確認しよう)
+このドキュメントは[多くの執筆者と翻訳者](AUTHORS.md)による成果である。ここに書いてあることの多くは、[元々](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)[Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)に[書かれて](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)いたものが多いが、より優れた人たちがすぐに改善案を出すことができるGitHubに置くのがよいのではと思った。間違いやもっとこうした方がよいという点があれば、issueを登録するかpull requestを送ってほしい！(もちろん、メタ情報の項や既存のpull requestsやissuesをまず確認しよう)
 
 ## メタ情報
 
 対象 :
 
 - このガイドは、初心者向けでも経験者向きでもある。幅広く(書いてあることは全て重要)、かつ明確で(多くのケースに対して具体的な例を付ける)、そして簡潔(他の場所で見つけられるような重要でないことや脱線したことは省く)であることをゴールにしている。各項目は、多くの場面において必須であるか、他の方法に比べて劇的に時間を節約してくれるだろう。
-- Linux向けに書いている。多くはMacOS(あるいはCygwin)でも使えるが、全部ではない。
+- [OS X用のもの](#os-x-only)を除き、Linux向けの内容となっており、その多くは各種LinuxおよびMacOS(あるいはCygwin)でも使えるだろう。
 - インタラクティブなBashを使うことを想定しているが、多くの項目は他のシェルやBashのスクリプトでも使えるだろう。
 
 注意 :
@@ -45,30 +46,32 @@
 
 - `man`でのドキュメントの読み方を知ろう(知りたがりのために書くと、`man man`でセクション番号が分かる。例えば1は「一般的な」コマンド、5はファイルやそのお作法、8は管理についてといった具合)。`apropos`でmanページを探そう。コマンドによっては実行可能ファイルではなくBashのビルトインコマンドであることを理解し、`help`や`help -d`でヘルプが見られることを知ろう。
 
-- `>`や`<`、`|`を使ったパイプによる入出力のリダイレクションを学ぼう。stdout(標準出力)とstderr(標準エラー出力)を学ぼう。
+- `>`や`<`、`|`を使ったパイプによる入出力のリダイレクションを学ぼう。`>`は出力ファイルを上書き、`>>`は追記となる。stdout(標準出力)とstderr(標準エラー出力)を学ぼう。
 
-- `*`(または`?`や`{`...`}`)を使ったファイルグロブ展開、クォーテーション、ダブルクォート`"`とシングルクォート`'`の違いを学ぼう(詳しくはこの後の変数展開の項を参照)。
+- `*`(または`?`や`[`...`]`)を使ったファイルグロブ展開、クォーテーション、ダブルクォート`"`とシングルクォート`'`の違いを学ぼう(詳しくはこの後の変数展開の項を参照)。
 
 - `&`、**ctrl-z**、**ctrl-c**、`jobs`、`fg`、`bg`、`kill`など、Bashのジョブ管理について詳しくなろう。
 
 - `ssh`について知るとともに、`ssh-agent`や`ssh-add`を使ったパスワードなしの認証の基本について理解しよう。
 
-- ファイル管理について。`ls`や`ls -l`(特に、`ls -l`の各列が何を意味するか理解)、`less`、`head`、`tail`、`tail -f`(または`less +F`)、`ln`と`ln -s`(ハードリンクとソフトリンクの違いとそれぞれの利点の理解)、`chown`と`chmod`、`du`(ディスク使用量まとめを簡単に見るなら`du -sk *`)。ファイルシステム管理については、`df`、`mount`、`fdisk`、`mkfs`、`lsblk`。
+- ファイル管理について。`ls`や`ls -l`(特に、`ls -l`の各列が何を意味するか理解)、`less`、`head`、`tail`、`tail -f`(または`less +F`)、`ln`と`ln -s`(ハードリンクとソフトリンクの違いとそれぞれの利点の理解)、`chown`と`chmod`、`du`(ディスク使用量まとめを簡単に見るなら`du -hs *`)。ファイルシステム管理については、`df`、`mount`、`fdisk`、`mkfs`、`lsblk`。inodeについては、`ls -i`(または `df -i`)。
 
 - 基本的なネットワーク管理について。`ip`あるいは`ifconfig`、`dig`。
 
-- 正規表現について詳しく知ろう。`grep`や`egrep`の色々なフラグも合わせて。`-i`、`-o`、`-A`、`-B`といったオプションは知っておいて損はない。
+- 正規表現について詳しく知ろう。`grep`や`egrep`の色々なフラグも合わせて。`-i`、`-o`、`-v`、`-A`、`-B`、`-C`といったオプションは知っておいて損はない。
 
 - `apt-get`、`yum`、`dnf`、`pacman`(ディストリビューションによって違う)といったコマンドでパッケージを探したりインストールする方法を学ぼう。Pythonベースのコマンドラインツールをインストールするのに、`pip`も必要だ(後に出てくるいくつかのコマンドは`pip`でインストールするのが一番簡単)。
 
 
 ## 日常的に使うもの
 
-- Bashでは、引数を補完するのに**タブ**を使い、コマンド履歴から検索するのに**ctrl-r**を使う。
+- Bashでは、引数を補完、または利用可能なコマンドを列挙するのに**タブ**を使い、コマンド履歴から検索するのに**ctrl-r**を使う。(検索キーを入力した後、**ctrl-r**を繰り返し入力することで次から次へと検索結果を送ることができる。**Enter**で見つかったコマンドの実行となり、**Enter**ではなく右カーソルキーを押した場合は見つかったコマンドが入力された状態になる。)
 
-- Bashでは、最後の単語を削除するのには**ctrl-w**、行頭まで全て削除するには**ctrl-u**を使う。単語ごとに移動するには**alt-b**または**alt-f**、行末まで削除するには**ctrl-k**、画面のクリアは**ctrl-l**。Bashにおけるデフォルトのキー割り当てを全て見るには``man readline`を参照。たくさん出てくる。例えば、**alt-.**は前の引数を順番に表示し、**alt-***はグロブを展開する。
+- Bashでは、最後の単語を削除するのには**ctrl-w**、行頭まで全て削除するには**ctrl-u**を使う。単語ごとに移動するには**alt-b**または**alt-f**、行頭に移動するには**ctrl-a**、行末に移動するには**ctrl-e**、行末まで削除するには**ctrl-k**、画面のクリアは**ctrl-l**である。Bashにおけるデフォルトのキー割り当てを全て見るには`man readline`を参照。たくさん出てくる。例えば、**alt-.**は前の引数を順番に表示し、**alt-***はグロブを展開する。
 
-- vi風のキー割り当てが好きなら、`set -o vi`を実行しよう。
+- vi風のキー割り当てが好きなら、`set -o vi`を実行しよう。(元に戻したいときは`set -o emacs`)
+
+- 長いコマンドを編集するときに、エディタを設定した後で(例えば`export EDITOR=vim`)、**ctrl-x** **ctrl-e**によって編集中のコマンドが複数行の編集のために指定したエディタで開かれる。vi風の場合は、**escape-v**。
 
 - 最近実行したコマンドを確認するなら`history`。**ctrl-r**や**alt-.**で用は足りるだろうが、`!$`(直前の引数)や`!!`(直前のコマンド)といった省略形もたくさんある。
 
@@ -95,7 +98,16 @@
 
 - 開かれているソケットやファイルを見るには`lsof`も参照。
 
-- Bashスクリプトでは、`set -x`でデバッグ出力を出せる。可能なら厳格モードを使い、エラーが起きたら強制終了するよう`set -e`する。パイプのエラーも厳格に扱うために`set -o pipefail`も使おう(これはちょっと微妙かも)。より複雑なスクリプトなら、`trap`も使おう。
+- `uptime`や`w`によってシステムの稼働時間を調べられる。
+
+- `alias`によってよく利用するコマンドのエイリアス(ショートカット)を作成できる。例えば、`alias ll='ls -latr'`では新しいエイリアスである`ll`が作成される.
+
+- Bashスクリプトでは、`set -x`でデバッグ出力を出せる(`set -v`は、実行されるコマンドや変数名やコメントなどをそのまま出力する)。特別な理由がない限り厳格モード(strict mode)を使い、`set -e`でエラー時(0以外の終了コード時)に強制終了するように。`set -u`によって未定義の変数の利用を検知、パイプのエラーも厳格に扱うために`set -o pipefail`も使おう(これはちょっと微妙かも)。より複雑なスクリプトなら、EXITまたはERRシグナルに対して`trap`も使おう。使う場面としては以下の場合のようにエラーを検知してメッセージを出力するとき:
+
+```bash
+      set -euo pipefail
+      trap "echo 'error: Script failed: see failed command above'" ERR
+```
 
 - Bashスクリプトでは、コマンドのグループを作るのにサブシェル(丸括弧で囲まれた部分)が便利。一時的にワーキングディレクトリを移動するというよくある例。
 
@@ -107,6 +119,8 @@
 
 - Bashでは、たくさんの変数展開の種類があることを覚えておこう。変数が存在するかチェックするなら、`${name:?error message}`。例えば、Bashスクリプトが1つの引数を取る必要があるなら、`input_file=${1:?usage: $0 input_file}`とだけ書けばよい。算術式の展開は、`i=$(( (i + 1) % 5 ))`。シーケンスは`{1..10}`。文字列のトリミングは`${var%suffix}`と`${var#prefix}`。例えば`var=foo.pdf`の時、`echo ${var%.pdf}.txt`とすると`foo.txt`が出力に。
 
+- `{`...`}`を使った中括弧展開によって、似たようなコマンドを複数回入力しなくて済む。例えば、 `mv foo.{txt,pdf} some-dir` (両方のファイルを移動させる), `cp somefile{,.bak}` (`cp somefile somefile.bak` と展開される)、`mkdir -p test-{a,b,c}/subtest-{1,2,3}` (すべての可能な組み合わせでディレクトリが作られる).
+
 - コマンドの出力を`<(some command)`のようにしてファイルのように扱える。例えば、ローカルとリモートのの`/etc/hosts`を比較するなら以下のようになる。
 
 ```sh
@@ -115,11 +129,11 @@
 
 - `cat <<EOF ...`のような、Bashの「ヒアドキュメント」を理解しよう。
 
-- Bashでは、`some-command >logfile 2>&1`で標準出力と標準エラー出力の両方をリダイレクトできる。コマンドが標準入力に対してファイルハンドルを開きっぱなしにせず、ログインしているターミナルにひもづけておくため、`</dev/null`するのもよい習慣。
+- Bashでは、`some-command >logfile 2>&1`または`some-command &>logfile`で標準出力と標準エラー出力の両方をリダイレクトできる。コマンドが標準入力に対してファイルハンドルを開きっぱなしにせず、ログインしているターミナルにひもづけておくため、`</dev/null`するのもよい習慣。
 
 - 16進と10進のASCIIテーブルを見るのに`man ascii`を使おう。一般的なエンコードに関する情報は、`man unicode`や`man utf-8`、`man latin1`が便利。
 
-- スクリーンの分割に`screen`や[`tmux`](https://tmux.github.io/)を使おう。特に、リモートのSSHセッションをデタッチしたりアタッチし直したりするのに有効。セッション永続化だけの簡単なものなら`dtach`。
+- スクリーンの分割に`screen`や[`tmux`](https://tmux.github.io/)を使おう。特に、リモートのSSHセッションをデタッチしたりアタッチし直したりするのに有効。`byobu`はscreenやtmuxの情報をより多く提供してくれ、管理が容易になる。セッション永続化だけの簡単なものなら`dtach`。
 
 - SSHで`-L`あるいは`-D`(まれに`-R`)を使ったポートトンネルのやり方を覚えておくと便利。例えばリモートのサーバからウェブサイトにアクセスする時など。
 
@@ -137,17 +151,21 @@
 
 - これ以外のSSHオプションはセキュリティ上の問題がある可能性があるため、有効にするには、サブネットごとやホストごとに指定したり、信頼できるネットワーク内でのみ使用するなど注意が必要。`StrictHostKeyChecking=no`、`ForwardAgent=yes`など。
 
+- [`mosh`](https://mosh.mit.edu/)はUDPを使ったsshの代替で、(サーバー側での設定は必要であるが) 断続的な接続時に便利。
+
 - 8進数表現のファイルパーミッションは、システム設定の際に便利だが`ls`の結果にも出てこず、間違いやすい。以下のようにして取得できる。
 
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- 何らかのコマンドの出力から、インタラクティブに値を選択したい場合は、 [`percol`](https://github.com/mooz/percol)を使おう。
+- 何らかのコマンドの出力から、インタラクティブに値を選択したい場合は、 [`percol`](https://github.com/mooz/percol) または [`fzf`](https://github.com/junegunn/fzf)を使おう。
 
 - (gitを使うなど)何らかのコマンドの出力からファイルに関するやり取りをする場合は、`fpp` ([PathPicker](https://github.com/facebook/PathPicker))を使おう。
 
 - カレントディレクトリ(とサブディレクトリ)全体を、ネットワーク内に公開されたWebサーバにするなら、`python -m SimpleHTTPServer 7777` (ポート7777で公開。Python 2の場合)あるいは`python -m http.server 7777` (Python 3の場合)。
+
+- 特権レベルでコマンドを実行するとき、rootでの実行には`sudo`、他のユーザの場合は`sudo -u`を利用。`su` または `sudo bash`で、シェルがそのユーザで起動する。`su -`でrootまたは他のユーザで新たにログインした状態がシミュレートされる。
 
 ## ファイルとデータの処理
 
@@ -161,11 +179,13 @@
 
 - XMLを扱わなくてはならないなら、`xmlstartlet`は古いがいいツールだ。
 
-- JSONには`jq`を使おう。
+- JSONには[`jq`](http://stedolan.github.io/jq/)を使おう。
+
+- YAMLには[`shyaml`](https://github.com/0k/shyaml)を。
 
 - ExcelやCSVファイルには、[csvkit](https://github.com/onyxfish/csvkit)で`in2csv`、`csvcut`、`csvjoin`、`csvgrep`などが使えるようになる。
 
-- Amazon S3には、[`s3cmd`](https://github.com/s3tools/s3cmd)が便利で、[`s4cmd`](https://github.com/bloomreach/s4cmd)はさらに高速。AWS関連の処理にはAmazon公式の[`aws`](https://github.com/aws/aws-cli)が欠かせない。
+- Amazon S3には、[`s3cmd`](https://github.com/s3tools/s3cmd)が便利で、[`s4cmd`](https://github.com/bloomreach/s4cmd)はさらに高速。AWS関連の処理にはAmazon公式の[`aws`](https://github.com/aws/aws-cli)と改善版の[`saws`](https://github.com/donnemartin/saws)が欠かせない。
 
 - `sort`や`uniq`、さらにuniqの`-u`や`-d`オプションを知っておこう。後に出てくるワンライナーも参照。`comm`も確認しておこう。
 
@@ -185,24 +205,32 @@
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- パターンにしたがってたくさんのファイル名を書き換えるには`rename`を使おう。複雑なファイル名変更なら [`repren`](https://github.com/jlevy/repren)も便利だ。
+- 複数のファイル名の変更やファイル内の検索や置換には、[`repren`](https://github.com/jlevy/repren)を使ってみよう。(場合によっては`rename`コマンドでも複数のファイル名変更ができるが、すべてのLinuxディストリビューションで挙動が同じであるわけではないので注意が必要。)
 
 ```sh
-      # バックアップファイルfoo.bakをfooに戻す
-      rename 's/\.bak$//' *.bak
-      # ファイル名、ディレクトリ名、ファイルの中身全てのfooをbarに置き換える
+      # foo -> barへとファイル名、ディレクトリ名、ファイルの中身を変更する:
       repren --full --preserve-case --from foo --to bar .
+      # バックアップファイルを元に戻す whatever.bak -> whatever:
+      repren --renames --from '(.*)\.bak' --to '\1' *.bak
+      # 上記と同じものをrenameを使って:
+      rename 's/\.bak$//' *.bak
+```
+
+- マニュアルページにあるように `rsync` は非常に高速で万能なファイルコピーの道具である。マシーン間のファイルを同期させることでよく知られているが、ローカルの場合でも同様に有用である。また、大量のファイルを削除する[高速な方法](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html)としても利用できる:
+
+```sh
+mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
 - ファイルからランダムな行を抜き出すには`shuf`
 
-- `sort`のオプションを理解しよう。キーがどのように処理されるのか(`-t`や`-k`)を知ろう。特に、最初の列だけでソートするには`-k1,1`とかく必要があり、`-k1`だと全行を見てソートされるという点に注意。
+- `sort`のオプションを理解しよう。数値に対しては`-n`を使い、人間にとって読みやすい形式の数値の場合(例えば、`du -h`の出力)は`-h`を使おう。キーがどのように処理されるのか(`-t`や`-k`)を知ろう。特に、最初の列だけでソートするには`-k1,1`と書く必要があり、`-k1`だと全行を見てソートされるという点に注意。
 
 - stableな(安定した)ソート(`sort -s`)は便利。例えば、始めに1列目でソートし、それから2列目でソートするなら、`sort -k1,1 | sort -s -k2,2`とすればよい。
 
 - Bashのコマンドライン上でタブを表現する必要がある場合、**ctrl-v** **[Tab]**を入力するか`$'\t'` (コピペするなら後者の方がいいかも)。
 
-- ソースコードにパッチを当てる基本のツールは`diff`と`patch`。diffの統計情報を見るなら`diffstat`も参照しよう。`diff -r`だと、ディレクトリ全体に対して実行される。変更点の概要を見るなら`diff -r tree1 tree2 | diffstat`。
+- ソースコードにパッチを当てる基本のツールは`diff`と`patch`。`diff`や横並びの`sdiff`の統計情報を見るなら`diffstat`も参照しよう。`diff -r`だと、ディレクトリ全体に対して実行される。変更点の概要を見るなら`diff -r tree1 tree2 | diffstat`。`vimdiff`ではファイルの比較と編集が可能。
 
 - バイナリファイルなら、単純な16進ダンプを見るのに`hd`、バイナリエディタには`bvi`。
 
@@ -218,19 +246,23 @@
 
 - ファイルを分割するなら`split`(サイズで分割)と`csplit`(パターンで分割)。
 
+- 日付や時間の表現を扱うには、[`dateutils`](http://www.fresse.org/dateutils/)にあるように、`dateadd`、 `datediff`、 `strptime` などを使いましょう。
+
 - 圧縮ファイルの操作は`zless`、`zmore`、`zcat`、`zgrep`。
 
 ## システムのデバッグ
 
-- Webのデバッグなら`curl`や`curl -l`が便利で、`wget`も同様、よりモダンなのは[`httpie`](https://github.com/jakubroztocil/httpie)。
+- Webのデバッグなら`curl`や`curl -l`が便利で、`wget`も同様、よりモダンなのは[`httpie`](https://github.com/jkbrzt/httpie)。
 
-- ディスクやCPU、ネットワークのステータスを知るには`iostat`、`netstat`、`top`(あるいは`htop`の方がよい)、(一番は)`dstat`。システムで何が起きているのか素早く知るにはよい。
+- CPUやディスクのステータスを知るには、標準的なツールは`top` (または、より良い`htop`)、 `iostat`、 `iotop`。`iostat -mxz 15`を使って、基本的なCPUの情報やパーティッション単位でのディスクの詳細情報やパフォーマンスについて調べましょう。
 
-- 更に詳しいシステムの全体像を見るには、[`glances`](https://github.com/nicolargo/glances)を使おう。ひとつのターミナル内で、いくつかのシステムレベルの統計情報を表示してくれる。複数のサブシステムを素早くチェックするのに非常に便利。
+- ネットワークの状態の監視には、`netstat`や`ss`。
+
+- 手早くシステムで何が起きているのかを調べるには、`dstat`が便利。より詳しく見るには、[`glances`](https://github.com/nicolargo/glances)。
 
 - メモリのステータスを知るには、`free`あるいは`vmstat`を実行し、その出力の意味を理解しよう。特に、"cached"の値はLinuxカーネルにファイルキャッシュとして保持されているメモリ量であり、"free"の値を見る際に考慮すべきであることに注意しよう。
 
-- Javaのシステムのデバッグはまた違う困ったところがあるが、Oracleあるいは他のJVMにも共通しているシンプルなトリックは、`kill -3 <pid>`でフルスタックトレースとヒープの概要が標準出力あるいはログにダンプされる(世代別GCの詳細も参考程度だが含まれている)。
+- Javaのシステムのデバッグはまた違う困ったところがあるが、Oracleあるいは他のJVMにも共通しているシンプルなトリックは、`kill -3 <pid>`でフルスタックトレースとヒープの概要が標準出力あるいはログにダンプされる(世代別GCの詳細も参考程度だが含まれている)。JDKの `jps`、 `jstat`、 `jstack`、 `jmap` も便利で、[SJK tools](https://github.com/aragozin/jvm-tools)はより高度なツールである。
 
 - 改良版tracerouteとして`mtr`を使ってネットワークの問題を調査しよう。
 
@@ -248,14 +280,14 @@
 
 - 起動中のプロセスに`gdb`で接続し、そのスタックトレースを取る方法を知ろう。
 
-- `/proc`以下のファイルを使おう。今起こっている問題をデバッグするのには素晴らしく便利だ。例えば、`/proc/cpuinfo`、`/proc/xxx/cwd`、`/proc/xxx/ece`、`/proc/xxx/fd/`、`/proc/xxx/smaps`。
+- `/proc`以下のファイルを使おう。今起こっている問題をデバッグするのには素晴らしく便利だ。例えば、`/proc/cpuinfo`、`/proc/meminfo`、`/proc/cmdline`、`/proc/xxx/cwd`、`/proc/xxx/ece`、`/proc/xxx/fd/`、`/proc/xxx/smaps` (ここで、`xxx`はプロセスIDまたはPIDを意味する)。
 
 - 過去に何か問題が起きたことの原因を探るなら、`sar`がとても便利。CPUやメモリ、ネットワークなどの過去の統計情報を見られる。
 
-- さらに深いシステムとパフォーマンスの分析には、`stap` ([SystemTap](https://sourceware.org/systemtap/wiki))、[`perf`](http://en.wikipedia.org/wiki/Perf_(Linux))、
+- さらに深いシステムとパフォーマンスの分析には、`stap` ([SystemTap](https://sourceware.org/systemtap/wiki))、[`perf`](https://en.wikipedia.org/wiki/Perf_(Linux))、
 [`sysdig`](https://github.com/draios/sysdig)。
 
-- どのディストリビューションを使っているか確認しよう。多くのディストリビューションでは`lsb_release -a`
+- どのOSを利用しているかを`uname`や`uname -a` (Unixカーネル情報)で確認しよう。どのディストリビューションを使っているかは`lsb_release -a` (ディストリビューション情報)。
 
 - 何かいつもと違うおかしなこと(大抵ハードウェアかドライバ関連の問題だ)が起きていたら、`dmesg`を実行しよう。
 
@@ -271,7 +303,7 @@
       cat a b b | sort | uniq -u > c   # cはaとbの差異
 ```
 
-- コンフィグが含まれている`/sys`や`/proc`や`/etc/`のようなディレクトリ内の全てのファイルの中身全部を確認するには`grep . *`を使おう。
+- `grep . *`(各行にファイル名が付く)や、`head -100 *` (ファイル毎にヘッダーが付く)を使って手軽にディレクトリ内の全てのファイルの中身を確認できる。設定ファイルが含まれるような`/sys`や`/proc`や`/etc/`に対して非常に便利である。
 
 - テキストファイルの3列目を全て足し合わせるには以下で(Pythonで同じことをやるに比べて3倍速く3分の1の長さで書ける)。
 
@@ -285,18 +317,13 @@
       find . -type f -ls
 ```
 
-- 事情が許すなら`xargs`や`parallel`を使おう。行あたりいくつのアイテムを実行するか(`-L`)や並列度(`-P`)は制御できるのにも注意。正しく使えているか心配な時には、xargs echoをまずやってみよう。また、`-I{}`も便利だ。以下の例をみてみよう。
-
-```sh
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
-```
-
 - Webサーバのログのようなテキストファイルがあり、各行には例えばURLの中に出てくる`acct_id`のような特定の値が現れるとしよう。`acct_id`が何回リクエストされているかを集計するには、
 
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
+
+- 継続的に変更を監視する場合 `watch`を使う。例えば、ディレクトリのファイルの変更を確認するには `watch -d -n 2 'ls -rtlh | tail'` となり、wifi設定などのネットワーク設定関係のトラブルシューティングでは `watch -d -n 2 ifconfig`。
 
 - このドキュメントからランダムに項目を抜き出すには以下の関数を実行しよう(Markdownをパースし、アイテムを抽出する)。
 
@@ -326,7 +353,7 @@
 
 - `look`: 文字列で始まる英単語(またはファイル内の行)を見つける
 
-- `cut `、  `paste`、 `join`: データの操作
+- `cut `、 `paste`、`join`: データの操作
 
 - `fmt`: テキストの段落をフォーマットする
 
@@ -346,7 +373,7 @@
 
 - `factor`: 整数を因数分解
 
-- `gpg`: 暗号化とファイルのサイニング
+- [`gpg`](https://gnupg.org/): ファイルの暗号化と署名
 
 - `toe`: terminfoのエントリのテーブルを表示
 
@@ -354,7 +381,7 @@
 
 - `socat`: ソケットリレーとTCPポートのフォワーダ(`netcat`と同等)
 
-- `slurm`: ネットワークトラフィックの可視化
+- [`slurm`](https://github.com/mattthias/slurm): ネットワークトラフィックの可視化
 
 - `dd`: データをファイルあるいはデバイス間で移動
 
@@ -364,6 +391,16 @@
 
 - `stat`: ファイルの情報
 
+- `time`: コマンドを実行して処理時間を計測
+
+- `timeout`: コマンドを実行し、指定時間経過後にプロセスを停止する
+
+- `lockfile`: セマフォファイルを生成する。これは`rm -f`のみで削除可能。
+
+- `logrotate`: ログをローテート、圧縮、メール送信
+
+- `watch`: コマンドを繰り返し実行する。変更部分の強調表示もできる。
+
 - `tac`: ファイルを逆から表示
 
 - `shuf`: ファイルからランダムに選んだ行を表示
@@ -372,7 +409,9 @@
 
 - `pv`: パイプ経由でデータの進行状況をモニタリング
 
-- `hd` および `bvi`: バイナリファイルのダンプと編集
+- `sponge`: 書き込み前に全ての入力を読み込む。例えば、`grep -v something some-file | sponge some-file` のように、入力と同じファイルに書き込む際に便利。
+
+- `hd`、`hexdump`、`xxd`、`biew`、`bvi`: バイナリファイルのダンプと編集
 
 - `strings`: バイナリファイルからテキストを抽出
 
@@ -380,9 +419,11 @@
 
 - `iconv` あるいは `uconv`: 文字エンコーディングの変換
 
-- `split ` と `csplit`: ファイルを分割
+- `split` と `csplit`: ファイルを分割
 
 - `units`: 単位の変換と計算。2週間あたりのハロン(訳注 : 長さの単位)からまばたきごとのトゥウィップまで( `/usr/share/units/definitions.units`も参照のこと)
+
+- `apg`: ランダムなパスワードを生成
 
 - `7z`: 圧縮率の高いファイル圧縮
 
@@ -398,7 +439,7 @@
 
 - `cssh`: ビジュアルな並列シェル
 
-- `rsync`: ファイルやフォルダをSSH経由で同期
+- `rsync`: ファイルやフォルダをSSH経由またはローカルファイルシステム内で同期
 
 - `wireshark` と `tshark`: パケットキャプチャとネットワークデバッギング
 
@@ -412,7 +453,11 @@
 
 - [`glances`](https://github.com/nicolargo/glances): 高レベルに複数のサブシステムの概要を把握
 
-- `iostat`: CPUとディスクの使用状況
+- `iostat`: ディスクの使用状況
+
+- `mpstat`: CPUの使用状況
+
+- `vmstat`: メモリの使用状況
 
 - `htop`: topの改良版
 
@@ -430,20 +475,45 @@
 
 - `dmesg`: 起動時とシステムのエラーメッセージ
 
+- `sysctl`: Linuxカーネルパラメータの確認および設定
+
 - `hdparm`: SATA/ATAディスクの操作やパフォーマンス確認
 
 - `lsb_release`: Linuxディストリビューション情報
 
 - `lsblk`: ブロックデバイスの一覧。ディスクとディスクパーティションのツリービュー
 
-- `lshw` と `lspci`: RAIDやグラフィックなどを含めたハードウェア情報
+- `lshw`、`lscpu`、`lspci`、`lsusb`、`dmidecode`: CPUやBIOS、RAID、グラフィック、その他デバイスなどのハードウェア情報
+
+- `lsmod`、`modinfo`: カーネルのモジュールリストとモジュール情報
 
 - `fortune`、 `ddate`、`sl`: んー、あー、これは蒸気機関車やZippyの引用句が「便利」だと思うかどうかによる
+
+## OS X用のもの
+
+これらは*MacOS用*の項目です。
+
+- パッケージ管理は`brew` (Homebrew)や`port` (MacPorts)を使う。上記の多くのコマンドをMacOSにインストールできる。
+
+- コマンドの出力をクリップボードにコピーする`pbcopy`とクリップボードから出力する`pbpaste`。
+
+- OptionキーをaltキーとしてMac OSのターミナルで使う(上述の**alt-b**、**alt-f**などを使う場合)には、環境設定 -> 設定 -> キーボード で、"メタキーとしてoptionキーを使用"を選択。
+
+- デスクトップアプリケーションでファイルを開くには、`open`、`open -a /Applications/Whatever.app`。
+
+- Spotlight: `mdfind`でファイルを検索し、メタデータ(画像ファイルのEXIFの情報など)を`mdls`で表示。
+
+- Mac OSはBSD Unixベースであるため、多くのコマンド(例えば、`ps`、`ls`、`tail`、`awk`、`sed`)では、Unix System VとGNUツールの違いに影響されて、Linuxのものと比べて微妙な違いが多く含まれている。違いがあるかについては、マニュアルページのタイトルに"BSD General Commands Manual"と書かれているかどうかで判断できる。場合によっては、GNUバージョンをインストール可能である(例えば、`gawk`や`gsed`で、GNUのawkとsedに対応)。クロスプラットフォームのbashスクリプトを書く場合には、そのようなコマンドは避ける(Pythonや`perl`の利用を検討)か十分なテストが必要である。
+
+- Mac OSのリリース情報を取得するには、`sw_vers`。
 
 ## さらなるリソース
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): シェルのツールやリソースのまとめ
-- よりよいシェルスクリプトを書くには[Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): より詳しいMac OSのコマンドラインガイド
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/): よりよいシェルスクリプトを書くために
+- [shellcheck](https://github.com/koalaman/shellcheck): シェルスクリプト(本来、bash/sh/zsh用)の静的解析ツール
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): シェルスクリプトでファイル名を正しく扱うために
 
 ## 免責事項
 

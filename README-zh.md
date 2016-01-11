@@ -1,6 +1,5 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
+🌍
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
 
 
 # 命令行的艺术
@@ -14,7 +13,7 @@
 - [系统调试](#系统调试)
 - [单行脚本](#单行脚本)
 - [冷门但有用](#冷门但有用)
-- [仅限 MacOS X 系统](#仅限-macos-x-系统)
+- [仅限 OS X 系统](#仅限-os-x-系统)
 - [更多资源](#更多资源)
 - [免责声明](#免责声明)
 - [授权条款](#授权条款)
@@ -35,7 +34,7 @@
 涵盖范围：
 
 - 这篇文章对刚接触命令行的新手以及具有命令行使用经验的人都有用处。本文致力于做到*覆盖面广*（尽量包括一切重要的内容），*具体*（给出最常见的具体的例子）以及*简洁*（避免不必要的，或是可以在其他地方轻松查到的细枝末节）。每个技巧在特定情境下或是基本的，或是能显著节约时间。
-- 本文为 Linux 所写，除了[仅限 MacOS X 系统](#仅限-macos-x-系统)节。其它节中的大部分内容都适用于其它 Unix 系统或 MacOS 系统，甚至 Cygwin。
+- 本文为 Linux 所写，除了[仅限 OS X 系统](#仅限-os-x-系统)节。其它节中的大部分内容都适用于其它 Unix 系统或 MacOS 系统，甚至 Cygwin。
 - 本文关注于交互式 Bash，尽管很多技巧也适用于其他 shell 或 Bash 脚本。
 - 本文包括了“标准的”Unix 命令和需要安装特定包的命令，只要它们足够重要。
 
@@ -53,7 +52,7 @@
 
 - 学会如何使用 `man` 命令去阅读文档。学会使用 `apropos` 去查找文档。了解有些命令并不对应可执行文件，而是Bash内置的，可以使用 `help` 和 `help -d` 命令获取帮助信息。
 
-- 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。明白 `>` 会覆盖了输出文件而 `>>` 是在文件未添加。了解标准输出 stdout 和标准错误 stderr。
+- 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。明白 `>` 会覆盖了输出文件而 `>>` 是在文件末添加。了解标准输出 stdout 和标准错误 stderr。
 
 - 学会使用通配符 `*` （或许再算上 `?` 和 `[`...`]`） 和引用以及引用中 `'` 和 `"` 的区别。
 
@@ -478,7 +477,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `fortune`，`ddate` 和 `sl`：额，这主要取决于你是否认为蒸汽火车和莫名其妙的名人名言是否“有用”
 
-## 仅限 MacOS X 系统
+## 仅限 OS X 系统
 
 以下是*仅限于* MacOS 系统的技巧
 

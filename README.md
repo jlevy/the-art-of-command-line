@@ -1,6 +1,5 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
+🌍
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
 
 
 # The Art of Command Line
@@ -14,7 +13,7 @@
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
-- [MacOS X only](#macos-x-only)
+- [OS X only](#os-x-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
@@ -24,19 +23,19 @@
 Fluency on the command line is a skill often neglected or considered arcane, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways. This is a selection of notes and tips on using the command-line that we've found useful when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot.
 
 This work is the result of [many authors and translators](AUTHORS.md).
-Much of this
+Some of this
 [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-but given the interest there, it seemed worth using GitHub, where people more talented than the original author could readily suggest improvements. If you see an error or something that could be better, please submit an issue or PR! (Of course please review the meta section and existing PRs/issues first.)
-
+but it has since moved to GitHub, where people more talented than the original author have made numerous improvements.
+[**Please contribute**](/CONTRIBUTING.md) if you see an error or something that could be better!
 
 ## Meta
 
 Scope:
 
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux, with the exception of the "[MacOS X only](#macos-x-only)" section. Many of the other items apply or can be installed on other Unices or MacOS (or even Cygwin).
+- This is written for Linux, with the exception of the "[OS X only](#os-x-only)" section. Many of the other items apply or can be installed on other Unices or MacOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.
 
@@ -310,7 +309,7 @@ A few examples of piecing together commands:
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- To see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
 ```sh
       find . -type f -ls
 ```
@@ -487,7 +486,7 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-## MacOS X only
+## OS X only
 
 These are items relevant *only* on MacOS.
 

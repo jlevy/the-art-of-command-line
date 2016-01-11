@@ -1,6 +1,5 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
+🌍
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
 
 
 # The Art of Command Line (Traduzione Italiana)
@@ -14,7 +13,7 @@
 - [Debug sistema](#debug-sistema)
 - [One-liner](#one-liner)
 - [Oscuri ma utili](#oscuri-ma-utili)
-- [MacOS X](#macos-x)
+- [OS X](#os-x)
 - [Ulteriori risorse](#ulteriori-risorse)
 - [Disclaimer](#disclaimer)
 
@@ -35,7 +34,7 @@ Una buona parte di ciò che leggi è [apparsa](http://www.quora.com/What-are-som
 Obiettivi:
 
 - Questa guida è adatta sia a principianti che ad utenti con più conoscenze. Ci proponiamo di seguire tre principi fondamentali: *ampiezza* (cerchiamo di includere tutto quello che serve), *specificità* (dando degli esempi concreti) e *brevità* (evitando tutto il futile e il superfluo). Ogni consiglio viene dato con l'obiettivo di salvare del tempo prezioso.
-- Questa guida è stata scritta per Linux, con alcune eccezioni per che abbiamo riportato nella sezione "[MacOS X](#macos-x-only)". In ogni caso, molti dei consigli che vedrai si applicano tranquillamente ad altri sistemi operativi Unix e a MacOS.
+- Questa guida è stata scritta per Linux, con alcune eccezioni per che abbiamo riportato nella sezione "[OS X](#os-x-only)". In ogni caso, molti dei consigli che vedrai si applicano tranquillamente ad altri sistemi operativi Unix e a MacOS.
 - Il focus principale sarà su interactive Bash, nonostante non sia esclusivamente così.
 - Verranno inclusi comandi "base" Unix, ma anche altri che necessiteranno di installazioni separate.
 
@@ -206,7 +205,7 @@ Note:
 
 - Ricorda che le impostazioni riguardo la localizzazione influiscono un sacco su alcuni tool da linea di comando, in molti modi. Ad esempio sugli ordinamenti (collation) e performance. Molte installazioni Linux impostano `LANG` ed altre variabili correlate automaticamente su US English (inglese americano). Se decidi di cambiare lingua, non è detto quindi che le cose rimangano così come sono. Alcuni comandi, addirittura, potrebbero diventare immediatamente molto più lenti.
 
-- Impara le basi di `awk` e `sed` per manipolare dati. Ad esempio, per sommare tutti i numeri nella terza colonna di un file di testo, usa `awk '{ x += $3 } END { print x }'`. Probabilmente tre volte più veloce e tre volt epiù corto del suo equivalente in Python.
+- Impara le basi di `awk` e `sed` per manipolare dati. Ad esempio, per sommare tutti i numeri nella terza colonna di un file di testo, usa `awk '{ x += $3 } END { print x }'`. Probabilmente tre volte più veloce e tre volte più corto del suo equivalente in Python.
 
 - Per rimpiazzare tutte le occorrenze di una stringa, in uno o più file:
 
@@ -500,7 +499,7 @@ Qualche esempio di combinazione di più comandi comandi:
 - `fortune`, `ddate`, e `sl`: mmmh, beh, dipende molto da quanto consideri le locomotive a vapore e le citazioni di Zippy "utili".
 
 
-## MacOS X
+## OS X
 
 Consiera questa sezione come un'esclusiva MacOS.
 
