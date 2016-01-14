@@ -27,13 +27,6 @@
 
 هذا المحتوى هو نتيجة لعمل مشترك من قبل [الكثير من المحررين والمترجمين](AUTHORS.md). بعضه [نشر](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands) [لأول مرة](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix) على موقع [قورة](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know) ولكن تم نقله فيما بعد الى هنا حيث قام بعض المختصين والمحترفين بتطويرة والاضافة الية. [**الرجاء المشاركة**](/CONTRIBUTING.md) في حالة رؤيتك لخطأ ما وذلك بارسال رسالة.
 
-This work is the result of [many authors and translators](AUTHORS.md).
-Some of this
-[originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
-[appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
-on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-but it has since moved to GitHub, where people more talented than the original author have made numerous improvements.
-[**Please contribute**](/CONTRIBUTING.md) if you see an error or something that could be better!
 
 ## المقدمة
 ### الإطار:
