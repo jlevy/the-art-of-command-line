@@ -1,1 +1,9 @@
 .gitignore
+# Ignore everything
+*
+
+# But not these files...
+!README-ar.md
+
+# ...even if they are in subdirectories
+!*/
