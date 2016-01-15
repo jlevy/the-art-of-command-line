@@ -72,7 +72,7 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 - Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
 
-## Everyday use
+## #الأستخدامات اليومية
 
 - In Bash, use **Tab** to complete arguments or list all available commands and **ctrl-r** to search through command history (after pressing, type to search, press **ctrl-r** repeatedly to cycle through more matches, press **Enter** to execute the found command, or hit the right arrow to put the result in the current line to allow editing).
 
@@ -173,7 +173,7 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
 
 
-## Processing files and data
+## معالجة الملفات والمعلومات
 
 - To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
 
@@ -251,7 +251,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
 
-## System debugging
+## تصحيح النظام
 
 - For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jkbrzt/httpie).
 
@@ -292,7 +292,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
 
-## One-liners
+## أوامر السطر الواحد
 
 A few examples of piecing together commands:
 
@@ -335,7 +335,7 @@ A few examples of piecing together commands:
 ```
 
 
-## Obscure but useful
+## أومر غامضة ولكن مهمة
 
 - `expr`: perform arithmetic or boolean operations or evaluate regular expressions
 
@@ -488,7 +488,7 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-## OS X only
+## OS X أوامر خاصة بنظام
 
 These are items relevant *only* on MacOS.
 
@@ -507,7 +507,7 @@ These are items relevant *only* on MacOS.
 - To get MacOS release information, use `sw_vers`.
 
 
-## More resources
+## مصادر اضافية
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
 - [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): A more in-depth guide for the Mac OS command line.
@@ -516,7 +516,7 @@ These are items relevant *only* on MacOS.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
 
 
-## Disclaimer
+## اخلاء مسؤولية
 
 With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
 
