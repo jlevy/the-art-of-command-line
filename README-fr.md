@@ -161,6 +161,9 @@ Vérifier l'existence d'une variable&nbsp;: `${name:?error message}`.
 Par exemple, si un script en Bash exige un unique argument, il vous suffit d'écrire `input_file=${1:?usage: $0 input_file}`.
 L'expansion arithmétique&nbsp;: `i=$(( (i + 1) % 5 ))`. Suites&nbsp;: `{1..10}`. Suppression de sous-chaînes&nbsp;: `${var%suffix}` et `${var#prefix}`. Par exemple,  si `var=foo.pdf`, alors `echo ${var%.pdf}.txt` affiche `foo.txt`.
 
+- L'expansion des accolades avec `{`...`}` évite de retaper des textes similaires et automatise les combinaisons d'éléments de listes.
+C'est utile dans des exemples comme  `mv foo.{txt,pdf} some-dir` (qui déplace les deux fichiers), `cp somefile{,.bak}` (équivalent à `cp somefile somefile.bak`) ou `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (qui engendre toutes les combinaisons possibles et crée une arborescence de répertoires).
+
 - La sortie d'une commande peut être traitée comme un fichier à l'aide de `<(some command)`.
 Par exemple, pour comparer le fichier local `/etc/hosts` avec un fichier distant&nbsp;:
 ```sh
