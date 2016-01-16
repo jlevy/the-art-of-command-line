@@ -49,30 +49,32 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 
 ## الأوليات
 
-- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
+- لتعلم أوليات bash shell استخدم ايعاز `man bash` والقي نظرة سريعة على دليل الاستخدام الخاص بـ bash shell. ستجد ان دليل الاستخدام بسيط  ومفيد في نفس الوقت. يوجد الكثير من البدائل لـ bash shell التي قد يبدو بعضها اكثر جاذبية ومرونة ولكن bash sheel تعتبر الافضل والاكثر شيوعا. (قد يستهويك\تستهويك تعلم zshell, fish shell, الخ... ولكن هذة البدائل سوف تقيد قدراتك ومهاراتك في حالات عديدة مثل الدخول الى خادمserver من بعد)
 
-- Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
+- أتقن أوليات محرر نصي واحد على الأقل. يفضل ان تتعلم Vim (`vi`) كونه المحرر النصي الافضل والاكثر شيوعاُ، حيث ان جميع انظمة لنكس تدعمة بخلاف بقية برامج التحرير النصي مثل Emacs او اي نوع من المحررات التفاعلية IDE.
 
-- Know how to read documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`. Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`.
+- مارس قراءة وثائق دليل الاستخدام باستخدام ايعاز `man` (لمحبي الاستطلاع -- الفضوليون -- :ايعاز `man man` يعرض قائمة بارقام الاقسام المختلفة التي يحتويها دليل الاستخدام كالرقم ١ الذي يمثل الايعازات "الاعتيادية"، والرقم ٥ الذي يمثل ايعازات الملفات والتسميات المتبعة، والرقم ٨ الذي يمثل الاوامر الادارية). يستخدم ايعاز `apropos` لعرض صفحات معينة من دليل الاستخدام. لاحظ ان بعض الايعازات غير تنفيذية بمعنى انه لايمكن استخدامها كأوامر مباشرة وانما هي ادوات خاصة بـ bash shell يمكنك الأستعانة بـ `help` و `help -d` للتعرف على هذة الادوات.
 
-- Learn about redirection of output and input using `>` and `<` and pipes using `|`. Know `>` overwrites the output file and `>>` appends. Learn about stdout and stderr.
+- تعلم كيفية تغيير وجهة النتائج(outputs) والمداخلات(inputs) باستخدام الرموز التالية: `>` ، `<` ، `|`. لاحظ ان الرمز `>` يقوم بمحو محتويات الملف الاصلية واستبدالها بالنتائج الجديدة، في حين استخدام `>>` يقوم باصافة النتائج الجديدة الى المحتوى الاصلي للملف. يشار للنتائج  القياسية (standard output) بـ stdout وللأخطاء الاساسية (standard error) بـ stderr.
 
-- Learn about file glob expansion with `*` (and perhaps `?` and `[`...`]`) and quoting and the difference between double `"` and single `'` quotes. (See more on variable expansion below.)
+- تعلم الامتداد العام للملفات باستخدام رمز `*` (وغيره من الرموز مثل `?` و`[`...`]` ورموز الاقتباس والفرق بين الاقتباس المزدوج `"` والفردي `'` -- ستتعرف ادناة على المزيد من امدادات الملفات)
 
-- Be familiar with Bash job management: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
+- كن على اطلاع بعملية ادارة الاعمال bash shell job management مثل: `&`، **ctrl-z**، **ctrl-c***، `jobs`، `fg`، `bg`، `kill`، الخ...
 
-- Know `ssh`, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
+-تعلم كيفية ادارة النظام من بعد باستخدام `ssh` وكيفية الدخول للنظام بدون استخدام كلمة سر عن طريق `ssh-agent`، `ssh-add`، وغيرها من الادوات. 
 
-- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -hs *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Learn what an inode is (`ls -i` or `df -i`).
+- مارس أوليات ادارة الملفات: `ls` و`ls -l1` (تعلم ماهية كل عمود في `ls -l`)، `less`، `head`، `tail`، و`tail -f` (وان امكن `tail +F`) `ln` و`ln -s` (كن ملما باختلافات وفوائد كل من الروابط "الرقيقة" والروابط "الصلبة")، `chown`، `chmod`،  `du` (للحصول على نبذة مختصرة عن القرص الصلب: `du -sh *`).
+لادارة ملفات النظام: `df`، `mount`، `fdisk`، `mkfs`، `lsblk`.  تعلم ما تمثلة indone وانواعها المختلفة (`ls -i`او `df -i`).
 
-- Basic network management: `ip` or `ifconfig`, `dig`.
+-  مارس أوليات ادارة الشبكات: `ip`، `ifconfig`، `dig`.
 
-- Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-v`, `-A`, `-B`, and `-C` options are worth knowing.
+- اتقن التعابير التنظيمية (او مايعرف بـ regex)، ومختلف لوائح `grep`/`egrep`. الخيارات ادناة تسترعي الانتباه كونها شائعة الاستخدام:
+`-i`، `-o`، `-v`، `-A`، `-B`،`-C`.
 
-- Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
+- تعلم كيفية استخدام `apt-get`، `yum`، `dnf`، `pacman` (حسب نوعية نظامك). وتأكد من وجود مدير الحزم: `pip` على النظام ولذلك ليتسنى لك امكانية تثبيت البرامج والحزم المكتوبة بلغة بايثون (بعض البرامج ادناة يمكن تثبيتها بسهولة باستخدام `pip`).
 
 
-## #الأستخدامات اليومية
+## الأستخدامات اليومية
 
 - In Bash, use **Tab** to complete arguments or list all available commands and **ctrl-r** to search through command history (after pressing, type to search, press **ctrl-r** repeatedly to cycle through more matches, press **Enter** to execute the found command, or hit the right arrow to put the result in the current line to allow editing).
 
