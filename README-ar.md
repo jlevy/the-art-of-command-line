@@ -72,13 +72,19 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 </p>
 
 - <p dir="rtl" >
-أوليات ادارة الملفات:  <code>ls</code>  و <code>ls -l</code> (اعرف ماهية كل عمود في <code>ls -l</code> )  
+أوليات ادارة الملفات:  <code>ls</code>  و <code>ls -l</code> (اعرف ماهية كل عمود في <code>ls -l</code>).  
+
 اعرف عمل كل من: <code>less</code> ،  <code>head</code> ،  <code>tail</code> ، (وان امكن <code>tail +F</code>).
+
 كذلك كن ملما باختلافات وفوائد كل من الروابط "الرقيقة" والروابط "الصلبة" (<code>ln</code> , <code>ln -s</code>)
+
 ادوات تغيير ملكية ورخص الملفات: <code>chown</code> ،  <code>chmod</code> .
+
 للحصول على نبذة مختصرة عن القرص الصلب:  <code>du -sh *</code>.
+
 ادوات ادارة  ملفات النظام:  <code>df</code> ،  <code>mount</code> ،  <code>fdisk</code> ،  <code>mkfs</code> ،  <code>lsblk</code> .
-تعلم ما تمثلة indone وانواعها المختلفة ( <code>ls -i</code> او  <code>df -i</code> ).
+
+تعلم ما تمثلة indone وانواعها المختلفة (<code>ls -i</code> او  <code>df -i</code>).
 
 </p>
 
