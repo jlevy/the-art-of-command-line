@@ -75,8 +75,8 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 مارس أوليات ادارة الملفات:  <code>ls</code>  و <code>ls -l</code> (اعرف ماهية كل عمود في <code>ls -l</code> )  
 اعرف عمل كل من: <code>less</code> ،  <code>head</code> ،  <code>tail</code> ، 
 (وان امكن <code>tail +F</code>)
+كذلك كن ملما باختلافات وفوائد كل من الروابط "الرقيقة" والروابط "الصلبة" (<code>ln</code> , <code>ln -s</code>)
 
-كذلك كن ملما باختلافات وفوائد كل من الروابط "الرقيقة" والروابط "الصلبة" (<code>ln</code> , <code>ln -s</code>) 
 <code>chown</code> ،  <code>chmod</code> ادوات تغيير ملكية ورخص الملفات: 
 للحصول على نبذة مختصرة عن القرص الصلب:  <code>du -sh *</code>.
 لادارة ملفات النظام:  <code>df</code> ،  <code>mount</code> ،  <code>fdisk</code> ،  <code>mkfs</code> ،  <code>lsblk</code> .
