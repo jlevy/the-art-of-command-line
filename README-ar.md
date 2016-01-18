@@ -49,7 +49,7 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 
 ## الأوليات
 
-<div dir="rtl" >
+<p dir="rtl" >
 
 - لتعلم أوليات bash shell استخدم ايعاز <code>man bash</code> والقي نظرة سريعة على دليل الاستخدام. ستجد ان دليل الاستخدام بسيط  ومفيد في نفس الوقت. يوجد الكثير من البدائل لـ bash shell التي قد يبدو بعضها اكثر جاذبية ومرونة ولكن bash sheel تعتبر الافضل والاكثر شيوعا. (قد يستهويك\تستهويك تعلم zshell, fish shell, الخ... ولكن هذة البدائل سوف تقيد قدراتك ومهاراتك في حالات عديدة مثل الدخول الى خادمserver من بعد)
 
@@ -77,7 +77,7 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 
 - تعلم كيفية استخدام </code>apt-get</code>، <code>yum</code>، <code>dnf</code>، <code>pacman<code> (حسب نوعية نظامك). وتأكد من وجود مدير الحزم: </code>pip<code> على النظام ولذلك ليتسنى لك امكانية تثبيت البرامج والحزم المكتوبة بلغة بايثون (بعض البرامج ادناة يمكن تثبيتها بسهولة باستخدام </code>pip<code>).
 
-</div>
+</p>
 ## الأستخدامات اليومية
 
 - In Bash, use **Tab** to complete arguments or list all available commands and **ctrl-r** to search through command history (after pressing, type to search, press **ctrl-r** repeatedly to cycle through more matches, press **Enter** to execute the found command, or hit the right arrow to put the result in the current line to allow editing).
