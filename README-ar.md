@@ -94,11 +94,12 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 
 - <p dir="rtl" >
 اتقن التعابير التنظيمية (او مايعرف بـ regex)، ومختلف لوائح <code>grep</code>/<code>egrep</code>. الخيارات ادناة تسترعي الانتباه كونها شائعة الاستخدام:
-<code>-i</code>، <code>-o</code>، <code>-v</code>، <code>-A</code>، <code>-B</code>،<code>-C</code>.
+<br />
+<code>-i</code> ، <code>-o</code> ، <code>-v</code> ، <code>-A</code> ، <code>-B</code> ،<code>-C</code>.
 </p>
 
 - <p dir="rtl" >
-تعلم كيفية استخدام </code>apt-get</code>، <code>yum</code>، <code>dnf</code>، <code>pacman<code> (حسب نوعية نظامك). وتأكد من وجود مدير الحزم: </code>pip<code> على النظام ولذلك ليتسنى لك امكانية تثبيت البرامج والحزم المكتوبة بلغة بايثون (بعض البرامج ادناة يمكن تثبيتها بسهولة باستخدام </code>pip<code>).
+تعلم كيفية استخدام <code>apt-get</code>، <code>yum</code>، <code>dnf</code>، <code>pacman</code> (حسب نوعية نظامك). وتأكد من وجود مدير الحزم: <code>pip</code> على النظام وذلك ليتسنى لك امكانية تثبيت البرامج والحزم المكتوبة بلغة بايثون (بعض البرامج ادناة يمكن تثبيتها بسهولة باستخدام <code>pip</code>).
 </p>
 ## الأستخدامات اليومية
 
