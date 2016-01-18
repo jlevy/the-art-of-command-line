@@ -51,33 +51,44 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 
 
 
-- <p dir="rtl" > لتعلم أوليات bash shell استخدم ايعاز <code>man bash</code> والقي نظرة سريعة على دليل الاستخدام. ستجد ان دليل الاستخدام بسيط  ومفيد في نفس الوقت. يوجد الكثير من البدائل لـ bash shell التي قد يبدو بعضها اكثر جاذبية ومرونة ولكن bash sheel تعتبر الافضل والاكثر شيوعا. (قد يستهويك\تستهويك تعلم zshell, fish shell, الخ... ولكن هذة البدائل سوف تقيد قدراتك ومهاراتك في حالات عديدة مثل الدخول الى خادمserver من بعد)
+- <p dir="rtl" > لتعلم أوليات bash shell استخدم ايعاز <code>man bash</code> والقي نظرة سريعة على دليل الاستخدام. ستجد ان دليل الاستخدام بسيط  ومفيد في نفس الوقت. يوجد الكثير من البدائل لـ bash shell التي قد يبدو بعضها اكثر جاذبية ومرونة ولكن bash shell تعتبر الافضل والاكثر شيوعا. (قد يستهويك\تستهويك تعلم zshell, fish shell, الخ... ولكن هذة البدائل سوف تقيد قدراتك ومهاراتك في حالات عديدة مثل الدخول الى خادمserver من بعد)
 </p>
 
-- أتقن أوليات محرر نصي واحد على الأقل. يفضل ان تتعلم Vim (<code> vi</code>) كونه المحرر النصي الافضل والاكثر شيوعاُ، حيث ان جميع انظمة لنكس تدعمة بخلاف بقية برامج التحرير النصي مثل Emacs او اي نوع من المحررات التفاعلية IDE.
+- <p dir="rtl" > أتقن أوليات محرر نصي واحد على الأقل. يفضل ان تتعلم Vim (<code> vi</code>) كونه المحرر النصي الافضل والاكثر شيوعاُ، حيث ان جميع انظمة لنكس تدعمة بخلاف بقية برامج التحرير النصي مثل Emacs او اي نوع من المحررات التفاعلية IDE.
+</p>
+- <p dir="rtl" > مارس قراءة وثائق دليل الاستخدام باستخدام ايعاز <code>man</code> (لمحبي الاستطلاع -- الفضوليون -- :ايعاز <code>man man</code> يعرض قائمة بارقام الاقسام المختلفة التي يحتويها دليل الاستخدام كالرقم ١ الذي يمثل الايعازات "الاعتيادية"، والرقم ٥ الذي يمثل ايعازات الملفات والتسميات المتبعة، والرقم ٨ الذي يمثل الاوامر الادارية). يستخدم ايعاز <code>apropos</code> لعرض صفحات معينة من دليل الاستخدام. لاحظ ان بعض الايعازات غير تنفيذية بمعنى انه لايمكن استخدامها كأوامر مباشرة وانما هي ادوات خاصة بـ bash shell يمكنك الأستعانة بـ <code>help</code> و <code>help -d</code> للتعرف على هذة الادوات.
+</p>
+- <p dir="rtl" > تعلم كيفية تغيير وجهة النتائج(outputs) والمداخلات(inputs) باستخدام الرموز التالية: <code> < </code> ، <code> > </code> ،<code>|</code>. لاحظ ان الرمز <code> < </code> يقوم بمحو محتويات الملف الاصلية واستبدالها بالنتائج الجديدة، في حين استخدام <code> << </code> يقوم باصافة النتائج الجديدة الى المحتوى الاصلي للملف. يشار للنتائج  القياسية (standard output) بـ stdout وللأخطاء الاساسية (standard error) بـ stderr.
+</p>
+- <p dir="rtl" > تعلم الامتداد العام للملفات باستخدام رمز <code> * </code> (وغيره من الرموز مثل <code> ? </code> و<code>]</code>...<code>[</code> ورموز الاقتباس والفرق بين الاقتباس المزدوج <code>"</code> والفردي <code>'</code> -- ستتعرف ادناة على المزيد من امدادات الملفات)
+</p>
 
-- مارس قراءة وثائق دليل الاستخدام باستخدام ايعاز <code>man</code> (لمحبي الاستطلاع -- الفضوليون -- :ايعاز <code>man man</code> يعرض قائمة بارقام الاقسام المختلفة التي يحتويها دليل الاستخدام كالرقم ١ الذي يمثل الايعازات "الاعتيادية"، والرقم ٥ الذي يمثل ايعازات الملفات والتسميات المتبعة، والرقم ٨ الذي يمثل الاوامر الادارية). يستخدم ايعاز <code>apropos</code> لعرض صفحات معينة من دليل الاستخدام. لاحظ ان بعض الايعازات غير تنفيذية بمعنى انه لايمكن استخدامها كأوامر مباشرة وانما هي ادوات خاصة بـ bash shell يمكنك الأستعانة بـ <code>help</code> و <code>help -d</code> للتعرف على هذة الادوات.
+- <p dir="rtl" >
+كن على اطلاع بكيفية ادارة الاعمال bash shell job management مثل: <code>&</code>، <b>ctrl-z</b>، <b>ctrl-c</b>، <code>jobs</code>، <code>fg</code>، <code>bg</code>، <code>kill</code>، الخ...
+</p>
 
-- تعلم كيفية تغيير وجهة النتائج(outputs) والمداخلات(inputs) باستخدام الرموز التالية: <code> < </code> ، <code> > </code> ،<code>|</code>. لاحظ ان الرمز <code> < </code> يقوم بمحو محتويات الملف الاصلية واستبدالها بالنتائج الجديدة، في حين استخدام <code> << </code> يقوم باصافة النتائج الجديدة الى المحتوى الاصلي للملف. يشار للنتائج  القياسية (standard output) بـ stdout وللأخطاء الاساسية (standard error) بـ stderr.
+- <p dir="rtl" >
+تعلم كيفية ادارة النظام من بعد باستخدام <code>ssh</code> وكيفية الدخول للنظام بدون استخدام كلمة سر عن طريق  <code>ssh-add</code> ، <code>ssh-agent</code>، وغيرهما من الادوات. 
+</p>
 
-- تعلم الامتداد العام للملفات باستخدام رمز <code> * </code> (وغيره من الرموز مثل <code> ? </code> و<code>]</code>...<code>[</code> ورموز الاقتباس والفرق بين الاقتباس المزدوج <code>"</code> والفردي <code>'</code> -- ستتعرف ادناة على المزيد من امدادات الملفات)
-
-
-- كن على اطلاع بعملية ادارة الاعمال bash shell job management مثل: <code>&</code>، <b>ctrl-z</b>، <b>ctrl-c</b>، <code>jobs</code>، <code>fg</code>، <code>bg</code>، <code>kill</code>، الخ...
-
--تعلم كيفية ادارة النظام من بعد باستخدام <code> ssh </code> وكيفية الدخول للنظام بدون استخدام كلمة سر عن طريق  <code>ssh-add </code> ، <code>ssh-agent </code>، وغيرهما من الادوات. 
-
-- مارس أوليات ادارة الملفات: <code> ls </code> و<code> ls -l </code> (تعلم ماهية كل عمود في </code>ls -l</code>)، <code>less</code>، <code>head</code>، <code>tail<code>، و<code>tail -f</code> (وان امكن </code>tail +F</code>) <code>ln<code> و</code>ln -s<code>(كن ملما باختلافات وفوائد كل من الروابط "الرقيقة" والروابط "الصلبة")، <code>chown</code>، <code>chmod</code>،  <code>du</code> (للحصول على نبذة مختصرة عن القرص الصلب: </code>du -sh *<code>).
+- <p dir="rtl" >
+مارس أوليات ادارة الملفات: <code>ls</code> و<code>ls -l</code> (تعلم ماهية كل عمود في </code>ls -l</code>)، <code>less</code>، <code>head</code>، <code>tail<code>، و<code>tail -f</code> (وان امكن </code>tail +F</code>) <code>ln<code> و</code>ln -s<code>(كن ملما باختلافات وفوائد كل من الروابط "الرقيقة" والروابط "الصلبة")، <code>chown</code>، <code>chmod</code>،  <code>du</code> (للحصول على نبذة مختصرة عن القرص الصلب: </code>du -sh *<code>).
 لادارة ملفات النظام: <code>df</code>، <code>mount</code>، <code>fdisk</code>، <code>mkfs</code>، <code>lsblk</code>.  تعلم ما تمثلة indone وانواعها المختلفة (<code>ls -i</code>او <code>df -i</code>).
+</p>
 
--  مارس أوليات ادارة الشبكات: <code>ip</code>، <code>ifconfig</code>، <code>dig</code>.
+-  <p dir="rtl" >
+مارس أوليات ادارة الشبكات: <code>ip</code>، <code>ifconfig</code>، <code>dig</code>.
 
+</p>
 
-- اتقن التعابير التنظيمية (او مايعرف بـ regex)، ومختلف لوائح <code>grep</code>/<code>egrep</code>. الخيارات ادناة تسترعي الانتباه كونها شائعة الاستخدام:
+- <p dir="rtl" >
+اتقن التعابير التنظيمية (او مايعرف بـ regex)، ومختلف لوائح <code>grep</code>/<code>egrep</code>. الخيارات ادناة تسترعي الانتباه كونها شائعة الاستخدام:
 <code>-i</code>، <code>-o</code>، <code>-v</code>، <code>-A</code>، <code>-B</code>،<code>-C</code>.
+</p>
 
-- تعلم كيفية استخدام </code>apt-get</code>، <code>yum</code>، <code>dnf</code>، <code>pacman<code> (حسب نوعية نظامك). وتأكد من وجود مدير الحزم: </code>pip<code> على النظام ولذلك ليتسنى لك امكانية تثبيت البرامج والحزم المكتوبة بلغة بايثون (بعض البرامج ادناة يمكن تثبيتها بسهولة باستخدام </code>pip<code>).
-
+- <p dir="rtl" >
+تعلم كيفية استخدام </code>apt-get</code>، <code>yum</code>، <code>dnf</code>، <code>pacman<code> (حسب نوعية نظامك). وتأكد من وجود مدير الحزم: </code>pip<code> على النظام ولذلك ليتسنى لك امكانية تثبيت البرامج والحزم المكتوبة بلغة بايثون (بعض البرامج ادناة يمكن تثبيتها بسهولة باستخدام </code>pip<code>).
+</p>
 ## الأستخدامات اليومية
 
 - In Bash, use **Tab** to complete arguments or list all available commands and **ctrl-r** to search through command history (after pressing, type to search, press **ctrl-r** repeatedly to cycle through more matches, press **Enter** to execute the found command, or hit the right arrow to put the result in the current line to allow editing).
