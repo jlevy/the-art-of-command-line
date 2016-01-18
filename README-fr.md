@@ -560,7 +560,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `lsb_release` : informations sur la distribution Linux.
 
-- `lsblk` : affiche les périphériques blocs (une arborescence de vos disques et partitions).
+- `lsblk` : affiche les périphériques blocs (une arborescence de vos disques et de leurs partitions).
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode` : informations sur le matériel, comprenant le CPU, le BIOS, le RAID, la carte graphique, les périphériques, etc.
 
@@ -594,8 +594,8 @@ Pour écrire des scripts Bash multi-plateformes évitez d'utiliser de telles com
 
 ## Autres ressources
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell)&nbsp;: une liste organisée d'outils et ressources pour le shell.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): un guide plus approfondi sur la ligne de commande pour Mac OS.
+- [awesome-shell](https://github.com/alebcay/awesome-shell)&nbsp;: une liste organisée d'outils et de ressources pour le shell.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line)&nbsp;: un guide plus approfondi sur la ligne de commande pour Mac OS.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)&nbsp;: pour écrire de meilleurs scripts shell.
 - [shellcheck](https://github.com/koalaman/shellcheck)&nbsp;: un outil d'analyse statique des scripts shell. L'équivalent de lint pour bash, sh et zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)&nbsp;: les points de détail, malheureusement compliqués, sur la manière de manipuler correctement les noms de fichiers dans les scripts shell.
