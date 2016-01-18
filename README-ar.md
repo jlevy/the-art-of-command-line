@@ -79,7 +79,7 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 <br/>
 ادوات تغيير ملكية ورخص الملفات: <code>chown</code> ،  <code>chmod</code>.
 <br />
-للحصول على نبذة مختصرة عن القرص الصلب:  <span dir="ltr"><code>du -sh *</code></span>.
+للحصول على نبذة مختصرة عن القرص الصلب:  <code>*</code><code>du -sh </code>.
 <br /?
 ادوات ادارة  ملفات النظام:  <code>df</code> ، <code>mount</code> ، <code>fdisk</code> ، <code>mkfs</code> ،  <code>lsblk</code> .
 <br />
