@@ -73,7 +73,6 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 
 - <p dir="rtl" >
 مارس أوليات ادارة الملفات:  <code>ls</code>  و <code>ls -l</code> (اعرف ماهية كل عمود في <code>ls -l</code> )  
-<br>
 اعرف عمل كل من: <code>less</code> ،  <code>head</code> ،  <code>tail</code> ، و <code>tail +F</code>
 وان امكن <code>ln</code> و <code>ln -s</code>  كن ملما باختلافات وفوائد كل من الروابط "الرقيقة" والروابط "الصلبة"،  <code>chown</code> ،  <code>chmod</code> ،   <code>du</code>  للحصول على نبذة مختصرة عن القرص الصلب:  <code>du -sh *</code> .
 لادارة ملفات النظام:  <code>df</code> ،  <code>mount</code> ،  <code>fdisk</code> ،  <code>mkfs</code> ،  <code>lsblk</code> .  تعلم ما تمثلة indone وانواعها المختلفة ( <code>ls -i</code> او  <code>df -i</code> ).
