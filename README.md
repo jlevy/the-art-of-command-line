@@ -93,6 +93,9 @@ Notes:
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
+- Use null character delimiter to manage filenames with whitespaces, example `locate -0 patern | xargs -0 ls -al` or `find / -print0 -type d | xargs -0 ls -al`.
+  To iterate on filenames containing whitespaces in a for loop, set your IFS to only '\n' using `IFS=$'\n'`.
+
 - `pstree -p` is a helpful display of the process tree.
 
 - Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
