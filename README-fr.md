@@ -1,7 +1,6 @@
 🌍
 *[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
 
-
 # L'art de la ligne de commande
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -52,7 +51,7 @@ Utilisez `apt-get`, `yum`, `dnf`, `pacman`, `pip` ou `brew` (selon votre distrib
 
 ## Notions de base
 
-- Apprenez les bases de Bash. 
+- Apprenez les bases de Bash.
 En fait, tapez `man bash` et parcourez toute la page&#8239;; elle est relativement facile à suivre et pas si longue.
 Les shells alternatives peuvent être intéressants, mais Bash est puissant et disponible partout (apprendre *seulement* zsh, fish, etc., bien que cela soit tentant sur votre ordinateur portable, vous limite dans bien des situations, comme par exemple lors de l'utilisation de vrais serveurs).
 
@@ -108,7 +107,7 @@ Il y a aussi beaucoup d'abréviations telles que `!$` (dernier argument) et `!!`
 - Si vous êtes au milieu de la saisie d'une commande mais que vous changez d'avis, tapez **alt-#** pour ajouter `#` au début de la ligne et l'entrer comme un commentaire (ou utilisez **ctrl-a**, **#**, **enter**).
 Vous pouvez alors y revenir plus tard à l'aide de la commande history.
 
-- Utilisez `xargs` (ou `parallel`). 
+- Utilisez `xargs` (ou `parallel`).
 C'est très puissant.
 Remarquez que vous pouvez contrôler le nombre d'items à exécuter par ligne (`-L`) ainsi que la parallélisation (`-P`).
 Si vous n'êtes pas sûr qu'il fera les bonnes choses, utilisez d'abord `xargs echo`.
@@ -328,7 +327,7 @@ Utilisez `iostat -mxz 15` pour des statistiques de base concernant le CPU, des s
 
 - Pour des informations sur les connexions réseaux, utilisez `netstat` et `ss`.
 
-- Pour un rapide aperçu de ce qui se passe dans le système, `dstat` est particulièrement utile. 
+- Pour un rapide aperçu de ce qui se passe dans le système, `dstat` est particulièrement utile.
 Pour un aperçu plus étendu et détaillé, utilisez [`glances`](https://github.com/nicolargo/glances).
 
 - Pour connaître l'état de la mémoire, exécutez `free` et `vmstat` et comprenez leurs sorties.
@@ -396,7 +395,7 @@ Cela peut être utile pour des répertoires remplis de fichiers de configuration
     find . -type f -ls
 ```
 
-- Supposons que vous ayez un fichier texte comme un fichier journal de serveur web et q'une certaine valeur, comme un paramètre `acct_id` présent dans l'URL, figure à certaines lignes. 
+- Supposons que vous ayez un fichier texte comme un fichier journal de serveur web et q'une certaine valeur, comme un paramètre `acct_id` présent dans l'URL, figure à certaines lignes.
 Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_id`&nbsp;:
 ```sh
     cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
@@ -530,7 +529,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `dstat` : statistiques sur les ressources système.
 
-- [`glances`](https://github.com/nicolargo/glances): aperçu de haut niveau et multi-systèmes. 
+- [`glances`](https://github.com/nicolargo/glances): aperçu de haut niveau et multi-systèmes.
 
 - `iostat` : statistiques sur l'usage du disque.
 
