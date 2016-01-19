@@ -65,7 +65,7 @@ Hinweise:
 
 - Kenne reguläre Ausdrücke gut, und die verschiedenen Statusindikatoren zu `grep`/`egrep`. Die Optionen `-i`, `-o`, `-v`, `-A`, `-B`, und `-C` sind gut zu wissen.
 
-- Lerne den Umgang mit `apt-get`, `yum`, `dnf` oder `pacman` (je nach Distribution), um Pakete zu finden bzw. zu installieren. Und stell sicher, dass du `pip` hast, um Python-basierte Kommandozeilen-Tools nutzen zu können (einige der untenstehenden werden am einfachsten über `pip` installiert).
+- Lerne den Umgang mit `apt-get`, `yum`, `dnf` oder `pacman` (je nach Distribution), um Pakete zu finden bzw. zu installieren. Und stell sicher, dass du `pip` hast, um Python-basierte Kommandozeilen-Werkzeuge nutzen zu können (einige der untenstehenden werden am einfachsten über `pip` installiert).
 
 
 ## Täglicher Gebrauch
@@ -307,156 +307,155 @@ A few examples of piecing together commands:
 ```
 
 
-## Obscure but useful
+## Obskur aber nützlich
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `expr`: Führe arithmetische oder boolsche Operationen aus oder werte reguläre Ausdrücke aus
 
-- `m4`: simple macro processor
+- `m4`: Simpler Macro Auswerter
 
-- `yes`: print a string a lot
+- `yes`: Gebe eine Zeichenkette sehr oft aus
 
-- `cal`: nice calendar
+- `cal`: netter Kalender
 
-- `env`: run a command (useful in scripts)
+- `env`: Führe ein Kommando aus (nützlich für Skripte)
 
-- `printenv`: print out environment variables (useful in debugging and scripts)
+- `printenv`: Gebe Umgebungsvariablen aus (nützlich zum Debuggen und für Skripte)
 
-- `look`: find English words (or lines in a file) beginning with a string
+- `look`: finde Englische Worte (oder Zeilen in einer Datei) die mit einer bestimmten Zeichenkette anfangen 
 
-- `cut`, `paste` and `join`: data manipulation
+- `cut`, `paste` und `join`: Datenmanipulation
 
-- `fmt`: format text paragraphs
+- `fmt`: Formatiere Textabsätze
 
-- `pr`: format text into pages/columns
+- `pr`: Formatiere Text als Seiten/Spalten
 
-- `fold`: wrap lines of text
+- `fold`: Breche Textzeilen um
 
-- `column`: format text fields into aligned, fixed-width columns or tables
+- `column`: Formatiere Textfelder als bündige Spalten oder Tabellen mit fester Größe
 
-- `expand` and `unexpand`: convert between tabs and spaces
+- `expand` and `unexpand`: Konvertiere zwischen Tabs und Spaces
 
-- `nl`: add line numbers
+- `nl`: Füge Zeilennummern hinzu
 
-- `seq`: print numbers
+- `seq`: Gebe Zahlen aus
 
-- `bc`: calculator
+- `bc`: Taschenrechner
 
-- `factor`: factor integers
+- `factor`: faktorisiere Ganzzahlen
 
-- [`gpg`](https://gnupg.org/): encrypt and sign files
+- [`gpg`](https://gnupg.org/): Verschlüssle und signiere Dateien
 
-- `toe`: table of terminfo entries
+- `toe`: Tabelle von terminfo Einträgen
 
-- `nc`: network debugging and data transfer
+- `nc`: Netzwerk Debugging und Datentransfer
 
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+- `socat`: Socket und TCP Port Weiterleitung (ähnlich wie `netcat`)
 
-- [`slurm`](https://github.com/mattthias/slurm): network trafic visualization
+- [`slurm`](https://github.com/mattthias/slurm): Netzwerk Verkehr Visulaisierung
 
-- `dd`: moving data between files or devices
+- `dd`: Daten zwischen Dateien und Geräten bewegen
 
-- `file`: identify type of a file
+- `file`: Identifiziere den Typ einer Datei
 
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+- `tree`: Zeige Verzeichnisse und Unterverzeichnisse als verschachtelten Baum; wie 'ls' aber rekursiv
 
-- `stat`: file info
+- `stat`: Date Infomationen
 
-- `time`: execute and time a command
+- `time`: Führe ein Kommando aus und messe die Zeit
 
 - `watch`: run a command repeatedly, showing results and/or highlighting changes
 
-- `tac`: print files in reverse
+- `tac`: Gebe Dateien in umgekehrter Reihenfolge aus
 
-- `shuf`: random selection of lines from a file
+- `shuf`: Zufällige Auswahl von Zeilen von einer Datei
 
-- `comm`: compare sorted files line by line
+- `comm`: Vergleiche sortierte Dateien Zeile für Zeile
 
-- `pv`: monitor the progress of data through a pipe
+- `pv`: Überwache den Fortschritt von Daten durch eine Pipe
 
-- `hd` and `bvi`: dump or edit binary files
+- `hd` und `bvi`: Ausgabe und Editieren von Binärdateien
 
-- `strings`: extract text from binary files
+- `strings`: Text aus Binärdateien extrahieren
 
-- `tr`: character translation or manipulation
+- `tr`: Buchstabenübersetzung und Manipulation
 
-- `iconv` or `uconv`: conversion for text encodings
+- `iconv` oder `uconv`: Konvertierung von Zeichensätzen
 
-- `split` and `csplit`: splitting files
+- `split` und `csplit`: Dateien aufteilen
 
-- `sponge`: read all input before writing it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
+- `sponge`: liest die gesamte Eingabe, bevor sie wieder ausgegeben wird. Nützlich um aus der selben Datei zu lesen und in diese zu schreiben, z.B. `grep -v irgendwas irgendeine-datei | sponge irgendeine-datei`
 
-- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+- `units`: Einheiten Konvertierungen und Berechnungen; konvertiert Furlong(Achtelmeile)/Fortnights(2 Wochen) zu twips/blink (siehe `/usr/share/units/definitions.units`)
 
-- `7z`: high-ratio file compression
+- `7z`: hochperformante Dateikomprimierung
 
-- `ldd`: dynamic library info
+- `ldd`: Informationen zu dynamisch gelinkten Bibliotheken
 
-- `nm`: symbols from object files
+- `nm`: Symbole aus Objektdateien anzeigen
 
-- `ab`: benchmarking web servers
+- `ab`: Web Server benchmarken
 
-- `strace`: system call debugging
+- `strace`: Debugging von Syscalls
 
-- `mtr`: better traceroute for network debugging
+- `mtr`: ein besseres "traceroute" zum Netzwerk debuggen
 
-- `cssh`: visual concurrent shell
+- `cssh`: visuelle, nebenläufige Shell
 
-- `rsync`: sync files and folders over SSH or in local file system
+- `rsync`: synchronisiere Dateien und Ordner über SSH oder im lokalen Dateisystem
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- `wireshark` und `tshark`: Pakete aufzeichnen und Netzwerk Debugging
 
-- `ngrep`: grep for the network layer
+- `ngrep`: grep für die Netzwerk Schicht
 
-- `host` and `dig`: DNS lookups
+- `host` und `dig`: DNS Auflösung
 
-- `lsof`: process file descriptor and socket info
+- `lsof`: Prozess Datei Deskriptor und Socket Informationen
 
-- `dstat`: useful system stats
+- `dstat`: nützliche Systemstatistiken
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- [`glances`](https://github.com/nicolargo/glances): Grobe Übersicht über zahlreiche Subsysteme
 
-- `iostat`: Disk usage stats
+- `iostat`: Fesplatten Nutzungsstatistiken
 
-- `mpstat`: CPU usage stats
+- `mpstat`: CPU Nutzungsstatistiken
 
-- `vmstat`: Memory usage stats
+- `vmstat`: Speicher Nutzungsstatistiken
 
-- `htop`: improved version of top
+- `htop`: eine verbesserte Version von top
 
-- `last`: login history
+- `last`: Login Verlauf
 
-- `w`: who's logged on
+- `who`: wer ist gerade angemeldet
 
-- `id`: user/group identity info
+- `id`: Benutzer/Gruppen Identitätsinformationen
 
-- `sar`: historic system stats
+- `sar`: Historische System Statistiken
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- `iftop` oder `nethogs`: Netzwerknutzung durch Sockets oder Prozesse
 
-- `ss`: socket statistics
+- `ss`: Socket Statistiken
 
-- `dmesg`: boot and system error messages
+- `dmesg`: Bootvorgang und System Fehlermeldungen 
 
-- `sysctl`: view and configure Linux kernel parameters at run time
+- `sysctl`: Anzeige und Konfiguration von Linux Kernel Parametern zur Laufzeit
 
-- `hdparm`: SATA/ATA disk manipulation/performance
+- `hdparm`: SATA/ATA Festplatten Manipulation/Performanceinformationen
 
-- `lsb_release`: Linux distribution info
+- `lsb_release`: Informationen über die Linux Distribution
 
-- `lsblk`: list block devices: a tree view of your disks and disk paritions
+- `lsblk`: Auflisten von block devices:  eine Baumansicht deiner Festplatten und Partitionen
 
-- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware informationen, inklusive CPU, BIOS, RAID, Grafikkarten, Geräte, etc.
 
-- `lsmod` and `modifno`: List and show details of kernel modules.
+- `lsmod` und `modinfo`: Auflisten und Details anzeigen von Kernel Modulen
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
-
+- `fortune`, `ddate`, und `sl`: ähm ja, kommt darauf an, ob man Dampflokomotiven und flotte Zitate "nützlich" findet
 
 ## Nur MacOS X
 
 Diese Hinweise sind *nur* für MacOS relevant.
 
-- Paketverwaltung mit `brew` (Homebrew) und/oder `port` (MacPorts). Mit diesen Tools kann man viele der obrigen Programme für MacOs installieren.
+- Paketverwaltung mit `brew` (Homebrew) und/oder `port` (MacPorts). Mit diesen Werkzeugen kann man viele der obrigen Programme für MacOs installieren.
 
 - Kopiere die Ausgabe jedes Kommandos an eine Desktop App mit `pbcopy` und füge die Eingabe von einer solchen ein mit `pbpaste`.
 
