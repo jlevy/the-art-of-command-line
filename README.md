@@ -477,7 +477,7 @@ A few examples of piecing together commands:
 
 - `lsb_release`: Linux distribution info
 
-- `lsblk`: list block devices: a tree view of your disks and disk paritions
+- `lsblk`: list block devices: a tree view of your disks and disk partitions
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
