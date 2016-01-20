@@ -42,7 +42,7 @@ Alcance:
 
 Notas:
 
--- Para mantener esto en una página, el contenido está incluido implícitamente por referencia. Eres lo suficientemente inteligente para consultar más detalles en otros lugares, cuando conoces la idea o comando con Google. Usa `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (según proceda) para instalar los nuevos programas.
+- Para mantener esto en una página, el contenido está incluido implícitamente por referencia. Eres lo suficientemente inteligente para consultar más detalles en otros lugares buscando en Google una vez conoces la idea o el comando. Usa `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (según proceda) para instalar los nuevos programas.
 - Usa [Explainshell](http://explainshell.com/) para obtener detalles de ayuda sobre que hacen los comandos, las opciones, las pipes, etc.
 
 
