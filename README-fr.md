@@ -26,7 +26,7 @@ Cette page n'est pas bien longue, mais si vous pouvez retenir et vous servir de 
 
 Ce document est le fruit du travail de [nombreux auteurs et traducteurs](AUTHORS.md).
 Une partie de celui-ci a été [initialement](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands) [publiée](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix) sur [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), mais il se trouve maintenant sur GitHub, où des personnes plus compétentes que l'auteur originel ont apporté de nombreuses améliorations.
-[**Merci de contribuer**](/CONTRIBUTING.md) si vous voyez une erreur ou quelque chose qui pourrait être meilleur !
+[**Merci de contribuer**](/CONTRIBUTING.md) si vous voyez une erreur ou quelque chose qui pourrait être amélioré !
 
 
 ## Méta
@@ -53,7 +53,7 @@ Utilisez `apt-get`, `yum`, `dnf`, `pacman`, `pip` ou `brew` (selon votre distrib
 
 - Apprenez les bases de Bash.
 En fait, tapez `man bash` et parcourez toute la page&#8239;; elle est relativement facile à suivre et pas si longue.
-Les shells alternatives peuvent être intéressants, mais Bash est puissant et disponible partout (apprendre *seulement* zsh, fish, etc., bien que cela soit tentant sur votre ordinateur portable, vous limite dans bien des situations, comme par exemple lors de l'utilisation de vrais serveurs).
+Les shells alternatifs peuvent être intéressants, mais Bash est puissant et disponible partout (apprendre *seulement* zsh, fish, etc., bien que cela soit tentant sur votre ordinateur portable, vous limite dans bien des situations, comme par exemple lors de l'utilisation de vrais serveurs).
 
 - Apprenez à bien utiliser au moins un éditeur en mode texte.
 Idéalement Vim (`vi`), car il n'a pas vraiment de concurrent lorsqu'il s'agit d'éditer inopinément un texte dans un terminal  (même si la plupart du temps vous utilisez Emacs, un gros EDI ou l'un de ces nouveaux éditeurs à la mode).
@@ -110,7 +110,7 @@ Vous pouvez alors y revenir plus tard à l'aide de la commande history.
 - Utilisez `xargs` (ou `parallel`).
 C'est très puissant.
 Remarquez que vous pouvez contrôler le nombre d'items à exécuter par ligne (`-L`) ainsi que la parallélisation (`-P`).
-Si vous n'êtes pas sûr qu'il fera les bonnes choses, utilisez d'abord `xargs echo`.
+Si vous n'êtes pas sûr d'avoir fait ce qu'il faut, utilisez d'abord `xargs echo`.
 L'option `-I{}` est également pratique.
 Exemples&nbsp;:
 ```bash
@@ -199,7 +199,7 @@ Une alternative plus légère pour la persistance des sessions seulement est `dt
 
 - Envisagez [`mosh`](https://mosh.mit.edu/) comme une alternative à ssh qui utilise UDP, évitant ainsi les pertes de connexion et ajoutant du confort en situation de mobilité (exige une installation côté serveur).
 
-- Pour obtenir les permissions d'un fichier en octal, utile pour configurer le système mais non fournit pas `ls`, utilisez quelque chose comme
+- Pour obtenir les permissions d'un fichier en octal, utile pour configurer le système mais non fournit par `ls`, utilisez quelque chose comme
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
