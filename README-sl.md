@@ -1,7 +1,5 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
-
+🌍
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
 
 # Umetnost ukazne vrstice
 
@@ -24,19 +22,19 @@
 Jedrnatost v ukazni vrstici je znanje, ki je pogostokrat zanemarjeno ali smatrano za zastarelo, vendar izboljša vašo fleksibilnost in produktivnost kot inženir na očitne in neočitne načine. To so izbrani zapiski in nasveti glede uporabe ukazne vrstice, ki smo jo našli uporabno pri delu z Linux-om. Nekateri nasveti so elementarni in nekateri so precej določeni, sofisticirani ali nepregledni. Ta stran ni dolga, vendar če lahko uporabite in se spomnite vseh elementov tu, boste vedeli veliko.
 
 To delo je rezultat [mnogih avtorjev in prevajalcev](AUTHORS.md).
-Veliko tega
-se [prvotno](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
-[pojavi](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
+Nekaj tega
+se je [prvotno](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
+[pojavilo](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 na [Quori](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-vendar glede na dani interes tu, izgleda vredno uporabe GitHub-a, kjer lahko ljudje bolj talentirani od prvotnega avtorja takoj predlagajo izboljšave. Če opazite napako ali nekaj, kar je lahko bolje, prosim, pošljite težavo ali zahtevek potega (PR)! (Seveda, prosim preglejte meta sekcijo in obstoječe težave/zahtevke potega najprej.)
-
+vendar se je premaknilo na GitHub, kjer so ljudje bolj talentirani od prvotnega avtorja naredili številne izboljšave.
+[**Prosimo, prispevajte**](/CONTRIBUTING.md), če vidite napako ali nekaj, kar bi lahko bilo boljše!
 
 ## Meta
 
 Obseg:
 
 - Ta vodič je tako za začetnike kot za poznavalce. Cilji so *širina* (vse pomembno), *specifičnost* (podaja konkretne primere najpogostejših primerov uporabe) in *kratkost* (izogiba se stvarem, ki niso bistvene ali se odmikajo, kar lahko enostavno pogledate drugje). Vsak nasvet je bistven v določeni situaciji ali bistveno prihrani čas pred alternativami.
-- To je napisano za Linux z izjemo sekcije "[Samo za OS X](#samo-za-os-x)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali MacOS (ali celo Cygwin).
+- To je napisano za Linux z izjemo sekcije "[Samo za OS X](#samo-za-os-x)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali OS X (ali celo Cygwin).
 - Poudarek je na interaktivnosti Bash-a, čeprav mnogo nasvetov velja za ostale lupine in splošno skriptanje Bash-a.
 - Vključuje tako "standardne" ukaze Unix-a kot tudi tiste, ki zahtevajo namestitev posebnih paketov -- dokler so dovolj pomembni, da zaslužijo vključitev.
 
@@ -310,7 +308,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- Če želite videti velikost/datume v drevesu datotek, je to kot rekurzivni `ls -l` vendar enostavnejše za branje kot `ls -lR`:
+- Da vidite velikost/datume v drevesu datotek, je to kot rekurzivni `ls -l` vendar enostavnejše za branje kot `ls -lR`:
 ```sh
       find . -type f -ls
 ```
@@ -489,27 +487,27 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 ## Samo za OS X
 
-To so elementi pomembni *samo* za MacOS.
+To so elementi pomembni *samo* za OS X.
 
-- Upravljanje paketov z `brew` (Homebrew) in/ali `port` (MacPorts). Te so lahko uporabljeni za namestitev mnogih zgornjih ukazov na MacOS.
+- Upravljanje paketov z `brew` (Homebrew) in/ali `port` (MacPorts). Te so lahko uporabljeni za namestitev mnogih zgornjih ukazov na OS X.
 
 - Kopirajte izpis katerega koli ukaza na namizno aplikacijo s `pbcopy` in prilepite vnos iz ene s `pbpaste`.
 
-- Da omogočite uporabo topke Option v Mac OS Terminalu kot tipka alt (kot je uporabljena v ukazih zgoraj kot **alt-b**, **alt-f** itd), odprite Preferences -> Profiles -> Keyboard in izberite "Use Option as Meta key".
+- Da omogočite uporabo topke Option v OS X Terminalu kot tipka alt (kot je uporabljena v ukazih zgoraj kot **alt-b**, **alt-f** itd), odprite Preferences -> Profiles -> Keyboard in izberite "Use Option as Meta key".
 
 - Da odprete datoteko z namizno aplikacijo, uporabite `open` ali `open -a /Applications/Whatever.app`.
 
 - Spotlight: Poiščite datoteke z `mdfind` in izpišite meta podatke (kot so EXIF informacije fotografije) z `mdls`.
 
-- Bodite pozorni, saj je MacOS osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
+- Bodite pozorni, saj je OS X osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
 
-- Da dobite informacije o izdaji MacOS, uporabite `sw_vers`.
+- Da dobite informacije o izdaji OS X, uporabite `sw_vers`.
 
 
 ## Več virov
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): urejan seznam orodij lupine in virov.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Bolj poglobljen vodič za Mac OS ukazno vrstico.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Bolj poglobljen vodič za OS X ukazno vrstico.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
 - [shellcheck](https://github.com/koalaman/shellcheck): lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Na žalost kompleksne podrobnosti, kako pravilno ravnati z imeni datotek v lupinskih skriptah.

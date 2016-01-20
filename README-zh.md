@@ -1,7 +1,5 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
-
+🌍
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
 
 # 命令行的艺术
 
@@ -53,7 +51,7 @@
 
 - 学会如何使用 `man` 命令去阅读文档。学会使用 `apropos` 去查找文档。了解有些命令并不对应可执行文件，而是Bash内置的，可以使用 `help` 和 `help -d` 命令获取帮助信息。
 
-- 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。明白 `>` 会覆盖了输出文件而 `>>` 是在文件未添加。了解标准输出 stdout 和标准错误 stderr。
+- 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。明白 `>` 会覆盖了输出文件而 `>>` 是在文件末添加。了解标准输出 stdout 和标准错误 stderr。
 
 - 学会使用通配符 `*` （或许再算上 `?` 和 `[`...`]`） 和引用以及引用中 `'` 和 `"` 的区别。
 
@@ -319,8 +317,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - 运行这个函数从这篇文档中随机获取一条技巧（解析 Markdown 文件并抽取项目）：
 ```sh
       function taocl() {
-        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
+        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-zh.md|
           pandoc -f markdown -t html |
+          iconv -f 'utf-8' -t 'unicode' |
           xmlstarlet fo --html --dropdtd |
           xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
           xmlstarlet unesc | fmt -80
