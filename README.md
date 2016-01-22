@@ -93,8 +93,7 @@ Notes:
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- Use null character delimiter to manage filenames with whitespaces, example `locate -0 patern | xargs -0 ls -al` or `find / -print0 -type d | xargs -0 ls -al`.
-  To iterate on filenames containing whitespaces in a for loop, set your IFS to only '\n' using `IFS=$'\n'`.
+- Prefer the `-0` or `-print0` options to enable null characters to delimit filenames. This better supports filenames with whitespace.Example : `locate -0 pattern | xargs -0 ls -al` or `find / -print0 -type d | xargs -0 ls -al`. To iterate on filenames containing whitespace in a for loop, set your IFS to only '\n' using `IFS=$'\n'`. Always surround your bash variables with `"`.
 
 - `pstree -p` is a helpful display of the process tree.
 
