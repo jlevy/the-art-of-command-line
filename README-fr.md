@@ -137,6 +137,11 @@ Pour la liste complète, consultez `man 7 signal`.
 - Utilisez `alias` pour créer des raccourcis vers les commandes fréquemment utilisées.
 Par exemple, `alias ll='ls -latr'` crée un nouvel alias `ll`.
 
+- Comprennez qu'il convient d'être prudent lorsque des variables et des noms de fichiers contiennent des espaces.
+Mettez vos variables entre guillemets, par exemple `"$FOO"`. 
+Préférez les options `-0` ou `-print0` qui permettent de délimiter les noms des fichiers avec le caractère nul, par exemple `locate -0 pattern | xargs -0 ls -al` ou `find / -print0 -type d | xargs -0 ls -al`.
+Pour itérer sur des noms de fichiers contenant des espaces dans une boucle for, positionnez la variable IFS avec le caractère de retour à la ligne à l'aide de `IFS=$'\n'`.
+
 - Dans les scripts Bash, utilisez `set -x` (ou la variante `set -v` qui enregistre les entrées brutes, y compris les variables non référencées et les commentaires) pour l'affichage d'informations de débogage.
 Utilisez les modes stricts à moins que vous ayez une bonne raison de ne pas le faire&nbsp;: utilisez `set -e` pour interrompre le script en cas d'erreur (code de sortie non nul).
 Utilisez `set -u` pour détecter l'utilisation d'une variable non initialisée.
