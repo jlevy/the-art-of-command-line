@@ -1,6 +1,7 @@
 🌍
 *[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
 
+
 # Umetnost ukazne vrstice
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -92,6 +93,7 @@ Opombe:
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
+
 - `pstree -p` je priročen prikaz drevesa procesov.
 
 - Uporabite `pgrep` in `pkill`, da najdete ali signalizirate procese po imenu (`-f` je v pomoč).
@@ -107,6 +109,8 @@ Opombe:
 - Glejte `uptime` ali `w`, da izveste, koliko časa se sistem poganja.
 
 - Uporabite `alias`, da ustvarite bližnjice za pogosto uporabljene ukaze. Na primer, `alias ll='ls -latr'` ustvari nov alias `ll`.
+
+- Razumite, da je potrebna skrb, ko spremenljivke in imena datotek vsebujejo prazne znake. Obdajte vaše spremenljivke Bash s citati, npr. `"$FOO"`. Raje cenite opciji `-0` ali `-print0`, da omogočite razmejevanje imen datotek z ničelnimi znaki, npr. `locate -0 pattern | xargs -0 ls -al` ali `find / -print0 -type d | xargs -0 ls -al`. Za iteracijo v for zanki na imenih datotek, ki vsebujejo prazne znake, nastavite da vaš IFS za nove vrstice uporablja samo `IFS=$'\n'`.
 
 - V skriptah Bash uporabite `set -x` (ali varianto `set -v`, ki beleži dnevnik surovega izpisa, vključno z nerazširjenimi spremenljivkami in komentarji) za razhroščevanje izpisa. Uporabite striktni način razen, če imate dober razlog, da ga ne: Uporabite `set -e`, da preskočite napake (neničelna koda izhoda). Uporabite `set -u`, da zaznate uporabo nenastavljenih spremenljivk. Premislite tudi o `set -o pipefail`, da na napakah znotraj pip, (vendar preberite o tem več, če boste to uporabili, saj je ta tema nekoliko subtilna). Za bolj vključene skripte, uporabite tudi `trap` pri EXIT ali ERR. Uporabna navada je tako začeti skripto, kar bo naredilo, da lahko zazna ali prekliče na pogostih napakah in izpiše sporočilo:
 ```bash
