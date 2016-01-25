@@ -1,6 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
-
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # 命令行的艺术
 
@@ -318,8 +317,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - 运行这个函数从这篇文档中随机获取一条技巧（解析 Markdown 文件并抽取项目）：
 ```sh
       function taocl() {
-        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
+        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-zh.md|
           pandoc -f markdown -t html |
+          iconv -f 'utf-8' -t 'unicode' |
           xmlstarlet fo --html --dropdtd |
           xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
           xmlstarlet unesc | fmt -80

@@ -1,5 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 
 # Umetnost ukazne vrstice
@@ -35,7 +35,7 @@ vendar se je premaknilo na GitHub, kjer so ljudje bolj talentirani od prvotnega 
 Obseg:
 
 - Ta vodič je tako za začetnike kot za poznavalce. Cilji so *širina* (vse pomembno), *specifičnost* (podaja konkretne primere najpogostejših primerov uporabe) in *kratkost* (izogiba se stvarem, ki niso bistvene ali se odmikajo, kar lahko enostavno pogledate drugje). Vsak nasvet je bistven v določeni situaciji ali bistveno prihrani čas pred alternativami.
-- To je napisano za Linux z izjemo sekcije "[Samo za OS X](#samo-za-os-x)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali MacOS (ali celo Cygwin).
+- To je napisano za Linux z izjemo sekcije "[Samo za OS X](#samo-za-os-x)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali OS X (ali celo Cygwin).
 - Poudarek je na interaktivnosti Bash-a, čeprav mnogo nasvetov velja za ostale lupine in splošno skriptanje Bash-a.
 - Vključuje tako "standardne" ukaze Unix-a kot tudi tiste, ki zahtevajo namestitev posebnih paketov -- dokler so dovolj pomembni, da zaslužijo vključitev.
 
@@ -93,6 +93,7 @@ Opombe:
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
+
 - `pstree -p` je priročen prikaz drevesa procesov.
 
 - Uporabite `pgrep` in `pkill`, da najdete ali signalizirate procese po imenu (`-f` je v pomoč).
@@ -108,6 +109,8 @@ Opombe:
 - Glejte `uptime` ali `w`, da izveste, koliko časa se sistem poganja.
 
 - Uporabite `alias`, da ustvarite bližnjice za pogosto uporabljene ukaze. Na primer, `alias ll='ls -latr'` ustvari nov alias `ll`.
+
+- Razumite, da je potrebna skrb, ko spremenljivke in imena datotek vsebujejo prazne znake. Obdajte vaše spremenljivke Bash s citati, npr. `"$FOO"`. Raje cenite opciji `-0` ali `-print0`, da omogočite razmejevanje imen datotek z ničelnimi znaki, npr. `locate -0 pattern | xargs -0 ls -al` ali `find / -print0 -type d | xargs -0 ls -al`. Za iteracijo v for zanki na imenih datotek, ki vsebujejo prazne znake, nastavite da vaš IFS za nove vrstice uporablja samo `IFS=$'\n'`.
 
 - V skriptah Bash uporabite `set -x` (ali varianto `set -v`, ki beleži dnevnik surovega izpisa, vključno z nerazširjenimi spremenljivkami in komentarji) za razhroščevanje izpisa. Uporabite striktni način razen, če imate dober razlog, da ga ne: Uporabite `set -e`, da preskočite napake (neničelna koda izhoda). Uporabite `set -u`, da zaznate uporabo nenastavljenih spremenljivk. Premislite tudi o `set -o pipefail`, da na napakah znotraj pip, (vendar preberite o tem več, če boste to uporabili, saj je ta tema nekoliko subtilna). Za bolj vključene skripte, uporabite tudi `trap` pri EXIT ali ERR. Uporabna navada je tako začeti skripto, kar bo naredilo, da lahko zazna ali prekliče na pogostih napakah in izpiše sporočilo:
 ```bash
@@ -488,27 +491,27 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 ## Samo za OS X
 
-To so elementi pomembni *samo* za MacOS.
+To so elementi pomembni *samo* za OS X.
 
-- Upravljanje paketov z `brew` (Homebrew) in/ali `port` (MacPorts). Te so lahko uporabljeni za namestitev mnogih zgornjih ukazov na MacOS.
+- Upravljanje paketov z `brew` (Homebrew) in/ali `port` (MacPorts). Te so lahko uporabljeni za namestitev mnogih zgornjih ukazov na OS X.
 
 - Kopirajte izpis katerega koli ukaza na namizno aplikacijo s `pbcopy` in prilepite vnos iz ene s `pbpaste`.
 
-- Da omogočite uporabo topke Option v Mac OS Terminalu kot tipka alt (kot je uporabljena v ukazih zgoraj kot **alt-b**, **alt-f** itd), odprite Preferences -> Profiles -> Keyboard in izberite "Use Option as Meta key".
+- Da omogočite uporabo topke Option v OS X Terminalu kot tipka alt (kot je uporabljena v ukazih zgoraj kot **alt-b**, **alt-f** itd), odprite Preferences -> Profiles -> Keyboard in izberite "Use Option as Meta key".
 
 - Da odprete datoteko z namizno aplikacijo, uporabite `open` ali `open -a /Applications/Whatever.app`.
 
 - Spotlight: Poiščite datoteke z `mdfind` in izpišite meta podatke (kot so EXIF informacije fotografije) z `mdls`.
 
-- Bodite pozorni, saj je MacOS osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
+- Bodite pozorni, saj je OS X osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
 
-- Da dobite informacije o izdaji MacOS, uporabite `sw_vers`.
+- Da dobite informacije o izdaji OS X, uporabite `sw_vers`.
 
 
 ## Več virov
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): urejan seznam orodij lupine in virov.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Bolj poglobljen vodič za Mac OS ukazno vrstico.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Bolj poglobljen vodič za OS X ukazno vrstico.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
 - [shellcheck](https://github.com/koalaman/shellcheck): lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Na žalost kompleksne podrobnosti, kako pravilno ravnati z imeni datotek v lupinskih skriptah.
