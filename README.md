@@ -14,7 +14,7 @@
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
 - [OS X only](#os-x-only)
-- [Windows](#windows)
+- [Windows only](#windows-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
@@ -36,7 +36,7 @@ but it has since moved to GitHub, where people more talented than the original a
 Scope:
 
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux, with the exception of the "[OS X only](#os-x-only)" and "[Windows](#windows)" sections. Many of the other items apply or can be installed on other Unices or OS X (or even Cygwin).
+- This is written for Linux, with the exception of the "[OS X only](#os-x-only)" and "[Windows only](#windows-only)" sections. Many of the other items apply or can be installed on other Unices or OS X (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.
 
@@ -508,7 +508,7 @@ These are items relevant *only* on OS X.
 
 - To get OS X release information, use `sw_vers`.
 
-## Windows
+## Windows only
 
 - Access the power of the Unix shell under Microsoft Windows by installing Cygwin. Most of the things described in this document will work out of the box.
 
