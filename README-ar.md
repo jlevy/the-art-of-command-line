@@ -104,20 +104,36 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 </p>
 ## الأستخدامات اليومية
 
-- In Bash, use **Tab** to complete arguments or list all available commands and **ctrl-r** to search through command history (after pressing, type to search, press **ctrl-r** repeatedly to cycle through more matches, press **Enter** to execute the found command, or hit the right arrow to put the result in the current line to allow editing).
 
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-a** to move cursor to beginning of line,  **ctrl-e** to move cursor to end of line, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+- <p dir="rtl" > 
+عند استخدامك واجهة Bash يمكنك الأستعانة بمفتاح <b>Tab</b> لتكملة الأيعاز  بشكل تلقائي أو للحصول على قائمة بالأيعازات المتوفرة. يمكنك كذلك استخدام <b>ctrl+r</b>  للبحث في الأيعازات التي قمت بكتابتها مسبقا (تكرار <b>ctrl+r</b> سيعرض الأيعازات المطابقة لما تبحث\تبحثين عنة. الضغط على <b>Enter</b> يؤدي الى تنفيذ الأيعاز في حين الضغط على <b>→</b> سينقل الأيعاز الى الواجة حيث يمكنك التعديل علية).
+</p>
 
+- <p dir="rtl" > 
+اثناء كتابتك لأيعاز ما في Bash يمكنك الأستعانة بـ <b>ctrl+w</b> لمسح اخر كلمة قمت بكتابتها, او <b>ctrl+u</b> لمسح الأيعاز بالكامل. كما يمكنك ايضا استخدام <b>alt+b</b> و <b>alt+f</b> للتنقل بين كلمات الأيعاز، و<b>ctrl+a</b> للأنتقال لبداية السطر، و <b>ctrl+e</b> للأنتقال لاخر السطر. <b>ctrl+k</b> يقوم بمسح الأيعاز بدءا من مكان المؤشر الى نهاية الأيعاز، فيما يؤدي استخدام <b>ctrl+l</b> الى مسح محتوى الشاشة.
+هنالك الكثر من هذة المختصرات، استخدم <code>man readline</code> للحصول على  قائمة تشمل جميع مختصرات Bash.
+</p>
 
-- Alternatively, if you love vi-style key-bindings, use `set -o vi` (and `set -o emacs` to put it back).
+- <p dir="rtl" > 
+اذا كنت من عشاق محرر الملفات vi وتفضل استخدام مختصراته عوضا عن تلك المشار اليها في النقطة اعلاه، قم بتنفيذ <code>set -o vi</code> (او <code>set -o emacs</code>  للرجوع للمختصرات التقليدية).
+</p>
 
-- For editing long commands, after setting your editor (for example `export EDITOR=vim`), **ctrl-x** **ctrl-e** will open the current command in an editor for multi-line editing. Or in vi style, **escape-v**.
+- <p dir="rtl" > 
+لتحرير (تعديل) الأيعازات الطويلة، بعد اختيار محررك المفضل (على سبيل المثال <code>export EDITOR=vim</code>)، يمكنك استخدام <b>ctrl+x</b> ثم <b>ctrl+e</b> لعرض الأيعاز على عدة سطور مما يسهل عملية التعديل علية. كذلك يمكنك اداء المهمة على نمط محرر vi بأستخدام <b>escape+v</b>.
+</p>
 
-- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
+- <p dir="rtl" > 
+لرؤية الأيعازات المنفذة حديثا استخدم <code>history</code>. هنالك الكثير من هذة الايعازات كـ <code>!$</code> لعرض اخر معطى تم ادخالة، و <code>!!</code> لتنفيذ اخر اعاز تم ادخالة\تنفيذة (كما يمكن الأستعاضة بـ <b>ctrl+r</b> و <b>alt+.</b> لتنفيذ المهام نفسها).
+</p>
 
-- To go back to the previous working directory: `cd -`
+- <p dir="rtl" > 
+للعودة للمجلد السابق: <code>cd -</code>.
+</p>
 
-- If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
+- <p dir="rtl" > 
+اذا كنت قد كتبت جزءا من ايعاز ما وققرت ان لاتنفذ الايعاز في حينها، يمكنك استخدام <b>alt-#</b> لأضافة <code>#</code> الى بداية الأيعاز مما سيحولة الى تعليق\ملاحظة (كذلك يمكنك استخدام <b>#</b>، <b>ctrl+a</b> ،<b>enter</b>). يمكنك فيما بعد العودة الى نفس الأيعاز عن طريق البحث في الأيعازات المدخلة سابقا (<code>history</code>).
+</p>
+
 
 - Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
 ```bash
