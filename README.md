@@ -110,7 +110,7 @@ Notes:
 
 - Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
 
-- Save aliases and settings your commonly use in your home directory file named `.bashrc`. This will make them available in all your shell sessions. Synchronize this file among various computers with Git.
+- Save aliases and settings you commonly use in your home directory file named `.bashrc`. This will make them available in all your shell sessions. Synchronize this file among various computers with Git.
 
 - Understand that care is needed when variables and filenames include whitespace. Surround your Bash variables with quotes, e.g. `"$FOO"`. Prefer the `-0` or `-print0` options to enable null characters to delimit filenames, e.g. `locate -0 pattern | xargs -0 ls -al` or `find / -print0 -type d | xargs -0 ls -al`. To iterate on filenames containing whitespace in a for loop, set your IFS to to be a newline only using `IFS=$'\n'`.
 
