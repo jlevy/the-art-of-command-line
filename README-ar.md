@@ -134,28 +134,45 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 اذا كنت قد كتبت جزءا من ايعاز ما وققرت ان لاتنفذ الايعاز في حينها، يمكنك استخدام <b>alt-#</b> لأضافة <code>#</code> الى بداية الأيعاز مما سيحولة الى تعليق\ملاحظة (كذلك يمكنك استخدام <b>#</b>، <b>ctrl+a</b> ،<b>enter</b>). يمكنك فيما بعد العودة الى نفس الأيعاز عن طريق البحث في الأيعازات المدخلة سابقا (<code>history</code>).
 </p>
 
+- <p dir="rtl" > 
+استعن بـ<code>xargs</code> (او <code>parallel</code>). تمكنك هذة الأدوات المفيدة من كتابة أوامر ذات عدة اسطر. لاحظ انه يمكنك تحديد عدد الأوامر التي تود تنفيذها في السطر الواحد (<code>-L</code>) كما يمكنك ايضا تنفيذ الأوامر بالتوازي (<code>-P</code>). اذا كنت غير واثقا من النتائج المرجوة من الأيعاز الذي تود\تودين تنفيذة، يمكنك الأستعانة بـ <code>xargs echo</code> اولا (أو <code>-I{}</code>). بعض الأمثلة:
+<code>find . -name '*.py' | xargs grep some_function
+cat hosts | xargs -I{} ssh root@{} hostname
+</code>
+</p>
 
-- Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
-```bash
-      find . -name '*.py' | xargs grep some_function
-      cat hosts | xargs -I{} ssh root@{} hostname
-```
+- <p dir="rtl" > 
+ايعاز <code>pstree -p</code> يعرض شجرة الاعمال(processes) الحالية.
+</p>
 
-- `pstree -p` is a helpful display of the process tree.
+- <p dir="rtl" > 
+يمكنك <code>pgrep</code> و<code>pkill</code> من تمييز وايقاف وحدة عمل ما (process) حسب الأسم. (<code>-f</code> مفيدة ايضا).
+</p>
 
-- Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
+- <p dir="rtl" > 
+تعلم الاشارات المختلفة التي يمكنك ارسالها الى وحدات العمل(processes). على سبيل المثال، لأيقاف وحدة عمل ما:  <code>kill -STOP [pid]</code>. لرؤية كافة الأشارات استعن بـ<code>man 7 signal</code>.
+</p>
 
-- Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
+- <p dir="rtl" > 
+لأبقاء برنامج ما يعمل (حتى بعد خروجك من واجهة Bash) استخدم <code>nohup</code> او <code>disown</code>.
+</p>
 
-- Use `nohup` or `disown` if you want a background process to keep running forever.
+- <p dir="rtl" >
+لمعرفة البرامج التي تستخدم منافذ اتصالTCP (مايعرف بـ ports)استخدم <code>netstat -lntp</code> او <code>ss -plat</code>. (اضف <code>-u</code> لمعرفة البرامج التي تستخدم منافذ UDP)
+</p>
 
-- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
+- <p dir="rtl" >
+يمكنك <code>lsof</code> من معرفة الأتصالات المفتوحه في النظام والملفات التي تستخدمها.
+</p>
 
-- See also `lsof` for open sockets and files.
 
-- See `uptime` or `w` to know the how long the system has been running.
+- <p dir="rtl" >
+لمعرفة الوفت المنصرم منذ تشغيل النظام، استخدم <code>uptime</code> او <code>w</code>.
+</p>
 
-- Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
+- <p dir="rtl" >
+يمكنك <code>alias</code>  من تأليف\كتابة مختصرات للمهام التي تنفذها\تنفذيها يوميا، مثلا: <code>alias='ls -latr'</code> سيخلق مختصر <code>ll</code> لتنفيذ ايعاز <code>ls -latr</code>.
+</p>
 
 - In Bash scripts, use `set -x` (or the variant `set -v`, which logs raw input, including unexpanded variables and comments) for debugging output. Use strict modes unless you have a good reason not to: Use `set -e` to abort on errors (nonzero exit code). Use `set -u` to detect unset variable usages. Consider `set -o pipefail` too, to on errors within pipes, too (though read up on it more if you do, as this topic is a bit subtle). For more involved scripts, also use `trap` on EXIT or ERR. A useful habit is to start a script like this, which will make it detect and abort on common errors and print a message:
 ```bash
