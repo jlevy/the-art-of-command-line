@@ -510,7 +510,7 @@ These are items relevant *only* on OS X.
 
 ## Windows only
 
-- Access the power of the Unix shell under Microsoft Windows by installing Cygwin. Most of the things described in this document will work out of the box.
+- Access the power of the Unix shell under Microsoft Windows by installing [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
 
 - Install additional Unix programs with the Cygwin's package manager.
 
