@@ -522,7 +522,7 @@ These are items relevant *only* on OS X.
 
 - Access the Windows registry with `regtool`.
 
-- Convert between Cygwin and Windows-style file paths with `cygpath`. This is most useful in scripts that invoke Windows programs.
+- Note that a `C:\` Windows drive path becomes `/cygdrive/c` under Cygwin, and that Cygwin's `/` appears under `C:\cygwin` on Windows. Convert between Cygwin and Windows-style file paths with `cygpath`. This is most useful in scripts that invoke Windows programs.
 
 - You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
 
