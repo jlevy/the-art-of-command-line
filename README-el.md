@@ -1,3 +1,36 @@
+🌍
+*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+
+
+# Η Τέχνη της Γραμμής Εντολών
+
+[![Ελάτε στη συζήτηση στο https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+- [Meta](#meta)
+- [Τα βασικά](#basics)
+- [Καθημερινή χρήση](#everyday-use)
+- [Επεξεργασία αρχείων και δεδομένων](#processing-files-and-data)
+- [Αποσφαλμάτωση συστήματος](#system-debugging)
+- [Εντολές σε μία γραμμή](#one-liners)
+- [Ασυνήθιστες αλλά χρήσιμες](#obscure-but-useful)
+- [Μόνο για OS X](#os-x-only)
+- [Περισσότερες πηγές](#more-resources)
+- [Αποποίηση ευθύνης](#disclaimer)
+
+
+![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
+
+Η ευχέρεια στη χρήση της γραμμής εντολών είναι μία δεξιότητα συχνά παραμελημένη ή που θεωρείται ότι είναι για τους λίγους, αλλά βελτιώνει την ευελιξία και την παραγωγικότητά σας ως μηχανικός τόσο με προφανείς όσο και με λιγότερο ευδιάκριτους τρόπους. Αυτή είναι μία συλλογή από σημειώσεις και συμβουλές που αφορούν τη χρήση της γραμμής εντολών και τις οποίες βρήκαμε χρήσιμες, ενώ εργαζόμασταν σε Linux. Κάποιες συμβουλές είναι εισαγωγικές και μερικές πιο συγκρεκριμένες, εξειδικευμένες και εις βάθος. Αυτή η σελίδα δεν είναι μεγάλη, αλλά αν μπορείτε να τα θυμάστε όλα, τότε γνωρίζετε πολλά.
+
+
+Αυτή η εργασία είναι αποτέλεσμα [πολλών συγγραφέων και μεταφραστών](AUTHORS.md).
+Μέρος της
+[αρχικά](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
+[δημοσιεύτηκε](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
+στο [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
+αλλά έπειτα μετακινήθηκε στο GitHub, όπου άνθρωποι πιο ταλαντούχοι από τον αρχικό συγγραφέα έχουν κάνει πολυάριθμες βελτιώσεις.
+[**Παρακαλώ συνεισφέρετε**](/CONTRIBUTING.md), αν δείτε ένα λάθος ή κάτι που μπορεί να βελτιωθεί!
+
 ## Meta
 
 Αντικείμενο:
