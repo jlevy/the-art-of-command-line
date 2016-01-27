@@ -272,7 +272,7 @@ Mais ayez à l'esprit que le tri sera modifié si vous changez la locale.
 Et sachez que les routines i18n peuvent rendre les opérations de tri et d'autres commandes *beaucoup* plus lentes.
 Dans certains cas (tels que les opérations concernant les ensembles et l'unicité abordées ci-dessous) vous pouvez, sans risque, ignorer complètement les lentes routines i18n et utiliser l'ordre de tri classique fondé sur les valeurs des octets à l'aide de `export LC_ALL=C`.
 
-- Vous pouvez modifier l'environnement d'une commande particulière en préfixant son invocation par l'affectation de variables, comme dans `TZ=Pacific/Fidji date`.
+- Vous pouvez modifier l'environnement d'une commande particulière en préfixant son invocation par l'affectation de variables, comme dans `TZ=Pacific/Fiji date`.
 
 - Apprenez `awk` et `sed` pour de l'analyse de données élémentaire.
 Par exemple, pour effectuer la somme de tous les nombres de la troisième colonne d'un fichier texte&nbsp;: `awk '{ x += $3 } END { print x}'`.
