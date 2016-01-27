@@ -152,7 +152,7 @@ cat hosts | xargs -I{} ssh root@{} hostname</code>
 </p>
 
 - <p dir="rtl" > 
-تعلم الاشارات المختلفة التي يمكنك ارسالها الى وحدات العمل(processes). على سبيل المثال، لأيقاف وحدة عمل ما:  <code>kill -STOP [pid]</code>. لرؤية كافة الأشارات استعن بـ<code>man 7 signal</code>.
+تعلم الاشارات المختلفة التي يمكنك ارسالها الى وحدات العمل(processes). على سبيل المثال، لأيقاف وحدة عمل ما:  <code>kill -STOP <i>pid</i></code>. لرؤية كافة الأشارات استعن بـ<code>man 7 signal</code>.
 </p>
 
 - <p dir="rtl" > 
