@@ -136,9 +136,9 @@ Unices, MacOS, Cygwin الكثير من الملاحظات يمكن تطبيقه
 
 - <p dir="rtl" > 
 استعن بـ<code>xargs</code> (او <code>parallel</code>). تمكنك هذة الأدوات المفيدة من كتابة أوامر ذات عدة اسطر. لاحظ انه يمكنك تحديد عدد الأوامر التي تود تنفيذها في السطر الواحد (<code>-L</code>) كما يمكنك ايضا تنفيذ الأوامر بالتوازي (<code>-P</code>). اذا كنت غير واثقا من النتائج المرجوة من الأيعاز الذي تود\تودين تنفيذة، يمكنك الأستعانة بـ <code>xargs echo</code> اولا (أو <code>-I{}</code>). بعض الأمثلة:<br/>
-<code>find . -name '*.py' | xargs grep some_function</code>
+<code>find . -name '*.py' | xargs grep some_function
 <br>
-<code>cat hosts | xargs -I{} ssh root@{} hostname</code>
+cat hosts | xargs -I{} ssh root@{} hostname</code>
 </p>
 
 - <p dir="rtl" > 
