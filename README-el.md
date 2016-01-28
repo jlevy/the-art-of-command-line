@@ -489,3 +489,12 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Για να πάρετε πληροφορίες για την έκδοση OS X, χρησιμοποιήστε `sw_vers`.
 
+## Περισσότερες πηγές
+
+- [awesome-shell](https://github.com/alebcay/awesome-shell): Μία προσεγμένη λίστα με εργαλεία και πηγές σχετικές με τον φλοιό .
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Ένας περισσότερο εις βάθος οδηγός της γραμμής εντολών του OS X.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) για να γράφετε καλύτερα scripts φλοιού.
+- [shellcheck](https://github.com/koalaman/shellcheck): Ένα εργαλείο στατικής ανάλυσης για scripts για φλοιό. Στην ουσία, lint για bash/sh/zsh.
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Οι δυστυχώς περίπλοκες μικρολεπτομέρειες του πως να διαχειριστεί κανείς σωστά ονόματα αρχείων σε scripts για φλοιό.
+
+
