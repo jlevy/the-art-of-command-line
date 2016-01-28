@@ -497,4 +497,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - [shellcheck](https://github.com/koalaman/shellcheck): Ένα εργαλείο στατικής ανάλυσης για scripts για φλοιό. Στην ουσία, lint για bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Οι δυστυχώς περίπλοκες μικρολεπτομέρειες του πως να διαχειριστεί κανείς σωστά ονόματα αρχείων σε scripts για φλοιό.
 
+## Αποποίηση ευθύνης
+
+Με την εξαίρεση πολύ μικρών εργασιών, ο κώδικας έχει γραφτεί ώστε να μπορούν οι άλλοι να τον διαβάζουν. Η δύναμη συνεπάγεται ευθύνη. Το γεγονός ότι *μπορείτε* να κάνετε κάτι με Bash δε σημαίνει απαραίτητα ότι θα έπρεπε! ;)
 
