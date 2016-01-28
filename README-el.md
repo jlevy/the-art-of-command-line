@@ -501,3 +501,10 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 Με την εξαίρεση πολύ μικρών εργασιών, ο κώδικας έχει γραφτεί ώστε να μπορούν οι άλλοι να τον διαβάζουν. Η δύναμη συνεπάγεται ευθύνη. Το γεγονός ότι *μπορείτε* να κάνετε κάτι με Bash δε σημαίνει απαραίτητα ότι θα έπρεπε! ;)
 
+## Άδεια χρήσης
+
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+
+Η εργασία αυτή έχει αδειοδοτηθεί με [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+
+
