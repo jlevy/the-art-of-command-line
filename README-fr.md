@@ -13,6 +13,7 @@
 - [Unilignes](#unilignes)
 - [Obscures mais utiles](#obscures-mais-utiles)
 - [Uniquement OS X](#uniquement-os-x)
+- [Uniquement Windows](#uniquement-windows)
 - [Autres ressources](#autres-ressources)
 - [Avertissement](#avertissement)
 
@@ -36,7 +37,7 @@ Contexte :
 - Ce guide est destiné aux débutants et aux utilisateurs chevronnés.
 Les objectifs sont l'*envergure* (tout est important), la *spécificité* (donner des exemples concrets des cas les plus courants) et la *concision* (éviter tout ce qui n'est pas essentiel et les digressions disponibles facilement ailleurs).
 Chaque astuce est indispensable dans certaines situations ou fait gagner beaucoup de temps par rapport aux solutions alternatives.
-- Il est écrit pour Linux, à l'exception de la section « [Uniquement OS X](#uniquement-os-X) ».
+- Il est écrit pour Linux, à l'exception des sections « [Uniquement OS X](#uniquement-os-X) » et « [Uniquement Windows](#uniquement-windows) ».
 Beaucoup d'items s'appliquent ou peuvent être installés sur d'autres Unices ou Mac OS (ou même Cygwin).
 - L'accent est mis sur l'utilisation intéractive de Bash, bien que de nombreuses astuces s'appliquent aux autres shells et à l'écriture de scripts en Bash.
 - Il inclut les commandes « standard » d'Unix aussi bien que celles qui nécessitent l'installation de paquets spéciaux &mdash; tant qu'ils sont suffisamment importants pour mériter d'être mentionnés.
@@ -610,6 +611,28 @@ Dans certains cas, les versions GNU peuvent également être installées (telles
 Pour écrire des scripts Bash multi-plateformes évitez d'utiliser de telles commandes (par exemple, envisagez d'utiliser Python ou Perl) ou alors testez-les soigneusement.
 
 - Pour obtenir des informations sur la version de Mac OS, utilisez `sw_vers`.
+
+
+## Uniquement Windows
+
+- Installez [Cygwin](http://cygwin.com) pour bénéficier de la puissance du shell Unix sous Microsoft Windows.
+La majorité de ce qui est décrit dans ce document fonctionnera *out of the box*.
+
+- Installez des programmes Unix supplémentaires à l'aide du gestionnaire de paquets de Cygwin. 
+
+- Utilisez `mintty` comme fenêtre de ligne de commande.
+
+- Accédez au presse-papier de Windows par `/dev/clipboard`.
+
+- Exécutez `cygstart` pour ouvrir un fichier quelconque à l'aide de son application enregistrée.
+
+- Accédez à la base de registres de Windows avec `regtool`.
+
+- Sachez qu'on accède au lecteur `C:\` depuis Cygwin via `/cygdrive/c` et que le chemin Cygwin `\` devient `C:\cygwin` sous Windows.
+Effectuez des conversions entre les deux types de chemin avec l'utilitaire `cygpath`.
+C'est particulièrement utile pour invoquer des programmes Windows dans les scripts.
+
+- Vous pouvez accomplir et scripter la plupart des tâches d'administration système de Windows depuis la ligne de commande en apprenant et en utilisant `wmic`.
 
 
 ## Autres ressources
