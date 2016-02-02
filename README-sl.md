@@ -1,6 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
-
+*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # Umetnost ukazne vrstice
 
@@ -65,6 +64,8 @@ Opombe:
 
 - Osnovno upravljanje omrežja: `ip` or `ifconfig`, `dig`.
 
+- Naučite se in uporabljajte sistem za nadzor različic, kot je `git`.
+
 - Poznajte tudi splošne izraze in različne zastavice za `grep`/`egrep`. Opcije `-i`, `-o`, `-v`, `-A`, `-B` in `-C` so vredne poznavanja.
 
 - Naučite se uporabljati `apt-get`, `yum`, `dnf` ali `pacman` (odvisno od distribucije), da najdete in namestite pakete. In zagotovite, da imate `pip`, da lahko nameščate orodja ukazne vrstice na osnovi Python-a (nekaj spodnjih je najenostavneje namestiti preko `pip`).
@@ -82,6 +83,8 @@ Opombe:
 - Za urejanje dolgih ukazov, po nastavitvi vašega urejevalnika (na primer `export EDITOR=vim`), **ctrl-x** **ctrl-e** bo odprlo trenutni ukaz v urejevalniku za več vrstično urejanje. Ali v stilu vi, **escape-v**.
 
 - Da vidite nedavne ukaze, `history`. Na voljo je tudi veliko okrajšav, kot je `!$` (zadnji argument) in `!!` zadnji ukaz, čeprav so te pogostokrat enostavno zamenjani s **ctrl-r** in **alt-.**.
+
+- Pojdite v vaš domači direktorij s `cd`. Dostopajte do datotek relativno glede na vaš domači direktorij s predpono `~` (npr. `~/.bashrc`). V `sh` skriptah se sklicujte na domači direktorij kot `$HOME`.
 
 - Da greste nazaj na prejšnji delovni dirketorij: `cd -`
 
@@ -109,6 +112,12 @@ Opombe:
 - Glejte `uptime` ali `w`, da izveste, koliko časa se sistem poganja.
 
 - Uporabite `alias`, da ustvarite bližnjice za pogosto uporabljene ukaze. Na primer, `alias ll='ls -latr'` ustvari nov alias `ll`.
+
+- Shranite aliase, nastavitve lupine in funkcije, ki jih pogosto uporabljate v `~/.bashrc` in [uredite prijave lupin za izvorno kodo](http://superuser.com/a/183980/7106). To bo naredilo vašo namestitev na voljo v vseh sejah vaše lupine.
+
+- Dajte nastavitve spremenljivk okolja kot tudi ukaze, ki bi morali biti izvršeni, ko se prijavite v `~/.bash_profile`. Ločena nastavitev bo potrebna za lupine, ki jih zaženete iz prijave grafičnega okolja in s periodičnimi opravili `cron`.
+
+- Sinhronizirajte vaše nastavitvene datoteke (npr. `.bashrc` in `.bash_profile`) med različnimi računalniki s pomočjo Git.
 
 - Razumite, da je potrebna skrb, ko spremenljivke in imena datotek vsebujejo prazne znake. Obdajte vaše spremenljivke Bash s citati, npr. `"$FOO"`. Raje cenite opciji `-0` ali `-print0`, da omogočite razmejevanje imen datotek z ničelnimi znaki, npr. `locate -0 pattern | xargs -0 ls -al` ali `find / -print0 -type d | xargs -0 ls -al`. Za iteracijo v for zanki na imenih datotek, ki vsebujejo prazne znake, nastavite da vaš IFS za nove vrstice uporablja samo `IFS=$'\n'`.
 
@@ -203,6 +212,8 @@ Opombe:
 - Naučite se o `tee`, da prekopirate iz stdin v datoteko in tudi v stdout, kot pri `ls -al | tee file.txt`.
 
 - Vedite, da lokalizacija vpliva na veliko orodij ukazne vrstice na subtilne načine, vključno z vrstnim redom (kolokacijo) in uspešnostjo. Večina namestitev Linux-a bo nastavila `LANG` ali druge spremenljivke lokalizacije na lokalne nastavitve kot je US English. Vendar bodite pozorni, saj se bo vrstni red spremenil, če spremenite lokalizacijo. In vedite, da rutine i18n lahko naredijo sortiranje ali poganjanje drugih ukazov *nekajkrat* počasnejše. V nekaterih situacijah (kot je skupek operacij ali unikatnih operacij spodaj) lahko v celoti varno ignorirate počasne rutine i18n in uporabite tradicionalne vrstne rede na osnovi bajtov z uporabo `export LC_ALL=C`.
+
+- Nastavite lahko določeno okolje ukaza s predpono njegovega sklicevanja na nastavitve spremenljivk okolja, kot pri `TZ=Pacific/Fiji date`.
 
 - Spoznajte osnove `awk` in `sed` za enostavno manipuliranje podatkov. Na primer, povzetek vseh številk v tretjem stolpcu tekstovne datoteke: `awk '{ x += $3 } END { print x }'`. To je verjetno 3X hitrejše in 3X krajše kot ekvivalent v Python-u.
 

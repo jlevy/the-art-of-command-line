@@ -1,5 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # L'art de la ligne de commande
 
@@ -78,6 +78,8 @@ Apprenez ce qu'est un inode (`ls -i` ou `df -i`).
 
 - Les bases de l'administration réseau&nbsp;: `ip` ou `ifconfig`, `dig`.
 
+- Apprenez à vous servir d'un logiciel de gestion de versions tel que `git`, et utilisez-le.
+
 - Apprenez les expressions régulières et les différents drapeaux de `grep` et `egrep`.
 Les options `-i`, `-o`, `-v`, `-A`, `-B` et `-C` sont bonnes à connaître.
 
@@ -101,6 +103,10 @@ Par exemple **alt-.** fait défiler les arguments précédents et **alt-*** dév
 
 - Pour voir les commandes récentes, `history`.
 Il y a aussi beaucoup d'abréviations telles que `!$` (dernier argument) et `!!` (dernière commande), bien que celles-ci soient souvent remplacées par **ctrl-r** et **alt-.**.
+
+- Placez-vous dans votre répertoire personnel avec `cd`. 
+Accédez aux fichiers à partir de leurs chemins relatifs par rapport à votre répertoire personnel en préfixant ceux-ci avec `~` (p.&nbsp;ex. `~/.bashrc`).
+Dans les scripts shell, désignez le répertoire personnel par `$HOME`.
 
 - Pour revenir au répertoire de travail précédent&nbsp;: `cd -`.
 
@@ -137,8 +143,16 @@ Pour la liste complète, consultez `man 7 signal`.
 - Utilisez `alias` pour créer des raccourcis vers les commandes fréquemment utilisées.
 Par exemple, `alias ll='ls -latr'` crée un nouvel alias `ll`.
 
+- Conservez les aliases, les paramètres du shell et les fonctions fréquemment utilisées dans le fichier `~/.bashrc`, et [arrangez-vous pour qu'il soit chargé par le shell de connexion](http://superuser.com/a/183980/7106).
+Ainsi, votre configuration s'appliquera à toutes vos sessions shell.
+
+- Placez dans `~/.bash_profile` la configuration de vos variables d'environnement ainsi que les commandes à exécuter lorsque vous vous connectez.
+Une configuration séparée est nécessaire lorsque vous vous connectez depuis un gestionnaire de connexion graphique et pour les tâches planifiées par `cron`.
+
+- Synchronisez vos fichiers de configuration (p.&nbsp;ex. `.bashrc` et `.bash_profile`) entre plusieurs ordinateurs avec Git.
+
 - Comprennez qu'il convient d'être prudent lorsque des variables et des noms de fichiers contiennent des espaces.
-Mettez vos variables entre guillemets, par exemple `"$FOO"`. 
+Mettez vos variables entre guillemets, par exemple `"$FOO"`.
 Préférez les options `-0` ou `-print0` qui permettent de délimiter les noms des fichiers avec le caractère nul, par exemple `locate -0 pattern | xargs -0 ls -al` ou `find / -print0 -type d | xargs -0 ls -al`.
 Pour itérer sur des noms de fichiers contenant des espaces dans une boucle for, positionnez la variable IFS avec le caractère de retour à la ligne à l'aide de `IFS=$'\n'`.
 
@@ -257,6 +271,8 @@ La plupart des installateurs Linux définissent la variable `LANG` ou d'autres v
 Mais ayez à l'esprit que le tri sera modifié si vous changez la locale.
 Et sachez que les routines i18n peuvent rendre les opérations de tri et d'autres commandes *beaucoup* plus lentes.
 Dans certains cas (tels que les opérations concernant les ensembles et l'unicité abordées ci-dessous) vous pouvez, sans risque, ignorer complètement les lentes routines i18n et utiliser l'ordre de tri classique fondé sur les valeurs des octets à l'aide de `export LC_ALL=C`.
+
+- Vous pouvez modifier l'environnement d'une commande particulière en préfixant son invocation par l'affectation de variables, comme dans `TZ=Pacific/Fiji date`.
 
 - Apprenez `awk` et `sed` pour de l'analyse de données élémentaire.
 Par exemple, pour effectuer la somme de tous les nombres de la troisième colonne d'un fichier texte&nbsp;: `awk '{ x += $3 } END { print x}'`.
