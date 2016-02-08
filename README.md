@@ -263,6 +263,24 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
+- Use `scp` to copy files to/from server or between two servers. Learn to set up ssh keys to avoid entering passwords for scp and ssh logins to servers.
+```sh
+    # Basic usage - scp [[user@]host1:]file1 ... [[user@]host2:]file2
+    # Copy local.txt to remote directory
+    scp local.txt username@remotehost.com:/some/directory/on/remote/
+    # Copy directory contents recursively between two servers.
+    scp -r username@remotehost1.com:/some/directory/on/remote1/ username@remotehost2.com:/some/directory/on/remote2/ 
+```
+
+- Use `rsync` to keep directories in sync. rsync minimizes data transfers by copying only the changed files.
+```sh
+    #Push all changes of localdir to remote directory.
+    rsync -a ~/localdir username@remotehost:/some/remote/dir
+    #Pull all changes from remote directory to local.
+    # -z enables compression. -P shows progress and allows resuming interrupted transfers.
+    rsync -azP username@remotehost:/some/remote/dir ~/localdir
+```
+
 
 ## System debugging
 
