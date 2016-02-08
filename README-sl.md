@@ -40,7 +40,7 @@ Obseg:
 
 Opombe:
 
-- Da se obdrži to na eni strani, je vsebina implicitno vključena z referencami. Ste dovolj pametni, da poiščete več podrobnosti drugje, ko enkrat poznate idejo ali ukaz za iskanje na Google-u. Uporabite `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (kot je ustrezno), da namestite nove programe.
+- Da se obdrži to na eni strani, je vsebina implicitno vključena z referencami. Ste dovolj pametni, da poiščete več podrobnosti drugje, ko enkrat poznate idejo ali ukaz za iskanje na Google-u. Uporabite `apt-get`, `yum`, `dnf`, `pacman`, `pip` ali `brew` (kot je ustrezno), da namestite nove programe.
 - Uporabite [Explainshell](http://explainshell.com/), da dobite uporabne razčlenitve, kaj ukazi, opcije, cevi itd. naredijo.
 
 
