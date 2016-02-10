@@ -263,6 +263,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
+- Use `trickle` to simulate slow bandwidth. Here's how to run firefox, limiting up/down network traffic to 100 KB/s:
+```sh
+      trickle -s -u 100 -d 100 firefox
+```
+
 
 ## System debugging
 
