@@ -312,6 +312,8 @@ Also use `rsync` instead of `scp`, so that after network interruption you resume
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
+- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process: 
+`lsof | grep deleted | grep "filename-of-my-big-file"`
 
 ## One-liners
 
