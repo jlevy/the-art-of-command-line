@@ -191,6 +191,9 @@ Notes:
 5
 ```
 
+- File attributes are settable via `chattr` and offer an alternative, lower-level alternative to file permissions. For example, to protect accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
+
+
 ## Processing files and data
 
 - To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
