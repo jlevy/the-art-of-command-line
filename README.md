@@ -191,9 +191,9 @@ Notes:
 5
 ```
 
-- File attributes are settable via `chattr` and offer an alternative, lower-level alternative to file permissions. For example, to protect accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
+- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
 
-- Use `getfacl` and `setfcle` to save and restore file permissions. For example: 
+- Use `getfacl` and `setfacl` to save and restore file permissions. For example: 
 ```sh
    getfacl -R /some/path > permissions.txt
    setfacl --restore=permissions.txt
