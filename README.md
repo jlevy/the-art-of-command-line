@@ -71,7 +71,7 @@ Notes:
 
 - Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
-- If you are a newcomer use `Nano` text editor, its the easiest to learn compared to `Vim` and `Emcas`.
+- If you are a newcomer use `Nano` text editor, it's the easiest to learn compared to `Vim` and `Emacs`.
 
 
 ## Everyday use
