@@ -315,6 +315,8 @@ Also use `rsync` instead of `scp`, so that after network interruption you resume
 - If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process: 
 `lsof | grep deleted | grep "filename-of-my-big-file"`
 
+- Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
+
 ## One-liners
 
 A few examples of piecing together commands:
