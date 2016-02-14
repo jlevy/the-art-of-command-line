@@ -244,6 +244,7 @@ Notes:
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
+Also use `rsync` instead of `scp`, so that after network interruption you resume the file transfer rather than restarting from scratch.
 
 - Use `shuf` to shuffle or select random lines from a file.
 
