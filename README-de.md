@@ -307,7 +307,7 @@ A few examples of piecing together commands:
 ```
 
 
-## Obskur aber nützlich
+## Eigenartig aber hilfreich
 
 - `expr`: Führe arithmetische oder boolsche Operationen aus oder werte reguläre Ausdrücke aus
 
@@ -359,11 +359,11 @@ A few examples of piecing together commands:
 
 - `tree`: Zeige Verzeichnisse und Unterverzeichnisse als verschachtelten Baum; wie 'ls' aber rekursiv
 
-- `stat`: Date Infomationen
+- `stat`: Datei Infomationen
 
 - `time`: Führe ein Kommando aus und messe die Zeit
 
-- `watch`: run a command repeatedly, showing results and/or highlighting changes
+- `watch`: führe ein Kommando wiederholt aus, wobei die Ergebnisse angezeigt und/oder Änderungen hervorgehoben werden
 
 - `tac`: Gebe Dateien in umgekehrter Reihenfolge aus
 
