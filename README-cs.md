@@ -40,7 +40,7 @@ Rozsah:
 
 Poznámky:
 
-- Pro udržení délky textu na jednu stranu, obsah je implicitně obsažen v odkazech. Jste dostatečně inteligentní aby jste si vyhledali více detailů z jiných zdrojů jakmile znáte příkaz či myšlenku na Googlu. Použijte `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` podle distribuce k instalaci nových progamů.
+- Pro udržení délky textu na jednu stranu, obsah je implicitně obsažen v odkazech. Jste dostatečně inteligentní aby jste si vyhledali více detailů z jiných zdrojů jakmile znáte příkaz či myšlenku na Googlu. Použijte `apt-get`, `yum`, `dnf`, `pacman`, `pip` nebo `brew` podle distribuce k instalaci nových progamů.
 - Použijte [Explainshell](http://explainshell.com/) pro užitečné vysvětlení co příkazy, možnosti, roury a jiné dělají.
 
 
