@@ -1,5 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # 命令列的藝術
 
@@ -39,7 +39,7 @@
 
 注意事項：
 
-- 為了能在一頁內展示盡量多的東西，一些具體的資訊會被間接的包含在引用頁裡。聰明機智的你如果掌握了使用 Google 搜尋引擎的基本方法與命令，那麼你將可以查閱到更多的詳細資訊。使用`apt-get`／`yum`／`dnf`／`pacman`／`pip`／`brew`（以及其它合適的包管理器）來安裝新程式。
+- 為了能在一頁內展示盡量多的東西，一些具體的資訊會被間接的包含在引用頁裡。聰明機智的你如果掌握了使用 Google 搜尋引擎的基本方法與命令，那麼你將可以查閱到更多的詳細資訊。使用`apt-get`，`yum`，`dnf`，`pacman`，`pip` 或`brew`（以及其它合適的包管理器）來安裝新程式。
 - 使用 [Explainshell](http://explainshell.com/) 去獲取相關命令、參數、管道等解釋。
 
 
