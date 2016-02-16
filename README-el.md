@@ -1,5 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # Η Τέχνη της Γραμμής Εντολών
 
@@ -42,7 +42,7 @@
 
 Σημειώσεις:
 
-- Για να κρατηθεί το παρόν σε μία σελίδα, υπάρχει περιεχόμενο που περιλαμβάνεται έμμεσα κάνοντας αναφορά σε αυτό. Είστε αρκετά έξυπνοι ώστε να αναζητήσετε περαιτέρω λεπτομέρειες αλλού, μόλις καταλάβετε την ιδέα ή την εντολή που χρειάζεται να αναζητήσετε στο Google. Χρησιμοποιήστε `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (ανάλογα με την περίπτωση) για να εγκαταστήσετε νέα προγράμματα.
+- Για να κρατηθεί το παρόν σε μία σελίδα, υπάρχει περιεχόμενο που περιλαμβάνεται έμμεσα κάνοντας αναφορά σε αυτό. Είστε αρκετά έξυπνοι ώστε να αναζητήσετε περαιτέρω λεπτομέρειες αλλού, μόλις καταλάβετε την ιδέα ή την εντολή που χρειάζεται να αναζητήσετε στο Google. Χρησιμοποιήστε `apt-get`, `yum`, `dnf`, `pacman`, `pip` ή `brew` (ανάλογα με την περίπτωση) για να εγκαταστήσετε νέα προγράμματα.
 - Χρησιμοποιήστε [Explainshell](http://explainshell.com/) για να έχετε μια χρήσιμη ανάλυση του τι κάνουν κάνουν εντολές, επιλογές, σωληνώσεις κλπ.
 
 ## Τα βασικά
