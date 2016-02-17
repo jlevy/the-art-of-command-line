@@ -184,18 +184,12 @@ Notes:
 
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
 
+- Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
+
 - For a basic calculator (and of course access to Python in general), use `python` interpreter. For example,
 ```
 >>> 2+3
 5
-```
-
-- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
-
-- Use `getfacl` and `setfacl` to save and restore file permissions. For example: 
-```sh
-   getfacl -R /some/path > permissions.txt
-   setfacl --restore=permissions.txt
 ```
 
 
@@ -279,6 +273,13 @@ Also use `rsync` instead of `scp`, so that after network interruption you resume
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
+- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
+
+- Use `getfacl` and `setfacl` to save and restore file permissions. For example: 
+```sh
+   getfacl -R /some/path > permissions.txt
+   setfacl --restore=permissions.txt
+```
 
 ## System debugging
 
@@ -323,7 +324,6 @@ Also use `rsync` instead of `scp`, so that after network interruption you resume
 - If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process: 
 `lsof | grep deleted | grep "filename-of-my-big-file"`
 
-- Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
 
 ## One-liners
 
