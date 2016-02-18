@@ -235,6 +235,14 @@ Une alternative plus légère pour la persistance des sessions seulement est `dt
 Utilisez `su` ou `sudo bash` pour exécuter un shell sous cette utilisateur.
 Utilisez `su -` pour simuler une nouvelle connexion en tant que root ou un autre utilisateur.
 
+- Sachez que l'argument de la ligne de commande a une [taille limite de 128 Kio](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong). L'erreur « Argument list too long » est fréquente avec les jokers qui reconnaissent un grand nombre de fichiers (quand cela se produit des alternatives comme `find` et `xargs` peuvent aider).
+
+- Pour une calculatrice basique (et bien sûr accéder à Python en général), utilisez l'interpréteur `python`.
+Par exemple,
+```
+>>> 2+3
+5
+```
 
 ## Traitement des fichiers et des données
 
@@ -298,6 +306,7 @@ C'est probablement trois fois plus rapide et trois fois plus petit que son équi
 
 - Selon sa page de manuel, `rsync` est un outil de duplication de fichiers vraiment rapide et incroyablement polyvalent.
 Il est connu pour faire de la synchronisation entre machines, mais est également utile pour un usage local.
+Lorsque les mesures de sécurité l'autorisent, utiliser `rsync` au lieu de `scp` permet de reprendre un transfert interrompu sans devoir le recommencer zéro.
 Il est aussi l'un des outils [les plus rapides](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) pour effacer un grand nombre de fichiers&nbsp;:
 ```sh
     mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
@@ -338,6 +347,14 @@ Par exemple, cette commande met en minuscules et retire tous les accents (en les
 
 - Utilisez `zless`, `zmore`, `zcat` et `zgrep` pour opérer sur des fichiers compressés.
 
+- Les attributs d'un fichier peuvent être modifiés avec `chattr` et proposent une alternative de plus bas niveau aux permissions d'accès aux fichiers.
+Par exemple, l'attribut *immutable* protège un fichier contre toute suppression accidentelle: `sudo chattr +i /critical/directory/or/file`.
+
+- Utilisez `getfacl` et `setfacl` pour sauvegarder et restorer les permissions. Par exemple:
+```sh
+    getfacl -R /some/path > permissions.txt
+    setfacl --restore=permissions.txt
+```
 
 ## Débogage du système
 
@@ -388,6 +405,9 @@ Elle fournit un historique concernant l'usage du CPU, de la mémoire, du réseau
 - Vérifiez quel OS vous utilisez avec `uname` ou `uname -a` (information général sur la version d'Unix et du noyau) ou `lsb_release -a` (informations sur la distribution Linux).
 
 - Utilisez `dmesg` à chaque fois que quelque chose de bizarre se produit (pour des problèmes liés au matériel ou aux drivers).
+
+- Si vous effacez un fichier et que `du` indique que l'espace occupé n'a pas été libéré, alors vérifiez si le fichier n'est pas utilisé par un processus:
+`lsof | grep deleted | grep "filename-of-my-big-file"`
 
 
 ## Unilignes
