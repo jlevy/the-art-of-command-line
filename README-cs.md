@@ -472,8 +472,6 @@ Pár příkladů na spojování příkazů:
 
 - `hdparm`: SATA/ATA disková manipulace/výkon
 
-- `lsb_release`: informace o Linuxové distribuci
-
 - `lsblk`: seznam blokových zařízení: stromové zobrazení disků a diskových oddílů
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: informace o hardwaru zahrnující CPU, BIOS, RAID, grafiku, zařízení, atd.

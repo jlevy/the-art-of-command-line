@@ -424,8 +424,6 @@ Alguns exemplos de como reunir os comandos.
 
 - `hdparm`: Manipulação/performance de discos SATA/ATA.
 
-- `lsb_release`: Informações sobre a distribuição do Linux.
-
 - `lsblk`: Lista os blocos dos dispositivos: uma visualização em forma de árvore dos seus discos e partições do disco.
 
 - `lshw` e `lspci`: informações do hardware, incluindo RAID, gráficos, etc.

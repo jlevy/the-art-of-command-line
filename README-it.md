@@ -487,8 +487,6 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `hdparm`: tool di gestione dischi SATA/ATA.
 
-- `lsb_release`: informazioni sulla distribuzione Linux.
-
 - `lsblk`: visualizzazione ad albero dei dischi e relative partizioni.
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: informazioni sull'hardware, tra cui CPU, BIOS, RAID, scheda grafica e dispositivi di ogni tipo.

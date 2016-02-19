@@ -465,8 +465,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `hdparm`：SATA/ATA 磁碟更改及效能分析
 
-- `lsb_release`：Linux 發行版資訊
-
 - `lsblk`：列出塊裝置資訊：以樹形展示你的磁碟以及磁碟分區資訊
 
 - `lshw`，`lscpu`，`lspci`，`lsusb` 和`dmidecode`：檢視硬體資訊，包括CPU、BIOS、RAID、顯示卡、USB裝置等

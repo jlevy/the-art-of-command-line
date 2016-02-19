@@ -478,8 +478,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `hdparm`: SATA/ATAディスクの操作やパフォーマンス確認
 
-- `lsb_release`: Linuxディストリビューション情報
-
 - `lsblk`: ブロックデバイスの一覧。ディスクとディスクパーティションのツリービュー
 
 - `lshw`、`lscpu`、`lspci`、`lsusb`、`dmidecode`: CPUやBIOS、RAID、グラフィック、その他デバイスなどのハードウェア情報

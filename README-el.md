@@ -461,8 +461,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `hdparm`: διαχείριση/απόδοση δίσκου SATA/ATA
 
-- `lsb_release`: πληροφορίες διανομής Linux
-
 - `lsblk`: εμφανίστε σε λίστα συσκευές αποθήκευσης: μία προβολή σε δέντρο των δίσκων σας και των διαμερισμάτων τους
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: πληροφορίες υλικού, συμπεριλαμβανομένων επεξεργαστή, BIOS, RAID, γραφικών, συσκευών κλπ.

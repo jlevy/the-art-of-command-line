@@ -490,8 +490,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `hdparm`: манипуляции с SATA/ATA
 
-- `lsb_release`: информация о дистрибутиве Linux
-
 - `lsblk`: cписок блочных устройств компьютера: дерево ваших дисков и логических дисков
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: информация о железе, включая CPU, BIOS, RAID, графику, девайсы, и т.д.
