@@ -497,6 +497,8 @@ A few examples of piecing together commands:
 
 - `id`: user/group identity info
 
+- `whoami`: print the user name associated with the current effective user ID
+
 - `sar`: historic system stats
 
 - `iftop` or `nethogs`: network utilization by socket or process
@@ -512,6 +514,8 @@ A few examples of piecing together commands:
 - `lsb_release`: Linux distribution info
 
 - `lsblk`: list block devices: a tree view of your disks and disk partitions
+
+- `blkid`: locate/print block device attributes
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
