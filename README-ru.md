@@ -300,7 +300,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Для анализа более сложных систем и производительности посмотрите на `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), и [`sysdig`](https://github.com/draios/sysdig).
 
-- Узнайте, какая у вас ОС, через `uname` or `uname -a` (основная Unix-информация/информация о ядре) или `lsb_release -a` (информация о дистрибутиве).
+- Узнайте, какая у вас ОС, через `uname` или `uname -a` (основная Unix-информация/информация о ядре), или `lsb_release -a` (информация о дистрибутиве).
 
 - Используйте `dmesg`, когда что-то ведет себя совсем странно (например, железо или драйвера).
 
