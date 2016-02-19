@@ -39,7 +39,7 @@ Obiettivi:
 
 Note:
 
-- Per tenere tutto su una sola pagina, il contenuto è stato incluso tramite reference. Crediamo che tu sia abbastanza intelligente da cercare i dettagli su qualcosa di specifico, o su un comando, usando Google. Usa `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (in base alla situazione) per installare i nuovi programmi.
+- Per tenere tutto su una sola pagina, il contenuto è stato incluso tramite reference. Crediamo che tu sia abbastanza intelligente da cercare i dettagli su qualcosa di specifico, o su un comando, usando Google. Usa `apt-get`, `yum`, `dnf`, `pacman`, `pip` o `brew` (in base alla situazione) per installare i nuovi programmi.
 - Se vuoi, usa [Explainshell](http://explainshell.com/) per avere uno spaccato più completo su cosa fanno comandi, pipe, opzioni e così via.
 
 

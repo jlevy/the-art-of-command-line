@@ -14,6 +14,7 @@
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
 - [OS X only](#os-x-only)
+- [Windows only](#windows-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
 
@@ -35,7 +36,7 @@ but it has since moved to GitHub, where people more talented than the original a
 Scope:
 
 - This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
-- This is written for Linux, with the exception of the "[OS X only](#os-x-only)" section. Many of the other items apply or can be installed on other Unices or OS X (or even Cygwin).
+- This is written for Linux, with the exception of the "[OS X only](#os-x-only)" and "[Windows only](#windows-only)" sections. Many of the other items apply or can be installed on other Unices or OS X (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.
 
@@ -183,6 +184,14 @@ Notes:
 
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
 
+- Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
+
+- For a basic calculator (and of course access to Python in general), use the `python` interpreter. For example,
+```
+>>> 2+3
+5
+```
+
 
 ## Processing files and data
 
@@ -233,7 +242,7 @@ Notes:
       rename 's/\.bak$//' *.bak
 ```
 
-- As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
+- As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. When security restrictions allow, using `rsync` instead of `scp` allows recovery of a transfer without restarting from scratch. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
@@ -263,6 +272,13 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
+- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
+
+- Use `getfacl` and `setfacl` to save and restore file permissions. For example: 
+```sh
+   getfacl -R /some/path > permissions.txt
+   setfacl --restore=permissions.txt
+```
 
 ## System debugging
 
@@ -303,6 +319,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
+
+- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process: 
+`lsof | grep deleted | grep "filename-of-my-big-file"`
 
 
 ## One-liners
@@ -519,6 +538,23 @@ These are items relevant *only* on OS X.
 
 - To get OS X release information, use `sw_vers`.
 
+## Windows only
+
+- Access the power of the Unix shell under Microsoft Windows by installing [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
+
+- Install additional Unix programs with the Cygwin's package manager.
+
+- Use `mintty` as your command-line window.
+
+- Access the Windows clipboard through `/dev/clipboard`.
+
+- Run `cygstart` to open an arbitrary file through its registered application.
+
+- Access the Windows registry with `regtool`.
+
+- Note that a `C:\` Windows drive path becomes `/cygdrive/c` under Cygwin, and that Cygwin's `/` appears under `C:\cygwin` on Windows. Convert between Cygwin and Windows-style file paths with `cygpath`. This is most useful in scripts that invoke Windows programs.
+
+- You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
 
 ## More resources
 

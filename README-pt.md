@@ -34,7 +34,7 @@ Escopo:
 
 Notas:
 
-- Para manter este guia em uma única página, o conteúdo implícito será incluído por referência. Você é competente o suficiente para verificar mais detalhes em outros lugares, desde que você já tenha entendido a ideia ou saiba o que procurar no Google. Use `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (quando adequado) para instalar novos programas.
+- Para manter este guia em uma única página, o conteúdo implícito será incluído por referência. Você é competente o suficiente para verificar mais detalhes em outros lugares, desde que você já tenha entendido a ideia ou saiba o que procurar no Google. Use `apt-get`, `yum`, `dnf`, `pacman`, `pip` ou `brew` (quando adequado) para instalar novos programas.
 - Use [Explainshell](http://explainshell.com/) para encontrar informações úteis sobre o que fazem os comandos, as opções, pipes e etc.
 
 
