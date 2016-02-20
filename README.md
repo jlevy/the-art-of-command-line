@@ -509,8 +509,6 @@ A few examples of piecing together commands:
 
 - `hdparm`: SATA/ATA disk manipulation/performance
 
-- `lsb_release`: Linux distribution info
-
 - `lsblk`: list block devices: a tree view of your disks and disk partitions
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.

@@ -599,8 +599,6 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `hdparm` : manipulation et performances d'un disque SATA ou ATA.
 
-- `lsb_release` : informations sur la distribution Linux.
-
 - `lsblk` : affiche les périphériques blocs (une arborescence de vos disques et de leurs partitions).
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode` : informations sur le matériel, comprenant le CPU, le BIOS, le RAID, la carte graphique, les périphériques, etc.

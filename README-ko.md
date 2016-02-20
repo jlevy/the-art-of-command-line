@@ -436,8 +436,6 @@
 
 - `hdparm`: SATA/ATA disk들의 정보를 수정하거나 그것들이 작동하도록 합니다.
 
-- `lsb_release`: Linux 배포판의 정보를 보여줍니다
-
 - `lsblk`: 블록 디바이스들의 목록을 보여줍니다 : 여러분의 디스크들이나 디스크파티션들을 트리의 형태로 보여줍니다
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: CPU, BIOS, RAID, graphics, devices 등의 하드웨어 정보를 보여줍니다

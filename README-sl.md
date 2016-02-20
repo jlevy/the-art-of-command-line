@@ -489,8 +489,6 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `hdparm`: manipulacija/uspešnost SATA/ATA disk-a
 
-- `lsb_release`: informacije distribucije Linux
-
 - `lsblk`: izpiše blokovne naprave: drevesni pogled vaših diskov in particij diska
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: informacije strojne opreme, vključno s procesorjem, BIOS-om, RAID-om, grafiko, napravami itd.
