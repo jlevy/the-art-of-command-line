@@ -13,6 +13,7 @@
 - [Unilignes](#unilignes)
 - [Obscures mais utiles](#obscures-mais-utiles)
 - [Uniquement OS X](#uniquement-os-x)
+- [Uniquement Windows](#uniquement-windows)
 - [Autres ressources](#autres-ressources)
 - [Avertissement](#avertissement)
 
@@ -36,7 +37,7 @@ Contexte :
 - Ce guide est destiné aux débutants et aux utilisateurs chevronnés.
 Les objectifs sont l'*envergure* (tout est important), la *spécificité* (donner des exemples concrets des cas les plus courants) et la *concision* (éviter tout ce qui n'est pas essentiel et les digressions disponibles facilement ailleurs).
 Chaque astuce est indispensable dans certaines situations ou fait gagner beaucoup de temps par rapport aux solutions alternatives.
-- Il est écrit pour Linux, à l'exception de la section « [Uniquement OS X](#uniquement-os-X) ».
+- Il est écrit pour Linux, à l'exception des sections « [Uniquement OS X](#uniquement-os-X) » et « [Uniquement Windows](#uniquement-windows) ».
 Beaucoup d'items s'appliquent ou peuvent être installés sur d'autres Unices ou Mac OS (ou même Cygwin).
 - L'accent est mis sur l'utilisation intéractive de Bash, bien que de nombreuses astuces s'appliquent aux autres shells et à l'écriture de scripts en Bash.
 - Il inclut les commandes « standard » d'Unix aussi bien que celles qui nécessitent l'installation de paquets spéciaux &mdash; tant qu'ils sont suffisamment importants pour mériter d'être mentionnés.
@@ -234,6 +235,14 @@ Une alternative plus légère pour la persistance des sessions seulement est `dt
 Utilisez `su` ou `sudo bash` pour exécuter un shell sous cette utilisateur.
 Utilisez `su -` pour simuler une nouvelle connexion en tant que root ou un autre utilisateur.
 
+- Sachez que l'argument de la ligne de commande a une [taille limite de 128 Kio](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong). L'erreur « Argument list too long » est fréquente avec les jokers qui reconnaissent un grand nombre de fichiers (quand cela se produit des alternatives comme `find` et `xargs` peuvent aider).
+
+- Pour une calculatrice basique (et bien sûr accéder à Python en général), utilisez l'interpréteur `python`.
+Par exemple,
+```
+>>> 2+3
+5
+```
 
 ## Traitement des fichiers et des données
 
@@ -297,6 +306,7 @@ C'est probablement trois fois plus rapide et trois fois plus petit que son équi
 
 - Selon sa page de manuel, `rsync` est un outil de duplication de fichiers vraiment rapide et incroyablement polyvalent.
 Il est connu pour faire de la synchronisation entre machines, mais est également utile pour un usage local.
+Lorsque les mesures de sécurité l'autorisent, utiliser `rsync` au lieu de `scp` permet de reprendre un transfert interrompu sans devoir le recommencer zéro.
 Il est aussi l'un des outils [les plus rapides](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) pour effacer un grand nombre de fichiers&nbsp;:
 ```sh
     mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
@@ -337,6 +347,14 @@ Par exemple, cette commande met en minuscules et retire tous les accents (en les
 
 - Utilisez `zless`, `zmore`, `zcat` et `zgrep` pour opérer sur des fichiers compressés.
 
+- Les attributs d'un fichier peuvent être modifiés avec `chattr` et proposent une alternative de plus bas niveau aux permissions d'accès aux fichiers.
+Par exemple, l'attribut *immutable* protège un fichier contre toute suppression accidentelle: `sudo chattr +i /critical/directory/or/file`.
+
+- Utilisez `getfacl` et `setfacl` pour sauvegarder et restorer les permissions. Par exemple:
+```sh
+    getfacl -R /some/path > permissions.txt
+    setfacl --restore=permissions.txt
+```
 
 ## Débogage du système
 
@@ -387,6 +405,9 @@ Elle fournit un historique concernant l'usage du CPU, de la mémoire, du réseau
 - Vérifiez quel OS vous utilisez avec `uname` ou `uname -a` (information général sur la version d'Unix et du noyau) ou `lsb_release -a` (informations sur la distribution Linux).
 
 - Utilisez `dmesg` à chaque fois que quelque chose de bizarre se produit (pour des problèmes liés au matériel ou aux drivers).
+
+- Si vous effacez un fichier et que `du` indique que l'espace occupé n'a pas été libéré, alors vérifiez si le fichier n'est pas utilisé par un processus:
+`lsof | grep deleted | grep "filename-of-my-big-file"`
 
 
 ## Unilignes
@@ -578,8 +599,6 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `hdparm` : manipulation et performances d'un disque SATA ou ATA.
 
-- `lsb_release` : informations sur la distribution Linux.
-
 - `lsblk` : affiche les périphériques blocs (une arborescence de vos disques et de leurs partitions).
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode` : informations sur le matériel, comprenant le CPU, le BIOS, le RAID, la carte graphique, les périphériques, etc.
@@ -610,6 +629,28 @@ Dans certains cas, les versions GNU peuvent également être installées (telles
 Pour écrire des scripts Bash multi-plateformes évitez d'utiliser de telles commandes (par exemple, envisagez d'utiliser Python ou Perl) ou alors testez-les soigneusement.
 
 - Pour obtenir des informations sur la version de Mac OS, utilisez `sw_vers`.
+
+
+## Uniquement Windows
+
+- Installez [Cygwin](http://cygwin.com) pour bénéficier de la puissance du shell Unix sous Microsoft Windows.
+La majorité de ce qui est décrit dans ce document fonctionnera *out of the box*.
+
+- Installez des programmes Unix supplémentaires à l'aide du gestionnaire de paquets de Cygwin. 
+
+- Utilisez `mintty` comme fenêtre de ligne de commande.
+
+- Accédez au presse-papier de Windows par `/dev/clipboard`.
+
+- Exécutez `cygstart` pour ouvrir un fichier quelconque à l'aide de son application enregistrée.
+
+- Accédez à la base de registres de Windows avec `regtool`.
+
+- Sachez qu'on accède au lecteur `C:\` depuis Cygwin via `/cygdrive/c` et que le chemin Cygwin `\` devient `C:\cygwin` sous Windows.
+Effectuez des conversions entre les deux types de chemin avec l'utilitaire `cygpath`.
+C'est particulièrement utile pour invoquer des programmes Windows dans les scripts.
+
+- Vous pouvez accomplir et scripter la plupart des tâches d'administration système de Windows depuis la ligne de commande en apprenant et en utilisant `wmic`.
 
 
 ## Autres ressources
