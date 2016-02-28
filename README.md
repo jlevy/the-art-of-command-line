@@ -561,6 +561,7 @@ These are items relevant *only* on OS X.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
 - [shellcheck](https://github.com/koalaman/shellcheck): A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
+- [explainshell](http://explainshell.com/about) : An awesome tool to explain shell command and command arguments.
 
 
 ## Disclaimer

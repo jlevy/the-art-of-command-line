@@ -501,6 +501,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)：为了编写更好的脚本文件。
 - [shellcheck](https://github.com/koalaman/shellcheck)：一个静态 shell 脚本分析工具，本质上是 bash／sh／zsh 的 lint。
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)：有关如何在 shell 脚本里正确处理文件名的细枝末节。
+- [explainshell](http://explainshell.com/about) : 一个非常棒的命令解释工具。
 
 
 ## 免责声明
