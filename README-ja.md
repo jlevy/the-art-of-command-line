@@ -1,6 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
-
+*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 原文のコミット [ee4b00bc396087d27231f60512aeb77b19ce734e](https://github.com/jlevy/the-art-of-command-line/blob/ee4b00bc396087d27231f60512aeb77b19ce734e/README.md)
 
@@ -35,7 +34,7 @@
 
 注意 :
 
-- 1ページ内に収めるために、内容には暗黙的に書かれていることがある。ここで取りかかりを知ったりコマンドが分かれば、詳細をどこかで調べたりするくらいはできるだろう。新しいプログラムをインストールするには、`apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew`(どれか適したもの)を使おう。
+- 1ページ内に収めるために、内容には暗黙的に書かれていることがある。ここで取りかかりを知ったりコマンドが分かれば、詳細をどこかで調べたりするくらいはできるだろう。新しいプログラムをインストールするには、`apt-get`、`yum`、`dnf`、`pacman`、`pip`、`brew`(どれか適したもの)を使おう。
 - コマンドやオプション、パイプを分解して理解する手助けに、[Explainshell](http://explainshell.com/)を使おう。
 
 ## 基本
@@ -478,8 +477,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - `sysctl`: Linuxカーネルパラメータの確認および設定
 
 - `hdparm`: SATA/ATAディスクの操作やパフォーマンス確認
-
-- `lsb_release`: Linuxディストリビューション情報
 
 - `lsblk`: ブロックデバイスの一覧。ディスクとディスクパーティションのツリービュー
 

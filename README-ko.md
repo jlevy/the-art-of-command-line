@@ -1,6 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
-
+*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # The Art of Command Line
 
@@ -436,8 +435,6 @@
 - `dmesg`: 부팅 메시지와 시스템 에러 메시지들을 보여줍니다
 
 - `hdparm`: SATA/ATA disk들의 정보를 수정하거나 그것들이 작동하도록 합니다.
-
-- `lsb_release`: Linux 배포판의 정보를 보여줍니다
 
 - `lsblk`: 블록 디바이스들의 목록을 보여줍니다 : 여러분의 디스크들이나 디스크파티션들을 트리의 형태로 보여줍니다
 

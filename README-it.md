@@ -1,6 +1,5 @@
 🌍
-*[Čeština](README-cs.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [中文](README-zh.md)*
-
+*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # The Art of Command Line (Traduzione Italiana)
 
@@ -40,7 +39,7 @@ Obiettivi:
 
 Note:
 
-- Per tenere tutto su una sola pagina, il contenuto è stato incluso tramite reference. Crediamo che tu sia abbastanza intelligente da cercare i dettagli su qualcosa di specifico, o su un comando, usando Google. Usa `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (in base alla situazione) per installare i nuovi programmi.
+- Per tenere tutto su una sola pagina, il contenuto è stato incluso tramite reference. Crediamo che tu sia abbastanza intelligente da cercare i dettagli su qualcosa di specifico, o su un comando, usando Google. Usa `apt-get`, `yum`, `dnf`, `pacman`, `pip` o `brew` (in base alla situazione) per installare i nuovi programmi.
 - Se vuoi, usa [Explainshell](http://explainshell.com/) per avere uno spaccato più completo su cosa fanno comandi, pipe, opzioni e così via.
 
 
@@ -487,8 +486,6 @@ Qualche esempio di combinazione di più comandi comandi:
 - `sysctl`: visualizza e configura i parametri del kernel a run time.
 
 - `hdparm`: tool di gestione dischi SATA/ATA.
-
-- `lsb_release`: informazioni sulla distribuzione Linux.
 
 - `lsblk`: visualizzazione ad albero dei dischi e relative partizioni.
 
