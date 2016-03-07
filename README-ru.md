@@ -558,10 +558,10 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Дополняемый список инструментов и ресурсов для командной строки.
 - [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Более детальные гайды по терминалу в OS X.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) Для того, чтобы писать шелл-скрипты лучше.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/): Для того, чтобы писать шелл-скрипты лучше.
 - [shellcheck](https://github.com/koalaman/shellcheck): Статический анализатор скриптов.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Сборник мелочей о правильной обработке имен файлов в скриптах.
-
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): Обзор команд и утилит, используемых для обработки данных, из одноименной книги
 
 ## Дисклеймер
 
