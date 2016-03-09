@@ -427,7 +427,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `lockfile`：使文件只能通过 `rm -f` 移除
 
-- `logrotate`: 切换、压缩以及发送日志文件
+- `logrotate`： 切换、压缩以及发送日志文件
 
 - `watch`：重复运行同一个命令，展示结果并高亮有更改的部分
 
@@ -481,13 +481,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `dstat`：系统状态查看
 
+- `uname`：打印当前系统相关信息
+
 - [`glances`](https://github.com/nicolargo/glances)：高层次的多子系统总览
 
 - `iostat`：硬盘使用状态
 
-- `mpstat`: CPU 使用状态
+- `mpstat`：CPU 使用状态
 
-- `vmstat`: 内存使用状态
+- `vmstat`：内存使用状态
 
 - `htop`：top 的加强版
 
@@ -505,7 +507,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `dmesg`：引导及系统错误信息
 
-- `sysctl`: 在内核运行时动态地查看和修改内核的运行参数
+- `sysctl`： 在内核运行时动态地查看和修改内核的运行参数
 
 - `hdparm`：SATA/ATA 磁盘更改及性能分析
 
@@ -525,6 +527,12 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - 用 `brew` （Homebrew）或者 `port` （MacPorts）进行包管理。这些可以用来在 OS X 系统上安装以上的大多数命令。
 
 - 用 `pbcopy` 复制任何命令的输出到桌面应用，用 `pbpaste` 粘贴输入。
+
+- 用 `say` 朗读一个单词、一句话、或一段文本。 
+
+- 用 `screencapture` 进行屏幕截图，使用`screencapture -help`来获取帮助。
+
+- 用 `sips` 进行图像处理，如对图片进行调整大小、裁剪和旋转。
 
 - 若要在 OS X 终端中将 Option 键视为 alt 键（例如在上面介绍的 **alt-b**, **alt-f** 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
 
@@ -573,3 +581,5 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 本文使用授权协议 [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)。
+
+
