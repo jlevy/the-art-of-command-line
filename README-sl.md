@@ -1,6 +1,7 @@
 🌍
 *[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
+
 # Umetnost ukazne vrstice
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -13,6 +14,7 @@
 - [V eni vrstici](#v-eni-vrstici)
 - [Nepregledno vendar uporabno](#nepregledno-vendar-uporabno)
 - [Samo za OS X](#samo-za-os-x)
+- [Samo za Windows](#samo-za-windows)
 - [Več virov](#več-virov)
 - [Pogoji uporabe](#pogoji-uporabe)
 
@@ -34,7 +36,7 @@ vendar se je premaknilo na GitHub, kjer so ljudje bolj talentirani od prvotnega 
 Obseg:
 
 - Ta vodič je tako za začetnike kot za poznavalce. Cilji so *širina* (vse pomembno), *specifičnost* (podaja konkretne primere najpogostejših primerov uporabe) in *kratkost* (izogiba se stvarem, ki niso bistvene ali se odmikajo, kar lahko enostavno pogledate drugje). Vsak nasvet je bistven v določeni situaciji ali bistveno prihrani čas pred alternativami.
-- To je napisano za Linux z izjemo sekcije "[Samo za OS X](#samo-za-os-x)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali OS X (ali celo Cygwin).
+- To je napisano za Linux z izjemo sekcij "[Samo za OS X](#samo-za-os-x)" in "[Samo za Windows](#samo-za-windows)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali OS X (ali celo Cygwin).
 - Poudarek je na interaktivnosti Bash-a, čeprav mnogo nasvetov velja za ostale lupine in splošno skriptanje Bash-a.
 - Vključuje tako "standardne" ukaze Unix-a kot tudi tiste, ki zahtevajo namestitev posebnih paketov -- dokler so dovolj pomembni, da zaslužijo vključitev.
 
@@ -182,6 +184,14 @@ Opombe:
 
 - Za pogon ukaza s privilegiji, uporabite `sudo` (za root) ali `sudo -u` (za drugega uporabnika). Uporabite `su` ali `sudo bash`, da dejansko poženete lupino kot ta uporabnik. Uporabite `su -`, da simulirate svežo prijavo kot root ali drug uporabnik.
 
+- Spoznajte [omejitev 128K](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) v ukaznih vrsticah. Ta napaka "Argument list too long" je pogosta, ko se nadomestni znak ujema z velikim številom datotek. (Ko se to zgodi, lahko pomagajo alternative kot sta `find` in `xargs`.)
+
+- Za osnovni kalkulator (in seveda splošni dostop do Python-a) uporabite interpreter `python`. Na primer,
+```
+>>> 2+3
+5
+```
+
 
 ## Procesiranje datotek in podatkov
 
@@ -232,7 +242,7 @@ Opombe:
       rename 's/\.bak$//' *.bak
 ```
 
-- Kot pravi stran vodiča, je `rsync` resnično hiter in izredno vsestransko orodje kopiranja datotek. Znano je po sinhronizaciji med napravami vendar je enakovredno uporaben tudi lokalno. Je tudi eden izmed [najhitrejših načinov](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) za izbris velikega števila datotek:
+- Kot pravi stran vodiča, je `rsync` resnično hiter in izredno vsestransko orodje kopiranja datotek. Znano je po sinhronizaciji med napravami vendar je enakovredno uporaben tudi lokalno. Ko omejitve varnosti omogočajo, uporaba `rsync` namesto `scp` omogoča povrnitev prenosa brez ponovnega zagona od začetka. Je tudi eden izmed [najhitrejših načinov](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) za izbris velikega števila datotek:
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
@@ -261,6 +271,14 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - Za manipuliranje izrazov datuma in časa, uporabite `dateadd`, `datediff`, `strptime` itd. iz [`dateutils`](http://www.fresse.org/dateutils/).
 
 - Uporabite `zless`, `zmore`, `zcat` in `zgrep` za operiranje na kompresiranih datotekah.
+
+- Atributi datotek so nastavljivi preko `chattr` in ponujajo nizko nivojsko alternativo pravicam datotek. Na primer za zaščito pred ponesrečenim brisanjem datoteke se uporabi nespremenljiva zastavica: `sudo chattr +i /critical/directory/or/file`
+
+- Uporabite `getfacl` in `setfacl`, da shranite in povrnete pravice datotek. Na primer:
+```sh
+    getfacl -R /some/path > permissions.txt
+    setfacl --restore=permissions.txt
+```
 
 
 ## Sistemsko razhroščevanje
@@ -293,7 +311,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Vedite, kako se povezati k procesu v pogonu z `gdb` in dobiti njegove sledi skladovnice.
 
-- Uporabite `/proc`. Včasih je izjemno v pomoč, ko se razhroščuje probleme v živo. Primeri: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, ``/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (kjer je `xxx` id procesa ali pid).
+- Uporabite `/proc`. Včasih je izjemno v pomoč, ko se razhroščuje probleme v živo. Primeri: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, ``/proc/xxx/cwd`,asdf `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (kjer je `xxx` id procesa ali pid).
 
 - Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, je lahko zelo uporaben `sar`. Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
 
@@ -303,6 +321,8 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Uporabite `dmesg` kadarkoli gre nekaj dejansko čudno (lahko je težava strojne opreme ali gonilnika).
 
+- Če izbrišete datoteko in se prostor na voljo ne poveča, kot je pričakovano s poročilom `du`, preverite ali datoteko uporablja proces:
+`lsof | grep deleted | grep "filename-of-my-big-file"`
 
 ## V eni vrstici
 
@@ -516,6 +536,23 @@ To so elementi pomembni *samo* za OS X.
 
 - Da dobite informacije o izdaji OS X, uporabite `sw_vers`.
 
+## Samo za Windows
+
+- Dostopajte do moči lupine Unix na Microsoft Windows z namestitvijo [Cygwin](https://cygwin.com/). Večina stvari opisanih v tem dokumentu bo delala "Out of the Box".
+
+- Namestite dodatne programe Unix z upraviteljem paketov Cygwin.
+
+- Uporabite `mintty` za vaše okno ukazne vrstice.
+
+- Do odložišča Windows dostopajte preko `/dev/clipboard`.
+
+- Poženite `cygstart`, da odprete poljubno datoteko preko njene registrirane aplikacije.
+
+- Do registra Windows dostopajte z `regtool`.
+
+- Upoštevajte, da pot diska Windows `C:\` postane v Cygwin `/cygdrive/c` in Cigwin-ov `/` se na Windows pojavi pod `C:\cygwin`. Pretvorite med Cygwin in Windows stilom poti datotek s `cygpath`. To je najbolj uporabno v skriptah, ki se sklicujejo na programe Windows.
+
+- Večino opravil sistemske administracije Windows iz ukazne vrstice lahko izvajate tako, da se naučite uporabljati `wmic`.
 
 ## Več virov
 
@@ -524,7 +561,7 @@ To so elementi pomembni *samo* za OS X.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
 - [shellcheck](https://github.com/koalaman/shellcheck): lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Na žalost kompleksne podrobnosti, kako pravilno ravnati z imeni datotek v lupinskih skriptah.
-
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): Več koristnih ukazov in orodij za uporabo v znanosti podatkov iz knjige z enakim imenom.
 
 ## Pogoji uporabe
 
