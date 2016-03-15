@@ -276,7 +276,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
 
-- Use `getfacl` and `setfacl` to save and restore file permissions. For example: 
+- Use `getfacl` and `setfacl` to save and restore file permissions. For example:
 ```sh
    getfacl -R /some/path > permissions.txt
    setfacl --restore=permissions.txt
@@ -322,7 +322,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
-- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process: 
+- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process:
 `lsof | grep deleted | grep "filename-of-my-big-file"`
 
 
@@ -555,6 +555,8 @@ These are items relevant *only* on OS X.
 - Note that a `C:\` Windows drive path becomes `/cygdrive/c` under Cygwin, and that Cygwin's `/` appears under `C:\cygwin` on Windows. Convert between Cygwin and Windows-style file paths with `cygpath`. This is most useful in scripts that invoke Windows programs.
 
 - You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
+
+- Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash).
 
 ## More resources
 
