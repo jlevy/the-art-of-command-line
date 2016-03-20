@@ -660,7 +660,7 @@ C'est particulièrement utile pour invoquer des programmes Windows dans les scri
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)&nbsp;: pour écrire de meilleurs scripts shell.
 - [shellcheck](https://github.com/koalaman/shellcheck)&nbsp;: un outil d'analyse statique des scripts shell. L'équivalent de lint pour bash, sh et zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)&nbsp;: les points de détail, malheureusement compliqués, sur la manière de manipuler correctement les noms de fichiers dans les scripts shell.
-
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools)&nbsp;: d'autres outils en ligne de commande, utiles en science des données et discutés dans le livre du même nom.
 
 ## Avertissement
 
