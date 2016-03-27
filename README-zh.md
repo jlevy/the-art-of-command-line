@@ -528,12 +528,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 用 `pbcopy` 复制任何命令的输出到桌面应用，用 `pbpaste` 粘贴输入。
 
-- 用 `say` 朗读一个单词、一句话、或一段文本。 
-
-- 用 `screencapture` 进行屏幕截图，使用`screencapture -help`来获取帮助。
-
-- 用 `sips` 进行图像处理，如对图片进行调整大小、裁剪和旋转。
-
 - 若要在 OS X 终端中将 Option 键视为 alt 键（例如在上面介绍的 **alt-b**, **alt-f** 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
 
 - 用 `open` 或者 `open -a /Applications/Whatever.app` 使用桌面应用打开文件。
