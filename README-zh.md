@@ -427,7 +427,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `lockfile`：使文件只能通过 `rm -f` 移除
 
-- `logrotate`: 切换、压缩以及发送日志文件
+- `logrotate`： 切换、压缩以及发送日志文件
 
 - `watch`：重复运行同一个命令，展示结果并高亮有更改的部分
 
@@ -485,9 +485,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `iostat`：硬盘使用状态
 
-- `mpstat`: CPU 使用状态
+- `mpstat`： CPU 使用状态
 
-- `vmstat`: 内存使用状态
+- `vmstat`： 内存使用状态
 
 - `htop`：top 的加强版
 
@@ -505,7 +505,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `dmesg`：引导及系统错误信息
 
-- `sysctl`: 在内核运行时动态地查看和修改内核的运行参数
+- `sysctl`： 在内核运行时动态地查看和修改内核的运行参数
 
 - `hdparm`：SATA/ATA 磁盘更改及性能分析
 
