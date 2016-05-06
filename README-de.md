@@ -264,41 +264,42 @@ Hinweise:
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
 
-## One-liners
+## Einzeiler
 
-A few examples of piecing together commands:
+Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+- Manchmal ist es unglaublich hilfreich, dass man die Schnittmenge, Vereinigung und den Unterschied zwischen Textdateien via `sort`/`uniq` bilden kann. Angenommen a und b sind Textdateien, die bereits "unique" sind. Diese Herangehensweise ist schnell, funktioniert mit Dateien beliebiger Größe, bis zu mehreren Gigabytes (Sort ist nicht durch Speicher beschränkt, obwohl man eventuell die `-T` Option nutzen muss, falls `/tmp` auf einer kleinen root partition liegt.) Siehe auch die Bemerkung über `LC_ALL` weiter oben und die `sort`'s `-u` Option (wurde oben aus Gründen der Übersichtlichkeit ausgelassen).
 ```sh
-      cat a b | sort | uniq > c   # c is a union b
-      cat a b | sort | uniq -d > c   # c is a intersect b
-      cat a b b | sort | uniq -u > c   # c is set difference a - b
+      cat a b | sort | uniq > c   # c ist a vereint mit b
+      cat a b | sort | uniq -d > c   # c ist a geschnitten b
+      cat a b b | sort | uniq -u > c   # c ist die Menge mit unterschiedlichen Elementen  a - b
 ```
 
-- Use `grep . *` to visually examine all contents of all files in a directory, e.g. for directories filled with config settings, like `/sys`, `/proc`, `/etc`.
+- Benutze `grep .  *` um alle Inhalte aller Dateien in einem Verzeichnis anzuzeigen, z.B. für Verzeichnisse, die mit Konfigurationen
+  gefüllt sind wie `/sys`, `/proc`, `/etc`.
 
-
-- Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
+- Alle Zahlen in der dritten Spalte einer Textdatei aufsummieren(dieser Ansatz ist wahrscheinlich 3x schneller und 3x weniger Code als
+  das Äquivalent in python):
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- Falls man die Größen/Datumsangaben von einem Dateibaum wissen möchte, funktioniert das Folgende wie ein rekursives `ls -l`, aber ist
+  leichter zu lesen als `ls -lR`:
 ```sh
       find . -type f -ls
 ```
-
-- Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
+- Angenommen innerhalb einer Textdatei, so wie ein server web log, tauch ein gewisser Wert in manchen Zeilen auf, wie z.B. ein `acct_id` Parameter in der URL. Falls eine Aufzählung gewünscht ist, wie viele Anfragen es jeweils für eine `acct_id` gibt:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- To continuously monitor changes, use `watch`, e.g. check changes to files in a directory with `watch -d -n 2 'ls -rtlh | tail'` or to network settings while troubleshooting your wifi settings with `watch -d -n 2 ifconfig`.
+- Um durchgehend Änderungen zu überwachen, solltest Du "watch" benutzen; z.B. Dateiänderungen in einem Verzeichnis können mittels `watch -d -n 2 'ls -rtlh | tail'` überwacht werden, während Du Deine Wifi Einstellungen mittels `watch -d -n 2 ifconfig` auf Fehler überprüfen kannst.
 
-- Run this function to get a random tip from this document (parses Markdown and extracts an item):
+- Führe diese Funktion aus, um einen zufälligen Tip aus diesem Dokument zu erhalten(parst das Markdown Dokument und extrahiert ein Element)
 ```sh
       function taocl() {
-        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
+        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-de.md |
           pandoc -f markdown -t html |
           xmlstarlet fo --html --dropdtd |
           xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
