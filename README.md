@@ -98,6 +98,8 @@ Notes:
 
 - Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
 
+- Use `xkill` to kill the window that made no response.
+
 - Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
@@ -109,6 +111,13 @@ Notes:
 - See `uptime` or `w` to know the how long the system has been running.
 
 - Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
+
+- Use `function` to create some useful functions. For example, use the function blew to ping a url directlly.
+```bash
+function p(){ url1="$1";url2=${url1#://};url=${url2%%/*};/bin/ping -c 5 $url; }
+#or just
+p(){ url1="$1";url2=${url1#://};url=${url2%%/*};/bin/ping -c 5 $url; }
+```
 
 - In Bash scripts, use `set -x` (or the variant `set -v`, which logs raw input, including unexpanded variables and comments) for debugging output. Use strict modes unless you have a good reason not to: Use `set -e` to abort on errors (nonzero exit code). Use `set -u` to detect unset variable usages. Consider `set -o pipefail` too, to on errors within pipes, too (though read up on it more if you do, as this topic is a bit subtle). For more involved scripts, also use `trap` on EXIT or ERR. A useful habit is to start a script like this, which will make it detect and abort on common errors and print a message:
 ```bash
