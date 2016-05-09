@@ -110,8 +110,12 @@
 
 - 使用 `alias` 来创建常用命令的快捷形式。例如：`alias ll='ls -latr'` 使你可以方便地执行`ls -latr`命令。
 
-- 把一些常用的功能写成 function 和 alias 一起放到 ~/.bash_aliases 文件中。例如 function p(){ url1="$1";url2=${url1#*://};url=${url2%%/**};/bin/ping -c 5 $url; } 可以直接ping网址。
-
+- 把一些常用的功能写成 function 和 alias 一起放到 ~/.bash_aliases 文件中。例如用下面的的`p`可以直接ping网址。
+```bash
+function p(){ url1="$1";url2=${url1#*://};url=${url2%%/**};/bin/ping -c 5 $url; } 
+# 或者
+p(){ url1="$1";url2=${url1#*://};url=${url2%%/**};/bin/ping -c 5 $url; } 
+```
 - 如果要直接使用原本的命令而不是alias，可以在明令之前添加 '\' 。
 
 - 在 Bash 脚本中，使用 `set -x` 去调试输出，尽可能的使用严格模式，使用 `set -e` 令脚本在发生错误时退出而不是继续运行，使用 `set -u` 来检查是否使用了未赋值的变量，使用 `set -o pipefail` 严谨地对待错误（尽管问题可能很微妙）。当牵扯到很多脚本时，使用 `trap`。一个好的习惯是在脚本文件开头这样写，这会使它检测一些错误，并在错误发生时中断程序并输出信息：
