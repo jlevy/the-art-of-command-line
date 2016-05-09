@@ -112,11 +112,11 @@ Notes:
 
 - Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
 
-- Use `function` to create some useful functions. For example, use the function blew to ping a url directlly.
+- Use `function` to create some useful functions. For example, use the function below to ping a url directlly.
 ```bash
-function p(){ url1="$1";url2=${url1#://};url=${url2%%/*};/bin/ping -c 5 $url; }
-#or just
-p(){ url1="$1";url2=${url1#://};url=${url2%%/*};/bin/ping -c 5 $url; }
+      function p(){ url1="$1";url2=${url1#://};url=${url2%%/*};/bin/ping -c 5 $url; }
+      #or just
+      p(){ url1="$1";url2=${url1#://};url=${url2%%/*};/bin/ping -c 5 $url; }
 ```
 
 - In Bash scripts, use `set -x` (or the variant `set -v`, which logs raw input, including unexpanded variables and comments) for debugging output. Use strict modes unless you have a good reason not to: Use `set -e` to abort on errors (nonzero exit code). Use `set -u` to detect unset variable usages. Consider `set -o pipefail` too, to on errors within pipes, too (though read up on it more if you do, as this topic is a bit subtle). For more involved scripts, also use `trap` on EXIT or ERR. A useful habit is to start a script like this, which will make it detect and abort on common errors and print a message:
