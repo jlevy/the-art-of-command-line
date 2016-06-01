@@ -84,7 +84,7 @@ Notes:
 
 - For editing long commands, after setting your editor (for example `export EDITOR=vim`), **ctrl-x** **ctrl-e** will open the current command in an editor for multi-line editing. Or in vi style, **escape-v**.
 
-- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument), `!n` (nth command) and specially `!!` (last command), though these are often easily replaced with **ctrl-r** and **alt-.**.
+- To see recent commands, `history`. Follow with `!n` (where `n` is the command number) to execute again. There are also many abbreviations you can use, the most useful probably being `!$` for last argument and `!!` for last command (see "HISTORY EXPANSION" in the man page). However, these are often easily replaced with **ctrl-r** and **alt-.**.
 
 - Go to your home directory with `cd`. Access files relative to your home directory with the `~` prefix (e.g. `~/.bashrc`). In `sh` scripts refer to the home directory as `$HOME`.
 
