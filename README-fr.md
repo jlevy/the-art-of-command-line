@@ -102,7 +102,7 @@ Par exemple **alt-.** fait défiler les arguments précédents et **alt-*** dév
 
 - Pour éditer de longues commandes, après avoir configuré votre éditeur (par exemple `export EDITOR=vim`), **ctrl-x** **ctrl-e** (**escape-v** dans le style vi) ouvre l'éditeur pour éditer la commande courante.
 
-- Pour voir les commandes récentes, `history`. 
+- Consultez les commandes récentes avec `history`. 
 Faites `!n` pour rappeler la commande numéro `n`.
 Il y a aussi beaucoup d'autres abréviations, les plus utiles étant probalement `!$` pour le dernier argument et `!!` pour la dernière commande (voir la section « HISTORY EXPANSION » de la page de manuel).
 Cependant, celles-ci peuvent être aisément remplacées par **ctrl-r** et **alt-.**.
