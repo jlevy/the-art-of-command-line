@@ -102,8 +102,10 @@ Par exemple **alt-.** fait défiler les arguments précédents et **alt-*** dév
 
 - Pour éditer de longues commandes, après avoir configuré votre éditeur (par exemple `export EDITOR=vim`), **ctrl-x** **ctrl-e** (**escape-v** dans le style vi) ouvre l'éditeur pour éditer la commande courante.
 
-- Pour voir les commandes récentes, `history`.
-Il y a aussi beaucoup d'abréviations telles que `!$` (dernier argument) et `!!` (dernière commande), bien que celles-ci soient souvent remplacées par **ctrl-r** et **alt-.**.
+- Pour voir les commandes récentes, `history`. 
+Faites `!n` pour rappeler la commande numéro `n`.
+Il y a aussi beaucoup d'autres abréviations, les plus utiles étant probalement `!$` pour le dernier argument et `!!` pour la dernière commande (voir la section « HISTORY EXPANSION » de la page de manuel).
+Cependant, celles-ci peuvent être aisément remplacées par **ctrl-r** et **alt-.**.
 
 - Placez-vous dans votre répertoire personnel avec `cd`. 
 Accédez aux fichiers à partir de leurs chemins relatifs par rapport à votre répertoire personnel en préfixant ceux-ci avec `~` (p.&nbsp;ex. `~/.bashrc`).
@@ -274,6 +276,8 @@ Beaucoup de personnes utilisent `cut` mais oublient `join`.
 - Connaissez `wc` pour compter les lignes (`-l`), les caractères (`-m`), les mots (`-w`) et les octets (`-c`).
 
 - Connaissez `tee` pour copier depuis stdin vers un fichier ou vers stdout, comme dans `ls -al | tee file.txt`.
+
+- Pour des calculs plus complexes, incluant les regroupements, les inversions de champs et des calculs statistiques, considérez [`datamash`](https://www.gnu.org/software/datamash/).
 
 - Sachez que la locale affecte de nombreux outils en ligne de commande de manière subtile, comme l'ordre pour les tris (collation) et les performances.
 La plupart des installateurs Linux définissent la variable `LANG` ou d'autres variables locales d'environnement pour configurer une locale telle que US English.
