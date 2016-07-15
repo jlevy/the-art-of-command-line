@@ -225,43 +225,46 @@ Hinweise:
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
 
-## System debugging
+## Fehlerbehebung auf Systemebene
 
-- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jakubroztocil/httpie).
+- Zur Fehlersuche bei Webanwendungen sind `curl` und `curl -I` hilfreich, ebenso wie ihre `wget` Äquivalente oder das modernere [`httpie`](https://github.com/jakubroztocil/httpie).
 
-- To know disk/cpu/network status, use `iostat`, `netstat`, `top` (or the better `htop`), and (especially) `dstat`. Good for getting a quick idea of what's happening on a system.
+- Um den Festplatten/CPU/Netzwerk Status zu erfahren, nutze `iostat`, `netstat`, `top` (oder das bessere `htop`), und (besonders) `dstat`. Gut um eine grobe Übersicht darüber zu bekommen, was sich auf einem System abspielt.
 
-- For a more in-depth system overview, use [`glances`](https://github.com/nicolargo/glances). It presents you with several system level statistics in one terminal window. Very helpful for quickly checking on various subsystems.
+- Für eine tiefgreifendere Systemübersicht, nutze [`glances`](https://github.com/nicolargo/glances). Es zeigt Dir einige System Statistiken in einem Terminalfenster an. Sehr hilfreich, um schnell mehrere Subsysteme überprüfen zu können.
 
-- To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
+- Um den Zustand des Speichers zu kennen, solltest Du `free` und `vmstat` ausführen und die Ausgabe verstehen. Sei Dir insbesondere bewusst, dass der "cached" Wert, der Wert ist, der vom Linux Kernel als Datei Cache genutzt wird, so dieser effektiv als zum
+  Wert "free" addiert werden kann.
 
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs. The JDK's `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) are more advanced.
+- Java Systeme zu debuggen ist ein anderes Paar Schuhe, aber ein simpler Trick für die Oracle JVM (der teilweise auch für andere JVMs funktioniert) ist `kill -3 <pid>`, so dass ein vollständiger Strack trace und Heap Informationen (inklusive Garbage Collection
+  Details, die sehr informativ sein können) nach stderr/logs ausgegeben werden. Die JDK Befehle `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) sind noch weiter fortgeschritten.
 
-- Use `mtr` as a better traceroute, to identify network issues.
+- Benutze `mtr` als ein besseres traceroute, um Netzwerk Probleme zu identifizieren.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- Beim Nachsehen, warum die Festplatte voll ist, spart `ncdu` Zeit gegenüber den üblichen Kommandos wie `du -sh *`.
 
-- To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
+- Um herauszufunden, welcher Socket oder Prozess Bandbreite verbraucht, solltest Du `iftop` oder `nethogs` verwenden.
 
-- The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
+- Das `ab` Werkzeug (ein Teil vom Apache) ist hilfreich, um schnell und pragmatisch die Performanz eines Webservers zu messen. Für komplexere Messungen solltest Du`siege` ausprobieren.
 
-- For more serious network debugging, `wireshark`, `tshark`, or `ngrep`.
+- Für eine tiefergehende Netzwerk Problemsuche, `wireshark`, `tshark`, oder `ngrep`.
 
-- Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
+- Kenne `strace` und `ltrace`. Diese können hilfreich sein, falls ein Programm fehlschlägt, hängt, oder abstürzt und Du weißt nicht warum, oder um einen generellen Eindruck von der Performanz zu bekommen. Beachte die Profiling Option(`-c`), und die Fähigkeit,
+  sich zu laufen Prozessen zu verbinden (`-p`).
 
-- Know about `ldd` to check shared libraries etc.
+- Kenne `ldd` um Shared Libraries zu überprüfen.
 
-- Know how to connect to a running process with `gdb` and get its stack traces.
+- Sei in der Lage, sich zu einem laufenden Prozess mittels `gdb` zu verbinden und die Stack Traces zu holen.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where `xxx` is the process id or pid).
+- Benutze `/proc`. Es ist manchmal unglaublich hilfreich, um Probleme in Echtzeit zu debuggen. Beispiele: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (wobei `xxx` die Prozess Id /pid ist).
 
-- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- Bei der Problemfindung, warum etwas in der Vergangenheit schief gelaufen ist, kann `sar` sehr hilfreich sein. Es zeigt historische Statistiken über CPU, Speicher, Netzwerk, etc.
 
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
+- Für eine genauere System und Performanceanalyse, solltest Du Dir `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), und [`sysdig`](https://github.com/draios/sysdig) ansehen.
 
-- Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
+- Finde heraus, welches Betriebssystem Du nutzt mittels `uname` oder `uname -a` (allgemeine Unix/Kernelinformationen) oder `lsb_release -a` (Linux Distribution Informationen)
 
-- Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
+- Benutze `dmesg` wenn sich etwas merkdwürdig verhält (es könnte ein Hardware oder Treiber Problem sein)
 
 
 ## Einzeiler
