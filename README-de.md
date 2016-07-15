@@ -184,45 +184,49 @@ Hinweise:
 
 - Kenne `tee`, um von stdin in eine Datei und sogar nach stdout zu kopieren, wie etwa mit `ls -al | tee datei.txt`.
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- Sei Dir bewusst, dass die locale Einstellungen viele Kommandozeilenwerkzeuge auf subtile Art und Weise beeinflussen, inklusive der Sortierreihenfolge und ihrer Performanz. Die meisten Linux Installation setzen `LANG` oder andere lokale Variablen auf eine
+  lokale Einstellung wie z.B. US English. Aber sei Dir bewusst, dass sich das Sortierverhalten ändern wird, falls Du die locale Einstellung änderst. Und wisse, dass i18n Routinen sort und andere Kommandos *um ein Vielfaches* verlangsamen können. In manchen
+Situationen (wie den Mengen oder Identitätsfunktionen unterhalb) kann man ruhigen Gewissens langsame i18n Routinen ignorieren und traditionelle byte-basierte Sortierreihenfolge nutzen, indem man `export LC_ALL=C` setzt.
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- Kenne Grundlagen von`awk` und `sed` für einfache Datenverarbeitung. Um z.B. alle Zahlen in der dritten Spalte einer Textdatei aufzusummieren: `awk '{ x += $3 } END { print x }'`. Das ist wahrscheinlich 3X schneller und 3X kürzer als das Python Äquivalent.
 
-- To replace all occurrences of a string in place, in one or more files:
+- Um alle Vorkommen einer Zeichenkette in einem oder mehreren Dateien zu ersetzen:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename many files at once according to a pattern, use `rename`. For complex renames, [`repren`](https://github.com/jlevy/repren) may help.
+- Um mehrere Dateien auf einmal anhand eines Musters umzubennen, nutze `rename`. Für komplexe Umbenennungen könnte [`repren`](https://github.com/jlevy/repren) helfen.
 ```sh
-      # Recover backup files foo.bak -> foo:
+      # Stelle backup Dateien wieder her: foo.bak -> foo:
       rename 's/\.bak$//' *.bak
-      # Full rename of filenames, directories, and contents foo -> bar:
+      # Komplette Umbenennung von Dateinamen, Verzeichnissen und Inhalten foo -> bar:
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- Use `shuf` to shuffle or select random lines from a file.
+- Nutze `shuf` zum Mischen oder um zufällige Zeilen aus einer Datei auszuwählen. 
 
-- Know `sort`'s options. For numbers, use `-n`, or `-h` for handling human-readable numbers (e.g. from `du -h`). Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line. Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`.
+- Kenne die Optionen von `sort`. Benutze `-n` für Zahlen, oder `-h` um mit menschenlesbaren Zahlen umzugehen (wie z.B. von `du -h`). Sei Dir bewusst, wie Schlüssel funktionieren (`-t` und `-k`). Sei Dir insbesondere bewusst, dass Du `-k1,1` verwenden musst, um bezüglich des ersten Felds zu sortieren;`-k1 bedeutet, sortiere anhand der ganzen Zeile. Stabiles Suchen (`sort -s`) kann ebenfalls nützlich sein. Um beispielsweise primär nach Feld 2 und sekundär nach Feld 1 zu sortieren, kannst Du `sort -k1,1 | sort -s -k2,2` benutzen.
 
-- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- Falls Du jemals ein Tabulator Literal in eine Kommandozeile in Bash schreiben musst (z.B. für das -t Argument für sort), drücke **ctrl-v** **[Tab]** oder schreibe `$'\t'` (letzteres ist besser, da man es Kopieren/Einfügen kann).
 
-- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes.
+- Die Standardwerkzeuge für das Patchen von Quellcode sind `diff` und `patch`. Siehe auch `diffstat`, um zusammenfassende Statistiken eines diffs zu erhalten. Beachte, dass `diff -r` für komplette Verzeichnisse funktioniert. Nutze `diff -r tree1 tree2 | diffstat`, um eine Übersicht aller Änderungen zu bekommen.
 
-- For binary files, use `hd` for simple hex dumps and `bvi` for binary editing.
+- Für Binärdateien, nutze `hd` für einfache HexDumps und `bvi`, um Binärdateien zu editieren
 
-- Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+- Ebenfalls für Binärdateien, `kann strings` (und `grep`, etc.) benutzt werden, um Textpassagen zu finden.
 
-- For binary diffs (delta compression), use `xdelta3`.
+- Um Diffs für Binärdateien zu erstellen (Delta Kompression), nutze `xdelta3`.
 
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
+- Um zwischen Text Kodierungen zu konvertieren, solltest Du `iconv` probieren. Oder `uconv` für fortgeschrittene Anwendungsfälle; es
+  unterstüzt einige fortgeschrittene Unicode Dinge. Dieses Kommando beispielsweise wandelt alle Buchstaben in Kleinbuchstaben um und
+entfernt alle Akzente (indem sie erweitert und verworfen werden):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
+- Um Dateien aufzuteilen, siehe `split` (um anhand einer bestimmten Größe zu teilen) und `csplit` (um Anhand eines gewissen Patterns zu teilen).
 
-- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
+- Benutze  `zless`, `zmore`, `zcat`, und `zgrep` um mit komprimierten Dateien zu arbeiten
 
 
 ## Fehlerbehebung auf Systemebene
