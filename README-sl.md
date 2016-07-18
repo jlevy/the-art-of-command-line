@@ -52,7 +52,7 @@ Opombe:
 
 - Naučite se tudi vsaj enega tekstovno osnovanega urejevalnika. Idealno Vim (`vi`) saj v realnosti ni konkurence za naključno urejanje v terminalu (tudi, če uporabljate Emacs, velik IDE, ali moderni hipsterski urejevalnik večino časa).
 
-- Spoznajte, kako brati dokumentacijo z `man` (za radovedne, `man man` izpiše številke sekcij, npr. 1 so "splošni" ukazi, 5 so datoteke/konvencije in 8 je za administracijo). Najdite strani man z `apropos`. Vedite, da nekateri ukazi niso izvršljivi, vendar vgrajeni v Bash in pomoč zanje lahko dobite s `help` in `help -d`.
+- Spoznajte, kako brati dokumentacijo z `man` (za radovedne, `man man` izpiše številke sekcij, npr. 1 so "splošni" ukazi, 5 so datoteke/konvencije in 8 je za administracijo). Najdite strani man z `apropos`. Vedite, da nekateri ukazi niso izvršljivi, vendar vgrajeni v Bash in pomoč zanje lahko dobite s `help` in `help -d`. Z uporabo `type command` lahko izvedete, ali je ukaz izvršljiv, vgrajen v lupino ali pa je alias.
 
 - Naučite se o preusmeritvi izpisa in vnosa z uporabo `>` in `<` ter uporabo cevi `|`. Vedite, da `>` prepiše izpis datoteke in `>>` ga pripne. Naučite se o stdout in stderr.
 
@@ -84,7 +84,7 @@ Opombe:
 
 - Za urejanje dolgih ukazov, po nastavitvi vašega urejevalnika (na primer `export EDITOR=vim`), **ctrl-x** **ctrl-e** bo odprlo trenutni ukaz v urejevalniku za več vrstično urejanje. Ali v stilu vi, **escape-v**.
 
-- Da vidite nedavne ukaze, `history`. Na voljo je tudi veliko okrajšav, kot je `!$` (zadnji argument) in `!!` zadnji ukaz, čeprav so te pogostokrat enostavno zamenjani s **ctrl-r** in **alt-.**.
+- Če si želite ogledati nedavne ukaze, uporabite `history`. Nadalje `!n` (kjer je `n` številka ukaza), da ga ponovno izvedete. Na voljo je tudi veliko okrajšav, najuporabnejša verjetno `!$` za zadnji argument in `!!` za zadnji ukaz (glejte "HISTORY EXPANSION" na man straneh). Vendar so le-te pogostokrat enostavno zamenjane s **ctrl-r** in **alt-.**.
 
 - Pojdite v vaš domači direktorij s `cd`. Dostopajte do datotek relativno glede na vaš domači direktorij s predpono `~` (npr. `~/.bashrc`). V `sh` skriptah se sklicujte na domači direktorij kot `$HOME`.
 
@@ -151,7 +151,7 @@ Opombe:
 
 - Uporabite `man ascii` za dobro tabelo ASCII s heksadecimalnimi in decimalnimi vrednostmi. Za splošne informacije enkodiranja so priročni `man unicode`, `man utf-8` in `man latin1`.
 
-- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. `byobu` lahko poveča t.i. screen ali tmux s ponujanjem več informacij in enostavnejšim upravljanjem. Bolj minimalna alternativa za samo obstojnost sej je `dtach`.
+- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. `byobu` lahko poveča t.i. screen ali tmux s ponujanjem več informacij in enostavnejšim upravljanjem. Bolj minimalna alternativa za samo obstojnost sej je [`dtach`](https://github.com/bogner/dtach).
 
 - V ssh je poznavanje, kako usmeriti tunel z `-L` ali `-D` (in občasno `-R`) je uporaben, npr. za dostopanje do spletnih strani iz oddaljenega strežnika.
 
@@ -220,6 +220,8 @@ Opombe:
 - Naučite se o `wc`, da preštejete nove vrstice (`-l`), znake (`-m`), besede (`-w`) in bajte (`-c`).
 
 - Naučite se o `tee`, da prekopirate iz stdin v datoteko in tudi v stdout, kot pri `ls -al | tee file.txt`.
+
+- Za kompleksnejše kalkulacije, vključno z združevanjem, obračanjem polj in statističnimi izračuni, razmislite o [`datamash`](https://www.gnu.org/software/datamash/).
 
 - Vedite, da lokalizacija vpliva na veliko orodij ukazne vrstice na subtilne načine, vključno z vrstnim redom (kolokacijo) in uspešnostjo. Večina namestitev Linux-a bo nastavila `LANG` ali druge spremenljivke lokalizacije na lokalne nastavitve kot je US English. Vendar bodite pozorni, saj se bo vrstni red spremenil, če spremenite lokalizacijo. In vedite, da rutine i18n lahko naredijo sortiranje ali poganjanje drugih ukazov *nekajkrat* počasnejše. V nekaterih situacijah (kot je skupek operacij ali unikatnih operacij spodaj) lahko v celoti varno ignorirate počasne rutine i18n in uporabite tradicionalne vrstne rede na osnovi bajtov z uporabo `export LC_ALL=C`.
 
