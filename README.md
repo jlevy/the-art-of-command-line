@@ -276,7 +276,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
 
-- Use `getfacl` and `setfacl` to save and restore file permissions. For example:
+- Use `getfacl` and `setfacl` to save and restore file permissions. For example: 
 ```sh
    getfacl -R /some/path > permissions.txt
    setfacl --restore=permissions.txt
@@ -322,7 +322,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
-- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process:
+- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process: 
 `lsof | grep deleted | grep "filename-of-my-big-file"`
 
 
@@ -539,6 +539,10 @@ These are items relevant *only* on OS X.
 - To get OS X release information, use `sw_vers`.
 
 ## Windows only
+
+These items are relevant *only* on Windows.
+
+- Since Window 10 use [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about), which provides a familiar Bash environment with Unix command line utilities and allows Linux programs to run on Windows.
 
 - Access the power of the Unix shell under Microsoft Windows by installing [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
 
