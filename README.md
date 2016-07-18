@@ -558,6 +558,8 @@ These are items relevant *only* on OS X.
 
 - Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
 
+- Alternative option to get GNU developer tools (such as GCC) on Windows, is [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package that provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin.
+
 ## More resources
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
