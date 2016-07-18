@@ -556,7 +556,7 @@ These are items relevant *only* on OS X.
 
 - You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
 
-- Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash).
+- Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
 
 ## More resources
 
