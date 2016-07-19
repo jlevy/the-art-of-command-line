@@ -7,7 +7,7 @@
 - [Básico](#básico)
 - [Uso diário](#uso-diário)
 - [Processamento de arquivos e dados](#processamento-de-arquivos-e-dados)
-- [Debugando o sistema](#debugs-do-sistema)
+- [Depurando o sistema](#depurando-o-sistema)
 - [One-liners](#one-liners)
 - [Obscuros mas úteis](#obscuros-mas-úteis)
 - [Mais conteúdo](#mais-conteúdo)
@@ -16,20 +16,20 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Fluência na linha de comando é uma habilidade muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como  *desenvolvedor* de diversas maneiras, sutis ou não. Este texto descreve uma seleção de notas e dicas de uso da linha de comando  que me parecem muito uteis, quando usando o Linux. Algumas dicas são elementares, e outras são mais específicas, sofisticadas ou obscuras. Esta página  é curta, mas se você souber usar e lembrar todos os items que estão aqui, então você está mandando bem.
+Fluência na linha de comando é uma habilidade muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como *desenvolvedor* de diversas maneiras, sutis ou não. Este texto descreve uma seleção de notas e dicas de uso da linha de comando que me parecem muito uteis, quando usando o Linux. Algumas dicas são elementares, e outras são mais específicas, sofisticadas ou obscuras. Esta página  é curta, mas se você souber usar e lembrar todos os items que estão aqui, então você está mandando bem.
 
 Muito do que está aqui [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareceu](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 no [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-mas dado o interesse por lá,  me pareceu importante usar o Github, onde pessoas mais talentosas do que eu,  poderiam sugerir melhorias facilmente. Se você descobrir um erro ou algo que poderia ser melhorado, por favor abra um issue ou um PR! (E claro, por favor veja as `meta sections' e PRs/issues existentes, primeiro.)
+mas dado o interesse por lá, me pareceu importante usar o GitHub, onde pessoas mais talentosas do que eu, poderiam sugerir melhorias facilmente. Se você descobrir um erro ou algo que poderia ser melhorado, por favor abra um issue ou um PR! (Antes disso por favor veja a seção meta e PRs/issues existentes.)
 
 ## Meta
 
 Escopo:
 
 - Este guia é destinado tanto aos iniciantes quanto aos usuários mais experientes. Os objetivos são *abrangencia*  (tudo que é importante), *especificidade* (dar exemplos concretos dos casos de usos mais comuns), e *brevidade* (evitar coisas que não são tão essenciais ou digressões que você pode facilmente encontrar pela internet). Todas as dicas são essenciais em alguma situação ou trazem uma economia notável de tempo em relação a outras alternativas.
-- Este guia é escrito para o Linux. Muitos, mas não todos os items, se aplicam igualmente para o MacOS (ou mesmo o Cygwin).
-- O foco está na interatividade com  Bash, embora muitas dicas aqui sejam aplicáveis a outras `shells' e tambem a scripts em Bash, em geral.
+- Este guia é escrito para o Linux. Muitos, mas não todos os itens, se aplicam igualmente para o MacOS (ou mesmo o Cygwin).
+- O foco está na interatividade com Bash, embora muitas dicas aqui sejam aplicáveis a outras `shells' e tambem a scripts em Bash, em geral.
 - Incluimos tanto comandos no Unix "padrão", quanto comandos que requeiram instalação de pacotes adicionais -- desde que estes sejam importantes o suficiente para merecerem sua inclusão nessa lista.
 
 Notas:
@@ -40,11 +40,11 @@ Notas:
 
 ## Básico
 
-- Aprenda o básico sobre Bash. Na verdade, digite `man bash` e pelo menos entenda superficialmente o seu funcionamento; é bastante simples de ler e nem é tão grande assim. Shells alternativas podem ser legais, mas  Bash é a mais poderosa e sempre está disponível (aprender  *somente* zsh, fish, etc,  é tentador quando você usa o seu próprio notebook, mas restringe você em muitas situações, por exemplo quando você quer  usar servidores de outros).
+- Aprenda o básico sobre Bash. Na verdade, digite `man bash` e pelo menos entenda superficialmente o seu funcionamento; é bastante simples de ler e nem é tão grande assim. Shells alternativas podem ser legais, mas Bash é a mais poderosa e sempre está disponível (aprender *somente* zsh, fish, etc, é tentador quando você usa o seu próprio notebook, mas restringe você em muitas situações, por exemplo quando você quer usar servidores de outros).
 
-- Aprenda bem pelo menos um editor de text tradicional. Idealmente o Vim (`vi`), já que nenhum outro funciona tão bem nos   terminais aleatórios que a gente encontra por ai (mesmo que  você prefira usar o Emacs, um  IDE, ou um  editor hipster  a maior parte  do tempo).
+- Aprenda bem pelo menos um editor de texto tradicional. Idealmente o Vim (`vi`), já que nenhum outro funciona tão bem nos   terminais aleatórios que a gente encontra por ai (mesmo que  você prefira usar o Emacs, um IDE, ou um editor hipster a maior parte  do tempo).
 
-- Saiba como ler a documentação com o `man` (para os  curiosos, `man man` lista os números das seções, por exemplo, 1 se refere aos comandos "regulares", 5 é sobre arquivos/convenções, e 8  diz respeito a administração). Procure outros documentos do manual com o `apropos`. Saiba que alguns dos comandos não são executáveis, mas sim built-ins(embutidos) no bash, pra esses você poderá conseguir ajuda com `help` e `help -d`.
+- Saiba como ler a documentação com o `man` (para os curiosos, `man man` lista os números das seções, por exemplo, 1 se refere aos comandos "regulares", 5 é sobre arquivos/convenções, e 8  diz respeito a administração). Procure outros documentos do manual com o `apropos`. Saiba que alguns dos comandos não são executáveis, mas sim built-ins (embutidos) no bash, pra esses você poderá conseguir ajuda com `help` e `help -d`.
 
 - Aprenda como fazer redirecionamento de saída e entrada usando `>` e `<` e pipes usando `|`. Aprenda sobre o stdout e stdin.
 
@@ -54,13 +54,13 @@ Notas:
 
 - Aprenda `ssh`, e o básico de autenticação sem senha, através do `ssh-agent`, `ssh-add`, etc.
 
-- Gerenciamento básico de arquivos: `ls` e `ls -l` (em particular, aprenda o que cada coluna  no `ls -l` significa), `less`, `head`, `tail` e `tail -f` (ou  melhor ainda, `less +F`), `ln` e `ln -s`(aprenda as diferenças e vantagens de soft links comparados a hard links), `chown`, `chmod`, `du` (para um rápido resumo do uso do disco: `du -sk *`). Para gerenciamento do sistema de arquivos, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Gerenciamento básico de arquivos: `ls` e `ls -l` (em particular, aprenda o que cada coluna  no `ls -l` significa), `less`, `head`, `tail` e `tail -f` (ou  melhor ainda, `less +F`), `ln` e `ln -s` (aprenda as diferenças e vantagens de soft links comparados a hard links), `chown`, `chmod`, `du` (para um rápido resumo do uso do disco: `du -sk *`). Para gerenciamento do sistema de arquivos, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 
 - Gerenciamento básico da rede: `ip` ou `ifconfig`, `dig`.
 
 - Saiba bem como usar expressões regulares, e as várias flags para `grep`/`egrep`. As `-i`, `-o`, `-A`, e `-B` são opções que é importante conhecer.
 
-- Aprenda a usar `apt-get`, `yum`, `dnf` ou `pacman` (dependendo da distribuição) para procurar e instalar pacotes. E garanta que você possui o `pip` para instalar ferramentas baseadas em Python (algumas das abaixo são  mais fáceis de instalar através do `pip`).
+- Aprenda a usar `apt-get`, `yum`, `dnf` ou `pacman` (dependendo da distribuição) para procurar e instalar pacotes. E garanta que você possui o `pip` para instalar ferramentas baseadas em Python (algumas das abaixo são mais fáceis de instalar através do `pip`).
 
 
 ## Uso diário
@@ -73,11 +73,11 @@ Notas:
 
 - Para ver os comandos recentes, `history`. Existem também muitas abreviações como `!$` (último argumento) e `!!` último comando, embora estes sejam muitas vezes facilmente substituídos por **ctrl-r** e **alt-.**.
 
-- Pra voltar  para o diretório anterior de trabalho: `cd -`.
+- Pra voltar para o diretório anterior de trabalho: `cd -`.
 
 - Se você está na metade do caminho ao digitar um comando, mas mudou de ideia, tecle **alt-#** para adicionar um `#` ao início da linha e definir esta como um comentário (ou use **ctrl-a**. **#**. **enter**). Mais tarde você poderá recuperar o comando através da `history`.
 
-- Use `xargs` (ou `parallel`). Estes são muito poderosos. Note que você pode controlar como os vários items são executados por linha (`-L`) assim como o paralelismo (`-P`). Se você não tem certeza se isto é a coisa certa a se fazer, use `xargs echo` primeiro. O `-I{}` também é muito útil. Exemplos:
+- Use `xargs` (ou `parallel`). Estes são muito poderosos. Note que você pode controlar como os vários itens são executados por linha (`-L`) assim como o paralelismo (`-P`). Se você não tem certeza se isto é a coisa certa a se fazer, use `xargs echo` primeiro. O `-I{}` também é muito útil. Exemplos:
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
@@ -216,7 +216,7 @@ Notas:
 Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 
-## Debugando o sistema
+## Depurando o sistema
 
 - Para web debug, `curl` e `curl -I` são úteis, ou os equivalentes `wget`, or uma alternativa mais moderna [`httpie`](https://github.com/jakubroztocil/httpie).
 
@@ -304,95 +304,95 @@ Alguns exemplos de como reunir os comandos.
 
 ## Obscuros mas úteis
 
-- `expr`: executa operações boleanas ou aritméticas ou avalia expressões regulares.
+- `expr`: Executa operações boleanas ou aritméticas ou avalia expressões regulares.
 
-- `m4`: simples processador de macros.
+- `m4`: Simples processador de macros.
 
-- `yes`: imprime uma string muitas vezes.
+- `yes`: Imprime uma string muitas vezes.
 
-- `cal`: calendário legal.
+- `cal`: Calendário legal.
 
-- `env`: executa um comando (útil em scripts).
+- `env`: Executa um comando (útil em scripts).
 
-- `printenv`: imprime as variáveis de ambiente (útil em debug e scripts).
+- `printenv`: Imprime as variáveis de ambiente (útil em debug e scripts).
 
-- `look`: procura palavras inglesas (ou linhas em um arquivo) começando com uma string.
+- `look`: Procura palavras inglesas (ou linhas em um arquivo) começando com uma string.
 
-- `cut ` e `paste` e `join`: manipulação de dados.
+- `cut ` e `paste` e `join`: Manipulação de dados.
 
-- `fmt`: formata parágrafos de texto.
+- `fmt`: Formata parágrafos de texto.
 
-- `pr`: formata textos em páginas/colunas.
+- `pr`: Formata textos em páginas/colunas.
 
-- `fold`: envolve linhas de texto.
+- `fold`: Envolve linhas de texto.
 
-- `column`: formata texto em colunas ou tabelas.
+- `column`: Formata texto em colunas ou tabelas.
 
-- `expand` e `unexpand`: converte entre tabs e espaços.
+- `expand` e `unexpand`: Converte entre tabs e espaços.
 
-- `nl`: adiciona números as linhas.
+- `nl`: Adiciona números as linhas.
 
-- `seq`: imprime números.
+- `seq`: Imprime números.
 
-- `bc`: calculadora.
+- `bc`: Calculadora.
 
-- `factor`: fatora inteiros.
+- `factor`: Fatora inteiros.
 
-- `gpg`: criptografa e assina arquivos.
+- `gpg` ou `gpg2`: Criptografa e assina arquivos.
 
 - `toe`: tabela de entradas dos tipos de terminais.
 
-- `nc`: ferramenta de debug de rede e transferência de dados.
+- `nc`: Ferramenta de debug de rede e transferência de dados.
 
-- `socat`: socket relay e encaminhamento de portas tcp (similar ao `netcat`)
+- `socat`: Socket relay e encaminhamento de portas tcp (similar ao `netcat`)
 
-- `slurm`: visualização do tráfego da rede.
+- `slurm`: Visualização do tráfego da rede.
 
-- `dd`: move os dados entre arquivos ou dispositivos.
+- `dd`: Move os dados entre arquivos ou dispositivos.
 
-- `file`: identifica o tipo do arquivo.
+- `file`: Identifica o tipo do arquivo.
 
-- `tree`: mostra os diretórios e subdiretórios como um árvore de dependências; como `ls` mas recursivo.
+- `tree`: Mostra os diretórios e subdiretórios como um árvore de dependências; como `ls` mas recursivo.
 
-- `stat`: informações do arquivo.
+- `stat`: Informações do arquivo.
 
-- `tac`: imprime arquivos na ordem reversa.
+- `tac`: Imprime arquivos na ordem reversa.
 
-- `shuf`: seleção random de linhas de um arquivo.
+- `shuf`: Seleção random de linhas de um arquivo.
 
-- `comm`: compara uma lista de arquivos ordenadas linha por linha.
+- `comm`: Compara uma lista de arquivos ordenadas linha por linha.
 
-- `pv`: monitora o progresso dos dados através de um pipe.
+- `pv`: Monitora o progresso dos dados através de um pipe.
 
 - `hd` e `bvi`: dump ou edita arquivos binários.
 
-- `strings`: extrai texto de arquivos binários.
+- `strings`: Extrai texto de arquivos binários.
 
-- `tr`: tradução e manipulação de caracteres.
+- `tr`: Tradução e manipulação de caracteres.
 
-- `iconv` ou `uconv`: conversor de codificações de texto.
+- `iconv` ou `uconv`: Conversor de codificações de texto.
 
-- `split ` e `csplit`: divisão de arquivos.
+- `split ` e `csplit`: Divisão de arquivos.
 
-- `units`: conversor de unidades e cálculos; converte furlongs por quinzena para twips per blink (veja também `/usr/share/units/definitions.units`)
+- `units`: Conversor de unidades e cálculos; converte furlongs por quinzena para twips per blink (veja também `/usr/share/units/definitions.units`)
 
 - `7z`: Compressor de arquivos de alto desempenho.
 
-- `ldd`: informações dinâmicas das bibliotecas.
+- `ldd`: Informações dinâmicas das bibliotecas.
 
-- `nm`: símbolos de arquivos objetos.
+- `nm`: Símbolos de arquivos objetos.
 
-- `ab`: benchmarking para web servers.
+- `ab`: Benchmarking para web servers.
 
 - `strace`: Debug para chamadas de sistema.
 
-- `mtr`: melhor traceroute para debugar a rede.
+- `mtr`: Melhor traceroute para debugar a rede.
 
 - `cssh`: Visualização concorrente da shell.
 
 - `rsync`: Sincroniza arquivos e pastas através do SSH.
 
-- `wireshark` e `tshark`: captura de pacotes e debug de rede.
+- `wireshark` e `tshark`: Captura de pacotes e debug de rede.
 
 - `ngrep`: grep para a camada de rede.
 
@@ -408,13 +408,13 @@ Alguns exemplos de como reunir os comandos.
 
 - `htop`: Versão do top melhorada.
 
-- `last`: histórico de logins.
+- `last`: Histórico de logins.
 
-- `w`: quem está logado.
+- `w`: Quem está logado.
 
 - `id`: Informações sobre a identidade do user/group.
 
-- `sar`: histórico dos estados do sistema.
+- `sar`: Histórico dos estados do sistema.
 
 - `iftop` ou `nethogs`: Utilização da rede por sockets ou processos.
 
@@ -426,9 +426,11 @@ Alguns exemplos de como reunir os comandos.
 
 - `lsblk`: Lista os blocos dos dispositivos: uma visualização em forma de árvore dos seus discos e partições do disco.
 
-- `lshw` e `lspci`: informações do hardware, incluindo RAID, gráficos, etc.
+- `lshw` e `lspci`: Informações do hardware, incluindo RAID, gráficos, etc.
 
-- `fortune`, `ddate`, e `sl`: um, bem, isto depende de você considerar locomotivas a vapor e citações Zippy "úteis".
+- `fortune`, `ddate`, e `sl`: É..., bem, isto depende de você considerar locomotivas a vapor e citações Zippy "úteis".
+
+![hue-bus](http://0.media.collegehumor.cvcdn.com/77/72/bd89e5712dc24f54fe1a587264551ef9-huehuehue-bus.gif)
 
 ## Mais conteúdo
 
