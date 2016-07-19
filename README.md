@@ -84,7 +84,7 @@ Notes:
 
 - For editing long commands, after setting your editor (for example `export EDITOR=vim`), **ctrl-x** **ctrl-e** will open the current command in an editor for multi-line editing. Or in vi style, **escape-v**.
 
-- To see recent commands, `history`. Follow with `!n` (where `n` is the command number) to execute again. There are also many abbreviations you can use, the most useful probably being `!$` for last argument and `!!` for last command (see "HISTORY EXPANSION" in the man page). However, these are often easily replaced with **ctrl-r** and **alt-.**.
+- To see recent commands, use `history`. Follow with `!n` (where `n` is the command number) to execute again. There are also many abbreviations you can use, the most useful probably being `!$` for last argument and `!!` for last command (see "HISTORY EXPANSION" in the man page). However, these are often easily replaced with **ctrl-r** and **alt-.**.
 
 - Go to your home directory with `cd`. Access files relative to your home directory with the `~` prefix (e.g. `~/.bashrc`). In `sh` scripts refer to the home directory as `$HOME`.
 
@@ -276,7 +276,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
 
-- Use `getfacl` and `setfacl` to save and restore file permissions. For example: 
+- Use `getfacl` and `setfacl` to save and restore file permissions. For example:
 ```sh
    getfacl -R /some/path > permissions.txt
    setfacl --restore=permissions.txt
@@ -322,7 +322,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
-- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process: 
+- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process:
 `lsof | grep deleted | grep "filename-of-my-big-file"`
 
 
