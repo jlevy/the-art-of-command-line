@@ -542,7 +542,7 @@ These are items relevant *only* on OS X.
 
 These items are relevant *only* on Windows.
 
-- Since Window 10 use [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about), which provides a familiar Bash environment with Unix command line utilities and allows Linux programs to run on Windows.
+- Since Windows 10, you can use [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about), which provides a familiar Bash environment with Unix command line utilities and allows Linux programs to run on Windows.
 
 - Access the power of the Unix shell under Microsoft Windows by installing [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
 
@@ -562,7 +562,7 @@ These items are relevant *only* on Windows.
 
 - Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
 
-- Alternative option to get GNU developer tools (such as GCC) on Windows, is [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package that provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin.
+- An alternative option to get GNU developer tools (such as GCC) on Windows is [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package, which provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin.
 
 ## More resources
 
