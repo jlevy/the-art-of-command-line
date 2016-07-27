@@ -35,7 +35,7 @@
 
 涵盖范围：
 
-- 这篇文章对刚接触命令行的新手,以及具有命令行使用经验的人都有用处。本文致力于做到*覆盖面广*（尽量包括一切重要的内容），*具体*（给出最常见的具体的例子）,以及*简洁*（避免不必要的，或是可以在其他地方轻松查到的细枝末节）。每个技巧在特定情境下或是基本的，或是能显著节约时间。
+- 这篇文章对刚接触命令行的新手，以及具有命令行使用经验的人都有用处。本文致力于做到*覆盖面广*（尽量包括一切重要的内容），*具体*（给出最常见的具体的例子），以及*简洁*（避免不必要的，或是可以在其他地方轻松查到的细枝末节）。每个技巧在特定情境下或是基本的，或是能显著节约时间。
 - 本文为 Linux 所写，除了[仅限 OS X 系统](#仅限-os-x-系统)和[仅限 Windows 系统](#仅限-windows-系统)的部分。其它节中的大部分内容都适用于其它 Unix 系统或 OS X，甚至 Cygwin。
 - 本文关注于交互式 Bash，尽管很多技巧也适用于其他 shell 或 Bash 脚本。
 - 本文包括了“标准的”Unix 命令和需要安装特定包的命令，只要它们足够重要。
@@ -269,9 +269,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 拆分文件，查看 `split`（按大小拆分）和 `csplit`（按模式拆分）。
 
-- 用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`, `datediff`, `strptime` 等工具操作日期和时间表达式。
+- 用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`、`datediff`、`strptime` 等工具操作日期和时间表达式。
 
-- 使用 `zless`，`zmore`，`zcat` 和 `zgrep` 对压缩过的文件进行操作。
+- 使用 `zless`、`zmore`、`zcat` 和 `zgrep` 对压缩过的文件进行操作。
 
 - 文件属性可以通过 `chattr` 进行设置，它比文件权限更加底层。例如，为了保护文件不被意外删除，可以使用不可修改标记：`sudo chattr +i /critical/directory/or/file`
 
@@ -527,7 +527,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 用 `pbcopy` 复制任何命令的输出到桌面应用，用 `pbpaste` 粘贴输入。
 
-- 若要在 OS X 终端中将 Option 键视为 alt 键（例如在上面介绍的 **alt-b**, **alt-f** 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
+- 若要在 OS X 终端中将 Option 键视为 alt 键（例如在上面介绍的 **alt-b**、**alt-f** 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
 
 - 用 `open` 或者 `open -a /Applications/Whatever.app` 使用桌面应用打开文件。
 
