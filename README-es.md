@@ -506,6 +506,32 @@ Estos son puntos relevantes *únicamente* para OS X.
 
 - Para obtener la información de la versión del OS X, usa `sw_vers`.
 
+## Solo para Windows
+
+Estos son puntos relevantes *únicamente* para Windows.
+
+- En Windows 10, puedes usar [Bash de Ubuntu en Windows](https://msdn.microsoft.com/commandline/wsl/about) que proporciona un entorno familiarizado con la línea de comandos en Unix. Por el lado bueno, esto permite a los programas de Linux correr en Windows y por otra parte, no permite a los programas de Windows ejecutarse en la linea de comandos Bash.
+- Accede al poder de Unix shell bajo Microsoft Windows instalando [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
+
+- Instala programas adicionales de Unix con el manejador de paquetes de Cygwin
+
+- Usa `mintty` como tu linea de comando.
+
+- Accede al portapapeles de Windows a través de `/dev/clipboard`.
+
+- Ejecuta `cygstart` para abrir un archivo arbitrario a través de su aplicación registrada.
+
+- Accede al registro de Windows con `regtool`.
+
+- Ten en cuenta que la ruta `C:\` se transofrma en `/cygdrive/c` bajo Cygwin, y que Cygwin `/` aparece en `C:\cygwin`. Este es el script más útil en los programas que ejecuta Windows.
+
+- Puede ejecutar la mayoría de los scripts del sistema administrativo desde la linea de comandos haciendo `wmic`.
+
+- Otra opción para tener Unix que se vea y se sienta en WIndows is [Cash](ttps://github.com/dthree/cash). Ten en cuenta que solo unos pocos comandos de Unix y opciones de la línea de comandos estan disponibles en este entorno.
+
+-Una opción alternativa para tener herramientas de desarrollo GNU (algo como GCC) en windows es [MinGW](http://www.mingw.org/) y su [MSYS](http://www.mingw.org/wiki/msys) manejador de paquetes, que proporciona servicios como bash, gawk, make y grep. MSYS no tiene todas las caracteristicas comparado con Cygwin. MinGW es particularmente útil para la creación de puertos nativos Windows de herramientas de Unix.
+
+
 ## Más recursos
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Una lista curada de herramientas shell y recursos.
