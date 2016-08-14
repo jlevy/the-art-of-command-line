@@ -62,6 +62,7 @@ Idéalement Vim (`vi`), car il n'a pas vraiment de concurrent lorsqu'il s'agit d
 - Sachez comment lire une documentation avec `man` (pour les curieux, `man man` liste les sections avec leur numéro, par exemple 1 pour les commandes «&nbsp;normales&nbsp;» , 5 pour les formats des fichiers et les conventions, et 8 pour tout ce qui concerne l'administration système).
 Trouvez les pages de manuel avec `apropos`.
 Sachez que certaines commandes ne sont pas des exécutables, mais des commandes internes de Bash et que vous pouvez obtenir de l'aide à leur sujet avec `help` et `help -d`.
+Utilisez `type command` pour déterminer si une commande est un exécutable, une commande interne du shell ou un alias.
 
 - Apprenez à rediriger les entrées et sorties au moyen de `>` et `<`, et à créer des tubes avec `|`.
 Sachez que `>` écrase le fichier de sortie et `>>` sert à ajouter.
@@ -202,7 +203,7 @@ Pour des informations générales sur l'encodage, `man unicode`, `man utf-8` et 
 
 - Utilisez `screen` ou [`tmux`](https://tmux.github.io/) pour multiplexer une fenêtre de terminal, particulièrement utile pour des sessions SSH distantes, et pour détacher et rattacher une session.
 `byobu` peut améliorer screen ou tmux en fournissant plus d'informations et une gestion plus facile.
-Une alternative plus légère pour la persistance des sessions seulement est `dtach`.
+Une alternative plus légère pour la persistance des sessions seulement est [`dtach`](https://github.com/bogner/dtach/).
 
 - Il est utile de savoir comment créer un tunnel SSH avec `-L` ou `-D` (et occasionnellement `-R`), par exemple pour accéder à des sites web à partir d'un serveur distant.
 
@@ -637,6 +638,12 @@ Pour écrire des scripts Bash multi-plateformes évitez d'utiliser de telles com
 
 ## Uniquement Windows
 
+Ce qui suit ne concerne que Windows.
+
+- Sur Windows 10, [Bash sous Ubuntu sur Windows](https://msdn.microsoft.com/commandline/wsl/about) fournit un environnement Bash avec les utilitaires en ligne de commande d'Unix.
+Du côté positif, cela permet à des programmes Linux de s'exécuter sous Windows.
+En revanche, il n'est pas possible de lancer des programmes Windows depuis le *prompt* de Bash.
+
 - Installez [Cygwin](http://cygwin.com) pour bénéficier de la puissance du shell Unix sous Microsoft Windows.
 La majorité de ce qui est décrit dans ce document fonctionnera *out of the box*.
 
@@ -656,6 +663,12 @@ C'est particulièrement utile pour invoquer des programmes Windows dans les scri
 
 - Vous pouvez accomplir et scripter la plupart des tâches d'administration système de Windows depuis la ligne de commande en apprenant et en utilisant `wmic`.
 
+- Une autre possibilité pour avoir le *look and feel* Unix sous Windows est d'utiliser [Cash](https://github.com/dthree/cash).
+Notez que très peu de commandes Unix et d'options de ligne de commande sont disponibles dans cet environnement.
+
+- Une solution alternative pour se procurer les outils de développement GNU sous Windows, tels que GCC, est [MinGW](http://www.mingw.org/) et son package [MSYS](http://www.mingw.org/wiki/msys) qui fournit des utilitaires comme bash, gawk, make et grep.
+MSYS ne dispose pas de toutes les fonctionnalités de Cygwin.
+MinGW est particulièrement utile pour porter sous Windows des outils Unix.
 
 ## Autres ressources
 
