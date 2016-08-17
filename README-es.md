@@ -510,12 +510,12 @@ Estos son puntos relevantes *únicamente* para OS X.
 
 Estos son puntos relevantes *únicamente* para Windows.
 
-- En Windows 10, puedes usar [Bash de Ubuntu en Windows](https://msdn.microsoft.com/commandline/wsl/about) que proporciona un entorno familiarizado con la línea de comandos en Unix. Por el lado bueno, esto permite a los programas de Linux correr en Windows y por otra parte, no permite a los programas de Windows ejecutarse en la linea de comandos Bash.
-- Accede al poder de Unix shell bajo Microsoft Windows instalando [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
+-En Windows 10, puedes usar [Bash de Ubuntu en Windows](https://msdn.microsoft.com/commandline/wsl/about) que proporciona un entorno familiar con la línea de comandos en Unix. En el lado positivo, este permite a los programas de Linux ejecutarse en Windows. Por otro lado este no soporta ejecutar de programas de Windows desde la línea de comandos Bash.
+- Accede al poder del shell de Unix en Microsoft Windows instalando [Cygwin](https://cygwin.com/). La mayoría de las cosas descritas en este documento funcionaran en su configuración por defecto.
 
-- Instala programas adicionales de Unix con el manejador de paquetes de Cygwin
+- Instala programas adicionales de Unix con el gestor de paquetes de Cygwin
 
-- Usa `mintty` como tu linea de comando.
+- Usa `mintty` como tu línea de comando.
 
 - Accede al portapapeles de Windows a través de `/dev/clipboard`.
 
@@ -523,13 +523,13 @@ Estos son puntos relevantes *únicamente* para Windows.
 
 - Accede al registro de Windows con `regtool`.
 
-- Ten en cuenta que la ruta `C:\` se transofrma en `/cygdrive/c` bajo Cygwin, y que Cygwin `/` aparece en `C:\cygwin`. Este es el script más útil en los programas que ejecuta Windows.
+- Ten en cuenta que la ruta `C:\` del disco Windows se transofrma en `/cygdrive/c` en Cygwin, y que Cygwin `/` aparece en `C:\cygwin` en Windows. Convierte entre Cygwin y rutas de archivos estilo Windows con. Este es el más útil de los scripts que invocan programas de Windows.
 
-- Puede ejecutar la mayoría de los scripts del sistema administrativo desde la linea de comandos haciendo `wmic`.
+- Puedes ejecutar y hacer scripts de la mayoría de las tareas administrativas del sistema de Windows desde la línea de comandos aprendiendo y usando `wmic`.
 
-- Otra opción para tener Unix que se vea y se sienta en WIndows is [Cash](ttps://github.com/dthree/cash). Ten en cuenta que solo unos pocos comandos de Unix y opciones de la línea de comandos estan disponibles en este entorno.
+-Otra opción para obtener la apariencia y sensación de Unix en WIndows es [Cash](ttps://github.com/dthree/cash). Ten en cuenta que muy pocos comandos de Unix y opciones de la línea de comandos están disponibles en este entorno. 
 
--Una opción alternativa para tener herramientas de desarrollo GNU (algo como GCC) en windows es [MinGW](http://www.mingw.org/) y su [MSYS](http://www.mingw.org/wiki/msys) manejador de paquetes, que proporciona servicios como bash, gawk, make y grep. MSYS no tiene todas las caracteristicas comparado con Cygwin. MinGW es particularmente útil para la creación de puertos nativos Windows de herramientas de Unix.
+-Una opción alternativa para tener herramientas de desarrollo GNU (algo como GCC) en windows es [MinGW](http://www.mingw.org/) y [MSYS](http://www.mingw.org/wiki/msys) su paquete, que proporciona utilidades tales como bash, gawk, make y grep. MSYS no tiene todas las características al compararse con Cygwin. MinGW es particularmente útil para crear ejecutables nativos de Windows de herramientas Unix.
 
 
 ## Más recursos
