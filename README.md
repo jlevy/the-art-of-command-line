@@ -457,7 +457,7 @@ A few examples of piecing together commands:
 
 - `apg`: generates random passwords
 
-- `7z`: high-ratio file compression
+- `xz`: high-ratio file compression
 
 - `ldd`: dynamic library info
 
