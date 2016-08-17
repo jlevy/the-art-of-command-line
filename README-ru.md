@@ -80,7 +80,7 @@
 - Используйте **ctrl-w** в Баше для того, чтобы удалить последнее слово в команде; **ctrl-u** для того, чтобы удалить команду полностью. Используйте **alt-b** и **alt-f** для того, чтобы бегать между словами команды, **ctrl-a** и **ctrl-e** для того, чтобы переместиться к началу и концу строки соответственно, **ctrl-k** для того, чтобы удалить часть команды от текущей позиции до конца строки, **ctrl-l** для того, чтобы очистить экран. Гляньте на `man readline` чтобы узнать о всех клавиатурных сочетаниях Баша. Их много! Например, **alt-.** бежит по предыдущим аргументам команды, а **alt-*** раскрывает глоб (globbing).
 
 
-- Если Вам нравятся кравиатурных сочетаниях vim, сделайте `set -o vi` (и `set -o emacs` чтобы вернуться обратно).
+- Если Вам нравятся клавиатурные сочетания vim, сделайте `set -o vi` (и `set -o emacs` чтобы вернуться обратно).
 
 - Для редактирования длинных команд после установки другого редактора (например `export EDITOR=vim`), нажатие **ctrl-x** **ctrl-e** откроет текущую команду в редакторе для многострочного редактирования. Или, как в vi, **escape-v**.
 
@@ -558,10 +558,10 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Дополняемый список инструментов и ресурсов для командной строки.
 - [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Более детальные гайды по терминалу в OS X.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) Для того, чтобы писать шелл-скрипты лучше.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/): Для того, чтобы писать шелл-скрипты лучше.
 - [shellcheck](https://github.com/koalaman/shellcheck): Статический анализатор скриптов.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Сборник мелочей о правильной обработке имен файлов в скриптах.
-
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): Обзор команд и утилит, используемых для обработки данных, из одноименной книги
 
 ## Дисклеймер
 

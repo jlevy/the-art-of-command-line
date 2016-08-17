@@ -62,6 +62,7 @@ Idéalement Vim (`vi`), car il n'a pas vraiment de concurrent lorsqu'il s'agit d
 - Sachez comment lire une documentation avec `man` (pour les curieux, `man man` liste les sections avec leur numéro, par exemple 1 pour les commandes «&nbsp;normales&nbsp;» , 5 pour les formats des fichiers et les conventions, et 8 pour tout ce qui concerne l'administration système).
 Trouvez les pages de manuel avec `apropos`.
 Sachez que certaines commandes ne sont pas des exécutables, mais des commandes internes de Bash et que vous pouvez obtenir de l'aide à leur sujet avec `help` et `help -d`.
+Utilisez `type command` pour déterminer si une commande est un exécutable, une commande interne du shell ou un alias.
 
 - Apprenez à rediriger les entrées et sorties au moyen de `>` et `<`, et à créer des tubes avec `|`.
 Sachez que `>` écrase le fichier de sortie et `>>` sert à ajouter.
@@ -102,8 +103,10 @@ Par exemple **alt-.** fait défiler les arguments précédents et **alt-*** dév
 
 - Pour éditer de longues commandes, après avoir configuré votre éditeur (par exemple `export EDITOR=vim`), **ctrl-x** **ctrl-e** (**escape-v** dans le style vi) ouvre l'éditeur pour éditer la commande courante.
 
-- Pour voir les commandes récentes, `history`.
-Il y a aussi beaucoup d'abréviations telles que `!$` (dernier argument) et `!!` (dernière commande), bien que celles-ci soient souvent remplacées par **ctrl-r** et **alt-.**.
+- Consultez les commandes récentes avec `history`. 
+Faites `!n` pour rappeler la commande numéro `n`.
+Il y a aussi beaucoup d'autres abréviations, les plus utiles étant probalement `!$` pour le dernier argument et `!!` pour la dernière commande (voir la section « HISTORY EXPANSION » de la page de manuel).
+Cependant, celles-ci peuvent être aisément remplacées par **ctrl-r** et **alt-.**.
 
 - Placez-vous dans votre répertoire personnel avec `cd`. 
 Accédez aux fichiers à partir de leurs chemins relatifs par rapport à votre répertoire personnel en préfixant ceux-ci avec `~` (p.&nbsp;ex. `~/.bashrc`).
@@ -200,7 +203,7 @@ Pour des informations générales sur l'encodage, `man unicode`, `man utf-8` et 
 
 - Utilisez `screen` ou [`tmux`](https://tmux.github.io/) pour multiplexer une fenêtre de terminal, particulièrement utile pour des sessions SSH distantes, et pour détacher et rattacher une session.
 `byobu` peut améliorer screen ou tmux en fournissant plus d'informations et une gestion plus facile.
-Une alternative plus légère pour la persistance des sessions seulement est `dtach`.
+Une alternative plus légère pour la persistance des sessions seulement est [`dtach`](https://github.com/bogner/dtach/).
 
 - Il est utile de savoir comment créer un tunnel SSH avec `-L` ou `-D` (et occasionnellement `-R`), par exemple pour accéder à des sites web à partir d'un serveur distant.
 
@@ -274,6 +277,8 @@ Beaucoup de personnes utilisent `cut` mais oublient `join`.
 - Connaissez `wc` pour compter les lignes (`-l`), les caractères (`-m`), les mots (`-w`) et les octets (`-c`).
 
 - Connaissez `tee` pour copier depuis stdin vers un fichier ou vers stdout, comme dans `ls -al | tee file.txt`.
+
+- Pour des calculs plus complexes, incluant les regroupements, les inversions de champs et des calculs statistiques, considérez [`datamash`](https://www.gnu.org/software/datamash/).
 
 - Sachez que la locale affecte de nombreux outils en ligne de commande de manière subtile, comme l'ordre pour les tris (collation) et les performances.
 La plupart des installateurs Linux définissent la variable `LANG` ou d'autres variables locales d'environnement pour configurer une locale telle que US English.
@@ -633,6 +638,12 @@ Pour écrire des scripts Bash multi-plateformes évitez d'utiliser de telles com
 
 ## Uniquement Windows
 
+Ce qui suit ne concerne que Windows.
+
+- Sur Windows 10, [Bash sous Ubuntu sur Windows](https://msdn.microsoft.com/commandline/wsl/about) fournit un environnement Bash avec les utilitaires en ligne de commande d'Unix.
+Du côté positif, cela permet à des programmes Linux de s'exécuter sous Windows.
+En revanche, il n'est pas possible de lancer des programmes Windows depuis le *prompt* de Bash.
+
 - Installez [Cygwin](http://cygwin.com) pour bénéficier de la puissance du shell Unix sous Microsoft Windows.
 La majorité de ce qui est décrit dans ce document fonctionnera *out of the box*.
 
@@ -652,6 +663,12 @@ C'est particulièrement utile pour invoquer des programmes Windows dans les scri
 
 - Vous pouvez accomplir et scripter la plupart des tâches d'administration système de Windows depuis la ligne de commande en apprenant et en utilisant `wmic`.
 
+- Une autre possibilité pour avoir le *look and feel* Unix sous Windows est d'utiliser [Cash](https://github.com/dthree/cash).
+Notez que très peu de commandes Unix et d'options de ligne de commande sont disponibles dans cet environnement.
+
+- Une solution alternative pour se procurer les outils de développement GNU sous Windows, tels que GCC, est [MinGW](http://www.mingw.org/) et son package [MSYS](http://www.mingw.org/wiki/msys) qui fournit des utilitaires comme bash, gawk, make et grep.
+MSYS ne dispose pas de toutes les fonctionnalités de Cygwin.
+MinGW est particulièrement utile pour porter sous Windows des outils Unix.
 
 ## Autres ressources
 
@@ -660,7 +677,7 @@ C'est particulièrement utile pour invoquer des programmes Windows dans les scri
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/)&nbsp;: pour écrire de meilleurs scripts shell.
 - [shellcheck](https://github.com/koalaman/shellcheck)&nbsp;: un outil d'analyse statique des scripts shell. L'équivalent de lint pour bash, sh et zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)&nbsp;: les points de détail, malheureusement compliqués, sur la manière de manipuler correctement les noms de fichiers dans les scripts shell.
-
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools)&nbsp;: d'autres outils en ligne de commande, utiles en science des données et discutés dans le livre du même nom.
 
 ## Avertissement
 

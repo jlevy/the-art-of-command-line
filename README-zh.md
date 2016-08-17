@@ -29,30 +29,31 @@
 [出现](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，
 但已经迁移到了 Github，并由众多高手做出了许多改进。
-如果你在本文中发现了错误或者存在可以改善的地方，请[**贡献你的一份力**](/CONTRIBUTING.md)。
+如果你在本文中发现了错误或者存在可以改善的地方，请[**贡献你的一份力量**](/CONTRIBUTING.md)。
 
 ## 前言
 
 涵盖范围：
 
-- 这篇文章对刚接触命令行的新手以及具有命令行使用经验的人都有用处。本文致力于做到*覆盖面广*（尽量包括一切重要的内容），*具体*（给出最常见的具体的例子）以及*简洁*（避免不必要的，或是可以在其他地方轻松查到的细枝末节）。每个技巧在特定情境下或是基本的，或是能显著节约时间。
-- 本文为 Linux 所写，除了[仅限 OS X 系统](#仅限-os-x-系统)和[仅限 Windows 系统](#仅限windows系统)的部分。其它节中的大部分内容都适用于其它 Unix 系统或 OS X，甚至 Cygwin。
+- 这篇文章对刚接触命令行的新手，以及具有命令行使用经验的人都有用处。本文致力于做到*覆盖面广*（尽量包括一切重要的内容），*具体*（给出最常见的具体的例子），以及*简洁*（避免不必要的，或是可以在其他地方轻松查到的细枝末节）。每个技巧在特定情境下或是基本的，或是能显著节约时间。
+- 本文为 Linux 所写，除了[仅限 OS X 系统](#仅限-os-x-系统)和[仅限 Windows 系统](#仅限-windows-系统)的部分。其它节中的大部分内容都适用于其它 Unix 系统或 OS X，甚至 Cygwin。
 - 本文关注于交互式 Bash，尽管很多技巧也适用于其他 shell 或 Bash 脚本。
 - 本文包括了“标准的”Unix 命令和需要安装特定包的命令，只要它们足够重要。
 
 注意事项：
 
-- 为了能在一页内展示尽量多的东西，一些具体的信息会被间接的包含在引用页里。聪明机智的你如果掌握了使用 Google 搜索引擎的基本思路与命令，那么你将可以查阅到更多的详细信息。使用 `apt-get`，`yum`，`dnf`，`pacman`，`pip` 或 `brew`（以及其它合适的包管理器）来安装新程序。
+- 为了能在一页内展示尽量多的东西，一些具体的信息会被间接地包含在引用页里。聪明机智的你，如果掌握了使用 Google 搜索引擎的基本思路与命令，那么你将可以查阅到更多的详细信息。使用 `apt-get`，`yum`，`dnf`，`pacman`，
+`pip` 或 `brew`（以及其它合适的包管理器）来安装新程序。
 - 使用 [Explainshell](http://explainshell.com/) 去获取相关命令、参数、管道等内容的解释。
 
 
 ## 基础
 
-- 学习 Bash 的基础知识。具体来说，输入 `man bash` 并至少全文浏览一遍; 它很简单并且不长。其他的 shell 可能很好用，但 Bash 功能强大且几乎所有情况下都是可用的 （ *只*学习 zsh，fish 或其他的 shell 的话，在你自己的电脑上会显得很方便，但在很多情况下会限制你，比如当你需要在服务器上工作时）。
+- 学习 Bash 的基础知识。具体来说，输入 `man bash` 并至少全文浏览一遍; 它很简单并且不长。其他的 shell 可能很好用，但 Bash 功能强大到几乎所有情况下都是可用的 （ *只*学习 zsh，fish 或其他的 shell 的话，在你自己的电脑上会显得很方便，但在很多情况下会限制你，比如当你需要在服务器上工作时）。
 
-- 学习并掌握至少一个基于文本的编辑器。通常 Vim （`vi`） 会是你最好的选择，因为在终端里进行随机编辑 Vim 真的毫无敌手，哪怕是 Emacs、某大型 IDE 甚至时下非常流行的编辑器。
+- 学习并掌握至少一个基于文本的编辑器。通常 Vim （`vi`） 会是你最好的选择，因为在终端里进行随机编辑，Vim 真的毫无敌手，哪怕是 Emacs、某大型 IDE 甚至时下非常流行的编辑器。
 
-- 学会如何使用 `man` 命令去阅读文档。学会使用 `apropos` 去查找文档。了解有些命令并不对应可执行文件，而是Bash内置的，可以使用 `help` 和 `help -d` 命令获取帮助信息。
+- 学会如何使用 `man` 命令去阅读文档。学会使用 `apropos` 去查找文档。了解有些命令并不对应可执行文件，而是Bash内置的，可以使用 `help` 和 `help -d` 命令获取帮助信息。你可以用 `type 命令` 来判断它到底是可执行文件、shell 内置命令、还是别名。
 
 - 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。明白 `>` 会覆盖了输出文件而 `>>` 是在文件末添加。了解标准输出 stdout 和标准错误 stderr。
 
@@ -84,13 +85,13 @@
 
 - 为了方便地键入长命令，在设置你的编辑器后（例如 `export EDITOR=vim`），键入 **ctrl-x** **ctrl-e** 会打开一个编辑器来编辑当前命令。在 vi 模式下则键入 **escape-v** 实现相同的功能。
 
-- 键入 `history` 查看命令行历史记录。其中有许多缩写，例如 `!$`（最后键入的参数）和 `!!`（最后键入的命令），尽管通常被 **ctrl-r** 和 **alt-.** 取代。
+- 键入 `history` 查看命令行历史记录，再用 `!n`（`n` 是命令编号）就可以再次执行。其中有许多缩写，最有用的大概就是用 `!$` 指代上次键入的参数，以及用 `!!` 指代上次键入的命令了（参考 man 页面中的“HISTORY EXPANSION”）。不过这些通常被 **ctrl-r** 和 **alt-.** 取代。
 
-- 要进入家目录可以用 `cd`。要访问你的家目录中的文件，可以使用前缀 `~`（例如 `~/.bashrc`）。在 `sh` 脚本里则用 `$HOME` 指代家目录。
+- 要进入 home 目录可以用 `cd`。要访问你的 home 目录中的文件，可以使用前缀 `~`（例如 `~/.bashrc`）。在 `sh` 脚本里则用 `$HOME` 指代 home 目录。
 
 - 回到上一个工作路径：`cd -`
 
-- 如果你输入命令的时候改变了主意，按下 **alt-#** 来在行首添加 `#`，或者依次按下 **ctrl-a**， **#**， **enter**。这样做的话，之后你可以很方便的利用命令行历史回到你刚才输入到一半的命令。
+- 如果你输入命令的时候改变了主意，按下 **alt-#** 在行首添加 `#`，或者依次按下 **ctrl-a**， **#**， **enter**。这样做的话，之后你可以很方便的利用命令行历史回到你刚才输入到一半的命令。
 
 - 使用 `xargs` （ 或 `parallel`）。他们非常给力。注意到你可以控制每行参数个数（`-L`）和最大并行数（`-P`）。如果你不确定它们是否会按你想的那样工作，先使用 `xargs echo` 查看一下。此外，使用 `-I{}` 会很方便。例如：
 ```bash
@@ -123,7 +124,7 @@
 
 - 当变量和文件名中包含空格的时候要格外小心。Bash 变量要用引号括起来，比如 `"FOO"`。尽量使用 `-0` 或 `-print0` 选项以便用空字符来分隔文件名，例如 `locate -0 pattern | xargs -0 ls -al` 或 `find / -print0 -type d | xargs -0 ls -al`。如果 for 循环中循环访问的文件名含有空格，只需用 `IFS=$'\n'` 把内部字段分隔符设为换行符。
 
-- 在 Bash 脚本中，使用 `set -x` 去调试输出，尽可能的使用严格模式，使用 `set -e` 令脚本在发生错误时退出而不是继续运行，使用 `set -u` 来检查是否使用了未赋值的变量，使用 `set -o pipefail` 严谨地对待错误（尽管问题可能很微妙）。当牵扯到很多脚本时，使用 `trap`。一个好的习惯是在脚本文件开头这样写，这会使它检测一些错误，并在错误发生时中断程序并输出信息：
+- 在 Bash 脚本中，使用 `set -x` 去调试输出，尽可能地使用严格模式，使用 `set -e` 令脚本在发生错误时退出而不是继续运行，使用 `set -u` 来检查是否使用了未赋值的变量，使用 `set -o pipefail` 严谨地对待错误（尽管问题可能很微妙）。当牵扯到很多脚本时，使用 `trap`。一个好的习惯是在脚本文件开头这样写，这会使它检测一些错误，并在错误发生时中断程序并输出信息：
 ```bash
       set -euo pipefail
       trap "echo 'error: Script failed: see failed command above'" ERR
@@ -151,7 +152,7 @@
 
 - 使用 `man ascii` 查看具有十六进制和十进制值的ASCII表。`man unicode`，`man utf-8`，以及 `man latin1` 有助于你去了解通用的编码信息。
 
-- 使用 `screen` 或 [`tmux`](https://tmux.github.io/) 来使用多个屏幕，当你在使用 ssh 时（保存 session 信息）将尤为有用。另一个轻量级的解决方案是 `dtach`。
+- 使用 `screen` 或 [`tmux`](https://tmux.github.io/) 来使用多个屏幕，当你在使用 ssh 时（保存 session 信息）将尤为有用。另一个轻量级的解决方案是 [`dtach`](https://github.com/bogner/dtach)。
 
 - ssh 中，了解如何使用 `-L` 或 `-D`（偶尔需要用 `-R`）去开启隧道是非常有用的，例如当你需要从一台远程服务器上访问 web。
 
@@ -166,7 +167,7 @@
       ControlPersist yes
 ```
 
-- 部分其他的关于 ssh 的选项是安全敏感且应当小心启用的。例如在可信任的网络中：`StrictHostKeyChecking=no`，`ForwardAgent=yes`
+- 部分其他的关于 ssh 的选项是安全敏感的，而且应当小心启用。例如在可信任的网络中：`StrictHostKeyChecking=no`，`ForwardAgent=yes`
 
 - 考虑使用 [`mosh`](https://mosh.mit.edu/) 作为 ssh 的替代品，它使用 UDP 协议。
 
@@ -268,9 +269,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 拆分文件，查看 `split`（按大小拆分）和 `csplit`（按模式拆分）。
 
-- 用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`, `datediff`, `strptime` 等工具操作日期和时间表达式。
+- 用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`、`datediff`、`strptime` 等工具操作日期和时间表达式。
 
-- 使用 `zless`，`zmore`，`zcat` 和 `zgrep` 对压缩过的文件进行操作。
+- 使用 `zless`、`zmore`、`zcat` 和 `zgrep` 对压缩过的文件进行操作。
 
 - 文件属性可以通过 `chattr` 进行设置，它比文件权限更加底层。例如，为了保护文件不被意外删除，可以使用不可修改标记：`sudo chattr +i /critical/directory/or/file`
 
@@ -427,7 +428,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `lockfile`：使文件只能通过 `rm -f` 移除
 
-- `logrotate`: 切换、压缩以及发送日志文件
+- `logrotate`： 切换、压缩以及发送日志文件
 
 - `watch`：重复运行同一个命令，展示结果并高亮有更改的部分
 
@@ -485,9 +486,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `iostat`：硬盘使用状态
 
-- `mpstat`: CPU 使用状态
+- `mpstat`： CPU 使用状态
 
-- `vmstat`: 内存使用状态
+- `vmstat`： 内存使用状态
 
 - `htop`：top 的加强版
 
@@ -505,7 +506,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `dmesg`：引导及系统错误信息
 
-- `sysctl`: 在内核运行时动态地查看和修改内核的运行参数
+- `sysctl`： 在内核运行时动态地查看和修改内核的运行参数
 
 - `hdparm`：SATA/ATA 磁盘更改及性能分析
 
@@ -526,7 +527,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 用 `pbcopy` 复制任何命令的输出到桌面应用，用 `pbpaste` 粘贴输入。
 
-- 若要在 OS X 终端中将 Option 键视为 alt 键（例如在上面介绍的 **alt-b**, **alt-f** 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
+- 若要在 OS X 终端中将 Option 键视为 alt 键（例如在上面介绍的 **alt-b**、**alt-f** 等命令中用到），打开 偏好设置 -> 描述文件 -> 键盘 并勾选“使用 Option 键作为 Meta 键”。
 
 - 用 `open` 或者 `open -a /Applications/Whatever.app` 使用桌面应用打开文件。
 

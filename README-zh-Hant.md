@@ -13,6 +13,7 @@
 - [單行指令碼](#單行指令碼)
 - [冷門但有用](#冷門但有用)
 - [僅限 OS X 系統](#僅限-os-x-系統)
+- [僅限 Windows 系統](#僅限-windows-系统)
 - [更多資源](#更多資源)
 - [免責聲明](#免責聲明)
 - [授權條款](#授權條款)
@@ -33,7 +34,7 @@
 涵蓋範圍：
 
 - 這篇文章對剛接觸命令列的新手以及具有命令列使用經驗的人都有用處。本文致力於做到*覆蓋面廣*（盡量包括一切重要的內容），*具體*（給出最常見的具體的例子）以及*簡潔*（避免不必要的，或是可以在其他地方輕鬆查到的細枝末節）。每個技巧都是在特定情境下必備的，或是能顯著減省時間的。
-- 本文為 Linux 所寫，除​​了 [僅限OS X 系統](#僅限-os-x-系統) 章節外，其它章節中的大部分內容都適用於其它 Unix 系統或 MacOS 系統，甚至 Cygwin。
+- 本文為 Linux 所寫，除了 [僅限OS X 系統](#僅限-os-x-系統) 和 [僅限 Windows 系統](#僅限-windows-系统) 章節外，其它章節中的大部分內容都適用於其它 Unix 系統或 MacOS 系統，甚至 Cygwin。
 - 本文關注於互動式 Bash，儘管很多技巧也適用於其他 shell 或 Bash 指令碼。
 - 本文包括了“標準的” Unix 命令和需要安裝特定套件的命令，只要它們足夠重要。
 
@@ -492,6 +493,23 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - 用 `sw_vers` 獲取 MacOS 的版本資訊。
 
 
+## 僅限 Windows 系统
+
+- 要在 Microsoft Windows 中使用 Unix shell，可以安装 [Cygwin](https://cygwin.com/)。本文件中介绍的大多數内容都將適用。
+
+- 透過 Cygwin 的套件管理器來安裝額外的 Unix 指令。
+
+- 使用 `mintty` 作為你的命令列視窗。
+
+- 要訪問 Windows 剪貼簿，可以透過 `/dev/clipboard`。
+
+- 執行 `cygstart` 以透過預設程式打開一個文件。
+
+- 要訪問 Windows 登錄檔，可以使用 `regtool`。
+
+- 注意 Windows 磁碟機路徑 `C:\` 在 Cygwin 中用 `/cygdrive/c` 代表，而 Cygwin 的 `/` 在 Windows 中顯示在 `C:\cygwin`。要轉換 Cygwin 和 Windows 風格的路徑可以用 `cygpath`。這在需要使用 Windows 指令的脚本裡很有用。
+
+- 學會使用 `wmic`，你就可以從命令列執行大多數 Windows 系統管理任務，並編成腳本。
 
 ## 更多資源
 
