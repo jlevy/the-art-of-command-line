@@ -540,6 +540,10 @@ To so elementi pomembni *samo* za OS X.
 
 ## Samo za Windows
 
+Sledeče velja *samo* za Windows.
+
+- Na Windows 10 lahko uporabite [Bash na Ubuntu na Windows](https://msdn.microsoft.com/commandline/wsl/about), ki ponuja znano okolje Bash z orodji ukazne vrstice Unix. Prednost je, da to omogoča poganjanje programov za Linux na Windows-u. Po drugi strani pa to ne podpira poganjanja Windows programov iz ukazne vrstice Bash.
+
 - Dostopajte do moči lupine Unix na Microsoft Windows z namestitvijo [Cygwin](https://cygwin.com/). Večina stvari opisanih v tem dokumentu bo delala "Out of the Box".
 
 - Namestite dodatne programe Unix z upraviteljem paketov Cygwin.
@@ -555,6 +559,10 @@ To so elementi pomembni *samo* za OS X.
 - Upoštevajte, da pot diska Windows `C:\` postane v Cygwin `/cygdrive/c` in Cigwin-ov `/` se na Windows pojavi pod `C:\cygwin`. Pretvorite med Cygwin in Windows stilom poti datotek s `cygpath`. To je najbolj uporabno v skriptah, ki se sklicujejo na programe Windows.
 
 - Večino opravil sistemske administracije Windows iz ukazne vrstice lahko izvajate tako, da se naučite uporabljati `wmic`.
+
+- Druga opcija, da dobite izgled in občutek Unix-a na Windows-u, je [Cash](https://github.com/dthree/cash). Upoštevajte, da so v tem okolju na voljo le nekateri ukazi Unix in opcije ukazne vrstice.
+
+- Alternativna možnost, da dobite GNU razvojna orodja (kot je GCC) na Windows, je [MinGW](http://www.mingw.org) in njegov [MSYS](http://www.mingw.org/wiki/msys) paket, ki ponuja orodja, kot je bash, gawk, make in grep. MSYS nima na voljo vseh lastnosti v primerjavi s Cygwin. MinGW je posebej uporaben za izdelavo izvornih Windows prenosov orodij Unix. 
 
 ## Več virov
 
