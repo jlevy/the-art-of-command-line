@@ -2,6 +2,16 @@
 
 This guide is a [collaborative effort](AUTHORS.md), based on the generous work of many contributors.
 
+## Questions
+
+[![Ask a Question](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
+
+The simplest thing you can do to help is [**submit any questions you might have**](https://airtable.com/shrzMhx00YiIVAWJg).
+The more the better. Questions help identify where the guide needs to be improved.
+
+
+## Contributions
+
 Contributions of all kinds, including corrections, additions, improvements, and translations, are welcome!
 
 We hope you'll join and help, in small ways or large.
