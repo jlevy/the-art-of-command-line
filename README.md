@@ -101,6 +101,11 @@ Notes:
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
+- To rerun the previous command with some pattern replaced: `^old^new`. For example:
+```bash
+      echo foo
+      ^foo^bar # equivalent to: echo bar
+```
 
 - `pstree -p` is a helpful display of the process tree.
 
@@ -185,7 +190,7 @@ Notes:
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
-- For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
+- For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `sudo bash` to actually run a shell as that user. Use `su` to login as another user and `sudo -i` to login as root. Use `su -` to simulate a fresh login as root or another user.
 
 - Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
 
