@@ -190,6 +190,10 @@ Notes:
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
+- For running a command as another user, use `sudo`. Defaults to running as root; use `-u` to specify another user. Use `-i` to login as that user (you will be asked for _your_ password).
+
+- For switching to another user, use `su`. Add `-` to get an environment as if the user just logged in. By default this switches to root, but you can specify a user: `su - user`. You will be asked for the password _of the user you are switching to_.
+
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `sudo bash` to actually run a shell as that user. Use `su` to login as another user and `sudo -i` to login as root. Use `su -` to simulate a fresh login as root or another user.
 
 - Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
