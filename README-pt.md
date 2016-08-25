@@ -236,7 +236,7 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - A ferramenta `ab` (que vem com o Apache) é muito útil para verificação rápida da performance do servidor web. Para mais complexos testes de carga, tente `siege`.
 
-- Para debugs mais sérios da rede, `wireshark`, `tshark`, ou `ngrep`.
+- Para debugs mais sérios da rede, [`wireshark`](https://wireshark.org/), `tshark`, ou `ngrep`.
 
 - Aprenda a respeito do `strace`e `ltrace`. Estes podem ser úteis se um programa está falhando, travado, ou quebrando, e você não sabe o por que, ou se você quer obter uma ideia geral da performance. Note que a opção de perfil (`-c`), e a habilidade de se plugar a um processo em execução (`-p`).
 
@@ -392,7 +392,7 @@ Alguns exemplos de como reunir os comandos.
 
 - `rsync`: Sincroniza arquivos e pastas através do SSH.
 
-- `wireshark` e `tshark`: captura de pacotes e debug de rede.
+- [`wireshark`](https://wireshark.org/) e `tshark`: captura de pacotes e debug de rede.
 
 - `ngrep`: grep para a camada de rede.
 

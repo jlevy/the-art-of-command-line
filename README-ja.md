@@ -271,7 +271,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `ab`(Apacheに付属)は、Webサーバのパフォーマンスをざっくりチェックするのに便利。より複雑なテストには`siege`を試そう。
 
-- より確実なネットワークのデバッグは`wireshark`、`tshark`、`ngrep`。
+- より確実なネットワークのデバッグは[`wireshark`](https://wireshark.org/)、`tshark`、`ngrep`。
 
 - `strace`と`ltrace`について知っておこう。プログラムの実行に失敗したりハングしたりクラッシュしたりして、その理由が分からない、あるいはパフォーマンスに関する一般的情報を知りたいなら、このツールが役立つはずだ。プロファイリングのオプション(`-c`)や起動中のプロセスにアタッチする機能(`-p`)も覚えておこう。
 
@@ -440,7 +440,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `rsync`: ファイルやフォルダをSSH経由またはローカルファイルシステム内で同期
 
-- `wireshark` と `tshark`: パケットキャプチャとネットワークデバッギング
+- [`wireshark`](https://wireshark.org/) と `tshark`: パケットキャプチャとネットワークデバッギング
 
 - `ngrep`: ネットワーク層のgrep
 

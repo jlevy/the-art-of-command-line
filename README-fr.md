@@ -389,7 +389,7 @@ Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil
 - L'outil `ab` (fourni avec Apache) est utile pour une vérification rapide et grossière des performances d'un serveur web.
 Pour des tests de charge plus complexes, essayez `siege`.
 
-- Pour du debogage réseau plus sérieux : `wireshark`, `tshark` ou `ngrep`.
+- Pour du debogage réseau plus sérieux : [`wireshark`](https://wireshark.org/), `tshark` ou `ngrep`.
 
 - Sachez utiliser `strace` et `ltrace`.
 Ces commandes peuvent être utiles si un programme fonctionne mal ou plante et que vous n'en connaissez pas la raison, ou si vous voulez vous faire une idée des performances.
@@ -566,7 +566,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `rsync` : synchronise des fichiers et des dossiers via SSH ou localement.
 
-- `wireshark` et `tshark`: capture de paquets et dépannage réseau.
+- [`wireshark`](https://wireshark.org/) et `tshark`: capture de paquets et dépannage réseau.
 
 - `ngrep` : grep pour les couches réseaux.
 
