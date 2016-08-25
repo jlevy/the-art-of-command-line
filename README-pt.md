@@ -228,7 +228,7 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - Debugar um sistema java é uma outra historia, mas um simples truque nas máquinas virtuais Oracle ou algum outro tipo de JVM é que você pode executar `kill -3 <pid>` e um completo rastreamento da pilha(stack trace) e resumo do heap (incluindo detalhes geracionais do garbage collector, os quais podem ser altamente informativos) serão vazados para stderr/logs.
 
-- Use `mtr` como uma melhor alternativa ao traceroute, para identificar problemas na rede.
+- Use [`mtr`](http://www.bitwizard.nl/mtr/) como uma melhor alternativa ao traceroute, para identificar problemas na rede.
 
 - Para verificar o porque de um disco estar cheio, `ncdu` economiza bastante tempo em comparação aos comandos usuais como `du -sh *`.
 
@@ -386,7 +386,7 @@ Alguns exemplos de como reunir os comandos.
 
 - `strace`: Debug para chamadas de sistema.
 
-- `mtr`: melhor traceroute para debugar a rede.
+- [`mtr`](http://www.bitwizard.nl/mtr/): melhor traceroute para debugar a rede.
 
 - `cssh`: Visualização concorrente da shell.
 

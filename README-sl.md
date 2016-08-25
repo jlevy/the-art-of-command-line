@@ -297,7 +297,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Sistemsko razhroščevanje Java je drugačen tip, vendar enostaven trik na JVM-jih Oracle-a in nekaterih ostalih je, da lahko poženete `kill -3 <pid>` in sledite celotnemu stack-u in povzetku kopic (vključno s podrobnostmi zbirke splošnih smeti, ki so lahko zelo informativne), ki bodo oddane v stderr/logs. JDK-jevi `jps`, `jstat`, `jstack`, `jmap` so uporabni. [SJK Tools](https://github.com/aragozin/jvm-tools) so bolj napredni.
 
-- Uporabite `mtr` kot boljši usmerjevalnik sledenja za identifikacijo težav omrežja.
+- Uporabite [`mtr`](http://www.bitwizard.nl/mtr/) kot boljši usmerjevalnik sledenja za identifikacijo težav omrežja.
 
 - Za iskanje, zakaj je disk poln, vam `ncdu` prihrani čas preko običajnih ukazov kot je `du -sh *`.
 
@@ -467,7 +467,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `strace`: razhroščevanje sistemskega klica
 
-- `mtr`: boljše sledenje usmerjanja za razhroščevanje omrežja
+- [`mtr`](http://www.bitwizard.nl/mtr/): boljše sledenje usmerjanja za razhroščevanje omrežja
 
 - `cssh`: vizualna sočasna lupina
 

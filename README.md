@@ -299,7 +299,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs. The JDK's `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) are more advanced.
 
-- Use `mtr` as a better traceroute, to identify network issues.
+- Use [`mtr`](http://www.bitwizard.nl/mtr/) as a better traceroute, to identify network issues.
 
 - For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
 
@@ -470,7 +470,7 @@ A few examples of piecing together commands:
 
 - `strace`: system call debugging
 
-- `mtr`: better traceroute for network debugging
+- [`mtr`](http://www.bitwizard.nl/mtr/): better traceroute for network debugging
 
 - `cssh`: visual concurrent shell
 

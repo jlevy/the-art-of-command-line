@@ -267,7 +267,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la colección de basura generacional, la cual puede ser altamente informativa) serán descargados al stderr/logs. Las herramientas `jps`, `jstat`, `jstack`, `jmap` del JDK son útiles. [SJK tools](https://github.com/aragozin/jvm-tools) son más avanzadas.
 
-- Usa `mtr` como un mejor traceroute para identificar los problemas en la red.
+- Usa [`mtr`](http://www.bitwizard.nl/mtr/) como un mejor traceroute para identificar los problemas en la red.
 
 - Para examinar por qué el disco está lleno, `ncdu` ahorra tiempo en comparación con los comandos usuales como `du -sh *`.
 
@@ -435,7 +435,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `strace`: depuración de llamadas del sistema
 
-- `mtr`: mejor traceroute para la depuración de la red
+- [`mtr`](http://www.bitwizard.nl/mtr/): mejor traceroute para la depuración de la red
 
 - `cssh`: shell concurrente visual
 

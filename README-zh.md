@@ -295,7 +295,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Java 系统调试则是一件截然不同的事，一个可以用于 Oracle 的 JVM 或其他 JVM 上的调试的技巧是你可以运行 `kill -3 <pid>` 同时一个完整的栈轨迹和堆概述（包括 GC 的细节）会被保存到标准输出/日志文件。JDK 中的 `jps`，`jstat`，`jstack`，`jmap` 很有用。[SJK tools](https://github.com/aragozin/jvm-tools) 更高级.
 
-- 使用 `mtr` 去跟踪路由，用于确定网络问题。
+- 使用 [`mtr`](http://www.bitwizard.nl/mtr/) 去跟踪路由，用于确定网络问题。
 
 - 用 `ncdu` 来查看磁盘使用情况，它比常用的命令，如 `du -sh *`，更节省时间。
 
@@ -466,7 +466,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`：系统调用调试
 
-- `mtr`：更好的网络调试跟踪工具
+- [`mtr`](http://www.bitwizard.nl/mtr/)：更好的网络调试跟踪工具
 
 - `cssh`：可视化的并发 shell
 

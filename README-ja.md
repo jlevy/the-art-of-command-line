@@ -263,7 +263,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Javaのシステムのデバッグはまた違う困ったところがあるが、Oracleあるいは他のJVMにも共通しているシンプルなトリックは、`kill -3 <pid>`でフルスタックトレースとヒープの概要が標準出力あるいはログにダンプされる(世代別GCの詳細も参考程度だが含まれている)。JDKの `jps`、 `jstat`、 `jstack`、 `jmap` も便利で、[SJK tools](https://github.com/aragozin/jvm-tools)はより高度なツールである。
 
-- 改良版tracerouteとして`mtr`を使ってネットワークの問題を調査しよう。
+- 改良版tracerouteとして[`mtr`](http://www.bitwizard.nl/mtr/)を使ってネットワークの問題を調査しよう。
 
 - ディスクがいっぱいになっている理由を調べるには、`ncdu`を使うと`du -sh *`より時間が節約できる。
 
@@ -434,7 +434,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`: システムコールのデバッグ
 
-- `mtr`: ネットワークデバッグのためのより高機能なtraceroute
+- [`mtr`](http://www.bitwizard.nl/mtr/): ネットワークデバッグのためのより高機能なtraceroute
 
 - `cssh`: ビジュアルな並列シェル
 

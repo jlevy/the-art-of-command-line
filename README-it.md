@@ -270,7 +270,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Il system debugging con Java è tutta un'altra cosa. Uno dei trucchi più semplici sulla JVM Oracle (ed anche altre) è che all'esecuzione di `kill -3 <pid>` verrà messo in log un trace full stack (inclusi molti dettagli sulla garbage collection). Anche `jps`, `jstat`, `jstack` e `jmap` del JDK sono molto utili. Ci sono poi i vari [SJK tools](https://github.com/aragozin/jvm-tools), più avanzati.
 
-- Usa `mtr` per rilevare problemi di rete. Molto meglio di traceroute.
+- Usa [`mtr`](http://www.bitwizard.nl/mtr/) per rilevare problemi di rete. Molto meglio di traceroute.
 
 - Per capire perché un disco viene visto pieno, `ncdu` ti evita perdite di tempo rispetto al più comune `du -sh *`.
 
@@ -443,7 +443,7 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `strace`: debug delle chiamate di sistema.
 
-- `mtr`: un traceroute migliore per il debug di rete.
+- [`mtr`](http://www.bitwizard.nl/mtr/): un traceroute migliore per il debug di rete.
 
 - `cssh`: shell visuale concorrente.
 

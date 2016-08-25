@@ -380,7 +380,7 @@ En particulier, ayez à l'esprit que la valeur du « cache » est la mémoire ut
 - Le système de debogage de Java est une autre paire de manche, cependant un truc simple sur la JVM d'Oracle et quelques autres JVMs consiste à exécuter `kill -3 <pid>` pour obtenir une trace complète des appels et une empreinte de la mémoire (y compris des détails sur le ramasse-miettes qui peuvent être hautement instructifs) dans stderr ou des fichiers journaux.
 Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil SJK](https://github.com/aragozin/jvm-tools) est plus avancé.
 
-- Utilisez `mtr` comme un `traceroute` amélioré pour identifier les problèmes de réseau.
+- Utilisez [`mtr`](http://www.bitwizard.nl/mtr/) comme un `traceroute` amélioré pour identifier les problèmes de réseau.
 
 - Pour déterminer les raisons pour lesquelles un disque est plein, `ncdu` permet de gagner du temps par rapport aux commandes habituelles telles que `du -sh *`.
 
@@ -560,7 +560,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `strace`: trace les appels système.
 
-- `mtr`: un traceroute amélioré pour débugguer un réseau.
+- [`mtr`](http://www.bitwizard.nl/mtr/): un traceroute amélioré pour débugguer un réseau.
 
 - `cssh` : visual concurrent shell
 

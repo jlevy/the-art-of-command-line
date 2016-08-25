@@ -259,7 +259,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Java 系統偵錯則是一件截然不同的事，一個可以用於 Oracle 的 JVM 或其他 JVM 上的偵錯的技巧是你可以運行`kill -3 <pid>` 同時一個完整的棧軌跡和堆概述（包括 GC 的細節）會被儲存到標準輸出/日誌檔案。 JDK 中的`jps`，`jstat`，`jstack`，`jmap` 很有用。 [SJK tools](https://github.com/aragozin/jvm-tools) 更高階.
 
-- 使用`mtr` ​​去跟蹤路由，用於確定網路問題。
+- 使用[`mtr`](http://www.bitwizard.nl/mtr/) ​​去跟蹤路由，用於確定網路問題。
 
 - 用`ncdu` 來檢視磁碟使用情況，它比常用的命令，如`du -sh *`，更節省時間。
 
@@ -422,7 +422,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`：系統呼叫偵錯
 
-- `mtr`：更好的網路偵錯跟蹤工具
+- [`mtr`](http://www.bitwizard.nl/mtr/)：更好的網路偵錯跟蹤工具
 
 - `cssh`：視覺化的並發 shell
 

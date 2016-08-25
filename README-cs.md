@@ -262,7 +262,7 @@ Příklady:
 
 - Ladění Javy je odlišný šálek čaje, ale jednoduchý trik na Javu od Oraclu a některé jiné JVM je, že stále můžete použít `kill -3 <pid>` a výpis zásobníku a haldy (včetně obecnějších detailů z **garbage collectoru**, které mohou být nesmírně informativní) bude zapsán do stderr/logs. Nástroje JDK jako `jps`, `jstat`, `jstack` a `jmap` jsou také užitečné, avšak [SJK tools](https://github.com/aragozin/jvm-tools)  jsou více pokročilé.
 
-- Použijte `mtr` jako lepší `traceroute` pro identifikování potíží se sítí.
+- Použijte [`mtr`](http://www.bitwizard.nl/mtr/) jako lepší `traceroute` pro identifikování potíží se sítí.
 
 - Při zjištování proč je disk plný, `ncdu` šetří čas oproti obvyklým příkazům jako `du /sh *`.
 
@@ -428,7 +428,7 @@ Pár příkladů na spojování příkazů:
 
 - `strace`: ladění systému
 
-- `mtr`: vylepšení traceroute pro síťové ladění
+- [`mtr`](http://www.bitwizard.nl/mtr/): vylepšení traceroute pro síťové ladění
 
 - `cssh`: vizuální souběžný shell
 

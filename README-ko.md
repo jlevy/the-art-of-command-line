@@ -237,7 +237,7 @@
 
 - Java 시스템의 디버깅은 조금 다른상황입니다. 하지만 Oracle과 그 외의 회사에서 만든 다른 JVM들에서는 `kill -3 <pid>`를 실행하면 전체 stack trace정보와 heap의 정보(시기별로 가비지 콜렉터의 세부적인 내용같은 매우 유용한 정보)를 요약하여 stderr나 로그로 출력해주므로 간단하게 정보를 얻어올 수 있습니다. JDK의 `jps`, `jstat`, `jstack`, `jmap` 명령은 유용합니다. [SJK tools](https://github.com/aragozin/jvm-tools)은 더 고급 정보를 다룰 수 있습니다.
 
-- 네트워크 이슈들을 알아보기 위해서는 traceroute를 사용할수도 있지만 이보다 더 좋은 `mtr`를 사용하세요.
+- 네트워크 이슈들을 알아보기 위해서는 traceroute를 사용할수도 있지만 이보다 더 좋은 [`mtr`](http://www.bitwizard.nl/mtr/)를 사용하세요.
 
 - 디스크가 왜 가득찼는지 알아보기 위해서 `ncdu`를 사용해보세요.  일반적으로 사용하는 `du -sh *`와 같은 커멘드를 사용하는 것보다는 시간을 줄일 수 있습니다.
 
@@ -394,7 +394,7 @@
 
 - `strace`: 시스템 콜을 디버깅할때 사용합니다
 
-- `mtr`: 네트워크 디버깅시에 traceroute보다 더 낫습니다
+- [`mtr`](http://www.bitwizard.nl/mtr/): 네트워크 디버깅시에 traceroute보다 더 낫습니다
 
 - `cssh`: 쉘을 동시에 여러개 사용할때 사용합니다
 
