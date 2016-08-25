@@ -402,7 +402,7 @@ Remarquez l'option de profilage (`-c`) et la possibilité de les attacher à un 
 - Utilisez `/proc`. C'est parfois incroyablement utile pour résoudre des problèmes en live.
 Exemples&nbsp;: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd`, `/proc/xxx/smaps` (où `xxx` est l'identifiant du processus ou pid).
 
-- Pour comprendre pourquoi quelque chose a mal tourné antérieurement, `sar` peut-être très utile.
+- Pour comprendre pourquoi quelque chose a mal tourné antérieurement, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) peut-être très utile.
 Elle fournit un historique concernant l'usage du CPU, de la mémoire, du réseau, etc.
 
 - Pour une analyse plus approfondie du système et de ses performances, regardez `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux) et [`sysdig`](https://github.com/draios/sysdig).
@@ -592,7 +592,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `id` : affiche les informations sur un utilisateur et ses groupes.
 
-- `sar` : statistiques sur l'activité du système
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/) : statistiques sur l'activité du système
 
 - [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs) : utilisation du réseau par un socket ou un processus.
 

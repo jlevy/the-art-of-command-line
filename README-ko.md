@@ -255,7 +255,7 @@
 
 - `/proc`를 사용하세요. 이것은 현재 발생하고 있는 문제를 디버깅할때 종종 놀랍도록 큰 도움이 될것입니다. 예시:`/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (`xxx`는 프로세스 id나 pid입니다).
 
-- 과거에 왜 무엇인가가 잘못되었는지를 디버깅할때에는 `sar`가 매우 유용할 것입니다. 이 커맨드는 CPU, memory, network 등의 통계 내역을 보여줍니다.
+- 과거에 왜 무엇인가가 잘못되었는지를 디버깅할때에는 [`sar`](http://sebastien.godard.pagesperso-orange.fr/)가 매우 유용할 것입니다. 이 커맨드는 CPU, memory, network 등의 통계 내역을 보여줍니다.
 
 - 시스템의 보다 깊은곳을 보거나 퍼포먼스를 분석하기 위해서는, `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)),나 [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), 그리고 [`sysdig`](https://github.com/draios/sysdig)를 사용해보세요.
 
@@ -426,7 +426,7 @@
 
 - `id`: 현재 유저나 그룹에 대한 식별 정보를 보여줍니다
 
-- `sar`: 시스템 상태에 대한 정보를 보여줍니다
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): 시스템 상태에 대한 정보를 보여줍니다
 
 - [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): 소켓 또는 프로세스를 이용하여 네트워크를 정보를 보여줍니다
 

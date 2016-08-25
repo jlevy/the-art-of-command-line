@@ -246,7 +246,7 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - Utilize `/proc`. Este é incrivelmente útil em algumas vezes quando se deseja debugar problemas ao vivo. Exemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
-- Quando estiver debugando o porque de algo ter dado errado no passado, `sar` pode ser de muita utilidade. Ele exibe as estatísticas históricas da CPU, memória, rede e etc.
+- Quando estiver debugando o porque de algo ter dado errado no passado, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) pode ser de muita utilidade. Ele exibe as estatísticas históricas da CPU, memória, rede e etc.
 
 - Para análises de performance mais profundas do sistema, dê uma olhada em `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), e [`sysdig`](https://github.com/draios/sysdig).
 
@@ -414,7 +414,7 @@ Alguns exemplos de como reunir os comandos.
 
 - `id`: Informações sobre a identidade do user/group.
 
-- `sar`: histórico dos estados do sistema.
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): histórico dos estados do sistema.
 
 - [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs): Utilização da rede por sockets ou processos.
 

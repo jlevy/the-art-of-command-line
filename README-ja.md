@@ -281,7 +281,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `/proc`以下のファイルを使おう。今起こっている問題をデバッグするのには素晴らしく便利だ。例えば、`/proc/cpuinfo`、`/proc/meminfo`、`/proc/cmdline`、`/proc/xxx/cwd`、`/proc/xxx/ece`、`/proc/xxx/fd/`、`/proc/xxx/smaps` (ここで、`xxx`はプロセスIDまたはPIDを意味する)。
 
-- 過去に何か問題が起きたことの原因を探るなら、`sar`がとても便利。CPUやメモリ、ネットワークなどの過去の統計情報を見られる。
+- 過去に何か問題が起きたことの原因を探るなら、[`sar`](http://sebastien.godard.pagesperso-orange.fr/)がとても便利。CPUやメモリ、ネットワークなどの過去の統計情報を見られる。
 
 - さらに深いシステムとパフォーマンスの分析には、`stap` ([SystemTap](https://sourceware.org/systemtap/wiki))、[`perf`](https://en.wikipedia.org/wiki/Perf_(Linux))、
 [`sysdig`](https://github.com/draios/sysdig)。
@@ -466,7 +466,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `id`: ユーザやグループの情報
 
-- `sar`: システム統計情報の履歴
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): システム統計情報の履歴
 
 - [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) または [`nethogs`](https://github.com/raboof/nethogs): ソケットあるいはプロセスごとのネットワーク使用量
 

@@ -312,7 +312,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Используйте `/proc`. Иногда он невероятно полезен для отладки запущенных программ. Примеры: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (где `xxx` это pid).
 
-- Когда отлаживаете что-то, что сломалось в прошлом, используйте `sar` – бывает очень полезно. Показывает историю CPU, памяти, сети и т.д.
+- Когда отлаживаете что-то, что сломалось в прошлом, используйте [`sar`](http://sebastien.godard.pagesperso-orange.fr/) – бывает очень полезно. Показывает историю CPU, памяти, сети и т.д.
 
 - Для анализа более сложных систем и производительности посмотрите на `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), и [`sysdig`](https://github.com/draios/sysdig).
 
@@ -497,7 +497,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `id`: информация о пользователе/группе
 
-- `sar`: история системной статистики
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): история системной статистики
 
 - [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) или [`nethogs`](https://github.com/raboof/nethogs): использование сети конкретным сокетом или процессом
 

@@ -280,7 +280,7 @@ Příklady:
 
 - Používejte `/proc`. Je úžasně nápomocný v okamžicích, kdy ladíte živé problémy. Příklady: /proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (kde `xxx` je id nebo pid procesu.).
 
-- Když zjišťujete proč se něco v minulosti pokazilo, `sar` může být nedocenitelný. Ukazuje historické statistiky CPU, paměti, sítě, atd.
+- Když zjišťujete proč se něco v minulosti pokazilo, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) může být nedocenitelný. Ukazuje historické statistiky CPU, paměti, sítě, atd.
 
 - Pro hlubší systémovou a výkonostní analýzu se podívejte na `stap`([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), a [`sysdig`](https://github.com/draios/sysdig).
 
@@ -460,7 +460,7 @@ Pár příkladů na spojování příkazů:
 
 - `id`: informace o identitě uživatele/skupiny
 
-- `sar`: historické systémové statistiky
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): historické systémové statistiky
 
 - [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) nebo [`nethogs`](https://github.com/raboof/nethogs): využití sítě pro proces nebo socket
 

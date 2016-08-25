@@ -288,7 +288,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Usa `/proc`. Fantastico quando devi fare un live debug in caso di problemi. Esempi: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (dove `xxx` è il nome del processo o il suo pid).
 
-- Quando vuoi debuggare qualcosa che è andato storto in passato, `sar` può essere molto utile. Permette di controllare uno storico delle statistiche di CPU, memoria, rete e così via.
+- Quando vuoi debuggare qualcosa che è andato storto in passato, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) può essere molto utile. Permette di controllare uno storico delle statistiche di CPU, memoria, rete e così via.
 
 - Usa `stap` per un'analisi più approfondita del sistema in termini di performance ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), e [`sysdig`](https://github.com/draios/sysdig).
 
@@ -475,7 +475,7 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `id`: user/group identity info.
 
-- `sar`: cronologia di alcune statistiche del sistema.
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): cronologia di alcune statistiche del sistema.
 
 - [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) o [`nethogs`](https://github.com/raboof/nethogs): uso della rete da parte di socket e processi.
 

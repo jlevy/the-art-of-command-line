@@ -277,7 +277,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 學會使用 `/proc`。它在偵錯正在出現的問題的時候有時會效果驚人。比如：`/proc/cpuinfo`，`/proc/meminfo`，`/proc/cmdline`，`/proc/xxx/cwd`，`/proc/xxx/exe`，`/proc/xxx/fd/` ，`/proc/xxx/smaps`（這裡的`xxx` 表示程序的 id 或 pid）。
 
-- 當偵錯一些之前出現的問題的時候，`sar` 非常有用。它展示了 cpu、記憶體以及網路等的歷史資料。
+- 當偵錯一些之前出現的問題的時候，[`sar`](http://sebastien.godard.pagesperso-orange.fr/) 非常有用。它展示了 cpu、記憶體以及網路等的歷史資料。
 
 - 關於更深層次的系統分析以及效能分析，看看`stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](http://en.wikipedia.org /wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
@@ -454,7 +454,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `id`：使用者/組 ID 資訊
 
-- `sar`：系統歷史資料
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/)：系統歷史資料
 
 - [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或[`nethogs`](https://github.com/raboof/nethogs)：套接字及程序的網路利用
 

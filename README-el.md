@@ -311,7 +311,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Χρησιμοποιήστε τον κατάλογο `/proc`. Είναι εκπληκτικά χρήσιμος ορισμένες φορές, όταν αποσφαλματώνετε ζωντανά προβλήματα. Παραδείγματα: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (όπου `xxx` είναι το id της διεργασίας ή pid).
 
-- Όταν αποσφαλματώνετε κάτι που ήταν λάθος στο παρελθόν, η `sar` μπορεί να είναι πολύ χρήσιμη. Δείχνει ιστορικά στατιστικά για επεξεργαστή, μνήμη, δίκτυο κλπ.
+- Όταν αποσφαλματώνετε κάτι που ήταν λάθος στο παρελθόν, η [`sar`](http://sebastien.godard.pagesperso-orange.fr/) μπορεί να είναι πολύ χρήσιμη. Δείχνει ιστορικά στατιστικά για επεξεργαστή, μνήμη, δίκτυο κλπ.
 
 - Για πιο εις βάθος ανάλυση συστήματος και απόδοσης, δείτε τις `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux))και [`sysdig`](https://github.com/draios/sysdig).
 
@@ -471,7 +471,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `id`:  πληροφορίες ταυτότητας χρήστη/ομάδας
 
-- `sar`: ιστορικά στατιστικά συστήματος
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): ιστορικά στατιστικά συστήματος
 
 - [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ή [`nethogs`](https://github.com/raboof/nethogs): χρήση δικτύου ανά δικτυακή σύνδεση ή διεργασία
 
