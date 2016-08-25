@@ -245,7 +245,7 @@
 
 - `ab`라는 툴(Apache에 딸려있는)은 신속하고 간단하게(quick-and-dirty) 웹서버의 성능을 체크하는데 유용합니다. 보다 복잡한 부하 테스트를 할때는 `siege`를 사용해보세요.
 
-- 보다 심각한 경우의 네트워크 디버깅을 위해서는 [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 또는 `ngrep`를 사용하세요.
+- 보다 심각한 경우의 네트워크 디버깅을 위해서는 [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 또는 [`ngrep`](http://ngrep.sourceforge.net/)를 사용하세요.
 
 - `strace` 와 `ltrace`에 대해서 알아보세요. 이 커맨드들은 만일 어떤 프로그램에서 failing, hanging 혹은 crashing이 일어나거나 그 외에 여러분이 무슨이유인지 알지 못하는 상황이나 성능에 대한 대략적인 내용을 얻고자 할때 유용할 것입니다. 특히 프로파일링을 위한 옵션(`-c`)과 현재 실행중인 프로세스에 붙이기 위한 옵션(`-p`)을 기억하세요.
 
@@ -402,7 +402,7 @@
 
 - [`wireshark`](https://wireshark.org/) and [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): 패킷정보를 가져오며 네트워킹을 디버깅하는데 사용합니다
 
-- `ngrep`: 네트워크 환경에서 grep과 같은 역할을 합니다
+- [`ngrep`](http://ngrep.sourceforge.net/): 네트워크 환경에서 grep과 같은 역할을 합니다
 
 - `host` and `dig`: DNS 정보를 보여줍니다
 

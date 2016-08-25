@@ -303,7 +303,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `ab` 工具（捆绑于 Apache）可以简单粗暴地检查 web 服务器的性能。对于更复杂的负载测试，使用 `siege`。
 
-- [`wireshark`](https://wireshark.org/)，[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 和 `ngrep` 可用于复杂的网络调试。
+- [`wireshark`](https://wireshark.org/)，[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 和 [`ngrep`](http://ngrep.sourceforge.net/) 可用于复杂的网络调试。
 
 - 了解 `strace` 和 `ltrace`。这俩工具在你的程序运行失败、挂起甚至崩溃，而你却不知道为什么或你想对性能有个总体的认识的时候是非常有用的。注意 profile 参数（`-c`）和附加到一个运行的进程参数 （`-p`）。
 
@@ -474,7 +474,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [`wireshark`](https://wireshark.org/) 和 [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html)：抓包和网络调试工具
 
-- `ngrep`：网络层的 grep
+- [`ngrep`](http://ngrep.sourceforge.net/)：网络层的 grep
 
 - `host` 和 `dig`：DNS 查找
 

@@ -275,7 +275,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - La herramienta `ab` (viene con Apache) es útil para una verificación rápida del rendimiento de un servidor web. Para pruebas de carga más complejas prueba `siege`.
 
-- Para una depuración mas seria de redes, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), o `ngrep`.
+- Para una depuración mas seria de redes, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), o [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Conoce acerca de `strace` y `ltrace`. Estas puede ser de utilidad si un programa está fallando, suspendido, o colgado, y no sabe por qué, o si quieres tener una idea general del rendimiento. Considera la opción de elaboración de perfiles (`-c`), y la habilidad de adjuntar a un proceso en ejecución (`-p`).
 
@@ -443,7 +443,7 @@ Algunos ejemplos de comandos reunidos:
 
 - [`wireshark`](https://wireshark.org/) y [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): captura de paquetes y depuración de la red
 
-- `ngrep`: grep para la capa de la red
+- [`ngrep`](http://ngrep.sourceforge.net/): grep para la capa de la red
 
 - `host` y `dig`: consultas DNS
 

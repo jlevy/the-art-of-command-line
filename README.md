@@ -307,7 +307,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
 
-- For more serious network debugging, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), or `ngrep`.
+- For more serious network debugging, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), or [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
 
@@ -478,7 +478,7 @@ A few examples of piecing together commands:
 
 - [`wireshark`](https://wireshark.org/) and [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): packet capture and network debugging
 
-- `ngrep`: grep for the network layer
+- [`ngrep`](http://ngrep.sourceforge.net/): grep for the network layer
 
 - `host` and `dig`: DNS lookups
 

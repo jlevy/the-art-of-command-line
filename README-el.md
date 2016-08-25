@@ -301,7 +301,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Το εργαλείο `ab` (έρχεται μαζί με Apache) βοηθά στον πρόχειρο έλεγχο της απόδοσης web server. Για πιο σύνθετο έλεγχο φόρτου, δοκιμάστε `siege`.
 
-- Για πιο σοβαρή αποσφαλμάτωση δικτύου, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), ή `ngrep`.
+- Για πιο σοβαρή αποσφαλμάτωση δικτύου, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), ή [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Να γνωρίζετε για τις `strace` και `ltrace`. Αυτές μπορεί να φανούν χρήσιμες, όταν ένα πρόγραμμα αποτυγχάνει, κρεμάει ή σκάει και δε γνωρίζετε γιατί ή αν θέλετε να έχετε μία γενική ιδέα της απόδοσης. Σημειώστε την επιλογή μέτρησης (`-c`) και τη δυνατότητα να συνδέσετε σε μία διεργασία που εκτελείται (`-p`).
 
@@ -447,7 +447,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [`wireshark`](https://wireshark.org/) και [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): συλλογή πακέτων και αποσφαλμάτωση συστήματος
 
-- `ngrep`: grep για το επίπεδο δικτύου
+- [`ngrep`](http://ngrep.sourceforge.net/): grep για το επίπεδο δικτύου
 
 - `host` και `dig`: αναζητήσεις DNS
 

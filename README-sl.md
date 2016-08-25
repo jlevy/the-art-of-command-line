@@ -305,7 +305,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Orodje `ab` (prihaja z Apache-jem) je v pomoč za hitro in nečisto preverjanje uspešnosti spletnega strežnika. Za bolj kompleksno testiranje nalaganja poskusite `siege`.
 
-- Za bolj resno razhroščevanje omrežja, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ali `ngrep`.
+- Za bolj resno razhroščevanje omrežja, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ali [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Poznajte `strace` in `ltrace`. Ta sta v pomoč, če program ni uspešen, se ustavlja ali poruši in ne veste zakaj, ali če želite dobiti splošno idejo o uspešnosti. Bodite pozorni na opcijo profiliranja (`-c`) in zmožnost dodajanja k procesu, ki se poganja (`-p`).
 
@@ -475,7 +475,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - [`wireshark`](https://wireshark.org/) in [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): zajem paketov in razhroščevanje omrežja
 
-- `ngrep`: grep za nivo omrežja
+- [`ngrep`](http://ngrep.sourceforge.net/): grep za nivo omrežja
 
 - `host` in `dig`: pogled DNS
 
