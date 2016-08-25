@@ -271,7 +271,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Para examinar por qué el disco está lleno, `ncdu` ahorra tiempo en comparación con los comandos usuales como `du -sh *`.
 
-- Para encontrar cual socket o proceso está utilizando el ancho de banda, prueba `iftop` o [`nethogs`](https://github.com/raboof/nethogs).
+- Para encontrar cual socket o proceso está utilizando el ancho de banda, prueba [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) o [`nethogs`](https://github.com/raboof/nethogs).
 
 - La herramienta `ab` (viene con Apache) es útil para una verificación rápida del rendimiento de un servidor web. Para pruebas de carga más complejas prueba `siege`.
 
@@ -469,7 +469,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `sar`: estadísticas históricas del sistema
 
-- `iftop` o [`nethogs`](https://github.com/raboof/nethogs): utilización de la red por un socket o proceso
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) o [`nethogs`](https://github.com/raboof/nethogs): utilización de la red por un socket o proceso
 
 - `ss`: estadísticas de socket
 

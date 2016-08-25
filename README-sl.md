@@ -301,7 +301,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Za iskanje, zakaj je disk poln, vam `ncdu` prihrani čas preko običajnih ukazov kot je `du -sh *`.
 
-- Da najdete katera vtičnica ali proces uporablja pasovno širino, poskusite `iftop` ali [`nethogs`](https://github.com/raboof/nethogs).
+- Da najdete katera vtičnica ali proces uporablja pasovno širino, poskusite [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ali [`nethogs`](https://github.com/raboof/nethogs).
 
 - Orodje `ab` (prihaja z Apache-jem) je v pomoč za hitro in nečisto preverjanje uspešnosti spletnega strežnika. Za bolj kompleksno testiranje nalaganja poskusite `siege`.
 
@@ -501,7 +501,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `sar`: statistika zgodovine sistema
 
-- `iftop` ali [`nethogs`](https://github.com/raboof/nethogs): izkoriščenost omrežja po vtičnici ali procesu
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ali [`nethogs`](https://github.com/raboof/nethogs): izkoriščenost omrežja po vtičnici ali procesu
 
 - `ss`: statistika vtičnice
 

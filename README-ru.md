@@ -298,7 +298,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Для того, чтобы узнать, почему диск полностью забит, используйте `ncdu`, это сохраняет время по сравнению с тем же `du -sh *`.
 
-- Для того, чтобы узнать, какой сокет или процесс использует интернет, используйте `iftop` или [`nethogs`](https://github.com/raboof/nethogs).
+- Для того, чтобы узнать, какой сокет или процесс использует интернет, используйте [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) или [`nethogs`](https://github.com/raboof/nethogs).
 
 - `ab`, которая поставляется вместе с apache, полезна для быстрой и поверхностной проверки производительности веб-сервера. Для более серьезного нагрузочного тестирования используйте `siege`.
 
@@ -499,7 +499,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `sar`: история системной статистики
 
-- `iftop` или [`nethogs`](https://github.com/raboof/nethogs): использование сети конкретным сокетом или процессом
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) или [`nethogs`](https://github.com/raboof/nethogs): использование сети конкретным сокетом или процессом
 
 - `ss`: статистика сокетов
 

@@ -263,7 +263,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 用`ncdu` 來檢視磁碟使用情況，它比常用的命令，如`du -sh *`，更節省時間。
 
-- 查詢正在使用頻寬的 socket 連線或程序，使用`iftop` 或[`nethogs`](https://github.com/raboof/nethogs)。
+- 查詢正在使用頻寬的 socket 連線或程序，使用[`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或[`nethogs`](https://github.com/raboof/nethogs)。
 
 - `ab` 工具（內建於Apache）可以簡單粗暴地檢查 web 伺服器的效能。對於更複雜的負載測試，使用`siege`。
 
@@ -456,7 +456,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `sar`：系統歷史資料
 
-- `iftop` 或[`nethogs`](https://github.com/raboof/nethogs)：套接字及程序的網路利用
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或[`nethogs`](https://github.com/raboof/nethogs)：套接字及程序的網路利用
 
 - `ss`：socket 資料
 

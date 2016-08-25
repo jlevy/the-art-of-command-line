@@ -303,7 +303,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
 
-- To find which socket or process is using bandwidth, try `iftop` or [`nethogs`](https://github.com/raboof/nethogs).
+- To find which socket or process is using bandwidth, try [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs).
 
 - The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
 
@@ -504,7 +504,7 @@ A few examples of piecing together commands:
 
 - `sar`: historic system stats
 
-- `iftop` or [`nethogs`](https://github.com/raboof/nethogs): network utilization by socket or process
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): network utilization by socket or process
 
 - `ss`: socket statistics
 

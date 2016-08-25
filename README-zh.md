@@ -299,7 +299,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 用 `ncdu` 来查看磁盘使用情况，它比常用的命令，如 `du -sh *`，更节省时间。
 
-- 查找正在使用带宽的套接字连接或进程，使用 `iftop` 或 [`nethogs`](https://github.com/raboof/nethogs)。
+- 查找正在使用带宽的套接字连接或进程，使用 [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或 [`nethogs`](https://github.com/raboof/nethogs)。
 
 - `ab` 工具（捆绑于 Apache）可以简单粗暴地检查 web 服务器的性能。对于更复杂的负载测试，使用 `siege`。
 
@@ -500,7 +500,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `sar`：系统历史数据
 
-- `iftop` 或 [`nethogs`](https://github.com/raboof/nethogs)：套接字及进程的网络利用
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或 [`nethogs`](https://github.com/raboof/nethogs)：套接字及进程的网络利用
 
 - `ss`：套接字数据
 

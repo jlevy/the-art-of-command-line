@@ -297,7 +297,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Για να δείτε γιατί ένας δίσκος είναι γεμάτος, η `ncdu` εξοικονομεί χρόνο σε σύγκριση με τις συνήθεις εντολές όπως `du -sh *`.
 
-- Για να βρείτε ποια δικτυακή σύνδεση ή διεργασία χρησιμοποιεί εύρος ζώνης, δοκιμάστε `iftop` ή [`nethogs`](https://github.com/raboof/nethogs).
+- Για να βρείτε ποια δικτυακή σύνδεση ή διεργασία χρησιμοποιεί εύρος ζώνης, δοκιμάστε [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ή [`nethogs`](https://github.com/raboof/nethogs).
 
 - Το εργαλείο `ab` (έρχεται μαζί με Apache) βοηθά στον πρόχειρο έλεγχο της απόδοσης web server. Για πιο σύνθετο έλεγχο φόρτου, δοκιμάστε `siege`.
 
@@ -473,7 +473,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `sar`: ιστορικά στατιστικά συστήματος
 
-- `iftop` ή [`nethogs`](https://github.com/raboof/nethogs): χρήση δικτύου ανά δικτυακή σύνδεση ή διεργασία
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ή [`nethogs`](https://github.com/raboof/nethogs): χρήση δικτύου ανά δικτυακή σύνδεση ή διεργασία
 
 - `ss`: στατιστικά ανά δικτυακή σύνδεση
 

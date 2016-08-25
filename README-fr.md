@@ -384,7 +384,7 @@ Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil
 
 - Pour déterminer les raisons pour lesquelles un disque est plein, `ncdu` permet de gagner du temps par rapport aux commandes habituelles telles que `du -sh *`.
 
-- Pour trouver quel socket ou processus utilise la bande passante, essayez `iftop` ou [`nethogs`](https://github.com/raboof/nethogs).
+- Pour trouver quel socket ou processus utilise la bande passante, essayez [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs).
 
 - L'outil `ab` (fourni avec Apache) est utile pour une vérification rapide et grossière des performances d'un serveur web.
 Pour des tests de charge plus complexes, essayez `siege`.
@@ -594,7 +594,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `sar` : statistiques sur l'activité du système
 
-- `iftop` ou [`nethogs`](https://github.com/raboof/nethogs) : utilisation du réseau par un socket ou un processus.
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs) : utilisation du réseau par un socket ou un processus.
 
 - `ss` : statistiques relatives aux sockets.
 

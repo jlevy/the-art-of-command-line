@@ -232,7 +232,7 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - Para verificar o porque de um disco estar cheio, `ncdu` economiza bastante tempo em comparação aos comandos usuais como `du -sh *`.
 
-- Para procurar qual socket ou processo está utilizando a banda de rede, tente `iftop` ou [`nethogs`](https://github.com/raboof/nethogs).
+- Para procurar qual socket ou processo está utilizando a banda de rede, tente [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs).
 
 - A ferramenta `ab` (que vem com o Apache) é muito útil para verificação rápida da performance do servidor web. Para mais complexos testes de carga, tente `siege`.
 
@@ -416,7 +416,7 @@ Alguns exemplos de como reunir os comandos.
 
 - `sar`: histórico dos estados do sistema.
 
-- `iftop` ou [`nethogs`](https://github.com/raboof/nethogs): Utilização da rede por sockets ou processos.
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs): Utilização da rede por sockets ou processos.
 
 - `ss`: Estatísticas dos sockets.
 
