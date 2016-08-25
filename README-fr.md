@@ -382,7 +382,7 @@ Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil
 
 - Utilisez [`mtr`](http://www.bitwizard.nl/mtr/) comme un `traceroute` amélioré pour identifier les problèmes de réseau.
 
-- Pour déterminer les raisons pour lesquelles un disque est plein, `ncdu` permet de gagner du temps par rapport aux commandes habituelles telles que `du -sh *`.
+- Pour déterminer les raisons pour lesquelles un disque est plein, [`ncdu`](https://dev.yorhel.nl/ncdu) permet de gagner du temps par rapport aux commandes habituelles telles que `du -sh *`.
 
 - Pour trouver quel socket ou processus utilise la bande passante, essayez [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs).
 

@@ -261,7 +261,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 使用[`mtr`](http://www.bitwizard.nl/mtr/) ​​去跟蹤路由，用於確定網路問題。
 
-- 用`ncdu` 來檢視磁碟使用情況，它比常用的命令，如`du -sh *`，更節省時間。
+- 用[`ncdu`](https://dev.yorhel.nl/ncdu) 來檢視磁碟使用情況，它比常用的命令，如`du -sh *`，更節省時間。
 
 - 查詢正在使用頻寬的 socket 連線或程序，使用[`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或[`nethogs`](https://github.com/raboof/nethogs)。
 

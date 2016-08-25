@@ -264,7 +264,7 @@ Příklady:
 
 - Použijte [`mtr`](http://www.bitwizard.nl/mtr/) jako lepší `traceroute` pro identifikování potíží se sítí.
 
-- Při zjištování proč je disk plný, `ncdu` šetří čas oproti obvyklým příkazům jako `du /sh *`.
+- Při zjištování proč je disk plný, [`ncdu`](https://dev.yorhel.nl/ncdu) šetří čas oproti obvyklým příkazům jako `du /sh *`.
 
 - Ke zjištění, který socket nebo proces zahlcuje pásmo, zkuste [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) nebo [`nethogs`](https://github.com/raboof/nethogs).
 

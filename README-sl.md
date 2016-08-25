@@ -299,7 +299,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Uporabite [`mtr`](http://www.bitwizard.nl/mtr/) kot boljši usmerjevalnik sledenja za identifikacijo težav omrežja.
 
-- Za iskanje, zakaj je disk poln, vam `ncdu` prihrani čas preko običajnih ukazov kot je `du -sh *`.
+- Za iskanje, zakaj je disk poln, vam [`ncdu`](https://dev.yorhel.nl/ncdu) prihrani čas preko običajnih ukazov kot je `du -sh *`.
 
 - Da najdete katera vtičnica ali proces uporablja pasovno širino, poskusite [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ali [`nethogs`](https://github.com/raboof/nethogs).
 

@@ -272,7 +272,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Usa [`mtr`](http://www.bitwizard.nl/mtr/) per rilevare problemi di rete. Molto meglio di traceroute.
 
-- Per capire perché un disco viene visto pieno, `ncdu` ti evita perdite di tempo rispetto al più comune `du -sh *`.
+- Per capire perché un disco viene visto pieno, [`ncdu`](https://dev.yorhel.nl/ncdu) ti evita perdite di tempo rispetto al più comune `du -sh *`.
 
 - Per capire quale socket o processo sta usando troppa banda prova [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) o [`nethogs`](https://github.com/raboof/nethogs).
 

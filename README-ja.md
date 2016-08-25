@@ -265,7 +265,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 改良版tracerouteとして[`mtr`](http://www.bitwizard.nl/mtr/)を使ってネットワークの問題を調査しよう。
 
-- ディスクがいっぱいになっている理由を調べるには、`ncdu`を使うと`du -sh *`より時間が節約できる。
+- ディスクがいっぱいになっている理由を調べるには、[`ncdu`](https://dev.yorhel.nl/ncdu)を使うと`du -sh *`より時間が節約できる。
 
 - 帯域を使っているのがどのソケットやプロセスなのかを見つけるには、[`iftop`](http://www.ex-parrot.com/~pdw/iftop/)あるいは[`nethogs`](https://github.com/raboof/nethogs)を試そう。
 

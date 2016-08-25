@@ -295,7 +295,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Χρησιμοποιήστε την [`mtr`](http://www.bitwizard.nl/mtr/) ως μια βελτίωση της traceroute για να ανιχνεύετε ζητήματα του δικτύου.
 
-- Για να δείτε γιατί ένας δίσκος είναι γεμάτος, η `ncdu` εξοικονομεί χρόνο σε σύγκριση με τις συνήθεις εντολές όπως `du -sh *`.
+- Για να δείτε γιατί ένας δίσκος είναι γεμάτος, η [`ncdu`](https://dev.yorhel.nl/ncdu) εξοικονομεί χρόνο σε σύγκριση με τις συνήθεις εντολές όπως `du -sh *`.
 
 - Για να βρείτε ποια δικτυακή σύνδεση ή διεργασία χρησιμοποιεί εύρος ζώνης, δοκιμάστε [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ή [`nethogs`](https://github.com/raboof/nethogs).
 

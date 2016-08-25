@@ -230,7 +230,7 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - Use [`mtr`](http://www.bitwizard.nl/mtr/) como uma melhor alternativa ao traceroute, para identificar problemas na rede.
 
-- Para verificar o porque de um disco estar cheio, `ncdu` economiza bastante tempo em comparação aos comandos usuais como `du -sh *`.
+- Para verificar o porque de um disco estar cheio, [`ncdu`](https://dev.yorhel.nl/ncdu) economiza bastante tempo em comparação aos comandos usuais como `du -sh *`.
 
 - Para procurar qual socket ou processo está utilizando a banda de rede, tente [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs).
 

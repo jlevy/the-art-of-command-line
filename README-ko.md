@@ -239,7 +239,7 @@
 
 - 네트워크 이슈들을 알아보기 위해서는 traceroute를 사용할수도 있지만 이보다 더 좋은 [`mtr`](http://www.bitwizard.nl/mtr/)를 사용하세요.
 
-- 디스크가 왜 가득찼는지 알아보기 위해서 `ncdu`를 사용해보세요.  일반적으로 사용하는 `du -sh *`와 같은 커멘드를 사용하는 것보다는 시간을 줄일 수 있습니다.
+- 디스크가 왜 가득찼는지 알아보기 위해서 [`ncdu`](https://dev.yorhel.nl/ncdu)를 사용해보세요.  일반적으로 사용하는 `du -sh *`와 같은 커멘드를 사용하는 것보다는 시간을 줄일 수 있습니다.
 
 - 어떠한 소켓이나 프로세스가 사용하는 대역폭(bandwidth)를 찾아보려면 [`iftop`](http://www.ex-parrot.com/~pdw/iftop/)나 [`nethogs`](https://github.com/raboof/nethogs)를 사용하세요.
 
