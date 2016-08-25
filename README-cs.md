@@ -270,7 +270,7 @@ Příklady:
 
 - Nástroj `ab` (přibalený k Apachi) je užitečný pro rychlé a hrubé zkontrolování výkonosti webového serveru. Komplexnější měření umožňuje `siege`.
 
-- Pro důslednější síťové ladění, [`wireshark`](https://wireshark.org/), `tshark` nebo `ngrep` jsou to pravé.
+- Pro důslednější síťové ladění, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) nebo `ngrep` jsou to pravé.
 
 - Nezapomínejte na `strace` a `ltrace`. Mohou být nápomocné zejména pokud některý program selhává, zasekává se nebo padá a nevíte proč nebo pokud chcete mít obecnou představu o výkonu. Myslete na přepínač profilingu (`-c`) a schopnost připnout se k běžícímu procesu (`-p`).
 
@@ -434,7 +434,7 @@ Pár příkladů na spojování příkazů:
 
 - `rsync`: synchronizuje soubory a adresáře přes SSH nebo v lokálním systému souborů
 
-- [`wireshark`](https://wireshark.org/) a `tshark`: zachytávání packetů a síťové ladění
+- [`wireshark`](https://wireshark.org/) a [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): zachytávání packetů a síťové ladění
 
 - `ngrep`: grep pro síťovou vrstvu
 

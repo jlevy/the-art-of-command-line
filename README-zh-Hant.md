@@ -267,7 +267,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `ab` 工具（內建於Apache）可以簡單粗暴地檢查 web 伺服器的效能。對於更複雜的負載測試，使用`siege`。
 
-- [`wireshark`](https://wireshark.org/)，`tshark` 和`ngrep` 可用於復雜的網路偵錯。
+- [`wireshark`](https://wireshark.org/)，[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 和`ngrep` 可用於復雜的網路偵錯。
 
 - 瞭解 `strace` 和 `ltrace`。這倆工具在你的程式運行失敗、掛起甚至崩潰，而你卻不知道為什麼或你想對效能有個總體的認識的時候是非常有用的。注意 profile 參數（`-c`）和附加到一個運行的程序參數（`-p`）。
 
@@ -428,7 +428,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `rsync`：通過ssh 或本地檔案系統同步檔案和資料夾
 
-- [`wireshark`](https://wireshark.org/) 和`tshark`：抓包和網路偵錯工具
+- [`wireshark`](https://wireshark.org/) 和[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html)：抓包和網路偵錯工具
 
 - `ngrep`：網路層的 grep
 

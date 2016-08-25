@@ -278,7 +278,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `ab` (incluso in Apache) è ottimo per un test di carico veloce di un webserver. Per test di carico più avanzati, prova anche `siege`.
 
-- Per un debug di rete più avanzato, dai uno sguardo a [`wireshark`](https://wireshark.org/), `tshark` o `ngrep`.
+- Per un debug di rete più avanzato, dai uno sguardo a [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) o `ngrep`.
 
 - Impara qualcosa di più su `strace` e `ltrace`. Possono essere molto utili quando un programma crasha, o magari rimane in blocco e tu non capisci perché. Degne di nota le opzioni di profiling (`-c`), e la possibilità di agganciare un processo in esecuzione (`-p`).
 
@@ -449,7 +449,7 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `rsync`: sincronizza file e cartelle tramite SSH oppure in locale.
 
-- [`wireshark`](https://wireshark.org/) e `tshark`: packet capturing e debug di rete.
+- [`wireshark`](https://wireshark.org/) e [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): packet capturing e debug di rete.
 
 - `ngrep`: come grep... ma per il traffico di rete.
 

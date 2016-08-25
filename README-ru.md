@@ -302,7 +302,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `ab`, которая поставляется вместе с apache, полезна для быстрой и поверхностной проверки производительности веб-сервера. Для более серьезного нагрузочного тестирования используйте `siege`.
 
-- Для более серьёзной отладки сетей используйте [`wireshark`](https://wireshark.org/), `tshark` и `ngrep`.
+- Для более серьёзной отладки сетей используйте [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) и `ngrep`.
 
 - Знайте про `strace` и `ltrace`. Эти команды могут быть полезны, если программа падает или висит, и вы не знаете почему Или если вы хотите протестировать производительность программы. Не забывайте про возможность отладки (`-c`) и возможность прицепиться к процессу по pid (`-p`).
 
@@ -471,7 +471,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `rsync`: синхронизация файлов и папок через SSH
 
-- [`wireshark`](https://wireshark.org/) и `tshark`: перехват пакетов и отладка сети
+- [`wireshark`](https://wireshark.org/) и [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): перехват пакетов и отладка сети
 
 - `ngrep`: grep для слоя сети (network layer). Перехват пакетов по заданной маске.
 
