@@ -301,7 +301,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Za iskanje, zakaj je disk poln, vam `ncdu` prihrani čas preko običajnih ukazov kot je `du -sh *`.
 
-- Da najdete katera vtičnica ali proces uporablja pasovno širino, poskusite `iftop` ali `nethogs`.
+- Da najdete katera vtičnica ali proces uporablja pasovno širino, poskusite `iftop` ali [`nethogs`](https://github.com/raboof/nethogs).
 
 - Orodje `ab` (prihaja z Apache-jem) je v pomoč za hitro in nečisto preverjanje uspešnosti spletnega strežnika. Za bolj kompleksno testiranje nalaganja poskusite `siege`.
 
@@ -501,7 +501,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `sar`: statistika zgodovine sistema
 
-- `iftop` ali `nethogs`: izkoriščenost omrežja po vtičnici ali procesu
+- `iftop` ali [`nethogs`](https://github.com/raboof/nethogs): izkoriščenost omrežja po vtičnici ali procesu
 
 - `ss`: statistika vtičnice
 
@@ -562,7 +562,7 @@ Sledeče velja *samo* za Windows.
 
 - Druga opcija, da dobite izgled in občutek Unix-a na Windows-u, je [Cash](https://github.com/dthree/cash). Upoštevajte, da so v tem okolju na voljo le nekateri ukazi Unix in opcije ukazne vrstice.
 
-- Alternativna možnost, da dobite GNU razvojna orodja (kot je GCC) na Windows, je [MinGW](http://www.mingw.org) in njegov [MSYS](http://www.mingw.org/wiki/msys) paket, ki ponuja orodja, kot je bash, gawk, make in grep. MSYS nima na voljo vseh lastnosti v primerjavi s Cygwin. MinGW je posebej uporaben za izdelavo izvornih Windows prenosov orodij Unix. 
+- Alternativna možnost, da dobite GNU razvojna orodja (kot je GCC) na Windows, je [MinGW](http://www.mingw.org) in njegov [MSYS](http://www.mingw.org/wiki/msys) paket, ki ponuja orodja, kot je bash, gawk, make in grep. MSYS nima na voljo vseh lastnosti v primerjavi s Cygwin. MinGW je posebej uporaben za izdelavo izvornih Windows prenosov orodij Unix.
 
 ## Več virov
 

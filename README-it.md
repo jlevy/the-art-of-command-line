@@ -274,7 +274,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Per capire perché un disco viene visto pieno, `ncdu` ti evita perdite di tempo rispetto al più comune `du -sh *`.
 
-- Per capire quale socket o processo sta usando troppa banda prova `iftop` o `nethogs`.
+- Per capire quale socket o processo sta usando troppa banda prova `iftop` o [`nethogs`](https://github.com/raboof/nethogs).
 
 - `ab` (incluso in Apache) è ottimo per un test di carico veloce di un webserver. Per test di carico più avanzati, prova anche `siege`.
 
@@ -477,7 +477,7 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `sar`: cronologia di alcune statistiche del sistema.
 
-- `iftop` o `nethogs`: uso della rete da parte di socket e processi.
+- `iftop` o [`nethogs`](https://github.com/raboof/nethogs): uso della rete da parte di socket e processi.
 
 - `ss`: statistiche sui socket.
 

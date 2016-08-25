@@ -241,7 +241,7 @@
 
 - 디스크가 왜 가득찼는지 알아보기 위해서 `ncdu`를 사용해보세요.  일반적으로 사용하는 `du -sh *`와 같은 커멘드를 사용하는 것보다는 시간을 줄일 수 있습니다.
 
-- 어떠한 소켓이나 프로세스가 사용하는 대역폭(bandwidth)를 찾아보려면 `iftop`나 `nethogs`를 사용하세요.
+- 어떠한 소켓이나 프로세스가 사용하는 대역폭(bandwidth)를 찾아보려면 `iftop`나 [`nethogs`](https://github.com/raboof/nethogs)를 사용하세요.
 
 - `ab`라는 툴(Apache에 딸려있는)은 신속하고 간단하게(quick-and-dirty) 웹서버의 성능을 체크하는데 유용합니다. 보다 복잡한 부하 테스트를 할때는 `siege`를 사용해보세요.
 
@@ -428,7 +428,7 @@
 
 - `sar`: 시스템 상태에 대한 정보를 보여줍니다
 
-- `iftop` or `nethogs`: 소켓 또는 프로세스를 이용하여 네트워크를 정보를 보여줍니다
+- `iftop` or [`nethogs`](https://github.com/raboof/nethogs): 소켓 또는 프로세스를 이용하여 네트워크를 정보를 보여줍니다
 
 - `ss`: 소켓에 관한 통계자료들을 보여줍니다
 

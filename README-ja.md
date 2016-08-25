@@ -267,7 +267,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - ディスクがいっぱいになっている理由を調べるには、`ncdu`を使うと`du -sh *`より時間が節約できる。
 
-- 帯域を使っているのがどのソケットやプロセスなのかを見つけるには、`iftop`あるいは`nethogs`を試そう。
+- 帯域を使っているのがどのソケットやプロセスなのかを見つけるには、`iftop`あるいは[`nethogs`](https://github.com/raboof/nethogs)を試そう。
 
 - `ab`(Apacheに付属)は、Webサーバのパフォーマンスをざっくりチェックするのに便利。より複雑なテストには`siege`を試そう。
 
@@ -468,7 +468,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `sar`: システム統計情報の履歴
 
-- `iftop` または `nethogs`: ソケットあるいはプロセスごとのネットワーク使用量
+- `iftop` または [`nethogs`](https://github.com/raboof/nethogs): ソケットあるいはプロセスごとのネットワーク使用量
 
 - `ss`: ソケットの統計情報
 

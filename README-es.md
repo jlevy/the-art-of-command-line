@@ -271,7 +271,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Para examinar por qué el disco está lleno, `ncdu` ahorra tiempo en comparación con los comandos usuales como `du -sh *`.
 
-- Para encontrar cual socket o proceso está utilizando el ancho de banda, prueba `iftop` o `nethogs`.
+- Para encontrar cual socket o proceso está utilizando el ancho de banda, prueba `iftop` o [`nethogs`](https://github.com/raboof/nethogs).
 
 - La herramienta `ab` (viene con Apache) es útil para una verificación rápida del rendimiento de un servidor web. Para pruebas de carga más complejas prueba `siege`.
 
@@ -469,7 +469,7 @@ Algunos ejemplos de comandos reunidos:
 
 - `sar`: estadísticas históricas del sistema
 
-- `iftop` o `nethogs`: utilización de la red por un socket o proceso
+- `iftop` o [`nethogs`](https://github.com/raboof/nethogs): utilización de la red por un socket o proceso
 
 - `ss`: estadísticas de socket
 
@@ -527,7 +527,7 @@ Estos son puntos relevantes *únicamente* para Windows.
 
 - Puedes ejecutar y hacer scripts de la mayoría de las tareas administrativas del sistema de Windows desde la línea de comandos aprendiendo y usando `wmic`.
 
-- Otra opción para obtener la apariencia y sensación de Unix en Windows es [Cash](ttps://github.com/dthree/cash). Ten en cuenta que muy pocos comandos de Unix y opciones de la línea de comandos están disponibles en este entorno. 
+- Otra opción para obtener la apariencia y sensación de Unix en Windows es [Cash](ttps://github.com/dthree/cash). Ten en cuenta que muy pocos comandos de Unix y opciones de la línea de comandos están disponibles en este entorno.
 
 - Una opción alternativa para tener herramientas de desarrollo GNU (algo como GCC) en windows es [MinGW](http://www.mingw.org/) y [MSYS](http://www.mingw.org/wiki/msys) su paquete, que proporciona utilidades tales como bash, gawk, make y grep. MSYS no tiene todas las características al compararse con Cygwin. MinGW es particularmente útil para crear ejecutables nativos de Windows de las herramientas Unix.
 

@@ -266,7 +266,7 @@ Příklady:
 
 - Při zjištování proč je disk plný, `ncdu` šetří čas oproti obvyklým příkazům jako `du /sh *`.
 
-- Ke zjištění, který socket nebo proces zahlcuje pásmo, zkuste `iftop` nebo `nethogs`.
+- Ke zjištění, který socket nebo proces zahlcuje pásmo, zkuste `iftop` nebo [`nethogs`](https://github.com/raboof/nethogs).
 
 - Nástroj `ab` (přibalený k Apachi) je užitečný pro rychlé a hrubé zkontrolování výkonosti webového serveru. Komplexnější měření umožňuje `siege`.
 
@@ -462,7 +462,7 @@ Pár příkladů na spojování příkazů:
 
 - `sar`: historické systémové statistiky
 
-- `iftop` nebo `nethogs`: využití sítě pro proces nebo socket
+- `iftop` nebo [`nethogs`](https://github.com/raboof/nethogs): využití sítě pro proces nebo socket
 
 - `ss`: statistika socketů
 

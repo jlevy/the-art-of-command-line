@@ -103,12 +103,12 @@ Par exemple **alt-.** fait défiler les arguments précédents et **alt-*** dév
 
 - Pour éditer de longues commandes, après avoir configuré votre éditeur (par exemple `export EDITOR=vim`), **ctrl-x** **ctrl-e** (**escape-v** dans le style vi) ouvre l'éditeur pour éditer la commande courante.
 
-- Consultez les commandes récentes avec `history`. 
+- Consultez les commandes récentes avec `history`.
 Faites `!n` pour rappeler la commande numéro `n`.
 Il y a aussi beaucoup d'autres abréviations, les plus utiles étant probalement `!$` pour le dernier argument et `!!` pour la dernière commande (voir la section « HISTORY EXPANSION » de la page de manuel).
 Cependant, celles-ci peuvent être aisément remplacées par **ctrl-r** et **alt-.**.
 
-- Placez-vous dans votre répertoire personnel avec `cd`. 
+- Placez-vous dans votre répertoire personnel avec `cd`.
 Accédez aux fichiers à partir de leurs chemins relatifs par rapport à votre répertoire personnel en préfixant ceux-ci avec `~` (p.&nbsp;ex. `~/.bashrc`).
 Dans les scripts shell, désignez le répertoire personnel par `$HOME`.
 
@@ -384,7 +384,7 @@ Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil
 
 - Pour déterminer les raisons pour lesquelles un disque est plein, `ncdu` permet de gagner du temps par rapport aux commandes habituelles telles que `du -sh *`.
 
-- Pour trouver quel socket ou processus utilise la bande passante, essayez `iftop` ou `nethogs`.
+- Pour trouver quel socket ou processus utilise la bande passante, essayez `iftop` ou [`nethogs`](https://github.com/raboof/nethogs).
 
 - L'outil `ab` (fourni avec Apache) est utile pour une vérification rapide et grossière des performances d'un serveur web.
 Pour des tests de charge plus complexes, essayez `siege`.
@@ -594,7 +594,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `sar` : statistiques sur l'activité du système
 
-- `iftop` ou `nethogs` : utilisation du réseau par un socket ou un processus.
+- `iftop` ou [`nethogs`](https://github.com/raboof/nethogs) : utilisation du réseau par un socket ou un processus.
 
 - `ss` : statistiques relatives aux sockets.
 
@@ -647,7 +647,7 @@ En revanche, il n'est pas possible de lancer des programmes Windows depuis le *p
 - Installez [Cygwin](http://cygwin.com) pour bénéficier de la puissance du shell Unix sous Microsoft Windows.
 La majorité de ce qui est décrit dans ce document fonctionnera *out of the box*.
 
-- Installez des programmes Unix supplémentaires à l'aide du gestionnaire de paquets de Cygwin. 
+- Installez des programmes Unix supplémentaires à l'aide du gestionnaire de paquets de Cygwin.
 
 - Utilisez `mintty` comme fenêtre de ligne de commande.
 
