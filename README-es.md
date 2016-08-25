@@ -496,7 +496,7 @@ Estos son puntos relevantes *únicamente* para OS X.
 
 - Copie la salida de cualquier comando en una aplicación de escritorio con `pbcopy` y pegue una entrada con `pbpaste`.
 
-- Para activar la teacla Option en un OS X Terminal como una tecla alt (tal como se usan en los comandos más arriba como  **alt-b**, **alt-f**, etc.), abre Preferencias -> Perfiles -> Teclado y selecciona "Usa Option como tecla Meta".
+- Para activar la tecla Option en un OS X Terminal como una tecla alt (tal como se usan en los comandos más arriba como  **alt-b**, **alt-f**, etc.), abre Preferencias -> Perfiles -> Teclado y selecciona "Usa Option como tecla Meta".
 
 - Para abrir un archivo con una aplicación de escritorio, use `open` o `open -a /Applications/Whatever.app`.
 
