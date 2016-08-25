@@ -297,15 +297,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Sistemsko razhroščevanje Java je drugačen tip, vendar enostaven trik na JVM-jih Oracle-a in nekaterih ostalih je, da lahko poženete `kill -3 <pid>` in sledite celotnemu stack-u in povzetku kopic (vključno s podrobnostmi zbirke splošnih smeti, ki so lahko zelo informativne), ki bodo oddane v stderr/logs. JDK-jevi `jps`, `jstat`, `jstack`, `jmap` so uporabni. [SJK Tools](https://github.com/aragozin/jvm-tools) so bolj napredni.
 
-- Uporabite `mtr` kot boljši usmerjevalnik sledenja za identifikacijo težav omrežja.
+- Uporabite [`mtr`](http://www.bitwizard.nl/mtr/) kot boljši usmerjevalnik sledenja za identifikacijo težav omrežja.
 
-- Za iskanje, zakaj je disk poln, vam `ncdu` prihrani čas preko običajnih ukazov kot je `du -sh *`.
+- Za iskanje, zakaj je disk poln, vam [`ncdu`](https://dev.yorhel.nl/ncdu) prihrani čas preko običajnih ukazov kot je `du -sh *`.
 
-- Da najdete katera vtičnica ali proces uporablja pasovno širino, poskusite `iftop` ali `nethogs`.
+- Da najdete katera vtičnica ali proces uporablja pasovno širino, poskusite [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ali [`nethogs`](https://github.com/raboof/nethogs).
 
 - Orodje `ab` (prihaja z Apache-jem) je v pomoč za hitro in nečisto preverjanje uspešnosti spletnega strežnika. Za bolj kompleksno testiranje nalaganja poskusite `siege`.
 
-- Za bolj resno razhroščevanje omrežja, `wireshark`, `tshark` ali `ngrep`.
+- Za bolj resno razhroščevanje omrežja, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ali [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Poznajte `strace` in `ltrace`. Ta sta v pomoč, če program ni uspešen, se ustavlja ali poruši in ne veste zakaj, ali če želite dobiti splošno idejo o uspešnosti. Bodite pozorni na opcijo profiliranja (`-c`) in zmožnost dodajanja k procesu, ki se poganja (`-p`).
 
@@ -315,7 +315,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Uporabite `/proc`. Včasih je izjemno v pomoč, ko se razhroščuje probleme v živo. Primeri: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, ``/proc/xxx/cwd`,asdf `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (kjer je `xxx` id procesa ali pid).
 
-- Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, je lahko zelo uporaben `sar`. Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
+- Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, je lahko zelo uporaben [`sar`](http://sebastien.godard.pagesperso-orange.fr/). Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
 
 - Za globlje analize sistema in uspešnosti, poglejte `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)) in [`sysdig`](https://github.com/draios/sysdig).
 
@@ -467,15 +467,15 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `strace`: razhroščevanje sistemskega klica
 
-- `mtr`: boljše sledenje usmerjanja za razhroščevanje omrežja
+- [`mtr`](http://www.bitwizard.nl/mtr/): boljše sledenje usmerjanja za razhroščevanje omrežja
 
 - `cssh`: vizualna sočasna lupina
 
 - `rsync`: sinhronizacija datotek in map preko SSH ali v lokalnem datotečnem sistemu
 
-- `wireshark` in `tshark`: zajem paketov in razhroščevanje omrežja
+- [`wireshark`](https://wireshark.org/) in [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): zajem paketov in razhroščevanje omrežja
 
-- `ngrep`: grep za nivo omrežja
+- [`ngrep`](http://ngrep.sourceforge.net/): grep za nivo omrežja
 
 - `host` in `dig`: pogled DNS
 
@@ -499,9 +499,9 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `id`: informacije identifikacije uporabnika/skupine
 
-- `sar`: statistika zgodovine sistema
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): statistika zgodovine sistema
 
-- `iftop` ali `nethogs`: izkoriščenost omrežja po vtičnici ali procesu
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ali [`nethogs`](https://github.com/raboof/nethogs): izkoriščenost omrežja po vtičnici ali procesu
 
 - `ss`: statistika vtičnice
 
@@ -562,7 +562,7 @@ Sledeče velja *samo* za Windows.
 
 - Druga opcija, da dobite izgled in občutek Unix-a na Windows-u, je [Cash](https://github.com/dthree/cash). Upoštevajte, da so v tem okolju na voljo le nekateri ukazi Unix in opcije ukazne vrstice.
 
-- Alternativna možnost, da dobite GNU razvojna orodja (kot je GCC) na Windows, je [MinGW](http://www.mingw.org) in njegov [MSYS](http://www.mingw.org/wiki/msys) paket, ki ponuja orodja, kot je bash, gawk, make in grep. MSYS nima na voljo vseh lastnosti v primerjavi s Cygwin. MinGW je posebej uporaben za izdelavo izvornih Windows prenosov orodij Unix. 
+- Alternativna možnost, da dobite GNU razvojna orodja (kot je GCC) na Windows, je [MinGW](http://www.mingw.org) in njegov [MSYS](http://www.mingw.org/wiki/msys) paket, ki ponuja orodja, kot je bash, gawk, make in grep. MSYS nima na voljo vseh lastnosti v primerjavi s Cygwin. MinGW je posebej uporaben za izdelavo izvornih Windows prenosov orodij Unix.
 
 ## Več virov
 

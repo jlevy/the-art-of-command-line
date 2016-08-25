@@ -307,15 +307,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs. The JDK's `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) are more advanced.
 
-- Use `mtr` as a better traceroute, to identify network issues.
+- Use [`mtr`](http://www.bitwizard.nl/mtr/) as a better traceroute, to identify network issues.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- For looking at why a disk is full, [`ncdu`](https://dev.yorhel.nl/ncdu) saves time over the usual commands like `du -sh *`.
 
-- To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
+- To find which socket or process is using bandwidth, try [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs).
 
 - The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
 
-- For more serious network debugging, `wireshark`, `tshark`, or `ngrep`.
+- For more serious network debugging, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), or [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
 
@@ -325,7 +325,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where `xxx` is the process id or pid).
 
-- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- When debugging why something went wrong in the past, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) can be very helpful. It shows historic statistics on CPU, memory, network, etc.
 
 - For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
 
@@ -478,15 +478,15 @@ A few examples of piecing together commands:
 
 - `strace`: system call debugging
 
-- `mtr`: better traceroute for network debugging
+- [`mtr`](http://www.bitwizard.nl/mtr/): better traceroute for network debugging
 
 - `cssh`: visual concurrent shell
 
 - `rsync`: sync files and folders over SSH or in local file system
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- [`wireshark`](https://wireshark.org/) and [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): packet capture and network debugging
 
-- `ngrep`: grep for the network layer
+- [`ngrep`](http://ngrep.sourceforge.net/): grep for the network layer
 
 - `host` and `dig`: DNS lookups
 
@@ -510,9 +510,9 @@ A few examples of piecing together commands:
 
 - `id`: user/group identity info
 
-- `sar`: historic system stats
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): historic system stats
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): network utilization by socket or process
 
 - `ss`: socket statistics
 

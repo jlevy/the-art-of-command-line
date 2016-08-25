@@ -237,15 +237,15 @@
 
 - Java 시스템의 디버깅은 조금 다른상황입니다. 하지만 Oracle과 그 외의 회사에서 만든 다른 JVM들에서는 `kill -3 <pid>`를 실행하면 전체 stack trace정보와 heap의 정보(시기별로 가비지 콜렉터의 세부적인 내용같은 매우 유용한 정보)를 요약하여 stderr나 로그로 출력해주므로 간단하게 정보를 얻어올 수 있습니다. JDK의 `jps`, `jstat`, `jstack`, `jmap` 명령은 유용합니다. [SJK tools](https://github.com/aragozin/jvm-tools)은 더 고급 정보를 다룰 수 있습니다.
 
-- 네트워크 이슈들을 알아보기 위해서는 traceroute를 사용할수도 있지만 이보다 더 좋은 `mtr`를 사용하세요.
+- 네트워크 이슈들을 알아보기 위해서는 traceroute를 사용할수도 있지만 이보다 더 좋은 [`mtr`](http://www.bitwizard.nl/mtr/)를 사용하세요.
 
-- 디스크가 왜 가득찼는지 알아보기 위해서 `ncdu`를 사용해보세요.  일반적으로 사용하는 `du -sh *`와 같은 커멘드를 사용하는 것보다는 시간을 줄일 수 있습니다.
+- 디스크가 왜 가득찼는지 알아보기 위해서 [`ncdu`](https://dev.yorhel.nl/ncdu)를 사용해보세요.  일반적으로 사용하는 `du -sh *`와 같은 커멘드를 사용하는 것보다는 시간을 줄일 수 있습니다.
 
-- 어떠한 소켓이나 프로세스가 사용하는 대역폭(bandwidth)를 찾아보려면 `iftop`나 `nethogs`를 사용하세요.
+- 어떠한 소켓이나 프로세스가 사용하는 대역폭(bandwidth)를 찾아보려면 [`iftop`](http://www.ex-parrot.com/~pdw/iftop/)나 [`nethogs`](https://github.com/raboof/nethogs)를 사용하세요.
 
 - `ab`라는 툴(Apache에 딸려있는)은 신속하고 간단하게(quick-and-dirty) 웹서버의 성능을 체크하는데 유용합니다. 보다 복잡한 부하 테스트를 할때는 `siege`를 사용해보세요.
 
-- 보다 심각한 경우의 네트워크 디버깅을 위해서는 `wireshark`, `tshark` 또는 `ngrep`를 사용하세요.
+- 보다 심각한 경우의 네트워크 디버깅을 위해서는 [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 또는 [`ngrep`](http://ngrep.sourceforge.net/)를 사용하세요.
 
 - `strace` 와 `ltrace`에 대해서 알아보세요. 이 커맨드들은 만일 어떤 프로그램에서 failing, hanging 혹은 crashing이 일어나거나 그 외에 여러분이 무슨이유인지 알지 못하는 상황이나 성능에 대한 대략적인 내용을 얻고자 할때 유용할 것입니다. 특히 프로파일링을 위한 옵션(`-c`)과 현재 실행중인 프로세스에 붙이기 위한 옵션(`-p`)을 기억하세요.
 
@@ -255,7 +255,7 @@
 
 - `/proc`를 사용하세요. 이것은 현재 발생하고 있는 문제를 디버깅할때 종종 놀랍도록 큰 도움이 될것입니다. 예시:`/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (`xxx`는 프로세스 id나 pid입니다).
 
-- 과거에 왜 무엇인가가 잘못되었는지를 디버깅할때에는 `sar`가 매우 유용할 것입니다. 이 커맨드는 CPU, memory, network 등의 통계 내역을 보여줍니다.
+- 과거에 왜 무엇인가가 잘못되었는지를 디버깅할때에는 [`sar`](http://sebastien.godard.pagesperso-orange.fr/)가 매우 유용할 것입니다. 이 커맨드는 CPU, memory, network 등의 통계 내역을 보여줍니다.
 
 - 시스템의 보다 깊은곳을 보거나 퍼포먼스를 분석하기 위해서는, `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)),나 [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), 그리고 [`sysdig`](https://github.com/draios/sysdig)를 사용해보세요.
 
@@ -394,15 +394,15 @@
 
 - `strace`: 시스템 콜을 디버깅할때 사용합니다
 
-- `mtr`: 네트워크 디버깅시에 traceroute보다 더 낫습니다
+- [`mtr`](http://www.bitwizard.nl/mtr/): 네트워크 디버깅시에 traceroute보다 더 낫습니다
 
 - `cssh`: 쉘을 동시에 여러개 사용할때 사용합니다
 
 - `rsync`: SSH를 이용해 원격 파일 시스템이나, 로컬 파일시스템의 파일과 폴더들을 동기화 할때 사용합니다
 
-- `wireshark` and `tshark`: 패킷정보를 가져오며 네트워킹을 디버깅하는데 사용합니다
+- [`wireshark`](https://wireshark.org/) and [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): 패킷정보를 가져오며 네트워킹을 디버깅하는데 사용합니다
 
-- `ngrep`: 네트워크 환경에서 grep과 같은 역할을 합니다
+- [`ngrep`](http://ngrep.sourceforge.net/): 네트워크 환경에서 grep과 같은 역할을 합니다
 
 - `host` and `dig`: DNS 정보를 보여줍니다
 
@@ -426,9 +426,9 @@
 
 - `id`: 현재 유저나 그룹에 대한 식별 정보를 보여줍니다
 
-- `sar`: 시스템 상태에 대한 정보를 보여줍니다
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): 시스템 상태에 대한 정보를 보여줍니다
 
-- `iftop` or `nethogs`: 소켓 또는 프로세스를 이용하여 네트워크를 정보를 보여줍니다
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): 소켓 또는 프로세스를 이용하여 네트워크를 정보를 보여줍니다
 
 - `ss`: 소켓에 관한 통계자료들을 보여줍니다
 

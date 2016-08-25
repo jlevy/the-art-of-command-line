@@ -259,15 +259,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Java 系統偵錯則是一件截然不同的事，一個可以用於 Oracle 的 JVM 或其他 JVM 上的偵錯的技巧是你可以運行`kill -3 <pid>` 同時一個完整的棧軌跡和堆概述（包括 GC 的細節）會被儲存到標準輸出/日誌檔案。 JDK 中的`jps`，`jstat`，`jstack`，`jmap` 很有用。 [SJK tools](https://github.com/aragozin/jvm-tools) 更高階.
 
-- 使用`mtr` ​​去跟蹤路由，用於確定網路問題。
+- 使用[`mtr`](http://www.bitwizard.nl/mtr/) ​​去跟蹤路由，用於確定網路問題。
 
-- 用`ncdu` 來檢視磁碟使用情況，它比常用的命令，如`du -sh *`，更節省時間。
+- 用[`ncdu`](https://dev.yorhel.nl/ncdu) 來檢視磁碟使用情況，它比常用的命令，如`du -sh *`，更節省時間。
 
-- 查詢正在使用頻寬的 socket 連線或程序，使用`iftop` 或`nethogs`。
+- 查詢正在使用頻寬的 socket 連線或程序，使用[`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或[`nethogs`](https://github.com/raboof/nethogs)。
 
 - `ab` 工具（內建於Apache）可以簡單粗暴地檢查 web 伺服器的效能。對於更複雜的負載測試，使用`siege`。
 
-- `wireshark`，`tshark` 和`ngrep` 可用於復雜的網路偵錯。
+- [`wireshark`](https://wireshark.org/)，[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 和[`ngrep`](http://ngrep.sourceforge.net/) 可用於復雜的網路偵錯。
 
 - 瞭解 `strace` 和 `ltrace`。這倆工具在你的程式運行失敗、掛起甚至崩潰，而你卻不知道為什麼或你想對效能有個總體的認識的時候是非常有用的。注意 profile 參數（`-c`）和附加到一個運行的程序參數（`-p`）。
 
@@ -277,7 +277,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 學會使用 `/proc`。它在偵錯正在出現的問題的時候有時會效果驚人。比如：`/proc/cpuinfo`，`/proc/meminfo`，`/proc/cmdline`，`/proc/xxx/cwd`，`/proc/xxx/exe`，`/proc/xxx/fd/` ，`/proc/xxx/smaps`（這裡的`xxx` 表示程序的 id 或 pid）。
 
-- 當偵錯一些之前出現的問題的時候，`sar` 非常有用。它展示了 cpu、記憶體以及網路等的歷史資料。
+- 當偵錯一些之前出現的問題的時候，[`sar`](http://sebastien.godard.pagesperso-orange.fr/) 非常有用。它展示了 cpu、記憶體以及網路等的歷史資料。
 
 - 關於更深層次的系統分析以及效能分析，看看`stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](http://en.wikipedia.org /wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
@@ -422,15 +422,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`：系統呼叫偵錯
 
-- `mtr`：更好的網路偵錯跟蹤工具
+- [`mtr`](http://www.bitwizard.nl/mtr/)：更好的網路偵錯跟蹤工具
 
 - `cssh`：視覺化的並發 shell
 
 - `rsync`：通過ssh 或本地檔案系統同步檔案和資料夾
 
-- `wireshark` 和`tshark`：抓包和網路偵錯工具
+- [`wireshark`](https://wireshark.org/) 和[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html)：抓包和網路偵錯工具
 
-- `ngrep`：網路層的 grep
+- [`ngrep`](http://ngrep.sourceforge.net/)：網路層的 grep
 
 - `host` 和 `dig`：DNS 查詢
 
@@ -454,9 +454,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `id`：使用者/組 ID 資訊
 
-- `sar`：系統歷史資料
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/)：系統歷史資料
 
-- `iftop` 或`nethogs`：套接字及程序的網路利用
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或[`nethogs`](https://github.com/raboof/nethogs)：套接字及程序的網路利用
 
 - `ss`：socket 資料
 

@@ -228,15 +228,15 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - Debugar um sistema java é uma outra historia, mas um simples truque nas máquinas virtuais Oracle ou algum outro tipo de JVM é que você pode executar `kill -3 <pid>` e um completo rastreamento da pilha(stack trace) e resumo do heap (incluindo detalhes geracionais do garbage collector, os quais podem ser altamente informativos) serão vazados para stderr/logs.
 
-- Use `mtr` como uma melhor alternativa ao traceroute, para identificar problemas na rede.
+- Use [`mtr`](http://www.bitwizard.nl/mtr/) como uma melhor alternativa ao traceroute, para identificar problemas na rede.
 
-- Para verificar o porque de um disco estar cheio, `ncdu` economiza bastante tempo em comparação aos comandos usuais como `du -sh *`.
+- Para verificar o porque de um disco estar cheio, [`ncdu`](https://dev.yorhel.nl/ncdu) economiza bastante tempo em comparação aos comandos usuais como `du -sh *`.
 
-- Para procurar qual socket ou processo está utilizando a banda de rede, tente `iftop` ou `nethogs`.
+- Para procurar qual socket ou processo está utilizando a banda de rede, tente [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs).
 
 - A ferramenta `ab` (que vem com o Apache) é muito útil para verificação rápida da performance do servidor web. Para mais complexos testes de carga, tente `siege`.
 
-- Para debugs mais sérios da rede, `wireshark`, `tshark`, ou `ngrep`.
+- Para debugs mais sérios da rede, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), ou [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Aprenda a respeito do `strace`e `ltrace`. Estes podem ser úteis se um programa está falhando, travado, ou quebrando, e você não sabe o por que, ou se você quer obter uma ideia geral da performance. Note que a opção de perfil (`-c`), e a habilidade de se plugar a um processo em execução (`-p`).
 
@@ -246,7 +246,7 @@ Use `zsless`, `zmore`, `zcat`, and `zgrep` para manipular arquivos comprimidos.
 
 - Utilize `/proc`. Este é incrivelmente útil em algumas vezes quando se deseja debugar problemas ao vivo. Exemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps`.
 
-- Quando estiver debugando o porque de algo ter dado errado no passado, `sar` pode ser de muita utilidade. Ele exibe as estatísticas históricas da CPU, memória, rede e etc.
+- Quando estiver debugando o porque de algo ter dado errado no passado, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) pode ser de muita utilidade. Ele exibe as estatísticas históricas da CPU, memória, rede e etc.
 
 - Para análises de performance mais profundas do sistema, dê uma olhada em `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), e [`sysdig`](https://github.com/draios/sysdig).
 
@@ -386,15 +386,15 @@ Alguns exemplos de como reunir os comandos.
 
 - `strace`: Debug para chamadas de sistema.
 
-- `mtr`: melhor traceroute para debugar a rede.
+- [`mtr`](http://www.bitwizard.nl/mtr/): melhor traceroute para debugar a rede.
 
 - `cssh`: Visualização concorrente da shell.
 
 - `rsync`: Sincroniza arquivos e pastas através do SSH.
 
-- `wireshark` e `tshark`: captura de pacotes e debug de rede.
+- [`wireshark`](https://wireshark.org/) e [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): captura de pacotes e debug de rede.
 
-- `ngrep`: grep para a camada de rede.
+- [`ngrep`](http://ngrep.sourceforge.net/): grep para a camada de rede.
 
 - `host` e `dig`: Consultas DNS.
 
@@ -414,9 +414,9 @@ Alguns exemplos de como reunir os comandos.
 
 - `id`: Informações sobre a identidade do user/group.
 
-- `sar`: histórico dos estados do sistema.
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): histórico dos estados do sistema.
 
-- `iftop` ou `nethogs`: Utilização da rede por sockets ou processos.
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs): Utilização da rede por sockets ou processos.
 
 - `ss`: Estatísticas dos sockets.
 

@@ -28,7 +28,7 @@
 [изначально](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [появилось](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 на [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-начав идею там, похоже, что стоит развить ее на Github, где обитают люди, которые талантливее меня и могут предлагать улучшения данной подборки. Если Вы заметили ошибки (во всех вариантах перевода), пожалуйста 
+начав идею там, похоже, что стоит развить ее на Github, где обитают люди, которые талантливее меня и могут предлагать улучшения данной подборки. Если Вы заметили ошибки (во всех вариантах перевода), пожалуйста
 [**оставьте тикет или добавьте пулл-реквест**](CONTRIBUTING.md) (заранее изучив описание и посмотрев на уже созданнные тикеты и пулл-реквесты).
 
 ## Описание
@@ -296,15 +296,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Отладка Java – совсем другая рыбка, но некоторые манипуляции над виртуальной машиной Оракла, или любой другой, позволят вам использовать `kill -3 <pid>` и трассировать сводки стека и хипа (включая детали работы сборщика мусора, которые бывают очень полезными), и их можно сдампить в stderr или логи. `jps`, `jstat`, `jstack`, `jmap` также полезны. [SJK tools](https://github.com/aragozin/jvm-tools) более продвинуты.
 
-- Используйте `mtr` для лучшей трассировки, чтобы находить проблемы сети.
+- Используйте [`mtr`](http://www.bitwizard.nl/mtr/) для лучшей трассировки, чтобы находить проблемы сети.
 
-- Для того, чтобы узнать, почему диск полностью забит, используйте `ncdu`, это сохраняет время по сравнению с тем же `du -sh *`.
+- Для того, чтобы узнать, почему диск полностью забит, используйте [`ncdu`](https://dev.yorhel.nl/ncdu), это сохраняет время по сравнению с тем же `du -sh *`.
 
-- Для того, чтобы узнать, какой сокет или процесс использует интернет, используйте `iftop` или `nethogs`.
+- Для того, чтобы узнать, какой сокет или процесс использует интернет, используйте [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) или [`nethogs`](https://github.com/raboof/nethogs).
 
 - `ab`, которая поставляется вместе с apache, полезна для быстрой и поверхностной проверки производительности веб-сервера. Для более серьезного нагрузочного тестирования используйте `siege`.
 
-- Для более серьёзной отладки сетей используйте `wireshark`, `tshark` и `ngrep`.
+- Для более серьёзной отладки сетей используйте [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) и [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Знайте про `strace` и `ltrace`. Эти команды могут быть полезны, если программа падает или висит, и вы не знаете почему Или если вы хотите протестировать производительность программы. Не забывайте про возможность отладки (`-c`) и возможность прицепиться к процессу по pid (`-p`).
 
@@ -314,7 +314,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Используйте `/proc`. Иногда он невероятно полезен для отладки запущенных программ. Примеры: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (где `xxx` это pid).
 
-- Когда отлаживаете что-то, что сломалось в прошлом, используйте `sar` – бывает очень полезно. Показывает историю CPU, памяти, сети и т.д.
+- Когда отлаживаете что-то, что сломалось в прошлом, используйте [`sar`](http://sebastien.godard.pagesperso-orange.fr/) – бывает очень полезно. Показывает историю CPU, памяти, сети и т.д.
 
 - Для анализа более сложных систем и производительности посмотрите на `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), и [`sysdig`](https://github.com/draios/sysdig).
 
@@ -467,15 +467,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`: отладка системных вызовов
 
-- `mtr`: лучшая трассировка для отладки сети
+- [`mtr`](http://www.bitwizard.nl/mtr/): лучшая трассировка для отладки сети
 
 - `cssh`: несколько терминалов в одном UI
 
 - `rsync`: синхронизация файлов и папок через SSH
 
-- `wireshark` и `tshark`: перехват пакетов и отладка сети
+- [`wireshark`](https://wireshark.org/) и [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): перехват пакетов и отладка сети
 
-- `ngrep`: grep для слоя сети (network layer). Перехват пакетов по заданной маске.
+- [`ngrep`](http://ngrep.sourceforge.net/): grep для слоя сети (network layer). Перехват пакетов по заданной маске.
 
 - `host` и `dig`: узнать DNS
 
@@ -499,9 +499,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `id`: информация о пользователе/группе
 
-- `sar`: история системной статистики
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): история системной статистики
 
-- `iftop` или `nethogs`: использование сети конкретным сокетом или процессом
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) или [`nethogs`](https://github.com/raboof/nethogs): использование сети конкретным сокетом или процессом
 
 - `ss`: статистика сокетов
 

@@ -295,15 +295,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Java 系统调试则是一件截然不同的事，一个可以用于 Oracle 的 JVM 或其他 JVM 上的调试的技巧是你可以运行 `kill -3 <pid>` 同时一个完整的栈轨迹和堆概述（包括 GC 的细节）会被保存到标准输出/日志文件。JDK 中的 `jps`，`jstat`，`jstack`，`jmap` 很有用。[SJK tools](https://github.com/aragozin/jvm-tools) 更高级.
 
-- 使用 `mtr` 去跟踪路由，用于确定网络问题。
+- 使用 [`mtr`](http://www.bitwizard.nl/mtr/) 去跟踪路由，用于确定网络问题。
 
-- 用 `ncdu` 来查看磁盘使用情况，它比常用的命令，如 `du -sh *`，更节省时间。
+- 用 [`ncdu`](https://dev.yorhel.nl/ncdu) 来查看磁盘使用情况，它比常用的命令，如 `du -sh *`，更节省时间。
 
-- 查找正在使用带宽的套接字连接或进程，使用 `iftop` 或 `nethogs`。
+- 查找正在使用带宽的套接字连接或进程，使用 [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或 [`nethogs`](https://github.com/raboof/nethogs)。
 
 - `ab` 工具（捆绑于 Apache）可以简单粗暴地检查 web 服务器的性能。对于更复杂的负载测试，使用 `siege`。
 
-- `wireshark`，`tshark` 和 `ngrep` 可用于复杂的网络调试。
+- [`wireshark`](https://wireshark.org/)，[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 和 [`ngrep`](http://ngrep.sourceforge.net/) 可用于复杂的网络调试。
 
 - 了解 `strace` 和 `ltrace`。这俩工具在你的程序运行失败、挂起甚至崩溃，而你却不知道为什么或你想对性能有个总体的认识的时候是非常有用的。注意 profile 参数（`-c`）和附加到一个运行的进程参数 （`-p`）。
 
@@ -313,7 +313,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 学会使用 `/proc`。它在调试正在出现的问题的时候有时会效果惊人。比如：`/proc/cpuinfo`，`/proc/meminfo`，`/proc/cmdline`，`/proc/xxx/cwd`，`/proc/xxx/exe`，`/proc/xxx/fd/`，`/proc/xxx/smaps`（这里的 `xxx` 表示进程的 id 或 pid）。
 
-- 当调试一些之前出现的问题的时候，`sar` 非常有用。它展示了 cpu、内存以及网络等的历史数据。
+- 当调试一些之前出现的问题的时候，[`sar`](http://sebastien.godard.pagesperso-orange.fr/) 非常有用。它展示了 cpu、内存以及网络等的历史数据。
 
 - 关于更深层次的系统分析以及性能分析，看看 `stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](https://en.wikipedia.org/wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
@@ -466,15 +466,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`：系统调用调试
 
-- `mtr`：更好的网络调试跟踪工具
+- [`mtr`](http://www.bitwizard.nl/mtr/)：更好的网络调试跟踪工具
 
 - `cssh`：可视化的并发 shell
 
 - `rsync`：通过 ssh 或本地文件系统同步文件和文件夹
 
-- `wireshark` 和 `tshark`：抓包和网络调试工具
+- [`wireshark`](https://wireshark.org/) 和 [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html)：抓包和网络调试工具
 
-- `ngrep`：网络层的 grep
+- [`ngrep`](http://ngrep.sourceforge.net/)：网络层的 grep
 
 - `host` 和 `dig`：DNS 查找
 
@@ -498,9 +498,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `id`：用户/组 ID 信息
 
-- `sar`：系统历史数据
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/)：系统历史数据
 
-- `iftop` 或 `nethogs`：套接字及进程的网络利用
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或 [`nethogs`](https://github.com/raboof/nethogs)：套接字及进程的网络利用
 
 - `ss`：套接字数据
 
