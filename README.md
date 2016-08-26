@@ -101,12 +101,6 @@ Notes:
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- To rerun the previous command with some pattern replaced: `^old^new`. For example:
-```bash
-      echo foo
-      ^foo^bar # equivalent to: echo bar
-```
-
 - `pstree -p` is a helpful display of the process tree.
 
 - Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
