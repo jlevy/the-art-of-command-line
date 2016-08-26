@@ -101,7 +101,6 @@ Notes:
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-
 - `pstree -p` is a helpful display of the process tree.
 
 - Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
@@ -193,7 +192,9 @@ If the closing brace is missing, your script will be prevented from executing du
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
-- For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
+- For running a command as another user, use `sudo`. Defaults to running as root; use `-u` to specify another user. Use `-i` to login as that user (you will be asked for _your_ password).
+
+- For switching the shell to another user, use `su username` or `su - username`. Include the `-` to get an environment as if the user just logged in. Omitting the username defaults to root. You will be asked for the password _of the user you are switching to_.
 
 - Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
 
