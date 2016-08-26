@@ -186,7 +186,7 @@ Notes:
 
 - For running a command as another user, use `sudo`. Defaults to running as root; use `-u` to specify another user. Use `-i` to login as that user (you will be asked for _your_ password).
 
-- For switching to another user, use `su`. Add `-` to get an environment as if the user just logged in. By default this switches to root, but you can specify a user: `su - user`. You will be asked for the password _of the user you are switching to_.
+- For switching the shell to another user, use `su username` or `su - username`. Include the `-` to get an environment as if the user just logged in. Omitting the username defaults to root. You will be asked for the password _of the user you are switching to_.
 
 - Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
 
