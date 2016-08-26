@@ -147,13 +147,12 @@ Notes:
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- When writing scripts you may want to put all of your code in curly braces:
-```sh
+- When writing scripts you may want to put all of your code in curly braces. If the closing brace is missing, your script will be prevented from executing due to a syntax error. This makes sense when your script is going to be downloaded from the web, since it prevents partially downloaded scripts from executing:
+```bash
 {
       # Your code here
 }
 ```
-If the closing brace is missing, your script will be prevented from executing due to a syntax error. This makes sense when your script is going to be downloaded from the web, since it prevents partially downloaded scripts from executing.
 
 - Know about "here documents" in Bash, as in `cat <<EOF ...`.
 
