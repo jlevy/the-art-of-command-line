@@ -103,12 +103,12 @@ Par exemple **alt-.** fait défiler les arguments précédents et **alt-*** dév
 
 - Pour éditer de longues commandes, après avoir configuré votre éditeur (par exemple `export EDITOR=vim`), **ctrl-x** **ctrl-e** (**escape-v** dans le style vi) ouvre l'éditeur pour éditer la commande courante.
 
-- Consultez les commandes récentes avec `history`. 
+- Consultez les commandes récentes avec `history`.
 Faites `!n` pour rappeler la commande numéro `n`.
 Il y a aussi beaucoup d'autres abréviations, les plus utiles étant probalement `!$` pour le dernier argument et `!!` pour la dernière commande (voir la section « HISTORY EXPANSION » de la page de manuel).
 Cependant, celles-ci peuvent être aisément remplacées par **ctrl-r** et **alt-.**.
 
-- Placez-vous dans votre répertoire personnel avec `cd`. 
+- Placez-vous dans votre répertoire personnel avec `cd`.
 Accédez aux fichiers à partir de leurs chemins relatifs par rapport à votre répertoire personnel en préfixant ceux-ci avec `~` (p.&nbsp;ex. `~/.bashrc`).
 Dans les scripts shell, désignez le répertoire personnel par `$HOME`.
 
@@ -380,16 +380,16 @@ En particulier, ayez à l'esprit que la valeur du « cache » est la mémoire ut
 - Le système de debogage de Java est une autre paire de manche, cependant un truc simple sur la JVM d'Oracle et quelques autres JVMs consiste à exécuter `kill -3 <pid>` pour obtenir une trace complète des appels et une empreinte de la mémoire (y compris des détails sur le ramasse-miettes qui peuvent être hautement instructifs) dans stderr ou des fichiers journaux.
 Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil SJK](https://github.com/aragozin/jvm-tools) est plus avancé.
 
-- Utilisez `mtr` comme un `traceroute` amélioré pour identifier les problèmes de réseau.
+- Utilisez [`mtr`](http://www.bitwizard.nl/mtr/) comme un `traceroute` amélioré pour identifier les problèmes de réseau.
 
-- Pour déterminer les raisons pour lesquelles un disque est plein, `ncdu` permet de gagner du temps par rapport aux commandes habituelles telles que `du -sh *`.
+- Pour déterminer les raisons pour lesquelles un disque est plein, [`ncdu`](https://dev.yorhel.nl/ncdu) permet de gagner du temps par rapport aux commandes habituelles telles que `du -sh *`.
 
-- Pour trouver quel socket ou processus utilise la bande passante, essayez `iftop` ou `nethogs`.
+- Pour trouver quel socket ou processus utilise la bande passante, essayez [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs).
 
 - L'outil `ab` (fourni avec Apache) est utile pour une vérification rapide et grossière des performances d'un serveur web.
 Pour des tests de charge plus complexes, essayez `siege`.
 
-- Pour du debogage réseau plus sérieux : `wireshark`, `tshark` ou `ngrep`.
+- Pour du debogage réseau plus sérieux : [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ou [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Sachez utiliser `strace` et `ltrace`.
 Ces commandes peuvent être utiles si un programme fonctionne mal ou plante et que vous n'en connaissez pas la raison, ou si vous voulez vous faire une idée des performances.
@@ -402,7 +402,7 @@ Remarquez l'option de profilage (`-c`) et la possibilité de les attacher à un 
 - Utilisez `/proc`. C'est parfois incroyablement utile pour résoudre des problèmes en live.
 Exemples&nbsp;: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd`, `/proc/xxx/smaps` (où `xxx` est l'identifiant du processus ou pid).
 
-- Pour comprendre pourquoi quelque chose a mal tourné antérieurement, `sar` peut-être très utile.
+- Pour comprendre pourquoi quelque chose a mal tourné antérieurement, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) peut-être très utile.
 Elle fournit un historique concernant l'usage du CPU, de la mémoire, du réseau, etc.
 
 - Pour une analyse plus approfondie du système et de ses performances, regardez `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux) et [`sysdig`](https://github.com/draios/sysdig).
@@ -560,15 +560,15 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `strace`: trace les appels système.
 
-- `mtr`: un traceroute amélioré pour débugguer un réseau.
+- [`mtr`](http://www.bitwizard.nl/mtr/): un traceroute amélioré pour débugguer un réseau.
 
 - `cssh` : visual concurrent shell
 
 - `rsync` : synchronise des fichiers et des dossiers via SSH ou localement.
 
-- `wireshark` et `tshark`: capture de paquets et dépannage réseau.
+- [`wireshark`](https://wireshark.org/) et [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): capture de paquets et dépannage réseau.
 
-- `ngrep` : grep pour les couches réseaux.
+- [`ngrep`](http://ngrep.sourceforge.net/) : grep pour les couches réseaux.
 
 - `host` et `dig`: interroge les serveurs DNS.
 
@@ -592,9 +592,9 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `id` : affiche les informations sur un utilisateur et ses groupes.
 
-- `sar` : statistiques sur l'activité du système
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/) : statistiques sur l'activité du système
 
-- `iftop` ou `nethogs` : utilisation du réseau par un socket ou un processus.
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ou [`nethogs`](https://github.com/raboof/nethogs) : utilisation du réseau par un socket ou un processus.
 
 - `ss` : statistiques relatives aux sockets.
 
@@ -647,7 +647,7 @@ En revanche, il n'est pas possible de lancer des programmes Windows depuis le *p
 - Installez [Cygwin](http://cygwin.com) pour bénéficier de la puissance du shell Unix sous Microsoft Windows.
 La majorité de ce qui est décrit dans ce document fonctionnera *out of the box*.
 
-- Installez des programmes Unix supplémentaires à l'aide du gestionnaire de paquets de Cygwin. 
+- Installez des programmes Unix supplémentaires à l'aide du gestionnaire de paquets de Cygwin.
 
 - Utilisez `mintty` comme fenêtre de ligne de commande.
 

@@ -263,15 +263,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Javaのシステムのデバッグはまた違う困ったところがあるが、Oracleあるいは他のJVMにも共通しているシンプルなトリックは、`kill -3 <pid>`でフルスタックトレースとヒープの概要が標準出力あるいはログにダンプされる(世代別GCの詳細も参考程度だが含まれている)。JDKの `jps`、 `jstat`、 `jstack`、 `jmap` も便利で、[SJK tools](https://github.com/aragozin/jvm-tools)はより高度なツールである。
 
-- 改良版tracerouteとして`mtr`を使ってネットワークの問題を調査しよう。
+- 改良版tracerouteとして[`mtr`](http://www.bitwizard.nl/mtr/)を使ってネットワークの問題を調査しよう。
 
-- ディスクがいっぱいになっている理由を調べるには、`ncdu`を使うと`du -sh *`より時間が節約できる。
+- ディスクがいっぱいになっている理由を調べるには、[`ncdu`](https://dev.yorhel.nl/ncdu)を使うと`du -sh *`より時間が節約できる。
 
-- 帯域を使っているのがどのソケットやプロセスなのかを見つけるには、`iftop`あるいは`nethogs`を試そう。
+- 帯域を使っているのがどのソケットやプロセスなのかを見つけるには、[`iftop`](http://www.ex-parrot.com/~pdw/iftop/)あるいは[`nethogs`](https://github.com/raboof/nethogs)を試そう。
 
 - `ab`(Apacheに付属)は、Webサーバのパフォーマンスをざっくりチェックするのに便利。より複雑なテストには`siege`を試そう。
 
-- より確実なネットワークのデバッグは`wireshark`、`tshark`、`ngrep`。
+- より確実なネットワークのデバッグは[`wireshark`](https://wireshark.org/)、[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html)、[`ngrep`](http://ngrep.sourceforge.net/)。
 
 - `strace`と`ltrace`について知っておこう。プログラムの実行に失敗したりハングしたりクラッシュしたりして、その理由が分からない、あるいはパフォーマンスに関する一般的情報を知りたいなら、このツールが役立つはずだ。プロファイリングのオプション(`-c`)や起動中のプロセスにアタッチする機能(`-p`)も覚えておこう。
 
@@ -281,7 +281,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `/proc`以下のファイルを使おう。今起こっている問題をデバッグするのには素晴らしく便利だ。例えば、`/proc/cpuinfo`、`/proc/meminfo`、`/proc/cmdline`、`/proc/xxx/cwd`、`/proc/xxx/ece`、`/proc/xxx/fd/`、`/proc/xxx/smaps` (ここで、`xxx`はプロセスIDまたはPIDを意味する)。
 
-- 過去に何か問題が起きたことの原因を探るなら、`sar`がとても便利。CPUやメモリ、ネットワークなどの過去の統計情報を見られる。
+- 過去に何か問題が起きたことの原因を探るなら、[`sar`](http://sebastien.godard.pagesperso-orange.fr/)がとても便利。CPUやメモリ、ネットワークなどの過去の統計情報を見られる。
 
 - さらに深いシステムとパフォーマンスの分析には、`stap` ([SystemTap](https://sourceware.org/systemtap/wiki))、[`perf`](https://en.wikipedia.org/wiki/Perf_(Linux))、
 [`sysdig`](https://github.com/draios/sysdig)。
@@ -434,15 +434,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`: システムコールのデバッグ
 
-- `mtr`: ネットワークデバッグのためのより高機能なtraceroute
+- [`mtr`](http://www.bitwizard.nl/mtr/): ネットワークデバッグのためのより高機能なtraceroute
 
 - `cssh`: ビジュアルな並列シェル
 
 - `rsync`: ファイルやフォルダをSSH経由またはローカルファイルシステム内で同期
 
-- `wireshark` と `tshark`: パケットキャプチャとネットワークデバッギング
+- [`wireshark`](https://wireshark.org/) と [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): パケットキャプチャとネットワークデバッギング
 
-- `ngrep`: ネットワーク層のgrep
+- [`ngrep`](http://ngrep.sourceforge.net/): ネットワーク層のgrep
 
 - `host` と `dig`: DNS名前解決
 
@@ -466,9 +466,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `id`: ユーザやグループの情報
 
-- `sar`: システム統計情報の履歴
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): システム統計情報の履歴
 
-- `iftop` または `nethogs`: ソケットあるいはプロセスごとのネットワーク使用量
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) または [`nethogs`](https://github.com/raboof/nethogs): ソケットあるいはプロセスごとのネットワーク使用量
 
 - `ss`: ソケットの統計情報
 
