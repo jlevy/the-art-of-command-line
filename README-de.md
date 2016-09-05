@@ -5,16 +5,16 @@
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-- [Kurzbeschreibung](#meta)
-- [Grundlagen](#basics)
-- [Täglicher Gebrauch](#everyday-use)
-- [Umgang mit Dateien und Daten](#processing-files-and-data)
-- [Fehlerbehebung auf Systemebene](#system-debugging)
-- [Einzeiler](#one-liners)
-- [Eigenartig aber hilfreich](#obscure-but-useful)
-- [Nur MacOS X](#macos-x-only)
-- [Weitere Quellen](#more-resources)
-- [Haftungsausschluss](#disclaimer)
+- [Kurzbeschreibung](#kurzbeschreibung)
+- [Grundlagen](#grundlagen)
+- [Täglicher Gebrauch](#täglicher-gebrauch)
+- [Umgang mit Dateien und Daten](#umgang-mit-dateien-und-daten)
+- [Fehlerbehebung auf Systemebene](#fehlerbehebung-auf-systemebene)
+- [Einzeiler](#einzeiler)
+- [Eigenartig aber hilfreich](#eigenartig-aber-hilfreich)
+- [Nur MacOS X](#nur-macos-x)
+- [Weitere Quellen](#weitere-quellen)
+- [Haftungsausschluss](#haftungsausschluss)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -476,7 +476,7 @@ Diese Hinweise sind *nur* für MacOS relevant.
 
 - Man sollte sich bewusst sein, dass MacOS auf BSD Unix basiert und sich viele Kommandos (wie z.B. `ps`, `ls`, `tail`, `awk`, `sed`) bezüglich subtiler Kleinigkeiten von Linux, dass stark von System V-style Unix und GNU tools beeinflusst ist, unterscheiden. Oft kann man den Unterschied daran erkennen, dass eine man page die Überschrift  "BSD General Commands Manual" trägt. In manchen Fällen kann auch die GNU version installiert werden (wie z.B. bei `gawk` und `gsed` für GNU awk und sed). Falls man cross-platform Bash Skripte schreiben möchte, sollte man solche Kommandos vermeiden (und z.B. Python oder `perl` in Betracht ziehen) oder sorgfätig testen.
 
-## Mehr Quellen
+## Weitere Quellen
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Eine hilfreiche Liste von Shell Werkzeugen und Quellen
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) um bessere Shell Skripte zu schreiben
