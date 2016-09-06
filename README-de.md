@@ -1,9 +1,13 @@
-[ Languages: [English](README.md), [Español](README-es.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [中文](README-zh.md), [German](README-de.md) ]
+🌍
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 
 # The Art of Command Line
 
+[![Ask a Question](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
+
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 - [Kurzbeschreibung](#kurzbeschreibung)
 - [Grundlagen](#grundlagen)
@@ -13,6 +17,7 @@
 - [Einzeiler](#einzeiler)
 - [Eigenartig aber hilfreich](#eigenartig-aber-hilfreich)
 - [Nur MacOS X](#nur-macos-x)
+- [Nur Windows](#nur-windows)
 - [Weitere Quellen](#weitere-quellen)
 - [Haftungsausschluss](#haftungsausschluss)
 
@@ -27,25 +32,24 @@ Vieles davon
 auf [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
 aber angesichts des Interesses scheint es vielversprechend, Github zu nutzen, wo talentiertere Menschen als ich es bin kontinuierlich Verbesserungen vorschlagen können. Wenn du einen Fehler entdeckst oder etwas, das man besser machen könnte, erstelle ein Issue oder einen PR! (Lies aber bitte zuerst die Kurzbeschreibung und überprüfe bereits vorhandene Issues/PRs.)
 
-
 ## Kurzbeschreibung
 
 Umfang:
 
 - Diese Anleitung richtet sich an Anfänger und Fortgeschrittene. Die Ziele sind The goals are *Breite* (alles ist wichtig), *Genauigkeit* (konkrete Beispiele für die gebräuchlichsten Anwendungsfälle) und *Knappheit* (Dinge, die nicht wesentlich sind oder leicht anderswo nachgeschlagen werden können, sollen vermieden werden). Jeder Tipp ist in einer bestimmten Situation wesentlich oder deutlich zeitsparend gegenüber bestehenden Alternativen.
-- Sie ist für Linux geschrieben, mit der Ausnahme des Abschnitts "[Nur MacOS X](#macos-x-only)". Viele der anderen Punkte lassen sich nutzen oder sind installierbar auf anderen Unices oder MacOS (oder sogar Cygwin).
+- Sie ist für Linux geschrieben, mit der Ausnahme der Abschnitte "[Nur MacOS X](#nur-macos-x)" und "[Nur Windows](#nur-windows)". Viele der anderen Punkte lassen sich nutzen oder sind installierbar auf anderen Unices oder MacOS (oder sogar Cygwin).
 - Der Fokus liegt auf interaktiver Bash, allerdings gelten viele Tipps auch auf anderen Shells sowie für allgemeines Bash-Skripting.
 - Sie beinhaltet sowohl "normale" Unix-Befehle als auch solche, die bestimmte installierte Pakete voaussetzen -- sofern sie wichtig genug sind, dass sie die Aufnahme in diese Anleitung verdienen.
 
 Hinweise:
 
-- Um eine Seite nicht zu sprengen, ist ihr Inhalt durchgängig anhand von Verweisen aufgelistet. Du bist schlau genug, anderswo zusätzliche Informationen nachzuschlagen, sobald du die Idee bzw. den Befehl dahinter kennst. Verwende `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (je nachdem), um neue Programme zu installieren.
+- Um eine Seite nicht zu sprengen, ist ihr Inhalt durchgängig anhand von Verweisen aufgelistet. Du bist schlau genug, anderswo zusätzliche Informationen nachzuschlagen, sobald du die Idee bzw. den Befehl dahinter kennst. Verwende `apt-get`, `yum`, `dnf`, `pacman`, `pip` oder `brew`, um ggf. neue Programme zu installieren.
 - Verwende [Explainshell](http://explainshell.com/), um einen hilfreichen Einblick zu erhalten, was es mit Befehlen, Optionen, Pipes etc. auf sich hat.
 
 
 ## Grundlagen
 
-- Lerne einfache Bash. Tatsächlich, gib `man bash` ein und überfliege das Ganze zumindest; es ist leicht zu verstehen und nicht allzu lang. Alternative Shells sind nett, aber Bash ist mächtig und immer verfügbar (*nur* zsh, fish, etc. zu lernen ist auf dem eigenen Laptop vielleicht reizvoll, beschränkt jedoch deine Möglichkeiten in vielerlei Hinsicht, etwa beim Arbeiten mit bestehenden Servern).
+- Lerne Bash-Grundlagen. Tatsächlich, gib `man bash` ein und überfliege das Ganze zumindest; es ist leicht zu verstehen und nicht allzu lang. Alternative Shells sind nett, aber Bash ist mächtig und immer verfügbar (*nur* zsh, fish, etc. zu lernen ist auf dem eigenen Laptop vielleicht reizvoll, beschränkt jedoch deine Möglichkeiten in vielerlei Hinsicht, etwa beim Arbeiten mit bestehenden Servern).
 
 - Lerne mindestens einen Text-basierten Editor zu benutzen. Idealerweise Vim (`vi`), da es letztlich keinen vergleichbaren Mitbewerber für gelegentliche Einsätze in einem Terminal gibt (selbst dann, wenn man eine große Entwicklungsumgebung wie Emacs oder die meiste Zeit einen modernen Hipster-Editor benutzt).
 
@@ -53,15 +57,17 @@ Hinweise:
 
 - Lerne etwas über die Umleitung von Ein- und Ausgaben per `>` und `<` sowie `|` für Pipes. Wisse, dass `>` die Ausgabedatei überschreibt und `>>` etwas anhängt. Lerne etwas über stdout und stderr.
 
-- Lerne etwas über die Dateinamenerweiterung mittels `*` (und eventuell `?` und `{`...`}`) sowie Anführungszeichen, etwa den Unterschied zwischen doppelten `"` und einfachen `'`. (Mehr zur Variablenerweiterung findest du unten.)
+- Lerne etwas über die Dateinamenerweiterung mittels `*` (und eventuell `?` und `[`...`]`) sowie Anführungszeichen, etwa den Unterschied zwischen doppelten `"` und einfachen `'`. (Mehr zur Variablenerweiterung findest du unten.)
 
 - Mach dich vertraut mit Bash-Jobmanagement: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, etc.
 
 - Kenne `ssh` und die Grundlagen passwortloser Authentifizierung mittels `ssh-agent`, `ssh-add`, etc.
 
-- Grundlegende Dateiverwaltung: `ls` and `ls -l` (und spezieller, lerne die Funktion jeder einzelnen Spalte von `ls -l` kennen), `less`, `head`, `tail` und `tail -f` (oder noch besser, `less +F`), `ln` und `ln -s` (lerne die Unterschiede und Vorteile von Hard- und Softlinks), `chown`, `chmod`, `du` (für eine Kurzzusammenfassung der Festplattenbelegung: `du -hs *`). Für Dateisystemmanagement, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
+- Grundlegende Dateiverwaltung: `ls` and `ls -l` (und spezieller, lerne die Funktion jeder einzelnen Spalte von `ls -l` kennen), `less`, `head`, `tail` und `tail -f` (oder noch besser, `less +F`), `ln` und `ln -s` (lerne die Unterschiede und Vorteile von Hard- und Softlinks), `chown`, `chmod`, `du` (für eine Kurzzusammenfassung der Festplattenbelegung: `du -hs *`). Für Dateisystemmanagement `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Lerne, was ein Inode (engl. index node) ist (`ls -i` oder `df -i`).
 
 - Grundlagen der Netzwerkverwaltung: `ip` oder `ifconfig`, `dig`.
+
+- Lerne etwas über Versionskontrolle und benutze ein entsprechendes System, wie etwa `git`.
 
 - Kenne reguläre Ausdrücke gut, und die verschiedenen Statusindikatoren zu `grep`/`egrep`. Die Optionen `-i`, `-o`, `-v`, `-A`, `-B`, und `-C` sind gut zu wissen.
 
@@ -70,17 +76,23 @@ Hinweise:
 
 ## Täglicher Gebrauch
 
-- In Bash kannst du mit **Tab** Parameter vervollständigen und mit **ctrl-r** bereits benutzte Befehle durchsuchen.
+- In Bash kannst du mit **Tab** Parameter vervollständigen sowie alle verfügbaren Befehle anzeigen lassen und mit **ctrl-r** bereits benutzte Befehle durchsuchen (drück die Kombination, gib dann deinen Suchtext ein und springe anschließend durch wiederholtes Drücken von **ctrl-r** durch die Suchergebnisse, mit **Enter** kannst du den gefundenen Befehl ausführen sowie mit der rechten Pfeiltaste in die aktuelle Zeile einfügen, um ihn zu bearbeiten).
 
 - In Bash kannst du mit **ctrl-w** das letzte Wort löschen und mit **ctrl-u** alles bis zum Anfang einer Zeile. Verwende **alt-b** und **alt-f**, um dich Wort für Wort fortzubewegen, springe mit **ctrl-a** zum Beginn einer Zeile,  mit **ctrl-e** zum Ende einer Zeile, lösche mit **ctrl-k** alles bis zum Ende einer Zeile und bereinige mit **ctrl-l** den Bildschirm. Siehe `man readline` für alle voreingestellten Tastenbelegungen in Bash. Davon gibt's viele. Zum Beispiel **alt-.** wechselt durch vorherige Parameter und **alt-*** erweitert ein Suchmuster.
 
-- Alternativ, falls du vi-artige Tastenbelegungen magst, verwende `set -o vi`.
+- Alternativ, falls du vi-artige Tastenbelegungen magst, verwende `set -o vi` (und `set -o emacs`, um es wiederzuholen).
 
-- Um kürzich genutzte Befehle zu sehen, `history`. Es gibt außerdem viele Abkürzungen wie etwa `!$` (letzter Parameter) und `!!` (letzter Befehl), wenngleich diese oft einfach ersetzt werden durch **ctrl-r** und **alt-.**.
+- Um kürzlich genutzte Befehle zu sehen, `history`. Es gibt außerdem viele Abkürzungen wie etwa `!$` (letzter Parameter) und `!!` (letzter Befehl), wenngleich diese oft einfach ersetzt werden durch **ctrl-r** und **alt-.**.
+
+- Um lange Befehle zu bearbeiten, kannst du sie (nachdem du deinen Editor angegeben hast, etwa mit `export EDITOR=vim`) mit **ctrl-x** **ctrl-e** im Editor öffnen, um mehrere Zeilen bearbeiten zu können. Oder vi-Style, **escape-v**.
+
+- Um kürzlich verwendete Befehle anzuzeigen, benutze `history`. Anschließend `!n` (wobei `n` die Nummer des Befehls ist), um es erneut auszuführen. Es gibt zudem zahlreiche Abkürzungen, die man verwenden kann, die nützlichste ist wahrscheinlich `!$` für den letzten Parameter und `!!` für den letzten Befehl (siehe "HISTORY EXPANSION" in der `man`-Seite). Diese werden allerdings oft einfach ersetzt durch **ctrl-r** und **alt-.**.
+
+- Go to your home directory with `cd`. Access files relative to your home directory with the `~` prefix (e.g. `~/.bashrc`). In `sh` scripts refer to the home directory as `$HOME`.
 
 - Um ins vorangegangene Arbeitsverzeichnis zu gelangen: `cd -`
 
-- If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
+- Wenn du einen Befehl eingibst und es dir auf halbem Wege anders überlegst, drücke **alt-#**, um am Zeilenanfang ein `#` einzufügen und ihn damit als Kommentar auszuweisen (oder benutze **ctrl-a**, **#**, **enter**). Du kannst später über die Befehlsgeschichte zurückgelangen.
 
 - Verwende `xargs` (oder `parallel`). Es ist sehr mächtig. Beachte, wie du viele Dinge pro Zeile (`-L`) als auch parallel (`-P`) ausführen kannst. Wenn du dir nicht sicher bist, ob das Richtige dabei herauskommt, verwende zunächst `xargs echo`. Außerdem ist`-I{}` nützlich. Beispiele:
 ```bash
@@ -104,7 +116,19 @@ Hinweise:
 
 - Verwende `alias`, um Verknüpfungen für gebräuchliche Befehle zu erstellen. So erstellt etwa `alias ll='ls -latr'` den neuen Alias `ll`.
 
-- Verwende in Bash-Skripts `set -x` zur Fehlerbehebung. Benutze strict modes wann immer möglich. Verwende `set -e` zum Abbruch bei Fehlern. Benutze `set -o pipefail` ebenfalls, um mit Fehlern präzise zu arbeiten (auch wenn dieses Thema etwas heikel ist). Verwende für etwas komplexere Skripte weiterhin `trap`.
+- Speichere Alternativnamen ("aliases"), Shelleinstellungen und häufig benutzte Funktionen in `~/.bashrc` und [stelle sie anderen Login-Shells zur Verfügung](http://superuser.com/a/183980/7106). So hast du auf dein Setup auch in allen anderen Shellsessions Zugriff.
+
+- Platziere Einstellungen von Umgebungsvariablen sowie Befehle, welche nach einer Anmeldung ausgeführt werden sollen, in `~/.bash_profile`. Eine separate Konfiguration ist notwendig für Shells, welche du von einer grafischen Benutzeroberfläche startest sowie für `cron`-Jobs.
+
+- Synchronisiere deine Konfigurationsdateien (etwa `.bashrc` und `.bash_profile`) zwischen mehreren Computern mit Git.
+
+- Verstehe, dass Vorsicht geboten ist, wenn Variablen und Dateinamen Leerzeichen enthalten. Setze deine Bashvariablen daher mit Anführungszeichen: `"$FOO"`. Bevorzuge die Optionen `-0` oder `-print0`, um ungültige Schriftzeichen zu aktivieren und so Dateinamen zu begrenzen, bspw. `locate -0 pattern | xargs -0 ls -al` oder `find / -print0 -type d | xargs -0 ls -al`. Um in einem "for loop" Dateinamen durchzugehen, die Leerzeichen enthalten, sorge mit `IFS=$'\n'` dafür, dass dein IFS immer auf einer neuen Zeile steht.
+
+- Benutze in Bash-Skripts `set -x` (oder die Abwandlung `set -v`, welche unverarbeiteten Input akzeptiert, einschließlich Kommentare und unexpandierte Variablen) zum Output der Fehlerbehebung. Benutze "strict modes", es sei denn, gute Gründe sprechen dagegen: Benutze `set -e`, um bei Fehlern abzubrechen ("nonzero exit code"). Benutze `set -u`, um die Verwendung nicht gesetzer Variablen aufzuspüren. Erwäge auch `set -o pipefail` für Fehler in Pipes (lies jedoch mehr zu diesem Thema, wenn du es vorhast, denn es ist ein wenig heikel). Benutze bei komplizierteren Skripts auch `trap` bei EXIT oder ERR. Es ist eine nützliche Angewohnheit, ein Skript folgendermaßen zu beginnen, um Fehler zu erkennen und sie ggf. mit einer entsprechenden Fehlermeldung abzubrechen:
+```bash
+      set -euo pipefail
+      trap "echo 'error: Script failed: see failed command above'" ERR
+```
 
 - In Bash-Skripts stellen Subshells (geschrieben in runden Klammern) einen praktischen Weg dar, Befehle zusammenzufassen. Ein gebräuchliches Beispiel ist die vorübergehende Arbeit in einem anderen Arbeitsverzeichnis:
 ```bash
@@ -115,14 +139,23 @@ Hinweise:
 
 - Beachte, dass es in Bash viele Möglichkeiten gibt, Variablen zu erweitern. Überprüfen, ob eine Variable existiert: `${name:?error message}`.Wenn bspw. ein Bash-Skript nur einen einzelnen Parameter benötigt, schreibe einfach `input_file=${1:?usage: $0 input_file}`. Arithmetische Erweiterung: `i=$(( (i + 1) % 5 ))`. Sequenzen: `{1..10}`. Zeichenkette kürzen: `${var%suffix}` und `${var#prefix}`. Wenn bspw. `var=foo.pdf`, dann gibt `echo ${var%.pdf}.txt` die Ausgabe `foo.txt` aus.
 
-- Die Ausgabe eines Befehls kann wie eine Datei behandelt werden mit `<(irgendein befehl)`. Das Vergleichen der lokalen `/etc/hosts` mit einer entfernten:
+- Klammererweiterung mittels `{`...`}` kann dafür sorgen, ähnlichen Text seltener wiederholen zu müssen und ermöglicht die Kombination von Objekten. Das ist etwa in Fällen nützlich wie `mv foo.{txt,pdf} zielverzeichnis` (verschiebt beide Dateien), `cp datei{,.bak}` (erweitert den Ausdruck um `cp datei datei.bak`) oder `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (erweitert alle denkbaren Kombinationen und erstellt einen Verzeichnisbaum).
+
+- Die Ausgabe eines Befehls kann wie eine Datei behandelt werden mit `<(befehl)`. Das Vergleichen der lokalen `/etc/hosts` mit einer entfernten:
 ```sh
       diff /etc/hosts <(ssh andererhost cat /etc/hosts)
 ```
 
+- Beim Schreiben von Skripts wirst du deinen Code womöglich in geschweifte Klammern setzen wollen. Falls die schließende Klammer fehlt, wird dein Skript aufgrund eines Syntaxfehlers nicht ausgeführt. Das ist etwa dann sinnvoll, wenn es im Internet verfügbar ist, da ein unvollständig heruntergeladenes Skript so an der Ausführung gehindert wird:
+```bash
+{
+      # Hier koennte dein Code stehen!
+}
+```
+
 - Kenne "here documents" in Bash, wie etwa in `cat <<EOF ...`.
 
-- In Bash,leite sowohl den standard output als auch den standard error um mit: `irgendein-befehl >logfile 2>&1`. Oftmals ist es gute Praxis, einen Befehl an das verwendete Terminal zu binden, um keinen offenen Dateizugriff im standard input zu erzeugen, also `</dev/null` hinzuzufügen.
+- In Bash, leite sowohl den standard output als auch den standard error um mit: `irgendein-befehl >logfile 2>&1`. Oftmals ist es gute Praxis, einen Befehl an das verwendete Terminal zu binden, um keinen offenen Dateizugriff im standard input zu erzeugen, also `</dev/null` hinzuzufügen.
 
 - Verwende `man ascii` für eine gute ASCII-Tabelle, Mit Dezimal- und Hexadezimalwerten. Für allgemeine Informationen zu Kodierung sind `man unicode`, `man utf-8` und `man latin1` hilfreich.
 
@@ -143,6 +176,8 @@ Hinweise:
 
 - Einige andere Optionen im Zusammenhang mit SSH sind sicherheitsrelevant und sollten nur mit Bedacht aktiviert werden, etwa Zugriff per Subnet oder Host sowie in vertrauenswürdigen Netzwerken: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
+- Erwäge [`mosh`](https://mosh.mit.edu/) als Alternative zu ssh, die UDP benutzt, um so abgebrochene Verbindungen zu vermeiden, was ja in gewisser Hinsicht auch komfortabel ist (benötigt Server-seitiges Setup).
+
 - Um Zugriff auf eine Datei in Oktalform zu erhalten, was zur Systemkonfiguration zwar nützlich, jedoch über `ls` nicht verfügbar und leicht zu vermasseln ist, verwende etwas wie
 ```sh
       stat -c '%A %a %n' /etc/timezone
@@ -155,7 +190,19 @@ Hinweise:
 - Verwende für einen einfachen Webserver für alle Dateien im aktuellen Verzeichnis (sowie Unterverzeichnisse), der für alle in deinem Netzwerk abrufbar ist:
 `python -m SimpleHTTPServer 7777` (für Port 7777 und Python 2) sowie `python -m http.server 7777` (für Port 7777 und Python 3).
 
-- Um einen Befehl mit Privilegien zu nutzen, verwende `sudo` (für root) oder `sudo -u` (für einen anderen Benutzer). Verwende `su` oder `sudo bash`, um eine Shell als eben dieser Benutzer auszuführen. Verwende `su -` zur Simulierung einer frischen Anmeldung als root oder anderer Benutzer.
+<!-- - Um einen Befehl mit Privilegien zu nutzen, verwende `sudo` (für root) oder `sudo -u` (für einen anderen Benutzer). Verwende `su` oder `sudo bash`, um eine Shell als eben dieser Benutzer auszuführen. Verwende `su -` zur Simulierung einer frischen Anmeldung als root oder anderer Benutzer. -->
+
+- Benutze `sudo`, um einen Befehl als ein anderer Benutzer auszuführen. Standardmäßig ist dies die Ausführung als root; benutze `-u` zur Angabe eines anderen benutzers sowie `-i`, um dich als dieser anzumelden (du wirst nach _deinem_ Passwort gefragt).
+
+- Benutze `su benutzername` oder `su - benutzername`, um mit der Shell zu einem anderen Benutzer zu wechseln. Füge `-` hinzu, um eine Umgebung zu erhalten, als hättest du dich gerade mit diesem Benutzer angemeldet. Das Weglassen des Benutzernamens führt zur Anmeldung als root. Du wirst gefragt nach dem Passwort _des Benutzers, als der du dich anmelden willst_.
+
+- Kenne das [128K-Limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) der Kommandozeile. Der "Argument list too long"-Fehler erscheint häufig, wenn auf sehr viele Dateien über [Wildcards](https://de.wikipedia.org/wiki/Wildcard_(Informatik)) zugegriffen wird (wenn das passiert, können Alternativen wie `find` und `xargs` helfen).
+
+- Benutze den `python`-Interpreter als einfachen Taschenrechner (und natürlich für den Zugriff auf Python im Allgemeinen). Beispiel:
+```
+>>> 2+3
+5
+```
 
 
 ## Umgang mit Dateien und Daten
@@ -203,7 +250,7 @@ Situationen (wie den Mengen oder Identitätsfunktionen unterhalb) kann man ruhig
       repren --full --preserve-case --from foo --to bar .
 ```
 
-- Nutze `shuf` zum Mischen oder um zufällige Zeilen aus einer Datei auszuwählen. 
+- Nutze `shuf` zum Mischen oder um zufällige Zeilen aus einer Datei auszuwählen.
 
 - Kenne die Optionen von `sort`. Benutze `-n` für Zahlen, oder `-h` um mit menschenlesbaren Zahlen umzugehen (wie z.B. von `du -h`). Sei Dir bewusst, wie Schlüssel funktionieren (`-t` und `-k`). Sei Dir insbesondere bewusst, dass Du `-k1,1` verwenden musst, um bezüglich des ersten Felds zu sortieren;`-k1 bedeutet, sortiere anhand der ganzen Zeile. Stabiles Suchen (`sort -s`) kann ebenfalls nützlich sein. Um beispielsweise primär nach Feld 2 und sekundär nach Feld 1 zu sortieren, kannst Du `sort -k1,1 | sort -s -k2,2` benutzen.
 
@@ -329,7 +376,7 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `printenv`: Gebe Umgebungsvariablen aus (nützlich zum Debuggen und für Skripte)
 
-- `look`: finde Englische Worte (oder Zeilen in einer Datei) die mit einer bestimmten Zeichenkette anfangen 
+- `look`: finde Englische Worte (oder Zeilen in einer Datei) die mit einer bestimmten Zeichenkette anfangen
 
 - `cut`, `paste` und `join`: Datenmanipulation
 
@@ -443,7 +490,7 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `ss`: Socket Statistiken
 
-- `dmesg`: Bootvorgang und System Fehlermeldungen 
+- `dmesg`: Bootvorgang und System Fehlermeldungen
 
 - `sysctl`: Anzeige und Konfiguration von Linux Kernel Parametern zur Laufzeit
 
@@ -483,10 +530,9 @@ Diese Hinweise sind *nur* für MacOS relevant.
 - [shellcheck](https://github.com/koalaman/shellcheck) - Ein statisches Analysetool für Shell Skripte. Im Grunde lint für bash/sh/zsh.
 
 
-## Haftungsausschluss 
+## Haftungsausschluss
 
-Mit der Ausnahme einiger sehr kleiner Aufgaben ist der Code so geschrieben, dass andere ihn lesen können. Mit Macht kommt Verantwortung. Die Tatsache etwas in Bash tuen zu *können*, heißt nicht
-zwangsläufig, dass Du es tuen solltest! 
+Mit der Ausnahme einiger sehr kleiner Aufgaben ist der Code so geschrieben, dass andere ihn lesen können. Mit Macht kommt Verantwortung. Die Tatsache etwas in Bash tun zu *können*, heißt nicht zwangsläufig, dass Du es tun solltest!
 
 ## Lizenz
 
