@@ -43,7 +43,7 @@ Umfang:
 
 Hinweise:
 
-- Um eine Seite nicht zu sprengen, ist ihr Inhalt durchgängig anhand von Verweisen aufgelistet. Du bist schlau genug, anderswo zusätzliche Informationen nachzuschlagen, sobald du die Idee bzw. den Befehl dahinter kennst. Verwende `apt-get`, `yum`, `dnf`, `pacman`, `pip` oder `brew`, um ggf. neue Programme zu installieren.
+- Um eine Seite nicht zu sprengen, ist ihr Inhalt durchgängig anhand von Verweisen aufgelistet. du bist schlau genug, anderswo zusätzliche Informationen nachzuschlagen, sobald du die Idee bzw. den Befehl dahinter kennst. Verwende `apt-get`, `yum`, `dnf`, `pacman`, `pip` oder `brew`, um ggf. neue Programme zu installieren.
 - Verwende [Explainshell](http://explainshell.com/), um einen hilfreichen Einblick zu erhalten, was es mit Befehlen, Optionen, Pipes etc. auf sich hat.
 
 
@@ -53,7 +53,7 @@ Hinweise:
 
 - Lerne mindestens einen Text-basierten Editor zu benutzen. Idealerweise Vim (`vi`), da es letztlich keinen vergleichbaren Mitbewerber für gelegentliche Einsätze in einem Terminal gibt (selbst dann, wenn man eine große Entwicklungsumgebung wie Emacs oder die meiste Zeit einen modernen Hipster-Editor benutzt).
 
-- Wisse, wie man Dokumentationen mit `man` liest (für Neugierige, `man man` listet Abschnittsnummern, bspw. stehen unter 1 "reguläre" Befehle, 5 beinhaltet Dateien/Konventionen und unter 8 solche zur Rechnerverwaltung). Finde man-Seiten mit `apropos`. Wisse, dass manche Befehle keine ausführbaren Dateien, sondern Bash-Builtins sind, und dass du Hilfe zu diesen mit `help` und `help -d` erhälst.
+- Wisse, wie man Dokumentationen mit `man` liest (für Neugierige, `man man` listet Abschnittsnummern, bspw. stehen unter 1 "reguläre" Befehle, 5 beinhaltet Dateien/Konventionen und unter 8 solche zur Rechnerverwaltung). Finde `man`-Seiten ("man pages") mit `apropos`. Wisse, dass manche Befehle keine ausführbaren Dateien, sondern Bash-Builtins sind, und dass du Hilfe zu diesen mit `help` und `help -d` erhälst.
 
 - Lerne etwas über die Umleitung von Ein- und Ausgaben per `>` und `<` sowie `|` für Pipes. Wisse, dass `>` die Ausgabedatei überschreibt und `>>` etwas anhängt. Lerne etwas über stdout und stderr.
 
@@ -71,7 +71,7 @@ Hinweise:
 
 - Kenne reguläre Ausdrücke gut, und die verschiedenen Statusindikatoren zu `grep`/`egrep`. Die Optionen `-i`, `-o`, `-v`, `-A`, `-B`, und `-C` sind gut zu wissen.
 
-- Lerne den Umgang mit `apt-get`, `yum`, `dnf` oder `pacman` (je nach Distribution), um Pakete zu finden bzw. zu installieren. Und stell sicher, dass du `pip` hast, um Python-basierte Kommandozeilen-Werkzeuge nutzen zu können (einige der untenstehenden werden am einfachsten über `pip` installiert).
+- Lerne den Umgang mit `apt-get`, `yum`, `dnf` oder `pacman` (je nach Linux-Distribution), um Pakete zu finden bzw. zu installieren. Und stell sicher, dass du `pip` hast, um Python-basierte Kommandozeilen-Werkzeuge nutzen zu können (einige der untenstehenden werden am einfachsten über `pip` installiert).
 
 
 ## Täglicher Gebrauch
@@ -92,7 +92,7 @@ Hinweise:
 
 - Um ins vorangegangene Arbeitsverzeichnis zu gelangen: `cd -`
 
-- Wenn du einen Befehl eingibst und es dir auf halbem Wege anders überlegst, drücke **alt-#**, um am Zeilenanfang ein `#` einzufügen und ihn damit als Kommentar auszuweisen (oder benutze **ctrl-a**, **#**, **enter**). Du kannst später über die Befehlsgeschichte zurückgelangen.
+- Wenn du einen Befehl eingibst und es dir auf halbem Wege anders überlegst, drücke **alt-#**, um am Zeilenanfang ein `#` einzufügen und ihn damit als Kommentar auszuweisen (oder benutze **ctrl-a**, **#**, **enter**). du kannst später über die Befehlsgeschichte zurückgelangen.
 
 - Verwende `xargs` (oder `parallel`). Es ist sehr mächtig. Beachte, wie du viele Dinge pro Zeile (`-L`) als auch parallel (`-P`) ausführen kannst. Wenn du dir nicht sicher bist, ob das Richtige dabei herauskommt, verwende zunächst `xargs echo`. Außerdem ist`-I{}` nützlich. Beispiele:
 ```bash
@@ -194,7 +194,7 @@ Hinweise:
 
 - Benutze `sudo`, um einen Befehl als ein anderer Benutzer auszuführen. Standardmäßig ist dies die Ausführung als root; benutze `-u` zur Angabe eines anderen benutzers sowie `-i`, um dich als dieser anzumelden (du wirst nach _deinem_ Passwort gefragt).
 
-- Benutze `su benutzername` oder `su - benutzername`, um mit der Shell zu einem anderen Benutzer zu wechseln. Füge `-` hinzu, um eine Umgebung zu erhalten, als hättest du dich gerade mit diesem Benutzer angemeldet. Das Weglassen des Benutzernamens führt zur Anmeldung als root. Du wirst gefragt nach dem Passwort _des Benutzers, als der du dich anmelden willst_.
+- Benutze `su benutzername` oder `su - benutzername`, um mit der Shell zu einem anderen Benutzer zu wechseln. Füge `-` hinzu, um eine Umgebung zu erhalten, als hättest du dich gerade mit diesem Benutzer angemeldet. Das Weglassen des Benutzernamens führt zur Anmeldung als root. du wirst gefragt nach dem Passwort _des Benutzers, als der du dich anmelden willst_.
 
 - Kenne das [128K-Limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) der Kommandozeile. Der "Argument list too long"-Fehler erscheint häufig, wenn auf sehr viele Dateien über [Wildcards](https://de.wikipedia.org/wiki/Wildcard_(Informatik)) zugegriffen wird (wenn das passiert, können Alternativen wie `find` und `xargs` helfen).
 
@@ -209,19 +209,21 @@ Hinweise:
 
 - Um eine Datei im aktuellen Verzeichnis anhand des Namens zu finden, `find . -iname '*irgendwas*'`. Um eine Datei unabhängig vom Verzeichnis anhand des Namens zu finden, verwende `locate irgendwas` (bedenke jedoch, dass `updatedb` kürzlich erstellte Datein möglicherweise noch nicht indexiert hat).
 
-- Für das allgemeine Durchsuchen von (Quell-)Dateien (fortgeschrttener als `grep -r`), verwende [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Für das allgemeine durchsuchen von (Quell-)Dateien (fortgeschrttener als `grep -r`), verwende [`ag`](https://github.com/ggreer/the_silver_searcher).
 
 - Um HTML in Text zu konvertieren: `lynx -dump -stdin`
 
-- Für Markdown, HTML und viele andere Dokumentkonvertieren, versuch's mit [`pandoc`](http://pandoc.org/).
+- Für Markdown, HTML und alle möglichen Arten von Dokumentkonvertierung, versuch's mit [`pandoc`](http://pandoc.org/).
 
 - Wenn du mit XML arbeiten musst, `xmlstarlet` ist alt, aber gut.
 
 - Für JSON, verwende [`jq`](http://stedolan.github.io/jq/).
 
+- Für YAML gibt's [`shyaml`](https://github.com/0k/shyaml).
+
 - Für Excel- bzw. CSV-Dateien hält [csvkit](https://github.com/onyxfish/csvkit) `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc bereit.
 
-- Für Amazon S3 ist [`s3cmd`](https://github.com/s3tools/s3cmd) praktisch und [`s4cmd`](https://github.com/bloomreach/s4cmd) schneller. Amazons [`aws`](https://github.com/aws/aws-cli) ist essentiell für andere AWS-bezogene Aufgaben.
+- Für Amazon S3 ist [`s3cmd`](https://github.com/s3tools/s3cmd) praktisch und [`s4cmd`](https://github.com/bloomreach/s4cmd) schneller. Amazons [`aws`](https://github.com/aws/aws-cli) sowie das verbesserte [`saws`](https://github.com/donnemartin/saws) sind essentiell für andere AWS-bezogene Aufgaben.
 
 - Kenne `sort` und `uniq`, letzteres einschließlich der Optionen `-u` und `-d` -- siehe die Einzeiler unten. Siehe auch `comm`.
 
@@ -231,49 +233,59 @@ Hinweise:
 
 - Kenne `tee`, um von stdin in eine Datei und sogar nach stdout zu kopieren, wie etwa mit `ls -al | tee datei.txt`.
 
-- Sei Dir bewusst, dass die locale Einstellungen viele Kommandozeilenwerkzeuge auf subtile Art und Weise beeinflussen, inklusive der Sortierreihenfolge und ihrer Performanz. Die meisten Linux Installation setzen `LANG` oder andere lokale Variablen auf eine
-  lokale Einstellung wie z.B. US English. Aber sei Dir bewusst, dass sich das Sortierverhalten ändern wird, falls Du die locale Einstellung änderst. Und wisse, dass i18n Routinen sort und andere Kommandos *um ein Vielfaches* verlangsamen können. In manchen
-Situationen (wie den Mengen oder Identitätsfunktionen unterhalb) kann man ruhigen Gewissens langsame i18n Routinen ignorieren und traditionelle byte-basierte Sortierreihenfolge nutzen, indem man `export LC_ALL=C` setzt.
+- Bei komplexeren Berechnungen, einschließlich Gruppieren, Tauschen von Feldern und statistische Berechnungen, könnte [`datamash`](https://www.gnu.org/software/datamash/) passend sein.
+
+- Sei dir bewusst, dass die regionale Spracheinstellung ("locale") viele Kommandozeilenwerkzeuge auf subtile Art und Weise beeinflusst, inklusive der Sortierreihenfolge und ihrer Performance. Die meisten Linux Installation setzen `LANG` oder andere lokale Variablen auf eine lokale Einstellung wie z.B. "US English". Aber sei dir bewusst, dass sich das Sortierverhalten ändern wird, falls du die "locale" änderst. Und wisse, dass "i18n"-Routinen `sort` und andere Kommandos *stark* verlangsamen können. In manchen Situationen (wie den Mengen oder Identitätsfunktionen unterhalb) kann man ruhigen Gewissens langsame "i18n"-Routinen ignorieren und traditionelle byte-basierte Sortierreihenfolge nutzen, indem man `export LC_ALL=C` setzt.
+
+- Du kannst einem bestimmten Befehl eine Umgebung zuteilen, indem seinem Aufruf die Einstellung der Umgebungsvariable vorangestellt wird, wie hier: `TZ=Pacific/Fiji date`.
 
 - Kenne Grundlagen von`awk` und `sed` für einfache Datenverarbeitung. Um z.B. alle Zahlen in der dritten Spalte einer Textdatei aufzusummieren: `awk '{ x += $3 } END { print x }'`. Das ist wahrscheinlich 3X schneller und 3X kürzer als das Python Äquivalent.
 
-- Um alle Vorkommen einer Zeichenkette in einem oder mehreren Dateien zu ersetzen:
+- Um mehrere Dateien umzubenennen sowie innerhalb von Dateien zu suchen/ersetzen, probier [`repren`](https://github.com/jlevy/repren) aus (gelegentlich kann man auch mit `rename` mehrere Dateien umbenennen, aber sei vorsichtig, da dessen Funktionsweise je nach Linux-Distribution abweicht).
 ```sh
-      perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
-```
-
-- Um mehrere Dateien auf einmal anhand eines Musters umzubennen, nutze `rename`. Für komplexe Umbenennungen könnte [`repren`](https://github.com/jlevy/repren) helfen.
-```sh
-      # Stelle backup Dateien wieder her: foo.bak -> foo:
-      rename 's/\.bak$//' *.bak
-      # Komplette Umbenennung von Dateinamen, Verzeichnissen und Inhalten foo -> bar:
+      # Vollständige Umbenennung von Dateinamen, Ordnern und Inhalten - foo -> bar:
       repren --full --preserve-case --from foo --to bar .
+      # Backupdateien wiederherstellen - whatever.bak -> whatever:
+      repren --renames --from '(.*)\.bak' --to '\1' *.bak
+      # Wie oben, aber mit rename, sofern verfügbar:
+      rename 's/\.bak$//' *.bak
 ```
 
-- Nutze `shuf` zum Mischen oder um zufällige Zeilen aus einer Datei auszuwählen.
+- Wie die `man`-Seite richtig sagt, ist `rsync` ein schnelles und vielseitiges Werkzeug zum Kopieren von Dateien. Es ist bekannt für das Synchronisieren zwischen Rechnern, ist lokal aber ebenso nützlich. Wenn es die Sicherheitsbestimmungen zulassen, erlaubt `rsync` im Gegensatz zu `scp` die Wiederaufnahme einer Übertragung, ohne nochmal von vorn beginnen zu müssen. Es ist zudem einer der [schnellsten Wege](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html), um große Mengen an Dateien zu löschen:
+```sh
+mkdir leeres-verzeichnis && rsync -r --delete leeres-verzeichnis/ verzeichnis && rmdir verzeichnis
+```
 
-- Kenne die Optionen von `sort`. Benutze `-n` für Zahlen, oder `-h` um mit menschenlesbaren Zahlen umzugehen (wie z.B. von `du -h`). Sei Dir bewusst, wie Schlüssel funktionieren (`-t` und `-k`). Sei Dir insbesondere bewusst, dass Du `-k1,1` verwenden musst, um bezüglich des ersten Felds zu sortieren;`-k1 bedeutet, sortiere anhand der ganzen Zeile. Stabiles Suchen (`sort -s`) kann ebenfalls nützlich sein. Um beispielsweise primär nach Feld 2 und sekundär nach Feld 1 zu sortieren, kannst Du `sort -k1,1 | sort -s -k2,2` benutzen.
+- Benutze `shuf` zum Mischen oder um zufällige Zeilen aus einer Datei auszuwählen.
 
-- Falls Du jemals ein Tabulator Literal in eine Kommandozeile in Bash schreiben musst (z.B. für das -t Argument für sort), drücke **ctrl-v** **[Tab]** oder schreibe `$'\t'` (letzteres ist besser, da man es Kopieren/Einfügen kann).
+- Kenne die Optionen von `sort`. Benutze `-n` für Zahlen, oder `-h` um mit menschenlesbaren Zahlen umzugehen (wie z.B. von `du -h`). Sei dir bewusst, wie Schlüssel funktionieren (`-t` und `-k`). Sei dir insbesondere bewusst, dass du `-k1,1` verwenden musst, um bezüglich des ersten Felds zu sortieren;`-k1` bedeutet, sortiere anhand der ganzen Zeile. Stabiles Suchen (`sort -s`) kann ebenfalls nützlich sein. Um bspw. primär nach Feld 2 und sekundär nach Feld 1 zu sortieren, kannst du `sort -k1,1 | sort -s -k2,2` benutzen.
 
-- Die Standardwerkzeuge für das Patchen von Quellcode sind `diff` und `patch`. Siehe auch `diffstat`, um zusammenfassende Statistiken eines diffs zu erhalten. Beachte, dass `diff -r` für komplette Verzeichnisse funktioniert. Nutze `diff -r tree1 tree2 | diffstat`, um eine Übersicht aller Änderungen zu bekommen.
+- Falls du jemals ein Tabulator Literal in eine Kommandozeile in Bash schreiben musst (etwa den Parameter `-t` für `sort`), drücke **ctrl-v** **[Tab]** oder schreibe `$'\t'` (letzteres ist besser, da man es Kopieren/Einfügen kann).
 
-- Für Binärdateien, nutze `hd` für einfache HexDumps und `bvi`, um Binärdateien zu editieren
+- Die Standardwerkzeuge für das Patchen von Quellcode sind `diff` und `patch`. Siehe auch `diffstat`, um zusammenfassende Statistiken eines diffs zu erhalten. Beachte, dass `diff -r` für komplette Verzeichnisse funktioniert. Nutze `diff -r tree1 tree2 | diffstat`, um eine Übersicht aller Änderungen zu bekommen. Benutze `vimdiff`, um Dateien zu vergleichen und zu bearbeiten.
 
-- Ebenfalls für Binärdateien, `kann strings` (und `grep`, etc.) benutzt werden, um Textpassagen zu finden.
+- Benutze für Binärdateien `hd`, `hexdump` or `xxd` zur Erstellung einfacher [Hexdumps](https://de.wikipedia.org/wiki/Dump#Hexdump) und `bvi` oder `biew` zur binären Bearbeitung.
+
+- Ebenfalls für Binärdateien kann `strings` (und `grep`, etc.) benutzt werden, um Textpassagen zu finden.
 
 - Um Diffs für Binärdateien zu erstellen (Delta Kompression), nutze `xdelta3`.
 
-- Um zwischen Text Kodierungen zu konvertieren, solltest Du `iconv` probieren. Oder `uconv` für fortgeschrittene Anwendungsfälle; es
-  unterstüzt einige fortgeschrittene Unicode Dinge. Dieses Kommando beispielsweise wandelt alle Buchstaben in Kleinbuchstaben um und
-entfernt alle Akzente (indem sie erweitert und verworfen werden):
+- Um zwischen Textkodierungen zu konvertieren, solltest du `iconv` probieren, oder aber `uconv` für fortgeschrittene Anwendungsfälle; es unterstüzt einige fortgeschrittene Unicode-Dinge. Dieses Kommando bspw. wandelt alle Buchstaben in Kleinbuchstaben um und entfernt alle Akzente (indem sie erweitert und verworfen werden):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- Um Dateien aufzuteilen, siehe `split` (um anhand einer bestimmten Größe zu teilen) und `csplit` (um Anhand eines gewissen Patterns zu teilen).
+- Um Dateien aufzuteilen, siehe `split` (Teilung anhand einer bestimmten Größe) und `csplit` (Teilung anhand eines bestimmten Musters).
 
-- Benutze  `zless`, `zmore`, `zcat`, und `zgrep` um mit komprimierten Dateien zu arbeiten
+- Benutze  `zless`, `zmore`, `zcat`, und `zgrep` um mit komprimierten Dateien zu arbeiten.
+
+- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
+
+- Use `getfacl` and `setfacl` to save and restore file permissions. For example:
+```sh
+   getfacl -R /some/path > permissions.txt
+   setfacl --restore=permissions.txt
+```
 
 
 ## Fehlerbehebung auf Systemebene
@@ -282,9 +294,9 @@ entfernt alle Akzente (indem sie erweitert und verworfen werden):
 
 - Um den Festplatten/CPU/Netzwerk Status zu erfahren, nutze `iostat`, `netstat`, `top` (oder das bessere `htop`), und (besonders) `dstat`. Gut um eine grobe Übersicht darüber zu bekommen, was sich auf einem System abspielt.
 
-- Für eine tiefgreifendere Systemübersicht, nutze [`glances`](https://github.com/nicolargo/glances). Es zeigt Dir einige System Statistiken in einem Terminalfenster an. Sehr hilfreich, um schnell mehrere Subsysteme überprüfen zu können.
+- Für eine tiefgreifendere Systemübersicht, nutze [`glances`](https://github.com/nicolargo/glances). Es zeigt dir einige System Statistiken in einem Terminalfenster an. Sehr hilfreich, um schnell mehrere Subsysteme überprüfen zu können.
 
-- Um den Zustand des Speichers zu kennen, solltest Du `free` und `vmstat` ausführen und die Ausgabe verstehen. Sei Dir insbesondere bewusst, dass der "cached" Wert, der Wert ist, der vom Linux Kernel als Datei Cache genutzt wird, so dieser effektiv als zum
+- Um den Zustand des Speichers zu kennen, solltest du `free` und `vmstat` ausführen und die Ausgabe verstehen. Sei dir insbesondere bewusst, dass der "cached" Wert, der Wert ist, der vom Linux Kernel als Datei Cache genutzt wird, so dieser effektiv als zum
   Wert "free" addiert werden kann.
 
 - Java Systeme zu debuggen ist ein anderes Paar Schuhe, aber ein simpler Trick für die Oracle JVM (der teilweise auch für andere JVMs funktioniert) ist `kill -3 <pid>`, so dass ein vollständiger Strack trace und Heap Informationen (inklusive Garbage Collection
@@ -294,13 +306,13 @@ entfernt alle Akzente (indem sie erweitert und verworfen werden):
 
 - Beim Nachsehen, warum die Festplatte voll ist, spart `ncdu` Zeit gegenüber den üblichen Kommandos wie `du -sh *`.
 
-- Um herauszufunden, welcher Socket oder Prozess Bandbreite verbraucht, solltest Du `iftop` oder `nethogs` verwenden.
+- Um herauszufunden, welcher Socket oder Prozess Bandbreite verbraucht, solltest du `iftop` oder `nethogs` verwenden.
 
-- Das `ab` Werkzeug (ein Teil vom Apache) ist hilfreich, um schnell und pragmatisch die Performanz eines Webservers zu messen. Für komplexere Messungen solltest Du`siege` ausprobieren.
+- Das `ab` Werkzeug (ein Teil vom Apache) ist hilfreich, um schnell und pragmatisch die Performanz eines Webservers zu messen. Für komplexere Messungen solltest du`siege` ausprobieren.
 
 - Für eine tiefergehende Netzwerk Problemsuche, `wireshark`, `tshark`, oder `ngrep`.
 
-- Kenne `strace` und `ltrace`. Diese können hilfreich sein, falls ein Programm fehlschlägt, hängt, oder abstürzt und Du weißt nicht warum, oder um einen generellen Eindruck von der Performanz zu bekommen. Beachte die Profiling Option(`-c`), und die Fähigkeit,
+- Kenne `strace` und `ltrace`. Diese können hilfreich sein, falls ein Programm fehlschlägt, hängt, oder abstürzt und du weißt nicht warum, oder um einen generellen Eindruck von der Performanz zu bekommen. Beachte die Profiling Option(`-c`), und die Fähigkeit,
   sich zu laufen Prozessen zu verbinden (`-p`).
 
 - Kenne `ldd` um Shared Libraries zu überprüfen.
@@ -311,9 +323,9 @@ entfernt alle Akzente (indem sie erweitert und verworfen werden):
 
 - Bei der Problemfindung, warum etwas in der Vergangenheit schief gelaufen ist, kann `sar` sehr hilfreich sein. Es zeigt historische Statistiken über CPU, Speicher, Netzwerk, etc.
 
-- Für eine genauere System und Performanceanalyse, solltest Du Dir `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), und [`sysdig`](https://github.com/draios/sysdig) ansehen.
+- Für eine genauere System und Performanceanalyse, solltest du dir `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), und [`sysdig`](https://github.com/draios/sysdig) ansehen.
 
-- Finde heraus, welches Betriebssystem Du nutzt mittels `uname` oder `uname -a` (allgemeine Unix/Kernelinformationen) oder `lsb_release -a` (Linux Distribution Informationen)
+- Finde heraus, welches Betriebssystem du nutzt mittels `uname` oder `uname -a` (allgemeine Unix/Kernelinformationen) oder `lsb_release -a` (Informationen zur verwendeten Linux-Distribution)
 
 - Benutze `dmesg` wenn sich etwas merkdwürdig verhält (es könnte ein Hardware oder Treiber Problem sein)
 
@@ -348,7 +360,7 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- Um durchgehend Änderungen zu überwachen, solltest Du "watch" benutzen; z.B. Dateiänderungen in einem Verzeichnis können mittels `watch -d -n 2 'ls -rtlh | tail'` überwacht werden, während Du Deine Wifi Einstellungen mittels `watch -d -n 2 ifconfig` auf Fehler überprüfen kannst.
+- Um durchgehend Änderungen zu überwachen, solltest du "watch" benutzen; z.B. Dateiänderungen in einem Verzeichnis können mittels `watch -d -n 2 'ls -rtlh | tail'` überwacht werden, während du Deine Wifi Einstellungen mittels `watch -d -n 2 ifconfig` auf Fehler überprüfen kannst.
 
 - Führe diese Funktion aus, um einen zufälligen Tip aus diesem Dokument zu erhalten(parst das Markdown Dokument und extrahiert ein Element)
 ```sh
@@ -496,7 +508,7 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `hdparm`: SATA/ATA Festplatten Manipulation/Performanceinformationen
 
-- `lsb_release`: Informationen über die Linux Distribution
+- `lsb_release`: Informationen über die verwendete Linux-Distribution
 
 - `lsblk`: Auflisten von block devices:  eine Baumansicht deiner Festplatten und Partitionen
 
@@ -532,7 +544,7 @@ Diese Hinweise sind *nur* für MacOS relevant.
 
 ## Haftungsausschluss
 
-Mit der Ausnahme einiger sehr kleiner Aufgaben ist der Code so geschrieben, dass andere ihn lesen können. Mit Macht kommt Verantwortung. Die Tatsache etwas in Bash tun zu *können*, heißt nicht zwangsläufig, dass Du es tun solltest!
+Mit der Ausnahme einiger sehr kleiner Aufgaben ist der Code so geschrieben, dass andere ihn lesen können. Mit Macht kommt Verantwortung. Die Tatsache etwas in Bash tun zu *können*, heißt nicht zwangsläufig, dass du es tun solltest!
 
 ## Lizenz
 
