@@ -379,19 +379,19 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 ## Eigenartig aber hilfreich
 
-- `expr`: Führe arithmetische oder boolsche Operationen aus oder werte reguläre Ausdrücke aus
+- `expr`: Führe arithmetische oder bool'sche Operationen aus oder werte reguläre Ausdrücke aus
 
 - `m4`: Simpler Macro Auswerter
 
 - `yes`: Gebe eine Zeichenkette sehr oft aus
 
-- `cal`: netter Kalender
+- `cal`: Netter Kalender
 
 - `env`: Führe ein Kommando aus (nützlich für Skripte)
 
 - `printenv`: Gebe Umgebungsvariablen aus (nützlich zum Debuggen und für Skripte)
 
-- `look`: finde Englische Worte (oder Zeilen in einer Datei) die mit einer bestimmten Zeichenkette anfangen
+- `look`: Finde englische Worte (oder Zeilen in einer Datei), die mit einer bestimmten Zeichenkette anfangen
 
 - `cut`, `paste` und `join`: Datenmanipulation
 
@@ -403,7 +403,7 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `column`: Formatiere Textfelder als bündige Spalten oder Tabellen mit fester Größe
 
-- `expand` and `unexpand`: Konvertiere zwischen Tabs und Spaces
+- `expand` und `unexpand`: Konvertiere zwischen Tabs und Spaces
 
 - `nl`: Füge Zeilennummern hinzu
 
@@ -427,13 +427,19 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `file`: Identifiziere den Typ einer Datei
 
-- `tree`: Zeige Verzeichnisse und Unterverzeichnisse als verschachtelten Baum; wie 'ls' aber rekursiv
+- `tree`: Zeige Verzeichnisse und Unterverzeichnisse als verschachtelten Baum; wie `ls` aber rekursiv
 
 - `stat`: Datei Infomationen
 
-- `time`: Führe ein Kommando aus und messe die Zeit
+- `time`: Führe einen Befehl aus und messe die Zeit
 
-- `watch`: führe ein Kommando wiederholt aus, wobei die Ergebnisse angezeigt und/oder Änderungen hervorgehoben werden
+- `timeout`: Führe einen Befehl für eine bestimmte Zeit aus und beende ihn anschließend wieder
+
+- `lockfile`: Erstelle eine Semaphordatei, die nur gelöscht werden kann mit `rm -f`
+
+- `logrotate`: Rotiert, komprimiert und mailt System-Log-Dateien
+
+- `watch`: Führe einen Befehl wiederholt aus, wobei die Ergebnisse angezeigt und/oder Änderungen hervorgehoben werden
 
 - `tac`: Gebe Dateien in umgekehrter Reihenfolge aus
 
@@ -443,45 +449,47 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `pv`: Überwache den Fortschritt von Daten durch eine Pipe
 
-- `hd` und `bvi`: Ausgabe und Editieren von Binärdateien
+- `hd`, `hexdump`, `xxd`, `biew` und `bvi`: Ausgabe und Editieren von Binärdateien
 
 - `strings`: Text aus Binärdateien extrahieren
 
-- `tr`: Buchstabenübersetzung und Manipulation
+- `tr`: Buchstabenübersetzung und -manipulation
 
 - `iconv` oder `uconv`: Konvertierung von Zeichensätzen
 
 - `split` und `csplit`: Dateien aufteilen
 
-- `sponge`: liest die gesamte Eingabe, bevor sie wieder ausgegeben wird. Nützlich um aus der selben Datei zu lesen und in diese zu schreiben, z.B. `grep -v irgendwas irgendeine-datei | sponge irgendeine-datei`
+- `sponge`: Liest die gesamte Eingabe, bevor sie wieder ausgegeben wird. Nützlich, um aus derselben Datei zu lesen und in diese zu schreiben, bspw. `grep -v irgendwas irgendeine-datei | sponge irgendeine-datei`
 
 - `units`: Einheiten Konvertierungen und Berechnungen; konvertiert Furlong(Achtelmeile)/Fortnights(2 Wochen) zu twips/blink (siehe `/usr/share/units/definitions.units`)
 
-- `7z`: hochperformante Dateikomprimierung
+- `apg`: Generiert zufällige Passwörter
+
+- `xz`: Hochgradige Dateikompression
 
 - `ldd`: Informationen zu dynamisch gelinkten Bibliotheken
 
 - `nm`: Symbole aus Objektdateien anzeigen
 
-- `ab`: Web Server benchmarken
+- `ab`: Webserver benchmarken
 
 - `strace`: Debugging von Syscalls
 
-- `mtr`: ein besseres "traceroute" zum Netzwerk debuggen
+- [`mtr`](http://www.bitwizard.nl/mtr/): Ein besseres "traceroute" zum Netzwerk-Debugging
 
-- `cssh`: visuelle, nebenläufige Shell
+- `cssh`: Visuelle, nebenläufige Shell
 
-- `rsync`: synchronisiere Dateien und Ordner über SSH oder im lokalen Dateisystem
+- `rsync`: Synchronisiere Dateien und Ordner über SSH oder im lokalen Dateisystem
 
-- `wireshark` und `tshark`: Pakete aufzeichnen und Netzwerk Debugging
+- [`wireshark`](https://wireshark.org/) and [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): Pakete aufzeichnen und Netzwerk-Debugging
 
-- `ngrep`: grep für die Netzwerk Schicht
+- [`ngrep`](http://ngrep.sourceforge.net/): grep für die Netzwerkschicht
 
-- `host` und `dig`: DNS Auflösung
+- `host` und `dig`: DNS-Auflösung
 
 - `lsof`: Prozess Datei Deskriptor und Socket Informationen
 
-- `dstat`: nützliche Systemstatistiken
+- `dstat`: Nützliche Systemstatistiken
 
 - [`glances`](https://github.com/nicolargo/glances): Grobe Übersicht über zahlreiche Subsysteme
 
@@ -491,35 +499,34 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `vmstat`: Speicher Nutzungsstatistiken
 
-- `htop`: eine verbesserte Version von top
+- `htop`: Verbesserte Version von `top`
 
-- `last`: Login Verlauf
+- `last`: Loginverlauf
 
-- `who`: wer ist gerade angemeldet
+- `who`: Wer gerade angemeldet ist
 
-- `id`: Benutzer/Gruppen Identitätsinformationen
+- `id`: Identitätsinformationen zu Benutzern/Gruppen
 
-- `sar`: Historische System Statistiken
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): Historische Systemstatistiken
 
-- `iftop` oder `nethogs`: Netzwerknutzung durch Sockets oder Prozesse
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): Netzwerknutzung durch Sockets oder Prozesse
 
-- `ss`: Socket Statistiken
+- `ss`: Socket-Statistiken
 
 - `dmesg`: Bootvorgang und System Fehlermeldungen
 
 - `sysctl`: Anzeige und Konfiguration von Linux Kernel Parametern zur Laufzeit
 
-- `hdparm`: SATA/ATA Festplatten Manipulation/Performanceinformationen
+- `hdparm`: SATA/ATA-Festplattenmanipulation/-performanceinformationen
 
-- `lsb_release`: Informationen über die verwendete Linux-Distribution
+- `lsblk`: Auflisten von block devices: eine Baumansicht deiner Festplatten und Partitionen
 
-- `lsblk`: Auflisten von block devices:  eine Baumansicht deiner Festplatten und Partitionen
-
-- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware informationen, inklusive CPU, BIOS, RAID, Grafikkarten, Geräte, etc.
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: Hardware-Informationen, inklusive CPU, BIOS, RAID, Grafikkarten, Geräte, etc.
 
 - `lsmod` und `modinfo`: Auflisten und Details anzeigen von Kernel Modulen
 
 - `fortune`, `ddate`, und `sl`: ähm ja, kommt darauf an, ob man Dampflokomotiven und flotte Zitate "nützlich" findet
+
 
 ## Nur MacOS X
 
@@ -529,25 +536,58 @@ Diese Hinweise sind *nur* für MacOS relevant.
 
 - Kopiere die Ausgabe jedes Kommandos an eine Desktop App mit `pbcopy` und füge die Eingabe von einer solchen ein mit `pbpaste`.
 
-- Um die Option Taste als alt Taste in einer Mac OS Konsole zu nutzen (so wie in den obrigen Kommandos wie **alt-b**, **alt-f**, etc.), öffne Einstellungen -> Profile -> Tastatur und aktiviere
-  "Benutze Option Taste als Meta Taste"
+- Um die Option Taste als alt-Taste in einer Mac OS Konsole zu nutzen (so wie in den obrigen Befehle wie **alt-b**, **alt-f**, etc.), öffne Einstellungen -> Profile -> Tastatur und aktiviere "Benutze Option Taste als Meta Taste"
 
 - Um eine Datei mit einer Desktopanwendung zu öffnen, kann man `open` oder `open -a /Applications/Whatever.app` benutzen.
 
 - Spotlight: Dateisuche mit `mdfind` und Ausgabe von Metadaten (wie z.B. photo EXIF info) mit `mdls`.
 
-- Man sollte sich bewusst sein, dass MacOS auf BSD Unix basiert und sich viele Kommandos (wie z.B. `ps`, `ls`, `tail`, `awk`, `sed`) bezüglich subtiler Kleinigkeiten von Linux, dass stark von System V-style Unix und GNU tools beeinflusst ist, unterscheiden. Oft kann man den Unterschied daran erkennen, dass eine man page die Überschrift  "BSD General Commands Manual" trägt. In manchen Fällen kann auch die GNU version installiert werden (wie z.B. bei `gawk` und `gsed` für GNU awk und sed). Falls man cross-platform Bash Skripte schreiben möchte, sollte man solche Kommandos vermeiden (und z.B. Python oder `perl` in Betracht ziehen) oder sorgfätig testen.
+- Man sollte sich bewusst sein, dass MacOS auf BSD Unix basiert und sich viele Befehle (wie z.B. `ps`, `ls`, `tail`, `awk`, `sed`) bezüglich subtiler Kleinigkeiten von Linux, das stark von System V-style Unix und GNU tools beeinflusst ist, unterscheiden. Oft kann man den Unterschied daran erkennen, dass eine `man`-Seite die Überschrift  "BSD General Commands Manual" trägt. In manchen Fällen kann auch die GNU-Version installiert werden (wie z.B. bei `gawk` und `gsed` für GNU awk und sed). Falls manplattformübergreifende Bash-Skripte schreiben möchte, sollte man solche Kommandos vermeiden (und z.B. Python oder `perl` in Betracht ziehen) oder sorgfätig testen.
+
+- Benutze `sw_vers` für OS X Systeminformationen.
+
+
+## Nur Windows
+
+Diese Hinweise sind *nur* für Windows relevant.
+
+- Mit Windows 10 kannst du [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) benutzen, das eine vertraute Bash-Umgebung mit Unix-Kommandozeilenwerkzeugen. Dies erlaubt einerseits die Nutzung von Linux-Programmen auf Windows, unterstützt andererseits jedoch nicht die Ausführung von Windows-Programmen von der Bash-Konsole.
+
+- Zugriff auf die Macht der Unix-Shell erhälst du unter Microsoft Windows durch die Installation von  [Cygwin](https://cygwin.com/). Die meisten hier beschriebenen Dinge funktionieren damit ohne weiteren Aufwand.
+
+- Installiere zusätzliche Unix-Programme mit Cygwins Paketmanager.
+
+- Benutze `mintty` als dein Kommandozeilenfenster.
+
+- Greife mit `/dev/clipboard` auf die Zwischenablage von Windows zu.
+
+- Öffne beliebige Dateien über `cygstart` mit deren Standardprogramm.
+
+- Greife mit `regtool` auf die Windows-Registry zu.
+
+- Beachte, dass der Windows-Pfad `C:\` unter Cygwin zu `/cygdrive/c` wird und dass Cygwins `/` unter Windows als `C:\cygwin` verfügbar ist. Für die Umwandlung zwischen Cygwin- und Windows-Pfaden steht `cygpath` zur Verfügung. Dies ist inbesondere für Skripte nützlich, welche Windows-Programme ausführen.
+
+- Du kannst die meisten Aufgaben der Windows-Systemverwaltung von der Kommandozeile ausführen und skripten, indem du den Umgang mit `wmic` lernst.
+
+- Eine andere Möglichkeit, ein wenig Unix auf dein Windows-System zu bringen, bietet [Cash](https://github.com/dthree/cash). Beachte allerdings, dass nur sehr wenige Unix-Befehle und Kommandozeilen-Optionen in dieser Umgebung zur Verfügung stehen.
+
+- Eine weitere Option, GNU-Entwicklerwerkzeuge (etwa GCC) auf Windows zu nutzen, besteht darin, [MinGW](http://www.mingw.org/) und dessen Paket [MSYS](http://www.mingw.org/wiki/msys), das Hilfsprogramme wie bash, gawk, make and grep beinhaltet, zu installieren. MSYS bringt allerdings nicht so viele Features mit wie etwa Cygwin. MinGW ist besonders nützlich für die Erstellung nativer Windows-Ports von Unix-Werkzeugen.
+
 
 ## Weitere Quellen
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): Eine hilfreiche Liste von Shell Werkzeugen und Quellen
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) um bessere Shell Skripte zu schreiben
-- [shellcheck](https://github.com/koalaman/shellcheck) - Ein statisches Analysetool für Shell Skripte. Im Grunde lint für bash/sh/zsh.
+- [awesome-shell](https://github.com/alebcay/awesome-shell): Eine hilfreiche Liste von Shell-Werkzeugen und Quellen.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): A more in-depth guide for the OS X command line.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/), um bessere Shell-Skripte zu schreiben.
+- [shellcheck](https://github.com/koalaman/shellcheck) - Ein statisches Analysetool für Shell-Skripte. Im Grunde lint für bash/sh/zsh.
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): More commands and tools helpful for doing data science, from the book of the same name
 
 
 ## Haftungsausschluss
 
 Mit der Ausnahme einiger sehr kleiner Aufgaben ist der Code so geschrieben, dass andere ihn lesen können. Mit Macht kommt Verantwortung. Die Tatsache etwas in Bash tun zu *können*, heißt nicht zwangsläufig, dass du es tun solltest!
+
 
 ## Lizenz
 
