@@ -190,8 +190,6 @@ Hinweise:
 - Verwende für einen einfachen Webserver für alle Dateien im aktuellen Verzeichnis (sowie Unterverzeichnisse), der für alle in deinem Netzwerk abrufbar ist:
 `python -m SimpleHTTPServer 7777` (für Port 7777 und Python 2) sowie `python -m http.server 7777` (für Port 7777 und Python 3).
 
-<!-- - Um einen Befehl mit Privilegien zu nutzen, verwende `sudo` (für root) oder `sudo -u` (für einen anderen Benutzer). Verwende `su` oder `sudo bash`, um eine Shell als eben dieser Benutzer auszuführen. Verwende `su -` zur Simulierung einer frischen Anmeldung als root oder anderer Benutzer. -->
-
 - Benutze `sudo`, um einen Befehl als ein anderer Benutzer auszuführen. Standardmäßig ist dies die Ausführung als root; benutze `-u` zur Angabe eines anderen benutzers sowie `-i`, um dich als dieser anzumelden (du wirst nach _deinem_ Passwort gefragt).
 
 - Benutze `su benutzername` oder `su - benutzername`, um mit der Shell zu einem anderen Benutzer zu wechseln. Füge `-` hinzu, um eine Umgebung zu erhalten, als hättest du dich gerade mit diesem Benutzer angemeldet. Das Weglassen des Benutzernamens führt zur Anmeldung als root. du wirst gefragt nach dem Passwort _des Benutzers, als der du dich anmelden willst_.
@@ -292,42 +290,43 @@ mkdir leeres-verzeichnis && rsync -r --delete leeres-verzeichnis/ verzeichnis &&
 
 - Zur Fehlersuche bei Webanwendungen sind `curl` und `curl -I` hilfreich, ebenso wie ihre `wget` Äquivalente oder das modernere [`httpie`](https://github.com/jakubroztocil/httpie).
 
-- Um den Festplatten/CPU/Netzwerk Status zu erfahren, nutze `iostat`, `netstat`, `top` (oder das bessere `htop`), und (besonders) `dstat`. Gut um eine grobe Übersicht darüber zu bekommen, was sich auf einem System abspielt.
+- Um den aktuellen CPU-/Festplattenstatus zu erfahren, sind die Klassiker `top` (oder das bessere `htop`), `iostat` und `iotop`. Benutze `iostat -mxz 15` for basic CPU and detailed per-partition disk stats and performance insight.
 
-- Für eine tiefgreifendere Systemübersicht, nutze [`glances`](https://github.com/nicolargo/glances). Es zeigt dir einige System Statistiken in einem Terminalfenster an. Sehr hilfreich, um schnell mehrere Subsysteme überprüfen zu können.
+- Benutze für Informationen zu Netzwerkverbindungen `netstat` und `ss`.
 
-- Um den Zustand des Speichers zu kennen, solltest du `free` und `vmstat` ausführen und die Ausgabe verstehen. Sei dir insbesondere bewusst, dass der "cached" Wert, der Wert ist, der vom Linux Kernel als Datei Cache genutzt wird, so dieser effektiv als zum
-  Wert "free" addiert werden kann.
+- Für eine schnelle Übersicht, was sich auf einem System abspielt, ist `dstat` sehr nützlich. Für einen guten Gesamtüberblick bietet sich zudem [`glances`](https://github.com/nicolargo/glances) an.
 
-- Java Systeme zu debuggen ist ein anderes Paar Schuhe, aber ein simpler Trick für die Oracle JVM (der teilweise auch für andere JVMs funktioniert) ist `kill -3 <pid>`, so dass ein vollständiger Strack trace und Heap Informationen (inklusive Garbage Collection
-  Details, die sehr informativ sein können) nach stderr/logs ausgegeben werden. Die JDK Befehle `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) sind noch weiter fortgeschritten.
+- Um den Zustand des Speichers zu erfahren, führst du am besten `free` und `vmstat` aus und verstehst deren Ausgabe. Sei dir insbesondere bewusst, dass der "cached"-Wert jener Wert ist, der vom Linux-Kernel als Dateicache genutzt wird, da dieser effektiv als zum "free"-Wert addiert werden kann.
 
-- Benutze `mtr` als ein besseres traceroute, um Netzwerk Probleme zu identifizieren.
+- Fehlerbehebung ("debugging") auf Java-Systemen ist ein anderes Paar Schuhe, aber ein simpler Trick für die Oracle JVM (der teilweise auch für andere JVMs funktioniert) ist `kill -3 <pid>`, sodass ein vollständiger Strack trace und Heap Informationen (inklusive Garbage Collection Details, die sehr informativ sein können) nach stderr/logs ausgegeben werden. Die JDK-Befehle `jps`, `jstat`, `jstack`, `jmap` sind ebenfalls nützlich. [SJK-Werkzeuge](https://github.com/aragozin/jvm-tools) sind noch weiter fortgeschritten.
 
-- Beim Nachsehen, warum die Festplatte voll ist, spart `ncdu` Zeit gegenüber den üblichen Kommandos wie `du -sh *`.
+- Benutze [`mtr`](http://www.bitwizard.nl/mtr/) als ein besseres traceroute, um Netzwerkprobleme zu identifizieren.
 
-- Um herauszufunden, welcher Socket oder Prozess Bandbreite verbraucht, solltest du `iftop` oder `nethogs` verwenden.
+- Willst du wissen, warum eine Festplatte voll ist, dann spart [`ncdu`](https://dev.yorhel.nl/ncdu) Zeit gegenüber den üblichen Befehlen wie `du -sh *`.
 
-- Das `ab` Werkzeug (ein Teil vom Apache) ist hilfreich, um schnell und pragmatisch die Performanz eines Webservers zu messen. Für komplexere Messungen solltest du`siege` ausprobieren.
+- Um herauszufunden, welcher Socket oder Prozess Bandbreite verbraucht, kannst du [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) oder [`nethogs`](https://github.com/raboof/nethogs) verwenden.
 
-- Für eine tiefergehende Netzwerk Problemsuche, `wireshark`, `tshark`, oder `ngrep`.
+- Das `ab`-Werkzeug (ein Teil vom Apache) ist hilfreich, um schnell und pragmatisch die Performance eines Webservers zu messen. Für komplexere Messungen kannst du `siege` ausprobieren.
 
-- Kenne `strace` und `ltrace`. Diese können hilfreich sein, falls ein Programm fehlschlägt, hängt, oder abstürzt und du weißt nicht warum, oder um einen generellen Eindruck von der Performanz zu bekommen. Beachte die Profiling Option(`-c`), und die Fähigkeit,
-  sich zu laufen Prozessen zu verbinden (`-p`).
+- Für eine tiefergehende Netzwerk Problemsuche, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), oder [`ngrep`](http://ngrep.sourceforge.net/).
 
-- Kenne `ldd` um Shared Libraries zu überprüfen.
+- Kenne `strace` und `ltrace`. Diese können hilfreich sein, falls ein Programm fehlschlägt, hängt oder abstürzt und du weißt nicht warum, oder um einen generellen Eindruck von der Performance zu bekommen. Beachte die Profiling-Option (`-c`) und die Fähigkeit, sich mit laufenden Prozessen zu verbinden (`-p`).
 
-- Sei in der Lage, sich zu einem laufenden Prozess mittels `gdb` zu verbinden und die Stack Traces zu holen.
+- Kenne `ldd`, um "shared libraries" zu überprüfen.
 
-- Benutze `/proc`. Es ist manchmal unglaublich hilfreich, um Probleme in Echtzeit zu debuggen. Beispiele: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (wobei `xxx` die Prozess Id /pid ist).
+- Sei in der Lage, dich mittels `gdb` mit einem laufenden Prozess zu verbinden und dessen "stack traces" zu holen.
 
-- Bei der Problemfindung, warum etwas in der Vergangenheit schief gelaufen ist, kann `sar` sehr hilfreich sein. Es zeigt historische Statistiken über CPU, Speicher, Netzwerk, etc.
+- Benutze `/proc`. Es ist manchmal unglaublich hilfreich, um Probleme in Echtzeit zu debuggen. Beispiele: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (wobei `xxx` die Prozess-ID / pid ist).
+
+- Bei der Frage, warum in der Vergangenheit etwas schief gelaufen ist, kann [`sar`](http://sebastien.godard.pagesperso-orange.fr/) sehr hilfreich sein. Es zeigt historische Statistiken über CPU, Speicher, Netzwerk, etc.
 
 - Für eine genauere System und Performanceanalyse, solltest du dir `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), und [`sysdig`](https://github.com/draios/sysdig) ansehen.
 
-- Finde heraus, welches Betriebssystem du nutzt mittels `uname` oder `uname -a` (allgemeine Unix/Kernelinformationen) oder `lsb_release -a` (Informationen zur verwendeten Linux-Distribution)
+- Finde heraus, welches Betriebssystem du nutzt mittels `uname` oder `uname -a` (allgemeine Unix-/Kernelinformationen) oder `lsb_release -a` (Informationen zur verwendeten Linux-Distribution)
 
 - Benutze `dmesg` wenn sich etwas merkdwürdig verhält (es könnte ein Hardware oder Treiber Problem sein)
+
+- Wenn du eine Datei löschst, jedoch laut `du` nicht der erwartete Festplattenspeicher frei wird, dann überprüfe, ob die Datei von einem Prozess verwendet wird: `lsof | grep deleted | grep "dateiname"`
 
 
 ## Einzeiler
