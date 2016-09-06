@@ -333,20 +333,18 @@ mkdir leeres-verzeichnis && rsync -r --delete leeres-verzeichnis/ verzeichnis &&
 
 Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
-- Manchmal ist es unglaublich hilfreich, dass man die Schnittmenge, Vereinigung und den Unterschied zwischen Textdateien via `sort`/`uniq` bilden kann. Angenommen a und b sind Textdateien, die bereits "unique" sind. Diese Herangehensweise ist schnell, funktioniert mit Dateien beliebiger Größe, bis zu mehreren Gigabytes (Sort ist nicht durch Speicher beschränkt, obwohl man eventuell die `-T` Option nutzen muss, falls `/tmp` auf einer kleinen root partition liegt.) Siehe auch die Bemerkung über `LC_ALL` weiter oben und die `sort`'s `-u` Option (wurde oben aus Gründen der Übersichtlichkeit ausgelassen).
+- Manchmal ist es unglaublich hilfreich, dass man die Schnittmenge, Vereinigung und den Unterschied zwischen Textdateien via `sort`/`uniq` bilden kann. Angenommen, a und b sind Textdateien, die bereits "unique" sind. Diese Herangehensweise ist schnell und funktioniert mit Dateien beliebiger Größe, bis zu mehreren Gigabytes (`sort` ist nicht durch Speicher beschränkt, obwohl man eventuell die `-T`-Option nutzen muss, falls `/tmp` auf einer kleinen Root-Partition liegt). Siehe auch die Bemerkung über `LC_ALL` weiter oben und die `-u`-Option von `sort` (wurde oben aus Gründen der Übersichtlichkeit ausgelassen).
 ```sh
       cat a b | sort | uniq > c   # c ist a vereint mit b
       cat a b | sort | uniq -d > c   # c ist a geschnitten b
       cat a b b | sort | uniq -u > c   # c ist die Menge mit unterschiedlichen Elementen  a - b
 ```
 
-- Benutze `grep .  *` um alle Inhalte aller Dateien in einem Verzeichnis anzuzeigen, z.B. für Verzeichnisse, die mit Konfigurationen
-  gefüllt sind wie `/sys`, `/proc`, `/etc`.
+- Eine schnelle Überprüfung der Inhalte aller Dateien in einem Verzeichnis erreichst du mit `grep . *` (damit enthält jede Zeile den Dateinamen) oder `head -100 *` (damit erhält jede Datei eine Überschrift). Dies kann nützlich sein für Verzeichnisse, die Konfigurationsdateien enthalten wie jene in `/sys`, `/proc` und `/etc`.
 
-- Alle Zahlen in der dritten Spalte einer Textdatei aufsummieren(dieser Ansatz ist wahrscheinlich 3x schneller und 3x weniger Code als
-  das Äquivalent in python):
+- Alle Zahlen in der dritten Spalte einer Textdatei aufsummieren (dieser Ansatz ist wahrscheinlich dreimal schneller und enthält dreimal weniger Code als dessen Entsprechung in Python):
 ```sh
-      awk '{ x += $3 } END { print x }' myfile
+      awk '{ x += $3 } END { print x }' meinedatei
 ```
 
 - Falls man die Größen/Datumsangaben von einem Dateibaum wissen möchte, funktioniert das Folgende wie ein rekursives `ls -l`, aber ist
@@ -354,6 +352,12 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 ```sh
       find . -type f -ls
 ```
+
+- Um Größen/Datumsangaben in einem Verzeichnisbaum zu sehen, wirkt dies wie ein umgedrehtes `ls -l`, ist aber einfacher zu lesen als `ls -lR`:
+```sh
+      find . -type f -ls
+```
+
 - Angenommen innerhalb einer Textdatei, so wie ein server web log, tauch ein gewisser Wert in manchen Zeilen auf, wie z.B. ein `acct_id` Parameter in der URL. Falls eine Aufzählung gewünscht ist, wie viele Anfragen es jeweils für eine `acct_id` gibt:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
