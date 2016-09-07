@@ -32,6 +32,7 @@ Vieles davon
 auf [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
 aber angesichts des Interesses scheint es vielversprechend, Github zu nutzen, wo talentiertere Menschen als ich es bin kontinuierlich Verbesserungen vorschlagen können. Wenn du einen Fehler entdeckst oder etwas, das man besser machen könnte, erstelle ein Issue oder einen PR! (Lies aber bitte zuerst die Kurzbeschreibung und überprüfe bereits vorhandene Issues/PRs.)
 
+
 ## Kurzbeschreibung
 
 Umfang:
@@ -96,15 +97,15 @@ Hinweise:
 
 - Verwende `xargs` (oder `parallel`). Es ist sehr mächtig. Beachte, wie du viele Dinge pro Zeile (`-L`) als auch parallel (`-P`) ausführen kannst. Wenn du dir nicht sicher bist, ob das Richtige dabei herauskommt, verwende zunächst `xargs echo`. Außerdem ist`-I{}` nützlich. Beispiele:
 ```bash
-      find . -name '*.py' | xargs grep irgendeine_funktion
-      cat hosts | xargs -I{} ssh root@{} hostname
+    find . -name '*.py' | xargs grep irgendeine_funktion
+    cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
 - `pstree -p` liefert eine hilfreiche Anzeige des Prozessbaums.
 
 - Verwende `pgrep` und `pkill`, um Prozesse anhand eines Namens zu finden oder festzustellen (`-f` ist hilfreich).
 
-- Kenne die verschiedenen Signale, die du Prozessen senden kannst. Um einen Prozess etwa zu unterbrechen, verwende `kill -STOP [pid]`. Für die vollständige Liste, siehe `man 7 signal`
+- Kenne die verschiedenen Signale, welche du Prozessen senden kannst. Um einen Prozess etwa zu unterbrechen, verwende `kill -STOP [pid]`. Für die vollständige Liste, siehe `man 7 signal`
 
 - Verwende `nohup` oder `disown`, wenn du einen Hintergrundprozess für immer laufen lassen willst.
 
@@ -126,15 +127,15 @@ Hinweise:
 
 - Benutze in Bash-Skripts `set -x` (oder die Abwandlung `set -v`, welche unverarbeiteten Input akzeptiert, einschließlich Kommentare und unexpandierte Variablen) zum Output der Fehlerbehebung. Benutze "strict modes", es sei denn, gute Gründe sprechen dagegen: Benutze `set -e`, um bei Fehlern abzubrechen ("nonzero exit code"). Benutze `set -u`, um die Verwendung nicht gesetzer Variablen aufzuspüren. Erwäge auch `set -o pipefail` für Fehler in Pipes (lies jedoch mehr zu diesem Thema, wenn du es vorhast, denn es ist ein wenig heikel). Benutze bei komplizierteren Skripts auch `trap` bei EXIT oder ERR. Es ist eine nützliche Angewohnheit, ein Skript folgendermaßen zu beginnen, um Fehler zu erkennen und sie ggf. mit einer entsprechenden Fehlermeldung abzubrechen:
 ```bash
-      set -euo pipefail
-      trap "echo 'error: Script failed: see failed command above'" ERR
+    set -euo pipefail
+    trap "echo 'error: Script failed: see failed command above'" ERR
 ```
 
 - In Bash-Skripts stellen Subshells (geschrieben in runden Klammern) einen praktischen Weg dar, Befehle zusammenzufassen. Ein gebräuchliches Beispiel ist die vorübergehende Arbeit in einem anderen Arbeitsverzeichnis:
 ```bash
-      # erledige etwas im aktuellen Verzeichnis
-      (cd /irgendein/anderes/verzeichnis && anderer-befehl)
-      # fahre fort im aktuellen Verzeichnis
+    # erledige etwas im aktuellen Verzeichnis
+    (cd /irgendein/anderes/verzeichnis && anderer-befehl)
+    # fahre fort im aktuellen Verzeichnis
 ```
 
 - Beachte, dass es in Bash viele Möglichkeiten gibt, Variablen zu erweitern. Überprüfen, ob eine Variable existiert: `${name:?error message}`.Wenn bspw. ein Bash-Skript nur einen einzelnen Parameter benötigt, schreibe einfach `input_file=${1:?usage: $0 input_file}`. Arithmetische Erweiterung: `i=$(( (i + 1) % 5 ))`. Sequenzen: `{1..10}`. Zeichenkette kürzen: `${var%suffix}` und `${var#prefix}`. Wenn bspw. `var=foo.pdf`, dann gibt `echo ${var%.pdf}.txt` die Ausgabe `foo.txt` aus.
@@ -143,13 +144,13 @@ Hinweise:
 
 - Die Ausgabe eines Befehls kann wie eine Datei behandelt werden mit `<(befehl)`. Das Vergleichen der lokalen `/etc/hosts` mit einer entfernten:
 ```sh
-      diff /etc/hosts <(ssh andererhost cat /etc/hosts)
+    diff /etc/hosts <(ssh andererhost cat /etc/hosts)
 ```
 
 - Beim Schreiben von Skripts wirst du deinen Code womöglich in geschweifte Klammern setzen wollen. Falls die schließende Klammer fehlt, wird dein Skript aufgrund eines Syntaxfehlers nicht ausgeführt. Das ist etwa dann sinnvoll, wenn es im Internet verfügbar ist, da ein unvollständig heruntergeladenes Skript so an der Ausführung gehindert wird:
 ```bash
 {
-      # Hier koennte dein Code stehen!
+    # Hier koennte dein Code stehen!
 }
 ```
 
@@ -159,28 +160,28 @@ Hinweise:
 
 - Verwende `man ascii` für eine gute ASCII-Tabelle, Mit Dezimal- und Hexadezimalwerten. Für allgemeine Informationen zu Kodierung sind `man unicode`, `man utf-8` und `man latin1` hilfreich.
 
-- Verwende `screen` oder [`tmux`](https://tmux.github.io/), um einen Bildschirm zu multiplexen, besonders hilfreich ist dies für Fernzugriffe per ssh und zur Trennung und Neuverbindung mit einer Session. Eine minimalistische Alternative allein zur Aufrechterhaltung einer Session ist `dtach`.
+- Verwende `screen` oder [`tmux`](https://tmux.github.io/), um einen Bildschirm zu multiplexen, besonders hilfreich ist dies für Fernzugriffe per `ssh` und zur Trennung und Neuverbindung mit einer Session. Eine minimalistische Alternative allein zur Aufrechterhaltung einer Session ist `dtach`.
 
 - Bei SSH ist es hilfreich zu wissen, wie man einen Porttunnel mit `-L` oder `-D` (gelegentlich auch `-R`) einrichtet, etwa beim Zugriff auf Webseiten von einem Remote-Server.
 
 - Es kann nützlich sein, ein paar Verbesserungen an den SSH-Einstellungen vorzunehmen; so enthält bspw. diese `~/.ssh/config` Einstellungen, um das Abreißen der Verbindung in bestimmten Netzwerkumgebungen zu vermeiden, verwendet Kompression (was hilfreich ist bei SCP über Verbindungen mit niedriger Bandbreite) und Multiplex-Kanäle zu demselben Server mithilfe einer lokalen Kontrolldatei:
 ```
-      TCPKeepAlive=yes
-      ServerAliveInterval=15
-      ServerAliveCountMax=6
-      Compression=yes
-      ControlMaster auto
-      ControlPath /tmp/%r@%h:%p
-      ControlPersist yes
+    TCPKeepAlive=yes
+    ServerAliveInterval=15
+    ServerAliveCountMax=6
+    Compression=yes
+    ControlMaster auto
+    ControlPath /tmp/%r@%h:%p
+    ControlPersist yes
 ```
 
 - Einige andere Optionen im Zusammenhang mit SSH sind sicherheitsrelevant und sollten nur mit Bedacht aktiviert werden, etwa Zugriff per Subnet oder Host sowie in vertrauenswürdigen Netzwerken: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Erwäge [`mosh`](https://mosh.mit.edu/) als Alternative zu ssh, die UDP benutzt, um so abgebrochene Verbindungen zu vermeiden, was ja in gewisser Hinsicht auch komfortabel ist (benötigt Server-seitiges Setup).
+- Erwäge [`mosh`](https://mosh.mit.edu/) als Alternative zu `ssh`, die UDP benutzt, um so abgebrochene Verbindungen zu vermeiden, was ja in gewisser Hinsicht auch komfortabel ist (benötigt Server-seitiges Setup).
 
 - Um Zugriff auf eine Datei in Oktalform zu erhalten, was zur Systemkonfiguration zwar nützlich, jedoch über `ls` nicht verfügbar und leicht zu vermasseln ist, verwende etwas wie
 ```sh
-      stat -c '%A %a %n' /etc/timezone
+    stat -c '%A %a %n' /etc/timezone
 ```
 
 - Verwende zur interaktiven Auswahl von Werten aus dem Output eines anderen Befehls [`percol`](https://github.com/mooz/percol) oder [`fzf`](https://github.com/junegunn/fzf).
@@ -198,8 +199,8 @@ Hinweise:
 
 - Benutze den `python`-Interpreter als einfachen Taschenrechner (und natürlich für den Zugriff auf Python im Allgemeinen). Beispiel:
 ```
->>> 2+3
-5
+    >>> 2+3
+    5
 ```
 
 
@@ -241,12 +242,12 @@ Hinweise:
 
 - Um mehrere Dateien umzubenennen sowie innerhalb von Dateien zu suchen/ersetzen, probier [`repren`](https://github.com/jlevy/repren) aus (gelegentlich kann man auch mit `rename` mehrere Dateien umbenennen, aber sei vorsichtig, da dessen Funktionsweise je nach Linux-Distribution abweicht).
 ```sh
-      # Vollständige Umbenennung von Dateinamen, Ordnern und Inhalten - foo -> bar:
-      repren --full --preserve-case --from foo --to bar .
-      # Backupdateien wiederherstellen - whatever.bak -> whatever:
-      repren --renames --from '(.*)\.bak' --to '\1' *.bak
-      # Wie oben, aber mit rename, sofern verfügbar:
-      rename 's/\.bak$//' *.bak
+    # Vollständige Umbenennung von Dateinamen, Ordnern und Inhalten - foo -> bar:
+    repren --full --preserve-case --from foo --to bar .
+    # Backupdateien wiederherstellen - whatever.bak -> whatever:
+    repren --renames --from '(.*)\.bak' --to '\1' *.bak
+    # Wie oben, aber mit rename, sofern verfügbar:
+    rename 's/\.bak$//' *.bak
 ```
 
 - Wie die `man`-Seite richtig sagt, ist `rsync` ein schnelles und vielseitiges Werkzeug zum Kopieren von Dateien. Es ist bekannt für das Synchronisieren zwischen Rechnern, ist lokal aber ebenso nützlich. Wenn es die Sicherheitsbestimmungen zulassen, erlaubt `rsync` im Gegensatz zu `scp` die Wiederaufnahme einer Übertragung, ohne nochmal von vorn beginnen zu müssen. Es ist zudem einer der [schnellsten Wege](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html), um große Mengen an Dateien zu löschen:
@@ -270,19 +271,19 @@ mkdir leeres-verzeichnis && rsync -r --delete leeres-verzeichnis/ verzeichnis &&
 
 - Um zwischen Textkodierungen zu konvertieren, solltest du `iconv` probieren, oder aber `uconv` für fortgeschrittene Anwendungsfälle; es unterstüzt einige fortgeschrittene Unicode-Dinge. Dieser Befehl bspw. wandelt alle Buchstaben in Kleinbuchstaben um und entfernt alle Akzente (indem sie erweitert und verworfen werden):
 ```sh
-      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
+    uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
 - Um Dateien aufzuteilen, siehe `split` (Teilung anhand einer bestimmten Größe) und `csplit` (Teilung anhand eines bestimmten Musters).
 
 - Benutze  `zless`, `zmore`, `zcat`, und `zgrep` um mit komprimierten Dateien zu arbeiten.
 
-- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
+- Dateieigenschaften können mit `chattr` gesetzt werden und stellen eine niederschwelligere Alternative zu Dateiberechtungen dar. So kann man etwa, um das versehentliche Löschen einer Datei zu verhindern, eine entsprechende Flag ("immutable flag") setzen: `sudo chattr +i /wichtiges/verzeichnis/oder/datei`
 
-- Use `getfacl` and `setfacl` to save and restore file permissions. For example:
+- Benutze `getfacl` und `setfacl`, um Dateiberechtigungen zu speichern und wiederherzustellen. Beispiel:
 ```sh
-   getfacl -R /some/path > permissions.txt
-   setfacl --restore=permissions.txt
+   getfacl -R /irgendein/pfad > berechtigungen.txt
+   setfacl --restore=berechtigungen.txt
 ```
 
 
@@ -335,45 +336,45 @@ Ein paar Beispiele, wie man Befehle zusammen benutzen kann:
 
 - Manchmal ist es unglaublich hilfreich, dass man die Schnittmenge, Vereinigung und den Unterschied zwischen Textdateien via `sort`/`uniq` bilden kann. Angenommen, a und b sind Textdateien, die bereits "unique" sind. Diese Herangehensweise ist schnell und funktioniert mit Dateien beliebiger Größe, bis zu mehreren Gigabytes (`sort` ist nicht durch Speicher beschränkt, obwohl man eventuell die `-T`-Option nutzen muss, falls `/tmp` auf einer kleinen Root-Partition liegt). Siehe auch die Bemerkung über `LC_ALL` weiter oben und die `-u`-Option von `sort` (wurde oben aus Gründen der Übersichtlichkeit ausgelassen).
 ```sh
-      cat a b | sort | uniq > c   # c ist a vereint mit b
-      cat a b | sort | uniq -d > c   # c ist a geschnitten b
-      cat a b b | sort | uniq -u > c   # c ist die Menge mit unterschiedlichen Elementen  a - b
+    cat a b | sort | uniq > c   # c ist a vereint mit b
+    cat a b | sort | uniq -d > c   # c ist a geschnitten b
+    cat a b b | sort | uniq -u > c   # c ist die Menge mit unterschiedlichen Elementen  a - b
 ```
 
 - Eine schnelle Überprüfung der Inhalte aller Dateien in einem Verzeichnis erreichst du mit `grep . *` (damit enthält jede Zeile den Dateinamen) oder `head -100 *` (damit erhält jede Datei eine Überschrift). Dies kann nützlich sein für Verzeichnisse, die Konfigurationsdateien enthalten wie jene in `/sys`, `/proc` und `/etc`.
 
 - Alle Zahlen in der dritten Spalte einer Textdatei aufsummieren (dieser Ansatz ist wahrscheinlich dreimal schneller und enthält dreimal weniger Code als dessen Entsprechung in Python):
 ```sh
-      awk '{ x += $3 } END { print x }' meinedatei
+    awk '{ x += $3 } END { print x }' meinedatei
 ```
 
 - Falls man die Größen/Datumsangaben von einem Dateibaum wissen möchte, funktioniert das Folgende wie ein rekursives `ls -l`, aber ist
   leichter zu lesen als `ls -lR`:
 ```sh
-      find . -type f -ls
+    find . -type f -ls
 ```
 
 - Um Größen/Datumsangaben in einem Verzeichnisbaum zu sehen, wirkt dies wie ein umgedrehtes `ls -l`, ist aber einfacher zu lesen als `ls -lR`:
 ```sh
-      find . -type f -ls
+    find . -type f -ls
 ```
 
 - Angenommen innerhalb einer Textdatei, so wie ein server web log, tauch ein gewisser Wert in manchen Zeilen auf, wie z.B. ein `acct_id` Parameter in der URL. Falls eine Aufzählung gewünscht ist, wie viele Anfragen es jeweils für eine `acct_id` gibt:
 ```sh
-      cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
+    cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
 - Um durchgehend Änderungen zu überwachen, solltest du "watch" benutzen; z.B. Dateiänderungen in einem Verzeichnis können mittels `watch -d -n 2 'ls -rtlh | tail'` überwacht werden, während du Deine Wifi Einstellungen mittels `watch -d -n 2 ifconfig` auf Fehler überprüfen kannst.
 
 - Führe diese Funktion aus, um einen zufälligen Tip aus diesem Dokument zu erhalten(parst das Markdown Dokument und extrahiert ein Element)
 ```sh
-      function taocl() {
-        curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-de.md |
-          pandoc -f markdown -t html |
-          xmlstarlet fo --html --dropdtd |
-          xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
-          xmlstarlet unesc | fmt -80
-      }
+    function taocl() {
+      curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README-de.md |
+        pandoc -f markdown -t html |
+        xmlstarlet fo --html --dropdtd |
+        xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
+        xmlstarlet unesc | fmt -80
+    }
 ```
 
 
@@ -407,21 +408,21 @@ Ein paar Beispiele, wie man Befehle zusammen benutzen kann:
 
 - `nl`: Füge Zeilennummern hinzu
 
-- `seq`: Gebe Zahlen aus
+- `seq`: Gib Zahlen aus
 
 - `bc`: Taschenrechner
 
-- `factor`: faktorisiere Ganzzahlen
+- `factor`: Faktorisiere Ganzzahlen
 
-- [`gpg`](https://gnupg.org/): Verschlüssle und signiere Dateien
+- [`gpg`](https://gnupg.org/): Verschlüsseln und Signieren von Dateien
 
-- `toe`: Tabelle von terminfo Einträgen
+- `toe`: Tabelle von `terminfo`-Einträgen
 
-- `nc`: Netzwerk Debugging und Datentransfer
+- `nc`: Netzwerk-Debugging und Datentransfer
 
-- `socat`: Socket und TCP Port Weiterleitung (ähnlich wie `netcat`)
+- `socat`: Socket- und TCP-Port-Weiterleitung (ähnlich wie `netcat`)
 
-- [`slurm`](https://github.com/mattthias/slurm): Netzwerk Verkehr Visulaisierung
+- [`slurm`](https://github.com/mattthias/slurm): Visulaisierung des Netzwerkverkehrs ("traffic")
 
 - `dd`: Daten zwischen Dateien und Geräten bewegen
 
@@ -579,7 +580,7 @@ Diese Hinweise sind *nur* für Windows relevant.
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Eine hilfreiche Liste von Shell-Werkzeugen und Quellen.
 - [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Eine ausführliche Anleitung für die Befehlszeile unter OS X.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/), um bessere Shell-Skripte zu schreiben.
-- [shellcheck](https://github.com/koalaman/shellcheck) - Ein statisches Analysetool für Shell-Skripte. Im Grunde lint für bash/sh/zsh.
+- [shellcheck](https://github.com/koalaman/shellcheck): Ein statisches Analysetool für Shell-Skripte. Im Grunde lint für bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Entmutigend komplexe Einzelheiten darüber, wie Dateinamen in Shell-Skripts richtig eingesetzt werden.
 - [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): Mehr Befehle und Werkzeuge, die für ["data science"](https://de.wikipedia.org/wiki/Data_Science) hilfreich sind, aus dem gleichnamigen Buch.
 
