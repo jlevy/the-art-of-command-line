@@ -24,7 +24,7 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Der flüssige Umgang mit der Kommandozeile ist eine oft vernachlässigte oder als undurchsichtig empfundene Fähigkeit, steigert jedoch Flexibilität und Produktivität eines Informatikers auf offensichtliche als auch subtile Weise. Was folgt, ist eine Auswahl an Notizen und Tipps im Umgang mit der Kommandozeile, welche ich beim Arbeiten mit Linux zu schätzen gelernt habe. Manche dieser Hinweise beinhalten Grundwissen, andere sind sehr spezifisch, fortgeschritten oder auch eigenartig. Die Seite ist nicht lang, aber wenn du alle Punkte verstanden hast und anwenden kannst, weißt du eine ganze Menge.
+Der flüssige Umgang mit der Befehlszeile (auch Kommandozeile, engl. "command line") ist eine oft vernachlässigte oder als undurchsichtig empfundene Fähigkeit, steigert jedoch Flexibilität und Produktivität eines Informatikers auf offensichtliche als auch subtile Weise. Was folgt, ist eine Auswahl an Notizen und Tipps im Umgang mit der Befehlszeile, welche ich beim Arbeiten mit Linux zu schätzen gelernt habe. Manche dieser Hinweise beinhalten Grundwissen, andere sind sehr spezifisch, fortgeschritten oder auch eigenartig. Die Seite ist nicht lang, aber wenn du alle Punkte verstanden hast und anwenden kannst, weißt du eine ganze Menge.
 
 Vieles davon
 [erschien](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
@@ -71,7 +71,7 @@ Hinweise:
 
 - Kenne reguläre Ausdrücke gut, und die verschiedenen Statusindikatoren zu `grep`/`egrep`. Die Optionen `-i`, `-o`, `-v`, `-A`, `-B`, und `-C` sind gut zu wissen.
 
-- Lerne den Umgang mit `apt-get`, `yum`, `dnf` oder `pacman` (je nach Linux-Distribution), um Pakete zu finden bzw. zu installieren. Und stell sicher, dass du `pip` hast, um Python-basierte Kommandozeilen-Werkzeuge nutzen zu können (einige der untenstehenden werden am einfachsten über `pip` installiert).
+- Lerne den Umgang mit `apt-get`, `yum`, `dnf` oder `pacman` (je nach Linux-Distribution), um Pakete zu finden bzw. zu installieren. Und stell sicher, dass du `pip` hast, um Python-basierte Befehlszeilen-Werkzeuge nutzen zu können (einige der untenstehenden werden am einfachsten über `pip` installiert).
 
 
 ## Täglicher Gebrauch
@@ -88,7 +88,7 @@ Hinweise:
 
 - Um kürzlich verwendete Befehle anzuzeigen, benutze `history`. Anschließend `!n` (wobei `n` die Nummer des Befehls ist), um es erneut auszuführen. Es gibt zudem zahlreiche Abkürzungen, die man verwenden kann, die nützlichste ist wahrscheinlich `!$` für den letzten Parameter und `!!` für den letzten Befehl (siehe "HISTORY EXPANSION" in der `man`-Seite). Diese werden allerdings oft einfach ersetzt durch **ctrl-r** und **alt-.**.
 
-- Go to your home directory with `cd`. Access files relative to your home directory with the `~` prefix (e.g. `~/.bashrc`). In `sh` scripts refer to the home directory as `$HOME`.
+- In dein Benutzerverzeichnis gelangst du mit `cd`. Auf Dateien relativ zu diesem kannst du mit dem Präfix `~` zugreifen (etwa so `~/.bashrc`). In `sh`-Skripts heißt das Benutzerverzeichnis `$HOME`.
 
 - Um ins vorangegangene Arbeitsverzeichnis zu gelangen: `cd -`
 
@@ -194,7 +194,7 @@ Hinweise:
 
 - Benutze `su benutzername` oder `su - benutzername`, um mit der Shell zu einem anderen Benutzer zu wechseln. Füge `-` hinzu, um eine Umgebung zu erhalten, als hättest du dich gerade mit diesem Benutzer angemeldet. Das Weglassen des Benutzernamens führt zur Anmeldung als root. du wirst gefragt nach dem Passwort _des Benutzers, als der du dich anmelden willst_.
 
-- Kenne das [128K-Limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) der Kommandozeile. Der "Argument list too long"-Fehler erscheint häufig, wenn auf sehr viele Dateien über [Wildcards](https://de.wikipedia.org/wiki/Wildcard_(Informatik)) zugegriffen wird (wenn das passiert, können Alternativen wie `find` und `xargs` helfen).
+- Kenne das [128K-Limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) der Befehlszeile. Der "Argument list too long"-Fehler erscheint häufig, wenn auf sehr viele Dateien über [Wildcards](https://de.wikipedia.org/wiki/Wildcard_(Informatik)) zugegriffen wird (wenn das passiert, können Alternativen wie `find` und `xargs` helfen).
 
 - Benutze den `python`-Interpreter als einfachen Taschenrechner (und natürlich für den Zugriff auf Python im Allgemeinen). Beispiel:
 ```
@@ -233,7 +233,7 @@ Hinweise:
 
 - Bei komplexeren Berechnungen, einschließlich Gruppieren, Tauschen von Feldern und statistische Berechnungen, könnte [`datamash`](https://www.gnu.org/software/datamash/) passend sein.
 
-- Sei dir bewusst, dass die regionale Spracheinstellung ("locale") viele Kommandozeilenwerkzeuge auf subtile Art und Weise beeinflusst, inklusive der Sortierreihenfolge und ihrer Performance. Die meisten Linux Installation setzen `LANG` oder andere lokale Variablen auf eine lokale Einstellung wie z.B. "US English". Aber sei dir bewusst, dass sich das Sortierverhalten ändern wird, falls du die "locale" änderst. Und wisse, dass "i18n"-Routinen `sort` und andere Kommandos *stark* verlangsamen können. In manchen Situationen (wie den Mengen oder Identitätsfunktionen unterhalb) kann man ruhigen Gewissens langsame "i18n"-Routinen ignorieren und traditionelle byte-basierte Sortierreihenfolge nutzen, indem man `export LC_ALL=C` setzt.
+- Sei dir bewusst, dass die regionale Spracheinstellung ("locale") viele Befehlszeilen-Werkzeuge auf subtile Art und Weise beeinflusst, inklusive der Sortierreihenfolge und ihrer Performance. Die meisten Linux Installation setzen `LANG` oder andere lokale Variablen auf eine lokale Einstellung wie z.B. "US English". Aber sei dir bewusst, dass sich das Sortierverhalten ändern wird, falls du die "locale" änderst. Und wisse, dass "i18n"-Routinen `sort` und andere Befehle *stark* verlangsamen können. In manchen Situationen (wie den Mengen oder Identitätsfunktionen unterhalb) kann man ruhigen Gewissens langsame "i18n"-Routinen ignorieren und traditionelle byte-basierte Sortierreihenfolge nutzen, indem man `export LC_ALL=C` setzt.
 
 - Du kannst einem bestimmten Befehl eine Umgebung zuteilen, indem seinem Aufruf die Einstellung der Umgebungsvariable vorangestellt wird, wie hier: `TZ=Pacific/Fiji date`.
 
@@ -258,7 +258,7 @@ mkdir leeres-verzeichnis && rsync -r --delete leeres-verzeichnis/ verzeichnis &&
 
 - Kenne die Optionen von `sort`. Benutze `-n` für Zahlen, oder `-h` um mit menschenlesbaren Zahlen umzugehen (wie z.B. von `du -h`). Sei dir bewusst, wie Schlüssel funktionieren (`-t` und `-k`). Sei dir insbesondere bewusst, dass du `-k1,1` verwenden musst, um bezüglich des ersten Felds zu sortieren;`-k1` bedeutet, sortiere anhand der ganzen Zeile. Stabiles Suchen (`sort -s`) kann ebenfalls nützlich sein. Um bspw. primär nach Feld 2 und sekundär nach Feld 1 zu sortieren, kannst du `sort -k1,1 | sort -s -k2,2` benutzen.
 
-- Falls du jemals ein Tabulator Literal in eine Kommandozeile in Bash schreiben musst (etwa den Parameter `-t` für `sort`), drücke **ctrl-v** **[Tab]** oder schreibe `$'\t'` (letzteres ist besser, da man es Kopieren/Einfügen kann).
+- Falls du jemals ein Tabulator Literal in eine Befehlszeile in Bash schreiben musst (etwa den Parameter `-t` für `sort`), drücke **ctrl-v** **[Tab]** oder schreibe `$'\t'` (letzteres ist besser, da man es Kopieren/Einfügen kann).
 
 - Die Standardwerkzeuge für das Patchen von Quellcode sind `diff` und `patch`. Siehe auch `diffstat`, um zusammenfassende Statistiken eines diffs zu erhalten. Beachte, dass `diff -r` für komplette Verzeichnisse funktioniert. Nutze `diff -r tree1 tree2 | diffstat`, um eine Übersicht aller Änderungen zu bekommen. Benutze `vimdiff`, um Dateien zu vergleichen und zu bearbeiten.
 
@@ -268,7 +268,7 @@ mkdir leeres-verzeichnis && rsync -r --delete leeres-verzeichnis/ verzeichnis &&
 
 - Um Diffs für Binärdateien zu erstellen (Delta Kompression), nutze `xdelta3`.
 
-- Um zwischen Textkodierungen zu konvertieren, solltest du `iconv` probieren, oder aber `uconv` für fortgeschrittene Anwendungsfälle; es unterstüzt einige fortgeschrittene Unicode-Dinge. Dieses Kommando bspw. wandelt alle Buchstaben in Kleinbuchstaben um und entfernt alle Akzente (indem sie erweitert und verworfen werden):
+- Um zwischen Textkodierungen zu konvertieren, solltest du `iconv` probieren, oder aber `uconv` für fortgeschrittene Anwendungsfälle; es unterstüzt einige fortgeschrittene Unicode-Dinge. Dieser Befehl bspw. wandelt alle Buchstaben in Kleinbuchstaben um und entfernt alle Akzente (indem sie erweitert und verworfen werden):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
@@ -331,7 +331,7 @@ mkdir leeres-verzeichnis && rsync -r --delete leeres-verzeichnis/ verzeichnis &&
 
 ## Einzeiler
 
-Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
+Ein paar Beispiele, wie man Befehle zusammen benutzen kann:
 
 - Manchmal ist es unglaublich hilfreich, dass man die Schnittmenge, Vereinigung und den Unterschied zwischen Textdateien via `sort`/`uniq` bilden kann. Angenommen, a und b sind Textdateien, die bereits "unique" sind. Diese Herangehensweise ist schnell und funktioniert mit Dateien beliebiger Größe, bis zu mehreren Gigabytes (`sort` ist nicht durch Speicher beschränkt, obwohl man eventuell die `-T`-Option nutzen muss, falls `/tmp` auf einer kleinen Root-Partition liegt). Siehe auch die Bemerkung über `LC_ALL` weiter oben und die `-u`-Option von `sort` (wurde oben aus Gründen der Übersichtlichkeit ausgelassen).
 ```sh
@@ -387,7 +387,7 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `cal`: Netter Kalender
 
-- `env`: Führe ein Kommando aus (nützlich für Skripte)
+- `env`: Führe einen Befehl aus (nützlich für Skripte)
 
 - `printenv`: Gebe Umgebungsvariablen aus (nützlich zum Debuggen und für Skripte)
 
@@ -493,11 +493,11 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - [`glances`](https://github.com/nicolargo/glances): Grobe Übersicht über zahlreiche Subsysteme
 
-- `iostat`: Fesplatten Nutzungsstatistiken
+- `iostat`: Fesplatten-Nutzungsstatistiken
 
-- `mpstat`: CPU Nutzungsstatistiken
+- `mpstat`: CPU-Nutzungstatistiken
 
-- `vmstat`: Speicher Nutzungsstatistiken
+- `vmstat`: Speicher-Nutzungsstatistiken
 
 - `htop`: Verbesserte Version von `top`
 
@@ -513,7 +513,7 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `ss`: Socket-Statistiken
 
-- `dmesg`: Bootvorgang und System Fehlermeldungen
+- `dmesg`: Bootvorgang und System-Fehlermeldungen
 
 - `sysctl`: Anzeige und Konfiguration von Linux Kernel Parametern zur Laufzeit
 
@@ -523,9 +523,9 @@ Ein paar Beispiele, wie man Kommandos zusammen benutzen kann:
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: Hardware-Informationen, inklusive CPU, BIOS, RAID, Grafikkarten, Geräte, etc.
 
-- `lsmod` und `modinfo`: Auflisten und Details anzeigen von Kernel Modulen
+- `lsmod` und `modinfo`: Auflisten und Details anzeigen von Kernelmodulen
 
-- `fortune`, `ddate`, und `sl`: ähm ja, kommt darauf an, ob man Dampflokomotiven und flotte Zitate "nützlich" findet
+- `fortune`, `ddate`, und `sl`: Ähm ja, kommt darauf an, ob man Dampflokomotiven und flotte Zitate "nützlich" findet
 
 
 ## Nur MacOS X
@@ -534,7 +534,7 @@ Diese Hinweise sind *nur* für MacOS relevant.
 
 - Paketverwaltung mit `brew` (Homebrew) und/oder `port` (MacPorts). Mit diesen Werkzeugen kann man viele der obrigen Programme für MacOs installieren.
 
-- Kopiere die Ausgabe jedes Kommandos an eine Desktop App mit `pbcopy` und füge die Eingabe von einer solchen ein mit `pbpaste`.
+- Kopiere die Ausgabe eines beliebigen Befehls an eine Desktop App mit `pbcopy` und füge die Eingabe von einer solchen ein mit `pbpaste`.
 
 - Um die Option Taste als alt-Taste in einer Mac OS Konsole zu nutzen (so wie in den obrigen Befehle wie **alt-b**, **alt-f**, etc.), öffne Einstellungen -> Profile -> Tastatur und aktiviere "Benutze Option Taste als Meta Taste"
 
@@ -542,7 +542,7 @@ Diese Hinweise sind *nur* für MacOS relevant.
 
 - Spotlight: Dateisuche mit `mdfind` und Ausgabe von Metadaten (wie z.B. photo EXIF info) mit `mdls`.
 
-- Man sollte sich bewusst sein, dass MacOS auf BSD Unix basiert und sich viele Befehle (wie z.B. `ps`, `ls`, `tail`, `awk`, `sed`) bezüglich subtiler Kleinigkeiten von Linux, das stark von System V-style Unix und GNU tools beeinflusst ist, unterscheiden. Oft kann man den Unterschied daran erkennen, dass eine `man`-Seite die Überschrift  "BSD General Commands Manual" trägt. In manchen Fällen kann auch die GNU-Version installiert werden (wie z.B. bei `gawk` und `gsed` für GNU awk und sed). Falls manplattformübergreifende Bash-Skripte schreiben möchte, sollte man solche Kommandos vermeiden (und z.B. Python oder `perl` in Betracht ziehen) oder sorgfätig testen.
+- Man sollte sich bewusst sein, dass MacOS auf BSD Unix basiert und sich viele Befehle (wie z.B. `ps`, `ls`, `tail`, `awk`, `sed`) bezüglich subtiler Kleinigkeiten von Linux, das stark von System V-style Unix und GNU tools beeinflusst ist, unterscheiden. Oft kann man den Unterschied daran erkennen, dass eine `man`-Seite die Überschrift  "BSD General Commands Manual" trägt. In manchen Fällen kann auch die GNU-Version installiert werden (wie z.B. bei `gawk` und `gsed` für GNU awk und sed). Falls manplattformübergreifende Bash-Skripte schreiben möchte, sollte man solche Befehle vermeiden (und z.B. Python oder `perl` in Betracht ziehen) oder sorgfätig testen.
 
 - Benutze `sw_vers` für OS X Systeminformationen.
 
@@ -551,13 +551,13 @@ Diese Hinweise sind *nur* für MacOS relevant.
 
 Diese Hinweise sind *nur* für Windows relevant.
 
-- Mit Windows 10 kannst du [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) benutzen, das eine vertraute Bash-Umgebung mit Unix-Kommandozeilenwerkzeugen. Dies erlaubt einerseits die Nutzung von Linux-Programmen auf Windows, unterstützt andererseits jedoch nicht die Ausführung von Windows-Programmen von der Bash-Konsole.
+- Mit Windows 10 kannst du [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) benutzen, das eine vertraute Bash-Umgebung mit Unix-Befehlszeilen-Werkzeugen. Dies erlaubt einerseits die Nutzung von Linux-Programmen auf Windows, unterstützt andererseits jedoch nicht die Ausführung von Windows-Programmen von der Bash-Konsole.
 
 - Zugriff auf die Macht der Unix-Shell erhälst du unter Microsoft Windows durch die Installation von  [Cygwin](https://cygwin.com/). Die meisten hier beschriebenen Dinge funktionieren damit ohne weiteren Aufwand.
 
 - Installiere zusätzliche Unix-Programme mit Cygwins Paketmanager.
 
-- Benutze `mintty` als dein Kommandozeilenfenster.
+- Benutze `mintty` als dein Befehlszeilenfenster.
 
 - Greife mit `/dev/clipboard` auf die Zwischenablage von Windows zu.
 
@@ -567,9 +567,9 @@ Diese Hinweise sind *nur* für Windows relevant.
 
 - Beachte, dass der Windows-Pfad `C:\` unter Cygwin zu `/cygdrive/c` wird und dass Cygwins `/` unter Windows als `C:\cygwin` verfügbar ist. Für die Umwandlung zwischen Cygwin- und Windows-Pfaden steht `cygpath` zur Verfügung. Dies ist inbesondere für Skripte nützlich, welche Windows-Programme ausführen.
 
-- Du kannst die meisten Aufgaben der Windows-Systemverwaltung von der Kommandozeile ausführen und skripten, indem du den Umgang mit `wmic` lernst.
+- Du kannst die meisten Aufgaben der Windows-Systemverwaltung von der Befehlszeile ausführen und skripten, indem du den Umgang mit `wmic` lernst.
 
-- Eine andere Möglichkeit, ein wenig Unix auf dein Windows-System zu bringen, bietet [Cash](https://github.com/dthree/cash). Beachte allerdings, dass nur sehr wenige Unix-Befehle und Kommandozeilen-Optionen in dieser Umgebung zur Verfügung stehen.
+- Eine andere Möglichkeit, ein wenig Unix auf dein Windows-System zu bringen, bietet [Cash](https://github.com/dthree/cash). Beachte allerdings, dass nur sehr wenige Unix-Befehle und Befehlszeilen-Optionen in dieser Umgebung zur Verfügung stehen.
 
 - Eine weitere Option, GNU-Entwicklerwerkzeuge (etwa GCC) auf Windows zu nutzen, besteht darin, [MinGW](http://www.mingw.org/) und dessen Paket [MSYS](http://www.mingw.org/wiki/msys), das Hilfsprogramme wie bash, gawk, make and grep beinhaltet, zu installieren. MSYS bringt allerdings nicht so viele Features mit wie etwa Cygwin. MinGW ist besonders nützlich für die Erstellung nativer Windows-Ports von Unix-Werkzeugen.
 
@@ -577,7 +577,7 @@ Diese Hinweise sind *nur* für Windows relevant.
 ## Weitere Quellen
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Eine hilfreiche Liste von Shell-Werkzeugen und Quellen.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): A more in-depth guide for the OS X command line.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Eine ausführliche Anleitung für die Befehlszeile unter OS X.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/), um bessere Shell-Skripte zu schreiben.
 - [shellcheck](https://github.com/koalaman/shellcheck) - Ein statisches Analysetool für Shell-Skripte. Im Grunde lint für bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Entmutigend komplexe Einzelheiten darüber, wie Dateinamen in Shell-Skripts richtig eingesetzt werden.
