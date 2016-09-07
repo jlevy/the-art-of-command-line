@@ -117,7 +117,7 @@ Hinweise:
 
 - Verwende `alias`, um Verknüpfungen für gebräuchliche Befehle zu erstellen. So erstellt etwa `alias ll='ls -latr'` den neuen Alias `ll`.
 
-- Speichere Alternativnamen ("aliases"), Shelleinstellungen und häufig benutzte Funktionen in `~/.bashrc` und [stelle sie anderen Login-Shells zur Verfügung](http://superuser.com/a/183980/7106). So hast du auf dein Setup auch in allen anderen Shellsessions Zugriff.
+- Speichere diese Alternativnamen ("aliases"), Shell-Einstellungen und häufig benutzte Funktionen in `~/.bashrc` und [stelle sie anderen Login-Shells zur Verfügung](http://superuser.com/a/183980/7106). So hast du auf dein Setup auch in allen anderen Shell-Sessions Zugriff.
 
 - Platziere Einstellungen von Umgebungsvariablen sowie Befehle, welche nach einer Anmeldung ausgeführt werden sollen, in `~/.bash_profile`. Eine separate Konfiguration ist notwendig für Shells, welche du von einer grafischen Benutzeroberfläche startest sowie für `cron`-Jobs.
 
@@ -175,7 +175,7 @@ Hinweise:
     ControlPersist yes
 ```
 
-- Einige andere Optionen im Zusammenhang mit SSH sind sicherheitsrelevant und sollten nur mit Bedacht aktiviert werden, etwa Zugriff per Subnet oder Host sowie in vertrauenswürdigen Netzwerken: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+- Einige andere Optionen im Zusammenhang mit SSH sind sicherheitsrelevant und sollten nur mit Bedacht aktiviert werden, etwa Zugriff per Subnet oder Host sowie in vertrauenswürdigen Netzwerken: `StrictHostKeyChecking=no`, `ForwardAgent=yes`.
 
 - Erwäge [`mosh`](https://mosh.mit.edu/) als Alternative zu `ssh`, die UDP benutzt, um so abgebrochene Verbindungen zu vermeiden, was ja in gewisser Hinsicht auch komfortabel ist (benötigt Server-seitiges Setup).
 
@@ -188,8 +188,7 @@ Hinweise:
 
 - Verwende `fpp` ([PathPicker](https://github.com/facebook/PathPicker)) zur Interaktion mit Dateien als Output eines anderen Befehls (wie etwa `git`).
 
-- Verwende für einen einfachen Webserver für alle Dateien im aktuellen Verzeichnis (sowie Unterverzeichnisse), der für alle in deinem Netzwerk abrufbar ist:
-`python -m SimpleHTTPServer 7777` (für Port 7777 und Python 2) sowie `python -m http.server 7777` (für Port 7777 und Python 3).
+- Verwende für einen einfachen Webserver für alle Dateien im aktuellen Verzeichnis (sowie Unterverzeichnisse), der für alle in deinem Netzwerk abrufbar ist: `python -m SimpleHTTPServer 7777` (für Port 7777 und Python 2) sowie `python -m http.server 7777` (für Port 7777 und Python 3).
 
 - Benutze `sudo`, um einen Befehl als ein anderer Benutzer auszuführen. Standardmäßig ist dies die Ausführung als root; benutze `-u` zur Angabe eines anderen benutzers sowie `-i`, um dich als dieser anzumelden (du wirst nach _deinem_ Passwort gefragt).
 
@@ -348,8 +347,7 @@ Ein paar Beispiele, wie man Befehle zusammen benutzen kann:
     awk '{ x += $3 } END { print x }' meinedatei
 ```
 
-- Falls man die Größen/Datumsangaben von einem Dateibaum wissen möchte, funktioniert das Folgende wie ein rekursives `ls -l`, aber ist
-  leichter zu lesen als `ls -lR`:
+- Falls man die Größen/Datumsangaben von einem Dateibaum wissen möchte, funktioniert das Folgende wie ein rekursives `ls -l`, aber ist leichter zu lesen als `ls -lR`:
 ```sh
     find . -type f -ls
 ```
@@ -382,9 +380,9 @@ Ein paar Beispiele, wie man Befehle zusammen benutzen kann:
 
 - `expr`: Führe arithmetische oder bool'sche Operationen aus oder werte reguläre Ausdrücke aus
 
-- `m4`: Simpler Macro Auswerter
+- `m4`: Simpler Macro-Auswerter
 
-- `yes`: Gebe eine Zeichenkette sehr oft aus
+- `yes`: Gib eine Zeichenkette sehr oft aus
 
 - `cal`: Netter Kalender
 
