@@ -1,6 +1,5 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
+🌍
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 
 # Umetnost ukazne vrstice
@@ -14,7 +13,8 @@
 - [Sistemsko razhroščevanje](#sistemsko-razhroščevanje)
 - [V eni vrstici](#v-eni-vrstici)
 - [Nepregledno vendar uporabno](#nepregledno-vendar-uporabno)
-- [Samo za MacOS X](#samo-za-macos-x)
+- [Samo za OS X](#samo-za-os-x)
+- [Samo za Windows](#samo-za-windows)
 - [Več virov](#več-virov)
 - [Pogoji uporabe](#pogoji-uporabe)
 
@@ -24,25 +24,25 @@
 Jedrnatost v ukazni vrstici je znanje, ki je pogostokrat zanemarjeno ali smatrano za zastarelo, vendar izboljša vašo fleksibilnost in produktivnost kot inženir na očitne in neočitne načine. To so izbrani zapiski in nasveti glede uporabe ukazne vrstice, ki smo jo našli uporabno pri delu z Linux-om. Nekateri nasveti so elementarni in nekateri so precej določeni, sofisticirani ali nepregledni. Ta stran ni dolga, vendar če lahko uporabite in se spomnite vseh elementov tu, boste vedeli veliko.
 
 To delo je rezultat [mnogih avtorjev in prevajalcev](AUTHORS.md).
-Veliko tega
-se [prvotno](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
-[pojavi](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
+Nekaj tega
+se je [prvotno](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
+[pojavilo](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 na [Quori](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-vendar glede na dani interes tu, izgleda vredno uporabe GitHub-a, kjer lahko ljudje bolj talentirani od prvotnega avtorja takoj predlagajo izboljšave. Če opazite napako ali nekaj, kar je lahko bolje, prosim, pošljite težavo ali zahtevek potega (PR)! (Seveda, prosim preglejte meta sekcijo in obstoječe težave/zahtevke potega najprej.)
-
+vendar se je premaknilo na GitHub, kjer so ljudje bolj talentirani od prvotnega avtorja naredili številne izboljšave.
+[**Prosimo, prispevajte**](/CONTRIBUTING.md), če vidite napako ali nekaj, kar bi lahko bilo boljše!
 
 ## Meta
 
 Obseg:
 
 - Ta vodič je tako za začetnike kot za poznavalce. Cilji so *širina* (vse pomembno), *specifičnost* (podaja konkretne primere najpogostejših primerov uporabe) in *kratkost* (izogiba se stvarem, ki niso bistvene ali se odmikajo, kar lahko enostavno pogledate drugje). Vsak nasvet je bistven v določeni situaciji ali bistveno prihrani čas pred alternativami.
-- To je napisano za Linux z izjemo sekcije "[Samo za MacOS X](#samo-za-macos-x)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali MacOS (ali celo Cygwin).
+- To je napisano za Linux z izjemo sekcij "[Samo za OS X](#samo-za-os-x)" in "[Samo za Windows](#samo-za-windows)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali OS X (ali celo Cygwin).
 - Poudarek je na interaktivnosti Bash-a, čeprav mnogo nasvetov velja za ostale lupine in splošno skriptanje Bash-a.
 - Vključuje tako "standardne" ukaze Unix-a kot tudi tiste, ki zahtevajo namestitev posebnih paketov -- dokler so dovolj pomembni, da zaslužijo vključitev.
 
 Opombe:
 
-- Da se obdrži to na eni strani, je vsebina implicitno vključena z referencami. Ste dovolj pametni, da poiščete več podrobnosti drugje, ko enkrat poznate idejo ali ukaz za iskanje na Google-u. Uporabite `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (kot je ustrezno), da namestite nove programe.
+- Da se obdrži to na eni strani, je vsebina implicitno vključena z referencami. Ste dovolj pametni, da poiščete več podrobnosti drugje, ko enkrat poznate idejo ali ukaz za iskanje na Google-u. Uporabite `apt-get`, `yum`, `dnf`, `pacman`, `pip` ali `brew` (kot je ustrezno), da namestite nove programe.
 - Uporabite [Explainshell](http://explainshell.com/), da dobite uporabne razčlenitve, kaj ukazi, opcije, cevi itd. naredijo.
 
 
@@ -52,7 +52,7 @@ Opombe:
 
 - Naučite se tudi vsaj enega tekstovno osnovanega urejevalnika. Idealno Vim (`vi`) saj v realnosti ni konkurence za naključno urejanje v terminalu (tudi, če uporabljate Emacs, velik IDE, ali moderni hipsterski urejevalnik večino časa).
 
-- Spoznajte, kako brati dokumentacijo z `man` (za radovedne, `man man` izpiše številke sekcij, npr. 1 so "splošni" ukazi, 5 so datoteke/konvencije in 8 je za administracijo). Najdite strani man z `apropos`. Vedite, da nekateri ukazi niso izvršljivi, vendar vgrajeni v Bash in pomoč zanje lahko dobite s `help` in `help -d`.
+- Spoznajte, kako brati dokumentacijo z `man` (za radovedne, `man man` izpiše številke sekcij, npr. 1 so "splošni" ukazi, 5 so datoteke/konvencije in 8 je za administracijo). Najdite strani man z `apropos`. Vedite, da nekateri ukazi niso izvršljivi, vendar vgrajeni v Bash in pomoč zanje lahko dobite s `help` in `help -d`. Z uporabo `type command` lahko izvedete, ali je ukaz izvršljiv, vgrajen v lupino ali pa je alias.
 
 - Naučite se o preusmeritvi izpisa in vnosa z uporabo `>` in `<` ter uporabo cevi `|`. Vedite, da `>` prepiše izpis datoteke in `>>` ga pripne. Naučite se o stdout in stderr.
 
@@ -65,6 +65,8 @@ Opombe:
 - Osnovno upravljanje datotek: `ls` in `ls -l` (še posebej se naučite, kaj vsak stolpec v `ls -l` pomeni), `less`, `head`, `tail` in `tail -f` (ali celo boljše, `less +F`), `ln` in `ln -s` (naučite se razlike in prednosti trdih in mehkih povezav), `chown`, `chmod`, `du` (za hiter povzetek uporabe diska: `du -hs *`). Za upravljanje datotečnega sistema, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Naučite se, kaj je inode (`ls -i` or `df -i`).
 
 - Osnovno upravljanje omrežja: `ip` or `ifconfig`, `dig`.
+
+- Naučite se in uporabljajte sistem za nadzor različic, kot je `git`.
 
 - Poznajte tudi splošne izraze in različne zastavice za `grep`/`egrep`. Opcije `-i`, `-o`, `-v`, `-A`, `-B` in `-C` so vredne poznavanja.
 
@@ -82,7 +84,9 @@ Opombe:
 
 - Za urejanje dolgih ukazov, po nastavitvi vašega urejevalnika (na primer `export EDITOR=vim`), **ctrl-x** **ctrl-e** bo odprlo trenutni ukaz v urejevalniku za več vrstično urejanje. Ali v stilu vi, **escape-v**.
 
-- Da vidite nedavne ukaze, `history`. Na voljo je tudi veliko okrajšav, kot je `!$` (zadnji argument) in `!!` zadnji ukaz, čeprav so te pogostokrat enostavno zamenjani s **ctrl-r** in **alt-.**.
+- Če si želite ogledati nedavne ukaze, uporabite `history`. Nadalje `!n` (kjer je `n` številka ukaza), da ga ponovno izvedete. Na voljo je tudi veliko okrajšav, najuporabnejša verjetno `!$` za zadnji argument in `!!` za zadnji ukaz (glejte "HISTORY EXPANSION" na man straneh). Vendar so le-te pogostokrat enostavno zamenjane s **ctrl-r** in **alt-.**.
+
+- Pojdite v vaš domači direktorij s `cd`. Dostopajte do datotek relativno glede na vaš domači direktorij s predpono `~` (npr. `~/.bashrc`). V `sh` skriptah se sklicujte na domači direktorij kot `$HOME`.
 
 - Da greste nazaj na prejšnji delovni dirketorij: `cd -`
 
@@ -93,6 +97,7 @@ Opombe:
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
+
 
 - `pstree -p` je priročen prikaz drevesa procesov.
 
@@ -109,6 +114,14 @@ Opombe:
 - Glejte `uptime` ali `w`, da izveste, koliko časa se sistem poganja.
 
 - Uporabite `alias`, da ustvarite bližnjice za pogosto uporabljene ukaze. Na primer, `alias ll='ls -latr'` ustvari nov alias `ll`.
+
+- Shranite aliase, nastavitve lupine in funkcije, ki jih pogosto uporabljate v `~/.bashrc` in [uredite prijave lupin za izvorno kodo](http://superuser.com/a/183980/7106). To bo naredilo vašo namestitev na voljo v vseh sejah vaše lupine.
+
+- Dajte nastavitve spremenljivk okolja kot tudi ukaze, ki bi morali biti izvršeni, ko se prijavite v `~/.bash_profile`. Ločena nastavitev bo potrebna za lupine, ki jih zaženete iz prijave grafičnega okolja in s periodičnimi opravili `cron`.
+
+- Sinhronizirajte vaše nastavitvene datoteke (npr. `.bashrc` in `.bash_profile`) med različnimi računalniki s pomočjo Git.
+
+- Razumite, da je potrebna skrb, ko spremenljivke in imena datotek vsebujejo prazne znake. Obdajte vaše spremenljivke Bash s citati, npr. `"$FOO"`. Raje cenite opciji `-0` ali `-print0`, da omogočite razmejevanje imen datotek z ničelnimi znaki, npr. `locate -0 pattern | xargs -0 ls -al` ali `find / -print0 -type d | xargs -0 ls -al`. Za iteracijo v for zanki na imenih datotek, ki vsebujejo prazne znake, nastavite da vaš IFS za nove vrstice uporablja samo `IFS=$'\n'`.
 
 - V skriptah Bash uporabite `set -x` (ali varianto `set -v`, ki beleži dnevnik surovega izpisa, vključno z nerazširjenimi spremenljivkami in komentarji) za razhroščevanje izpisa. Uporabite striktni način razen, če imate dober razlog, da ga ne: Uporabite `set -e`, da preskočite napake (neničelna koda izhoda). Uporabite `set -u`, da zaznate uporabo nenastavljenih spremenljivk. Premislite tudi o `set -o pipefail`, da na napakah znotraj pip, (vendar preberite o tem več, če boste to uporabili, saj je ta tema nekoliko subtilna). Za bolj vključene skripte, uporabite tudi `trap` pri EXIT ali ERR. Uporabna navada je tako začeti skripto, kar bo naredilo, da lahko zazna ali prekliče na pogostih napakah in izpiše sporočilo:
 ```bash
@@ -138,7 +151,7 @@ Opombe:
 
 - Uporabite `man ascii` za dobro tabelo ASCII s heksadecimalnimi in decimalnimi vrednostmi. Za splošne informacije enkodiranja so priročni `man unicode`, `man utf-8` in `man latin1`.
 
-- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. `byobu` lahko poveča t.i. screen ali tmux s ponujanjem več informacij in enostavnejšim upravljanjem. Bolj minimalna alternativa za samo obstojnost sej je `dtach`.
+- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. `byobu` lahko poveča t.i. screen ali tmux s ponujanjem več informacij in enostavnejšim upravljanjem. Bolj minimalna alternativa za samo obstojnost sej je [`dtach`](https://github.com/bogner/dtach).
 
 - V ssh je poznavanje, kako usmeriti tunel z `-L` ali `-D` (in občasno `-R`) je uporaben, npr. za dostopanje do spletnih strani iz oddaljenega strežnika.
 
@@ -171,6 +184,14 @@ Opombe:
 
 - Za pogon ukaza s privilegiji, uporabite `sudo` (za root) ali `sudo -u` (za drugega uporabnika). Uporabite `su` ali `sudo bash`, da dejansko poženete lupino kot ta uporabnik. Uporabite `su -`, da simulirate svežo prijavo kot root ali drug uporabnik.
 
+- Spoznajte [omejitev 128K](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) v ukaznih vrsticah. Ta napaka "Argument list too long" je pogosta, ko se nadomestni znak ujema z velikim številom datotek. (Ko se to zgodi, lahko pomagajo alternative kot sta `find` in `xargs`.)
+
+- Za osnovni kalkulator (in seveda splošni dostop do Python-a) uporabite interpreter `python`. Na primer,
+```
+>>> 2+3
+5
+```
+
 
 ## Procesiranje datotek in podatkov
 
@@ -200,7 +221,11 @@ Opombe:
 
 - Naučite se o `tee`, da prekopirate iz stdin v datoteko in tudi v stdout, kot pri `ls -al | tee file.txt`.
 
+- Za kompleksnejše kalkulacije, vključno z združevanjem, obračanjem polj in statističnimi izračuni, razmislite o [`datamash`](https://www.gnu.org/software/datamash/).
+
 - Vedite, da lokalizacija vpliva na veliko orodij ukazne vrstice na subtilne načine, vključno z vrstnim redom (kolokacijo) in uspešnostjo. Večina namestitev Linux-a bo nastavila `LANG` ali druge spremenljivke lokalizacije na lokalne nastavitve kot je US English. Vendar bodite pozorni, saj se bo vrstni red spremenil, če spremenite lokalizacijo. In vedite, da rutine i18n lahko naredijo sortiranje ali poganjanje drugih ukazov *nekajkrat* počasnejše. V nekaterih situacijah (kot je skupek operacij ali unikatnih operacij spodaj) lahko v celoti varno ignorirate počasne rutine i18n in uporabite tradicionalne vrstne rede na osnovi bajtov z uporabo `export LC_ALL=C`.
+
+- Nastavite lahko določeno okolje ukaza s predpono njegovega sklicevanja na nastavitve spremenljivk okolja, kot pri `TZ=Pacific/Fiji date`.
 
 - Spoznajte osnove `awk` in `sed` za enostavno manipuliranje podatkov. Na primer, povzetek vseh številk v tretjem stolpcu tekstovne datoteke: `awk '{ x += $3 } END { print x }'`. To je verjetno 3X hitrejše in 3X krajše kot ekvivalent v Python-u.
 
@@ -219,7 +244,7 @@ Opombe:
       rename 's/\.bak$//' *.bak
 ```
 
-- Kot pravi stran vodiča, je `rsync` resnično hiter in izredno vsestransko orodje kopiranja datotek. Znano je po sinhronizaciji med napravami vendar je enakovredno uporaben tudi lokalno. Je tudi eden izmed [najhitrejših načinov](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) za izbris velikega števila datotek:
+- Kot pravi stran vodiča, je `rsync` resnično hiter in izredno vsestransko orodje kopiranja datotek. Znano je po sinhronizaciji med napravami vendar je enakovredno uporaben tudi lokalno. Ko omejitve varnosti omogočajo, uporaba `rsync` namesto `scp` omogoča povrnitev prenosa brez ponovnega zagona od začetka. Je tudi eden izmed [najhitrejših načinov](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) za izbris velikega števila datotek:
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
@@ -249,6 +274,14 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Uporabite `zless`, `zmore`, `zcat` in `zgrep` za operiranje na kompresiranih datotekah.
 
+- Atributi datotek so nastavljivi preko `chattr` in ponujajo nizko nivojsko alternativo pravicam datotek. Na primer za zaščito pred ponesrečenim brisanjem datoteke se uporabi nespremenljiva zastavica: `sudo chattr +i /critical/directory/or/file`
+
+- Uporabite `getfacl` in `setfacl`, da shranite in povrnete pravice datotek. Na primer:
+```sh
+    getfacl -R /some/path > permissions.txt
+    setfacl --restore=permissions.txt
+```
+
 
 ## Sistemsko razhroščevanje
 
@@ -264,15 +297,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Sistemsko razhroščevanje Java je drugačen tip, vendar enostaven trik na JVM-jih Oracle-a in nekaterih ostalih je, da lahko poženete `kill -3 <pid>` in sledite celotnemu stack-u in povzetku kopic (vključno s podrobnostmi zbirke splošnih smeti, ki so lahko zelo informativne), ki bodo oddane v stderr/logs. JDK-jevi `jps`, `jstat`, `jstack`, `jmap` so uporabni. [SJK Tools](https://github.com/aragozin/jvm-tools) so bolj napredni.
 
-- Uporabite `mtr` kot boljši usmerjevalnik sledenja za identifikacijo težav omrežja.
+- Uporabite [`mtr`](http://www.bitwizard.nl/mtr/) kot boljši usmerjevalnik sledenja za identifikacijo težav omrežja.
 
-- Za iskanje, zakaj je disk poln, vam `ncdu` prihrani čas preko običajnih ukazov kot je `du -sh *`.
+- Za iskanje, zakaj je disk poln, vam [`ncdu`](https://dev.yorhel.nl/ncdu) prihrani čas preko običajnih ukazov kot je `du -sh *`.
 
-- Da najdete katera vtičnica ali proces uporablja pasovno širino, poskusite `iftop` ali `nethogs`.
+- Da najdete katera vtičnica ali proces uporablja pasovno širino, poskusite [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ali [`nethogs`](https://github.com/raboof/nethogs).
 
 - Orodje `ab` (prihaja z Apache-jem) je v pomoč za hitro in nečisto preverjanje uspešnosti spletnega strežnika. Za bolj kompleksno testiranje nalaganja poskusite `siege`.
 
-- Za bolj resno razhroščevanje omrežja, `wireshark`, `tshark` ali `ngrep`.
+- Za bolj resno razhroščevanje omrežja, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ali [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Poznajte `strace` in `ltrace`. Ta sta v pomoč, če program ni uspešen, se ustavlja ali poruši in ne veste zakaj, ali če želite dobiti splošno idejo o uspešnosti. Bodite pozorni na opcijo profiliranja (`-c`) in zmožnost dodajanja k procesu, ki se poganja (`-p`).
 
@@ -280,9 +313,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Vedite, kako se povezati k procesu v pogonu z `gdb` in dobiti njegove sledi skladovnice.
 
-- Uporabite `/proc`. Včasih je izjemno v pomoč, ko se razhroščuje probleme v živo. Primeri: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, ``/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (kjer je `xxx` id procesa ali pid).
+- Uporabite `/proc`. Včasih je izjemno v pomoč, ko se razhroščuje probleme v živo. Primeri: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, ``/proc/xxx/cwd`,asdf `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (kjer je `xxx` id procesa ali pid).
 
-- Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, je lahko zelo uporaben `sar`. Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
+- Ko se razhroščuje, zakaj je šlo nekaj narobe v preteklosti, je lahko zelo uporaben [`sar`](http://sebastien.godard.pagesperso-orange.fr/). Prikazuje statistiko zgodovine na procesorju, spominu, omrežju itd.
 
 - Za globlje analize sistema in uspešnosti, poglejte `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)) in [`sysdig`](https://github.com/draios/sysdig).
 
@@ -290,6 +323,8 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Uporabite `dmesg` kadarkoli gre nekaj dejansko čudno (lahko je težava strojne opreme ali gonilnika).
 
+- Če izbrišete datoteko in se prostor na voljo ne poveča, kot je pričakovano s poročilom `du`, preverite ali datoteko uporablja proces:
+`lsof | grep deleted | grep "filename-of-my-big-file"`
 
 ## V eni vrstici
 
@@ -310,7 +345,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- Če želite videti velikost/datume v drevesu datotek, je to kot rekurzivni `ls -l` vendar enostavnejše za branje kot `ls -lR`:
+- Da vidite velikost/datume v drevesu datotek, je to kot rekurzivni `ls -l` vendar enostavnejše za branje kot `ls -lR`:
 ```sh
       find . -type f -ls
 ```
@@ -432,15 +467,15 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `strace`: razhroščevanje sistemskega klica
 
-- `mtr`: boljše sledenje usmerjanja za razhroščevanje omrežja
+- [`mtr`](http://www.bitwizard.nl/mtr/): boljše sledenje usmerjanja za razhroščevanje omrežja
 
 - `cssh`: vizualna sočasna lupina
 
 - `rsync`: sinhronizacija datotek in map preko SSH ali v lokalnem datotečnem sistemu
 
-- `wireshark` in `tshark`: zajem paketov in razhroščevanje omrežja
+- [`wireshark`](https://wireshark.org/) in [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): zajem paketov in razhroščevanje omrežja
 
-- `ngrep`: grep za nivo omrežja
+- [`ngrep`](http://ngrep.sourceforge.net/): grep za nivo omrežja
 
 - `host` in `dig`: pogled DNS
 
@@ -464,9 +499,9 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `id`: informacije identifikacije uporabnika/skupine
 
-- `sar`: statistika zgodovine sistema
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): statistika zgodovine sistema
 
-- `iftop` ali `nethogs`: izkoriščenost omrežja po vtičnici ali procesu
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) ali [`nethogs`](https://github.com/raboof/nethogs): izkoriščenost omrežja po vtičnici ali procesu
 
 - `ss`: statistika vtičnice
 
@@ -475,8 +510,6 @@ Nekaj primerov sestavljanja ukazov skupaj:
 - `sysctl`: ogled in nastavitev parametrov jedra Linux pri pogonu
 
 - `hdparm`: manipulacija/uspešnost SATA/ATA disk-a
-
-- `lsb_release`: informacije distribucije Linux
 
 - `lsblk`: izpiše blokovne naprave: drevesni pogled vaših diskov in particij diska
 
@@ -487,33 +520,58 @@ Nekaj primerov sestavljanja ukazov skupaj:
 - `fortune`, `ddate` in `sl`: hm, torej zavisi glede na to ali smatrate parne lokomotive in dinamične kotacije "uporabne"
 
 
-## Samo za MacOS X
+## Samo za OS X
 
-To so elementi pomembni *samo* za MacOS.
+To so elementi pomembni *samo* za OS X.
 
-- Upravljanje paketov z `brew` (Homebrew) in/ali `port` (MacPorts). Te so lahko uporabljeni za namestitev mnogih zgornjih ukazov na MacOS.
+- Upravljanje paketov z `brew` (Homebrew) in/ali `port` (MacPorts). Te so lahko uporabljeni za namestitev mnogih zgornjih ukazov na OS X.
 
 - Kopirajte izpis katerega koli ukaza na namizno aplikacijo s `pbcopy` in prilepite vnos iz ene s `pbpaste`.
 
-- Da omogočite uporabo topke Option v Mac OS Terminalu kot tipka alt (kot je uporabljena v ukazih zgoraj kot **alt-b**, **alt-f** itd), odprite Preferences -> Profiles -> Keyboard in izberite "Use Option as Meta key".
+- Da omogočite uporabo topke Option v OS X Terminalu kot tipka alt (kot je uporabljena v ukazih zgoraj kot **alt-b**, **alt-f** itd), odprite Preferences -> Profiles -> Keyboard in izberite "Use Option as Meta key".
 
 - Da odprete datoteko z namizno aplikacijo, uporabite `open` ali `open -a /Applications/Whatever.app`.
 
 - Spotlight: Poiščite datoteke z `mdfind` in izpišite meta podatke (kot so EXIF informacije fotografije) z `mdls`.
 
-- Bodite pozorni, saj je MacOS osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
+- Bodite pozorni, saj je OS X osnovan na BSD Unix in mnogi ukazi (na primer `ps`, `ls`, `tail`, `awk`, `sed`) imajo mnoge subtilne različice iz Linux-a, na katerega je večinoma vplival System V-style Unix in GNU tools. Pogostokrat lahko poveste razliko tako, da opazite, da ima stran man naslov "BSD General Commands Manual." V nekaterih primerih se lahko namestijo tudi GNU različice (kot so `gawk` in `gsed` za GNU awk in sed). Če pišete skripte Bash za vse platforme, se izogibajte takim ukazom (na primer, z upoštevanjem Python ali `perl`) ali pazljivo testirajte.
 
-- Da dobite informacije o izdaji MacOS, uporabite `sw_vers`.
+- Da dobite informacije o izdaji OS X, uporabite `sw_vers`.
 
+## Samo za Windows
+
+Sledeče velja *samo* za Windows.
+
+- Na Windows 10 lahko uporabite [Bash na Ubuntu na Windows](https://msdn.microsoft.com/commandline/wsl/about), ki ponuja znano okolje Bash z orodji ukazne vrstice Unix. Prednost je, da to omogoča poganjanje programov za Linux na Windows-u. Po drugi strani pa to ne podpira poganjanja Windows programov iz ukazne vrstice Bash.
+
+- Dostopajte do moči lupine Unix na Microsoft Windows z namestitvijo [Cygwin](https://cygwin.com/). Večina stvari opisanih v tem dokumentu bo delala "Out of the Box".
+
+- Namestite dodatne programe Unix z upraviteljem paketov Cygwin.
+
+- Uporabite `mintty` za vaše okno ukazne vrstice.
+
+- Do odložišča Windows dostopajte preko `/dev/clipboard`.
+
+- Poženite `cygstart`, da odprete poljubno datoteko preko njene registrirane aplikacije.
+
+- Do registra Windows dostopajte z `regtool`.
+
+- Upoštevajte, da pot diska Windows `C:\` postane v Cygwin `/cygdrive/c` in Cigwin-ov `/` se na Windows pojavi pod `C:\cygwin`. Pretvorite med Cygwin in Windows stilom poti datotek s `cygpath`. To je najbolj uporabno v skriptah, ki se sklicujejo na programe Windows.
+
+- Večino opravil sistemske administracije Windows iz ukazne vrstice lahko izvajate tako, da se naučite uporabljati `wmic`.
+
+- Druga opcija, da dobite izgled in občutek Unix-a na Windows-u, je [Cash](https://github.com/dthree/cash). Upoštevajte, da so v tem okolju na voljo le nekateri ukazi Unix in opcije ukazne vrstice.
+
+- Alternativna možnost, da dobite GNU razvojna orodja (kot je GCC) na Windows, je [MinGW](http://www.mingw.org) in njegov [MSYS](http://www.mingw.org/wiki/msys) paket, ki ponuja orodja, kot je bash, gawk, make in grep. MSYS nima na voljo vseh lastnosti v primerjavi s Cygwin. MinGW je posebej uporaben za izdelavo izvornih Windows prenosov orodij Unix.
 
 ## Več virov
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): urejan seznam orodij lupine in virov.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Bolj poglobljen vodič za Mac OS ukazno vrstico.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Bolj poglobljen vodič za OS X ukazno vrstico.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) za pisanje boljših skript lupine.
 - [shellcheck](https://github.com/koalaman/shellcheck): lupinska skripta orodja statične analize. V osnovi, lint za bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Na žalost kompleksne podrobnosti, kako pravilno ravnati z imeni datotek v lupinskih skriptah.
-
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): Več koristnih ukazov in orodij za uporabo v znanosti podatkov iz knjige z enakim imenom.
 
 ## Pogoji uporabe
 

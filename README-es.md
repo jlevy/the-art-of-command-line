@@ -1,7 +1,5 @@
-[ Languages:
-[English](README.md), [Español](README-es.md), [Italiano](README-it.md), [日本語](README-ja.md), [한국어](README-ko.md), [Português](README-pt.md), [Русский](README-ru.md), [Slovenščina](README-sl.md), [Українська](README-uk.md), [中文](README-zh.md)
-]
-
+🌍
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # El Arte del Terminal
 
@@ -13,22 +11,24 @@
 - [Procesamiento archivos y datos](#procesamiento-de-archivos-y-datos)
 - [Depuración del sistema](#depuración-del-sistema)
 - [One-liners](#one-liners)
-- [Obscuro pero útil](#oscuro-pero-útil)
-- [Solo para MacOS X](#solo-para-macos-x)
+- [Obscuro pero útil](#osbcuro-pero-útil)
+- [Solo para OS X](#solo-para-os-x)
+- [Solo para Windows](#solo-windows)
 - [Más recursos](#más-recursos)
 - [Advertencia](#advertencia)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-La fluidez en el terminal es una destreza a menudo abandonada y considerada arcaica, pero esta mejora su flexibilidad y productividad como ingeniero en formas obvia y sutil. Esta es una selección de notas y consejos al usar el terminal que encontramos útiles al trabajar en Linux. Algunos consejos son elementales y algunos bastante específicos, sofisticados u oscuros. Esta página no es larga, pero si puedes usar y recordar todos los puntos aquí mostrados, sabrás un montón.
+La fluidez en el terminal es una destreza a menudo abandonada y considerada arcaica, pero ésta mejora tu flexibilidad y productividad como ingeniero de formas obvias y sutiles. Esta es una selección de notas y consejos para usar el terminal que encontramos útiles al trabajar en Linux. Algunos consejos son elementales y algunos bastante específicos, sofisticados u oscuros. Esta página no es larga, pero si puedes usar y recordar todos los puntos aquí mostrados, sabrás un montón.
 
 Este trabajo es el resultado de [muchos autores y traductores](AUTHORS.md).
-La mayor parte
+Parte de esta:
 [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareció](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-pero debido al interés mostrado, parecía valer la pena usar Github, donde personas más talentosas que el author original pudiendo fácilmente sugerir mejoras. Si ve un error o algo que podría ser mejor, por favor, crea un issue o PR! (Por supuesto primero revisa la sección meta de PRs/issues.)
+pero se ha movido desde entonces a Github, donde personas más talentosas que el autor han hecho numerosas mejoras.
+[**Por favor contribuye**](/CONTRIBUTING.md) Si ves un error o algo que podría ser mejor!
 
 
 ## Meta
@@ -36,14 +36,14 @@ pero debido al interés mostrado, parecía valer la pena usar Github, donde pers
 Alcance:
 
 - Esta guía es tanto para principiantes como para experimentados. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar fácilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente puede ahorrar tiempo comparado con otras alternativas.
-- Esta escrito para Linux, con excepción de la sección "[Solo para MacOS X](#macos-x-only)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o MacOS (o incluso Cygwin).
-- Se enfoca en Bash interactivo, aunque muchos de los consejos se aplican para otros shells y al Bash scripting por lo general.
-- Incluye tanto comandos "estándar" Unix, así como aquellos que requieren la instalación especial de un paquete -- siempre que sea suficientemente importante para ameritar su inclusión.
+- Está escrita para Linux, con excepción de la secciones "[Solo para OS X](#os-x-only)" y "[Solo para Windows](#solo-windows)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o OS X (o incluso Cygwin).
+- Se centra en Bash interactivo, aunque muchos de los consejos aplican para otros shells y al Bash scripting por lo general.
+- Incluye tanto comandos "estándar" Unix así como los que requieren instalaciones de paquetes especiales -- siempre que sean lo suficientemente importantes para merecer su inclusión.
 
 Notas:
 
-- Para mantener esto en una página, el contenido está incluido implícitamente por referencia. Eres lo suficientemente inteligente para consultar más detalles en otros lugares, cuando conoces la idea o comando con Google. Usa `apt-get`/`yum`/`dnf`/`pacman`/`pip`/`brew` (según proceda) para instalar los nuevos programas.
-- Usa [Explainshell](http://explainshell.com/) para obtener detalles de ayuda sobre que comandos, opciones, pipes, etc.
+- Para mantener esto en una página, el contenido está incluido implícitamente por referencia. Eres lo suficientemente inteligente para consultar más detalles en otros lugares buscando en Google una vez conoces la idea o el comando. Usa `apt-get`, `yum`, `dnf`, `pacman`, `pip` o `brew` (según proceda) para instalar los nuevos programas.
+- Usa [Explainshell](http://explainshell.com/) para obtener detalles de ayuda sobre que hacen los comandos, las opciones, las pipes, etc.
 
 
 ## Fundamentos
@@ -66,6 +66,8 @@ Notas:
 
 - Administración básica de redes: `ip` o `ifconfig`, `dig`.
 
+- Aprende y usa un sistema de control de versiones, por ejemplo `git`.
+
 - Conoce bien las expresiones regulares y varias opciones (flags) para `grep`/`egrep`. Las opciones `-i`, `-o`, `-v`, `-A`, `-B` y `-C` son dignas de ser recordadas.
 
 - Aprende el uso de `apt-get`, `yum`, `dnf` o `pacman` (dependiendo de la distribución "distro") para buscar e instalar paquetes. Y asegúrate que tienes `pip` para instalar la herramienta de línea de comando basada en Python (un poco más abajo esta explicado como instalar vía `pip`).
@@ -83,7 +85,9 @@ Notas:
 
 - Para ver los últimos comandos, `history`. También existen abreviaciones, tales como, `!$` (último argumento) y `!!` último comando, aunque son fácilmente remplazados con **ctrl-r** y **alt-.**.
 
-- Para volver al directorio de trabajo previo: `cd -`
+- Para volver al directorio principal con `cd`. Accede a los archivos relativos a tu directorio principal con el prefijo `~` (ej. `~/.bashrc`). En scripts `h`refierete al directorio principal con `$HOME`.
+
+- Para volver al directorio de trabajo previo: `cd -`.
 
 - Si estás a medio camino al escribir un comando pero cambias de opinión, presiona **alt-#** para agregar un `#` al principio y lo agrega como comentario (o usa **ctrl-a**, **#**, **enter**). Luego puedes regresar a este vía comando `history`.
 
@@ -173,7 +177,7 @@ Notas:
 
 ## Procesamiento de archivos y datos
 
-- Para localizar un archivo por nombre en el directorio actual, `find . -iname '*something*'` (o similar). Para encontrar un archivo en cualquier lado por nombre, usa `locate something` (pero tenga en mente que `updatedb` quizás no haya indexado recientemente los archivos creados).
+- Para localizar un archivo por nombre en el directorio actual, `find . -iname '*algo*'` (o similar). Para encontrar un archivo en cualquier lado por nombre, usa `locate something` (pero tenga en mente que `updatedb` quizás no haya indexado recientemente los archivos creados).
 
 - Para búsqueda general a través de archivos fuente o de datos (más avanzado que `grep -r`), usa [`ag`](https://github.com/ggreer/the_silver_searcher).
 
@@ -263,15 +267,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - El sistema de depuración de Java es harina de otro costal, pero un truco simple en las JSM de Oracle y otros consta en que puedes ejecutar `kill -3 <pid>` y una traza completa y un resumen del montículo "heap summary" (incluyendo del detalle de la colección de basura generacional, la cual puede ser altamente informativa) serán descargados al stderr/logs. Las herramientas `jps`, `jstat`, `jstack`, `jmap` del JDK son útiles. [SJK tools](https://github.com/aragozin/jvm-tools) son más avanzadas.
 
-- Usa `mtr` como un mejor traceroute para identificar los problemas en la red.
+- Usa [`mtr`](http://www.bitwizard.nl/mtr/) como un mejor traceroute para identificar los problemas en la red.
 
-- Para examinar por qué el disco está lleno, `ncdu` ahorra tiempo en comparación con los comandos usuales como `du -sh *`.
+- Para examinar por qué el disco está lleno, [`ncdu`](https://dev.yorhel.nl/ncdu) ahorra tiempo en comparación con los comandos usuales como `du -sh *`.
 
-- Para encontrar cual socket o proceso está utilizando el ancho de banda, prueba `iftop` o `nethogs`.
+- Para encontrar cual socket o proceso está utilizando el ancho de banda, prueba [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) o [`nethogs`](https://github.com/raboof/nethogs).
 
 - La herramienta `ab` (viene con Apache) es útil para una verificación rápida del rendimiento de un servidor web. Para pruebas de carga más complejas prueba `siege`.
 
-- Para una depuración mas seria de redes, `wireshark`, `tshark`, o `ngrep`.
+- Para una depuración mas seria de redes, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), o [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Conoce acerca de `strace` y `ltrace`. Estas puede ser de utilidad si un programa está fallando, suspendido, o colgado, y no sabe por qué, o si quieres tener una idea general del rendimiento. Considera la opción de elaboración de perfiles (`-c`), y la habilidad de adjuntar a un proceso en ejecución (`-p`).
 
@@ -281,7 +285,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Usa `/proc`. Es extraordinariamente útil algunas veces cuando se depuran problemas en vivo. Ejemplos: `/proc/cpuinfo`, `/proc/xxx/cwd`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (donde `xxx` es el id o pid del proceso).
 
-- Cuando se depura porque algo salió mal en el pasado, `sar` puede ser muy útil. Este muestra la estadística histórica en CPU, memoria, red, etc.
+- Cuando se depura porque algo salió mal en el pasado, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) puede ser muy útil. Este muestra la estadística histórica en CPU, memoria, red, etc.
 
 - Para sistemas y análisis de rendimiento de mayor profundidad, examina `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), y [`sysdig`](https://github.com/draios/sysdig).
 
@@ -306,10 +310,10 @@ Algunos ejemplos de comandos reunidos:
 
 - Sumar todos los números en la tercera columna de un archivo de texto (esto es probablemente 3 veces más rápido y 3 veces menos código que el equivalente en Python):
 ```sh
-      awk '{ x += $3 } END { print x }' myfile
+      awk '{ x += $3 } END { print x }' miarchivo
 ```
 
-- Si quiere examinar tamaños/fechas en un árbol de archivos, esto es como un `ls -l` recursivo pero es más fácil de leer que `ls -lR`:
+- Consultar tamaños/fechas en un árbol de archivos, esto es como un `ls -l` recursivo pero es más fácil de leer que `ls -lR`:
 ```sh
       find . -type f -ls
 ```
@@ -333,7 +337,7 @@ Algunos ejemplos de comandos reunidos:
 ```
 
 
-## Oscuro pero útil
+## Obscuro, pero útil
 
 - `expr`: ejecuta operaciones aritméticas o booleanas o evalúa expresiones regulares
 
@@ -431,15 +435,15 @@ Algunos ejemplos de comandos reunidos:
 
 - `strace`: depuración de llamadas del sistema
 
-- `mtr`: mejor traceroute para la depuración de la red
+- [`mtr`](http://www.bitwizard.nl/mtr/): mejor traceroute para la depuración de la red
 
 - `cssh`: shell concurrente visual
 
 - `rsync`: sincronización de archivos y carpetas sobre SSH o en sistema de archivos locales
 
-- `wireshark` y `tshark`: captura de paquetes y depuración de la red
+- [`wireshark`](https://wireshark.org/) y [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): captura de paquetes y depuración de la red
 
-- `ngrep`: grep para la capa de la red
+- [`ngrep`](http://ngrep.sourceforge.net/): grep para la capa de la red
 
 - `host` y `dig`: consultas DNS
 
@@ -463,9 +467,9 @@ Algunos ejemplos de comandos reunidos:
 
 - `id`: información de identidad de usuario/grupo
 
-- `sar`: estadísticas históricas del sistema
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): estadísticas históricas del sistema
 
-- `iftop` o `nethogs`: utilización de la red por un socket o proceso
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) o [`nethogs`](https://github.com/raboof/nethogs): utilización de la red por un socket o proceso
 
 - `ss`: estadísticas de socket
 
@@ -474,8 +478,6 @@ Algunos ejemplos de comandos reunidos:
 - `sysctl`: examina y configura los parámetros de kernel de Linux en tiempo de ejecución
 
 - `hdparm`: manipulación/rendimiento de discos SATA/ATA
-
-- `lsb_release`: información de la distribución de Linux
 
 - `lsblk`: lista de dispositivos de bloque: una vista tipo arbol de sus discos y particiones de disco
 
@@ -486,28 +488,54 @@ Algunos ejemplos de comandos reunidos:
 - `fortune`, `ddate`, y `sl`: um, bien, depende de si considera las locomotoras de vapor y citas Zippy "útiles"
 
 
-## Solo para MacOS X
+## Solo para OS X
 
-Estos son puntos relevantes *únicamente* para MacOS.
+Estos son puntos relevantes *únicamente* para OS X.
 
-- Administración de paquetes con `brew` (Homebrew) y/o `port` (MacPorts). Estos pueden ser utilizados para instalar en MacOS muchos de los comandos de arriba.
+- Administración de paquetes con `brew` (Homebrew) y/o `port` (MacPorts). Estos pueden ser utilizados para instalar en OS X muchos de los comandos de arriba.
 
 - Copie la salida de cualquier comando en una aplicación de escritorio con `pbcopy` y pegue una entrada con `pbpaste`.
 
-- Para activar la teacla Option en un Terminal Mac OS Terminal como una tecla alt (tal como se usan en los comandos más arriba como  **alt-b**, **alt-f**, etc.), abre Preferencias -> Perfiles -> Teclado y selecciona "Usa Option como tecla Meta".
+- Para activar la tecla Option en un OS X Terminal como una tecla alt (tal como se usan en los comandos más arriba como  **alt-b**, **alt-f**, etc.), abre Preferencias -> Perfiles -> Teclado y selecciona "Usa Option como tecla Meta".
 
 - Para abrir un archivo con una aplicación de escritorio, use `open` o `open -a /Applications/Whatever.app`.
 
 - Spotlight: Busque archivos con `mdfind` y liste metadata (tal como información de foto EXIF) con `mdls`.
 
-- Ten en cuenta que MacOS está basado en BSD Unix, y muchos comandos (por ejemplo `ps`, `ls`, `tail`, `awk`, `sed`) tiene sutiles variaciones en comparación con Linux, que está en gran parte influenciado por el sistema Unix V-style y herramientas GNU. Comunmente se puede diferenciar al notar que una página man tienen el encabezado "BSD General Commands Manual." En algunos casos versiones GNU pueden ser instaladas también (tales como `gawk` y `gsed` para GNU awk y sed). Si escribe Bash scripts multiplataforma, evite tales comandos (por ejemplo, considere Python o `perl`) o prueba cuidadosamente.
+- Ten en cuenta que OS X está basado en BSD Unix, y muchos comandos (por ejemplo `ps`, `ls`, `tail`, `awk`, `sed`) tiene sutiles variaciones en comparación con Linux, que está en gran parte influenciado por el sistema Unix V-style y herramientas GNU. Comunmente se puede diferenciar al notar que una página man tienen el encabezado "BSD General Commands Manual." En algunos casos versiones GNU pueden ser instaladas también (tales como `gawk` y `gsed` para GNU awk y sed). Si escribe Bash scripts multiplataforma, evite tales comandos (por ejemplo, considere Python o `perl`) o prueba cuidadosamente.
 
-- Para obtener la información de la versión del MacOS, usa `sw_vers`.
+- Para obtener la información de la versión del OS X, usa `sw_vers`.
+
+## Solo para Windows
+
+Estos son puntos relevantes *únicamente* para Windows.
+
+-En Windows 10, puedes usar [Bash de Ubuntu en Windows](https://msdn.microsoft.com/commandline/wsl/about) que proporciona un entorno familiar con la línea de comandos en Unix. Su lado positivo, este permite a los programas de Linux ejecutarse en Windows. Por otro lado este no soporta ejecutar de programas de Windows desde la línea de comandos Bash.
+- Accede al poder del shell de Unix en Microsoft Windows instalando [Cygwin](https://cygwin.com/). La mayoría de las cosas descritas en este documento funcionaran en su configuración por defecto.
+
+- Instala programas adicionales de Unix con el gestor de paquetes de Cygwin
+
+- Usa `mintty` como tu línea de comando.
+
+- Accede al portapapeles de Windows a través de `/dev/clipboard`.
+
+- Ejecuta `cygstart` para abrir un archivo arbitrario a través de su aplicación registrada.
+
+- Accede al registro de Windows con `regtool`.
+
+- Ten en cuenta que la ruta `C:\` del disco Windows se transforma en `/cygdrive/c` en Cygwin, y que Cygwin `/` aparece en `C:\cygwin` en Windows. Convierte entre Cygwin y rutas de archivos estilo Windows con `cygpath`. Este es el más útil de los scripts que invocan programas de Windows.
+
+- Puedes ejecutar y hacer scripts de la mayoría de las tareas administrativas del sistema de Windows desde la línea de comandos aprendiendo y usando `wmic`.
+
+- Otra opción para obtener la apariencia y sensación de Unix en Windows es [Cash](ttps://github.com/dthree/cash). Ten en cuenta que muy pocos comandos de Unix y opciones de la línea de comandos están disponibles en este entorno.
+
+- Una opción alternativa para tener herramientas de desarrollo GNU (algo como GCC) en windows es [MinGW](http://www.mingw.org/) y [MSYS](http://www.mingw.org/wiki/msys) su paquete, que proporciona utilidades tales como bash, gawk, make y grep. MSYS no tiene todas las características al compararse con Cygwin. MinGW es particularmente útil para crear ejecutables nativos de Windows de las herramientas Unix.
+
 
 ## Más recursos
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Una lista curada de herramientas shell y recursos.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Una guía más detallada para la línea de comandos del  Mac OS.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Una guía más detallada para la línea de comandos del OS X.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) para escribir mejores script shell.
 - [shellcheck](https://github.com/koalaman/shellcheck): Una herramienta de análisis estadístico del script shell. Esencialmente, lint para bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Las menudencias tristemente complejas sobre cómo manejar nombres de archivos correctamente en shell scripts.
