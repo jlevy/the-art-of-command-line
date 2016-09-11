@@ -60,15 +60,15 @@ Notlar:
 
 - Bash is veya gorev yonetimine da asina olun: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, vs.
 
-- Know `ssh`, and the basics of passwordless authentication, via `ssh-agent`, `ssh-add`, etc.
+- `ssh` i bilin, and ve sifresiz dogrulamanin temellerini de, `ssh-agent` veya `ssh-add`, etc. yoluyla.
 
-- Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -hs *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Learn what an inode is (`ls -i` or `df -i`).
+- Temel dosya yonetimi : `ls` ve `ls -l` (ozellikle,  `ls -l` komutunda her sütunun anlamlarini bilin), `less`, `head`, `tail` ve `tail -f` (veya daha da iyisi, `less +F`), `ln` ve `ln -s` (hard link ve soft link arasindaki farki ve avantajlarini bilin), `chown`, `chmod`, `du` (hizli bir disk kullanimi ozeti icin: `du -hs *`). Dosya sistemi yonetimi icin, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.inode  ne bilin (`ls -i` veya `df -i`).
 
-- Basic network management: `ip` or `ifconfig`, `dig`.
+- Basit baglanti yonetimi icin: `ip` veya `ifconfig`, `dig`.
 
-- Know regular expressions well, and the various flags to `grep`/`egrep`. The `-i`, `-o`, `-v`, `-A`, `-B`, and `-C` options are worth knowing.
+- Kuralli veya duzenli ifadeleri iyi bilin, ve farkli isaretler `grep`/`egrep` icin. The `-i`, `-o`, `-v`, `-A`, `-B`, and `-C` options are worth knowing.
 
-- Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
+- `apt-get` i kullanmasini bilin, `yum`, `dnf` veya `pacman` (distrolara bagli farkliliklar olabilir) ki hazir packagelari bulup yukleyebilesiniz. Python-temelli komutlari kullanmak icin `pip`i kullanin  (bircogu `pip` ile kolaylikla yuklenebilir).
 
 
 ## Everyday use
