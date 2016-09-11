@@ -9,7 +9,7 @@
 
 - [Meta](#meta)
 - [Temeller](#temeller)
-- [Everyday use](#everyday-use)
+- [Gunluk Kullanim](#everyday-use)
 - [Processing files and data](#processing-files-and-data)
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
@@ -73,43 +73,46 @@ Notlar:
 
 ## Everyday use
 
-- In Bash, use **Tab** to complete arguments or list all available commands and **ctrl-r** to search through command history (after pressing, type to search, press **ctrl-r** repeatedly to cycle through more matches, press **Enter** to execute the found command, or hit the right arrow to put the result in the current line to allow editing).
-
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete all the way back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-a** to move cursor to beginning of line,  **ctrl-e** to move cursor to end of line, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
+- Bash`te otomatik tamamlama ve mevcut komutlari listelemek icin **Tab** kullanin.  Komut gecmisinde arama yapmak icin **ctrl-r**`i kullanin. **ctrl-r**`i kullanarak arama sonuclarini dolasabilirsiniz. **Enter**`a basarak o komutu calistirabilirsiniz.
 
 
-- Alternatively, if you love vi-style key-bindings, use `set -o vi` (and `set -o emacs` to put it back).
+- Bash`te, **ctrl-w**`i  kullanarak en sonki kelimeyi silebilirsiniz, ve **ctrl-u** satir basina kadar siler.
+Kelime kelime hareket etmek icin **alt-b** ve **alt-f**`i kullanin. Gostergeyi satir basina goturmek icin **ctrl-a**`i  ve  **ctrl-e** satir sonuna goturmek icin kullanin.  **ctrl-k** satir sonuna kadar oldurmek icin kullanilir. **ctrl-l** de ekrani temizlemek icin kullanilir. `man readline`  ile kisayollar hakkinda daha fazla bilgi alabilirsiniz. Cok fazla var, mesela  **alt-.** onceki argumanlari gezer ve  **alt-*** glob`lari genisletir. 
 
-- For editing long commands, after setting your editor (for example `export EDITOR=vim`), **ctrl-x** **ctrl-e** will open the current command in an editor for multi-line editing. Or in vi style, **escape-v**.
+- Eger vi-style kisayollari seviyor iseniz, `set -o vi` komutunu calistirabilirsiniz (ve `set -o emacs` eski haline getirmek icin).
 
-- To see recent commands, `history`. There are also many abbreviations such as `!$` (last argument) and `!!` last command, though these are often easily replaced with **ctrl-r** and **alt-.**.
+- Uzun komutlari editlemek icin, editorunuzu set ettikten sonra (ornegin `export EDITOR=vim`), **ctrl-x** ve **ctrl-e** komulari mevcut komutu editorda acar. Veya vi style`da, **escape-v**.
 
-- To go back to the previous working directory: `cd -`
+- En son calisan komutlari gormek icin, `history`(tarih). Bazi kisayollar ise  `!$` (en son arguman) ve `!!` son komut, bunlar sayesinde **ctrl-r** ve **alt-.** de cok faydalidir.
 
-- If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
+- Bir onceki alt dizine gitmek icin: `cd -`
 
-- Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
+- Eger komutunuzun ortalarinda biyerde iseniz ve eger fikrinizi degistirirseniz,  **alt-#**`i  `#` komutunuzun basina eklemek icin kullanin, boylelikle komut yorum olur ve calismaz (veya  **ctrl-a**, **#**, **enter** kullanin).  Daha sonra isterseniz history komutu ile geri donebilirsiniz.
+
+
+- `xargs`i kullanin (veya `parallel`). Cok guclu bir komuttur. Satir basi kac komut calisabilir kontrol edebilirsiniz (`-L`) ayni zamanda paralellik (`-P`). Eger komutun nasil calisacagindan emin degil iseniz,  `xargs echo`i kullanin.`-I{}` da cok kullanislidir. Ornekler:
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-- `pstree -p` is a helpful display of the process tree.
+-  Proses agaci `pstree -p` komutu yardimi ile gorulebilir.
 
-- Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
+- `pgrep` ve `pkill` prosesleri isimlerine gore bulmak icin kullanislidir ve (`-f` secenegi de kullanislidir).
 
-- Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
+- Proseslere gonderebileceginiz farkli sinyalleri bilin. Mesela, bir prosesi duraklatmak icin,  `kill -STOP [pid]` i kullanin. Tam liste icin, bakiniz `man 7 signal`
 
-- Use `nohup` or `disown` if you want a background process to keep running forever.
+- Eger bir arka plan prosesini her zaman duraksiz calistirmak istiyor iseniz `nohup` veya `disown` i kullanin
 
-- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
+- Hangi proseslerin dinledigini ogrenmek icin `netstat -lntp` veya `ss -plat`i kullanin (TCP icin; UDP icin `-u` ekleyin ).
 
-- See also `lsof` for open sockets and files.
+- Acik dosyalar ve soketler icin `lsof` a bakiniz
 
-- See `uptime` or `w` to know the how long the system has been running.
+- Sisteminizin ne kadar suredir calistigini ogrenmek icin `uptime` veya `w`  a bakiniz.
 
-- Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
+- Komut kisayollari olusturmak icin `alias` kullanin. Ornegin `alias ll='ls -latr'` `ll` kisayolu olusturur. 
 
+//left here
 - In Bash scripts, use `set -x` (or the variant `set -v`, which logs raw input, including unexpanded variables and comments) for debugging output. Use strict modes unless you have a good reason not to: Use `set -e` to abort on errors (nonzero exit code). Use `set -u` to detect unset variable usages. Consider `set -o pipefail` too, to on errors within pipes, too (though read up on it more if you do, as this topic is a bit subtle). For more involved scripts, also use `trap` on EXIT or ERR. A useful habit is to start a script like this, which will make it detect and abort on common errors and print a message:
 ```bash
       set -euo pipefail
