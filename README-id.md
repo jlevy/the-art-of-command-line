@@ -1,10 +1,13 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 
 # Seni dalam Baris Perintah
 
+[![Ajukan pertanyaan](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
+
 [![Bergabung dengan obrolan di https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 - [Meta](#meta)
 - [Dasar-dasar](#dasar-dasar)
@@ -28,7 +31,7 @@ Beberapa diantaranya [pertama kali](http://www.quora.com/What-are-some-lesser-kn
 [muncul](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 di [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
 namun kemudian dialihkan ke GitHub, dimana banyak orang-orang yang lebih berbakat dari penulis awal telah membuat banyak penyempurnaan.
-[**Silakan berkontribusi**](/CONTRIBUTING.md) jika anda melihat ada kesalahan atau memiliki suatu ide yang lebih baik.
+[**Silakan ajukan pertanyaan**](https://airtable.com/shrzMhx00YiIVAWJg) jika anda memiliki pertanyaan seputar perintah baris. [**Silakan berkontribusi**](/CONTRIBUTING.md) jika anda melihat ada kesalahan atau memiliki suatu ide yang lebih baik!
 
 ## Meta
 
@@ -142,6 +145,13 @@ Catatan:
       diff /etc/hosts <(ssh suatuserver cat /etc/hosts)
 ```
 
+- Ketika menulis skrip disarankan untuk membatasi semua kode dalam kurung kurawal. Jika penutuh kurung kurawal tidak ditemukan, skrip tidak dapat dijalankan karena terjadi kesalahan. Hal ini biasanya terjadi ketika mengunduh skrip dari web, kemungkinan beberapa bagian dari skrip yang telah diunduh sengaja ditulis untuk menghindari eksekusi: 
+```bash
+{
+      # Kode disini
+}
+```
+
 - Ketahui tentang "here documents" dalam Bash dengan `cat <<EOF...`.
 
 - Dalam Bash, arahkan keluaran standar dan kesalahan melalui: `suatu-perintah > berkaslog 2>&1` atau `suatu-perintah &>berkaslog`. Biasanya, untuk memastikan suatu perintah tidak meninggalkan berkas tetap terbuka setelah menerima masukan, coba pada terminal anda saat ini, merupakan hal baik untuk menambahkan `</dev/null`. 
@@ -181,6 +191,8 @@ Catatan:
 `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
 - For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
+
+- Untuk berganti ke pengguna Shell lain, gunakan `su username` atau `su - username`. Sertakan `-` untuk mendapatkan lingkungan jika pengguna telah login. Hindari menggunakan username menjadi root. Anda akan dimintai password _untuk pengguna yang ingin diganti_.
 
 - Ketahui [batasan 128k](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) pada sebuah perintah. Kesalahan "Argument list too long" sering terjadi ketika karakter (wildcard) mewakili berkas yang sangat banyak. (Saat ini terjadi dapat menggunakan `find` dan `xargs` sebagai bantuan.)
 
@@ -292,15 +304,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Analisa sistem Java sedikit berbeda, tapi ada trik sederhana untuk JVM dari Oracle dan yang lainnya yakni dapat dijalankan perintah `kill -3 <pid>` dan penelusuran (full stack trace) dan beberapa ringkasan utama (termasuk informasi pembangkitan sampah sistem, informasi yang sangat berguna) akan dikeluarkan melalui stderr/logs. JDK seperti `jps`, `jstat`, jstack`, `jmap` cukup berguna. [Perlengkapan SJK](https://github.com/aragozin/jvm-tools) untuk penggunaan lebih lanjut.
 
-- Gunakan `mtr` sebagai pilihan terbaik `traceroute`, untuk menelusuri masalah jaringan.
+- Gunakan [`mtr`](http://www.bitwizard.nl/mtr/) sebagai pilihan terbaik `traceroute`, untuk menelusuri masalah jaringan.
 
-- Untuk mengungkapkan kenapa penyimpanan penuh, perintah `ncdu` lebih menghemat waktu dibangdingkan `du -sh *`.
+- Untuk mengungkapkan kenapa penyimpanan penuh, perintah [`ncdu`](https://dev.yorhel.nl/ncdu) lebih menghemat waktu dibangdingkan `du -sh *`.
 
-- Untuk mencari socket atau process yang sedang menggunakan bandwidth, coba `iftop` atau `nethogs`.
+- Untuk mencari socket atau process yang sedang menggunakan bandwidth, coba [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) atau [`nethogs`](https://github.com/raboof/nethogs).
 
 - Perintah `ab` (paket dari Apache) sangat berguna untuk melihat kinerja dari server web. Untuk test lebih lanjut, gunakan `siege`.
 
-- Untuk analisa jaringan yang lebih serius, `wireshark`, `tshark`, atau `ngrep`.
+- Untuk analisa jaringan yang lebih serius, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), atau [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Ketahui tentang `strace` dan `ltrace`. Perintah tersebut membantu ketika sebuah program gagal, hang, atau crash secara tiba-tiba, atau jika ingin mengetahui kinerja aplikasi secara umum. Catatan gunakan opsi profiling (`-c`), dan kemampuan untuk menertakan proses yang sedang berjalan (`-p`).
 
@@ -310,7 +322,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Gunakan `/proc` untuk melakukan analisis permasalahan secara live. Contohnya: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (dimana `xxx` adalah ID proses id atau pid).
 
-- Untuk mengetahui kesalahan yang terjadi pada proses analisa sebelumnya, gunakan `sar`. Perintah tersebut dapat menampilkan riwayat statistik pada CPU, memory, jaringan, dan lain sebagainya.
+- Untuk mengetahui kesalahan yang terjadi pada proses analisa sebelumnya, gunakan [`sar`](http://sebastien.godard.pagesperso-orange.fr/). Perintah tersebut dapat menampilkan riwayat statistik pada CPU, memory, jaringan, dan lain sebagainya.
 
 - Untuk analisa kinerja sistem lebih mendalam, periksa `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), dan [`sysdig`](https://github.com/draios/sysdig).
 
@@ -451,7 +463,7 @@ Beberapa contoh untuk menggabungkan perintah sekaligus:
 
 - `apg`: membangkitkan kata kunci acak
 
-- `7z`: kompresi berkas dengan rasio yang tinggi
+- `xz`: kompresi berkas dengan rasio yang tinggi
 
 - `ldd`: informasi dynamic library
 
@@ -461,15 +473,15 @@ Beberapa contoh untuk menggabungkan perintah sekaligus:
 
 - `strace`: analisa sistem pemanggilan
 
-- `mtr`: traceroute yang lebih baik untuk analisa jaringan
+- [`mtr`](http://www.bitwizard.nl/mtr/): traceroute yang lebih baik untuk analisa jaringan
 
 - `cssh`: visual shell dalam jumlah banyak secara bersamaan
 
 - `rsync`: singkronisasi berkas dan direktori melalui SSH atau berkas sistem dalam satu mesin
 
-- `wireshark` dan `tshark`: penangkap paket dan analisa jaringan
+- [`wireshark`](https://wireshark.org/) dan [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): penangkap paket dan analisa jaringan
 
-- `ngrep`: grep untuk jaringan
+- [`ngrep`](http://ngrep.sourceforge.net/): grep untuk jaringan
 
 - `host` dan `dig`: pencarian DNS
 
@@ -493,9 +505,9 @@ Beberapa contoh untuk menggabungkan perintah sekaligus:
 
 - `id`: informasi identitas pengguna atau grup
 
-- `sar`: riwayat statistik sistem
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): riwayat statistik sistem
 
-- `iftop` or `nethogs`: penggunaan jaringan berdasarkan socket atau process
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): penggunaan jaringan berdasarkan socket atau process
 
 - `ss`: statistik socket
 
@@ -534,6 +546,10 @@ Berikut ini *hanya* berlaku pada OS X.
 
 ## Hanya Windows
 
+Berikut ini *hanya* berlaku pada Windows.
+
+- Pada Windows 10, anda dapat menggunakan [Bash di Ubuntu pada Windows](https://msdn.microsoft.com/commandline/wsl/about), dimana menyediakan lingkungan Bash yang mirip dengan perintah baris pada lingkungan Unix. Sebagai tambahan, memungkinkan program Linux untuk berjalan pada Windows. Namun disisi lain tidak memungkinkan untuk menjalankan aplikasi windows melalui jendela Bash. 
+
 - Akses fasilitas dari Shell Unix pada Microsoft Windows dengan memasang [Cygwin](https://cygwin.com/). Banyak hal telah dijelaskan pada dokumen ini akan bekerja secara normal.
 
 - Pasang program Unix tambahan dengan paket manajer Cygwin.
@@ -549,6 +565,10 @@ Berikut ini *hanya* berlaku pada OS X.
 - Ingat bahwa `C:\` Windows akan menjadi `/cygdrive/c` pada Cygwin, dan `/` pada Cygwin akan berada di `C:\cygwin` pada Windows. Konversi antara Cygwin dan gaya Windows file path dengan `cygpath`. Hal ini berguna dalam skrip yang menjalankan program Windows. 
 
 - Anda dapat menjalankan skrip sistem administrasi pada Windows dari perintah baris dengan mempelajari dan menggunakan `wmic`.
+
+- Pilihan lainnya untuk membuat mendapatkan Unix pada Windows adalah [Cash](https://github.com/dthree/cash). Sebagai catatan bahwa hanya tersedia beberapa fasilitas perintah baris Unix yang tersedia dalam lingkungan ini. 
+
+- Sebagai pilihan alternatif untuk mendapatkan alat pengembangan dalam GNU (seperti GCC) pada Windows adalah [MinGW](http://www.mingw.org/) dan paketnya [MSYS](http://www.mingw.org/wiki/msys), dimana menyediakan beberapa fasilitas seperti bash, gawk, make dan grep. MSYS tidak sepenuhnya memiliki semua fasilitas jika dibandingkan dengan Cygwin. Cygwin biasanya berguna untuk membuat port Windows dari Unix.
 
 ## Bacaan lebih lanjut
 
