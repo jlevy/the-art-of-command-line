@@ -280,10 +280,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
    setfacl --restore=permissions.txt
 ```
 
-- To create big dummy files really fast, use `truncate` (creates [sparse file](https://en.wikipedia.org/wiki/Sparse_file)) or
-  - `fallocate`: available for ext4, xfs, btrfs and ocfs2 filesystems
-  - `xfs_mkfile`: almost any filesystems, comes in xfsprogs package
-  - `mkfile`: is there for Unix-like systems like Solaris, Mac OS X etc
+- To create empty files quickly, use `truncate` (creates [sparse file](https://en.wikipedia.org/wiki/Sparse_file)), `fallocate` (ext4, xfs, btrfs and ocfs2 filesystems), `xfs_mkfile` (almost any filesystems, comes in xfsprogs package), `mkfile` (for Unix-like systems like Solaris, Mac OS).
 
 ## System debugging
 
