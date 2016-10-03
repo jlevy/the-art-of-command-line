@@ -103,6 +103,8 @@ Notes:
 
 - `pstree -p` is a helpful display of the process tree.
 
+- Grep the output of `ps aux` to know the pid of a process, like `ps aux | grep postgresql`
+
 - Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
 
 - Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
