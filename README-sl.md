@@ -4,7 +4,10 @@
 
 # Umetnost ukazne vrstice
 
+[![Vprašajte](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
+
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 
 - [Meta](#meta)
 - [Osnove](#osnove)
@@ -29,7 +32,7 @@ se je [prvotno](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-
 [pojavilo](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 na [Quori](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
 vendar se je premaknilo na GitHub, kjer so ljudje bolj talentirani od prvotnega avtorja naredili številne izboljšave.
-[**Prosimo, prispevajte**](/CONTRIBUTING.md), če vidite napako ali nekaj, kar bi lahko bilo boljše!
+[**Vprašajte**](https://airtable.com/shrzMhx00YiIVAWJg), če imate vprašanje povezano z ukazno vrstico. [**Prosimo, prispevajte**](/CONTRIBUTING.md), če vidite napako ali nekaj, kar bi lahko bilo boljše!
 
 ## Meta
 
@@ -98,7 +101,6 @@ Opombe:
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
 
-
 - `pstree -p` je priročen prikaz drevesa procesov.
 
 - Uporabite `pgrep` in `pkill`, da najdete ali signalizirate procese po imenu (`-f` je v pomoč).
@@ -136,13 +138,20 @@ Opombe:
       # continue in original dir
 ```
 
-- V Bash-u bodite pozorni, saj je veliko vrst razširjenih spremenljivk. Preverjanje, če spremenljivka obstaja: `${name:?error message}`. Na primer, če skripta Bash zahteva en argument, samo napišite `input_file=${1:?usage: $0 input_file}`. Aritmetična raširitev: `i=$(( (i + 1) % 5 ))`. Sekvence: `{1..10}`. Obrezovanje nizov: `${var%suffix}` in `${var#prefix}`. Na primer, če je `var=foo.pdf`, potem `echo ${var%.pdf}.txt` izpiše `foo.txt`.
+- V Bash-u bodite pozorni, saj je veliko vrst razširjenih spremenljivk. Preverjanje, če spremenljivka obstaja: `${name:?error message}`. Na primer, če skripta Bash zahteva en argument, samo napišite `input_file=${1:?usage: $0 input_file}`. Uporaba privzete vrednosti, če je spremenljivka prazna: `${name:-default}`. Če želite, imeti dodatni (opcijski) parameter dodan k prejšnjemu primeru, lahko uporabite nekaj takega `output_file=${2:-logfile}`. Če je $2 izpuščen in tako prazen, bo `output_file`  nastavljen na `logfile`. Aritmetična raširitev: `i=$(( (i + 1) % 5 ))`. Sekvence: `{1..10}`. Obrezovanje nizov: `${var%suffix}` in `${var#prefix}`. Na primer, če je `var=foo.pdf`, potem `echo ${var%.pdf}.txt` izpiše `foo.txt`.
 
 - Lupinska razširitev zavitih oklepajev z `{`...`}` lahko pomaga zmanjšati potrebo po ponovnem vpisovanju podobnega teksta in avtomatizira kombiniranje elementov. To je v pomoč v primerih kot je `mv foo.{txt,pdf} some-dir` (ki premakne obe datoteki), `cp somefile{,.bak}` (kar razširi v `cp somefile somefile.bak`) ali `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (kar razširi vse možne kombinacije in ustvari drevo direktorijev).
 
 - Izpis ukaza se lahko tretira kot datoteko preko `<(some command)`. Na primer, primerjajte lokalno `/etc/hosts` z oddaljeno:
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
+```
+
+- Ko pišete skripte, boste morda želeli dati vašo kodo v zavite oklepaje. Če zapirajoči se oklepaj manjka, se vaša skripta ne bo izvršila zaradi sintaktične napake. To je smiselno, ko se vašo skripto prenese iz spleta, saj preprečuje izvrševanje delno prenešene skripte:
+```bash
+{
+    # Vaša koda
+}
 ```
 
 - Spoznajte t.i. "here" dokumente v Bash-u, kot pri `cat <<EOF ...`.
@@ -182,7 +191,9 @@ Opombe:
 - Za enostaven spletni strežnik za vse datoteke v trenutnem direktoriju (in poddirektorijih), ki so na voljo komurkoli v vašem omrežju, uporabite:
 `python -m SimpleHTTPServer 7777` (za port 7777 in Python 2) in `python -m http.server 7777` (za port 7777 in Python 3).
 
-- Za pogon ukaza s privilegiji, uporabite `sudo` (za root) ali `sudo -u` (za drugega uporabnika). Uporabite `su` ali `sudo bash`, da dejansko poženete lupino kot ta uporabnik. Uporabite `su -`, da simulirate svežo prijavo kot root ali drug uporabnik.
+- Za pogon ukaza pod drugim uporabnikom, uporabite `sudo`. Privzeto požene kot root; uporabite `-u`, da določite drugega uporabnika. Uporabite `-i` za prijavo tega uporabnika (vprašalo vas bo za _vaše_ geslo).
+
+- Za preklop lupine na drugega uporabnika, uporabite `su username` ali `su - username`. Dodajte `-`, da dobite okolje, kakor da bi se uporabnik ravnokar prijavil. Izpustitev uporabniškega imena pomeni privzeto root. Vprašani boste za geslo _uporabnika na katerega preklapljate_.
 
 - Spoznajte [omejitev 128K](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) v ukaznih vrsticah. Ta napaka "Argument list too long" je pogosta, ko se nadomestni znak ujema z velikim številom datotek. (Ko se to zgodi, lahko pomagajo alternative kot sta `find` in `xargs`.)
 
@@ -457,7 +468,7 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `apg`: generira naključna gesla
 
-- `7z`: kompresija datoteke visokega razmerja
+- `xz`: kompresija datoteke visokega razmerja
 
 - `ldd`: informacije dinamične knjižnice
 
