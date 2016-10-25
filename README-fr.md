@@ -210,7 +210,7 @@ C'est particulièrement utile pour des scripts mis à disposition sur le web, af
 }
 ```
 
-- Renseignez-vous à propos des « here documents » avec Bash, comme dans `cat <<EOF ...`.
+- Renseignez-vous à propos des documents en ligne avec Bash, comme dans `cat <<EOF ...`.
 
 - En Bash, redirigez à la fois la sortie standard et la sortie des erreurs à l'aide de `some-command > logfile 2>&1` ou `some-command &>logfile`.
 Souvent, pour s'assurer qu'une commande ne laisse pas un descripteur de fichier ouvert sur l'entrée standard, l'attachant au terminal dans lequel vous vous trouvez, une bonne pratique consiste à ajouter `</dev/null`.
