@@ -113,7 +113,7 @@ Notes:
 
 - See also `lsof` for open sockets and files.
 
-- See `uptime` or `w` to know the how long the system has been running.
+- See `uptime` or `w` to know how long the system has been running.
 
 - Use `alias` to create shortcuts for commonly used commands. For example, `alias ll='ls -latr'` creates a new alias `ll`.
 
@@ -193,7 +193,7 @@ Notes:
 
 - For running a command as another user, use `sudo`. Defaults to running as root; use `-u` to specify another user. Use `-i` to login as that user (you will be asked for _your_ password).
 
-- For switching the shell to another user, use `su username` or `su - username`. Include the `-` to get an environment as if the user just logged in. Omitting the username defaults to root. You will be asked for the password _of the user you are switching to_.
+- For switching the shell to another user, use `su username` or `su - username`. The latter with "-" gets an environment as if another user just logged in. Omitting the username defaults to root. You will be asked for the password _of the user you are switching to_.
 
 - Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
 
