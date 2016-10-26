@@ -575,6 +575,8 @@ These items are relevant *only* on Windows.
 
 - An alternative option to get GNU developer tools (such as GCC) on Windows is [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package, which provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin. MinGW is particularly useful for creating native Windows ports of Unix tools.
 
+- There is an unofficial package manager for Windows - [Chocolatey](https://chocolatey.org/), which is more similar to the likes of `aptitude` and `yum` found in linux distros. 
+
 ## More resources
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
