@@ -137,13 +137,20 @@
       # continue in original dir
 ```
 
-- 在 Bash 中，要注意其中有许多形式的扩展。检查变量是否存在：`${name:?error message}`。例如，当 Bash 脚本需要一个参数时，可以使用这样的代码 `input_file=${1:?usage: $0 input_file}`。数学表达式：`i=$(( (i + 1) % 5 ))`。序列：`{1..10}`。截断字符串：`${var%suffix}` 和 `${var#prefix}`。例如，假设 `var=foo.pdf`，那么 `echo ${var%.pdf}.txt` 将输出 `foo.txt`。
+- 在 Bash 中，要注意变量展开的形式有很多。检查变量是否存在：`${name:?error message}`。例如，当 Bash 脚本只需要一个参数时，可以使用这样的代码 `input_file=${1:?usage: $0 input_file}`。在变量为空时使用默认值：`${name:-default}`。如果你要在之前的例子中再加一个（可选的）参数，可以使用类似这样的代码 `output_file=${2:-logfile}`，如果省略了 $2，它的值就为空，于是 `output_file` 就会被设为 `logfile`。数学表达式：`i=$(( (i + 1) % 5 ))`。序列：`{1..10}`。截断字符串：`${var%suffix}` 和 `${var#prefix}`。例如，假设 `var=foo.pdf`，那么 `echo ${var%.pdf}.txt` 将输出 `foo.txt`。
 
 - 使用括号扩展（`{`...`}`）来减少输入相似文本，并自动化文本组合。这在某些情况下会很有用，例如 `mv foo.{txt,pdf} some-dir`（同时移动两个文件），`cp somefile{,.bak}`（会被扩展成 `cp somefile somefile.bak`）或者 `mkdir -p test-{a,b,c}/subtest-{1,2,3}`（会被扩展成所有可能的组合，并创建一个目录树）。
 
 - 通过使用 `<(some command)` 可以将输出视为文件。例如，对比本地文件 `/etc/hosts` 和一个远程文件：
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
+```
+
+- 编写脚本时，你可能会想要把代码都放在大括号里。缺少右括号的话，代码就会因为语法错误而无法执行。如果你的脚本是要放在网上供人下载的，这样的写法就体现出它的好处了，因为没有完全下载的脚本无法执行：
+```bash
+{
+      # 在这里写代码
+}
 ```
 
 - 了解 Bash 中的“here documents”，例如 `cat <<EOF ...`。
@@ -183,7 +190,9 @@
 - 将 web 服务器上当前目录下所有的文件（以及子目录）暴露给你所处网络的所有用户，使用：
 `python -m SimpleHTTPServer 7777` （使用端口 7777 和 Python 2）或`python -m http.server 7777` （使用端口 7777 和 Python 3）。
 
-- 以某种权限执行命令，使用`sudo`（root 权限）或`sudo -u`（其他用户）。使用`su`或者`sudo bash`来启动一个以对应用户权限运行的 shell。使用`su -`模拟其他用户的登录。
+- 以其他用户的身份执行命令，使用 `sudo`。默认以 root 用户的身份执行；使用 `-u` 来指定其他用户。使用 `-i` 来以该用户登录（需要输入_你自己的_密码）。
+
+- 将 shell 切换为其他用户，使用 `su username` 或者 `sudo - username`。加入 `-` 会使得切换后的环境与使用该用户登录后的环境相同。省略用户名则默认为 root。切换到哪个用户，就需要输入_哪个用户的_密码。
 
 - 了解命令行的 [128K 限制](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong)。使用通配符匹配大量文件名时，常会遇到“Argument list too long”的错误信息。（这种情况下换用 `find` 或 `xargs` 通常可以解决。）
 
@@ -456,7 +465,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `apg`：随机生成密码
 
-- `7z`：高比例的文件压缩
+- `xz`：高比例的文件压缩
 
 - `ldd`：动态库信息
 
@@ -521,7 +530,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 ## 仅限 OS X 系统
 
-以下是*仅限于* OS X 系统的技巧
+以下是*仅限于* OS X 系统的技巧。
 
 - 用 `brew` （Homebrew）或者 `port` （MacPorts）进行包管理。这些可以用来在 OS X 系统上安装以上的大多数命令。
 
@@ -539,6 +548,10 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 ## 仅限 Windows 系统
 
+以下是*仅限于* Windows 系统的技巧。
+
+- 在 Windows 10 上，你可以使用 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)，这是一个熟悉的 Bash 环境，包含了不少 Unix 命令行工具。好处是它允许 Linux 程序在 Windows 上运行，而相对的，Windows 程序却无法在 Bash 命令行中运行。
+
 - 要在 Microsoft Windows 中使用 Unix shell，可以安装 [Cygwin](https://cygwin.com/)。本文档中介绍的大多数内容都将适用。
 
 - 通过 Cygwin 的包管理器来安装额外的 Unix 程序。
@@ -554,6 +567,10 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - 注意 Windows 驱动器路径 `C:\` 在 Cygwin 中用 `/cygdrive/c` 代表，而 Cygwin 的 `/` 在 Windows 中显示在 `C:\cygwin`。要转换 Cygwin 和 Windows 风格的路径可以用 `cygpath`。这在需要调用 Windows 程序的脚本里很有用。
 
 - 学会使用 `wmic`，你就可以从命令行执行大多数 Windows 系统管理任务，并编成脚本。
+
+- 要在 Windows 下获得 Unix 的界面和体验，另一个办法是使用 [Cash](https://github.com/dthree/cash)。需要注意的是，这个环境支持的 Unix 命令和命令行参数非常少。
+
+- 要在 Windows 上获取 GNU 开发者工具（比如 GCC）的另一个办法是使用 [MinGW](http://www.mingw.org/) 以及它的 [MSYS](http://www.mingw.org/wiki/msys) 软件包，该软件包提供了 bash、gawk、make、grep 等工具。MSYS 提供的功能没有 Cygwin 完善。MinGW 在创建 Unix 工具的 Windows 原生移植方面非常有用。
 
 ## 更多资源
 
