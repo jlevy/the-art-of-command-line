@@ -337,38 +337,38 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 `lsof | grep deleted | grep "filename-of-my-big-file"`
 
 
-## One-liners
+## Comenzi-de-o-linie
 
-A few examples of piecing together commands:
+Câteva exemple de a construi comenzi complicate din comenzi simple:
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+- Este foarte util uneori că puteți trata fișierele ca mulțimi de rânduri și puteți implementa operațiile pe mulțimi -- intersecție, reuniune și diferență -- folosind `sort`/`uniq`. Presupunând că `a` și `b` sunt fișiere text fără linii duplicate, următoarele comenzi sunt foarte rapide și procesează fișiere de dimensiuni gigantice (`sort` nu este limitat de memorie dar este preferabil să folosiți `-T` dacă `/tmp` este pe o partiție mică). De asemenea, nu uitați de nota despre `LC_ALL` (localizare) de mai sus și de opțiunea `-u` (eliminată mai jos pentru claritate):
 ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Use `grep . *` to quickly examine the contents of all files in a directory (so each line is paired with the filename), or `head -100 *` (so each file has a heading). This can be useful for directories filled with config settings like those in `/sys`, `/proc`, `/etc`.
+- Folosiți `grep . *` pentru a examina rapid conținutul fișierelor din director (fiecare linie este împrecheată cu fișierul din care provine) sau `head -100 *` (fiecare fișier are un header). Este un sfat util pentru directoare conținând setări precum `/sys`, `/proc`, `/etc`.
 
 
-- Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
+- Suma tuturor numerelor din a 3-a coloană a unui fișier (probabil de 3 ori mai rapid și de 3 ori mai puțin cod decât codul Python echivalent):
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- To see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- Pentru a vedea dimensiunile și data fiecărui fișier dintr-un arbore, metoda următoare este ca un `ls -l` recursiv dar cu un output mai clar decât `ls -lR`:
 ```sh
       find . -type f -ls
 ```
 
-- Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
+- Presupunând că aveți un fișier text, de exemplu un jurnal al unui server web, și o anumită valoare apare pe câteva linii, precum o valoare pentru parametrul `acct_id` prezent în URL, dacă doriți un sumar pentru fiecare valoare a lui `acct_id`:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- To continuously monitor changes, use `watch`, e.g. check changes to files in a directory with `watch -d -n 2 'ls -rtlh | tail'` or to network settings while troubleshooting your wifi settings with `watch -d -n 2 ifconfig`.
+- Pentru a monitoriza schimbările folosiți `watch`. De exemplu, verificați schimbările dintr-un director cu `watch -d -n 2 'ls -rtlh | tail'` sau setările de rețea în timp ce depanați probleme cu conexiunea wireless: `watch -d -n 2 ifconfig`.
 
-- Run this function to get a random tip from this document (parses Markdown and extracts an item):
+- Folosiți această funcție pentru a obține un sfat aleator din acest document (parsează formatul Markdown și extrage un item):
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -531,66 +531,66 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, și `sl`: depinde dacă considerați locomotive și citate "utile" (utilitare distractive)
 
 
-## OS X only
+## Doar pentru OS X
 
-These are items relevant *only* on OS X.
+Aceste sfaturi sunt relevante *doar* pentru OS X.
 
-- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on OS X many of the above commands.
+- Managementul pachetelor cu `brew` (Homebrew) și/sau `port` (MacPorts). Aceste comenzi pot fi folosit pentru a instala multe din comenzile de mai sus pe un Mac.
 
-- Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
+- Copiați outputul unei comenzi către aplicații desktop cu `pbcopy` și lipiți conținutul de la una cu `pbpaste`.
 
-- To enable the Option key in OS X Terminal as an alt key (such as used in the commands above like **alt-b**, **alt-f**, etc.), open Preferences -> Profiles -> Keyboard and select "Use Option as Meta key".
+- Pentru a mapa tasta Option în OS X Terminal ca o tastă Alt (pentru comenzile de mai sus precum **alt-b**, **alt-f**, etc.), deschideți Preferences -> Profiles -> Keyboard și selectați "Use Option as Meta key" ("Folosește Option ca tastă Meta").
 
-- To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
+- Pentru a deschide un fișier cu o aplicație desktop folosiți`open` sau `open -a /Applications/Whatever.app`.
 
-- Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
+- Spotlight: Găsiți fișiere cu `mdfind` și listați meta-date (de exemplu informații EXIF din fotografii) cu `mdls`.
 
-- Be aware OS X is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
+- Țineți minte că OS X este la bază un BSD Unix, și multe comenzi (de exemplu `ps`, `ls`, `tail`, `awk`, `sed`) au un număr de variațiuni subtile comparativ cu Linux, un fapt influențat de diferențele între System V-style Unix și utilitarele GNU. Puteți vedea diferențele observând dacă pagina de manual are antetul "BSD General Commands Manual" ("Manual de comenzi generale BSD").  În unele cazuri, versiunile GNU pot fi instalate în paralel (precum `gawk` și `gsed` pentru GNU awk și sed). În scrierea de aplicații independente de platformă, evitați aceste comenzi (de exemplu folosiți Python sau `perl`) sau testați cu atenție.
 
-- To get OS X release information, use `sw_vers`.
+- Informații despre versiunea OS X se pot obține cu `sw_vers`.
 
-## Windows only
+## Doar pentru Windows
 
-These items are relevant *only* on Windows.
+Aceste sfaturi sunt relevante *doar* pentru Windows.
 
-- On Windows 10, you can use [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about), which provides a familiar Bash environment with Unix command line utilities. On the plus side, this allows Linux programs to run on Windows. On the other hand this does not support the running of Windows programs from the Bash prompt.
+- În Windows 10, puteți folosi [Bash în Ubuntu în Windows](https://msdn.microsoft.com/commandline/wsl/about), pentru a obține mediul Bash familiar cu comenzile și utilitățile Unix descrise anterior. Ca bonus, acest lucru permite ca programele Linux să ruleze pe Windows. Pe de altă parte, nu puteți rula programe Windows din prompt-ul Bash.
 
-- Access the power of the Unix shell under Microsoft Windows by installing [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
+- Puteți accesa shell-ul Unix sub Windows prin instalarea [Cygwin](https://cygwin.com/). Multe din lucrurile descrise aici vor funcționa implicit.
 
-- Install additional Unix programs with the Cygwin's package manager.
+- Programele Unix adiționale se vor instala cu managerul de pachete al lui Cygwin.
 
-- Use `mintty` as your command-line window.
+- Folosiți `mintty` ca fereastra de comenzi.
 
-- Access the Windows clipboard through `/dev/clipboard`.
+- Accesați clipboard-ul Windows prin intermediul `dev/clipboard`.
 
-- Run `cygstart` to open an arbitrary file through its registered application.
+- Folosiți `cygstart` pentru a deschide un fișier arbitrar cu aplicația corespunzătoare
 
-- Access the Windows registry with `regtool`.
+- Accesați registrele Windows cu `regtool`.
 
-- Note that a `C:\` Windows drive path becomes `/cygdrive/c` under Cygwin, and that Cygwin's `/` appears under `C:\cygwin` on Windows. Convert between Cygwin and Windows-style file paths with `cygpath`. This is most useful in scripts that invoke Windows programs.
+- Observați că o cale de tip `C:\` în Windows devine `/cygdrive/c` sub Cygwin, și că root-ul Cygwin, `/`, apare ca `C:\cygwin` pe Windows. convertiți între căile Cygwin și Windows cu `cygpath`. Acest lucru este util în scripturile care apelează programe Windows.
 
-- You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
+- Puteți executa majoritatea task-urilor de administrare a sistemului Windows din linia de comandă prin învățarea și folosirea `wmic`.
 
-- Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
+- O altă opțiune de a obtine un sistem similar Unix sub Windows este [Cash](https://github.com/dthree/cash). Țineți cont că doar câte utilitare Unix sunt în prezent disponibile în acest mediu.
 
-- An alternative option to get GNU developer tools (such as GCC) on Windows is [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package, which provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin. MinGW is particularly useful for creating native Windows ports of Unix tools.
+- O altă opțiune alternativă este să obțineți instrumentele de dezvoltare GNU (precum GCC) cu [MinGW](http://www.mingw.org/) și pachetul [MSYS](http://www.mingw.org/wiki/msys). Astfel veți obtine utilitare precum `bash`, `gawk`, `make` și `grep`. MSYS nu are toate beneficiile Cygwin dar este util în particular pentru a crea versiuni de Windows pentru instrumentele Unix.
 
-## More resources
+## Mai multe resurse
 
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): A more in-depth guide for the OS X command line.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
-- [shellcheck](https://github.com/koalaman/shellcheck): A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
-- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
-- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): More commands and tools helpful for doing data science, from the book of the same name
+- [awesome-shell](https://github.com/alebcay/awesome-shell): O listă detaliată a instrumentelor și resurselor pentru shell.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Un ghid mai detaliat pentru folosirea liniei de comandă sub OS X
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) pentru a scrie scripturi mai bune..
+- [shellcheck](https://github.com/koalaman/shellcheck): Un utilitar pentru analiza statică a scripturilor. În esență, `lint` pentru bash/sh/zsh.
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Detalii complete despre situația tristă în folosirea căilor către fișiere corect în scripturi independente de platformă
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): Mai multe comenzi și utilitare disponibile pentru analiza datelor, după cartea cu același nume.
 
-## Disclaimer
+## Anunț legal
 
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+Cu excepția unor task-uri foarte mici, codul scris aici este pentru ca alții să-l poate citi. Cu putere vine și responsabilitate. Faptul că *puteți* face cava în Bash nu înseamnă neapărat că și trebuie să-l faceți ;)
 
 
-## License
+## Licență
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+Această muncă este licențiată sub [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
