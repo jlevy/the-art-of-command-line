@@ -293,47 +293,47 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
    setfacl --restore=permissions.txt
 ```
 
-## System debugging
+## Depanarea sistemului
 
-- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jkbrzt/httpie).
+- Pentru depanarea problemelor legate de internet/web, `curl` și `curl -I` sunt foarte utile, la fel și echivalentele bazate pe `wget` sau pe modernul [`httpie`](https://github.com/jkbrzt/httpie).
 
-- To know current cpu/disk status, the classic tools are `top` (or the better `htop`), `iostat`, and `iotop`. Use `iostat -mxz 15` for basic CPU and detailed per-partition disk stats and performance insight.
+- Pentru a vedea starea curentă a CPU-ului sau discului, instrumentele clasice sunt `top` (mai bine `htop`), `iostat`, și `iotop`. Folosiți `iostat -mxz 15` pentru informații de bază despre CPU și detaliate depsre partițiile fiecărui disc, împreună cu sfaturi pentru îmbunătățirea performanței.
 
-- For network connection details, use `netstat` and `ss`.
+- Pentru detalii legate de conexiunile la rețea, folosiți `netstat` și `ss`.
 
-- For a quick overview of what's happening on a system, `dstat` is especially useful. For broadest overview with details, use [`glances`](https://github.com/nicolargo/glances).
+- O vedere de ansamblu a sistemului poate fi obținută folosind `dstat`. Pentru detalii, folosiți [`glances`](https://github.com/nicolargo/glances).
 
-- To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
+- Pentru a vedea starea curentă a memoriei, folosiți și analizați rezultatele `free` și `vmstat`. În particular, țineți cont că valoarea "cached" este memorie reținută de Linux ca un spațiu cache pentru fișiere, deci este efectiv spațiu "liber".
 
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs. The JDK's `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) are more advanced.
+- Depanarea sistemului Java este deosebită dar un truc simplu pe anumite JVM-uri (inclusiv Oracle) este că puteți rula `kill -3 <pid>` și veți obține un stack trace complet și informații despre memoria heap, inclusiv detalii despre garbage collector. Utilitarele `jps`, `jstat`, `jstack`, `jmap` din JDK pot fi utile. [Utilitarele SJK](https://github.com/aragozin/jvm-tools) sunt mai avansate.
 
-- Use [`mtr`](http://www.bitwizard.nl/mtr/) as a better traceroute, to identify network issues.
+- Folosiți [`mtr`](http://www.bitwizard.nl/mtr/) ca un `traceroute` mai bun pentru a identifica problemele de rețea.
 
-- For looking at why a disk is full, [`ncdu`](https://dev.yorhel.nl/ncdu) saves time over the usual commands like `du -sh *`.
+- Pentru a identifica de ce un disc este plin, [`ncdu`](https://dev.yorhel.nl/ncdu) salvează timp comparativ cu folosirea comenzilor uzuale precum `du -sh *`.
 
-- To find which socket or process is using bandwidth, try [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs).
+- Pentru a identifica socket-ul sau procesul care consumă cea mai mare bandă din rețea folosiți [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) sau [`nethogs`](https://github.com/raboof/nethogs).
 
-- The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
+- Utilitarul `ab` (vine cu Apache) este util pentru a testa rapid performanța serverului web. Pentru testare mai complexă folosiți `siege`.
 
-- For more serious network debugging, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), or [`ngrep`](http://ngrep.sourceforge.net/).
+- Pentru depanarea și mai serioasă a rețelei folosiți [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), sau [`ngrep`](http://ngrep.sourceforge.net/).
 
-- Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
+- Învățați despre `strace` și `ltrace`. Aceste utilitare sunt utile dacă un program eșuează, se blochează sau crapă și nu știți de ce, sau dacă vreți să obțineți detalii generale despre performanță. Evidențiem opțiunea de profiling (`-c`), și abilitatea de atașare la un proces care rulează (`-p`).
 
-- Know about `ldd` to check shared libraries etc.
+- Folosiți `ldd` pentru a verifica bibliotecile dinamice, etc.
 
-- Know how to connect to a running process with `gdb` and get its stack traces.
+- Folosiți `gdb` pentru a vă conecta la un proces care rulează și a obține un stack trace.
 
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where `xxx` is the process id or pid).
+- Folosiți `/proc`. Este foarte util în depanarea problemelor pe viu. Exemple: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (unde `xxx` este id-ul procesului - PID-ul lui).
 
-- When debugging why something went wrong in the past, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- Pentru a depana ceva ce a fost greșit în trecut, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) poate fi foarte util. Arată statistici istorice despre CPU, memorie, rețea, etc.
 
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
+- Pentru analize de detaliu pentru performanța sistemului, folosiți `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), și [`sysdig`](https://github.com/draios/sysdig).
 
-- Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
+- Verificați ce sistem de operare folosiți cu `uname` sau `uname -a` (detalii generale despre nucleu) sau `lsb_release -a` (Linux distro).
 
-- Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
+- Folosiți `dmesg` oricând ceva funcționează total aiurea (probabil din cauza hardware-ului sau a dispozitivelor fizice).
 
-- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process:
+- Dacă ștergeți un fișier și nu se eliberează cantitatea de spațiu de pe disc la care vă așteptați (conform `du`), verificați să nu cumva aveți fișierul folosit de un proces:
 `lsof | grep deleted | grep "filename-of-my-big-file"`
 
 
