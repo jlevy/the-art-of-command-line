@@ -195,7 +195,7 @@ Note:
 
 - Pentru a schimba tot shellul către alt user, folosiți `su username` sau `su - username`. Versiunea cu `-` obține și mediul, ca si cum userul tocmai s-a logat. Username-ul implicit este root. Veți fi întrebat parola _utilizatorului către care faceți schimbarea_.
 
-- Amintițivă că orice linie de comandă are o limită de [128K](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong). Eroarea "Argument list too long" (listă de argumente prea lungă) este comună dacă un număr mare de fișiere se potrivesc unui șablon. (În acest caz, alternative precum `find` și `xargs` ajută.)
+- Amintiți-vă că orice linie de comandă are o limită de [128K](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong). Eroarea "Argument list too long" (listă de argumente prea lungă) este comună dacă un număr mare de fișiere se potrivesc unui șablon. (În acest caz, alternative precum `find` și `xargs` ajută.)
 
 - Un calculator în bash poate fi obținut prin access to Python: `python`:
 ```
@@ -204,48 +204,48 @@ Note:
 ```
 
 
-## Processing files and data
+## Procesarea fișierelor și a datelor
 
-- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
+- Pentru a localiza un fișier după nume, în directorul curend, `find . -iname '*something*'` (sau similar). Pentru a găsi un fișier oriunde, `locate something` (dar țineți cont de faptul că `updatedb` s-ar putea să nu fi indexat fișierele recente).
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Pentru a căuta în interiorul fișierelor (mai avansat decât `grep -r`), folosiți [`ag`](https://github.com/ggreer/the_silver_searcher).
 
-- To convert HTML to text: `lynx -dump -stdin`
+- Pentru a converti HTML la text: `lynx -dump -stdin`
 
 - For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- Dacă trebuie să folosiți XML, `xmlstarlet` e vechi dar util.
 
-- For JSON, use [`jq`](http://stedolan.github.io/jq/).
+- Pentru JSON, folosiți [`jq`](http://stedolan.github.io/jq/).
 
-- For YAML, use [`shyaml`](https://github.com/0k/shyaml).
+- Pentru YAML, folosiți [`shyaml`](https://github.com/0k/shyaml).
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Pentru Excel sau CSV files, [csvkit](https://github.com/onyxfish/csvkit) oferă `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) and the improved [`saws`](https://github.com/donnemartin/saws) are essential for other AWS-related tasks.
+- Pentru Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) este ușor de folosit și [`s4cmd`](https://github.com/bloomreach/s4cmd) este mai rapid. [`aws`](https://github.com/aws/aws-cli) de la Amazon și varianta îmbunătățită [`saws`](https://github.com/donnemartin/saws) sunt esențiale pentru alte task-uri legate de AWS.
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
+- Învățați `sort` și `uniq`, inclusiv opțiunile `-u` și `-d` pentru `uniq` -- mai multe exemple în secțiunea de comenzi de o linie, mai jos. Vedeți și `comm`.
 
-- Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+- Aflați despre `cut`, `paste`, și `join` pentru a manipula fișiere text. Mulți oameni folosesc `cut` dar uită de `join`.
 
-- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+- Informați-vă despre `wc` pentru a număra liniile (`-l`), caracterele (`-m`), cuvintele (`-w`) și octeții (`-c`) dintr-un fișier.
 
-- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+- Folosți `tee` pentru a copia de la intrarea standard (stdin) într-un fișier și la ieșirea standard (stdout) simultan, ca în `ls -al | tee file.txt`.
 
-- For more complex calculations, including grouping, reversing fields, and statistical calculations, consider [`datamash`](https://www.gnu.org/software/datamash/).
+- Pentru operații mai complexe, inclusiv grupare, inversare de câmpuri și statistică, considerați folosirea [`datamash`](https://www.gnu.org/software/datamash/).
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- Țineți minte că localizarea (`locale`) influențează foarte multe comenzi în moduri subtile, inclusiv sortare sau performanță. Majoritatea instalărilor Linux setează `LANG` și alte variabile de localizare la o setare precum US English. Sortarea se va schimba dacă schimbați localizare. De asemenea, rutinele de internaționalizare (i18n) pot face comenzile să se execute *mult, mult* mai încet. În unele situații (precum operațiile pe mulțimi de mai jos), puteți ignora rutinele încete de la i18n și folosi sortarea bazată pe octeți, folosind `export LC_ALL=C`.
 
-- You can set a specific command's environment by prefixing its invocation with the environment variable settings, as in `TZ=Pacific/Fiji date`.
+- Puteți seta localizarea specifică unei comenzi prin prefixarea acesteia cu variabila de mediu corespunzătoare, ca în `TZ=Pacific/Fiji date`.
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- Pentru procesare de bază a textelor, folosiți `awk` și `sed`. De exemplu, pentur a aduna suma numerelor din coloana a treia a unui fișier `awk '{ x += $3 } END { print x }'` este de 3 ori mai rapid și mai scurt decât codul echivalent în Python.
 
-- To replace all occurrences of a string in place, in one or more files:
+- Pentru a înlocui toate aparițiile unui șir, în cel puțin un fișier:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- To rename multiple files and/or search and replace within files, try [`repren`](https://github.com/jlevy/repren). (In some cases the `rename` command also allows multiple renames, but be careful as its functionality is not the same on all Linux distributions.)
+- Pentru a redenumi fișiere multiple și/sau căuta în fișiere încercați [`repren`](https://github.com/jlevy/repren). (În  unele cazuri, comanda `rename` permite redenumiri multiple, dar țineți cont că funcționalitatea ei nu este aceeași în toate distribuțiile Linux)
 ```sh
       # Full rename of filenames, directories, and contents foo -> bar:
       repren --full --preserve-case --from foo --to bar .
@@ -255,39 +255,39 @@ Note:
       rename 's/\.bak$//' *.bak
 ```
 
-- As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. When security restrictions allow, using `rsync` instead of `scp` allows recovery of a transfer without restarting from scratch. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
+- După cum zice și pagina de manual, `rsync` este un utilitar foarte rapid, eficient și versatil de a copia fișiere. Este cunoscut pentru sincronizarea între calculatoare dar poate fi folosit și local. Dacă setăruile de securitate permit, folosirea `rsync` în loc de `scp` permite continuarea unui transfer eșuat fără a-l reporni. Este și una dintre cele [mai rapide metode](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) de a șterge un număr masiv de fișiere:
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
-- Use `shuf` to shuffle or select random lines from a file.
+- Folosiți `shuf` pentru a permuta sau selecta linii aleatoare dintr-un fișier.
 
-- Know `sort`'s options. For numbers, use `-n`, or `-h` for handling human-readable numbers (e.g. from `du -h`). Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line. Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`.
+- Învățați opțiunile lui `sort`. ForPentru numere folosiți `-n`, sau `-h` pentru numere în format human-readable (de exemplu numere produse de `du -h`). Învățați cum funcționează cheile de sortare (`-t` și `-k`). În special, țineți cont că trebuie să scrieți `-k1,1` pentru a sorta doar prima coloană, `-k1` înseamnă sortare după toată linia. Sortarea stabilă (`sort -s`) poate fi utilă. De exemplu, pentru a sorta după câmpul 2 și apoi după 1: `sort -k1,1 | sort -s -k2,2`.
 
-- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- Dacă sunteți nevoiți să scrieți un caracter tab în terminal (de exemplu pentru argumentul `-t` al `sort`) apăsați **ctrl-v** **[Tab]** sau scrieți `$'\t'` (ultima versiune e mai bună pentru că permite și copy/paste).
 
-- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff and `sdiff` for a side-by-side diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes. Use `vimdiff` to compare and edit files.
+- Utilitarele standard pentru patch-uirea codului sunt `diff` și `patch`. De asemenea `diffstat` poate fi folosit pentru sumarizarea unui diff și `sdiff` pentru un diff side-by-side. Țineți cont că `diff -r` operează pe directoare întregi. Folosiți `diff -r tree1 tree2 | diffstat` pentru un sumar al modificărilor. Folosiți `vimdiff` pentru a compara și edita fișiere.
 
-- For binary files, use `hd`, `hexdump` or `xxd` for simple hex dumps and `bvi` or `biew` for binary editing.
+- Pentru fișiere binare, folosiți `hd`, `hexdump` sau `xxd` pentru operații simple și `bvi` sau `biew` pentru editare binară
 
-- Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+- Tot pentru fișiere binare, `strings` (plus `grep`, etc.) permite găsirea bucăților de text.
 
-- For binary diffs (delta compression), use `xdelta3`.
+- Pentru diff-uri binare (compresie delta), folosiți `xdelta3`.
 
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
+- Pentru a converti codificarea textului, folosiți `iconv` sau `uconv` pentru utilizări mai avansate. Ambele suportă același set de Unicode. De exemplu, comanda următoare transformă în minuscule și elimină accentele (prin expandare sau coborâre):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
+- Pentru a împărți un text în fragmente, folosiți `split` (după dimensiune) și `csplit` (după un șablon).
 
-- To manipulate date and time expressions, use `dateadd`, `datediff`, `strptime` etc. from [`dateutils`](http://www.fresse.org/dateutils/).
+- Folosiți `dateadd`, `datediff`, `strptime` etc. din [`dateutils`](http://www.fresse.org/dateutils/) pentru a manipula expresii legate de timp, dată și oră.
 
-- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
+- Pentru a opera pe fișiere comprimate: `zless`, `zmore`, `zcat`, and `zgrep`
 
-- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
+- Atributele fișierelor pot fi stabilite cu `chattr` și oferă o alternativă de nivel scăzut la permisiunile unui fișier. De exemplu, pentru a vă proteja împotriva ștergerii accidentale puteți folosi flag-ul immutable: `sudo chattr +i /critical/directory/or/file`
 
-- Use `getfacl` and `setfacl` to save and restore file permissions. For example:
+- Folosiți `getfacl` și `setfacl` pentru a salva și restaura permisiunile unui fișier. De exemplu:
 ```sh
    getfacl -R /some/path > permissions.txt
    setfacl --restore=permissions.txt
