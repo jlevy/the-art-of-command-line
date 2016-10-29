@@ -13,7 +13,7 @@
 - [Bazele](#bazele)
 - [Folosire zilnică](#folosire-zilnică)
 - [Procesarea fișierelor și a datelor](#procesarea-fișierelor-și-a-datelor)
-- [Depanarea sistemului](#depanarea sistemului)
+- [Depanarea sistemului](#depanarea-sistemului)
 - [Comenzi de o linie](#comenzi-de-o-linie)
 - [Obscure dar utile](#obscure-dar-utile)
 - [Doar pentru OS X](#doar-pentru-os-x)
