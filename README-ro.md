@@ -18,7 +18,7 @@
 - [Obscure dar utile](#obscure-dar-utile)
 - [Doar pentru OS X](#doar-pentru-os-x)
 - [Doar pentru Windows](#doar-pentru-windows)
-- [Mai multe resourse](#mai-multe-resurse)
+- [Mai multe resurse](#mai-multe-resurse)
 - [Anunț legal](#anunț-legal)
 
 
@@ -31,7 +31,7 @@ Multe dintre aceste sfaturi
 [au apărut](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [original](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 pe [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-și au fost mutat pe GitHub ulteror, unde alți oameni talentați au produs numeroase îmbunătățiri.
+și au fost mutate pe GitHub ulterior, unde alți oameni talentați au produs numeroase îmbunătățiri.
 [**Vă rugăm întrebați**](https://airtable.com/shrzMhx00YiIVAWJg) dacă aveți nelămuriri legate de linia de comandă. [**Contribuiți**](/CONTRIBUTING.md) dacă identificați o eroare sau ceva ce ar putea fi îmbunătățit!
 
 ## Meta
@@ -40,13 +40,13 @@ Scop:
 
 - Acest ghid este atât pentru începători cât și pentru avansați. Scopurile sunt *acoperire* (tot ce este important), *specificitate* (oferirea exemplelor concrete pentru cazurilor comune) și *brevitate* (neincluderea lucrurilor neesențiale sau a digresiunilor ce pot fi găsite ușor în alte părți). Fiecare sfat este esențial în câteva situații sau reduce semnificativ timpul necesar efectuării unei cerințe comparativ cu celelalte alternative.
 - Ghidul este scris pentru Linux, cu excepția secțiunilor "[Doar pentru OS X](#doar-pentru-os-x)" și "[Doar pentru Windows](#doar-pentru-windows)". Majoritatea sfaturilor din celelate secțiuni se aplică/pot fi instalate pe alte sisteme Unix sau OS X (chiar și în Cygwin).
-- Scopul este pe Bash interactiv, chiar dacă unele sfaturi sunt aplicabile și altor shell-uri sau pentru Bash-scripting în general.
+- Se pune accent pe Bash interactiv, chiar dacă unele sfaturi sunt aplicabile și altor shell-uri sau pentru Bash-scripting în general.
 - Atât comenzile Unix "standard" cât și cele care necesită instalarea de pachete speciale sunt incluse -- cât timp sfaturile sunt destul de importante cât să merite incluziunea.
 
 Note:
 
 - Pentru a păstra totul într-o singură pagină, conținutul este inclus implicit doar prin referințe. Suntem siguri că puteți căuta mai multe detalii după ce aveți ideea/comanda după care să căutați. Folosiți `apt-get`, `yum`, `dnf`, `pacman`, `pip` sau `brew` (după caz) pentru a instala programe noi.
-- Folosiți [Explainshell](http://explainshell.com/) pentru a obține un util îndrumar în ce anumite comenzi, opțiuni, etc. fac.
+- Folosiți [Explainshell](http://explainshell.com/) pentru a obține explicații utile despre ce fac anumite comenzi, opțiuni, etc.
 
 
 ## Bazele
@@ -55,9 +55,9 @@ Note:
 
 - Învățați cel puțin un editor de text. Ideal Vim (`vi`), cum nu există un competitor real pentru editarea în terminal (chiar dacă folosiți Emacs, sau un editor modern în majoritatea timpului).
 
-- Învățați să citiți documentație cu `man` (pentru curiouși, `man man` listează secțiunile, de exemplu 1 este pentru comenzi "uzuale", 5 este pentru fișiere/convenții și 8 pentru administrare). Găsiți pagini de manual cu `apropos`. Rețineți că anumite comenzi nu sunt executable ci comenzi interne în Bash și că puteți obține ajutor despre ele cu `help` sau `help -d`. Puteți vedea dacă o comandă este internă, executabilă sau doar un alias prin folosirea `type command`.
+- Învățați să citiți documentație cu `man` (pentru curiouși, `man man` listează secțiunile, de exemplu 1 este pentru comenzi "uzuale", 5 este pentru fișiere/convenții și 8 pentru administrare). Găsiți pagini de manual cu `apropos`. Rețineți că anumite comenzi nu sunt programe executabile ci comenzi interne în Bash și că puteți obține ajutor despre ele cu `help` sau `help -d`. Puteți vedea dacă o comandă este internă, executabilă sau doar un alias prin folosirea `type command`.
 
-- Învățați despre redirectarea intrării și ieșirii folosint `>` și `<` și pipe-uri cu `|`. Rețineți că `>` suprascrie fișierul și `>>` adaugă la final. Învățați despre ieșirea standard și ieșirea de eroare standard.
+- Învățați despre redirecționarea intrării și ieșirii folosind `>` și `<` și pipe-uri cu `|`. Rețineți că `>` suprascrie fișierul și `>>` adaugă la final. Învățați despre ieșirea standard și ieșirea de eroare standard.
 
 - Învățați despre expandarea numelor de fișiere cu `*` (și poate `?` și `[`...`]`) și despre folosirea și diferențele dintre `"` și `'`. (Vedeți mai multe în secțiunea despre expandarea variabilelor mai jos).
 
@@ -78,7 +78,7 @@ Note:
 
 ## Folosire zilnică
 
-- În Bash, folosiți **Tab** pentru a completa argumente sau a lista comenzile disponibile și **ctrl-r** pentru a căuta în istoricul comenzilor (după apăsare, tastați ce căutați și apăsați repetat **ctrl-r** pentru a cicla prin lista de potriviti, apăsați **Enter** pentru a executa comanda găsită sau săgeată dreapta pentru a putea edita linia curentă).
+- În Bash, folosiți **Tab** pentru a completa argumente sau a lista comenzile disponibile și **ctrl-r** pentru a căuta în istoricul comenzilor (după apăsare, tastați ce căutați și apăsați repetat **ctrl-r** pentru a cicla prin lista de potriviri, apăsați **Enter** pentru a executa comanda găsită sau săgeată dreapta pentru a putea edita linia curentă).
 
 - În Bash, folosiți **ctrl-w** pentru a șterge ultimul cuvânt și **ctrl-u** pentru a șterge până la începutul liniei. Folosiți **alt-b** și **alt-f** pentru a naviga cuvânt-cu-cuvânt, **ctrl-a**  pentru a muta cursorul la începutul liniei,  **ctrl-e** pentru a-l muta la final, **ctrl-k** pentru a șterge până la finalul liniei, **ctrl-l** pentru a curăța tot ecranul. Vizualizați `man readline` pentru a vedea toate tastele implicite din Bash. Sunt o mulțime. De exemplu, **alt-.** ciclează prin toate argumentele anterioare și **alt-*** expandează un glob pattern.
 
@@ -123,7 +123,7 @@ Note:
 
 - Sincronizați fișierele de configurare (e.g. `.bashrc` and `.bash_profile`) între mai multe calculatoare folosind Git.
 
-- Tratați cu atenți cazurile când variabilele și fișierele conțin spații. Folosiți ghilimele în acest caz, de exemplu `"$FOO"`. Preferați să folosiți opțiunile `-0` sau `-print0` pentru a folosi caracterul null pentru a delimita fișierele, de exemplu `locate -0 pattern | xargs -0 ls -al` sau `find / -print0 -type d | xargs -0 ls -al`. Pentru a parcurge o listă de fișiere conținând spații într-o buclă for, setați variabile IFS la terminatorul de linie, `IFS=$'\n'`.
+- Tratați cu atenție cazurile când variabilele și fișierele conțin spații. Folosiți ghilimele în acest caz, de exemplu `"$FOO"`. Preferați să folosiți opțiunile `-0` sau `-print0` pentru a folosi caracterul null pentru a delimita fișierele, de exemplu `locate -0 pattern | xargs -0 ls -al` sau `find / -print0 -type d | xargs -0 ls -al`. Pentru a parcurge o listă de fișiere conținând spații într-o buclă for, setați variabile IFS la terminatorul de linie, `IFS=$'\n'`.
 
 - În scripturile Bash, folosiți `set -x` (sau varianta `set -v`, care produce informație neprocesată, inclusiv variabile neexpandate și comentarii) pentru a depana outputul. Folosiți modurile strice exceptând când aveți un motiv foarte bun împotrivă: folosiți `set -e` pentru a termina execuția în caz de eroare (cod de ieșire nenul). Folosiți `set -u` pentru a detecta variable nesetate. Considerați folosirea `set -o pipefail` pentru erorile cauzate de folosirea eronată a pipe-urilor. Pentru scripturi mai complicate, folosiți `trap` pentru EXIT sau ERR. Un obicei util este să începeți scriptul într-o modalitate care va permite detecția facilă a erorilor și terminarea execuției cu un mesaj:
 ```bash
@@ -140,7 +140,7 @@ Note:
 
 - În Bash, există mai multe variante de expandare a variabilelor. Verifacți dacă o variabilă există: `${name:?error message}`. De exemplu, dacă un script necesită un argument unic, folosiți `input_file=${1:?usage: $0 input_file}`. Folosți o valoare implicită pentru cazul când o variabilă este goală: `${name:-default}`. Pentru parametri opționali în exemplul anterior, folosiți `output_file=${2:-logfile}`. Dacă `$2` este omis (gol), `output_file` va fi setat la `logfile`. Expandare aritmetică: `i=$(( (i + 1) % 5 ))`. Secvențe: `{1..10}`. Tăierea unor secvențe din șiruri: `${var%suffix}` și `${var#prefix}`. De exemplu, dacă `var=foo.pdf`, atunci `echo ${var%.pdf}.txt` va scrie `foo.txt`.
 
-- Expandarea parantezelor folosind `{`...`}` previne re-tastarea textelor similare, automatizând combinațiile de itemuri. Este util în exemple precum `mv foo.{txt,pdf} some-dir` (care mută ambele fișiere), `cp somefile{,.bak}` (care se expandează la `cp somefile somefile.bak`) sau `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (care expandează toate combinațiile posibile și creează arborele de directoare).
+- Expandarea parantezelor folosind `{`...`}` previne re-tastarea textelor similare, automatizând combinațiile de elemente. Este util în exemple precum `mv foo.{txt,pdf} some-dir` (care mută ambele fișiere), `cp somefile{,.bak}` (care se expandează la `cp somefile somefile.bak`) sau `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (care expandează toate combinațiile posibile și creează arborele de directoare).
 
 - Outputul unei comenzi poate fi tratat ca un fișier cu `<(some command)`. De exemplu, pentru a compara fișierul `/etc/hosts` local cu unul la distanță:
 ```sh
@@ -156,15 +156,15 @@ Note:
 
 - Folosiți "here documents", de exemplu `cat <<EOF ...`.
 
-- În Bash, redirectați ieșirea standard și eroarea standard cu `some-command >logfile 2>&1` sau `some-command &>logfile`. De regulă, pentru a vă asigura că o comandă nu lasă un fișier deschis, fiind legată de terminalul curent, este o practică bună să adăugați `</dev/null`.
+- În Bash, redirecționați ieșirea standard și eroarea standard cu `some-command >logfile 2>&1` sau `some-command &>logfile`. De regulă, pentru a vă asigura că o comandă nu lasă un fișier deschis, fiind legată de terminalul curent, este o practică bună să adăugați `</dev/null`.
 
 - Folosiți `man ascii` pentru o tabelă ASCII foarte bună, cu valori în hex și decimal. Pentru informatii generale de codificare,  `man unicode`, `man utf-8`, și `man latin1` sunt utile.
 
 - Folosiți `screen` sau [`tmux`](https://tmux.github.io/) pentru a multiplexa terminalul, în special în cazul sesiunilor ssh. `byobu` poate îmbunătăți screen sau tmux fiind mai ușor de folosit. O interfață minimală pentru persistența sesiunilor este [`dtach`](https://github.com/bogner/dtach).
 
-- În ssh, este util să știți cum să tunelați cu `-L` sau `-D` (și ocazional `-R`), e.g. pentru a accesa site-uril de pe un server remote.
+- În ssh, este util să știți cum să creați un tunel cu `-L` sau `-D` (și ocazional `-R`), e.g. pentru a accesa site-urile de pe un server aflat la distanță.
 
-- Este foarte util să optimizați configurațiile ssh, de exemplu, setarea următoare din `~/.ssh/config` permite prevenția sesiunilor eșuate în anumite condiții de rețea, folosește compresia (utilă pentru `scp` sau conexiuni peste rețele cu lățime de bandă redusă) și multiplexează canale către același server folosind un fișier de control local:
+- Este foarte util să optimizați configurațiile ssh, de exemplu, setarea următoare din `~/.ssh/config` permite prevenirea sesiunilor eșuate în anumite condiții de rețea, folosește compresia (utilă pentru `scp` sau conexiuni peste rețele cu lățime de bandă redusă) și multiplexează canale către același server folosind un fișier de control local:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -177,7 +177,7 @@ Note:
 
 - Un număr de alte opțiuni sunt relevante pentru securitate și trebuiesc tratate cu atenție, de exemplu, setări pe rețea sau mașină: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Considerați folosirea [`mosh`](https://mosh.mit.edu/) ca o alternativă la ssh care folosește UDP, prevenind conexiunile eșuate (neceistă setup pe partea de server).
+- Considerați folosirea [`mosh`](https://mosh.mit.edu/) ca o alternativă la ssh care folosește UDP, prevenind conexiunile eșuate (necesită setări pe partea de server).
 
 - Pentru a obține permisiunile unui fișier în forma octală, lucru util pentru configurarea sistemului, dar nedisponibil în `ls`, folosiți ceva precum:
 ```sh
@@ -191,13 +191,13 @@ Note:
 - Un simplu server web pentru fișierele din directorul curent și subdirectoare, disponibil pentru toți din rețeaua dumneavoastră, folosiți
 `python -m SimpleHTTPServer 7777` (pentru port 7777 și Python 2) și `python -m http.server 7777` (pentru port 7777 și Python 3).
 
-- Puteți rula o comandă ca un alt user folosind `sudo`. Implicit se va rula ca root, folosiți `-u` pentru a specifica utilizatorul. Folosiți `-i` pentru a vă loga ca acel utilizator, folosind parola _voastră_.
+- Puteți rula o comandă ca un alt utilizator folosind `sudo`. Implicit se va rula ca root, folosiți `-u` pentru a specifica utilizatorul. Folosiți `-i` pentru a vă loga ca acel utilizator, folosind parola _voastră_.
 
-- Pentru a schimba tot shellul către alt user, folosiți `su username` sau `su - username`. Versiunea cu `-` obține și mediul, ca si cum userul tocmai s-a logat. Username-ul implicit este root. Veți fi întrebat parola _utilizatorului către care faceți schimbarea_.
+- Pentru a schimba tot shellul către alt utilizator, folosiți `su utilizator` sau `su - utilizator`. Versiunea cu `-` obține și mediul, ca si cum utilizatorul tocmai s-a logat. Username-ul implicit este root. Veți fi întrebat parola _utilizatorului către care faceți schimbarea_.
 
 - Amintiți-vă că orice linie de comandă are o limită de [128K](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong). Eroarea "Argument list too long" (listă de argumente prea lungă) este comună dacă un număr mare de fișiere se potrivesc unui șablon. (În acest caz, alternative precum `find` și `xargs` ajută.)
 
-- Un calculator în bash poate fi obținut prin access to Python: `python`:
+- Un calculator simplu poate fi accesat utilizând `python`. De exemplu:
 ```
 >>> 2+3
 5
@@ -206,13 +206,13 @@ Note:
 
 ## Procesarea fișierelor și a datelor
 
-- Pentru a localiza un fișier după nume, în directorul curend, `find . -iname '*something*'` (sau similar). Pentru a găsi un fișier oriunde, `locate something` (dar țineți cont de faptul că `updatedb` s-ar putea să nu fi indexat fișierele recente).
+- Pentru a localiza un fișier după nume, în directorul curent, `find . -iname '*something*'` (sau similar). Pentru a găsi un fișier oriunde, `locate something` (dar țineți cont de faptul că `updatedb` s-ar putea să nu fi indexat fișierele recente).
 
 - Pentru a căuta în interiorul fișierelor (mai avansat decât `grep -r`), folosiți [`ag`](https://github.com/ggreer/the_silver_searcher).
 
 - Pentru a converti HTML la text: `lynx -dump -stdin`
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- Pentru Markdown, HTML, și alte conversii de documente, folosiți [`pandoc`](http://pandoc.org/).
 
 - Dacă trebuie să folosiți XML, `xmlstarlet` e vechi dar util.
 
@@ -238,7 +238,7 @@ Note:
 
 - Puteți seta localizarea specifică unei comenzi prin prefixarea acesteia cu variabila de mediu corespunzătoare, ca în `TZ=Pacific/Fiji date`.
 
-- Pentru procesare de bază a textelor, folosiți `awk` și `sed`. De exemplu, pentur a aduna suma numerelor din coloana a treia a unui fișier `awk '{ x += $3 } END { print x }'` este de 3 ori mai rapid și mai scurt decât codul echivalent în Python.
+- Pentru procesare de bază a textelor, folosiți `awk` și `sed`. De exemplu, pentru a aduna suma numerelor din coloana a treia a unui fișier `awk '{ x += $3 } END { print x }'` este de 3 ori mai rapid și mai scurt decât codul echivalent în Python.
 
 - Pentru a înlocui toate aparițiile unui șir, în cel puțin un fișier:
 ```sh
@@ -255,14 +255,14 @@ Note:
       rename 's/\.bak$//' *.bak
 ```
 
-- După cum zice și pagina de manual, `rsync` este un utilitar foarte rapid, eficient și versatil de a copia fișiere. Este cunoscut pentru sincronizarea între calculatoare dar poate fi folosit și local. Dacă setăruile de securitate permit, folosirea `rsync` în loc de `scp` permite continuarea unui transfer eșuat fără a-l reporni. Este și una dintre cele [mai rapide metode](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) de a șterge un număr masiv de fișiere:
+- După cum zice și pagina de manual, `rsync` este un utilitar foarte rapid, eficient și versatil de a copia fișiere. Este cunoscut pentru sincronizarea între calculatoare dar poate fi folosit și local. Dacă setările de securitate permit, folosirea `rsync` în loc de `scp` permite continuarea unui transfer eșuat fără a-l reporni. Este și una dintre cele [mai rapide metode](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) de a șterge un număr masiv de fișiere:
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
 - Folosiți `shuf` pentru a permuta sau selecta linii aleatoare dintr-un fișier.
 
-- Învățați opțiunile lui `sort`. ForPentru numere folosiți `-n`, sau `-h` pentru numere în format human-readable (de exemplu numere produse de `du -h`). Învățați cum funcționează cheile de sortare (`-t` și `-k`). În special, țineți cont că trebuie să scrieți `-k1,1` pentru a sorta doar prima coloană, `-k1` înseamnă sortare după toată linia. Sortarea stabilă (`sort -s`) poate fi utilă. De exemplu, pentru a sorta după câmpul 2 și apoi după 1: `sort -k1,1 | sort -s -k2,2`.
+- Învățați opțiunile lui `sort`. Pentru numere folosiți `-n`, sau `-h` pentru numere în format human-readable (de exemplu numere produse de `du -h`). Învățați cum funcționează cheile de sortare (`-t` și `-k`). În special, țineți cont că trebuie să scrieți `-k1,1` pentru a sorta doar prima coloană, `-k1` înseamnă sortare după toată linia. Sortarea stabilă (`sort -s`) poate fi utilă. De exemplu, pentru a sorta după câmpul 2 și apoi după 1: `sort -k1,1 | sort -s -k2,2`.
 
 - Dacă sunteți nevoiți să scrieți un caracter tab în terminal (de exemplu pentru argumentul `-t` al `sort`) apăsați **ctrl-v** **[Tab]** sau scrieți `$'\t'` (ultima versiune e mai bună pentru că permite și copy/paste).
 
@@ -348,7 +348,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Folosiți `grep . *` pentru a examina rapid conținutul fișierelor din director (fiecare linie este împrecheată cu fișierul din care provine) sau `head -100 *` (fiecare fișier are un header). Este un sfat util pentru directoare conținând setări precum `/sys`, `/proc`, `/etc`.
+- Folosiți `grep . *` pentru a examina rapid conținutul fișierelor din director (fiecare linie este împerecheată cu fișierul din care provine) sau `head -100 *` (fiecare fișier are un header). Este un sfat util pentru directoare conținând setări precum `/sys`, `/proc`, `/etc`.
 
 
 - Suma tuturor numerelor din a 3-a coloană a unui fișier (probabil de 3 ori mai rapid și de 3 ori mai puțin cod decât codul Python echivalent):
@@ -382,7 +382,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 ## Obscure dar utile
 
-- `expr`: execută operații aritmetice sau boleene și expandează expresii regulate
+- `expr`: execută operații aritmetice sau logice și expandează expresii regulate
 
 - `m4`: procesor simplu de macro-uri
 
@@ -436,7 +436,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 - `time`: execută și cronometrează o comandă
 
-- `timeout`: execută o comandă până la expirarea unei cantițăți de timp, omorând procesul la finalul timpului alocat
+- `timeout`: execută o comandă până la expirarea unui timp definit, omorând procesul la finalul timpului alocat
 
 - `lockfile`: creează un fișier semafor care nu poate fi șters decât cu `rm -f`
 
@@ -478,7 +478,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 - `strace`: depanare apeluri de sistem
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): alternative mai bună pentru `traceroute` pentru depanarea rețelei
+- [`mtr`](http://www.bitwizard.nl/mtr/): alternativă mai bună pentru `traceroute` pentru depanarea rețelei
 
 - `cssh`: shell vizual, concurent
 
@@ -508,7 +508,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 - `w`: cine este logged-in
 
-- `id`: informații despre useri/grupuri
+- `id`: informații despre utilizatori/grupuri
 
 - [`sar`](http://sebastien.godard.pagesperso-orange.fr/): istoria statisticilor despre sistem
 
@@ -535,7 +535,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 Aceste sfaturi sunt relevante *doar* pentru OS X.
 
-- Managementul pachetelor cu `brew` (Homebrew) și/sau `port` (MacPorts). Aceste comenzi pot fi folosit pentru a instala multe din comenzile de mai sus pe un Mac.
+- Managementul pachetelor cu `brew` (Homebrew) și/sau `port` (MacPorts). Aceste comenzi pot fi folosite pentru a instala multe din comenzile de mai sus pe un Mac.
 
 - Copiați outputul unei comenzi către aplicații desktop cu `pbcopy` și lipiți conținutul de la una cu `pbpaste`.
 
@@ -567,11 +567,11 @@ Aceste sfaturi sunt relevante *doar* pentru Windows.
 
 - Accesați registrele Windows cu `regtool`.
 
-- Observați că o cale de tip `C:\` în Windows devine `/cygdrive/c` sub Cygwin, și că root-ul Cygwin, `/`, apare ca `C:\cygwin` pe Windows. convertiți între căile Cygwin și Windows cu `cygpath`. Acest lucru este util în scripturile care apelează programe Windows.
+- Observați că o cale de tip `C:\` în Windows devine `/cygdrive/c` sub Cygwin, și că root-ul Cygwin, `/`, apare ca `C:\cygwin` pe Windows. Convertiți între căile Cygwin și Windows cu `cygpath`. Acest lucru este util în scripturile care apelează programe Windows.
 
 - Puteți executa majoritatea task-urilor de administrare a sistemului Windows din linia de comandă prin învățarea și folosirea `wmic`.
 
-- O altă opțiune de a obtine un sistem similar Unix sub Windows este [Cash](https://github.com/dthree/cash). Țineți cont că doar câte utilitare Unix sunt în prezent disponibile în acest mediu.
+- O altă opțiune de a obține un sistem similar Unix sub Windows este [Cash](https://github.com/dthree/cash). Țineți cont că doar câte utilitare Unix sunt în prezent disponibile în acest mediu.
 
 - O altă opțiune alternativă este să obțineți instrumentele de dezvoltare GNU (precum GCC) cu [MinGW](http://www.mingw.org/) și pachetul [MSYS](http://www.mingw.org/wiki/msys). Astfel veți obtine utilitare precum `bash`, `gawk`, `make` și `grep`. MSYS nu are toate beneficiile Cygwin dar este util în particular pentru a crea versiuni de Windows pentru instrumentele Unix.
 
