@@ -446,7 +446,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 - `tac`: afișează conținutul fișierelor în ordine inversă
 
-- `shuf`: selectează linii random din fișier
+- `shuf`: selectează linii in mod aleator din fișier
 
 - `comm`: compară fișiere sortate, linie cu linie
 
@@ -466,7 +466,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 - `units`: conversii între unități de măsură (vedeți și `/usr/share/units/definitions.units`)
 
-- `apg`: generateză parole random
+- `apg`: generateză parole aleatoare
 
 - `xz`: compresor de fișiere foarte eficient
 
