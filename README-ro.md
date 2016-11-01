@@ -39,7 +39,7 @@ pe [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-
 Scop:
 
 - Acest ghid este atât pentru începători cât și pentru avansați. Scopurile sunt *acoperire* (tot ce este important), *specificitate* (oferirea exemplelor concrete pentru cazurilor comune) și *brevitate* (neincluderea lucrurilor neesențiale sau a digresiunilor ce pot fi găsite ușor în alte părți). Fiecare sfat este esențial în câteva situații sau reduce semnificativ timpul necesar efectuării unei cerințe comparativ cu celelalte alternative.
-- Ghidul este scris pentru Linux, cu excepția secțiunilor "[Doar pentru OS X](#doar-pentru-os-x)" și "[Doar pentru Windows](#doar-pentru-windows)". Majoritatea sfaturilor din celelate secțiuni se aplică/pot fi instalate pe alte sisteme Unix sau OS X (chiar și în Cygwin).
+- Ghidul este scris pentru Linux, cu excepția secțiunilor "[Doar pentru OS X](#doar-pentru-os-x)" și "[Doar pentru Windows](#doar-pentru-windows)". Majoritatea sfaturilor din celelalte secțiuni se aplică/pot fi instalate pe alte sisteme Unix sau OS X (chiar și în Cygwin).
 - Se pune accent pe Bash interactiv, chiar dacă unele sfaturi sunt aplicabile și altor shell-uri sau pentru Bash-scripting în general.
 - Atât comenzile Unix "standard" cât și cele care necesită instalarea de pachete speciale sunt incluse -- cât timp sfaturile sunt destul de importante cât să merite incluziunea.
 
@@ -55,7 +55,7 @@ Note:
 
 - Învățați cel puțin un editor de text. Ideal Vim (`vi`), cum nu există un competitor real pentru editarea în terminal (chiar dacă folosiți Emacs, sau un editor modern în majoritatea timpului).
 
-- Învățați să citiți documentație cu `man` (pentru curiouși, `man man` listează secțiunile, de exemplu 1 este pentru comenzi "uzuale", 5 este pentru fișiere/convenții și 8 pentru administrare). Găsiți pagini de manual cu `apropos`. Rețineți că anumite comenzi nu sunt programe executabile ci comenzi interne în Bash și că puteți obține ajutor despre ele cu `help` sau `help -d`. Puteți vedea dacă o comandă este internă, executabilă sau doar un alias prin folosirea `type command`.
+- Învățați să citiți documentație cu `man` (pentru curioși, `man man` listează secțiunile, de exemplu 1 este pentru comenzi "uzuale", 5 este pentru fișiere/convenții și 8 pentru administrare). Găsiți pagini de manual cu `apropos`. Rețineți că anumite comenzi nu sunt programe executabile ci comenzi interne în Bash și că puteți obține ajutor despre ele cu `help` sau `help -d`. Puteți vedea dacă o comandă este internă, executabilă sau doar un alias prin folosirea `type command`.
 
 - Învățați despre redirecționarea intrării și ieșirii folosind `>` și `<` și pipe-uri cu `|`. Rețineți că `>` suprascrie fișierul și `>>` adaugă la final. Învățați despre ieșirea standard și ieșirea de eroare standard.
 
@@ -73,7 +73,7 @@ Note:
 
 - Învățați expresii regulare foarte bine, precum și diversele opțiuni pentru `grep`/`egrep`. Relevante sunt `-i`, `-o`, `-v`, `-A`, `-B`, și `-C`.
 
-- Învațați să folosiți `apt-get`, `yum`, `dnf` sau `pacman` (în funcție de distribuție) pentru a găsi și instala pachete. Fiți siguri că aveți `pip` pentru a instala comenzile bazate pe Python (câteva din utilitarele de mai jos sunt mai ușor de instalat cu `pip`).
+- Învățați să folosiți `apt-get`, `yum`, `dnf` sau `pacman` (în funcție de distribuție) pentru a găsi și instala pachete. Fiți siguri că aveți `pip` pentru a instala comenzile bazate pe Python (câteva din utilitarele de mai jos sunt mai ușor de instalat cu `pip`).
 
 
 ## Folosire zilnică
@@ -125,7 +125,7 @@ Note:
 
 - Tratați cu atenție cazurile când variabilele și fișierele conțin spații. Folosiți ghilimele în acest caz, de exemplu `"$FOO"`. Preferați să folosiți opțiunile `-0` sau `-print0` pentru a folosi caracterul null pentru a delimita fișierele, de exemplu `locate -0 pattern | xargs -0 ls -al` sau `find / -print0 -type d | xargs -0 ls -al`. Pentru a parcurge o listă de fișiere conținând spații într-o buclă for, setați variabile IFS la terminatorul de linie, `IFS=$'\n'`.
 
-- În scripturile Bash, folosiți `set -x` (sau varianta `set -v`, care produce informație neprocesată, inclusiv variabile neexpandate și comentarii) pentru a depana outputul. Folosiți modurile strice exceptând când aveți un motiv foarte bun împotrivă: folosiți `set -e` pentru a termina execuția în caz de eroare (cod de ieșire nenul). Folosiți `set -u` pentru a detecta variable nesetate. Considerați folosirea `set -o pipefail` pentru erorile cauzate de folosirea eronată a pipe-urilor. Pentru scripturi mai complicate, folosiți `trap` pentru EXIT sau ERR. Un obicei util este să începeți scriptul într-o modalitate care va permite detecția facilă a erorilor și terminarea execuției cu un mesaj:
+- În scripturile Bash, folosiți `set -x` (sau varianta `set -v`, care produce informație neprocesată, inclusiv variabile neexpandate și comentarii) pentru a depana outputul. Folosiți modurile strice exceptând când aveți un motiv foarte bun împotrivă: folosiți `set -e` pentru a termina execuția în caz de eroare (cod de ieșire nenul). Folosiți `set -u` pentru a detecta variabile nesetate. Considerați folosirea `set -o pipefail` pentru erorile cauzate de folosirea eronată a pipe-urilor. Pentru scripturi mai complicate, folosiți `trap` pentru EXIT sau ERR. Un obicei util este să începeți scriptul într-o modalitate care va permite detecția facilă a erorilor și terminarea execuției cu un mesaj:
 ```bash
       set -euo pipefail
       trap "echo 'error: Script failed: see failed command above'" ERR
@@ -446,7 +446,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 - `tac`: afișează conținutul fișierelor în ordine inversă
 
-- `shuf`: selectează linii random din fișier
+- `shuf`: selectează linii in mod aleator din fișier
 
 - `comm`: compară fișiere sortate, linie cu linie
 
@@ -466,7 +466,7 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 - `units`: conversii între unități de măsură (vedeți și `/usr/share/units/definitions.units`)
 
-- `apg`: generateză parole random
+- `apg`: generateză parole aleatoare
 
 - `xz`: compresor de fișiere foarte eficient
 
@@ -586,7 +586,7 @@ Aceste sfaturi sunt relevante *doar* pentru Windows.
 
 ## Anunț legal
 
-Cu excepția unor task-uri foarte mici, codul scris aici este pentru ca alții să-l poate citi. Cu putere vine și responsabilitate. Faptul că *puteți* face cava în Bash nu înseamnă neapărat că și trebuie să-l faceți ;)
+Cu excepția unor task-uri foarte mici, codul scris aici este pentru ca alții să-l poate citi. Cu putere vine și responsabilitate. Faptul că *puteți* face ceva în Bash nu înseamnă neapărat că și trebuie să-l faceți ;)
 
 
 ## Licență
