@@ -1,9 +1,11 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # L'art de la ligne de commande
 
-[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Ask a Question](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
+
+[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%19Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 - [Méta](#méta)
 - [Notions de base](#notions-de-base)
@@ -27,6 +29,7 @@ Cette page n'est pas bien longue, mais si vous pouvez retenir et vous servir de 
 
 Ce document est le fruit du travail de [nombreux auteurs et traducteurs](AUTHORS.md).
 Une partie de celui-ci a été [initialement](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands) [publiée](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix) sur [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), mais il se trouve maintenant sur GitHub, où des personnes plus compétentes que l'auteur originel ont apporté de nombreuses améliorations.
+[**N'hésitez pas à poser des questions**](https://airtable.com/shrzMhx00YiIVAWJg) sur la ligne de commande.
 [**Merci de contribuer**](/CONTRIBUTING.md) si vous voyez une erreur ou quelque chose qui pourrait être amélioré !
 
 
@@ -179,10 +182,15 @@ Un exemple classique consiste à se déplacer temporairement dans un autre répe
       # continue dans le répertoire original
 ```
 
-- Remarquez qu'en Bash il y a de nombreux types d'expansion des variables.
-Vérifier l'existence d'une variable&nbsp;: `${name:?error message}`.
-Par exemple, si un script en Bash exige un unique argument, il vous suffit d'écrire `input_file=${1:?usage: $0 input_file}`.
-L'expansion arithmétique&nbsp;: `i=$(( (i + 1) % 5 ))`. Suites&nbsp;: `{1..10}`. Suppression de sous-chaînes&nbsp;: `${var%suffix}` et `${var#prefix}`. Par exemple,  si `var=foo.pdf`, alors `echo ${var%.pdf}.txt` affiche `foo.txt`.
+- Notez qu'en Bash, il existe de nombreux types d'expansions de variables. Pour vérifier l'existence d'une variable&nbsp;: `${name:?error message}`.
+Par exemple, si un script en Bash exige un unique argument, il suffit d'écrire `input_file=${1:?usage: $0 input_file}`.
+Pour utiliser une valeur par défaut si une variable est vide&nbsp;: `$(name:-default}`.
+Si vous souhaitez ajouter un paramètre supplémentaire facultatif dans l'exemple précédent, vous pouvez écrire quelque chose comme `output_file=${2:-logfile}`.
+Si `$2` est omis et donc vide, `output_file` prendra la valeur `logfile`.
+L'évaluation arithmétique&nbsp;: `i=$(( (i+1) % 5)`.
+Les listes d'entiers&nbsp;: `{1..10}`
+Suppression de préfixes et de suffixes&nbsp;: `${var%suffix}` et `${var#prefix}`.
+Par exemple, si `var=foo.pdf`, alors `echo ${var%.pdf}.txt` affiche `foo.txt`.
 
 - L'expansion des accolades avec `{`...`}` évite de retaper des textes similaires et automatise les combinaisons d'éléments de listes.
 C'est utile dans des exemples comme  `mv foo.{txt,pdf} some-dir` (qui déplace les deux fichiers), `cp somefile{,.bak}` (équivalent à `cp somefile somefile.bak`) ou `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (qui engendre toutes les combinaisons possibles et crée une arborescence de répertoires).
@@ -193,7 +201,16 @@ Par exemple, pour comparer le fichier local `/etc/hosts` avec un fichier distant
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- Renseignez-vous à propos des « here documents » avec Bash, comme dans `cat <<EOF ...`.
+- Lorsque vous écrivez des scripts, vous pourriez avoir envie de placer votre code entre accolades.
+S'il manque l'accolade fermante, les scripts ne pourront s'exécuter à cause d'une erreur de syntaxe.
+C'est particulièrement utile pour des scripts mis à disposition sur le web, afin de prévenir leur exécution lorsqu'ils sont partiellement téléchargés.
+```bash
+{
+    # Votre code ici
+}
+```
+
+- Renseignez-vous à propos des documents en ligne avec Bash, comme dans `cat <<EOF ...`.
 
 - En Bash, redirigez à la fois la sortie standard et la sortie des erreurs à l'aide de `some-command > logfile 2>&1` ou `some-command &>logfile`.
 Souvent, pour s'assurer qu'une commande ne laisse pas un descripteur de fichier ouvert sur l'entrée standard, l'attachant au terminal dans lequel vous vous trouvez, une bonne pratique consiste à ajouter `</dev/null`.
@@ -234,9 +251,14 @@ Une alternative plus légère pour la persistance des sessions seulement est [`d
 
 - Créez un simple serveur web pour partager les fichiers du répertoire courant (et ses sous-répertoires) avec `python -m SimpleHTTPServer 7777` (port 7777 et Python 2)  et `python -m http.server 7777` (port 7777 et Python 3).
 
-- Pour exécuter une commande avec des privilèges, utilisez `sudo` (en tant que root) ou `sudo -u` (en tant qu'un autre utilisateur).
-Utilisez `su` ou `sudo bash` pour exécuter un shell sous cette utilisateur.
-Utilisez `su -` pour simuler une nouvelle connexion en tant que root ou un autre utilisateur.
+- Pour exécuter une commande avec les privilèges d'un autre utilisateur, utilisez `sudo`.
+Par défaut, cet autre utilisateur est *root*&#8239;; utilisez `-u` pour spécifier un autre utilisateur.
+Utilisez `-i` pour ouvrir une session en tant que cet autre utilisateur (on vous demandera *votre* mot de passe).
+
+- Pour basculer le shell sous un autre utilisateur, utilisez `su username` ou `su - username`.
+Incluez `-` pour obtenir le même environnement que lorsque cet utilisateur se connecte.
+Le nom d'utilisateur par défaut est *root*.
+Le système vous demandera le mot de passe *de l'utilisateur cible*.
 
 - Sachez que l'argument de la ligne de commande a une [taille limite de 128 Kio](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong). L'erreur « Argument list too long » est fréquente avec les jokers qui reconnaissent un grand nombre de fichiers (quand cela se produit des alternatives comme `find` et `xargs` peuvent aider).
 
@@ -403,7 +425,7 @@ Remarquez l'option de profilage (`-c`) et la possibilité de les attacher à un 
 Exemples&nbsp;: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd`, `/proc/xxx/smaps` (où `xxx` est l'identifiant du processus ou pid).
 
 - Pour comprendre pourquoi quelque chose a mal tourné antérieurement, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) peut-être très utile.
-Elle fournit un historique concernant l'usage du CPU, de la mémoire, du réseau, etc.
+Il fournit un historique concernant l'usage du CPU, de la mémoire, du réseau, etc.
 
 - Pour une analyse plus approfondie du système et de ses performances, regardez `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux) et [`sysdig`](https://github.com/draios/sysdig).
 
@@ -550,7 +572,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `apg` : génère des mots de passe aléatoires.
 
-- `7z` : compresse des fichiers avec taux de compression élevé.
+- `xz` : compresse des fichiers avec taux de compression élevé.
 
 - `ldd` : affiche des informations sur les bibliothèques partagées.
 
