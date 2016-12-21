@@ -112,40 +112,53 @@ Kelime kelime hareket etmek icin **alt-b** ve **alt-f**`i kullanin. Gostergeyi s
 
 - Komut kisayollari olusturmak icin `alias` kullanin. Ornegin `alias ll='ls -latr'` `ll` kisayolu olusturur. 
 
-//left here
-- In Bash scripts, use `set -x` (or the variant `set -v`, which logs raw input, including unexpanded variables and comments) for debugging output. Use strict modes unless you have a good reason not to: Use `set -e` to abort on errors (nonzero exit code). Use `set -u` to detect unset variable usages. Consider `set -o pipefail` too, to on errors within pipes, too (though read up on it more if you do, as this topic is a bit subtle). For more involved scripts, also use `trap` on EXIT or ERR. A useful habit is to start a script like this, which will make it detect and abort on common errors and print a message:
+
+- Bash skriptlerde hata ayiklama(debugging) icin `set -x` i kullanin (veya bir degisik `set -v` i kullanin, bu komut degismemis girdileri, degiskenleri ve yorumlari da sunar).
+Kati modlari kullanmaniz tavsiye edilir kesinlikle. Hatalarda iptal etmek icin `set -e` kullanin(sifir olmayan cikis veya bitirme kodu). Sabitlenmemis degisken kullanimlarini algilamak icin `set -u` kullanin. Hatlandirma hatalarinda `set -o` yu kullanin. Daha fazla detay icin EXIT veya ERR`lerde `trap` kullanin.
+
+
+
 ```bash
       set -euo pipefail
-      trap "echo 'error: Script failed: see failed command above'" ERR
+      trap "echo 'hata: Skript başarısız: başarısız komutlari yukarida gorebilirsiniz'" ERR
 ```
 
-- In Bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
+- Bash skriptlerde komut gruplandirmak icin alt Linux kabuklari (parantez icinkediler) elverislidir. Yaygin bir ornek olarak farkli bir dizine gitmek gosterilebilir.
 ```bash
-      # do something in current dir
-      (cd /some/other/dir && other-command)
-      # continue in original dir
+      # simdiki dizinde komut calistir
+      (cd /baska/bir/dizin && diger-komut)
+      # baslangic dizininde komut calistirmaya devam et
 ```
 
-- In Bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a Bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
+-Bash`te birden fazla degisken genlestirme yolu vardir. Degiskenin varligini kontrol et: `${isim:?hata mesaji}`. Ornegin, eger bir bash skripti bir arguman gerektiriyorda, sadece bunu yaz `input_file=${1:?usage: $0 input_file}`. Eger bir degisken bos ise öndeğer kullanmak icin `${name:-öndeğer}` kullanin. Eger opsiyonel olarak bir parametre eklemek isterseniz `output_file=${2:-logfile}` i kullanin. Aritmetik acilim:  `i=$(( (i + 1) % 5 ))`. Sira veya duzen `{1..10}`. String kirpmak icin `${var%suffix}` ve  `${var#prefix}` kullanin. Ornegin if `var=foo.pdf`, then `echo ${var%.pdf}.txt`  `foo.txt` yazar.
 
-- Brace expansion using `{`...`}` can reduce having to re-type similar text and automate combinations of items.  This is helpful in examples like `mv foo.{txt,pdf} some-dir` (which moves both files), `cp somefile{,.bak}` (which expands to `cp somefile somefile.bak`) or `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (which expands all possible combinations and creates a directory tree).
 
-- The output of a command can be treated like a file via `<(some command)`. For example, compare local `/etc/hosts` with a remote one:
+- Kaşlı ayraç  `{`...`}`  ayni seyleri yazmayi azaltir ve bazi ogelerin kombinasyonunu kolaylastirir. Ornegin  `mv foo.{txt,pdf} some-dir` (iki dosyayi da tasir), `cp somefile{,.bak}` (genislemis hali `cp somefile somefile.bak`) veya `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (bu komut genisler ve seceneklerdeki kombinasyonlar ile dizinleri olusturur).
+
+-Bir komutun ciktisi bir dosya gibi gorulebilir `<(some command)` yolu ile, yerli `/etc/hosts` dosyasini uzak dosya ile karsilastirmak icin:
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- Know about "here documents" in Bash, as in `cat <<EOF ...`.
+- Skript yazarken süslü ayraçlari kulanmak isteyebilirsiniz. Eger acilim ayraci eksik ise skriptiniz calismaz. Internetten skript indirirken de kolaylik saglar.
+```bash
+{
+      # komut kodlari buraya
+}
+```
 
-- In Bash, redirect both standard output and standard error via: `some-command >logfile 2>&1` or `some-command &>logfile`. Often, to ensure a command does not leave an open file handle to standard input, tying it to the terminal you are in, it is also good practice to add `</dev/null`.
+- "here documents" leri de bilin, `cat <<EOF ...` te oldugu gibi.
 
-- Use `man ascii` for a good ASCII table, with hex and decimal values. For general encoding info, `man unicode`, `man utf-8`, and `man latin1` are helpful.
+- Bash`te yonlendirme standart cikis ve hatalar  `some-command >logfile 2>&1` veya `some-command &>logfile` ile yapilabilir. Cogu zaman acik dosya birakmamak icin `</dev/null` kullanmak da faydali olabilir.
 
-- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. `byobu` can enhance screen or tmux providing more information and easier management. A more minimal alternative for session persistence only is `dtach`.
+- Iyi bir hex ve ondalikli degerlerle ASCII tablosu icin `man ascii`yi kullanin. Genel dil kod şeması icin `man unicode`, `man utf-8`, and `man latin1` faydalidir.
 
-- In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
+- Ekrani coklamak icin `screen` veya [`tmux`](https://tmux.github.io/)i kullanin. Ozellikle uzak oturumlarda oturum acmak, baglamak ve koparmak icin faydalidir. `byobu`u kullanabilirsiniz gelişmiş ekran kolay yonetim icin. Daga minimal alternatif icin oturum dayanıklı icin [`dtach`](https://github.com/bogner/dtach).
 
-- It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, uses compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
+
+-ssh te tunel port icin  `-L` ve `-D` (ve bazilari `-R`) faydalidir. Uzak dağıtıcı(server)daki web sitelerine ulasmak bir ornek olarak gosterilebilir.
+
+- ssh konfigurasyonunu eniyileme icin bir kac degisiklik yapmak onerilir; Ornegin,  `~/.ssh/config` ta bazi ag cevrelinde baglanti kopuklugunu onlemek icin ayarlar bulunur. Sıkıştırma(kompres) (bant baglantilarinda scp kullanmada faydalidir), ve  kanallarinda multiplex(coklama) yapar ayni vericiye:
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -156,23 +169,31 @@ Kelime kelime hareket etmek icin **alt-b** ve **alt-f**`i kullanin. Gostergeyi s
       ControlPersist yes
 ```
 
-- A few other options relevant to ssh are security sensitive and should be enabled with care, e.g. per subnet or host or in trusted networks: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+- ssh`teki diger secenekler guvenlik icindir ve etkinlestirme yapilirken dikkat edilmelidir. Her alt ag, host ve guvenilir aglar icin: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Consider [`mosh`](https://mosh.mit.edu/) an alternative to ssh that uses UDP, avoiding dropped connections and adding convenience on the road (requires server-side setup).
+- ssh e alternatif olarak  [`mosh`](https://mosh.mit.edu/) u gozden geciriniz, mosh UDP kullanir. Baglanti kopuklugunu onlemek ve rahatlik icin kullanilabilir.
 
-- To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
+- Bir dosyanin izinlerini gormek icin oktal formda(ls bu optioni gostermez) bunu kullanin:
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
+- Diger komutlarin sonuclarindan etkileşimli olarak deger almak icin; [`percol`](https://github.com/mooz/percol) veya [`fzf`](https://github.com/junegunn/fzf) i kullanin.
 
-- For interactive selection of values from the output of another command, use [`percol`](https://github.com/mooz/percol) or [`fzf`](https://github.com/junegunn/fzf).
+- Komut verilerinden sonra(mesela `git`) dosyalar ile etkilesim icin `fpp`  ([PathPicker](https://github.com/facebook/PathPicker)) kullanin.
 
-- For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
+-Basit bir web sunucusu icin `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) ve `python -m http.server 7777` (for port 7777 and Python 3). Bu sunucu bulunmus oldugunuz dizin ve butun alt dizinleri icin sunucu olusturur kendi networkunuzdakiler icin.
 
-- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
-`python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
+- Baska bir kullanici olarak komut calistirmak icin `sudo`yu kullanin. Root(kok) olarak kulanabileceginiz kullanabilceginiz on degerler; `-u` baska bir kullanici belirtmek icin. `-i` baska bir kullanici icin giris yapmak icin (sifreniz sorulacaktir).
 
-- For running a command with privileges, use `sudo` (for root) or `sudo -u` (for another user). Use `su` or `sudo bash` to actually run a shell as that user. Use `su -` to simulate a fresh login as root or another user.
+- shell'i bir baska kullanici olarak kullanmak icin,  `su username` veya `su - username` kullanin.  "-" bir baska kullanici giris yapmis gibi kabul eder. Kullanici ismi belirtmez iseniz root olarak calisir komut. Hangi kullanici icin giris yapmaya calisiyorsaniz sifreniz sorulur.
+
+- [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) hakkinda bilginiz olsun komut satirlari icin. "Argument list too long"(Arguman listesi cok uzun) hatasi genel bir hatadir genel arama karakteri arandigi zaman bir cok dosya icin(`find` ve `xargs` faydali olabilir).
+
+- Basit bir hesap makinesi icin ve genel python alani icin,  `python` yorumlayıcısini kullanin. Ornegin,
+```
+>>> 2+3
+5
+```
 
 
 ## Processing files and data
@@ -203,7 +224,11 @@ Kelime kelime hareket etmek icin **alt-b** ve **alt-f**`i kullanin. Gostergeyi s
 
 - Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
 
+- For more complex calculations, including grouping, reversing fields, and statistical calculations, consider [`datamash`](https://www.gnu.org/software/datamash/).
+
 - Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+
+- You can set a specific command's environment by prefixing its invocation with the environment variable settings, as in `TZ=Pacific/Fiji date`.
 
 - Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
 
@@ -222,7 +247,7 @@ Kelime kelime hareket etmek icin **alt-b** ve **alt-f**`i kullanin. Gostergeyi s
       rename 's/\.bak$//' *.bak
 ```
 
-- As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
+- As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. When security restrictions allow, using `rsync` instead of `scp` allows recovery of a transfer without restarting from scratch. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
@@ -235,7 +260,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff and `sdiff` for a side-by-side diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes. Use `vimdiff` to compare and edit files.
 
-- For binary files, use `hd`, `hexdump` or `xxd` for simple hex dumps and `bvi` or `biew` for binary editing.
+- For binary files, use `hd`, `hexdump` or `xxd` for simple hex dumps and `bvi`, `hexedit` or `biew` for binary editing.
 
 - Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
 
@@ -252,6 +277,13 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
+- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
+
+- Use `getfacl` and `setfacl` to save and restore file permissions. For example:
+```sh
+   getfacl -R /some/path > permissions.txt
+   setfacl --restore=permissions.txt
+```
 
 ## System debugging
 
@@ -267,15 +299,15 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs. The JDK's `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) are more advanced.
 
-- Use `mtr` as a better traceroute, to identify network issues.
+- Use [`mtr`](http://www.bitwizard.nl/mtr/) as a better traceroute, to identify network issues.
 
-- For looking at why a disk is full, `ncdu` saves time over the usual commands like `du -sh *`.
+- For looking at why a disk is full, [`ncdu`](https://dev.yorhel.nl/ncdu) saves time over the usual commands like `du -sh *`.
 
-- To find which socket or process is using bandwidth, try `iftop` or `nethogs`.
+- To find which socket or process is using bandwidth, try [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs).
 
 - The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
 
-- For more serious network debugging, `wireshark`, `tshark`, or `ngrep`.
+- For more serious network debugging, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), or [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
 
@@ -285,13 +317,16 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where `xxx` is the process id or pid).
 
-- When debugging why something went wrong in the past, `sar` can be very helpful. It shows historic statistics on CPU, memory, network, etc.
+- When debugging why something went wrong in the past, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) can be very helpful. It shows historic statistics on CPU, memory, network, etc.
 
 - For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
 
 - Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
+
+- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process:
+`lsof | grep deleted | grep "filename-of-my-big-file"`
 
 
 ## One-liners
@@ -313,7 +348,7 @@ A few examples of piecing together commands:
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- If want to see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- To see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
 ```sh
       find . -type f -ls
 ```
@@ -409,8 +444,6 @@ A few examples of piecing together commands:
 
 - `pv`: monitor the progress of data through a pipe
 
-- `hd`, `hexdump`, `xxd`, `biew` and `bvi`: dump or edit binary files
-
 - `strings`: extract text from binary files
 
 - `tr`: character translation or manipulation
@@ -425,7 +458,7 @@ A few examples of piecing together commands:
 
 - `apg`: generates random passwords
 
-- `7z`: high-ratio file compression
+- `xz`: high-ratio file compression
 
 - `ldd`: dynamic library info
 
@@ -435,15 +468,15 @@ A few examples of piecing together commands:
 
 - `strace`: system call debugging
 
-- `mtr`: better traceroute for network debugging
+- [`mtr`](http://www.bitwizard.nl/mtr/): better traceroute for network debugging
 
 - `cssh`: visual concurrent shell
 
 - `rsync`: sync files and folders over SSH or in local file system
 
-- `wireshark` and `tshark`: packet capture and network debugging
+- [`wireshark`](https://wireshark.org/) and [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): packet capture and network debugging
 
-- `ngrep`: grep for the network layer
+- [`ngrep`](http://ngrep.sourceforge.net/): grep for the network layer
 
 - `host` and `dig`: DNS lookups
 
@@ -467,9 +500,9 @@ A few examples of piecing together commands:
 
 - `id`: user/group identity info
 
-- `sar`: historic system stats
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): historic system stats
 
-- `iftop` or `nethogs`: network utilization by socket or process
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): network utilization by socket or process
 
 - `ss`: socket statistics
 
@@ -479,9 +512,7 @@ A few examples of piecing together commands:
 
 - `hdparm`: SATA/ATA disk manipulation/performance
 
-- `lsb_release`: Linux distribution info
-
-- `lsblk`: list block devices: a tree view of your disks and disk paritions
+- `lsblk`: list block devices: a tree view of your disks and disk partitions
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
@@ -490,33 +521,58 @@ A few examples of piecing together commands:
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
 
-## MacOS X only
+## OS X only
 
-These are items relevant *only* on MacOS.
+These are items relevant *only* on OS X.
 
-- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on MacOS many of the above commands.
+- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on OS X many of the above commands.
 
 - Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
 
-- To enable the Option key in Mac OS Terminal as an alt key (such as used in the commands above like **alt-b**, **alt-f**, etc.), open Preferences -> Profiles -> Keyboard and select "Use Option as Meta key".
+- To enable the Option key in OS X Terminal as an alt key (such as used in the commands above like **alt-b**, **alt-f**, etc.), open Preferences -> Profiles -> Keyboard and select "Use Option as Meta key".
 
 - To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
 
 - Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
 
-- Be aware MacOS is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
+- Be aware OS X is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
 
-- To get MacOS release information, use `sw_vers`.
+- To get OS X release information, use `sw_vers`.
 
+## Windows only
+
+These items are relevant *only* on Windows.
+
+- On Windows 10, you can use [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about), which provides a familiar Bash environment with Unix command line utilities. On the plus side, this allows Linux programs to run on Windows. On the other hand this does not support the running of Windows programs from the Bash prompt.
+
+- Access the power of the Unix shell under Microsoft Windows by installing [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
+
+- Install additional Unix programs with the Cygwin's package manager.
+
+- Use `mintty` as your command-line window.
+
+- Access the Windows clipboard through `/dev/clipboard`.
+
+- Run `cygstart` to open an arbitrary file through its registered application.
+
+- Access the Windows registry with `regtool`.
+
+- Note that a `C:\` Windows drive path becomes `/cygdrive/c` under Cygwin, and that Cygwin's `/` appears under `C:\cygwin` on Windows. Convert between Cygwin and Windows-style file paths with `cygpath`. This is most useful in scripts that invoke Windows programs.
+
+- You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
+
+- Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
+
+- An alternative option to get GNU developer tools (such as GCC) on Windows is [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package, which provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin. MinGW is particularly useful for creating native Windows ports of Unix tools.
 
 ## More resources
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): A more in-depth guide for the Mac OS command line.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): A more in-depth guide for the OS X command line.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
 - [shellcheck](https://github.com/koalaman/shellcheck): A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
-
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): More commands and tools helpful for doing data science, from the book of the same name
 
 ## Disclaimer
 
