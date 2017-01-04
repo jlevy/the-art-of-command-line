@@ -196,90 +196,97 @@ Kati modlari kullanmaniz tavsiye edilir kesinlikle. Hatalarda iptal etmek icin `
 ```
 
 
-## Processing files and data
+## Dosya ve Bilgi İşleme
 
-- To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
+- Bulunmus oldugunuz dizinde dosyalari isme gore aramak icin `find . -iname '*something*'` i kullanin. Herhangi bir yerde dosya bulmak icin `locate bir-dosya` kullanin(`updatedb` nin guncel olmadigini da goz onunde bulundurmaniz gerekebilir.)
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Kaynak veya veri dosyaları üzerinden genel arama yapmak için (`grep -r`'den daha gelismis) use [`ag`](https://github.com/ggreer/the_silver_searcher) kullanin.
 
-- To convert HTML to text: `lynx -dump -stdin`
+- HTML'i metne dönüştürmek için: `lynx -dump -stdin`
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- Markdown, HTML ve her türlü belge dönüşümü için [`pandoc`](http://pandoc.org/) deneyin.
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- XML ile uğraşmanız gerekiyorsa, `xmlstarlet` eski ama iyidir.
 
-- For JSON, use [`jq`](http://stedolan.github.io/jq/).
+- JSON icin [`jq`](http://stedolan.github.io/jq/)'i kullanin.
 
-- For YAML, use [`shyaml`](https://github.com/0k/shyaml).
+- YAML icin [`shyaml`](https://github.com/0k/shyaml)'i kullanin.
 
-- For Excel or CSV files, [csvkit](https://github.com/onyxfish/csvkit) provides `in2csv`, `csvcut`, `csvjoin`, `csvgrep`, etc.
+- Excel veya CSV dosyaları için [csvkit](https://github.com/onyxfish/csvkit) `in2csv`,` csvcut`, `csvjoin`,` csvgrep` vb. sağlar.
 
-- For Amazon S3, [`s3cmd`](https://github.com/s3tools/s3cmd) is convenient and [`s4cmd`](https://github.com/bloomreach/s4cmd) is faster. Amazon's [`aws`](https://github.com/aws/aws-cli) and the improved [`saws`](https://github.com/donnemartin/saws) are essential for other AWS-related tasks.
+- Amazon S3 için, [`s3cmd`](https://github.com/s3tools/s3cmd) kullanışlıdır ve [`s4cmd`](https://github.com/bloomreach/s4cmd) daha hızlıdır. Amazon'un [aws] (https://github.com/aws/aws-cli) ve iyileştirilmiş [`saws`](https://github.com/donnemartin/saws) diğer AWS ile ilgili görevler için gereklidir .
 
-- Know about `sort` and `uniq`, including uniq's `-u` and `-d` options -- see one-liners below. See also `comm`.
+- Uniq'ın `-u` ve` -d` seçenekleri de dahil olmak üzere `sort` ve` uniq` hakkında bilgi edinin - aşağıdaki tek gövdeleri görün. Ayrıca bkz. `Comm`.
 
-- Know about `cut`, `paste`, and `join` to manipulate text files. Many people use `cut` but forget about `join`.
+- Metin dosyalarını değiştirmek için `cut`'kes', `paste`'yapıştır' ve `join`katıl' hakkında bilgi sahibi olun. Çoğu kimse `cut` kullanır fakat` join 'kelimesini unutur.
 
-- Know about `wc` to count newlines (`-l`), characters (`-m`), words (`-w`) and bytes (`-c`).
+- Yeni satırları (`-l`), karakterleri (` -m`), kelimeleri (`-w`) ve baytları (` -c`) saymak için `wc` hakkında bilgi sahibi olun.
 
-- Know about `tee` to copy from stdin to a file and also to stdout, as in `ls -al | tee file.txt`.
+- `tee` ile ilgili bilgiyi stdin'den bir dosyaya kopyalamayi bilin , `ls -al | Tee file.txt`'da oldugu gibi.
 
-- For more complex calculations, including grouping, reversing fields, and statistical calculations, consider [`datamash`](https://www.gnu.org/software/datamash/).
+- Gruplama, ters alanlar ve istatistiksel hesaplamalar da dahil olmak üzere daha karmaşık hesaplamalar için [`datamash`](https://www.gnu.org/software/datamash/)'i göz önünde bulundurun.
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- Yerel ayarın, sıralama düzeni (harmanlama) ve performans da dahil olmak üzere çok sayıda komut satırı araçlarını ince şekillerde etkilediğini bilin. Çoğu Linux kurulumu, `LANG` veya diğer yerel ayar değişkenlerini, ABD İngilizcesi gibi yerel bir ayara ayarlar. Ancak, yerel ayarı değiştirirseniz, sıralama değişir. i18n rutinleri, sıralama veya diğer komutların *birçok kez* daha yavaş çalışmasını sağlayabilir. Bazı durumlarda(aşağıda belirlenen işlemler veya teklik işlemleri gibi) yavaş i18n yordamlarını tamamen yok sayabilir ve `export LC_ALL = C` kullanarak geleneksel bayt tabanlı sıralama düzenini kullanabilirsiniz.
 
-- You can set a specific command's environment by prefixing its invocation with the environment variable settings, as in `TZ=Pacific/Fiji date`.
+- Belirli bir komut ortamını, `TZ = Pasifik / Fiji tarihi 'gibi ortam değişken ayarlarıyla önek ekleyerek ayarlayabilirsiniz.
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- Basit veri mungajı için temel `awk` ve `sed` leri bilir. Örneğin, bir metin dosyasının üçüncü sütunundaki tüm sayıların toplanması: `awk'{x + = $ 3} END {print x}'` . Muhtemelen eşdeğer Python'dan 3 kat daha hızlı ve 3 kat daha kısa.
 
-- To replace all occurrences of a string in place, in one or more files:
+- Yerinde, bir veya daha fazla dosyada bulunan tüm dizgelerin yerini değiştirmek için:
 ```sh
-      perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
+      perl -pi.bak -e 's/eski-string/yeni-string/g' my-files-*.txt
 ```
 
-- To rename multiple files and/or search and replace within files, try [`repren`](https://github.com/jlevy/repren). (In some cases the `rename` command also allows multiple renames, but be careful as its functionality is not the same on all Linux distributions.)
+- Birden fazla dosyayı yeniden adlandırmak ve / veya dosyaları aramak ve değiştirmek için,  [`repren`](https://github.com/jlevy/repren)'i deneyin. (Bazı durumlarda `rename` komutu aynı zamanda birden fazla yeniden adlandırma yapmasına izin verir, ancak tüm Linux dağıtımlarında işlevselliği aynı olmadığından dikkatli olun.)
+
 ```sh
       # Full rename of filenames, directories, and contents foo -> bar:
+      # Dosya adlarının, dizinlerin ve içindekilerin tam adını değiştirme foo -> bar:
       repren --full --preserve-case --from foo --to bar .
       # Recover backup files whatever.bak -> whatever:
+      # Yedek dosyaları kurtarmak whatever.bak -> ne olursa olsun:
       repren --renames --from '(.*)\.bak' --to '\1' *.bak
       # Same as above, using rename, if available:
+      # Varsa, yeniden adlandırma işlevini kullanarak yukarıdakiyle aynı:
       rename 's/\.bak$//' *.bak
 ```
 
-- As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. When security restrictions allow, using `rsync` instead of `scp` allows recovery of a transfer without restarting from scratch. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
+- Manual sayfasida belirtildiği gibi, `rsync` gerçekten hızlı ve özel olarak çok yönlü bir dosya kopyalama aracıdır. Makineler arasında senkronizasyon yapılması bilinir ancak yerel olarak da eşit derecede yararlıdır. Güvenlik kısıtlamaları izin verdiği zaman, `scp` yerine` rsync` kullanılması, sıfırdan başlamaksızın bir aktarımın kurtarılmasına izin verir. Ayrıca, çok sayıda dosyayı silmek için kullanılan [en hızlı yöntemler](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) arasındadır:
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
-- Use `shuf` to shuffle or select random lines from a file.
+-Bir dosyadan rastgele çizgiler karıştırmak veya seçmek için `shuf` kullanın.
 
-- Know `sort`'s options. For numbers, use `-n`, or `-h` for handling human-readable numbers (e.g. from `du -h`). Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line. Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`.
+- `sort`un seçeneklerini bilir. Rakamlar için, insan tarafından okunabilen sayıları (ör. 'du -h') işlemek için `-n` veya `-h` kullanın. Tuşların nasıl çalıştığını bilin (`-t` ve` -k`). Özellikle, yalnızca ilk alana göre sıralamak için `-k1,1 'yazmanız gerektiğine dikkat edin; `-k1`, tüm satıra göre sıralama anlamına gelir. Kararlı sıralama (`sort -s`) faydalı olabilir. Örneğin, önce alan 2'ye, daha sonra da alan 1'e göre sıralamak için `sort -k1,1 | sort -s -k2,2`.
 
-- If you ever need to write a tab literal in a command line in Bash (e.g. for the -t argument to sort), press **ctrl-v** **[Tab]** or write `$'\t'` (the latter is better as you can copy/paste it).
+- Şimdiye kadar Bash'te bir komut satırı içine bir sekme literali yazmanız gerekiyorsa (örneğin, -t argümanı sıralama için) ** ctrl-v ** ** [Tab] ** tuşlarına basın ya da `$ '\ t'` yazarsanız (Kopyalama / yapıştırma gibi ikinci seçenek daha iyidir).
 
-- The standard tools for patching source code are `diff` and `patch`. See also `diffstat` for summary statistics of a diff and `sdiff` for a side-by-side diff. Note `diff -r` works for entire directories. Use `diff -r tree1 tree2 | diffstat` for a summary of changes. Use `vimdiff` to compare and edit files.
+- Kaynak koda eklemenin standart araçları `diff` ve` patch` dir. Ayrıca diff için özet istatistikler için `diffstat` ve yan yana diff için` sdiff` bakınız. `Diff -r 'dizininin tamamı için işe yarar. `Diff -r tree1 tree2'yi kullanın. Değişikliklerin özeti için diffstat`. Dosyaları karşılaştırmak ve düzenlemek için `vimdiff 'kullanın.
 
-- For binary files, use `hd`, `hexdump` or `xxd` for simple hex dumps and `bvi`, `hexedit` or `biew` for binary editing.
+- İkili dosyalar için basit hex dökümleri için `hd`,` hexdump` veya `xxd` kullanın ve ikili düzenleme için` bvi`, `hexedit` veya `biew` kullanın.
 
-- Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
+- İkili dosyalar için de, `strings '(artı `grep`, vb.) metin bitlerini bulmanızı sağlar.
 
-- For binary diffs (delta compression), use `xdelta3`.
+- İkili farklar için (delta sıkıştırma), `xdelta3` kullanın.
 
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
+- Metin kodlamalarını dönüştürmek için, `iconv`'yi deneyin. Veya daha gelişmiş kullanım için `uconv`; Bazı gelişmiş Unicode şeyleri destekler. Örneğin, bu komut, tüm vurguları azaltır ve kaldırır (bunları genişletip bırakarak):
+
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
+- Dosyaları parçalara ayırmak için, `split` (boyuta göre bölmek için) ve` csplit` (bir desenle bölmek için) bölümüne bakın.
 
-- To manipulate date and time expressions, use `dateadd`, `datediff`, `strptime` etc. from [`dateutils`](http://www.fresse.org/dateutils/).
+- Tarih ve saat ifadelerini işlemek için, [`dateutils`](http://www.fresse.org/dateutils/) içindeki `dateadd`, `datediff`,` strptime` vb. Işlevlerini kullanın.
 
-- Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
+- Sıkıştırılmış dosyalar üzerinde çalışmak için `zless`,` zmore`, `zcat` ve` zgrep` kullanın.
 
 - File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
 
-- Use `getfacl` and `setfacl` to save and restore file permissions. For example:
+- Dosya öznitelikleri `chattr` vasıtasıyla ayarlanabilir ve dosya izinlerine alt düzey bir alternatif sunabilir. Örneğin, yanlışlıkla dosya silinmeye karşı korumak için değişmez bayrak: `sudo chattr +i /kritik/dizin/veya/dosya '
+
+- Dosya izinlerini kaydetmek ve geri yüklemek için `getfacl` ve` setfacl` kullanın. Örneğin:
 ```sh
    getfacl -R /some/path > permissions.txt
    setfacl --restore=permissions.txt
