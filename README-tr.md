@@ -546,7 +546,7 @@ Bunlar, OS X'de *yalnızca* ilgili öğelerdir.
 
 ## Yalnızca Windows
 
-=Bunlar, Windows'ta *yalnızca* ilgili öğelerdir.
+Bunlar, Windows'ta *yalnızca* ilgili öğelerdir.
 
 - Windows 10'da, Unix komut satırı yardımcı programlarıyla tanıdık bir Bash ortamı sağlayan [Windows'da Ubuntu'da Bash] (https://msdn.microsoft.com/commandline/wsl/about) kullanabilirsiniz. Artı tarafta, Linux programları Windows'ta çalışmasına izin verir. Öte yandan, bu, Bash isteminden Windows programlarının çalışmasını desteklemez.
 - [Cygwin] (https://cygwin.com/) yükleyerek Microsoft Windows altında Unix kabuğunun gücüne erişin. Bu belgede açıklanan şeylerin çoğu kutudan çıkmaz.
