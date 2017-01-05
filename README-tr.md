@@ -3,20 +3,22 @@
 ]
 
 
-# Komut İstemi Sanatı
+# Komuta Hattı Sanatı
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+
 - [Meta](#meta)
-- [Temeller](#temeller)
-- [Gunluk Kullanim](#everyday-use)
-- [Processing files and data](#processing-files-and-data)
-- [System debugging](#system-debugging)
-- [One-liners](#one-liners)
-- [Obscure but useful](#obscure-but-useful)
-- [MacOS X only](#macos-x-only)
-- [More resources](#more-resources)
-- [Disclaimer](#disclaimer)
+- [Temel Bilgiler](#basics)
+- [Günlük kullanım](#everyday-use)
+- [Dosyaları ve Verileri Işleme](#processing-files-and-data)
+- [Sistem Hata Ayıklama](#system-debugging)
+- [Tek Gömlekler](#one-liners)
+- [Belirsiz Ama Kullanışlı](#obscure-but-useful)
+- [Yalnızca OS X](#os-x-only)
+- [Yalnızca Windows](#windows-only)
+- [Daha Fazla Kaynak](#more-resources)
+- [Feragatname](#disclaimer)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -46,7 +48,7 @@ Notlar:
 - Komutlarin, seceneklerin veya veri yollarinin vs. ne yaptigi hakinda kullanisli bir analiz elde etmek icin [Explainshell](http://explainshell.com/)`i ziyaret edin.
 
 
-## Temeller
+## Temel Bilgiler
 
 - Temel Bashi ögren. Aslinda, `man bash` yaz ve en azindan hepsini hizla gozden gecir; cok uzun olmadigi gibi takip etmesi de kolay. Alternatif shelller guzel olabilir, ancak Bash güçlü ve kullanisli (*sadece* zsh, fish, etc.`i ogrenmek, kendi laptopunda deneyerek, bircok durumda kisitlayarak, mesela mevcut sunuculari kullanarak).
 
@@ -71,7 +73,7 @@ Notlar:
 - `apt-get` i kullanmasini bilin, `yum`, `dnf` veya `pacman` (distrolara bagli farkliliklar olabilir) ki hazir packagelari bulup yukleyebilesiniz. Python-temelli komutlari kullanmak icin `pip`i kullanin  (bircogu `pip` ile kolaylikla yuklenebilir).
 
 
-## Everyday use
+## Günlük kullanım
 
 - Bash`te otomatik tamamlama ve mevcut komutlari listelemek icin **Tab** kullanin.  Komut gecmisinde arama yapmak icin **ctrl-r**`i kullanin. **ctrl-r**`i kullanarak arama sonuclarini dolasabilirsiniz. **Enter**`a basarak o komutu calistirabilirsiniz.
 
@@ -130,7 +132,7 @@ Kati modlari kullanmaniz tavsiye edilir kesinlikle. Hatalarda iptal etmek icin `
       # baslangic dizininde komut calistirmaya devam et
 ```
 
--Bash`te birden fazla degisken genlestirme yolu vardir. Degiskenin varligini kontrol et: `${isim:?hata mesaji}`. Ornegin, eger bir bash skripti bir arguman gerektiriyorda, sadece bunu yaz `input_file=${1:?usage: $0 input_file}`. Eger bir degisken bos ise öndeğer kullanmak icin `${name:-öndeğer}` kullanin. Eger opsiyonel olarak bir parametre eklemek isterseniz `output_file=${2:-logfile}` i kullanin. Aritmetik acilim:  `i=$(( (i + 1) % 5 ))`. Sira veya duzen `{1..10}`. String kirpmak icin `${var%suffix}` ve  `${var#prefix}` kullanin. Ornegin if `var=foo.pdf`, then `echo ${var%.pdf}.txt`  `foo.txt` yazar.
+- Bash`te birden fazla degisken genlestirme yolu vardir. Degiskenin varligini kontrol et: `${isim:?hata mesaji}`. Ornegin, eger bir bash skripti bir arguman gerektiriyorda, sadece bunu yaz `input_file=${1:?usage: $0 input_file}`. Eger bir degisken bos ise öndeğer kullanmak icin `${name:-öndeğer}` kullanin. Eger opsiyonel olarak bir parametre eklemek isterseniz `output_file=${2:-logfile}` i kullanin. Aritmetik acilim:  `i=$(( (i + 1) % 5 ))`. Sira veya duzen `{1..10}`. String kirpmak icin `${var%suffix}` ve  `${var#prefix}` kullanin. Ornegin if `var=foo.pdf`, then `echo ${var%.pdf}.txt`  `foo.txt` yazar.
 
 
 - Kaşlı ayraç  `{`...`}`  ayni seyleri yazmayi azaltir ve bazi ogelerin kombinasyonunu kolaylastirir. Ornegin  `mv foo.{txt,pdf} some-dir` (iki dosyayi da tasir), `cp somefile{,.bak}` (genislemis hali `cp somefile somefile.bak`) veya `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (bu komut genisler ve seceneklerdeki kombinasyonlar ile dizinleri olusturur).
@@ -156,7 +158,7 @@ Kati modlari kullanmaniz tavsiye edilir kesinlikle. Hatalarda iptal etmek icin `
 - Ekrani coklamak icin `screen` veya [`tmux`](https://tmux.github.io/)i kullanin. Ozellikle uzak oturumlarda oturum acmak, baglamak ve koparmak icin faydalidir. `byobu`u kullanabilirsiniz gelişmiş ekran kolay yonetim icin. Daga minimal alternatif icin oturum dayanıklı icin [`dtach`](https://github.com/bogner/dtach).
 
 
--ssh te tunel port icin  `-L` ve `-D` (ve bazilari `-R`) faydalidir. Uzak dağıtıcı(server)daki web sitelerine ulasmak bir ornek olarak gosterilebilir.
+- ssh te tunel port icin  `-L` ve `-D` (ve bazilari `-R`) faydalidir. Uzak dağıtıcı(server)daki web sitelerine ulasmak bir ornek olarak gosterilebilir.
 
 - ssh konfigurasyonunu eniyileme icin bir kac degisiklik yapmak onerilir; Ornegin,  `~/.ssh/config` ta bazi ag cevrelinde baglanti kopuklugunu onlemek icin ayarlar bulunur. Sıkıştırma(kompres) (bant baglantilarinda scp kullanmada faydalidir), ve  kanallarinda multiplex(coklama) yapar ayni vericiye:
 ```
@@ -181,7 +183,7 @@ Kati modlari kullanmaniz tavsiye edilir kesinlikle. Hatalarda iptal etmek icin `
 
 - Komut verilerinden sonra(mesela `git`) dosyalar ile etkilesim icin `fpp`  ([PathPicker](https://github.com/facebook/PathPicker)) kullanin.
 
--Basit bir web sunucusu icin `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) ve `python -m http.server 7777` (for port 7777 and Python 3). Bu sunucu bulunmus oldugunuz dizin ve butun alt dizinleri icin sunucu olusturur kendi networkunuzdakiler icin.
+- Basit bir web sunucusu icin `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) ve `python -m http.server 7777` (for port 7777 and Python 3). Bu sunucu bulunmus oldugunuz dizin ve butun alt dizinleri icin sunucu olusturur kendi networkunuzdakiler icin.
 
 - Baska bir kullanici olarak komut calistirmak icin `sudo`yu kullanin. Root(kok) olarak kulanabileceginiz kullanabilceginiz on degerler; `-u` baska bir kullanici belirtmek icin. `-i` baska bir kullanici icin giris yapmak icin (sifreniz sorulacaktir).
 
@@ -196,7 +198,7 @@ Kati modlari kullanmaniz tavsiye edilir kesinlikle. Hatalarda iptal etmek icin `
 ```
 
 
-## Dosya ve Bilgi İşleme
+## Dosyaları ve verileri işleme
 
 - Bulunmus oldugunuz dizinde dosyalari isme gore aramak icin `find . -iname '*something*'` i kullanin. Herhangi bir yerde dosya bulmak icin `locate bir-dosya` kullanin(`updatedb` nin guncel olmadigini da goz onunde bulundurmaniz gerekebilir.)
 
@@ -292,82 +294,86 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
    setfacl --restore=permissions.txt
 ```
 
-## System debugging
+## Sistem hata ayıklama
 
-- For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jkbrzt/httpie).
+- Web'de hata ayıklama için, `curl` ve` curl -I` kullanışlı ya da `wget` eşdeğerleri veya daha modern [` httpie`] (https://github.com/jkbrzt/httpie).
 
-- To know current cpu/disk status, the classic tools are `top` (or the better `htop`), `iostat`, and `iotop`. Use `iostat -mxz 15` for basic CPU and detailed per-partition disk stats and performance insight.
+- Mevcut cpu / disk durumunu bilmek için, klasik araçlar `üst` (veya daha iyi `htop`), `iostat` ve` iotop`. Temel CPU ve ayrıntılı bölüm başına disk istatistikleri ve performans bilgisi için `iostat -mxz 15` kullanın.
 
-- For network connection details, use `netstat` and `ss`.
+- Ağ bağlantısı detayları için `netstat` ve` ss` kullanın.
 
-- For a quick overview of what's happening on a system, `dstat` is especially useful. For broadest overview with details, use [`glances`](https://github.com/nicolargo/glances).
-
-- To know memory status, run and understand the output of `free` and `vmstat`. In particular, be aware the "cached" value is memory held by the Linux kernel as file cache, so effectively counts toward the "free" value.
-
-- Java system debugging is a different kettle of fish, but a simple trick on Oracle's and some other JVMs is that you can run `kill -3 <pid>` and a full stack trace and heap summary (including generational garbage collection details, which can be highly informative) will be dumped to stderr/logs. The JDK's `jps`, `jstat`, `jstack`, `jmap` are useful. [SJK tools](https://github.com/aragozin/jvm-tools) are more advanced.
-
-- Use [`mtr`](http://www.bitwizard.nl/mtr/) as a better traceroute, to identify network issues.
-
-- For looking at why a disk is full, [`ncdu`](https://dev.yorhel.nl/ncdu) saves time over the usual commands like `du -sh *`.
-
-- To find which socket or process is using bandwidth, try [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs).
-
-- The `ab` tool (comes with Apache) is helpful for quick-and-dirty checking of web server performance. For more complex load testing, try `siege`.
-
-- For more serious network debugging, [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), or [`ngrep`](http://ngrep.sourceforge.net/).
-
-- Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
-
-- Know about `ldd` to check shared libraries etc.
-
-- Know how to connect to a running process with `gdb` and get its stack traces.
-
-- Use `/proc`. It's amazingly helpful sometimes when debugging live problems. Examples: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cwd`, `/proc/xxx/exe`, `/proc/xxx/fd/`, `/proc/xxx/smaps` (where `xxx` is the process id or pid).
-
-- When debugging why something went wrong in the past, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) can be very helpful. It shows historic statistics on CPU, memory, network, etc.
-
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux)), and [`sysdig`](https://github.com/draios/sysdig).
-
-- Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
-
-- Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
-
-- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process:
-`lsof | grep deleted | grep "filename-of-my-big-file"`
+- Bir sistemde olup bitenlere hızlı bir genel bakış için, `dstat` özellikle kullanışlıdır. Ayrıntılarla en geniş genel bakış için [`glances(bakışlar)`] (https://github.com/nicolargo/glances) kullanın.
 
 
-## One-liners
+- Bellek durumunu öğrenmek için, `free` ve` vmstat` çıktılarını çalıştırın ve anlayın. Özellikle, "cached(önbelleklenmiş)" değerin, Linux çekirdeği tarafından dosya önbellek olarak tutulduğunun ve dolayısıyla "özgür" değere etkili sayıldığının farkında olun.
 
-A few examples of piecing together commands:
+- Java sistem hata ayıklama, farklı bir su ısıtıcısıdır, ancak Oracle ve diğer bazı JVM'lerdeki basit bir hile, `kill -3 <pid>` komutunu ve bir tam yığın izi ve yığın özetini (nesil çöp toplama ayrıntıları dahil olmak üzere) çalıştırabilirsiniz. Son derece bilgilendirici olmak için) stderr / logs'a boşaltılacaktır. JDK'nın `jps`,` jstat`, `jstack`,` jmap` faydalıdır. [SJK araçları] (https://github.com/aragozin/jvm-tools) daha gelişmiş.
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
-```sh
+- Ağ sorunlarını tanımlamak için daha iyi bir traceroute olarak [`mtr`](http://www.bitwizard.nl/mtr/) kullanın.
+
+
+- Bir diskin dolu olduğunu görmek için, [`ncdu`] (https://dev.yorhel.nl/ncdu),` du -sh * `gibi zamanki komutların üzerine zaman kazandırır.
+
+
+- Hangi yuvanın veya işlemin bant genişliği kullandığını bulmak için [`iftop`] (http://www.ex-parrot.com/~pdw/iftop/) veya [` nethogs`] (https://github.com/raboof/nethogs).
+
+- `ab` aracı (Apache ile birlikte gelir) web sunucusu performansının hızlı ve kirli kontrolü için yardımcı olur. Daha karmaşık yük testleri için `kuşatma 'deneyin.
+
+- Daha ciddi ağ hata ayıklaması için, [`wireshark`] (https://wireshark.org/), [` tshark`] (https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) veya [` Ngrep`] (http://ngrep.sourceforge.net/).
+
+- "strace" ve "ltrace" hakkında bilgi edinin. Bunlar, bir program başarısız, asılı veya kilitleniyorsa ve nedenini bilmiyorsanız veya performans hakkında genel bir fikir edinmek istiyorsanız yararlı olabilir. Profiling seçeneğini (`-c`) ve çalışan bir işleme (` -p`) yapabilme kabiliyetine dikkat edin.
+
+- Paylaşılan kitaplıkları vb. Kontrol etmek için `ldd` hakkında bilgi sahibi olun.
+
+- Çalışan bir işleme "gdb" ile nasıl bağlanacağınızı ve yığın izlerini nasıl elde edeceğinizi bilin.
+
+- `/proc` kullanın. Canlı sorunları ayıklarken inanılmaz derecede yararlıdır. Örnekler: `/ proc / cpuinfo`,` / proc / meminfo`, `/ proc / cmdline`,` / proc / xxx / cwd`, ​​`/ proc / xxx / exe`,` / proc / xxx / fd / ` , `/ Proc / xxx / smaps` (burada` xxx` süreç id veya pid'dir).
+
+- Geçmişte bir şeylerin neden ters gittiğini hata ayıklarken, [`sar`] (http://sebastien.godard.pagesperso-orange.fr/) çok yardımcı olabilir. CPU, bellek, ağ vb. Ile ilgili tarihi istatistikleri gösterir.
+
+- Daha derin sistemler ve performans analizleri için `stap` ([SystemTap] (https://sourceware.org/systemtap/wiki)), [` perf`] (https://en.wikipedia.org/wiki/Perf_) (Linux)) ve [`sysdig`] (https://github.com/draios/sysdig).
+- `uname` veya` uname -a` (genel Unix / çekirdek bilgisi) veya `lsb_release -a` (Linux dağıtım bilgisi) ile hangi işletim sisteminde olduğunuzu kontrol edin.
+
+- Bir şey gerçekten komik bir sekilde vakit geçirirse (donanım veya sürücü sorunları olabilir) 'dmesg' kullanın.
+
+- Bir dosyayı silerseniz ve beklenen disk alanını `du` tarafından bildirildiği şekilde boşa çıkarmazsa dosyanın bir süreç tarafından kullanılıp kullanılmadığını kontrol edin:
+Lsof | Grep silindi | Grep "dosyaismi-of-my-big-file" `
+
+
+## TekGömlekler
+
+Komutları birbirine eklemeye ilişkin birkaç örnek:
+
+- Bazen bazen, `sort`/`uniq` ile kesişim, birleşim ve metin dosyaları farkını ayarlayabilmeniz son derece yararlıdır.`a` ve `b`'nin benzersiz metin dosyaları olduğunu varsayalım. Bu hızlıdır ve keyfi büyüklükteki dosyalar üzerinde, birçok gigabayta kadar çalışır. (Sort, bellek ile sınırlandırılmaz, ancak `/ tmp` küçük bir kök bölümündeyse` -T` seçeneğini kullanmanız gerekebilir.) Yukarıdaki `LC_ALL` ve` sort`` -u` seçeneği hakkındaki nota da bakınız (aşağıda netlik için dışarıda bırakılmıştır).
+
+- ```sh
       cat a b | sort | uniq > c   # c is a union b
       cat a b | sort | uniq -d > c   # c is a intersect b
       cat a b b | sort | uniq -u > c   # c is set difference a - b
 ```
 
-- Use `grep . *` to quickly examine the contents of all files in a directory (so each line is paired with the filename), or `head -100 *` (so each file has a heading). This can be useful for directories filled with config settings like those in `/sys`, `/proc`, `/etc`.
 
+- `grep . *`'i kullanin. Bir dizindeki tüm dosyaların içeriğini hızlı bir şekilde incelemek için (böylece her satır dosya ismi ile eşleştirilir) veya `head -100 *` (böylece her dosyanın bir başlığı vardır). Bu, `/ sys`,` / proc`, `/ etc` gibi yapılandırma ayarları ile dolu dizinler için yararlı olabilir.
 
-- Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
-```sh
+- Metin dosyasının üçüncü sütunundaki tüm sayıların toplanması (bu muhtemelen Python'dan 3 kat daha hızlı ve 3 kat daha az koddur):
+- ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
-- To see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+- Bir ağaç dosyasında boyutları / tarihleri ​​görmek için, özyinelemeli `ls -l` gibidir ancak` ls -lR`'den daha okunması daha kolaydır:
 ```sh
       find . -type f -ls
 ```
 
-- Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
+- Bir web sunucusu günlüğü gibi bir metin dosyanıza ve URL'de bulunan bir 'acct_id' parametresi gibi bazı satırlarda görünen belirli bir değere sahip olduğunuzu varsayalım. Her `acct_id` için kaç tane istekte bulunacağını öğrenmek isterseniz:
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- To continuously monitor changes, use `watch`, e.g. check changes to files in a directory with `watch -d -n 2 'ls -rtlh | tail'` or to network settings while troubleshooting your wifi settings with `watch -d -n 2 ifconfig`.
 
-- Run this function to get a random tip from this document (parses Markdown and extracts an item):
+- Değişiklikleri sürekli izlemek için, örneğin `watch` i kullanın; ör. `watch -d -n 2 'ls -rtlh | tail'` ile bir dizinde bulunan dosyalardaki değişiklikleri kontrol edin veya ağ ayarlarına girip `watch -d -n 2 ifconfig` ile wifi ayarlarınızı gidermek.
+
+- Bu dokümandan rastgele bir ipucu almak için bu işlevi çalıştırın (Markdown'ı ayrıştırır ve bir öğe çıkarır):
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -379,215 +385,199 @@ A few examples of piecing together commands:
 ```
 
 
-## Obscure but useful
+## Belirsiz ama kullanışlı
 
-- `expr`: perform arithmetic or boolean operations or evaluate regular expressions
+- `expr ': aritmetik veya boolean işlemleri gerçekleştirir veya normal ifadeleri değerlendirir
 
-- `m4`: simple macro processor
+- `m4`: basit makro işlemci
 
-- `yes`: print a string a lot
+- `yes': bir dize çok yazdır
 
-- `cal`: nice calendar
+- `cal`: güzel takvim
 
-- `env`: run a command (useful in scripts)
+- `env`: bir komut çalıştır (komut dosyalarında kullanışlı)
 
-- `printenv`: print out environment variables (useful in debugging and scripts)
+- `printenv`: ortam değişkenlerini basar (hata ayıklamada ve komut dosyalarında kullanışlıdır)
 
-- `look`: find English words (or lines in a file) beginning with a string
+- `look`: bir dize ile başlayan İngilizce kelimeleri (veya bir dosyadaki satırları) bulmak
 
-- `cut`, `paste` and `join`: data manipulation
+- `cut`,` paste` ve `join`: veri işleme
 
-- `fmt`: format text paragraphs
+- `fmt`: metin paragraflarını formatla
 
-- `pr`: format text into pages/columns
+- `pr`: metni sayfalara / sütunlara formatlar
 
-- `fold`: wrap lines of text
+- `fold`: metnin satırlarını sarar
 
-- `column`: format text fields into aligned, fixed-width columns or tables
+- `column`: metin alanlarını hizalanmış, sabit genişlikli sütunlara veya tablolara formatlar
 
-- `expand` and `unexpand`: convert between tabs and spaces
+- `expand` ve `unexpand`: sekmeler ve boşluklar arasında dönüştürme
 
-- `nl`: add line numbers
+- `nl`: satır numaralarını ekleme
 
-- `seq`: print numbers
+- `seq`: Numaraları yaz
 
-- `bc`: calculator
+- `bc`: hesap makinesi
 
-- `factor`: factor integers
+- `factor`: Faktör tamsayıları
 
-- [`gpg`](https://gnupg.org/): encrypt and sign files
+- [`gpg`](https://gnupg.org/): Dosyaları şifrelemek ve imzalamak
 
-- `toe`: table of terminfo entries
+- `toe`: Terminfo girişleri tablosu
 
-- `nc`: network debugging and data transfer
+- `nc`: Ağ hata ayıklama ve veri aktarımı
 
-- `socat`: socket relay and tcp port forwarder (similar to `netcat`)
+- `socat`: Soket rölesi ve tcp port iletici (`netcat`'e benzer)
 
-- [`slurm`](https://github.com/mattthias/slurm): network traffic visualization
+- [`slurm`](https://github.com/mattthias/slurm): Ağ trafiği görselleştirme
 
-- `dd`: moving data between files or devices
 
-- `file`: identify type of a file
+- `dd`: Dosya veya cihaz arasında veri taşıma
 
-- `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
+- `file`: Dosya türünü saptamak
 
-- `stat`: file info
+- `tree`: Dizinleri ve alt dizinleri yuvalanmış bir ağaç olarak görüntüleyin; `ls` gibi ama yinelemeli
 
-- `time`: execute and time a command
+- `stat`: Dosya bilgisi
 
-- `timeout`: execute a command for specified amount of time and stop the process when the specified amount of time completes.
+- `time`: Bir komut yürütmek ve zamanlama
 
-- `lockfile`: create semaphore file that can only be removed by `rm -f`
+- `timeout`: Belirtilen süre kadar bir komutu çalıştırın ve belirtilen süre dolduğunda işlemi durdurun.
+- `lockfile`: Sadece `rm -f` ile kaldırılabilen semafor dosyası yarat
+- `logrotate`: Döndürme, sıkıştırma ve postaları posta ile gönderme.
 
-- `logrotate`: rotate, compress and mail logs.
+- `watch`: Sonuçlar ve / veya değişiklikleri vurgulayarak, bir komut tekrar tekrar çalıştırın
 
-- `watch`: run a command repeatedly, showing results and/or highlighting changes
 
-- `tac`: print files in reverse
+- `tac`: Dosyaları tersine yazdır
 
-- `shuf`: random selection of lines from a file
+- `shuf`: Bir dosyadan satırların rasgele seçilmesi
 
-- `comm`: compare sorted files line by line
+- `comm`: Sıralanmış dosyaları sırayla karşılaştır
 
-- `pv`: monitor the progress of data through a pipe
+- `pv`: Verilerin bir borudan ilerlemesini izleyin
 
-- `strings`: extract text from binary files
+- `strings`: Ikili dosyalardan metin çıkarmak
 
-- `tr`: character translation or manipulation
+- `tr`: Karakter çevirisi veya manipülasyon
 
-- `iconv` or `uconv`: conversion for text encodings
+- `iconv` or `uconv`: Metin kodlamaları için dönüşüm
 
-- `split` and `csplit`: splitting files
+- `split` ve `csplit`: Bölme dosyaları
 
-- `sponge`: read all input before writing it, useful for reading from then writing to the same file, e.g., `grep -v something some-file | sponge some-file`
 
-- `units`: unit conversions and calculations; converts furlongs per fortnight to twips per blink (see also `/usr/share/units/definitions.units`)
+- `sponge`: Yazmadan önce tüm girdileri okuyun, sonra aynı dosyaya okumak için yararlıdır,ornek: `grep -v something some-file | sponge some-file`
 
-- `apg`: generates random passwords
+- `units`: Birim dönüşümleri ve hesaplamaları; İki haftada bir göz kırptığında göz kırpmalarına kadar bitki tellerine dönüşür (bkz. `/ Usr / share / units / definitions.units`)
 
-- `xz`: high-ratio file compression
+- `apg`: Rasgele şifreler üretir
 
-- `ldd`: dynamic library info
+- `xz`: Yüksek oranlı dosya sıkıştırma
 
-- `nm`: symbols from object files
+- `ldd`: Dinamik kitaplık info
 
-- `ab`: benchmarking web servers
+- `nm`: Nesne dosyalarından semboller
 
-- `strace`: system call debugging
+- `ab`: Karşılaştırma web sunucuları
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): better traceroute for network debugging
+- `strace`: Hata ayıklama sistemi çağrısı
 
-- `cssh`: visual concurrent shell
+- [`mtr`](http://www.bitwizard.nl/mtr/): Ağ hata ayıklama için daha iyi traceroute
+- `cssh`: Görsel eşzamanlı kabuk
 
-- `rsync`: sync files and folders over SSH or in local file system
+- `rsync`: SSH üzerinden veya yerel dosya sisteminde dosyaları ve klasörleri senkronize edin
 
-- [`wireshark`](https://wireshark.org/) and [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): packet capture and network debugging
+- [`wireshark`](https://wireshark.org/) vw [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): Paket yakalama ve ağ hata ayıklama
+- [`ngrep`](http://ngrep.sourceforge.net/): Ağ katmanı için grep
 
-- [`ngrep`](http://ngrep.sourceforge.net/): grep for the network layer
+- `host` ve `dig`: DNS aramaları
 
-- `host` and `dig`: DNS lookups
+- `lsof`: Süreç dosya tanımlayıcısı ve soket bilgisi
+- `dstat`: Kullanışlı sistem istatistikleri
 
-- `lsof`: process file descriptor and socket info
+- [`glances`](https://github.com/nicolargo/glances): Yüksek seviye, çoklu alt sisteme genel bakış
+- `iostat`: Disk kullanım istatistikleri
 
-- `dstat`: useful system stats
+- `mpstat`: CPU kullanımı istatistikleri
 
-- [`glances`](https://github.com/nicolargo/glances): high level, multi-subsystem overview
+- `vmstat`: Bellek kullanım istatistikleri
 
-- `iostat`: Disk usage stats
+- `htop`: Üstün gelişmiş versiyonu
 
-- `mpstat`: CPU usage stats
+- `last`: Giriş geçmişi
 
-- `vmstat`: Memory usage stats
+- `w`: Kim oturum açmış?
 
-- `htop`: improved version of top
+- `id`: Kullanıcı / grup kimlik bilgisi
 
-- `last`: login history
+- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): Tarihi sistem istatistikleri
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) veya [`nethogs`](https://github.com/raboof/nethogs): Soket veya işlemle ağ kullanımı
+- `ss`: Yuva istatistikleri
 
-- `w`: who's logged on
+- `dmesg`: Önyükleme ve sistem hata iletileri
 
-- `id`: user/group identity info
+- `sysctl`: Çalışma zamanında Linux çekirdeği parametrelerini görüntüleme ve yapılandırma
 
-- [`sar`](http://sebastien.godard.pagesperso-orange.fr/): historic system stats
+- `hdparm`: SATA / ATA disk manipülasyonu / performansı
 
-- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) or [`nethogs`](https://github.com/raboof/nethogs): network utilization by socket or process
+- `lsblk`: Blok aygıtları listele: disklerinizin ve disk bölümlerinin ağaç görünümü
+- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: CPU, BIOS, RAID, grafik, aygıtlar vb. Dahil olmak üzere donanım bilgileri.
 
-- `ss`: socket statistics
+- `lsmod` vw `modinfo`: Çekirdek modüllerinin detaylarını listeleme ve gösterme.
 
-- `dmesg`: boot and system error messages
+- `fortune`, `ddate`, vw `sl`: Um, bu, buhar lokomotiflerini mi yoksa Zippy tekliflerini "faydalı" mı düşününce,
 
-- `sysctl`: view and configure Linux kernel parameters at run time
+## Yalnızca OS X
 
-- `hdparm`: SATA/ATA disk manipulation/performance
+Bunlar, OS X'de *yalnızca* ilgili öğelerdir.
 
-- `lsblk`: list block devices: a tree view of your disks and disk partitions
+- `brew` (Homebrew) ve / veya `port` (MacPorts) ile paket yönetimi. Bunlar, OS X'de yukarıdaki komutların birçoğunu yüklemek için kullanılabilir.
 
-- `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
+- Herhangi bir komutun çıktısını `pbcopy` ile bir masaüstü uygulamasına kopyalayın ve` pbpaste` ile girdiyi yapıştırın.
 
-- `lsmod` and `modinfo`: List and show details of kernel modules.
+- OS X Terminalinde Option tuşunu bir alt anahtar olarak etkinleştirmek için (örneğin yukarıdaki komutlarda ** alt-b **, ** alt-f **, vb. Gibi) Tercihler -> Tercihler -> Klavye'yi açın Ve "Meta tuş olarak Seçeneği Kullan" ı seçin.
 
-- `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+- Bir masaüstü uygulaması olan bir dosyayı açmak için `open` veya` open -a/Applications/Whatever.app` kullanın.
 
+- Spotlight: `mdfind` ile dosyaları arayın ve` mdls` ile meta verileri (fotoğraf EXIF ​​bilgisi gibi) listeleyin.
 
-## OS X only
+- OS X'in BSD Unix'e dayandığını ve birçok komutun (örneğin `ps`,` ls`, `tail`,` awk`, `sed`) Linux'un, System V'ten büyük oranda etkilenen birçok ince varyasyona sahip olduğunu unutmayın. - Unix ve GNU araçlarını biçimlendirin. Aradaki farkı, "BSD Genel Komutları El Kitabı" başlığına sahip bir sayfaya dikkat ederek söyleyebilirsiniz. Bazı durumlarda GNU sürümleri de kurulabilir (GNU awk ve sed için `gawk` ve` gsed` gibi). Çapraz platform Bash komut dosyaları yazıyorsanız, bu tür komutlardan kaçının (örneğin, Python veya `perl`'ı düşünün) veya dikkatli bir şekilde test edin.
+- OS X sürüm bilgisi edinmek için `sw_vers` kullanın.
 
-These are items relevant *only* on OS X.
+## Yalnızca Windows
 
-- Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on OS X many of the above commands.
+=Bunlar, Windows'ta *yalnızca* ilgili öğelerdir.
 
-- Copy output of any command to a desktop app with `pbcopy` and paste input from one with `pbpaste`.
+- Windows 10'da, Unix komut satırı yardımcı programlarıyla tanıdık bir Bash ortamı sağlayan [Windows'da Ubuntu'da Bash] (https://msdn.microsoft.com/commandline/wsl/about) kullanabilirsiniz. Artı tarafta, Linux programları Windows'ta çalışmasına izin verir. Öte yandan, bu, Bash isteminden Windows programlarının çalışmasını desteklemez.
+- [Cygwin] (https://cygwin.com/) yükleyerek Microsoft Windows altında Unix kabuğunun gücüne erişin. Bu belgede açıklanan şeylerin çoğu kutudan çıkmaz.
 
-- To enable the Option key in OS X Terminal as an alt key (such as used in the commands above like **alt-b**, **alt-f**, etc.), open Preferences -> Profiles -> Keyboard and select "Use Option as Meta key".
+- Cygwin'in paket yöneticisi ile birlikte ek Unix programları yükleyin.
+- Komut satırı pencereniz olarak `mintty` kullanın.
 
-- To open a file with a desktop app, use `open` or `open -a /Applications/Whatever.app`.
+- Windows panosuna '/ dev / clipboard` ile erişin.
+- Kayıtlı uygulaması aracılığıyla keyfi bir dosya açmak için `cygstart` çalıştırın.
+- Windows kayıt defterine 'regtool' ile erişin.
+- Windows yolunun `C: \` kısmı Cygwin'de `/ cygdrive / c` olur ve Cygwin'in` / `harfleri Windows'ta` C: \ cygwin` altında göründüğünü unutmayın. `Cygpath` ile Cygwin ve Windows tarzı dosya yolları arasında dönüştürme yapın. Bu, Windows programlarını çalıştıran komut dosyalarında en kullanışlıdır.
 
-- Spotlight: Search files with `mdfind` and list metadata (such as photo EXIF info) with `mdls`.
+- Windows sistem yönetim görevlerinin çoğunu komut satırından öğrenebilir ve `wmic` kullanarak komut verebilirsiniz.
+- Unix'in Windows altında görünmesini sağlamak için bir başka seçenek de [Cash] (https://github.com/dthree/cash). Bu ortamda yalnızca çok az sayıda Unix komutunun ve komut satırı seçeneğinin kullanılabileceğini unutmayın.
+- Windows'da GNU geliştirici araçlarını (GCC gibi) almak için alternatif bir seçenek [MinGW] (http://www.mingw.org/) ve onun [MSYS] (http://www.mingw.org/wiki/msys ) Paketi, bash, gawk, make ve grep gibi araçlara sahiptir. MSYS, Cygwin'e kıyasla tüm özelliklere sahip değildir. MinGW, özellikle yerel Windows bağlantı noktaları Unix araçları oluşturmak için kullanışlıdır.
+## Daha fazla kaynak
 
-- Be aware OS X is based on BSD Unix, and many commands (for example `ps`, `ls`, `tail`, `awk`, `sed`) have many subtle variations from Linux, which is largely influenced by System V-style Unix and GNU tools. You can often tell the difference by noting a man page has the heading "BSD General Commands Manual." In some cases GNU versions can be installed, too (such as `gawk` and `gsed` for GNU awk and sed). If writing cross-platform Bash scripts, avoid such commands (for example, consider Python or `perl`) or test carefully.
+- [awesome-shell](https://github.com/alebcay/awesome-shell):Kılıflandırılmış kabuk araçları ve kaynakları listesi
+-  [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): AOS X komut satırı için daha ayrıntılı rehber.
+- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) Daha iyi kabuk komut dosyaları yazmak için
+- [shellcheck](https://github.com/koalaman/shellcheck):Bir kabuk komut dosyası statik analiz aracı. Esasen, bash / sh / zsh için lint.
+- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): Kabuk betiklerinde dosya adlarını doğru şekilde işleme konusunda ne yazık ki karmaşık ayrıntılar.
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): Aynı adı taşıyan kitaptan veri bilimi yapmak için yardımcı olan daha fazla komut ve araçlar
 
-- To get OS X release information, use `sw_vers`.
+## Feragatname
 
-## Windows only
+Çok küçük görevler haricinde kod başkalarının okuyabilmesi için yazılmıştır. Güç ile birlikte sorumluluk gelir. Bash'de *bir şey yapabildiğinin*, mutlaka yapmanız gerektiği anlamına gelmez! ;)
 
-These items are relevant *only* on Windows.
 
-- On Windows 10, you can use [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about), which provides a familiar Bash environment with Unix command line utilities. On the plus side, this allows Linux programs to run on Windows. On the other hand this does not support the running of Windows programs from the Bash prompt.
-
-- Access the power of the Unix shell under Microsoft Windows by installing [Cygwin](https://cygwin.com/). Most of the things described in this document will work out of the box.
-
-- Install additional Unix programs with the Cygwin's package manager.
-
-- Use `mintty` as your command-line window.
-
-- Access the Windows clipboard through `/dev/clipboard`.
-
-- Run `cygstart` to open an arbitrary file through its registered application.
-
-- Access the Windows registry with `regtool`.
-
-- Note that a `C:\` Windows drive path becomes `/cygdrive/c` under Cygwin, and that Cygwin's `/` appears under `C:\cygwin` on Windows. Convert between Cygwin and Windows-style file paths with `cygpath`. This is most useful in scripts that invoke Windows programs.
-
-- You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
-
-- Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
-
-- An alternative option to get GNU developer tools (such as GCC) on Windows is [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package, which provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin. MinGW is particularly useful for creating native Windows ports of Unix tools.
-
-## More resources
-
-- [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): A more in-depth guide for the OS X command line.
-- [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
-- [shellcheck](https://github.com/koalaman/shellcheck): A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
-- [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
-- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): More commands and tools helpful for doing data science, from the book of the same name
-
-## Disclaimer
-
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
-
-
-## License
+## Lisans
 
 [![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+Bu çalışma, [Creative Commons Atıf-Benzerlik 4.0 Uluslararası Lisansı] (http://creativecommons.org/licenses/by-sa/4.0/) kapsamında lisanslanmıştır.
