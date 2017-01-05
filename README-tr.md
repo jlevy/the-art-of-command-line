@@ -1,6 +1,6 @@
-[ Diller:
-[İngilizce](README.md), [İspanyolca](README-es.md), [İtalyanca](README-it.md), [Japonca](README-ja.md), [Korece](README-ko.md), [Portekizce](README-pt.md), [Rusça](README-ru.md), [Slovakça](README-sl.md), [Ukraynaca](README-uk.md), [Çince](README-zh.md)
-]
+🌍
+*[İngilizce](README.md). [İspanyolca](README-es.md). [İtalyanca](README-it.md). [Japonca](README-ja.md). [Korece](README-ko.md). [Portekizce](README-pt.md). [Rusça](README-ru.md). [Slovakça](README-sl.md). [Turkish](README-tr.md) ∙ [Ukraynaca](README-uk.md). [Çince](README-zh.md)*
+
 
 
 # Komuta Hattı Sanatı
