@@ -1,5 +1,5 @@
 🌍
-*[İngilizce](README.md). [İspanyolca](README-es.md). [İtalyanca](README-it.md). [Japonca](README-ja.md). [Korece](README-ko.md). [Portekizce](README-pt.md). [Rusça](README-ru.md). [Slovakça](README-sl.md). [Turkish](README-tr.md) ∙ [Ukraynaca](README-uk.md). [Çince](README-zh.md)*
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) . [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Türkçe](README-tr.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 
 
