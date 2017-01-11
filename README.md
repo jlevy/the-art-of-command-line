@@ -186,6 +186,14 @@ Notes:
 
 - For interactive selection of values from the output of another command, use [`percol`](https://github.com/mooz/percol) or [`fzf`](https://github.com/junegunn/fzf).
 
+- For running the previous command with a subtle change, use a substitution with caret symbols according to the following syntax `^old^new`. Works only for the first match. Examples:
+```sh
+    git diff file1 file2
+    ^diff^add # git add file1 file2
+    echo b b c
+    ^b^a # echo a b c
+```
+
 - For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
