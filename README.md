@@ -111,7 +111,7 @@ Notes:
 
 - Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP).
 
-- See also `lsof` for open sockets and files.
+- See also `lsof` and `fuser` for open sockets and files.
 
 - See `uptime` or `w` to know how long the system has been running.
 
