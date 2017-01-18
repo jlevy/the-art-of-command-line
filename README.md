@@ -238,7 +238,7 @@ Notes:
 
 - You can set a specific command's environment by prefixing its invocation with the environment variable settings, as in `TZ=Pacific/Fiji date`.
 
-- Know basic `awk` and `sed` for simple data munging. For example, summing all numbers in the third column of a text file: `awk '{ x += $3 } END { print x }'`. This is probably 3X faster and 3X shorter than equivalent Python.
+- Know basic `awk` and `sed` for simple data munging. See One-liners section for examples.
 
 - To replace all occurrences of a string in place, in one or more files:
 ```sh
