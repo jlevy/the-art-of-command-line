@@ -260,6 +260,8 @@ Notes:
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
+- Want to see progress while copying files? Use `pv`, [`pycp`](https://github.com/dmerejkowsky/pycp), [`progress`](https://github.com/Xfennec/progress) or rsync with option: `rsync --progress`. Block-level copy tools also has the option: `dd status=progress`.
+
 - Use `shuf` to shuffle or select random lines from a file.
 
 - Know `sort`'s options. For numbers, use `-n`, or `-h` for handling human-readable numbers (e.g. from `du -h`). Know how keys work (`-t` and `-k`). In particular, watch out that you need to write `-k1,1` to sort by only the first field; `-k1` means sort according to the whole line. Stable sort (`sort -s`) can be useful. For example, to sort first by field 2, then secondarily by field 1, you can use `sort -k1,1 | sort -s -k2,2`.
@@ -451,8 +453,6 @@ A few examples of piecing together commands:
 - `shuf`: random selection of lines from a file
 
 - `comm`: compare sorted files line by line
-
-- `pv`: monitor the progress of data through a pipe
 
 - `strings`: extract text from binary files
 
