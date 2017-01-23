@@ -203,6 +203,15 @@ Notes:
 5
 ```
 
+- Iterate on command line arguments containing whitespace:
+
+```sh
+while [ -n "${1}" ]; do 
+  FILENAME="${1}";
+  #Do some works on "${FILENAME}"
+  shift 1;
+done; 
+```
 
 ## Processing files and data
 
@@ -253,6 +262,7 @@ Notes:
       repren --renames --from '(.*)\.bak' --to '\1' *.bak
       # Same as above, using rename, if available:
       rename 's/\.bak$//' *.bak
+      rename 's/(.*)\.bak/$1/' *.bak
 ```
 
 - As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. When security restrictions allow, using `rsync` instead of `scp` allows recovery of a transfer without restarting from scratch. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
@@ -381,6 +391,13 @@ A few examples of piecing together commands:
       }
 ```
 
+- Extract basename and extension from a given filename under bash shell without using any external commands:
+
+```sh
+FILENAME='README.1.md';
+BASENAME="${FILENAME%.*}";    # Shows "README.1"
+EXTENSION="${FILENAME##*.}";  # Shows "md"
+```
 
 ## Obscure but useful
 
