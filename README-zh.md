@@ -342,11 +342,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 一些命令组合的例子：
 
-- 当你需要对文本文件做集合交、并、差运算时，结合使用 `sort`/`uniq` 很有帮助。假设 `a` 与 `b` 是两内容不同的文件。这种方式效率很高，并且在小文件和上G的文件上都能运用 （`sort` 不被内存大小约束，尽管在 `/tmp` 在一个小的根分区上时你可能需要 `-T` 参数），参阅前文中关于 `LC_ALL` 和 `sort` 的 `-u` 参数的部分。
+- 当你需要对文本文件做集合交、并、差运算时，`sort` 和 `uniq` 会是你的好帮手。具体例子请参照代码后面的，此处假设 `a` 与 `b` 是两内容不同的文件。这种方式效率很高，并且在小文件和上 G 的文件上都能运用（注意尽管在 `/tmp` 在一个小的根分区上时你可能需要 `-T` 参数，但是实际上 `sort` 并不被内存大小约束），参阅前文中关于 `LC_ALL` 和 `sort` 的 `-u` 参数的部分。
 ```sh
-      cat a b | sort | uniq > c   # c is a union b
-      cat a b | sort | uniq -d > c   # c is a intersect b
-      cat a b b | sort | uniq -u > c   # c is set difference a - b
+      cat a b | sort | uniq > c   # c 是 a 并 b
+      cat a b | sort | uniq -d > c   # c 是 a 交 b
+      cat a b b | sort | uniq -u > c   # c 是 a - b
 ```
 
 - 使用 `grep . *`（每行都会附上文件名）或者 `head -100 *`（每个文件有一个标题）来阅读检查目录下所有文件的内容。这在检查一个充满配置文件的目录（如 `/sys`、`/proc`、`/etc`）时特别好用。
@@ -362,12 +362,12 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
       find . -type f -ls
 ```
 
-- 假设你有一个类似于 web 服务器日志文件的文本文件，并且一个确定的值只会出现在某些行上，假设一个 `acct_id` 参数在URI中。如果你想计算出每个 `acct_id` 值有多少次请求，使用如下代码：
+- 假设你有一个类似于 web 服务器日志文件的文本文件，并且一个确定的值只会出现在某些行上，假设一个 `acct_id` 参数在 URI 中。如果你想计算出每个 `acct_id` 值有多少次请求，使用如下代码：
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- 要连续地监测变化，可以使用 `watch`，例如检查某个文件夹中文件的改变，可以用 `watch -d -n 2 'ls -rtlh | tail'`；或者在排查 WiFi 设置故障时要监测网络设置的更改，可以用 `watch -d -n 2 ifconfig`。
+- 要持续监测文件改动，可以使用 `watch`，例如检查某个文件夹中文件的改变，可以用 `watch -d -n 2 'ls -rtlh | tail'`；或者在排查 WiFi 设置故障时要监测网络设置的更改，可以用 `watch -d -n 2 ifconfig`。
 
 - 运行这个函数从这篇文档中随机获取一条技巧（解析 Markdown 文件并抽取项目）：
 ```sh
