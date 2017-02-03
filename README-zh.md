@@ -385,7 +385,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `expr`：计算表达式或正则匹配
 
-- `m4`：简单地宏处理器
+- `m4`：简单的宏处理器
 
 - `yes`：多次打印字符串
 
@@ -393,19 +393,19 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `env`：执行一个命令（脚本文件中很有用）
 
-- `printenv`：打印环境变量（调试时或在使用脚本文件时很有用）
+- `printenv`：打印环境变量（调试时或在写脚本文件时很有用）
 
-- `look`：查找以特定字符串开头的单词
+- `look`：查找以特定字符串开头的单词或行
 
-- `cut`、`paste` 和 `join`：数据修改
+- `cut`，`paste` 和 `join`：数据修改
 
 - `fmt`：格式化文本段落
 
-- `pr`：将文本格式化成页/列形式
+- `pr`：将文本格式化成页／列形式
 
 - `fold`：包裹文本中的几行
 
-- `column`：将文本格式化成多列或表格
+- `column`：将文本格式化成多个对齐、定宽的列或表格
 
 - `expand` 和 `unexpand`：制表符与空格之间转换
 
@@ -419,13 +419,13 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [`gpg`](https://gnupg.org/)：加密并签名文件
 
-- `toe`：terminfo entries 列表
+- `toe`：terminfo 入口列表
 
 - `nc`：网络调试及数据传输
 
 - `socat`：套接字代理，与 `netcat` 类似
 
-- [`slurm`](https://github.com/mattthias/slurm)：网络可视化
+- [`slurm`](https://github.com/mattthias/slurm)：网络流量可视化
 
 - `dd`：文件或设备间传输数据
 
@@ -443,7 +443,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `logrotate`： 切换、压缩以及发送日志文件
 
-- `watch`：重复运行同一个命令，展示结果并高亮有更改的部分
+- `watch`：重复运行同一个命令，展示结果并／或高亮有更改的部分
 
 - `tac`：反向输出文件
 
@@ -453,13 +453,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `pv`：监视通过管道的数据
 
-- `hd`，`hexdump`，`xxd`，`biew` 和 `bvi`：保存或编辑二进制文件
-
 - `strings`：从二进制文件中抽取文本
 
 - `tr`：转换字母
 
-- `iconv` 或 `uconv`：简易的文件编码
+- `iconv` 或 `uconv`：文本编码转换
 
 - `split` 和 `csplit`：分割文件
 
@@ -475,9 +473,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `nm`：提取 obj 文件中的符号
 
-- `ab`：性能分析 web 服务器
+- `ab`：web 服务器性能分析
 
-- `strace`：系统调用调试
+- `strace`：调试系统调用
 
 - [`mtr`](http://www.bitwizard.nl/mtr/)：更好的网络调试跟踪工具
 
@@ -513,7 +511,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [`sar`](http://sebastien.godard.pagesperso-orange.fr/)：系统历史数据
 
-- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或 [`nethogs`](https://github.com/raboof/nethogs)：套接字及进程的网络利用
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或 [`nethogs`](https://github.com/raboof/nethogs)：套接字及进程的网络利用情况
 
 - `ss`：套接字数据
 
