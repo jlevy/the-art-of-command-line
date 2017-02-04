@@ -1,7 +1,7 @@
 <div dir=rtl>
 <p>🌍
 <em><a href="README-cs.md">Čeština</a> ∙ <a href="README-de.md">Deutsch</a> ∙ <a href="README-el.md">Ελληνικά</a> ∙ <a href="README.md">English</a> ∙ <a href="README-es.md">Español</a> ∙ <a href="README-fr.md">Français</a> ∙ <a href="README-he.md">עברית</a> ∙ <a href="README-id.md">Indonesia</a> ∙ <a href="README-it.md">Italiano</a> ∙ <a href="README-ja.md">日本語</a> ∙ <a href="README-ko.md">한국어</a> ∙ <a href="README-pt.md">Português</a> ∙ <a href="README-ro.md">Română</a> ∙ <a href="README-ru.md">Русский</a> ∙ <a href="README-sl.md">Slovenščina</a> ∙ <a href="README-uk.md">Українська</a> ∙ <a href="README-zh.md">简体中文</a> ∙ <a href="README-zh-Hant.md">繁體中文</a></em></p>
-<p>#האומנות שבשורת הפקודה</p>
+<h1>#האומנות שבשורת הפקודה</h1>
 <p><a href="https://airtable.com/shrzMhx00YiIVAWJg"><img src="https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg" alt="שאל שאלה"></a></p>
 <p><a href="https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="הצטרף לצאט https://gitter.im/jlevy/the-art-of-command-line"></a></p>
 <ul>
