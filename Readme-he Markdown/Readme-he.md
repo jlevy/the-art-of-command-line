@@ -3,7 +3,7 @@
 
 
 
-#האומנות שבשורת הפקודה
+# האומנות שבשורת הפקודה
 
 [![שאל שאלה](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
 
