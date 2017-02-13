@@ -67,7 +67,7 @@ Notes:
 
 - Basic file management: `ls` and `ls -l` (in particular, learn what every column in `ls -l` means), `less`, `head`, `tail` and `tail -f` (or even better, `less +F`), `ln` and `ln -s` (learn the differences and advantages of hard versus soft links), `chown`, `chmod`, `du` (for a quick summary of disk usage: `du -hs *`). For filesystem management, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Learn what an inode is (`ls -i` or `df -i`).
 
-- Basic network management: `ip` or `ifconfig`, `dig`.
+- Basic network management: `ip` or `ifconfig`, `dig`, `traceroute`, `route`.
 
 - Learn and use a version control management system, such as `git`.
 
