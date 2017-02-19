@@ -35,63 +35,63 @@
 
 涵盖范围：
 
-- 这篇文章对刚接触命令行的新手，以及具有命令行使用经验的人都有用处。本文致力于做到*覆盖面广*（尽量包括一切重要的内容），*具体*（给出最常见的具体的例子），以及*简洁*（避免不必要的，或是可以在其他地方轻松查到的细枝末节）。每个技巧在特定情境下或是基本的，或是能显著节约时间。
-- 本文为 Linux 所写，除了[仅限 OS X 系统](#仅限-os-x-系统)和[仅限 Windows 系统](#仅限-windows-系统)的部分。其它节中的大部分内容都适用于其它 Unix 系统或 OS X，甚至 Cygwin。
-- 本文关注于交互式 Bash，尽管很多技巧也适用于其他 shell 或 Bash 脚本。
-- 本文包括了“标准的”Unix 命令和需要安装特定包的命令，只要它们足够重要。
+- 这篇文章不仅能帮助刚接触命令行的新手，而且对具有经验的人也大有裨益。本文致力于做到*覆盖面广*（涉及所有重要的内容），*具体*（给出具体的最常用的例子），以及*简洁*（避免冗余的内容，或是可以在其他地方轻松查到的细枝末节）。在特定应用场景下，本文的内容属于基本功或者能帮助您节约大量的时间。
+- 本文主要为 Linux 所写，但在[仅限 OS X 系统](#仅限-os-x-系统)章节和[仅限 Windows 系统](#仅限-windows-系统)章节中也包含有对应操作系统的内容。除去这两个章节外，其它的内容大部分均可在其他类 Unix 系统或 OS X，甚至 Cygwin 中得到应用。
+- 本文主要关注于交互式 Bash，但也有很多技巧可以应用于其他 shell 和 Bash 脚本当中。
+- 除去“标准的”Unix 命令，本文还包括了一些依赖于特定软件包的命令（前提是它们具有足够的价值）。
 
 注意事项：
 
-- 为了能在一页内展示尽量多的东西，一些具体的信息会被间接地包含在引用页里。聪明机智的你，如果掌握了使用 Google 搜索引擎的基本思路与命令，那么你将可以查阅到更多的详细信息。使用 `apt-get`，`yum`，`dnf`，`pacman`，
-`pip` 或 `brew`（以及其它合适的包管理器）来安装新程序。
-- 使用 [Explainshell](http://explainshell.com/) 去获取相关命令、参数、管道等内容的解释。
+- 为了能在一页内展示尽量多的东西，一些具体的信息可以在引用的页面中找到。我们相信机智的你知道如何使用 Google 或者其他搜索引擎来查阅到更多的详细信息。文中部分命令需要您使用 `apt-get`，`yum`，`dnf`，`pacman`，
+`pip` 或 `brew`（以及其它合适的包管理器）来安装依赖的程序。
+- 遇到问题的话，请尝试使用 [Explainshell](http://explainshell.com/) 去获取相关命令、参数、管道等内容的解释。
 
 
 ## 基础
 
-- 学习 Bash 的基础知识。具体来说，输入 `man bash` 并至少全文浏览一遍; 它很简单并且不长。其他的 shell 可能很好用，但 Bash 功能强大到几乎所有情况下都是可用的 （ *只*学习 zsh，fish 或其他的 shell 的话，在你自己的电脑上会显得很方便，但在很多情况下会限制你，比如当你需要在服务器上工作时）。
+- 学习 Bash 的基础知识。具体地，在命令行中输入 `man bash` 并至少全文浏览一遍; 它理解起来很简单并且不冗长。其他的 shell 可能很好用，但 Bash 的功能已经足够强大并且到几乎总是可用的（ 如果你*只*学习 zsh，fish 或其他的 shell 的话，在你自己的设备上会显得很方便，但过度依赖这些功能会给您带来不便，例如当你需要在服务器上工作时）。
 
-- 学习并掌握至少一个基于文本的编辑器。通常 Vim （`vi`） 会是你最好的选择，因为在终端里进行随机编辑，Vim 真的毫无敌手，哪怕是 Emacs、某大型 IDE 甚至时下非常流行的编辑器。
+- 熟悉至少一个基于文本的编辑器。通常而言 Vim （`vi`） 会是你最好的选择，毕竟在终端中编辑文本时 Vim 是最好用的工具（甚至大部分情况下 Vim 要比 Emacs、大型 IDE 或是炫酷的编辑器更好用）。
 
-- 学会如何使用 `man` 命令去阅读文档。学会使用 `apropos` 去查找文档。了解有些命令并不对应可执行文件，而是Bash内置的，可以使用 `help` 和 `help -d` 命令获取帮助信息。你可以用 `type 命令` 来判断它到底是可执行文件、shell 内置命令、还是别名。
+- 学会如何使用 `man` 命令去阅读文档。学会使用 `apropos` 去查找文档。知道有些命令并不对应可执行文件，而是在 Bash 内置好的，此时可以使用 `help` 和 `help -d` 命令获取帮助信息。你可以用 `type 命令` 来判断这个命令到底是可执行文件、shell 内置命令还是别名。
 
 - 学会使用 `>` 和 `<` 来重定向输出和输入，学会使用 `|` 来重定向管道。明白 `>` 会覆盖了输出文件而 `>>` 是在文件末添加。了解标准输出 stdout 和标准错误 stderr。
 
-- 学会使用通配符 `*` （或许再算上 `?` 和 `[`...`]`） 和引用以及引用中 `'` 和 `"` 的区别。
+- 学会使用通配符 `*` （或许再算上 `?` 和 `[`...`]`） 和引用以及引用中 `'` 和 `"` 的区别（后文中有一些具体的例子）。
 
-- 熟悉 Bash 任务管理工具：`&`，**ctrl-z**，**ctrl-c**，`jobs`，`fg`，`bg`，`kill` 等。
+- 熟悉 Bash 中的任务管理工具：`&`，**ctrl-z**，**ctrl-c**，`jobs`，`fg`，`bg`，`kill` 等。
 
-- 了解 `ssh`，以及学会通过使用 `ssh-agent`，`ssh-add` 等命令来实现基本的无密码认证。
+- 学会使用 `ssh` 进行远程命令行登录，最好知道如何使用 `ssh-agent`，`ssh-add` 等命令来实现基础的无密码认证登录。
 
-- 学会基本的文件管理：`ls` 和 `ls -l` （了解 `ls -l` 中每一列代表的意义），`less`，`head`，`tail` 和 `tail -f` （甚至 `less +F`），`ln` 和 `ln -s` （了解硬链接与软链接的区别），`chown`，`chmod`，`du` （硬盘使用情况概述：`du -hs *`）。 关于文件系统的管理，学习 `df`，`mount`，`fdisk`，`mkfs`，`lsblk`。知道 inode 是什么（与 `ls -i` 和 `df -i` 等命令相关）。
+- 学会基本的文件管理工具：`ls` 和 `ls -l` （了解 `ls -l` 中每一列代表的意义），`less`，`head`，`tail` 和 `tail -f` （甚至 `less +F`），`ln` 和 `ln -s` （了解硬链接与软链接的区别），`chown`，`chmod`，`du` （硬盘使用情况概述：`du -hs *`）。 关于文件系统的管理，学习 `df`，`mount`，`fdisk`，`mkfs`，`lsblk`。知道 inode 是什么（与 `ls -i` 和 `df -i` 等命令相关）。
 
-- 学习基本的网络管理：`ip` 或 `ifconfig`，`dig`。
+- 学习基本的网络管理工具：`ip` 或 `ifconfig`，`dig`。
 
 - 学习并使用一种版本控制管理系统，例如 `git`。
 
-- 熟悉正则表达式，以及 `grep`／`egrep` 里不同参数的作用，例如 `-i`，`-o`，`-v`，`-A`，`-B` 和 `-C`，这些参数是值得学习并掌握的。
+- 熟悉正则表达式，学会使用 `grep`／`egrep`，它们的参数中 `-i`，`-o`，`-v`，`-A`，`-B` 和 `-C` 这些是很常用并值得认真学习的。
 
-- 学会使用 `apt-get`，`yum`，`dnf` 或 `pacman` （取决于你使用的 Linux 发行版）来查找或安装软件包。并确保你的环境中有 `pip` 来安装基于 Python 的命令行工具 （接下来提到的部分程序使用 `pip` 来安装会很方便）。
+- 学会使用 `apt-get`，`yum`，`dnf` 或 `pacman` （具体使用哪个取决于你使用的 Linux 发行版）来查找和安装软件包。并确保你的环境中有 `pip` 来安装基于 Python 的命令行工具 （接下来提到的部分程序使用 `pip` 来安装会很方便）。
 
 
 ## 日常使用
 
-- 在 Bash 中，可以使用 **Tab** 自动补全参数，使用 **ctrl-r** 搜索命令行历史（在按下之后，键入便可以搜索，重复按下 **ctrl-r** 会在更多匹配中循环，按下 **Enter** 会执行找到的命令，按下右方向键会将结果放入当前行中，使你可以进行编辑）。
+- 在 Bash 中，可以通过按 **Tab** 键实现自动补全参数，使用 **ctrl-r** 搜索命令行历史记录（按下按键之后，输入关键字便可以搜索，重复按下 **ctrl-r** 会向后查找匹配项，按下 **Enter** 键会执行当前匹配的命令，而按下右方向键会将匹配项放入当前行中，不会直接执行，以便做出修改）。
 
-- 在 Bash 中，可以使用 **ctrl-w** 删除你键入的最后一个单词，使用 **ctrl-u** 删除当前光标所在位置之前的内容，使用 **alt-b** 和 **alt-f** 以单词为单位移动光标，使用 **ctrl-a** 将光标移至行首，使用 **ctrl-e** 将光标移至行尾，使用 **ctrl-k** 删除光标至行尾的所有内容，使用 **ctrl-l** 清屏。键入 `man readline` 查看 Bash 中的默认快捷键，内容很多。例如 **alt-.** 循环地移向前一个参数，以及 **alt-*** 展开通配符。
+- 在 Bash 中，可以按下 **ctrl-w** 删除你键入的最后一个单词，**ctrl-u** 可以删除行内光标所在位置之前的内容，**alt-b** 和 **alt-f** 可以以单词为单位移动光标，**ctrl-a** 可以将光标移至行首，**ctrl-e** 可以将光标移至行尾，**ctrl-k** 可以删除光标至行尾的所有内容，**ctrl-l** 可以清屏。键入 `man readline` 可以查看 Bash 中的默认快捷键。内容有很多，例如 **alt-.** 循环地移向前一个参数，而 **alt-*** 可以展开通配符。
 
 
-- 你喜欢的话，可以键入 `set -o vi` 来使用 vi 风格的快捷键，而 `set -o emacs` 可以把它改回来。
+- 你喜欢的话，可以执行 `set -o vi` 来使用 vi 风格的快捷键，而执行 `set -o emacs` 可以把它改回来。
 
-- 为了方便地键入长命令，在设置你的编辑器后（例如 `export EDITOR=vim`），键入 **ctrl-x** **ctrl-e** 会打开一个编辑器来编辑当前命令。在 vi 模式下则键入 **escape-v** 实现相同的功能。
+- 为了便于编辑长命令，在设置你的默认编辑器后（例如 `export EDITOR=vim`），**ctrl-x** **ctrl-e** 会打开一个编辑器来编辑当前输入的命令。在 vi 风格下快捷键则是 **escape-v**。
 
-- 键入 `history` 查看命令行历史记录，再用 `!n`（`n` 是命令编号）就可以再次执行。其中有许多缩写，最有用的大概就是用 `!$` 指代上次键入的参数，以及用 `!!` 指代上次键入的命令了（参考 man 页面中的“HISTORY EXPANSION”）。不过这些通常被 **ctrl-r** 和 **alt-.** 取代。
+- 键入 `history` 查看命令行历史记录，再用 `!n`（`n` 是命令编号）就可以再次执行。其中有许多缩写，最有用的大概就是 `!$`， 它用于指代上次键入的参数，而 `!!` 可以指代上次键入的命令了（参考 man 页面中的“HISTORY EXPANSION”）。不过这些功能，你也可以通过快捷键 **ctrl-r** 和 **alt-.** 来实现。
 
-- 要进入 home 目录可以用 `cd`。要访问你的 home 目录中的文件，可以使用前缀 `~`（例如 `~/.bashrc`）。在 `sh` 脚本里则用 `$HOME` 指代 home 目录。
+- `cd` 命令可以切换工作路径，输入 `cd ~` 可以进入 home 目录。要访问你的 home 目录中的文件，可以使用前缀 `~`（例如 `~/.bashrc`）。在 `sh` 脚本里则用环境变量 `$HOME` 指代 home 目录的路径。
 
-- 回到上一个工作路径：`cd -`
+- 回到前一个工作路径：`cd -`。
 
-- 如果你输入命令的时候改变了主意，按下 **alt-#** 在行首添加 `#`，或者依次按下 **ctrl-a**， **#**， **enter**。这样做的话，之后你可以很方便的利用命令行历史回到你刚才输入到一半的命令。
+- 如果你输入命令的时候中途改了主意，按下 **alt-#** 在行首添加 `#` 把它当做注释再按下回车执行（或者依次按下 **ctrl-a**， **#**， **enter**）。这样做的话，之后借助命令行历史记录，你可以很方便恢复你刚才输入到一半的命令。
 
 - 使用 `xargs` （ 或 `parallel`）。他们非常给力。注意到你可以控制每行参数个数（`-L`）和最大并行数（`-P`）。如果你不确定它们是否会按你想的那样工作，先使用 `xargs echo` 查看一下。此外，使用 `-I{}` 会很方便。例如：
 ```bash
@@ -100,7 +100,7 @@
 ```
 
 
-- `pstree -p` 有助于展示进程树。
+- `pstree -p` 以一种优雅的方式展示进程树。
 
 - 使用 `pgrep` 和 `pkill` 根据名字查找进程或发送信号（`-f` 参数通常有用）。
 
@@ -108,23 +108,23 @@
 
 - 使用 `nohup` 或 `disown` 使一个后台进程持续运行。
 
-- 使用 `netstat -lntp` 或 `ss -plat` 检查哪些进程在监听端口（默认是检查 TCP 端口; 使用参数 `-u` 检查 UDP 端口）。
+- 使用 `netstat -lntp` 或 `ss -plat` 检查哪些进程在监听端口（默认是检查 TCP 端口; 添加参数 `-u` 则检查 UDP 端口）。
 
-- 有关打开套接字和文件，请参阅 `lsof`。
+- `lsof` 来查看开启的套接字和文件。
 
 - 使用 `uptime` 或 `w` 来查看系统已经运行多长时间。
 
 - 使用 `alias` 来创建常用命令的快捷形式。例如：`alias ll='ls -latr'` 创建了一个新的命令别名 `ll`。
 
-- 把别名、shell 选项和常用函数保存在 `~/.bashrc`，然后[安排登陆 shell 来读取](http://superuser.com/a/183980/7106)。这样你就可以在所有 shell 会话中使用你的设定。
+- 可以把别名、shell 选项和常用函数保存在 `~/.bashrc`，具体看下这篇[文章](http://superuser.com/a/183980/7106)。这样做的话你就可以在所有 shell 会话中使用你的设定。
 
-- 把环境变量的设定以及登陆时要执行的命令保存在 `~/.bash_profile`。对于从图形界面启动的，以及 `cron` 工作的 shell，需要单独配置。
+- 把环境变量的设定以及登陆时要执行的命令保存在 `~/.bash_profile`。而对于从图形界面启动的 shell 和 `cron` 启动的 shell，则需要单独配置文件。
 
-- 要在几台电脑中同步你的配置文件（例如 `.bashrc` 和 `.bash_profile`），可以用 Git。
+- 要想在几台电脑中同步你的配置文件（例如 `.bashrc` 和 `.bash_profile`），可以借助 Git。
 
-- 当变量和文件名中包含空格的时候要格外小心。Bash 变量要用引号括起来，比如 `"FOO"`。尽量使用 `-0` 或 `-print0` 选项以便用空字符来分隔文件名，例如 `locate -0 pattern | xargs -0 ls -al` 或 `find / -print0 -type d | xargs -0 ls -al`。如果 for 循环中循环访问的文件名含有空格，只需用 `IFS=$'\n'` 把内部字段分隔符设为换行符。
+- 当变量和文件名中包含空格的时候要格外小心。Bash 变量要用引号括起来，比如 `"$FOO"`。尽量使用 `-0` 或 `-print0` 选项以便用 NULL 来分隔文件名，例如 `locate -0 pattern | xargs -0 ls -al` 或 `find / -print0 -type d | xargs -0 ls -al`。如果 for 循环中循环访问的文件名含有空字符（空格、tab 等字符），只需用 `IFS=$'\n'` 把内部字段分隔符设为换行符。
 
-- 在 Bash 脚本中，使用 `set -x` 去调试输出，尽可能地使用严格模式，使用 `set -e` 令脚本在发生错误时退出而不是继续运行，使用 `set -u` 来检查是否使用了未赋值的变量，使用 `set -o pipefail` 严谨地对待错误（尽管问题可能很微妙）。当牵扯到很多脚本时，使用 `trap`。一个好的习惯是在脚本文件开头这样写，这会使它检测一些错误，并在错误发生时中断程序并输出信息：
+- 在 Bash 脚本中，使用 `set -x` 去调试输出（或者使用它的变体 `set -v`，它会记录原始输入，包括多余的参数和注释）。尽可能地使用严格模式：使用 `set -e` 令脚本在发生错误时退出而不是继续运行；使用 `set -u` 来检查是否使用了未赋值的变量；试试 `set -o pipefail`，它可以监测管道中的错误。当牵扯到很多脚本时，使用 `trap` 来检测 ERR 和 EXIT。一个好的习惯是在脚本文件开头这样写，这会使它能够检测一些错误，并在错误发生时中断程序并输出信息：
 ```bash
       set -euo pipefail
       trap "echo 'error: Script failed: see failed command above'" ERR
@@ -137,7 +137,7 @@
       # continue in original dir
 ```
 
-- 在 Bash 中，要注意变量展开的形式有很多。检查变量是否存在：`${name:?error message}`。例如，当 Bash 脚本只需要一个参数时，可以使用这样的代码 `input_file=${1:?usage: $0 input_file}`。在变量为空时使用默认值：`${name:-default}`。如果你要在之前的例子中再加一个（可选的）参数，可以使用类似这样的代码 `output_file=${2:-logfile}`，如果省略了 $2，它的值就为空，于是 `output_file` 就会被设为 `logfile`。数学表达式：`i=$(( (i + 1) % 5 ))`。序列：`{1..10}`。截断字符串：`${var%suffix}` 和 `${var#prefix}`。例如，假设 `var=foo.pdf`，那么 `echo ${var%.pdf}.txt` 将输出 `foo.txt`。
+- 在 Bash 中，变量有许多的扩展方式。`${name:?error message}` 用于检查变量是否存在。此外，当 Bash 脚本只需要一个参数时，可以使用这样的代码 `input_file=${1:?usage: $0 input_file}`。在变量为空时使用默认值：`${name:-default}`。如果你要在之前的例子中再加一个（可选的）参数，可以使用类似这样的代码 `output_file=${2:-logfile}`，如果省略了 $2，它的值就为空，于是 `output_file` 就会被设为 `logfile`。数学表达式：`i=$(( (i + 1) % 5 ))`。序列：`{1..10}`。截断字符串：`${var%suffix}` 和 `${var#prefix}`。例如，假设 `var=foo.pdf`，那么 `echo ${var%.pdf}.txt` 将输出 `foo.txt`。
 
 - 使用括号扩展（`{`...`}`）来减少输入相似文本，并自动化文本组合。这在某些情况下会很有用，例如 `mv foo.{txt,pdf} some-dir`（同时移动两个文件），`cp somefile{,.bak}`（会被扩展成 `cp somefile somefile.bak`）或者 `mkdir -p test-{a,b,c}/subtest-{1,2,3}`（会被扩展成所有可能的组合，并创建一个目录树）。
 
@@ -146,7 +146,7 @@
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- 编写脚本时，你可能会想要把代码都放在大括号里。缺少右括号的话，代码就会因为语法错误而无法执行。如果你的脚本是要放在网上供人下载的，这样的写法就体现出它的好处了，因为没有完全下载的脚本无法执行：
+- 编写脚本时，你可能会想要把代码都放在大括号里。缺少右括号的话，代码就会因为语法错误而无法执行。如果你的脚本是要放在网上分享供他人使用的，这样的写法就体现出它的好处了，因为这样可以防止下载不完全代码被执行。
 ```bash
 {
       # 在这里写代码
@@ -155,15 +155,15 @@
 
 - 了解 Bash 中的“here documents”，例如 `cat <<EOF ...`。
 
-- 在 Bash 中，同时重定向标准输出和标准错误，`some-command >logfile 2>&1`。通常，为了保证命令不会在标准输入里残留一个打开了的文件句柄导致你当前所在的终端无法操作，添加 `</dev/null` 是一个好习惯。
+- 在 Bash 中，同时重定向标准输出和标准错误：`some-command >logfile 2>&1` 或者 `some-command &>logfile`。通常，为了保证命令不会在标准输入里残留一个未关闭的文件句柄捆绑在你当前所在的终端上，在命令后添加 `</dev/null` 是一个好习惯。
 
 - 使用 `man ascii` 查看具有十六进制和十进制值的ASCII表。`man unicode`，`man utf-8`，以及 `man latin1` 有助于你去了解通用的编码信息。
 
-- 使用 `screen` 或 [`tmux`](https://tmux.github.io/) 来使用多个屏幕，当你在使用 ssh 时（保存 session 信息）将尤为有用。另一个轻量级的解决方案是 [`dtach`](https://github.com/bogner/dtach)。
+- 使用 `screen` 或 [`tmux`](https://tmux.github.io/) 来使用多份屏幕，当你在使用 ssh 时（保存 session 信息）将尤为有用。而 `byobu` 可以为它们提供更多的信息和易用的管理工具。另一个轻量级的 session 持久化解决方案是 [`dtach`](https://github.com/bogner/dtach)。
 
-- ssh 中，了解如何使用 `-L` 或 `-D`（偶尔需要用 `-R`）去开启隧道是非常有用的，例如当你需要从一台远程服务器上访问 web。
+- ssh 中，了解如何使用 `-L` 或 `-D`（偶尔需要用 `-R`）开启隧道是非常有用的，比如当你需要从一台远程服务器上访问 web 页面。
 
-- 对 ssh 设置做一些小优化可能是很有用的，例如这个 `~/.ssh/config` 文件包含了防止特定环境下断开连接、压缩数据、多通道等选项：
+- 对 ssh 设置做一些小优化可能是很有用的，例如这个 `~/.ssh/config` 文件包含了防止特定网络环境下连接断开、压缩数据、多通道等选项：
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -174,11 +174,11 @@
       ControlPersist yes
 ```
 
-- 部分其他的关于 ssh 的选项是安全敏感的，而且应当小心启用。例如在可信任的网络中：`StrictHostKeyChecking=no`，`ForwardAgent=yes`
+- 一些其他的关于 ssh 的选项是与安全相关的，应当小心翼翼的使用。例如你应当只能在可信任的网络中启用 `StrictHostKeyChecking=no`，`ForwardAgent=yes`。
 
-- 考虑使用 [`mosh`](https://mosh.mit.edu/) 作为 ssh 的替代品，它使用 UDP 协议。
+- 考虑使用 [`mosh`](https://mosh.mit.edu/) 作为 ssh 的替代品，它使用 UDP 协议。它可以避免连接被中断并且对带宽需求更小，但它需要在服务端做相应的配置。
 
-- 获取文件的八进制格式权限，使用类似如下的代码：
+- 获取八进制形式的文件访问权限（修改系统设置时通常需要，但 `ls` 的功能不那么好用并且通常会搞砸），可以使用类似如下的代码：
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
@@ -196,7 +196,7 @@
 
 - 了解命令行的 [128K 限制](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong)。使用通配符匹配大量文件名时，常会遇到“Argument list too long”的错误信息。（这种情况下换用 `find` 或 `xargs` 通常可以解决。）
 
-- 要实现基本的计算器功能（或者一般地使用 Python），可以使用 `python` 解释器。例如：
+- 当你需要一个基本的计算器时，可以使用 `python` 解释器（当然你要用 python 的时候也是这样）。例如：
 ```
 >>> 2+3
 5
@@ -205,44 +205,46 @@
 
 ## 文件及数据处理
 
-- 在当前路径下通过文件名定位一个文件，`find . -iname '*something*'`（或类似的）。在所有路径下通过文件名查找文件，使用 `locate something` （但请记住 `updatedb` 可能没有对最近新建的文件建立索引）。
+- 在当前目录下通过文件名查找一个文件，使用类似于这样的命令：`find . -iname '*something*'`。在所有路径下通过文件名查找文件，使用 `locate something` （但注意到 `updatedb` 可能没有对最近新建的文件建立索引，所以你可能无法定位到这些未被索引的文件）。
 
-- 使用 [`ag`](https://github.com/ggreer/the_silver_searcher) 在源代码或数据文件里检索（比 `grep -r` 更好）。
+- 使用 [`ag`](https://github.com/ggreer/the_silver_searcher) 在源代码或数据文件里检索（`grep -r` 同样可以做到，但相比之下 `ag` 更加先进）。
 
-- 将 HTML 转为文本：`lynx -dump -stdin`
+- 将 HTML 转为文本：`lynx -dump -stdin`。
 
 - Markdown，HTML，以及所有文档格式之间的转换，试试 [`pandoc`](http://pandoc.org/)。
 
-- 如果你不得不处理 XML，`xmlstarlet` 宝刀未老。
+- 当你要处理棘手的 XML 时候，`xmlstarlet` 算是上古时代流传下来的神器。
 
 - 使用 [`jq`](http://stedolan.github.io/jq/) 处理 JSON。
 
 - 使用 [`shyaml`](https://github.com/0k/shyaml) 处理 YAML。
 
-- Excel 或 CSV 文件的处理，[csvkit](https://github.com/onyxfish/csvkit) 提供了 `in2csv`，`csvcut`，`csvjoin`，`csvgrep` 等工具。
+- 要处理 Excel 或 CSV 文件的话，[csvkit](https://github.com/onyxfish/csvkit) 提供了 `in2csv`，`csvcut`，`csvjoin`，`csvgrep` 等方便易用的工具。
 
-- 关于 Amazon S3，[`s3cmd`](https://github.com/s3tools/s3cmd) 很方便而 [`s4cmd`](https://github.com/bloomreach/s4cmd) 更快。Amazon 官方的 [`aws`](https://github.com/aws/aws-cli) 以及  [`saws`](https://github.com/donnemartin/saws) 是其他 AWS 相关工作的基础。
+- 当你要处理 Amazon S3 相关的工作的时候，[`s3cmd`](https://github.com/s3tools/s3cmd) 是一个很方便的工具而 [`s4cmd`](https://github.com/bloomreach/s4cmd) 的效率更高。Amazon 官方提供的 [`aws`](https://github.com/aws/aws-cli) 以及  [`saws`](https://github.com/donnemartin/saws) 是其他 AWS 相关工作的基础，值得学习。
 
-- 了解如何使用 `sort` 和 `uniq`，包括 uniq 的 `-u` 参数和 `-d` 参数，详见后文单行脚本节。另外可以了解一下 `comm`。
+- 了解如何使用 `sort` 和 `uniq`，包括 uniq 的 `-u` 参数和 `-d` 参数，具体内容在后文单行脚本节中。另外可以了解一下 `comm`。
 
-- 了解如何使用 `cut`，`paste` 和 `join` 来更改文件。很多人都会使用 `cut`，但几乎都不会使用 `join`。
+- 了解如何使用 `cut`，`paste` 和 `join` 来更改文件。很多人都会使用 `cut`，但遗忘了 `join`。
 
 - 了解如何运用 `wc` 去计算新行数（`-l`），字符数（`-m`），单词数（`-w`）以及字节数（`-c`）。
 
 - 了解如何使用 `tee` 将标准输入复制到文件甚至标准输出，例如 `ls -al | tee file.txt`。
 
-- 了解语言环境对许多命令行工具的微妙影响，包括排序的顺序和性能。大多数 Linux 的安装过程会将 `LANG` 或其他有关的变量设置为符合本地的设置。意识到当你改变语言环境时，排序的结果可能会改变。明白国际化可能会使 sort 或其他命令运行效率下降*许多倍*。某些情况下（例如集合运算）你可以放心的使用 `export LC_ALL=C` 来忽略掉国际化并使用基于字节的顺序。
+- 要进行一些复杂的计算，比如分组、逆序和一些其他的统计分析，可以考虑使用 [`datamash`](https://www.gnu.org/software/datamash/)。
 
-- 你可以单独指定某一条命令的环境，只需在调用时把环境变量设定放在前面，例如 `TZ=Pacific/Fiji date`。
+- 注意到语言设置（中文或英文等）对许多命令行工具有一些微妙的影响，比如排序的顺序和性能。大多数 Linux 的安装过程会将 `LANG` 或其他有关的变量设置为符合本地的设置。要意识到当你改变语言设置时，排序的结果可能会改变。明白国际化可能会使 sort 或其他命令运行效率下降*许多倍*。某些情况下（例如集合运算）你可以放心的使用 `export LC_ALL=C` 来忽略掉国际化并按照字节来判断顺序。
 
-- 了解 `awk` 和 `sed` 关于数据的简单处理的用法。例如，将文本文件中第三列的所有数字求和：`awk '{ x += $3 } END { print x }'`. 这可能比同等作用的 Python 代码快三倍且代码量少三倍。
+- 你可以单独指定某一条命令的环境，只需在调用时把环境变量设定放在命令的前面，例如 `TZ=Pacific/Fiji date` 可以获取斐济的时间。
+
+- 了解如何使用 `awk` 和 `sed` 来进行简单的数据处理。例如，将文本文件中第三列的所有数字求和：`awk '{ x += $3 } END { print x }'`。这可能比同等功能的 Python 代码快三倍且代码量少三倍。
 
 - 替换一个或多个文件中出现的字符串：
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- 使用 [`repren`](https://github.com/jlevy/repren) 来批量重命名，或是在多个文件中搜索替换。（有些时候 `rename` 命令也可以批量重命名，但要注意，它在不同 Linux 发行版中的功能并不完全一样。）
+- 使用 [`repren`](https://github.com/jlevy/repren) 来批量重命名文件，或是在多个文件中搜索替换内容。（有些时候 `rename` 命令也可以批量重命名，但要注意，它在不同 Linux 发行版中的功能并不完全一样。）
 ```sh
       # 将文件、目录和内容全部重命名 foo -> bar:
       repren --full --preserve-case --from foo --to bar .
@@ -252,33 +254,33 @@
       rename 's/\.bak$//' *.bak
 ```
 
-- 根据 man 页面的描述，`rsync` 真的是一个快速且非常灵活的文件复制工具。它通常被用于机器间的同步，但在本地也同样有用。在安全限制允许下，用 `rsync` 代替 `scp` 可以实现续传，而不用重新从头开始。它同时也是删除大量文件的[最快方法](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html)之一：
+- 根据 man 页面的描述，`rsync` 是一个快速且非常灵活的文件复制工具。它闻名于设备之间的文件同步，但其实它在本地情况下也同样有用。在安全设置允许下，用 `rsync` 代替 `scp` 可以实现文件续传，而不用重新从头开始。它同时也是删除大量文件的[最快方法](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html)之一：
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
-- 使用 `shuf` 从一个文件中随机选取多行。
+- 使用 `shuf` 可以以行为单位来打乱文件的内容或从一个文件中随机选取多行。
 
-- 了解 `sort` 的参数。处理数字方面，使用 `-n` 或者 `-h` 来处理可读性数字（例如 `du -h` 的输出）。明白键的工作原理（`-t` 和 `-k`）。例如，注意到你需要 `-k1，1` 来仅按第一个域来排序，而 `-k1` 意味着按整行排序。稳定排序（`sort -s`）在某些情况下很有用。例如，以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用 `sort -k1，1 | sort -s -k2，2`。
+- 了解 `sort` 的参数。显示数字时，使用 `-n` 或者 `-h` 来显示更易读的数（例如 `du -h` 的输出）。明白排序时关键字的工作原理（`-t` 和 `-k`）。例如，注意到你需要 `-k1，1` 来仅按第一个域来排序，而 `-k1` 意味着按整行排序。稳定排序（`sort -s`）在某些情况下很有用。例如，以第二个域为主关键字，第一个域为次关键字进行排序，你可以使用 `sort -k1，1 | sort -s -k2，2`。
 
 - 如果你想在 Bash 命令行中写 tab 制表符，按下 **ctrl-v** **[Tab]** 或键入 `$'\t'` （后者可能更好，因为你可以复制粘贴它）。
 
-- 标准的源代码对比及合并工具是 `diff` 和 `patch`。使用 `diffstat` 查看变更总览数据。注意到 `diff -r` 对整个文件夹有效。使用 `diff -r tree1 tree2 | diffstat` 查看变更总览数据。
+- 标准的源代码对比及合并工具是 `diff` 和 `patch`。使用 `diffstat` 查看变更总览数据。注意到 `diff -r` 对整个文件夹有效。使用 `diff -r tree1 tree2 | diffstat` 查看变更的统计数据。`vimdiff` 用于比对并编辑文件。
 
-- 对于二进制文件，使用 `hd` 使其以十六进制显示以及使用 `bvi` 来编辑二进制。
+- 对于二进制文件，使用 `hd`，`hexdump` 或者 `xxd` 使其以十六进制显示，使用 `bvi`，`hexedit` 或者 `biew` 来进行二进制编辑。
 
-- 同样对于二进制文件，`strings`（包括 `grep` 等等）允许你查找一些文本。
+- 同样对于二进制文件，`strings`（包括 `grep` 等工具）可以帮助在二进制文件中查找特定比特。
 
-- 二进制文件对比（Delta 压缩），使用 `xdelta3`。
+- 制作二进制差分文件（Delta 压缩），使用 `xdelta3`。
 
-- 使用 `iconv` 更改文本编码。而更高级的用法，可以使用 `uconv`，它支持一些高级的 Unicode 功能。例如，这条命令将所有元音字母转为小写并移除了：
+- 使用 `iconv` 更改文本编码。需要更高级的功能，可以使用 `uconv`，它支持一些高级的 Unicode 功能。例如，这条命令移除了所有重音符号：
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
 
-- 拆分文件，查看 `split`（按大小拆分）和 `csplit`（按模式拆分）。
+- 拆分文件可以使用 `split`（按大小拆分）和 `csplit`（按模式拆分）。
 
-- 用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`、`datediff`、`strptime` 等工具操作日期和时间表达式。
+- 操作日期和时间表达式，可以用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`、`datediff`、`strptime` 等工具。
 
 - 使用 `zless`、`zmore`、`zcat` 和 `zgrep` 对压缩过的文件进行操作。
 
@@ -290,27 +292,29 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
    setfacl --restore=permissions.txt
 ```
 
+- 为了高效地创建空文件，请使用 `truncate`（创建[稀疏文件](https://zh.wikipedia.org/wiki/稀疏文件)），`fallocate`（用于 ext4，xfs，btrf 和 ocfs2 文件系统），`xfs_mkfile`（适用于几乎所有的文件系统，包含在 xfsprogs 包中），`mkfile`（用于类 Unix 操作系统，比如 Solaris 和 Mac OS）。
+
 ## 系统调试
 
-- `curl` 和 `curl -I` 可以便捷地被应用于 web 调试中，它们的好兄弟 `wget` 也可以，或者是更潮的 [`httpie`](https://github.com/jkbrzt/httpie)。
+- `curl` 和 `curl -I` 可以被轻松地应用于 web 调试中，它们的好兄弟 `wget` 也是如此，或者也可以试试更潮的 [`httpie`](https://github.com/jkbrzt/httpie)。
 
-- 使用 `iostat`、`netstat`、`top` （`htop` 更佳）和 `dstat` 去获取硬盘、cpu 和网络的状态。熟练掌握这些工具可以使你快速的对系统的当前状态有一个大概的认识。
+- 获取 CPU 和硬盘的使用状态，通常使用使用 `top`（`htop` 更佳），`iostat` 和 `iotop`。而 `iostat -mxz 15` 可以让你获悉 CPU 和每个硬盘分区的基本信息和性能表现。
 
 - 使用 `netstat` 和 `ss` 查看网络连接的细节。
 
-- 若要对系统有一个深度的总体认识，使用 [`glances`](https://github.com/nicolargo/glances)。它在一个终端窗口中向你提供一些系统级的数据。这对于快速的检查各个子系统非常有帮助。
+- `dstat` 在你想要对系统的现状有一个粗略的认识时是非常有用的。然而若要对系统有一个深度的总体认识，使用 [`glances`](https://github.com/nicolargo/glances)，它会在一个终端窗口中向你提供一些系统级的数据。
 
-- 若要了解内存状态，运行并理解 `free` 和 `vmstat` 的输出。尤其注意“cached”的值，它指的是 Linux 内核用来作为文件缓存的内存大小，因此它与空闲内存无关。
+- 若要了解内存状态，运行并理解 `free` 和 `vmstat` 的输出。值得留意的是“cached”的值，它指的是 Linux 内核用来作为文件缓存的内存大小，而与空闲内存无关。
 
-- Java 系统调试则是一件截然不同的事，一个可以用于 Oracle 的 JVM 或其他 JVM 上的调试的技巧是你可以运行 `kill -3 <pid>` 同时一个完整的栈轨迹和堆概述（包括 GC 的细节）会被保存到标准输出/日志文件。JDK 中的 `jps`，`jstat`，`jstack`，`jmap` 很有用。[SJK tools](https://github.com/aragozin/jvm-tools) 更高级.
+- Java 系统调试则是一件截然不同的事，一个可以用于 Oracle 的 JVM 或其他 JVM 上的调试的技巧是你可以运行 `kill -3 <pid>` 同时一个完整的栈轨迹和堆概述（包括 GC 的细节）会被保存到标准错误或是日志文件。JDK 中的 `jps`，`jstat`，`jstack`，`jmap` 很有用。[SJK tools](https://github.com/aragozin/jvm-tools) 更高级。
 
 - 使用 [`mtr`](http://www.bitwizard.nl/mtr/) 去跟踪路由，用于确定网络问题。
 
-- 用 [`ncdu`](https://dev.yorhel.nl/ncdu) 来查看磁盘使用情况，它比常用的命令，如 `du -sh *`，更节省时间。
+- 用 [`ncdu`](https://dev.yorhel.nl/ncdu) 来查看磁盘使用情况，它比寻常的命令，如 `du -sh *`，更节省时间。
 
 - 查找正在使用带宽的套接字连接或进程，使用 [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或 [`nethogs`](https://github.com/raboof/nethogs)。
 
-- `ab` 工具（捆绑于 Apache）可以简单粗暴地检查 web 服务器的性能。对于更复杂的负载测试，使用 `siege`。
+- `ab` 工具（Apache 中自带）可以简单粗暴地检查 web 服务器的性能。对于更复杂的负载测试，使用 `siege`。
 
 - [`wireshark`](https://wireshark.org/)，[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 和 [`ngrep`](http://ngrep.sourceforge.net/) 可用于复杂的网络调试。
 
@@ -326,9 +330,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 关于更深层次的系统分析以及性能分析，看看 `stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](https://en.wikipedia.org/wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
-- 查看你当前使用的系统，使用 `uname` ， `uname -a` （Unix／kernel 信息） 或者 `lsb_release -a` （Linux 发行版信息）。
+- 查看你当前使用的系统，使用 `uname`，`uname -a`（Unix／kernel 信息）或者 `lsb_release -a`（Linux 发行版信息）。
 
-- 无论什么东西工作得很欢乐时试试 `dmesg`（可能是硬件或驱动问题）。
+- 无论什么东西工作得很欢乐（可能是硬件或驱动问题）时可以试试 `dmesg`。
 
 - 如果你删除了一个文件，但通过 `du` 发现没有释放预期的磁盘空间，请检查文件是否被进程占用：
 `lsof | grep deleted | grep "filename-of-my-big-file"`
@@ -338,11 +342,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 一些命令组合的例子：
 
-- 当你需要对文本文件做集合交、并、差运算时，结合使用 `sort`/`uniq` 很有帮助。假设 `a` 与 `b` 是两内容不同的文件。这种方式效率很高，并且在小文件和上G的文件上都能运用 （`sort` 不被内存大小约束，尽管在 `/tmp` 在一个小的根分区上时你可能需要 `-T` 参数），参阅前文中关于 `LC_ALL` 和 `sort` 的 `-u` 参数的部分。
+- 当你需要对文本文件做集合交、并、差运算时，`sort` 和 `uniq` 会是你的好帮手。具体例子请参照代码后面的，此处假设 `a` 与 `b` 是两内容不同的文件。这种方式效率很高，并且在小文件和上 G 的文件上都能运用（注意尽管在 `/tmp` 在一个小的根分区上时你可能需要 `-T` 参数，但是实际上 `sort` 并不被内存大小约束），参阅前文中关于 `LC_ALL` 和 `sort` 的 `-u` 参数的部分。
 ```sh
-      cat a b | sort | uniq > c   # c is a union b
-      cat a b | sort | uniq -d > c   # c is a intersect b
-      cat a b b | sort | uniq -u > c   # c is set difference a - b
+      cat a b | sort | uniq > c   # c 是 a 并 b
+      cat a b | sort | uniq -d > c   # c 是 a 交 b
+      cat a b b | sort | uniq -u > c   # c 是 a - b
 ```
 
 - 使用 `grep . *`（每行都会附上文件名）或者 `head -100 *`（每个文件有一个标题）来阅读检查目录下所有文件的内容。这在检查一个充满配置文件的目录（如 `/sys`、`/proc`、`/etc`）时特别好用。
@@ -358,12 +362,12 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
       find . -type f -ls
 ```
 
-- 假设你有一个类似于 web 服务器日志文件的文本文件，并且一个确定的值只会出现在某些行上，假设一个 `acct_id` 参数在URI中。如果你想计算出每个 `acct_id` 值有多少次请求，使用如下代码：
+- 假设你有一个类似于 web 服务器日志文件的文本文件，并且一个确定的值只会出现在某些行上，假设一个 `acct_id` 参数在 URI 中。如果你想计算出每个 `acct_id` 值有多少次请求，使用如下代码：
 ```sh
       cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- 要连续地监测变化，可以使用 `watch`，例如检查某个文件夹中文件的改变，可以用 `watch -d -n 2 'ls -rtlh | tail'`；或者在排查 WiFi 设置故障时要监测网络设置的更改，可以用 `watch -d -n 2 ifconfig`。
+- 要持续监测文件改动，可以使用 `watch`，例如检查某个文件夹中文件的改变，可以用 `watch -d -n 2 'ls -rtlh | tail'`；或者在排查 WiFi 设置故障时要监测网络设置的更改，可以用 `watch -d -n 2 ifconfig`。
 
 - 运行这个函数从这篇文档中随机获取一条技巧（解析 Markdown 文件并抽取项目）：
 ```sh
@@ -381,7 +385,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `expr`：计算表达式或正则匹配
 
-- `m4`：简单地宏处理器
+- `m4`：简单的宏处理器
 
 - `yes`：多次打印字符串
 
@@ -389,19 +393,19 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `env`：执行一个命令（脚本文件中很有用）
 
-- `printenv`：打印环境变量（调试时或在使用脚本文件时很有用）
+- `printenv`：打印环境变量（调试时或在写脚本文件时很有用）
 
-- `look`：查找以特定字符串开头的单词
+- `look`：查找以特定字符串开头的单词或行
 
-- `cut`、`paste` 和 `join`：数据修改
+- `cut`，`paste` 和 `join`：数据修改
 
 - `fmt`：格式化文本段落
 
-- `pr`：将文本格式化成页/列形式
+- `pr`：将文本格式化成页／列形式
 
 - `fold`：包裹文本中的几行
 
-- `column`：将文本格式化成多列或表格
+- `column`：将文本格式化成多个对齐、定宽的列或表格
 
 - `expand` 和 `unexpand`：制表符与空格之间转换
 
@@ -415,13 +419,13 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [`gpg`](https://gnupg.org/)：加密并签名文件
 
-- `toe`：terminfo entries 列表
+- `toe`：terminfo 入口列表
 
 - `nc`：网络调试及数据传输
 
 - `socat`：套接字代理，与 `netcat` 类似
 
-- [`slurm`](https://github.com/mattthias/slurm)：网络可视化
+- [`slurm`](https://github.com/mattthias/slurm)：网络流量可视化
 
 - `dd`：文件或设备间传输数据
 
@@ -439,7 +443,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `logrotate`： 切换、压缩以及发送日志文件
 
-- `watch`：重复运行同一个命令，展示结果并高亮有更改的部分
+- `watch`：重复运行同一个命令，展示结果并／或高亮有更改的部分
 
 - `tac`：反向输出文件
 
@@ -449,13 +453,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `pv`：监视通过管道的数据
 
-- `hd`，`hexdump`，`xxd`，`biew` 和 `bvi`：保存或编辑二进制文件
-
 - `strings`：从二进制文件中抽取文本
 
 - `tr`：转换字母
 
-- `iconv` 或 `uconv`：简易的文件编码
+- `iconv` 或 `uconv`：文本编码转换
 
 - `split` 和 `csplit`：分割文件
 
@@ -471,9 +473,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `nm`：提取 obj 文件中的符号
 
-- `ab`：性能分析 web 服务器
+- `ab`：web 服务器性能分析
 
-- `strace`：系统调用调试
+- `strace`：调试系统调用
 
 - [`mtr`](http://www.bitwizard.nl/mtr/)：更好的网络调试跟踪工具
 
@@ -509,7 +511,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [`sar`](http://sebastien.godard.pagesperso-orange.fr/)：系统历史数据
 
-- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或 [`nethogs`](https://github.com/raboof/nethogs)：套接字及进程的网络利用
+- [`iftop`](http://www.ex-parrot.com/~pdw/iftop/) 或 [`nethogs`](https://github.com/raboof/nethogs)：套接字及进程的网络利用情况
 
 - `ss`：套接字数据
 
@@ -540,9 +542,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 用 `open` 或者 `open -a /Applications/Whatever.app` 使用桌面应用打开文件。
 
-- Spotlight： 用 `mdfind` 搜索文件，用 `mdls` 列出元数据（例如照片的 EXIF 信息）。
+- Spotlight：用 `mdfind` 搜索文件，用 `mdls` 列出元数据（例如照片的 EXIF 信息）。
 
-- 注意 OS X 系统是基于 BSD UNIX 的，许多命令（例如 `ps`，`ls`，`tail`，`awk`，`sed`）都和 Linux 中有些微的不同，这些极大的被 System V-style Unix 和 GNU 工具影响。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
+- 注意 OS X 系统是基于 BSD UNIX 的，许多命令（例如 `ps`，`ls`，`tail`，`awk`，`sed`）都和 Linux 中有微妙的不同（ Linux 很大程度上受到了 System V-style Unix 和 GNU 工具影响）。你可以通过标题为 "BSD General Commands Manual" 的 man 页面发现这些不同。在有些情况下 GNU 版本的命令也可能被安装（例如 `gawk` 和 `gsed` 对应 GNU 中的 awk 和 sed ）。如果要写跨平台的 Bash 脚本，避免使用这些命令（例如，考虑 Python 或者 `perl` ）或者经过仔细的测试。
 
 - 用 `sw_vers` 获取 OS X 的版本信息。
 
@@ -550,9 +552,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 以下是*仅限于* Windows 系统的技巧。
 
-- 在 Windows 10 上，你可以使用 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)，这是一个熟悉的 Bash 环境，包含了不少 Unix 命令行工具。好处是它允许 Linux 程序在 Windows 上运行，而相对的，Windows 程序却无法在 Bash 命令行中运行。
+- 在 Windows 10 上，你可以使用 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)，它提供了一个熟悉的 Bash 环境，包含了不少 Unix 命令行工具。好处是它允许 Linux 上编写的程序能够在 Windows 上运行，而另一方面，Windows 上编写的程序却无法在 Bash 命令行中运行。
 
-- 要在 Microsoft Windows 中使用 Unix shell，可以安装 [Cygwin](https://cygwin.com/)。本文档中介绍的大多数内容都将适用。
+- 可以安装 [Cygwin](https://cygwin.com/) 允许你在 Microsoft Windows 中体验 Unix shell 的威力。这样的话，本文中介绍的大多数内容都将适用。
 
 - 通过 Cygwin 的包管理器来安装额外的 Unix 程序。
 
@@ -564,13 +566,13 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 要访问 Windows 注册表，可以使用 `regtool`。
 
-- 注意 Windows 驱动器路径 `C:\` 在 Cygwin 中用 `/cygdrive/c` 代表，而 Cygwin 的 `/` 在 Windows 中显示在 `C:\cygwin`。要转换 Cygwin 和 Windows 风格的路径可以用 `cygpath`。这在需要调用 Windows 程序的脚本里很有用。
+- 注意 Windows 驱动器路径 `C:\` 在 Cygwin 中用 `/cygdrive/c` 代表，而 Cygwin 的 `/` 代表 Windows 中的 `C:\cygwin`。要转换 Cygwin 和 Windows 风格的路径可以用 `cygpath`。这在需要调用 Windows 程序的脚本里很有用。
 
 - 学会使用 `wmic`，你就可以从命令行执行大多数 Windows 系统管理任务，并编成脚本。
 
 - 要在 Windows 下获得 Unix 的界面和体验，另一个办法是使用 [Cash](https://github.com/dthree/cash)。需要注意的是，这个环境支持的 Unix 命令和命令行参数非常少。
 
-- 要在 Windows 上获取 GNU 开发者工具（比如 GCC）的另一个办法是使用 [MinGW](http://www.mingw.org/) 以及它的 [MSYS](http://www.mingw.org/wiki/msys) 软件包，该软件包提供了 bash、gawk、make、grep 等工具。MSYS 提供的功能没有 Cygwin 完善。MinGW 在创建 Unix 工具的 Windows 原生移植方面非常有用。
+- 要在 Windows 上获取 GNU 开发者工具（比如 GCC）的另一个办法是使用 [MinGW](http://www.mingw.org/) 以及它的 [MSYS](http://www.mingw.org/wiki/msys) 软件包，该软件包提供了 bash、gawk、make、grep 等工具。然而 MSYS 提供的功能没有 Cygwin 完善。MinGW 在创建 Unix 工具的 Windows 原生移植方面非常有用。
 
 ## 更多资源
 
@@ -583,7 +585,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 ## 免责声明
 
-除去特别微小的任务，编写代码是出于方便阅读的目的。能力往往伴随着责任。你 *可以* 在 Bash 中做一些事并不意味着你应该去做！;)
+除去特别小的工作，你编写的代码应当方便他人阅读。能力往往伴随着责任，你 *有能力* 在 Bash 中玩一些奇技淫巧并不意味着你应该去做！;)
 
 
 ## 授权条款
