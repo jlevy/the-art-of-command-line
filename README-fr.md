@@ -184,7 +184,7 @@ Un exemple classique consiste à se déplacer temporairement dans un autre répe
 
 - Notez qu'en Bash, il existe de nombreux types d'expansions de variables. Pour vérifier l'existence d'une variable&nbsp;: `${name:?error message}`.
 Par exemple, si un script en Bash exige un unique argument, il suffit d'écrire `input_file=${1:?usage: $0 input_file}`.
-Pour utiliser une valeur par défaut si une variable est vide&nbsp;: `$(name:-default}`.
+Pour utiliser une valeur par défaut si une variable est vide&nbsp;: `${name:-default}`.
 Si vous souhaitez ajouter un paramètre supplémentaire facultatif dans l'exemple précédent, vous pouvez écrire quelque chose comme `output_file=${2:-logfile}`.
 Si `$2` est omis et donc vide, `output_file` prendra la valeur `logfile`.
 L'évaluation arithmétique&nbsp;: `i=$(( (i+1) % 5)`.
@@ -427,7 +427,7 @@ Exemples&nbsp;: `/proc/cpuinfo`, `/proc/meminfo`, `/proc/cmdline`, `/proc/xxx/cw
 - Pour comprendre pourquoi quelque chose a mal tourné antérieurement, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) peut-être très utile.
 Il fournit un historique concernant l'usage du CPU, de la mémoire, du réseau, etc.
 
-- Pour une analyse plus approfondie du système et de ses performances, regardez `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_(Linux) et [`sysdig`](https://github.com/draios/sysdig).
+- Pour une analyse plus approfondie du système et de ses performances, regardez `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_%28Linux%29) et [`sysdig`](https://github.com/draios/sysdig).
 
 - Vérifiez quel OS vous utilisez avec `uname` ou `uname -a` (information général sur la version d'Unix et du noyau) ou `lsb_release -a` (informations sur la distribution Linux).
 
