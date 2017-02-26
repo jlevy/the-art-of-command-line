@@ -81,7 +81,7 @@ Renseignez-vous sur stdout et stderr.
 Pour la gestion du système de fichiers&nbsp;: `df`, `mount`, `fdisk`, `mkfs`, `lsblk`.
 Apprenez ce qu'est un inode (`ls -i` ou `df -i`).
 
-- Les bases de l'administration réseau&nbsp;: `ip` ou `ifconfig`, `dig`.
+- Les bases de l'administration réseau&nbsp;: `ip`, `ifconfig`, `dig`, `traceroute` et `route`.
 
 - Apprenez à vous servir d'un logiciel de gestion de versions tel que `git`, et utilisez-le.
 
@@ -96,7 +96,7 @@ Assurez-vous d'avoir `pip` pour installer des outils en ligne de commande écrit
 
 - En Bash, utilisez **Tab** pour compléter les arguments ou lister toutes les commandes disponibles, et **ctrl-r** pour rechercher dans l'historique des commandes (tapez pour rechercher, appuyez sur **ctrl-r** plusieurs fois pour parcourir les différentes correspondances, appuyez sur **Enter** pour exécuter la commande trouvée ou sur la flèche droite pour l'éditer).
 
-- En Bash, utilisez **ctrl-w** pour effacer le mot précédent et **ctrl-u** pour effacer le contenu de la ligne jusqu'au curseur.
+- En Bash, utilisez **ctrl-w** pour effacer le mot précédent et **ctrl-u** pour effacer tout ce qui précède le curseur.
 Utilisez **alt-b** et **alt-f** pour se déplacer mot par mot, **ctrl-a** pour déplacer le curseur au début de la ligne, **ctrl-e** pour déplacer le curseur à la fin de la ligne, **ctrl-k** pour effacer depuis le curseur jusqu'à la fin de la ligne, **ctrl-l** pour effacer l'écran.
 Voir `man readline` pour la liste des raccourcis clavier par défault de Bash.
 Il y en a beaucoup.
@@ -143,7 +143,7 @@ Pour la liste complète, consultez `man 7 signal`.
 
 - Vérifiez quels sont les processus qui écoutent à l'aide de `netstat -lntp` ou `ss -plat` (pour TCP; ajoutez `-u` pour UDP).
 
-- Voyez également `lsof` pour la liste des *sockets* et fichiers ouverts.
+- Voyez également `lsof` et `fuser` pour la liste des *sockets* et fichiers ouverts.
 
 - Voyez `uptime` ou `w` pour savoir depuis combien de temps le système fonctionne.
 
@@ -383,6 +383,8 @@ Par exemple, l'attribut *immutable* protège un fichier contre toute suppression
     setfacl --restore=permissions.txt
 ```
 
+- Pour créer rapidement un fichier vide, utilisez `truncate` (crée un [fichier creux](https://en.wikipedia.org/wiki/Sparse_file)), `fallocate` (systèmes de fichiers ext4, XFS, Btrfs et OCFS2), `xfs_mkfile` (pour presque tous les systèmes de fichiers, disponible dans le paquet xfsprogs) ou `mkfile` (pour les systèmes de type Unix comme Solaris ou Mac OS X).
+
 ## Débogage du système
 
 - Pour du débogage web, `curl` et `curl -I` sont pratiques, de même que leurs
@@ -414,8 +416,9 @@ Pour des tests de charge plus complexes, essayez `siege`.
 - Pour du debogage réseau plus sérieux : [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ou [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Sachez utiliser `strace` et `ltrace`.
-Ces commandes peuvent être utiles si un programme fonctionne mal ou plante et que vous n'en connaissez pas la raison, ou si vous voulez vous faire une idée des performances.
-Remarquez l'option de profilage (`-c`) et la possibilité de les attacher à un processus en cours d'exécution (`-p`).
+Ces commandes peuvent être utiles si un programme fonctionne mal ou plante et que vous n'en connaissez pas la raison, ou si vous voulez vous faire une idée de ses performances.
+Remarquez l'option de profilage (`-c`) et la possibilité de s'attacher à un processus en cours d'exécution (`-p`).
+Utilisez l'option `-f` pour ne pas manquer les appels des processus enfants.
 
 - Connaissez `ldd` pour afficher les bibliothèques partagées, etc.
 
