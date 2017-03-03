@@ -474,7 +474,7 @@ A few examples of piecing together commands:
 
 - `nm`: symbols from object files
 
-- `ab` or `wrk`: benchmarking web servers
+- `ab` or [`wrk`](https://github.com/wg/wrk): benchmarking web servers
 
 - `strace`: system call debugging
 
