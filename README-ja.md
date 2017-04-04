@@ -5,16 +5,16 @@
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-- [メタ情報](#meta)
-- [基本](#basics)
-- [日常的に使うもの](#everyday-use)
-- [ファイルとデータの処理](#processing-files-and-data)
-- [システムのデバッグ](#system-debugging)
-- [ワンライナー](#one-liners)
-- [目立たないが便利なもの](#obscure-but-useful)
-- [OS X用のもの](#os-x-only)
-- [さらなるリソース](#more-resources)
-- [免責事項](#disclaimer)
+- [メタ情報](#メタ情報)
+- [基本](#基本)
+- [日常的に使うもの](#日常的に使うもの)
+- [ファイルとデータの処理](#ファイルとデータの処理)
+- [システムのデバッグ](#システムのデバッグ)
+- [ワンライナー](#ワンライナー)
+- [目立たないが便利なもの](#目立たないが便利なもの)
+- [OS X用のもの](#os-x用のもの)
+- [さらなるリソース](#さらなるリソース)
+- [免責事項](#免責事項)
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/cowsay.png)
 
