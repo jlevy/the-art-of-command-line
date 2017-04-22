@@ -47,7 +47,7 @@ Note:
 
 - Impara le basi di Bash. Usa `man bash` e cerca almeno di scorrere velocemente l'intero scritto. Non è troppo lungo e neanche difficile da seguire. Altre shell possono andare bene, ma Bash è molto potente e sempre disponibile (impararne una sola tra zsh, fish e così via, per quanto ti possa tentare, ti darà problemi a lungo termine, lavorando su altre piattaforme).
 
-- Impara ad usare bene almeno un editor di testo. Idealmente, potresti usare Vim (`vi`), con il quale non c'è praticamente competizione per questo genere di cose (si, anche se volessi usare Emacs, oppure un altro di quei grossi IDE, o magari l'ennesimo ultimo editor ultramoderno ed hipster).
+- Impara ad usare bene almeno un editor di testo. Idealmente, potresti usare Vim (`vi`), con il quale non c'è praticamente competizione per questo genere di cose (sì, anche se volessi usare Emacs, oppure un altro di quei grossi IDE, o magari l'ennesimo ultimo editor ultramoderno ed hipster).
 
 - Impara a leggere la documentazione usando `man` (per i più curiosi, `man man` elenca le varie sezioni. Ad esempio, 1 indica i comandi "regolari", 5 per file/convenzioni, 8 per l'amministrazione). Trova le pagine tramite `apropos`. Ricorda inoltre che alcuni comandi non sono degli eseguibili, ma dei "builtin" di Bash. Usa `help -d` in caso di necessità.
 
@@ -59,7 +59,7 @@ Note:
 
 - Impara ad usare `ssh` e le basi della passwordless authentication, tramite `ssh-agent`, `ssh-add`, e così via.
 
-- Gestione base dei file: `ls` e `ls -l` (nello specifico, impara cosa indica ognuna delle colonne che escono fuori da `ls -l`), `less`, `head`, `tail` e `tail -f` (or even better, `less +F`), `ln` e `ln -s` (impara le differenze ed i vantaggi nell'uso di hard link o soft link), `chown`, `chmod`, `du` (per una panoramica veloce, usa: `du -hs *`). Per la gestione del filesystem, guardati `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Impara anche cos'è un inode (`ls -i` or `df -i`).
+- Gestione base dei file: `ls` e `ls -l` (nello specifico, impara cosa indica ognuna delle colonne che escono fuori da `ls -l`), `less`, `head`, `tail` e `tail -f` (o, anche meglio, `less +F`), `ln` e `ln -s` (impara le differenze ed i vantaggi nell'uso di hard link o soft link), `chown`, `chmod`, `du` (per una panoramica veloce, usa: `du -hs *`). Per la gestione del filesystem, guardati `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Impara anche cos'è un inode (`ls -i` or `df -i`).
 
 - Gestione base delle reti: `ip` or `ifconfig`, `dig`.
 
