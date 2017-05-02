@@ -210,6 +210,10 @@ Notes:
 
 - For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
 
+- To know the type of the file, use the eponymous file command. Like,
+$ file vm_qa.py 
+vm_qa.py: a /usr/bin/env python script text executable
+
 - To convert HTML to text: `lynx -dump -stdin`
 
 - For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
