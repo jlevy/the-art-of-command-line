@@ -408,6 +408,8 @@ A few examples of piecing together commands:
 
 - `column`: format text fields into aligned, fixed-width columns or tables
 
+- `cowsay`: format text inside ASCII art of a cow saying it (great when combined with `fortune`)
+
 - `expand` and `unexpand`: convert between tabs and spaces
 
 - `nl`: add line numbers
