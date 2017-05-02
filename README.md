@@ -362,6 +362,26 @@ A few examples of piecing together commands:
 ```sh
       find . -type f -ls
 ```
+- You can simplify the creation of a directory tree by using `{}`:
+```
+      mkdir -p ~/test/{one,two,three}/subtest.{one,two,three}
+```
+creates:
+```
+~/test/
+|_____one/
+      |_____subtest.one
+      |_____subtest.two/
+      |_____subtest.three/
+|_____two/
+      |_____subtest.one
+      |_____subtest.two/
+      |_____subtest.three/
+|_____three/
+      |_____subtest.one
+      |_____subtest.two/
+      |_____subtest.three/
+```
 
 - Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
 ```sh
