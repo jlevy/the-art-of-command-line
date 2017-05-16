@@ -530,6 +530,18 @@ A few examples of piecing together commands:
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
+- `watch` lets you run a command repeatedly without re-typing it:
+
+```sh
+# Will run every two seconds. The optional
+# -d causes it to highlight any changes.
+$ watch -d -n 2 'ls -rtlh | tail'
+
+# Keep an eye on your IP address and data transfer
+# while troubleshooting your WiFi connection.
+watch -d -n 2 ifconfig
+```
+
 
 ## OS X only
 
