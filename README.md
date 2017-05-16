@@ -214,7 +214,7 @@ Notes:
 
 - For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
 
-- If you must handle XML, `xmlstarlet` is old but good.
+- If you must handle XML, `xmlstarlet` is old but good. `Xpath` can be used to query xml files.
 
 - For JSON, use [`jq`](http://stedolan.github.io/jq/).
 
