@@ -238,7 +238,7 @@ Notes:
 
 - You can set a specific command's environment by prefixing its invocation with the environment variable settings, as in `TZ=Pacific/Fiji date`.
 
-- Know basic `awk` and `sed` for simple data munging. See One-liners section for examples.
+- Know basic `awk` and `sed` for simple data munging. See [One-liners](#one-liners) for examples.
 
 - To replace all occurrences of a string in place, in one or more files:
 ```sh
