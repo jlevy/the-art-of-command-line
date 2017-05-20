@@ -260,7 +260,7 @@ Notes:
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
-- Want to see progress while copying files? Use `pv`, [`pycp`](https://github.com/dmerejkowsky/pycp), [`progress`](https://github.com/Xfennec/progress) or rsync with option: `rsync --progress`. Block-level copy tools also has the option: `dd status=progress`.
+- For seeing progress when copying files, use `pv`, [`pycp`](https://github.com/dmerejkowsky/pycp), [`progress`](https://github.com/Xfennec/progress), `rsync --progress`, or, for block-level copying, `dd status=progress`.
 
 - Use `shuf` to shuffle or select random lines from a file.
 
