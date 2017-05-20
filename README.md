@@ -321,7 +321,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Know about `strace` and `ltrace`. These can be helpful if a program is failing, hanging, or crashing, and you don't know why, or if you want to get a general idea of performance. Note the profiling option (`-c`), and the ability to attach to a running process (`-p`).
 
-- Know about `ldd` to check shared libraries etc, but never run it on untrusted files ([read more](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/))
+- Know about `ldd` to check shared libraries etc — but [never run it on untrusted files](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/).
 
 - Know how to connect to a running process with `gdb` and get its stack traces.
 
