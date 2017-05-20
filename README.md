@@ -446,6 +446,8 @@ A few examples of piecing together commands:
 
 - `watch`: run a command repeatedly, showing results and/or highlighting changes
 
+- [`when-changed`](https://github.com/joh/when-changed): runs any command you specify whenever it sees file changed. See `inotifywait` and `entr` as well.
+
 - `tac`: print files in reverse
 
 - `shuf`: random selection of lines from a file
