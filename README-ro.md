@@ -51,7 +51,7 @@ Note:
 
 ## Bazele
 
-- Învățați folosirea de bază a Bash. De fapt, tastați `man bash` și treceți măcar pe diagonală prin tot conținutul; este ușor de citit și nu este prea lung. Shell-uri alternative pot fi frumoase, dar Bash este puternic și disponibil mereu (a învăța *doar* zsh, etc., chiar dacă e tentant pe laptopul propriu, vă restricționează în anumite situații, cum ar fi în folosirea unor servere existente).
+- Învățați folosirea de bază a Bash. De fapt, tastați `man bash` și treceți măcar pe diagonală prin tot conținutul; este ușor de citit și nu este prea lung. Shell-uri alternative pot fi mai interesante, dar Bash este puternic și disponibil mereu (a învăța *doar* zsh, etc., chiar dacă e tentant pe laptopul propriu, vă restricționează în anumite situații, cum ar fi în folosirea unor servere existente).
 
 - Învățați cel puțin un editor de text. Ideal Vim (`vi`), cum nu există un competitor real pentru editarea în terminal (chiar dacă folosiți Emacs, sau un editor modern în majoritatea timpului).
 
