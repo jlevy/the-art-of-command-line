@@ -31,7 +31,7 @@ Multe dintre aceste sfaturi
 [au apărut](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [original](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 pe [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-și au fost mutate pe GitHub ulterior, unde alți oameni talentați au produs numeroase îmbunătățiri.
+și au fost mutate pe GitHub ulterior, unde oameni mai talentați au produs numeroase îmbunătățiri.
 [**Vă rugăm întrebați**](https://airtable.com/shrzMhx00YiIVAWJg) dacă aveți nelămuriri legate de linia de comandă. [**Contribuiți**](/CONTRIBUTING.md) dacă identificați o eroare sau ceva ce ar putea fi îmbunătățit!
 
 ## Meta
