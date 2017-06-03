@@ -31,7 +31,7 @@ Multe dintre aceste sfaturi
 [au apărut](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [original](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 pe [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-și au fost mutate pe GitHub ulterior, unde alți oameni talentați au produs numeroase îmbunătățiri.
+și au fost mutate pe GitHub ulterior, unde oameni mai talentați au produs numeroase îmbunătățiri.
 [**Vă rugăm întrebați**](https://airtable.com/shrzMhx00YiIVAWJg) dacă aveți nelămuriri legate de linia de comandă. [**Contribuiți**](/CONTRIBUTING.md) dacă identificați o eroare sau ceva ce ar putea fi îmbunătățit!
 
 ## Meta
@@ -51,7 +51,7 @@ Note:
 
 ## Bazele
 
-- Învățați folosirea de bază a Bash. De fapt, tastați `man bash` și treceți măcar pe diagonală prin tot conținutul; este ușor de citit și nu este prea lung. Shell-uri alternative pot fi frumoase, dar Bash este puternic și disponibil mereu (a învăța *doar* zsh, etc., chiar dacă e tentant pe laptopul propriu, vă restricționează în anumite situații, cum ar fi în folosirea unor servere existente).
+- Învățați folosirea de bază a Bash. De fapt, tastați `man bash` și treceți măcar pe diagonală prin tot conținutul; este ușor de citit și nu este prea lung. Shell-uri alternative pot fi mai interesante, dar Bash este puternic și disponibil mereu (a învăța *doar* zsh, etc., chiar dacă e tentant pe laptopul propriu, vă restricționează în anumite situații, cum ar fi în folosirea unor servere existente).
 
 - Învățați cel puțin un editor de text. Ideal Vim (`vi`), cum nu există un competitor real pentru editarea în terminal (chiar dacă folosiți Emacs, sau un editor modern în majoritatea timpului).
 
