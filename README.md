@@ -383,6 +383,10 @@ A few examples of piecing together commands:
       }
 ```
 
+- Find out the name,version and codename of your Linux OS distribution with Python
+
+`python -c 'from platform import dist; print dist()'`
+
 
 ## Obscure but useful
 
