@@ -383,6 +383,10 @@ A few examples of piecing together commands:
       }
 ```
 
+- Find out the name,version and codename of your Linux OS distribution with Python
+
+`python -c 'from platform import dist; print dist()'`
+
 
 ## Obscure but useful
 
@@ -532,6 +536,7 @@ A few examples of piecing together commands:
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
+- `sysctl`: view and change kernel parameters at runtime.
 
 ## OS X only
 
