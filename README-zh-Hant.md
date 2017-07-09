@@ -227,11 +227,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 標準的原始碼對比及合併工具是`diff` 和`patch`。使用 `diffstat` 檢視變更總覽資料。注意到 `diff -r` 對整個資料夾有效。使用`diff -r tree1 tree2 | diffstat` 檢視變更總覽資料。
 
-- 對於二進製檔案，使用`hd` 使其以十六進位制顯示以及使用`bvi` 來編輯二進位制。
+- 對於二進制檔案，使用`hd` 使其以十六進位制顯示以及使用`bvi` 來編輯二進位制。
 
-- 同樣對於二進製檔案，`strings`（包括`grep` 等等）允許你查詢一些文字。
+- 同樣對於二進制檔案，`strings`（包括`grep` 等等）允許你查詢一些文字。
 
-- 二進製檔案對比（Delta 壓縮），使用`xdelta3`。
+- 二進制檔案對比（Delta 壓縮），使用`xdelta3`。
 
 - 使用 `iconv` 更改文字編碼。而更高階的用法，可以使用`uconv`，它支援一些高階的Unicode 功能。例如，這條命令將所有母音字母轉為小寫並移除了：
 ```sh
@@ -522,11 +522,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 ## 免責聲明
 
-除去特別微小的任務，編寫程式碼是出於方便閱讀的目的。能力往往伴隨著責任。你*可以* 在 Bash 中做一些事並不意味著你應該去做！ ;)
+除去特別微小的任務，編寫程式碼是出於方便閱讀的目的。能力往往伴隨著責任。你 *可以* 在 Bash 中做一些事並不意味著你應該去做！ ;)
 
 
-##授權條款
+## 授權條款
 
-[！[創作共用License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+[![創作共用License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-本文使用授權協議[知識共享署名 - 相同方式共享4.0國際許可（http://creativecommons.org/licenses/by-sa/4.0/）。
+本文使用授權協議 [知識共享署名 - 相同方式共享 4.0 國際許可](http://creativecommons.org/licenses/by-sa/4.0/)。
