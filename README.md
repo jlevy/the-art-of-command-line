@@ -208,7 +208,7 @@ Notes:
 
 - To locate a file by name in the current directory, `find . -iname '*something*'` (or similar). To find a file anywhere by name, use `locate something` (but bear in mind `updatedb` may not have indexed recently created files).
 
-- For general searching through source or data files (more advanced than `grep -r`), use [`ag`](https://github.com/ggreer/the_silver_searcher).
+- For general searching through source or data files, there are several options more advanced or faster than `grep -r`, including (in rough order from older to newer) [`ack`](https://github.com/beyondgrep/ack2), [`ag`](https://github.com/ggreer/the_silver_searcher) ("the silver searcher"), and [`rg`](https://github.com/beyondgrep/ack2) (ripgrep).
 
 - To convert HTML to text: `lynx -dump -stdin`
 
