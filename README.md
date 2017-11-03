@@ -109,7 +109,7 @@ Notes:
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
 
-- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP) or `lsof -iTCP -sTCP:LISTEN -P -n` (which also works on OX X).
+- Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP) or `lsof -iTCP -sTCP:LISTEN -P -n` (which also works on OS X).
 
 - See also `lsof` and `fuser` for open sockets and files.
 
