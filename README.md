@@ -452,8 +452,6 @@ A few examples of piecing together commands:
 
 - `tac`: print files in reverse
 
-- `shuf`: random selection of lines from a file
-
 - `comm`: compare sorted files line by line
 
 - `strings`: extract text from binary files
