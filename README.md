@@ -216,7 +216,7 @@ Notes:
 
 - If you must handle XML, `xmlstarlet` is old but good.
 
-- For JSON, use [`jq`](http://stedolan.github.io/jq/).
+- For JSON, use [`jq`](http://stedolan.github.io/jq/). For interactive use, also see [`jid`](https://github.com/simeji/jid) and [`jiq`](https://github.com/fiatjaf/jiq).
 
 - For YAML, use [`shyaml`](https://github.com/0k/shyaml).
 
