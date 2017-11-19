@@ -108,7 +108,7 @@
 
 - 使用 `nohup` 或 `disown` 使一个后台进程持续运行。
 
-- 使用 `netstat -lntp` 或 `ss -plat` 检查哪些进程在监听端口（默认是检查 TCP 端口; 添加参数 `-u` 则检查 UDP 端口）或者 `lsof -iTCP -sTCP:LISTEN -P -n` (这也可以在OX X上运行).
+- 使用 `netstat -lntp` 或 `ss -plat` 检查哪些进程在监听端口（默认是检查 TCP 端口; 添加参数 `-u` 则检查 UDP 端口）或者 `lsof -iTCP -sTCP:LISTEN -P -n` (这也可以在 OS X 上运行)。
 
 - `lsof` 来查看开启的套接字和文件。
 
@@ -259,7 +259,7 @@
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
-- 若要在复制文件时获取当前进度， 可使用 `pv`， [`pycp`](https://github.com/dmerejkowsky/pycp)， [`progress`](https://github.com/Xfennec/progress)， `rsync --progress`， 或者， 对于block块拷贝， `dd status=progress`。
+- 若要在复制文件时获取当前进度，可使用 `pv`，[`pycp`](https://github.com/dmerejkowsky/pycp)，[`progress`](https://github.com/Xfennec/progress)，`rsync --progress`。若所执行的复制为block块拷贝，可以使用 `dd status=progress`。
 
 - 使用 `shuf` 可以以行为单位来打乱文件的内容或从一个文件中随机选取多行。
 
@@ -322,7 +322,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 了解 `strace` 和 `ltrace`。这俩工具在你的程序运行失败、挂起甚至崩溃，而你却不知道为什么或你想对性能有个总体的认识的时候是非常有用的。注意 profile 参数（`-c`）和附加到一个运行的进程参数 （`-p`）。
 
-- 了解使用 `ldd` 来检查共享库。— 但是 [永远不要在不信任的文件上运行](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/).
+- 了解使用 `ldd` 来检查共享库。但是[永远不要在不信任的文件上运行](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/)。
 
 - 了解如何运用 `gdb` 连接到一个运行着的进程并获取它的堆栈轨迹。
 
@@ -447,7 +447,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `watch`：重复运行同一个命令，展示结果并／或高亮有更改的部分
 
-- [`when-changed`](https://github.com/joh/when-changed): 执行指定的命令当监视到文件被更改。参阅 `inotifywait` 和 `entr` 。
+- [`when-changed`](https://github.com/joh/when-changed)：当检测到文件更改时执行指定命令。参阅 `inotifywait` 和 `entr`。
 
 - `tac`：反向输出文件
 
@@ -558,17 +558,17 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 可以安装 [Cygwin](https://cygwin.com/) 允许你在 Microsoft Windows 中体验 Unix shell 的威力。这样的话，本文中介绍的大多数内容都将适用。
 
-- 在 Windows 10 上，你可以使用 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)，它提供了一个熟悉的 Bash 环境，包含了不少 Unix 命令行工具。好处是它允许 Linux 上编写的程序能够在 Windows 上运行，而另一方面，Windows 上编写的程序却无法在 Bash 命令行中运行。
+- 在 Windows 10 上，你可以使用 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)，它提供了一个熟悉的 Bash 环境，包含了不少 Unix 命令行工具。好处是它允许 Linux 上编写的程序在 Windows 上运行，而另一方面，Windows 上编写的程序却无法在 Bash 命令行中运行。
 
-- 如果你在 Windows 上主要想用 GNU 开发者工具 (例如 GCC) ，可以考虑 [MinGW](http://www.mingw.org/) 以及它的 [MSYS](http://www.mingw.org/wiki/msys) 包， 这个包提供了例如 bash， gawk， make 和 grep 的工具。 MSYS 并不包含所有可以与 Cygwin 媲美的特性。当制作 Unix 工具的原生 Windows 端口时 MinGW 将特别地有用。
+- 如果你在 Windows 上主要想用 GNU 开发者工具（例如 GCC），可以考虑 [MinGW](http://www.mingw.org/) 以及它的 [MSYS](http://www.mingw.org/wiki/msys) 包，这个包提供了例如 bash，gawk，make 和 grep 的工具。MSYS 并不包含所有可以与 Cygwin 媲美的特性。当制作 Unix 工具的原生 Windows 端口时 MinGW 将特别地有用。
 
-- 另一个在 Windows 下接近的 Unix 感觉的的选项是 [Cash](https://github.com/dthree/cash)。注意在此环境下只有很少的 Unix 命令和命令行可用。
+- 另一个在 Windows 下实现接近 Unix 环境外观效果的选项是 [Cash](https://github.com/dthree/cash)。注意在此环境下只有很少的 Unix 命令和命令行可用。
 
 ### 实用 Windows 命令行工具
 
-- 可以使用 `wmic` 在命令行下实现以及给大部分 Windows 系统管理任务编写脚本。
+- 可以使用 `wmic` 在命令行环境下给大部分 Windows 系统管理任务编写脚本以及执行这些任务。
 
-- Windows 实用的原生命令行网络工具包括 `ping`, `ipconfig`, `tracert`, 和 `netstat`。
+- Windows 实用的原生命令行网络工具包括 `ping`，`ipconfig`，`tracert`，和 `netstat`。
 
 - 可以使用 `Rundll32` 命令来实现[许多有用的 Windows 任务](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) 。
 
