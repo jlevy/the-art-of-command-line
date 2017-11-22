@@ -141,7 +141,7 @@ Pour la liste complète, consultez `man 7 signal`.
 
 - Utilisez `nohup` ou `disown` pour qu'un processus en arrière-plan reste actif indéfiniment.
 
-- Vérifiez quels sont les processus qui écoutent à l'aide de `netstat -lntp` ou `ss -plat` (pour TCP; ajoutez `-u` pour UDP).
+- Vérifiez quels sont les processus qui écoutent à l'aide de `netstat -lntp`, `ss -plat` (pour TCP; ajoutez `-u` pour UDP) ou `lsof -iTCP -sTCP:LISTEN -P -n` (qui fonctionne aussi sur OS X). 
 
 - Voyez également `lsof` et `fuser` pour la liste des *sockets* et fichiers ouverts.
 
@@ -274,7 +274,7 @@ Par exemple,
 - Pour localiser un fichier par son nom dans le répertoire courant, `find . -iname '*something*'` (ou autres).
 Pour trouver un fichier n'importe où par son nom, utilisez `locate something` (mais n'oubliez pas que `updatedb` peut ne pas avoir indexé les fichiers récemment créés).
 
-- Pour une recherche à travers les fichiers sources ou fichiers de données (plus poussée que `grep -r`), utilisez [`ag`](https://github.com/ggreer/the_silver_searcher).
+- Pour effectuer une recherche parmi des fichiers sources ou des fichiers de données, il existe des alternatives plus avancées ou plus rapides que `grep -r`, parmi lesquels (en gros du plus ancien au plus récent) [`ack`](https://github.com/beyondgrep/ack2), [`ag`](https://github.com/ggreer/the_silver_searcher) (« *the silver searcher* ») et [`rg`](https://github.com/BurntSushi/ripgrep) (ripgrep).
 
 - Pour convertir du HTML en texte brut : `lynx -dump -stdin`.
 
@@ -311,6 +311,8 @@ Dans certains cas (tels que les opérations concernant les ensembles et l'unicit
 - Vous pouvez modifier l'environnement d'une commande particulière en préfixant son invocation par l'affectation de variables, comme dans `TZ=Pacific/Fiji date`.
 
 - Apprenez `awk` et `sed` pour de l'analyse de données élémentaire.
+Voir la section [Unilignes](#unilignes) pour des exemples.
+
 Par exemple, pour effectuer la somme de tous les nombres de la troisième colonne d'un fichier texte&nbsp;: `awk '{ x += $3 } END { print x}'`.
 C'est probablement trois fois plus rapide et trois fois plus petit que son équivalent en Python.
 
@@ -326,7 +328,6 @@ C'est probablement trois fois plus rapide et trois fois plus petit que son équi
     repren --full --preserve-case --from foo --to bar .
     # Restaure des fichiers de sauvegarde à l'aide de la
     # substitution whatever.bak -> whatever :
-    repren --renames --from '(.*)\.bak' --to '\1' *.bak
     # Même chose que ci-dessus avec rename s'il est disponible :
     rename 's/\.bak$//' *.bak
 ```
@@ -338,6 +339,8 @@ Il est aussi l'un des outils [les plus rapides](https://web.archive.org/web/2013
 ```sh
     mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
+
+- Pour surveiller l'état d'avancement d'une copie de fichiers, utilisez `pv`, [`pycp`](https://github.com/dmerejkowsky/pycp), [`progress`](https://github.com/Xfennec/progress), `rsync --progress`, ou `dd status=progress` pour une copie par blocs.
 
 - Utilisez `shuf` pour mélanger ou sélectionner aléatoirement des lignes d'un fichier.
 
@@ -420,7 +423,7 @@ Ces commandes peuvent être utiles si un programme fonctionne mal ou plante et q
 Remarquez l'option de profilage (`-c`) et la possibilité de s'attacher à un processus en cours d'exécution (`-p`).
 Utilisez l'option `-f` pour ne pas manquer les appels des processus enfants.
 
-- Connaissez `ldd` pour afficher les bibliothèques partagées, etc.
+- Connaissez `ldd` pour afficher les bibliothèques partagées, mais [ne l'utilisez jamais sur des fichiers qui ne sont pas dignes de confiance](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/).
 
 - Sachez comment vous connecter à un processus en cours d'exécution avec `gdb` et récupérer la trace des appels.
 
@@ -449,9 +452,9 @@ Supposez que `a` et `b` soient des fichiers texte ne contenant pas de lignes ré
 C'est rapide et fonctionne sur des fichiers de taille quelconque jusqu'à plusieurs gigaoctets (le tri n'est pas limité par la capacité mémoire bien que vous puissiez avoir besoin d'utiliser l'option `-T` si `/tmp` est sur une petite partition racine).
 Voyez aussi la remarque à propos de `LC_ALL` ci-dessus et l'option `-u` de `sort` (omise ci-dessous pour plus de clarté).
 ```sh
-    cat a b | sort | uniq > c       # c est l'union de a et b
-    cat a b | sort | uniq -d > c    # c est l'intersection de a et b
-    cat a b b | sort | uniq -u > c  # c est la difference  a - b
+    sort a b | uniq > c   # c is a union b
+    sort a b | uniq -d > c   # c is a intersect b
+    sort a b b | uniq -u > c   # c is set difference a - b
 ```
 
 - Utilisez `grep . *` pour inspecter rapidement les contenus des fichiers d'un repértoire (chaque ligne est précédé du nom du fichier) ou `head -100 *` (chaque fichier a un titre).
@@ -470,7 +473,7 @@ Cela peut être utile pour des répertoires remplis de fichiers de configuration
 - Supposons que vous ayez un fichier texte comme un fichier journal de serveur web et q'une certaine valeur, comme un paramètre `acct_id` présent dans l'URL, figure à certaines lignes.
 Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_id`&nbsp;:
 ```sh
-    cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
+    egrep -o 'acct_id=[0-9]+' access.log | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
 - Pour surveiller en permanence tout changement, utilisez `watch`, par exemple vérifiez les modifications dans les fichiers d'un répertoire avec `watch -d -n 2 'ls -rtlh | tail'` ou surveillez les paramètres de votre réseau tout en dépannant la configuration de votre wifi avec `watch -d -n 2 ifconfig`.
@@ -551,13 +554,13 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `watch` : exécute une commande périodiquement, affiche le résultat et surligne les différences entre les résultats.
 
+- [`when-changed`](https://github.com/joh/when-changed) : exécute n'importe quelle commande donnée à chaque fois qu'un fichier est modifié. Voir également `inotifywait` et `entr`. 
+
 - `tac` : affiche des fichiers à l'envers.
 
 - `shuf` : sélection aléatoire de lignes d'un fichier.
 
 - `comm` : compare ligne à ligne deux fichiers triés.
-
-- `pv` : surveille la progression des données à travers un tube.
 
 - `hd`, `hexdump`, `xxd`, `biew` et `bvi` : dump et édition de fichiers binaires.
 
@@ -581,7 +584,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `nm` : affiche les symboles des fichiers objets.
 
-- `ab` : mesure les performances de serveurs web.
+- `ab` ou [`wrk`](https://github.com/wg/wrk) : mesure les performances de serveurs web.
 
 - `strace`: trace les appels système.
 
@@ -665,12 +668,31 @@ Pour écrire des scripts Bash multi-plateformes évitez d'utiliser de telles com
 
 Ce qui suit ne concerne que Windows.
 
+### Différentes manières d'obtenir les outils Unix sous Windows
+
+- Installez [Cygwin](http://cygwin.com) pour bénéficier de la puissance du shell Unix sous Microsoft Windows.
+La majorité de ce qui est décrit dans ce document fonctionnera *out of the box*.
+
 - Sur Windows 10, [Bash sous Ubuntu sur Windows](https://msdn.microsoft.com/commandline/wsl/about) fournit un environnement Bash avec les utilitaires en ligne de commande d'Unix.
 Du côté positif, cela permet à des programmes Linux de s'exécuter sous Windows.
 En revanche, il n'est pas possible de lancer des programmes Windows depuis le *prompt* de Bash.
 
-- Installez [Cygwin](http://cygwin.com) pour bénéficier de la puissance du shell Unix sous Microsoft Windows.
-La majorité de ce qui est décrit dans ce document fonctionnera *out of the box*.
+- Si vous êtes surtout intéressés par les outils de developpement GNU (comme GCC) sur Windows, jetez un œil à [MinGW](http://www.mingw.org/) et à son package [MSYS](http://www.mingw.org/wiki/msys) qui fournit des utilitaires tels que bash, gawk, make et grep.
+MSYS ne dispose pas de toutes les fonctionnalités de Cygwin.
+MinGW est particulièrement utile pour porter sous Windows des outils Unix.
+
+- Une autre manière d'obtenir le *look and feel* d'Unix sous Windows est d'utiliser [Cash](https://github.com/dthree/cash).
+Notez que très peu de commandes Unix et d'options de ligne de commande sont disponibles dans cet environnement.
+
+### Outils en ligne de commande utiles pour Windows
+
+- Vous pouvez accomplir et scripter la plupart des tâches d'administration système de Windows depuis la ligne de commande à l'aide de `wmic`.
+
+- Parmi les outils réseaux en ligne de commande nativement disponibles sous windows que vous devriez trouver utiles, on trouve `ping`, `ipconfig`, `tracert` et `netstat`.
+
+- Vous pouvez effectuer [de nombreuses tâches sous Windows](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) en invoquant la commande `Rundll32`.
+
+### Trucs et astuces à propos de Cygwin
 
 - Installez des programmes Unix supplémentaires à l'aide du gestionnaire de paquets de Cygwin.
 
@@ -678,22 +700,13 @@ La majorité de ce qui est décrit dans ce document fonctionnera *out of the box
 
 - Accédez au presse-papier de Windows par `/dev/clipboard`.
 
-- Exécutez `cygstart` pour ouvrir un fichier quelconque à l'aide de son application enregistrée.
+- Exécutez `cygstart` pour ouvrir un fichier quelconque avec l'application associée.
 
 - Accédez à la base de registres de Windows avec `regtool`.
 
 - Sachez qu'on accède au lecteur `C:\` depuis Cygwin via `/cygdrive/c` et que le chemin Cygwin `\` devient `C:\cygwin` sous Windows.
 Effectuez des conversions entre les deux types de chemin avec l'utilitaire `cygpath`.
 C'est particulièrement utile pour invoquer des programmes Windows dans les scripts.
-
-- Vous pouvez accomplir et scripter la plupart des tâches d'administration système de Windows depuis la ligne de commande en apprenant et en utilisant `wmic`.
-
-- Une autre possibilité pour avoir le *look and feel* Unix sous Windows est d'utiliser [Cash](https://github.com/dthree/cash).
-Notez que très peu de commandes Unix et d'options de ligne de commande sont disponibles dans cet environnement.
-
-- Une solution alternative pour se procurer les outils de développement GNU sous Windows, tels que GCC, est [MinGW](http://www.mingw.org/) et son package [MSYS](http://www.mingw.org/wiki/msys) qui fournit des utilitaires comme bash, gawk, make et grep.
-MSYS ne dispose pas de toutes les fonctionnalités de Cygwin.
-MinGW est particulièrement utile pour porter sous Windows des outils Unix.
 
 ## Autres ressources
 
