@@ -206,7 +206,6 @@
 echo "2+3"|bc                                
 5                                            
 ```                                          
-Specify scale for accuracy control purpse.                                                                                                                                               
 指定scale参数可以控制计算精度
 ```                                          
 echo "scale=4;9/7"|bc                        
