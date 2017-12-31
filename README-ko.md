@@ -32,7 +32,7 @@
 [Quora에](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
  [올라온](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know) 것입니다.
 하지만 거기에 관심을 가지기보다, Github를 이용하는 것이 더 가치 있는 것처럼 보입니다. 여기엔 더 재능 있는 사람들이 손쉽게 개선안을 제안할 수 있는 곳이죠.
-맨드 란이에 관한 질문이 있으면 [**질문해 주세요**.](https://airtable.com/shrzMhx00YiIVAWJg) 오류가 있거나, 더 나아질 수 있는 내용이 보인다면, [**기여 해 주세요**!](/CONTRIBUTING.md)
+커맨드라인에 관한 질문이 있으면 [**질문해 주세요**.](https://airtable.com/shrzMhx00YiIVAWJg) 오류가 있거나, 더 나아질 수 있는 내용이 보인다면, [**기여해 주세요**!](/CONTRIBUTING.md)
 
 ## Meta
 
