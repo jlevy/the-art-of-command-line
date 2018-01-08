@@ -142,7 +142,7 @@ Notes:
 
 - Brace expansion using `{`...`}` can reduce having to re-type similar text and automate combinations of items.  This is helpful in examples like `mv foo.{txt,pdf} some-dir` (which moves both files), `cp somefile{,.bak}` (which expands to `cp somefile somefile.bak`) or `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (which expands all possible combinations and creates a directory tree).
 
-- The output of a command can be treated like a file via `<(some command)`. For example, compare local `/etc/hosts` with a remote one:
+- The output of a command can be treated like a file via `<(some command)` (known as process substitution). For example, compare local `/etc/hosts` with a remote one:
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
