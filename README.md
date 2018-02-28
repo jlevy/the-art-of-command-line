@@ -570,7 +570,7 @@ These items are relevant *only* on Windows.
 
 - You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
 
-- Native command-line Windows networking tools you may find useful include `ping`, `ipconfig`, `tracert`, and `netstat`.
+- Native command-line Windows networking tools you may find useful include `ping`, `ipconfig`, `tracert`, nslookup , telnet , ftp , & netstat`.
 
 - You can perform [many useful Windows tasks](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) by invoking the `Rundll32` command.
 
