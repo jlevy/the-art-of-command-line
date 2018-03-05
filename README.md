@@ -285,7 +285,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
 
-- To manipulate date and time expressions, use `dateadd`, `datediff`, `strptime` etc. from [`dateutils`](http://www.fresse.org/dateutils/).
+- Date and time: To get the current date and time in the helpful [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, use `date -u +"%Y-%m-%dT%H:%M:%SZ"` (other options [are](https://stackoverflow.com/questions/7216358/date-command-on-os-x-doesnt-have-iso-8601-i-option) [problematic](https://unix.stackexchange.com/questions/164826/date-command-iso-8601-option)). To manipulate date and time expressions, use `dateadd`, `datediff`, `strptime` etc. from [`dateutils`](http://www.fresse.org/dateutils/).
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
