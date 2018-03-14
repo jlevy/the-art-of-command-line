@@ -278,9 +278,13 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - For binary diffs (delta compression), use `xdelta3`.
 
-- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example, this command lowercases and removes all accents (by expanding and dropping them):
+- To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example:
 ```sh
-      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
+      # Displays hex codes or actual names of characters (useful for debugging):
+      uconv -f utf-8 -t utf-8 -x '::Any-Hex;' < input.txt
+      uconv -f utf-8 -t utf-8 -x '::Any-Name;' < input.txt
+      # Lowercase and removes all accents (by expanding and dropping them):
+      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC;' < input.txt > output.txt
 ```
 
 - To split files into pieces, see `split` (to split by size) and `csplit` (to split by a pattern).
