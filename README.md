@@ -53,6 +53,8 @@ Notes:
 
 - Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
+- Learn about `PATH` environment variable, you can examine it with `echo $PATH`. When you're executing a script file which name does not contain a slash, `PATH` is used to determine where the script is. Usually, the current directory is not in `PATH` for security reasons, so you need to use `./scriptname` or `sh scriptname` to execute a script in the current directory, make sure the script has execute permissions.
+
 - Learn at least one text-based editor well. Ideally Vim (`vi`), as there's really no competition for random editing in a terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).
 
 - Know how to read documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`. Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`. You can find out whether a command is an executable, shell builtin or an alias by using `type command`.
