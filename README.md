@@ -156,7 +156,13 @@ Notes:
 }
 ```
 
-- Know about "here documents" in Bash, as in `cat <<EOF ...`.
+- A "here document" is a code structure that is treated as if it were a separate file. They can be used to feed multiple lines into a command. Consider reading more about ["here documents"](https://www.tldp.org/LDP/abs/html/here-docs.html). A simple example is:
+```
+cat << EOF
+These lines will
+print to stdout
+EOF
+```
 
 - In Bash, redirect both standard output and standard error via: `some-command >logfile 2>&1` or `some-command &>logfile`. Often, to ensure a command does not leave an open file handle to standard input, tying it to the terminal you are in, it is also good practice to add `</dev/null`.
 
