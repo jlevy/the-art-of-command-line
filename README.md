@@ -351,11 +351,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 A few examples of piecing together commands:
 
-- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+- It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`comm`. Suppose `a` and `b` are sorted text files. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
 ```sh
-      sort a b | uniq > c   # c is a union b
-      sort a b | uniq -d > c   # c is a intersect b
-      sort a b b | uniq -u > c   # c is set difference a - b
+      sort -mu a b > c   # c is a union b
+      comm -12 a b > c   # c is a intersect b
+      comm -23 a b > c   # c is set difference a - b
 ```
 
 - Use `grep . *` to quickly examine the contents of all files in a directory (so each line is paired with the filename), or `head -100 *` (so each file has a heading). This can be useful for directories filled with config settings like those in `/sys`, `/proc`, `/etc`.
