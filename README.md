@@ -191,7 +191,7 @@ Notes:
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
-Or use `sed` (it's more lightweight but its default regexp syntax differs from `perl`'s one, be carefull)
+Or use `sed` (it's more lightweight but its default regexp syntax differs from `perl`'s one, be careful)
 ```sh
       sed -i.bak 's/old-string/new-string/g' my-files-*.txt
 ```
