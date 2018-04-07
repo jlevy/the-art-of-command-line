@@ -156,7 +156,13 @@ Notes:
 }
 ```
 
-- Know about "here documents" in Bash, as in `cat <<EOF ...`.
+- A "here document" allows [redirection of multiple lines of input](https://www.tldp.org/LDP/abs/html/here-docs.html) as if from a file:
+```
+cat <<EOF
+input
+on multiple lines
+EOF
+```
 
 - In Bash, redirect both standard output and standard error via: `some-command >logfile 2>&1` or `some-command &>logfile`. Often, to ensure a command does not leave an open file handle to standard input, tying it to the terminal you are in, it is also good practice to add `</dev/null`.
 
