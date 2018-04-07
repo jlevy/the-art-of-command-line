@@ -156,11 +156,11 @@ Notes:
 }
 ```
 
-- A "here document" is a code structure that is treated as if it were a separate file. They can be used to feed multiple lines into a command. Consider reading more about ["here documents"](https://www.tldp.org/LDP/abs/html/here-docs.html). A simple example is:
+- A "here document" allows [redirection of multiple lines of input](https://www.tldp.org/LDP/abs/html/here-docs.html) as if from a file:
 ```
-cat << EOF
-These lines will
-print to stdout
+cat <<EOF
+input
+on multiple lines
 EOF
 ```
 
