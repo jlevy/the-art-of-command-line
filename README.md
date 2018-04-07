@@ -16,7 +16,7 @@
 - [System debugging](#system-debugging)
 - [One-liners](#one-liners)
 - [Obscure but useful](#obscure-but-useful)
-- [macOS only](#os-x-only)
+- [macOS only](#macos-only)
 - [Windows only](#windows-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
