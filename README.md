@@ -93,7 +93,7 @@ Notes:
 
 - To go back to the previous working directory: `cd -`.
 
-- If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
+- If you are halfway through typing a long command but you suddenly remember that you need to run another command before this command, hit **ctrl-u**. This will the cut the part from the beginning of the line to the cursor. This will stay in your clipboard and then you can paste it when required using **ctrl-y**.
 
 - Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
 ```bash
