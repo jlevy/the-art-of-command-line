@@ -220,7 +220,7 @@ EOF
 
 - To convert HTML to text: `lynx -dump -stdin`
 
-- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/).
+- For Markdown, HTML, and all kinds of document conversion, try [`pandoc`](http://pandoc.org/). For example, to convert a Markdown document to Word format: `pandoc README.md --from markdown --to docx -o temp.docx`
 
 - If you must handle XML, `xmlstarlet` is old but good.
 
