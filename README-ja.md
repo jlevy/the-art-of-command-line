@@ -3,7 +3,9 @@
 
 # The Art of Command Line
 
-[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![質問してみよう](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
+
+[![https://gitter.im/jlevy/the-art-of-command-lineでチャットに参加しよう](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 - [メタ情報](#メタ情報)
 - [基本](#基本)
@@ -13,14 +15,17 @@
 - [ワンライナー](#ワンライナー)
 - [目立たないが便利なもの](#目立たないが便利なもの)
 - [OS X用のもの](#os-x用のもの)
+- [Windows専用](#windows専用)
 - [さらなるリソース](#さらなるリソース)
 - [免責事項](#免責事項)
 
-![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/cowsay.png)
+![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
 コマンドラインで流れるように操作ができるということは、軽く見られたり他人から理解されないスキルだとみなされることもあるだろう。しかしそのスキルは、明らかにかすぐ分かるようかは問わず、エンジニアとしてのあなたの柔軟性や生産性を改善してくれるものだ。ここでは、Linuxでコマンドラインを使う上で便利だと思ったメモやTipsの数々を挙げてみる。あるものは基礎的だが、非常に詳しいもの、洗練されたもの、曖昧なものもある。このページはそんなに長いものではないが、ここに書いてあることの全てを使ったり思い出すことができれば、かなり詳しくなれるだろう。
 
-このドキュメントは[多くの執筆者と翻訳者](AUTHORS.md)による成果である。ここに書いてあることの多くは、[元々](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)[Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)に[書かれて](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)いたものが多いが、より優れた人たちがすぐに改善案を出すことができるGitHubに置くのがよいのではと思った。間違いやもっとこうした方がよいという点があれば、issueを登録するかpull requestを送ってほしい！(もちろん、メタ情報の項や既存のpull requestsやissuesをまず確認しよう)
+このドキュメントは[多くの執筆者と翻訳者](AUTHORS.md)による成果である。
+ここに書いてあることの多くは、[元々](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)[Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)に[書かれて](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)いたものが多いが、より優れた人たちがすぐに改善案を出すことができるGitHubに置くのがよいのではと思った。
+コマンドラインについて疑問があるなら[**質問してみよう**](https://airtable.com/shrzMhx00YiIVAWJg) エラーや改善点を見つけたら[**貢献してみよう**](/CONTRIBUTING.md)!
 
 ## メタ情報
 
@@ -29,6 +34,7 @@
 - このガイドは、初心者向けでも経験者向きでもある。幅広く(書いてあることは全て重要)、かつ明確で(多くのケースに対して具体的な例を付ける)、そして簡潔(他の場所で見つけられるような重要でないことや脱線したことは省く)であることをゴールにしている。各項目は、多くの場面において必須であるか、他の方法に比べて劇的に時間を節約してくれるだろう。
 - [OS X用のもの](#os-x-only)を除き、Linux向けの内容となっており、その多くは各種LinuxおよびMacOS(あるいはCygwin)でも使えるだろう。
 - インタラクティブなBashを使うことを想定しているが、多くの項目は他のシェルやBashのスクリプトでも使えるだろう。
+- (このリポジトリへ)組み込むメリットがあるのであれば、標準Unixコマンドやパッケージインストールコマンドも含める。
 
 注意 :
 
@@ -39,7 +45,7 @@
 
 - 基本的なBashを学ぼう。実際のところ、`man bash`は結構簡単に理解できるしそんなに長くないので、これで一通りのことは分かる。それ以外のシェルもよいが、Bashは強力だし、常に使用可能であるという利点もある(自分のPCに入れてしまったと言ってzshやfishなど*だけ*を学んでしまうと、既存のサーバを触らなくてはならない時などに制約が出てしまう)。
 
-- テキストエディタのどれか最低1つに習熟しよう。ターミナル内で適当にものを書くにあたって他に全く代替品がないという点で、理想的にはVim(`vi`)がよいだろう(通常はEmacsや高機能なIDEや最新のかっこいいエディタをメインに使っていたとしても)。
+- テキストエディタのどれか最低1つに習熟しよう。`nano`エディタは編集の基本操作(開く、修正する、保存する、検索する)を学ぶ最もシンプルな方法のひとつだ。ターミナル内で適当にものを書くにあたって他に全く代替品がないという点で、理想的にはVim(`vi`)がよいだろう(通常はEmacsや高機能なIDEや最新のかっこいいエディタをメインに使っていたとしても)。
 
 - `man`でのドキュメントの読み方を知ろう(知りたがりのために書くと、`man man`でセクション番号が分かる。例えば1は「一般的な」コマンド、5はファイルやそのお作法、8は管理についてといった具合)。`apropos`でmanページを探そう。コマンドによっては実行可能ファイルではなくBashのビルトインコマンドであることを理解し、`help`や`help -d`でヘルプが見られることを知ろう。
 
@@ -53,7 +59,9 @@
 
 - ファイル管理について。`ls`や`ls -l`(特に、`ls -l`の各列が何を意味するか理解)、`less`、`head`、`tail`、`tail -f`(または`less +F`)、`ln`と`ln -s`(ハードリンクとソフトリンクの違いとそれぞれの利点の理解)、`chown`と`chmod`、`du`(ディスク使用量まとめを簡単に見るなら`du -hs *`)。ファイルシステム管理については、`df`、`mount`、`fdisk`、`mkfs`、`lsblk`。inodeについては、`ls -i`(または `df -i`)。
 
-- 基本的なネットワーク管理について。`ip`あるいは`ifconfig`、`dig`。
+- 基本的なネットワーク管理について。`ip`あるいは`ifconfig`、`dig`、`traceroute`、 `route`。
+
+-  `git`のようなバージョン管理システムを学んで使ってみよう。
 
 - 正規表現について詳しく知ろう。`grep`や`egrep`の色々なフラグも合わせて。`-i`、`-o`、`-v`、`-A`、`-B`、`-C`といったオプションは知っておいて損はない。
 
@@ -70,7 +78,9 @@
 
 - 長いコマンドを編集するときに、エディタを設定した後で(例えば`export EDITOR=vim`)、**ctrl-x** **ctrl-e**によって編集中のコマンドが複数行の編集のために指定したエディタで開かれる。vi風の場合は、**escape-v**。
 
-- 最近実行したコマンドを確認するなら`history`。**ctrl-r**や**alt-.**で用は足りるだろうが、`!$`(直前の引数)や`!!`(直前のコマンド)といった省略形もたくさんある。
+- 最近実行したコマンドを確認するなら`history`。`!n`と続けることで(nはコマンド横に表示される数字)再度実行できる。**ctrl-r**や**alt-.**で用は足りるだろうが、`!$`(直前の引数)や`!!`(直前のコマンド)といった省略形もたくさんある。
+
+- `cd`でホームディレクトリへの移動。ホームディレクトリに関連するファイルにアクセスする場合はプレフィックス`~`をつける(例: `~/.bashrc`)。`sh`スクリプトの中では`$HOME`でホームディレクトリを表すことができる。
 
 - 前のワーキングディレクトリに戻るなら`cd -`
 
@@ -99,6 +109,15 @@
 
 - `alias`によってよく利用するコマンドのエイリアス(ショートカット)を作成できる。例えば、`alias ll='ls -latr'`では新しいエイリアスである`ll`が作成される.
 
+- よく使うエイリアス、シェル設定、機能を`~/.bashrc`に保存し、[ログインシェルに反映しよう](http://superuser.com/a/183980/7106)。これで全てのセッションであなたの設定が利用できる。
+
+- ログイン時に実行されてほしいコマンド、環境変数を`~/.bash_profile`に記載する。画面からのログインや`cron`ジョブで起動されるシェルには別の設定が必要だ。
+
+- Gitで様々なマシンの設定ファイル(例:`.bashrc`や`.bash_profile`)を同期させよう。
+
+- 空白を含む変数やファイル名には注意が必要だ。Bash変数にはクオートをつけよう、こんな風に`"$FOO"`。
+ファイル名の区切りとしてヌル文字を指定する場合には`-0`や`-print0`オプションを付与しよう。例:  `locate -0 pattern | xargs -0 ls -al` or `find / -print0 -type d | xargs -0 ls -al`。空白を含んだファイル名を繰り返し実行するためには、IFS=$'\n'`を使ってIFSを改行のみにしよう。
+
 - Bashスクリプトでは、`set -x`でデバッグ出力を出せる(`set -v`は、実行されるコマンドや変数名やコメントなどをそのまま出力する)。特別な理由がない限り厳格モード(strict mode)を使い、`set -e`でエラー時(0以外の終了コード時)に強制終了するように。`set -u`によって未定義の変数の利用を検知、パイプのエラーも厳格に扱うために`set -o pipefail`も使おう(これはちょっと微妙かも)。より複雑なスクリプトなら、EXITまたはERRシグナルに対して`trap`も使おう。使う場面としては以下の場合のようにエラーを検知してメッセージを出力するとき:
 
 ```bash
@@ -118,13 +137,28 @@
 
 - `{`...`}`を使った中括弧展開によって、似たようなコマンドを複数回入力しなくて済む。例えば、 `mv foo.{txt,pdf} some-dir` (両方のファイルを移動させる), `cp somefile{,.bak}` (`cp somefile somefile.bak` と展開される)、`mkdir -p test-{a,b,c}/subtest-{1,2,3}` (すべての可能な組み合わせでディレクトリが作られる).
 
+- 展開の順序は括弧→チルダ、パラメータや変数、計算機号、コマンド置換(左から右)→文字の分割→ファイル名の順だ。(例えば、{1..20}のような範囲は{$a..$b}というようには表現できない。`seq`や`for`ループを使ってこんな風に表すことができる。`seq $a $b or for((i=a; i<=b; i++)); do ... ; done`)
+
 - コマンドの出力を`<(some command)`のようにしてファイルのように扱える。例えば、ローカルとリモートのの`/etc/hosts`を比較するなら以下のようになる。
 
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
-- `cat <<EOF ...`のような、Bashの「ヒアドキュメント」を理解しよう。
+- スクリプトを書く時は全てのコードを中括弧で囲まなくてはいけない。もし閉じ括弧が欠けていたらシンタックスエラーで実行が妨げられる。これはあなたがスクリプトをダウンロードしたときに判明する。（不完全なスクリプトの）実行によって部分的にwebからダウンロードしてしまうのを防ぐためだ。
+```bash
+{
+      # Your code here
+}
+```
+
+- 「ヒアドキュメント」によって、ファイルからの[複数行のリダイレクト](https://www.tldp.org/LDP/abs/html/here-docs.html)のように振る舞うことができる。
+```
+cat <<EOF
+input
+on multiple lines
+EOF
+```
 
 - Bashでは、`some-command >logfile 2>&1`または`some-command &>logfile`で標準出力と標準エラー出力の両方をリダイレクトできる。コマンドが標準入力に対してファイルハンドルを開きっぱなしにせず、ログインしているターミナルにひもづけておくため、`</dev/null`するのもよい習慣。
 
@@ -134,7 +168,7 @@
 
 - SSHで`-L`あるいは`-D`(まれに`-R`)を使ったポートトンネルのやり方を覚えておくと便利。例えばリモートのサーバからウェブサイトにアクセスする時など。
 
-- SSHの設定を少しでも最適化しておくと便利。例えば以下の設定だと、ネットワーク環境による接続断を回避し、圧縮を使用し(帯域の細い回線を使ったscpなどで便利)、ローカルの制御ファイルを指定して同一サーバとのチャネルを多重化する。
+- SSHの設定を少しでも最適化しておくと便利。例えば以下の`~/.ssh/config`の設定だと、ネットワーク環境による接続断を回避し、圧縮を使用し(帯域の細い回線を使ったscpなどで便利)、ローカルの制御ファイルを指定して同一サーバとのチャネルを多重化する。
 
 ```
        TCPKeepAlive=yes
@@ -164,11 +198,21 @@
 
 - 特権レベルでコマンドを実行するとき、rootでの実行には`sudo`、他のユーザの場合は`sudo -u`を利用。`su` または `sudo bash`で、シェルがそのユーザで起動する。`su -`でrootまたは他のユーザで新たにログインした状態がシミュレートされる。
 
+- 異なるユーザーのシェルに移りたいと時は`su username`や`su - username`を使おう。"-"を用いることでまるで他のユーザーがログインしたかのように環境を得ることができる。スイッチ先のユーザーのパスワードを求められる。
+
+- コマンドラインの[128K 制限](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong)について知ろう。この"Argument list too long"エラーはワイルドカードに大量のファイルがマッチしてしまったときに出る一般的なものだ。(もしこれが起きたら`find` や `xargs`が代替として助けになるだろう。)
+
+- 基本的な計算(もちろんPythonの利用が一般的だ)には`python` interpreterを使おう。例えばこんな風に。
+```
+>>> 2+3
+5
+```
+
 ## ファイルとデータの処理
 
 - カレントディレクトリ以下のファイルをファイル名で探したいなら、`find . -iname '*something*'`。場所を指定せずにファイル名で検索したいなら、`locate something`をつかおう(ただし`updatedb`は最近作られたファイルはインデックスしていないであろうことに注意)。
 
-- ソースやデータファイルの(`grep -r`よりも高度な)一般的な検索には、[`ag`](https://github.com/ggreer/the_silver_searcher)を使おう。
+- ソースやデータファイルの(`grep -r`よりも高度な)一般的な検索には、[`ack`](https://github.com/beyondgrep/ack2)、[`ag`](https://github.com/ggreer/the_silver_searcher) ("the silver searcher")、そして[`rg`](https://github.com/BurntSushi/ripgrep) (ripgrep)を使おう。
 
 - HTMLをテキストに変換するなら、`lynx -dump -stdin`。
 
@@ -192,9 +236,13 @@
 
 - 標準入力をファイルと標準出力の両方に出す`tee`を理解しよう。`ls -al | tee file.txt`のように使う。
 
+- グルーピング、フィールドを入れ替える、統計的な計算といったもっと複雑な作業は[`datamash`](https://www.gnu.org/software/datamash/)の利用を検討しよう。
+
 - ロケールは、ソートの順序(照合順序)やパフォーマンスなど、たくさんのコマンドラインツールに微妙なところで影響することを覚えておこう。多くのLinuxディストリビューションでは、`LANG`や他のロケール変数はUS Englishのようなローカルな設定になっている。ロケールを変更するとソート順序が変わることに注意しよう。また、国際化(i18n)対応のルーチンはソートやその他の処理を*何倍も*遅く実行するようになる点も知っておこう。場合(設定の処理や一意性を見つける処理など)によっては、`export LC_ALL=C`としてしまい遅いi18n対応の処理を完全に無視してしまうことも可能だ。
 
-- 単純なデータ加工のために`awk`と`sed`の基礎を身につけよう。例えば、テキストファイルの3カラム目の合計を出すなら、`awk '{ x += $3 } END { print x }'`。これは、Pythonで同じことをやるより3倍速くかつ3分の1の長さで書ける。
+- `TZ=Pacific/Fiji date`のように起動時に変数を前につけることで、特定のコマンドの環境変数をセットすることができる。
+
+- 単純なデータ加工のために`awk`と`sed`の基礎を身につけよう。[ワンライナー](#ワンライナー)を参照。
 
 - 1つあるいは複数のファイル内の文字列を直接置き換えてしまうには、
 
@@ -218,6 +266,8 @@
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
+
+- 実行ファイルの進捗を監視したい場合、[`pv`](http://www.ivarch.com/programs/pv.shtml)、[`pycp`](https://github.com/dmerejkowsky/pycp)、 [`pmonitor`](https://github.com/dspinellis/pmonitor)、[`progress`](https://github.com/Xfennec/progress)や`rsync --progress`を使おう。ブロックレベルバックアップは`dd status=progress`だ。
 
 - ファイルからランダムな行を抜き出すには`shuf`
 
@@ -243,9 +293,18 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - ファイルを分割するなら`split`(サイズで分割)と`csplit`(パターンで分割)。
 
-- 日付や時間の表現を扱うには、[`dateutils`](http://www.fresse.org/dateutils/)にあるように、`dateadd`、 `datediff`、 `strptime` などを使いましょう。
+- 日時について。現在日時を取得するには[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)が助けになる。`date -u +"%Y-%m-%dT%H:%M:%SZ"` を使おう。(他のオプションは[こちら](https://stackoverflow.com/questions/7216358/date-command-on-os-x-doesnt-have-iso-8601-i-option) [problematic](https://unix.stackexchange.com/questions/164826/date-command-iso-8601-option))。日付や時間の表現を扱うには、[`dateutils`](http://www.fresse.org/dateutils/)にあるように、`dateadd`、 `datediff`、 `strptime` などを使いましょう。
 
 - 圧縮ファイルの操作は`zless`、`zmore`、`zcat`、`zgrep`。
+
+- `chattr`でファイル権限に代わる低階層のファイル属性情報をセットできる。例えば、意図しないファイル削除を防ぐフラグはこうやって立てる。`sudo chattr +i /critical/directory/or/file`
+
+- ファイルの権限を保存、リストアするには`getfacl`と`setfacl`を使おう。例は
+```sh
+   getfacl -R /some/path > permissions.txt
+   setfacl --restore=permissions.txt
+```
+- 空ファイルを素早く作るには`truncate`([sparse file](https://en.wikipedia.org/wiki/Sparse_file)を作成)、`fallocate`(ext4, xfs, btrfs とocfs2ファイルシステム)、`xfs_mkfile`(xfsprogs packageにあるほぼ全てのファイルシステム)、`mkfile` (Solaris、Mac OSといったUnix関連システム)
 
 ## システムのデバッグ
 
@@ -273,7 +332,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`と`ltrace`について知っておこう。プログラムの実行に失敗したりハングしたりクラッシュしたりして、その理由が分からない、あるいはパフォーマンスに関する一般的情報を知りたいなら、このツールが役立つはずだ。プロファイリングのオプション(`-c`)や起動中のプロセスにアタッチする機能(`-p`)も覚えておこう。
 
-- 共有ライブラリをチェックするなら`ldd`を覚えておこう。
+- 共有ライブラリをチェックするなら`ldd`を覚えておこう。でも[怪しいファイルを指定して実行しないように](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/)
 
 - 起動中のプロセスに`gdb`で接続し、そのスタックトレースを取る方法を知ろう。
 
@@ -287,6 +346,8 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - どのOSを利用しているかを`uname`や`uname -a` (Unixカーネル情報)で確認しよう。どのディストリビューションを使っているかは`lsb_release -a` (ディストリビューション情報)。
 
 - 何かいつもと違うおかしなこと(大抵ハードウェアかドライバ関連の問題だ)が起きていたら、`dmesg`を実行しよう。
+
+- `du`で表示されたディスクースペースがファイルを消しても空かなかった場合、そのファイルがプロセスに使われているかどうかこうやって確認しよう。`lsof | grep deleted | grep "filename-of-my-big-file"`
 
 ## ワンライナー
 
@@ -315,9 +376,8 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
 - Webサーバのログのようなテキストファイルがあり、各行には例えばURLの中に出てくる`acct_id`のような特定の値が現れるとしよう。`acct_id`が何回リクエストされているかを集計するには、
-
 ```sh
-      cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
+      egrep -o 'acct_id=[0-9]+' access.log | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
 - 継続的に変更を監視する場合 `watch`を使う。例えば、ディレクトリのファイルの変更を確認するには `watch -d -n 2 'ls -rtlh | tail'` となり、wifi設定などのネットワーク設定関係のトラブルシューティングでは `watch -d -n 2 ifconfig`。
@@ -502,6 +562,41 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Mac OSのリリース情報を取得するには、`sw_vers`。
 
+## Windows専用
+
+これらは*Windows用*の項目です。
+
+### Windows下でUnixツールを手に入れる方法
+
+- [Cygwin](https://cygwin.com/)をMicrosoft WindowsでインストールしてUnixシェルの力を手にしよう。このドキュメントで説明されている大部分はびっくり箱みたいに独創的だ。
+
+- Windows10であれば[Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/commandline/wsl/about)を使える。Unixコマンドラインや親しみのあるBashを提供してくれる。
+
+- windows上で、主にGNUデベロッパーツール(GCCなど)を使いたい場合、[MinGW](http://www.mingw.org/)や[MSYS](http://www.mingw.org/wiki/msys)を検討しよう。bash、gawk、make、grepを提供してくれる。MSYSはCygwinと比べると全ての機能を持っているわけではない。MinGWはUnixツールのネイティブWindowsポートを作成するのに特に有効だ。
+
+- Windows配下でUnixの見た目と操作感を得るもう一つの方法は[Cash](https://github.com/dthree/cash)だ。本当に限られたUnixコマンドやコマンドラインオプションしかこの環境では利用できないので注意が必要だ。
+
+### 使えるWindowsコマンドラインツール
+- `wmic`を使って学ぶことで、Windowsシステム管理者タスクの大部分をコマンドラインで記述、実行することができる。
+
+- `ping`、`ipconfig`、`tracert`、`netstat`などのWindows固有のコマンドラインも便利だと思えるはずだ。
+
+- `Rundll32`を実行することによって[便利なWindowsタスク](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows)を利用することができる。
+
+### Cygwinの秘訣とコツ
+
+- Cygwinのパッケージマネージャーで追加のUnixプログラムをインストールしよう。
+
+- `mintty`をコマンドラインウィンドウとして使おう
+
+- `/dev/clipboard`でWindowsのクリップボードにアクセスしてみよう。
+
+- 登録されたアプリケーションで任意のファイルを開くためには`cygstart`を起動しよう。
+
+- `regtool`でWindowsレジストリにアクセスしよう。
+
+- `C:\`WindowsドライブのパスはCygwin下では`/cygdrive/c`なので注意が必要だ。また、Cygwinの`/`はWindowsの`C:\cygwin`だ。`cygpath`を使ってCygwinスタイルとWindowsスタイルのパスを切り替えられる。これはWindowsプログラムを実行するスクリプトでとても有効だ。
+
 ## さらなるリソース
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): シェルのツールやリソースのまとめ
@@ -509,6 +604,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/): よりよいシェルスクリプトを書くために
 - [shellcheck](https://github.com/koalaman/shellcheck): シェルスクリプト(本来、bash/sh/zsh用)の静的解析ツール
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): シェルスクリプトでファイル名を正しく扱うために
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): 同タイトルの書籍から引用されているデータサイエンスで役に立つコマンドやツール
 
 ## 免責事項
 
