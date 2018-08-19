@@ -57,3 +57,7 @@ roles:
   mihaimaruseac: translation maintainer (ro)
   bgdnlp: translator (ro)
   23Pstars: translation maintainer (id)
+  koh7: translator (ja)
+
+groups:
+  - name: Contributors
