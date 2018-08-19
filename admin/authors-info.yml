@@ -57,3 +57,49 @@ roles:
   mihaimaruseac: translation maintainer (ro)
   bgdnlp: translator (ro)
   23Pstars: translation maintainer (id)
+  koh7: translator (ja)
+
+groups:
+  - name: Maintainers
+    members:
+    -  jlevy
+    -  ceoaliongroo
+    -  doublemarket
+    -  Ungsik-Yun
+    -  niltonvasques
+    -  olegberman
+    -  petk
+    -  Psycho7
+    -  stepan0904
+    -  dmytro
+    -  francescomalatesta
+    -  lsrom
+    -  ericguirbal
+    -  kevingo
+    -  anna-d
+    -  S1SYPHOS
+    -  dspinellis
+    -  mihaimaruseac
+    -  23Pstars
+  - name: Translators
+    members:
+    -  aaossa
+    -  BishopWolf
+    -  Snowcat8436
+    -  ujuc
+    -  hunkim
+    -  vcvpaiva
+    -  spmbt
+    -  osmero
+    -  grigory-rechistov
+    -  kastian
+    -  githubashto
+    -  xuchunyang
+    -  stevenlordiam
+    -  Armour
+    -  rverchere
+    -  gernd
+    -  bgdnlp
+    -  koh7
+  - name: Contributors
+
