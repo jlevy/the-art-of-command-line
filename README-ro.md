@@ -24,14 +24,14 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-A folosi linia de comandă în mod eficient este o abilitate ignorată și/sau considerată obscură, dar ajută la creșterea flexibilității și productivității ca inginer. Acest ghid reprezintă o selecție de note și sfaturi pe care le-am găsit utile lucrului în Linux. Unele sfaturi sunt elementare, altele sunt foarte specifice, sofisticate sau obscure. Pagina nu este foarte lungă, dar dacă memorați și folosiți lucrurile de aici atunci știți o cantitate semnificativă de informație.
+A folosi linia de comandă în mod eficient este o abilitate ignorată și/sau considerată obscură, dar ajută la creșterea flexibilității și productivității ca inginer atât în mod evident dar și în aspecte subtile. Acest ghid reprezintă o selecție de note și sfaturi pe care le-am găsit utile lucrului în Linux. Unele sfaturi sunt elementare, altele sunt foarte specifice, sofisticate sau obscure. Pagina nu este foarte lungă, dar dacă memorați și folosiți lucrurile de aici atunci știți o cantitate semnificativă de informație.
 
 Această muncă este rezultatul eforturilor [multor autori și translatori](AUTHORS.md).
 Multe dintre aceste sfaturi
 [au apărut](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [original](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 pe [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-și au fost mutate pe GitHub ulterior, unde oameni mai talentați au produs numeroase îmbunătățiri.
+și au fost mutate pe GitHub ulterior, unde oameni mai talentați decât autorul original au produs numeroase îmbunătățiri.
 [**Vă rugăm întrebați**](https://airtable.com/shrzMhx00YiIVAWJg) dacă aveți nelămuriri legate de linia de comandă. [**Contribuiți**](/CONTRIBUTING.md) dacă identificați o eroare sau ceva ce ar putea fi îmbunătățit!
 
 ## Meta
@@ -51,9 +51,9 @@ Note:
 
 ## Bazele
 
-- Învățați folosirea de bază a Bash. De fapt, tastați `man bash` și treceți măcar pe diagonală prin tot conținutul; este ușor de citit și nu este prea lung. Shell-uri alternative pot fi mai interesante, dar Bash este puternic și disponibil mereu (a învăța *doar* zsh, etc., chiar dacă e tentant pe laptopul propriu, vă restricționează în anumite situații, cum ar fi în folosirea unor servere existente).
+- Învățați folosirea de bază a Bash. De fapt, tastați `man bash` și treceți măcar pe diagonală prin tot conținutul; este ușor de citit și nu este prea lung. Shell-uri alternative pot fi interesante, dar Bash este puternic și disponibil mereu (a învăța *doar* zsh, etc., chiar dacă e tentant pe laptopul propriu, vă restricționează în anumite situații, cum ar fi în folosirea unor servere existente).
 
-- Învățați cel puțin un editor de text. Ideal Vim (`vi`), cum nu există un competitor real pentru editarea în terminal (chiar dacă folosiți Emacs, sau un editor modern în majoritatea timpului).
+- Învățați cel puțin un editor de text. Editorul `nano` este foarte simplu pentru editare de bază (deschide, scriere, salvare, căutare). Dar, pentru utilizare eficientă din terminal, nu există echivalent pentru Vim (`vi`), editorul mai greu de învățat dar respectat, rapid și cu multe facilități. Mulți oameni folosesc și Emacs, în special pentru eforturile majore de editare. (Desigur, este puțin probabil ca un software developer modern care lucrează la proiecte mari să folosească doar editoare pur bazate pe text; deci ar trebui să vă familiarizați și cu editoare integrate -- IDE -- și unelte moderne).
 
 - Învățați să citiți documentație cu `man` (pentru curioși, `man man` listează secțiunile, de exemplu 1 este pentru comenzi "uzuale", 5 este pentru fișiere/convenții și 8 pentru administrare). Găsiți pagini de manual cu `apropos`. Rețineți că anumite comenzi nu sunt programe executabile ci comenzi interne în Bash și că puteți obține ajutor despre ele cu `help` sau `help -d`. Puteți vedea dacă o comandă este internă, executabilă sau doar un alias prin folosirea `type command`.
 
