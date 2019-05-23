@@ -572,6 +572,8 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 可以使用 `Rundll32` 命令来实现[许多有用的 Windows 任务](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) 。
 
+- 可以使用[cmder](https://cmder.net) 命令行工具在Windows下使用一些简单的Linux命令，例如`ls`，`pwd`，`scp`，`mv`等，此工具还集成了`git`，`vim`等Linux下常用工具，也支持Windows下所有`cmd`命令，可以满足日常开发需要。
+
 ### Cygwin 技巧
 
 - 通过 Cygwin 的包管理器来安装额外的 Unix 程序。
