@@ -7,17 +7,22 @@
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%19Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-- [Méta](#méta)
-- [Notions de base](#notions-de-base)
-- [Utilisation quotidienne](#utilisation-quotidienne)
-- [Traitement des fichiers et des données](#traitement-des-fichiers-et-des-données)
-- [Débogage du système](#débogage-du-système)
-- [Unilignes](#unilignes)
-- [Obscures mais utiles](#obscures-mais-utiles)
-- [Uniquement macOS](#uniquement-macos)
-- [Uniquement Windows](#uniquement-windows)
-- [Autres ressources](#autres-ressources)
-- [Avertissement](#avertissement)
+- [L'art de la ligne de commande](#lart-de-la-ligne-de-commande)
+  - [Méta](#m%C3%A9ta)
+  - [Notions de base](#notions-de-base)
+  - [Utilisation quotidienne](#utilisation-quotidienne)
+  - [Traitement des fichiers et des données](#traitement-des-fichiers-et-des-donn%C3%A9es)
+  - [Débogage du système](#d%C3%A9bogage-du-syst%C3%A8me)
+  - [Unilignes](#unilignes)
+  - [Obscures mais utiles](#obscures-mais-utiles)
+  - [Uniquement macOS](#uniquement-macos)
+  - [Uniquement Windows](#uniquement-windows)
+    - [Différentes manières d'obtenir les outils Unix sous Windows](#diff%C3%A9rentes-mani%C3%A8res-dobtenir-les-outils-unix-sous-windows)
+    - [Outils en ligne de commande utiles pour Windows](#outils-en-ligne-de-commande-utiles-pour-windows)
+    - [Trucs et astuces à propos de Cygwin](#trucs-et-astuces-%C3%A0-propos-de-cygwin)
+  - [Autres ressources](#autres-ressources)
+  - [Avertissement](#avertissement)
+  - [Licence](#licence)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -704,7 +709,7 @@ Notez que très peu de commandes Unix et d'options de ligne de commande sont dis
 
 - Vous pouvez accomplir et scripter la plupart des tâches d'administration système de Windows depuis la ligne de commande à l'aide de `wmic`.
 
-- Parmi les outils réseaux en ligne de commande nativement disponibles sous windows que vous devriez trouver utiles, on trouve `ping`, `ipconfig`, `tracert` et `netstat`.
+- Parmi les outils réseaux en ligne de commande nativement disponibles sous windows que vous devriez trouver utiles, on trouve `ping`, `ipconfig`, `tracert`, `netstat` et `curl`.
 
 - Vous pouvez effectuer [de nombreuses tâches sous Windows](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) en invoquant la commande `Rundll32`.
 
