@@ -54,7 +54,7 @@ Translations to new languages are always welcome! Keep in mind a transation must
 - Do you have time to be a maintainer for the new language? Please say so so we know we can count on you in the future.
 - If it is not in progress, file an issue for your language so people know you are working on it and we can arrange. Confirm you are native level in the language and are willing to maintain the translation, so it's not orphaned.
 - To get it started, fork the repo, then submit a PR with the single file README-xx.md added, where xx is the language code. Use standard [IETF language tags](https://www.w3.org/International/articles/language-tags/), i.e. the same as is used by Wikipedia, *not* the code for a single country. These are usually just the two-letter lowercase code, for example, `fr` for French and `uk` for Ukrainian (not `ua`, which is for the country). For languages that have variations, use the shortest tag, such as `zh-Hant`.
-- *Invite friends to review* if possible. Tranlsations are difficult and usually have erros others need to find. If desired, feel free to invite them to help your original translation by letting them fork your repo, then merging their PRs.
+- *Invite friends to review* if possible. Translations are difficult and usually have errors others need to find. If desired, feel free to invite them to help your original translation by letting them fork your repo, then merging their PRs.
 - Add links to your translation at the top of every README*.md file. (For consistency, the link should be added in alphabetical order by ISO code, and the anchor text should be in the native language.)
 - When done, indicate on the PR that it's ready to be merged into the main repo.
 
