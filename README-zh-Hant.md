@@ -515,6 +515,8 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 學會使用 `wmic`，你就可以從命令列執行大多數 Windows 系統管理任務，並編成腳本。
 
+- Cmder以強大的[ConEmu](https://conemu.github.io)終端仿真器為基礎，通過[Maximus5](https://github.com/Maximus5)的出色工作在Windows上提供最佳終端體驗，它使用[Clink](https://mridgers.github.io/clink)和GNU的[Readline](https://en.wikipedia.org/wiki/GNU_Readline)提供類似bash的提示，且提供語法的別名支持，並在完整版上附帶Git。
+
 ## 更多資源
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell)：一份精美的命令列工具及資源的列表。
