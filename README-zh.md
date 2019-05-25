@@ -564,6 +564,8 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 另一个在 Windows 下实现接近 Unix 环境外观效果的选项是 [Cash](https://github.com/dthree/cash)。注意在此环境下只有很少的 Unix 命令和命令行可用。
 
+- Cmder以强大的[ConEmu](https://conemu.github.io)终端仿真器为基础，通过[Maximus5](https://github.com/Maximus5)的出色工作在Windows上提供最佳终端体验，它使用[Clink](https://mridgers.github.io/clink)和GNU的[Readline](https://en.wikipedia.org/wiki/GNU_Readline)提供类似bash的提示，且提供语法的别名支持，并在完整版上附带Git。
+
 ### 实用 Windows 命令行工具
 
 - 可以使用 `wmic` 在命令行环境下给大部分 Windows 系统管理任务编写脚本以及执行这些任务。
