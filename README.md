@@ -579,6 +579,8 @@ These items are relevant *only* on Windows.
 
 - Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
 
+- [Cmder](https://cmder.net) builds on the powerful [ConEmu](https://conemu.github.io) terminal emulator by excellent work of [Maximus5](https://github.com/Maximus5) to provide the best terminal experience on Windows, it uses the amazing [Clink](https://mridgers.github.io/clink) to provide a bash-like prompt using GNU's [readline](https://en.wikipedia.org/wiki/GNU_Readline), and adds a bit of batch sugar to add things like alias support, and also comes with Git on the full edition.
+
 ### Useful Windows command-line tools
 
 - You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
