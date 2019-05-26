@@ -592,7 +592,9 @@ These items are relevant *only* on Windows.
 
 - Access the Windows clipboard through `/dev/clipboard`.
 
-- Run `cygstart` to open an arbitrary file through its registered application.
+- Use `cygstart` to open aa application(for example `cygstart calc` ) or an arbitrary file/directory through its registered application.
+
+- Command `explorer` is similar to `cygstart` but only used in opening files or directories, not applications. `explorer` may be better than `cygstart` for zsh completion in some cases.
 
 - Access the Windows registry with `regtool`.
 

@@ -580,7 +580,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 要访问 Windows 剪贴板，可以通过 `/dev/clipboard`。
 
-- 运行 `cygstart` 以通过默认程序打开一个文件。
+- 使用 `cygstart` 打开应用程序（例如 `cygstart calc` ），或通过默认程序打开一个文件或文件夹。
+
+- 命令 `explorer` 与 `cygstart` 相似，但仅用于打开文件和文件夹，不包括应用程序。zsh命令行补全某些场合 `explorer` 效果比 `cygstart` 更好。
 
 - 要访问 Windows 注册表，可以使用 `regtool`。
 
