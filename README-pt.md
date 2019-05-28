@@ -16,7 +16,7 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Fluência na linha de comando é uma habilidade muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como *desenvolvedor* de diversas maneiras, sutis ou não. Este texto descreve uma seleção de notas e dicas de uso da linha de comando que me parecem muito uteis, quando usando o Linux. Algumas dicas são elementares, e outras são mais específicas, sofisticadas ou obscuras. Esta página é curta, mas se você souber usar e lembrar todos os items que estão aqui, então você está mandando bem.
+Fluência na linha de comando é uma habilidade muitas vezes negligenciada ou considerada obsoleta, porém ela aumenta sua flexibilidade e produtividade como *desenvolvedor* de diversas maneiras, sutis ou não. Este texto descreve uma seleção de notas e dicas de uso da linha de comando que me parecem muito uteis, quando usando o Linux. Algumas dicas são elementares, e outras são mais específicas, sofisticadas ou obscuras. Esta página é curta, mas se você souber usar e lembrar todos os itens que estão aqui, então você está mandando bem.
 
 Muito do que está aqui [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareceu](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
@@ -28,7 +28,7 @@ mas dado o interesse por lá, me pareceu importante usar o Github, onde pessoas 
 Escopo:
 
 - Este guia é destinado tanto aos iniciantes quanto aos usuários mais experientes. Os objetivos são *abrangência* (tudo que é importante), *especificidade* (dar exemplos concretos dos casos de usos mais comuns), e *concisão* (evitar coisas que não são tão essenciais ou digressões que você pode facilmente encontrar pela Internet). Todas as dicas são essenciais em alguma situação ou trazem uma economia notável de tempo em relação a outras alternativas.
-- Este guia é escrito para o Linux. Muitos, mas não todos os items, se aplicam igualmente para o MacOS (ou mesmo o Cygwin).
+- Este guia é escrito para o Linux. Muitos, mas não todos os itens, se aplicam igualmente para o MacOS (ou mesmo o Cygwin).
 - O foco está na interatividade com Bash, embora muitas dicas aqui sejam aplicáveis a outras `shells' e também a scripts em Bash, em geral.
 - Incluímos tanto comandos no Unix "padrão", quanto comandos que requeiram instalação de pacotes adicionais -- desde que estes sejam importantes o suficiente para merecerem sua inclusão nessa lista.
 
@@ -173,7 +173,7 @@ Notas:
 
 - Aprenda a respeito do `tee` para copiar da entrada padrão (stdin) para um arquivo e também para a saída padrão (stdout), como no `ls -al | tee file.txt`.
 
-- Aprenda que as configurações de localização afetam várias ferramentas da linha de comando em formas sutis, incluindo a ordem da ordenação e performance. A maioria das instalações do Linux irá definir `LANG` ou outras variáveis de localização para o ingles dos USA. Mas esteja ciente de que a ordem da ordenação irá mudar, caso você altere a localização. E saiba que as rotinas do i18n podem fazer o `sort` ou outros comandos executarem *muitas vezes* mais devagar. Em algumas situações (como o conjunto de operações ou as operações únicas abaixo) você pode seguramente eliminar a lentidão das rotinas do i18n inteiramente e usar a ordem baseada nos bytes, usando `export LC_ALL=C`.
+- Aprenda que as configurações de localização afetam várias ferramentas da linha de comando em formas sutis, incluindo a ordem da ordenação e performance. A maioria das instalações do Linux irá definir `LANG` ou outras variáveis de localização para o inglês dos EUA. Mas esteja ciente de que a ordem da ordenação irá mudar, caso você altere a localização. E saiba que as rotinas do i18n podem fazer o `sort` ou outros comandos executarem *muitas vezes* mais devagar. Em algumas situações (como o conjunto de operações ou as operações únicas abaixo) você pode seguramente eliminar a lentidão das rotinas do i18n inteiramente e usar a ordem baseada nos bytes, usando `export LC_ALL=C`.
 
 - Aprenda o básico sobre `awk` e `sed` para obtenção de informações simples de dados. Por exemplo, somar todos os números na terceira coluna de um arquivo de texto: `awk '{ x += $3 } END { print x }'`. Isto é provavelmente 3X mais rápido e 3X mais curto do que o equivalente em Python.
 
@@ -304,7 +304,7 @@ Alguns exemplos de como reunir os comandos.
 
 ## Obscuros mas úteis
 
-- `expr`: executa operações boleanas ou aritméticas ou avalia expressões regulares.
+- `expr`: executa operações booleanas ou aritméticas ou avalia expressões regulares.
 
 - `m4`: simples processador de macros.
 
