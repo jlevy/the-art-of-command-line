@@ -1,8 +1,12 @@
 🌍
-* [Çekçe] (README-cs.md) ∙ [Almanca] (README-de.md) ∙ [Yunanca] (README-el.md) ∙ [İngilizce] (README.md) ∙ [İspanyolca] (README-es .md) ∙ [Fransızca] (README-fr.md) ∙ [Endonezce] (README-id.md) ∙ [İtalyanca] (README-it.md) ∙ [Japonca] (README-ja.md) ∙ [Korece] (README-ko.md) ∙ [Portekizce] (README-pt.md) ∙ [Romence] (README-ro.md) ∙ [Rusça] (README-ru.md) ∙ [Slovence] (README-sl) .md) ∙ [Türkçe] (README-tr.md) ∙ [Ukraynaca] (README-uk.md) ∙ [Çince] (README-zh.md) ∙ [Klasik Çince] (README-zh-Hant.md ) *
+*[Çekçe] (README-cs.md) ∙ [Almanca] (README-de.md) ∙ [Yunanca] (README-el.md) ∙ [İngilizce] (README.md) ∙ [İspanyolca] (README-es .md) ∙ [Fransızca] (README-fr.md) ∙ [Endonezce] (README-id.md) ∙ [İtalyanca] (README-it.md) ∙ [Japonca] (README-ja.md) ∙ [Korece] (README-ko.md) ∙ [Portekizce] (README-pt.md) ∙ [Romence] (README-ro.md) ∙ [Rusça] (README-ru.md) ∙ [Slovence] (README-sl) .md) ∙ [Türkçe] (README-tr.md) ∙ [Ukraynaca] (README-uk.md) ∙ [Çince] (README-zh.md) ∙ [Klasik Çince] (README-zh-Hant.md ) *
 
 
 # Komut Satırı Sanatı
+
+[![Ask a Question](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
+
+[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 * Not: Bunu daha kapsamlı bir kılavuza genişletmek için yeni (ve potansiyel olarak ücret ile) bir lider yazar arıyorum. Çok kalabalık olsa da, hem daha derin hem de daha yararlı olabilir. Yazmayı seviyorsanız ve bu materyal konusunda uzman olmak ve yardım etmeyi düşünmek istiyorsanız, lütfen bana josh (0x40) holloway.com adresinden bir not bırakın. - [Jlevy] (https://github.com/jlevy), [Holloway] (https://www.holloway.com) *
 
