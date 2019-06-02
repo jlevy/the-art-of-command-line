@@ -412,7 +412,9 @@ A few examples of piecing together commands:
 
 - `cal`: nice calendar
 
-- `env`: run a command (useful in scripts)
+- `env`: run a program in a modified environment
+
+- `eval`: run a string as command in a subshell (useful in scripts)
 
 - `printenv`: print out environment variables (useful in debugging and scripts)
 
