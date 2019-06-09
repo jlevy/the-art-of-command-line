@@ -611,6 +611,7 @@ These items are relevant *only* on Windows.
 - [shellcheck](https://github.com/koalaman/shellcheck): A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
 - [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): More commands and tools helpful for doing data science, from the book of the same name
+- [tetris](https://github.com/deepgrace/tetris): Awesome Tetris developed in Bash.
 
 ## Disclaimer
 
