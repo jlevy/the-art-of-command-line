@@ -168,7 +168,7 @@ EOF
 
 - Uporabite `man ascii` za dobro tabelo ASCII s heksadecimalnimi in decimalnimi vrednostmi. Za splošne informacije enkodiranja so priročni `man unicode`, `man utf-8` in `man latin1`.
 
-- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. `byobu` lahko poveča t.i. screen ali tmux s ponujanjem več informacij in enostavnejšim upravljanjem. Bolj minimalna alternativa za samo obstojnost sej je [`dtach`](https://github.com/bogner/dtach).
+- Uporabite `screen` ali [`tmux`](https://tmux.github.io/), da muliplicirate zaslon, posebej uporabno na oddaljenih sejah ssh in da odstranite in se ponovno pripnete k seji. `byobu` lahko poveča t.i. screen ali tmux s ponujanjem več informacij in enostavnejšim upravljanjem. Bolj minimalna alternativa za samo obstojnost sej je [`dtach`](https://github.com/crigler/dtach).
 
 - V ssh je poznavanje, kako usmeriti tunel z `-L` ali `-D` (in občasno `-R`) je uporaben, npr. za dostopanje do spletnih strani iz oddaljenega strežnika.
 
