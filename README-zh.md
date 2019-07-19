@@ -554,7 +554,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 以下是*仅限于* Windows 系统的技巧。
 
-### 在 Winodws 下获取 Unix 工具
+### 在 Windows 下获取 Unix 工具
 
 - 可以安装 [Cygwin](https://cygwin.com/) 允许你在 Microsoft Windows 中体验 Unix shell 的威力。这样的话，本文中介绍的大多数内容都将适用。
 
