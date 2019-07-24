@@ -31,6 +31,7 @@
 但已经迁移到了 Github，并由众多高手做出了许多改进。
 如果你在本文中发现了错误或者存在可以改善的地方，请[**贡献你的一份力量**](/CONTRIBUTING.md)。
 
+
 ## 前言
 
 涵盖范围：
@@ -80,7 +81,6 @@
 
 - 在 Bash 中，可以按下 **ctrl-w** 删除你键入的最后一个单词，**ctrl-u** 可以删除行内光标所在位置之前的内容，**alt-b** 和 **alt-f** 可以以单词为单位移动光标，**ctrl-a** 可以将光标移至行首，**ctrl-e** 可以将光标移至行尾，**ctrl-k** 可以删除光标至行尾的所有内容，**ctrl-l** 可以清屏。键入 `man readline` 可以查看 Bash 中的默认快捷键。内容有很多，例如 **alt-.** 循环地移向前一个参数，而 **alt-*** 可以展开通配符。
 
-
 - 你喜欢的话，可以执行 `set -o vi` 来使用 vi 风格的快捷键，而执行 `set -o emacs` 可以把它改回来。
 
 - 为了便于编辑长命令，在设置你的默认编辑器后（例如 `export EDITOR=vim`），**ctrl-x** **ctrl-e** 会打开一个编辑器来编辑当前输入的命令。在 vi 风格下快捷键则是 **escape-v**。
@@ -98,7 +98,6 @@
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
 ```
-
 
 - `pstree -p` 以一种优雅的方式展示进程树。
 
@@ -159,7 +158,7 @@
 
 - 使用 `man ascii` 查看具有十六进制和十进制值的ASCII表。`man unicode`，`man utf-8`，以及 `man latin1` 有助于你去了解通用的编码信息。
 
-- 使用 `screen` 或 [`tmux`](https://tmux.github.io/) 来使用多份屏幕，当你在使用 ssh 时（保存 session 信息）将尤为有用。而 `byobu` 可以为它们提供更多的信息和易用的管理工具。另一个轻量级的 session 持久化解决方案是 [`dtach`](https://github.com/bogner/dtach)。
+- 使用 `screen` 或 [`tmux`](https://tmux.github.io/) 来使用多份屏幕，当你在使用 ssh 时（保存 session 信息）将尤为有用。而 [`byobu`](https://byobu.org/) 可以为它们提供更多的信息和易用的管理工具。另一个轻量级的 session 持久化解决方案是 [`dtach`](https://github.com/bogner/dtach)。
 
 - ssh 中，了解如何使用 `-L` 或 `-D`（偶尔需要用 `-R`）开启隧道是非常有用的，比如当你需要从一台远程服务器上访问 web 页面。
 
@@ -190,9 +189,9 @@
 - 将 web 服务器上当前目录下所有的文件（以及子目录）暴露给你所处网络的所有用户，使用：
 `python -m SimpleHTTPServer 7777` （使用端口 7777 和 Python 2）或`python -m http.server 7777` （使用端口 7777 和 Python 3）。
 
-- 以其他用户的身份执行命令，使用 `sudo`。默认以 root 用户的身份执行；使用 `-u` 来指定其他用户。使用 `-i` 来以该用户登录（需要输入_你自己的_密码）。
+- 以其他用户的身份执行命令，使用 `sudo`。默认以 root 用户的身份执行；使用 `-u` 来指定其他用户。使用 `-i` 来以该用户登录（需要输入*你自己的*密码）。
 
-- 将 shell 切换为其他用户，使用 `su username` 或者 `sudo - username`。加入 `-` 会使得切换后的环境与使用该用户登录后的环境相同。省略用户名则默认为 root。切换到哪个用户，就需要输入_哪个用户的_密码。
+- 将 shell 切换为其他用户，使用 `su username` 或者 `sudo - username`。加入 `-` 会使得切换后的环境与使用该用户登录后的环境相同。省略用户名则默认为 root。切换到哪个用户，就需要输入*哪个用户的*密码。
 
 - 了解命令行的 [128K 限制](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong)。使用通配符匹配大量文件名时，常会遇到“Argument list too long”的错误信息。（这种情况下换用 `find` 或 `xargs` 通常可以解决。）
 
@@ -353,7 +352,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 使用 `grep . *`（每行都会附上文件名）或者 `head -100 *`（每个文件有一个标题）来阅读检查目录下所有文件的内容。这在检查一个充满配置文件的目录（如 `/sys`、`/proc`、`/etc`）时特别好用。
 
-
 - 计算文本文件第三列中所有数的和（可能比同等作用的 Python 代码快三倍且代码量少三倍）：
 ```sh
       awk '{ x += $3 } END { print x }' myfile
@@ -382,6 +380,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
           xmlstarlet unesc | fmt -80
       }
 ```
+
 
 ## 冷门但有用
 
@@ -550,6 +549,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 用 `sw_vers` 获取 OS X 的版本信息。
 
+
 ## 仅限 Windows 系统
 
 以下是*仅限于* Windows 系统的技巧。
@@ -592,6 +592,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 要在 Windows 上获取 GNU 开发者工具（比如 GCC）的另一个办法是使用 [MinGW](http://www.mingw.org/) 以及它的 [MSYS](http://www.mingw.org/wiki/msys) 软件包，该软件包提供了 bash、gawk、make、grep 等工具。然而 MSYS 提供的功能没有 Cygwin 完善。MinGW 在创建 Unix 工具的 Windows 原生移植方面非常有用。
 
+
 ## 更多资源
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell)：一份精心组织的命令行工具及资源的列表。
@@ -601,9 +602,10 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html)：有关如何在 shell 脚本里正确处理文件名的细枝末节。
 - [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools)：用于数据科学的一些命令和工具，摘自同名书籍。
 
+
 ## 免责声明
 
-除去特别小的工作，你编写的代码应当方便他人阅读。能力往往伴随着责任，你 *有能力* 在 Bash 中玩一些奇技淫巧并不意味着你应该去做！;)
+除去特别小的工作，你编写的代码应当方便他人阅读。能力往往伴随着责任，你*有能力*在 Bash 中玩一些奇技淫巧并不意味着你应该去做！;)
 
 
 ## 授权条款
