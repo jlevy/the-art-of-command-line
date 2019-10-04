@@ -548,7 +548,7 @@ A few examples of piecing together commands:
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
-- `mkfifo`: create a `namedpipe`, useful for inter-process communication, where two separate processes can access it by name and read/write into it
+- `mkfifo`: create a namedpipe, useful for inter-process communication, where two separate processes can access it by name and read/write into it
 
 
 ## macOS only
