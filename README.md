@@ -422,6 +422,10 @@ A few examples of piecing together commands:
 
 - `fmt`: format text paragraphs
 
+- `less`: shows the file in paginated form (more features than more command)
+
+- `more`: used to view the text files in the command prompt
+
 - `pr`: format text into pages/columns
 
 - `fold`: wrap lines of text
