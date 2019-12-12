@@ -13,7 +13,7 @@
 - [One-liners](#one-liners)
 - [Obscuro pero útil](#osbcuro-pero-útil)
 - [Solo para OS X](#solo-para-os-x)
-- [Solo para Windows](#solo-windows)
+- [Solo para Windows](#solo-para-windows)
 - [Más recursos](#más-recursos)
 - [Advertencia](#advertencia)
 
