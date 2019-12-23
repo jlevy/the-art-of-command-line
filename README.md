@@ -95,6 +95,8 @@ Notes:
 
 - If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
 
+- To avoid a command being written to your history file, you can prefix it with a space ` export AWS_SECRET_KEY=XXXXX`. This is useful if you work with API keys or passwords on the command line.
+
 - Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
 ```bash
       find . -name '*.py' | xargs grep some_function
@@ -343,7 +345,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - When debugging why something went wrong in the past, [`sar`](http://sebastien.godard.pagesperso-orange.fr/) can be very helpful. It shows historic statistics on CPU, memory, network, etc.
 
-- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_%28Linux%29), and [`sysdig`](https://github.com/draios/sysdig).
+- For deeper systems and performance analyses, look at `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_%28Linux%29), [`sysdig`](https://github.com/draios/sysdig) and [bcctools](https://github.com/iovisor/bcc).
 
 - Check what OS you're on with `uname` or `uname -a` (general Unix/kernel info) or `lsb_release -a` (Linux distro info).
 
@@ -547,6 +549,8 @@ A few examples of piecing together commands:
 - `lsmod` and `modinfo`: List and show details of kernel modules.
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
+
+- [`direnv`](https://direnv.net/): load and unload shell variables dynamically
 
 
 ## macOS only
