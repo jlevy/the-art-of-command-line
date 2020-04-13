@@ -428,8 +428,6 @@ Pár příkladů na spojování příkazů:
 
 - `strace`: ladění systému
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): vylepšení traceroute pro síťové ladění
-
 - `cssh`: vizuální souběžný shell
 
 - `rsync`: synchronizuje soubory a adresáře přes SSH nebo v lokálním systému souborů

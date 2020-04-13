@@ -435,8 +435,6 @@ Algunos ejemplos de comandos reunidos:
 
 - `strace`: depuración de llamadas del sistema
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): mejor traceroute para la depuración de la red
-
 - `cssh`: shell concurrente visual
 
 - `rsync`: sincronización de archivos y carpetas sobre SSH o en sistema de archivos locales

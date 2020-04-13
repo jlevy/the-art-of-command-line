@@ -78,7 +78,7 @@ Catatan:
 
 - Dalam Bash, gunakan **Tab** untuk melengkapi secara otomatis suatu perintah atau daftar perintah yang tersedia dan **ctrl-r** untuk mencari riwayat perintah (setelah ditekan, ketikan kata kunci yang ingin dicari, tekan **ctrl-r** untuk berpindah antara perintah-perintah yang sesuai, tekan **Enter** untuk menjalankan perintah, atau menekan tanda panah kanan di keyboard).
 
-- Dalam Bash, gunakan **ctrl-w** untuk untuk menghapus kata terakhir, dan **ctrl-u** untuk menghapus semua kata mulai dari baris pertama. Gunakan **alt-b** dan **alt-f** untuk memindahkan kata, **ctrl-a** untuk memindahkan kursor kebaris paling depan, **ctrl-e** untuk memindahkan kursor kebaris paling akhir, **ctrl-k** untuk menghentikan bagian akhir dari baris, **ctrl-l** untuk membersihkan layar tampilan. Lihat `man readline` untuk menampilkan semua kombinasi tombol yang ada dalam Bash. Ada cukup bnyak kombinasi. Contohnya **alt-.** berpindah melalui perintah sebelumnya, dan **alt-*** melebarkan glob.  
+- Dalam Bash, gunakan **ctrl-w** untuk untuk menghapus kata terakhir, dan **ctrl-u** untuk menghapus semua kata mulai dari baris pertama. Gunakan **alt-b** dan **alt-f** untuk memindahkan kata, **ctrl-a** untuk memindahkan kursor kebaris paling depan, **ctrl-e** untuk memindahkan kursor kebaris paling akhir, **ctrl-k** untuk menghentikan bagian akhir dari baris, **ctrl-l** untuk membersihkan layar tampilan. Lihat `man readline` untuk menampilkan semua kombinasi tombol yang ada dalam Bash. Ada cukup bnyak kombinasi. Contohnya **alt-.** berpindah melalui perintah sebelumnya, dan **alt-*** melebarkan glob.
 
 - Sebagai alternatif, jika anda lebih sendang menggunakan gaya kombinasi `vi`, gunakan `set -o vi` (dan `set -o emacs` untuk mengembalikan kepengaturan awal).
 
@@ -259,7 +259,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Gunakan `shuf` untuk mengacak atau memilih baris secara acak dalam sebuah berkas.
 
-- Ketahui perintah `sort`. Untuk angka, funakan opsi `-n`, atau `-h` untuk menampilkan angka yang mudah dibaca manusia (contoh `du -h`). Ketahui bagaimana cara kerja kunci (`-t` dan `-k`).  Terkadang membutuhkan `k1,1` untuk mengurutkan kolom pertama saja; `k1` berarti mengurutkan semua barus.  Pengurutan yang stabil (`sort -s`) juga cukup berguna. FContoh, untuk mengurutkan yang pertama berdasarkan kolom 2, yang kedua berdasarkan kolom 1, akan menjadi `soft -k1,1 | sort -s -k2m2`.  
+- Ketahui perintah `sort`. Untuk angka, funakan opsi `-n`, atau `-h` untuk menampilkan angka yang mudah dibaca manusia (contoh `du -h`). Ketahui bagaimana cara kerja kunci (`-t` dan `-k`).  Terkadang membutuhkan `k1,1` untuk mengurutkan kolom pertama saja; `k1` berarti mengurutkan semua barus.  Pengurutan yang stabil (`sort -s`) juga cukup berguna. FContoh, untuk mengurutkan yang pertama berdasarkan kolom 2, yang kedua berdasarkan kolom 1, akan menjadi `soft -k1,1 | sort -s -k2m2`.
 
 - Jika perlu untuk membuat tab pada terminal dalam Bash (misalnya argumen `-t` untuk mengurutkan), tekan **ctrl-v** **[Tab]** atau dengan menulis `$'\t'` (menulis langsung lebih baik dari copy/paste).
 
@@ -471,8 +471,6 @@ Beberapa contoh untuk menggabungkan perintah sekaligus:
 - `ab`: patokan untuk web server
 
 - `strace`: analisa sistem pemanggilan
-
-- [`mtr`](http://www.bitwizard.nl/mtr/): traceroute yang lebih baik untuk analisa jaringan
 
 - `cssh`: visual shell dalam jumlah banyak secara bersamaan
 

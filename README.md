@@ -496,8 +496,6 @@ A few examples of piecing together commands:
 
 - `strace`: system call debugging
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): better traceroute for network debugging
-
 - `cssh`: visual concurrent shell
 
 - `rsync`: sync files and folders over SSH or in local file system

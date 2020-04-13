@@ -479,8 +479,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`：调试系统调用
 
-- [`mtr`](http://www.bitwizard.nl/mtr/)：更好的网络调试跟踪工具
-
 - `cssh`：可视化的并发 shell
 
 - `rsync`：通过 ssh 或本地文件系统同步文件和文件夹

@@ -456,8 +456,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`: αποσφαλμάτωση κλήσης συστήματος
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): καλύτερο εργαλείο traceroute για αποσφαλμάτωση δικτύου
-
 - `cssh`: visual concurrent shell
 
 - `rsync`: συγχρονισμός αρχείων και καταλόγων μέσω SSH ή σε τοπικό σύστημα αρχείων

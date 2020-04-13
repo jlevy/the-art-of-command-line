@@ -474,8 +474,6 @@ Ein paar Beispiele, wie man Befehle zusammen benutzen kann:
 
 - `strace`: Debugging von Syscalls
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): Ein besseres "traceroute" zum Netzwerk-Debugging
-
 - `cssh`: Visuelle, nebenläufige Shell
 
 - `rsync`: Synchronisiere Dateien und Ordner über SSH oder im lokalen Dateisystem
