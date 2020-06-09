@@ -313,6 +313,12 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 ## System debugging
 
+- To log your session, open a subshell using `script [<log_file>] [-T <timing_file>]`.  This starts logging of all input and output from your terminal session to `log_file` (`typescript` by default), along with optional timing information to `timing_file`.  End the session using `exit`.
+
+- View the script logging file using `less -r <log_file>`, which will handle color codes and other raw characters.  You can replay a script with timings using `scriptreplay -t <timing_file> <log_file>`.
+
+- You can augment your prompt to show when you are recording within a `script` subshell by adding the following to your `.bashrc` file: `lsof -tac script "$(tty)" > /dev/null && PS1="[recording] $PS1"`
+
 - For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jkbrzt/httpie).
 
 - To know current cpu/disk status, the classic tools are `top` (or the better `htop`), `iostat`, and `iotop`. Use `iostat -mxz 15` for basic CPU and detailed per-partition disk stats and performance insight.
