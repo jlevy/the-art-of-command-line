@@ -268,6 +268,8 @@ EOF
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
+- You can use [`rclone`](https://rclone.org/downloads/) to manage files on remote cloud storage services, including backup/restore, encrypt/decrypt, sync.
+
 - For monitoring progress when processing files, use [`pv`](http://www.ivarch.com/programs/pv.shtml), [`pycp`](https://github.com/dmerejkowsky/pycp), [`pmonitor`](https://github.com/dspinellis/pmonitor), [`progress`](https://github.com/Xfennec/progress), `rsync --progress`, or, for block-level copying, `dd status=progress`.
 
 - Use `shuf` to shuffle or select random lines from a file.
