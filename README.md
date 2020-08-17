@@ -4,7 +4,7 @@
 
 # The Art of Command Line
 
-*Note: I'm looking for a new (and potentially paid) lead author to help expand this to a more comprehensive Guide. While it's very popoular, it could be both deeper and more helpful. If you like to write and are close to being an expert on this material and willing to consider helping, please drop me a note at josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com)*
+*Note: I'm planning to revise this and looking for a new co-author to help with expanding this into a more comprehensive guide. While it's very popoular, it could be broader and a bit deeper. If you like to write and are close to being an expert on this material and willing to consider helping, please drop me a note at josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). Thank you!*
 
 - [Meta](#meta)
 - [Basics](#basics)
