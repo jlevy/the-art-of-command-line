@@ -4,7 +4,7 @@
 
 # Sztuka używania wiersza poleceń
 
-*Uwaga: Poszukuję nowego (i potencjalnie odpłatnego) głównego autora, który pomoże rozszerzyć ten materiał do formy bardziej wszechstronnego Przewodnika. Chociaż jest on bardzo popularny, mógłby być zarówno obszerniejszy jak i bardziej pomocny. Jeśli lubisz pisać, jesteś niemalże ekspertem w tej dziedzinie i chcesz pomóc, daj mi znać na josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com)*
+*Uwaga: Planuję odświeżenie treści i szukam nowego współautora, który pomoże rozszerzyć ten materiał do formy bardziej wszechstronnego przewodnika. Chociaż jest on bardzo popularny, mógłby być zarówno obszerniejszy jak i trochę bardziej szczegółowy. Jeśli lubisz pisać, jesteś niemalże ekspertem w tej dziedzinie i chcesz pomóc, daj mi znać na josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com)*
 
 - [Meta](#meta)
 - [Podstawy](#Podstawy)
@@ -35,7 +35,7 @@ ale od tamtego czasu zostały przeniesione na GitHub, gdzie ludzie zdolniejsi od
 
 Zakres:
 
-- Ten przewodnik przeznaczony jest zarówno dla początkujących jak i doświadczonych. Jego cele uwzględniają *szerokość zakresu* (wszystko jest ważne), *konkretność* (podawane są konkretne przykłady dla najczęstszych przypadków użycia) oraz *zwięzłość* (unika się rzeczy nieistotnych lub dygresji dostępnych gdzie indziej). Każda wskazówka jest kluczowa dla danej sytuacji lub znacznie skraca czas w stosunku do użycia innego rozwiązania.
+- Ten przewodnik przeznaczony jest zarówno dla początkujących jak i doświadczonych użytkowników. Jego cele uwzględniają *szerokość zakresu* (wszystko jest ważne), *konkretność* (podawane są konkretne przykłady dla najczęstszych przypadków użycia) oraz *zwięzłość* (unika się rzeczy nieistotnych lub dygresji dostępnych gdzie indziej). Każda wskazówka jest kluczowa dla danej sytuacji lub znacznie skraca czas w stosunku do użycia innego rozwiązania.
 - Dokument ten napisany został dla systemów Linux (z wyjątkiem sekcji "[Tylko dla macOS](#Tylko-dla-macOS)" oraz "[Tylko dla Windows](#Tylko-dla-Windows)"). Wiele pozostałych poleceń ma zastosowanie lub może być zainstalowanych w innych systemach Unix lub macOS (lub nawet w Cygwinie).
 - Główny nacisk położony jest na interaktywną pracę z Bashem, aczkolwiek wiele wskazówek odnosi się do innych powłok systemowych oraz do pisania skryptów w Bashu ogólnie.
 - Zawarte są tutaj zarówno "standardowe" polecenia systemów Unix jak i te wymagające instalacji dodatkowych pakietów oprogramowania -- o ile polecenia te były wystarczająco ważne, by je uwzględnić.
