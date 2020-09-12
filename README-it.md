@@ -443,8 +443,6 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `strace`: debug delle chiamate di sistema.
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): un traceroute migliore per il debug di rete.
-
 - `cssh`: shell visuale concorrente.
 
 - `rsync`: sincronizza file e cartelle tramite SSH oppure in locale.

@@ -478,8 +478,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`: 시스템 콜을 디버깅할때 사용합니다
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): 네트워크 디버깅시에 traceroute보다 더 낫습니다
-
 - `cssh`: 쉘을 동시에 여러개 사용할때 사용합니다
 
 - `rsync`: SSH를 이용해 원격 파일 시스템이나, 로컬 파일시스템의 파일과 폴더들을 동기화 할때 사용합니다

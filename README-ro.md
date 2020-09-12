@@ -478,8 +478,6 @@ Câteva exemple de a construi comenzi complicate din comenzi simple:
 
 - `strace`: depanare apeluri de sistem
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): alternativă mai bună pentru `traceroute` pentru depanarea rețelei
-
 - `cssh`: shell vizual, concurent
 
 - `rsync`: sincronizează fișiere peste SSH sau local

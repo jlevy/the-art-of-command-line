@@ -386,8 +386,6 @@ Alguns exemplos de como reunir os comandos.
 
 - `strace`: Debug para chamadas de sistema.
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): melhor traceroute para debugar a rede.
-
 - `cssh`: Visualização concorrente da shell.
 
 - `rsync`: Sincroniza arquivos e pastas através do SSH.

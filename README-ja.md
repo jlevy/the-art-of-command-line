@@ -492,8 +492,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`: システムコールのデバッグ
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): ネットワークデバッグのためのより高機能なtraceroute
-
 - `cssh`: ビジュアルな並列シェル
 
 - `rsync`: ファイルやフォルダをSSH経由またはローカルファイルシステム内で同期

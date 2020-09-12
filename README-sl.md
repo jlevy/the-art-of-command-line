@@ -491,8 +491,6 @@ Nekaj primerov sestavljanja ukazov skupaj:
 
 - `strace`: razhroščevanje sistemskega klica
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): boljše sledenje usmerjanja za razhroščevanje omrežja
-
 - `cssh`: vizualna sočasna lupina
 
 - `rsync`: sinhronizacija datotek in map preko SSH ali v lokalnem datotečnem sistemu

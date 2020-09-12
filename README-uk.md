@@ -26,7 +26,7 @@
 
 Це -- результат роботи [багатьох авторів і перекладачів](AUTHORS.md).
 Дещо з цього [спочатку](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands) [з'явилось](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix) на [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), але потім переїхало на Github, де багато людей талановитіших за початкового автора, внесли багато удосконалень.
-[**Задайте питання**](https://airtable.com/shrzMhx00YiIVAWJg) якщо у вас є питання стосовно командного рядка. 
+[**Задайте питання**](https://airtable.com/shrzMhx00YiIVAWJg) якщо у вас є питання стосовно командного рядка.
 [**Будь-ласка, зробіть свій внесок**](/CONTRIBUTING.md) якщо ви знайшли помилку або можете щось покращити!
 
 
@@ -311,7 +311,6 @@
 - `nm`: symbols from object files
 - `ab`: вбудований в Apache бенчмарк веб-серверів
 - `strace` або `wrk`: відладка системних викликів
-- [`mtr`](http://www.bitwizard.nl/mtr/): трасування для відладки мережі
 - `cssh`: паралельне виконання команд в графічному інтерфейсі
 - `rsync`: синхронізація файлів і папок через SSH або на локальній файловій системі
 - [`wireshark`](https://wireshark.org/) і [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html): перехоплення пакетів і відладка мережі

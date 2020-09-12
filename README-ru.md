@@ -467,8 +467,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`: отладка системных вызовов
 
-- [`mtr`](http://www.bitwizard.nl/mtr/): лучшая трассировка для отладки сети
-
 - `cssh`: несколько терминалов в одном UI
 
 - `rsync`: синхронизация файлов и папок через SSH
