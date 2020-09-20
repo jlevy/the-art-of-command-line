@@ -309,6 +309,29 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - To create empty files quickly, use `truncate` (creates [sparse file](https://en.wikipedia.org/wiki/Sparse_file)), `fallocate` (ext4, xfs, btrfs and ocfs2 filesystems), `xfs_mkfile` (almost any filesystems, comes in xfsprogs package), `mkfile` (for Unix-like systems like Solaris, Mac OS).
 
+## Using bash configuration files
+
+- Use .bashrc file in your home folder to run specific bash commands in every bash session. Allows changing various settings (like the number of commands stored in history), and various other things.
+
+- Alias regularly used commands to save time and keystrokes. For example `alias inst='sudo apt-get install'` would let you install packages with `inst <package_name>`. 
+
+- Create custom key-bindings/macros to save time. Useful for displaying data while in the middle of typing a command (for example for running an `ls` or `pwd`). `bind '"\e[24~":"pwd\n"'` binds the key F12 to run `pwd`. Find the code for the shortcut you want with `Control-V <key>`.
+
+- Key bindings can be stored separately in a file inputrc. They can be written directly as (referring to the previous example) `"\e[24~":"pwd\n""]"` there. 
+
+- See the full list of keybindings, and available actions to bind, by `bind -p`
+
+- Customize your shell prompt to be more useful. You can display coloured prompts, use plugins to display Git repository information, or display various status information. Edit your PS1 (Prompt Statement) to display information relevant to you. A simple example prompt is `export PS1='\[\e[1;32m\]\W > \[\e[m\]'` which displays a green prompt with the short working directory.
+
+- By default bash uses Emacs keybindings. You can switch to Vi keybindings by adding `set -o vi`. Normal bindings stay unaffected, but you get to use the 'Normal mode' of Vi by pressing Escape.
+
+- Keep your bash configuration organized by keeping separate files for your aliases (bash_aliases), keybindings (inputrc) and so on. Source them in your .bashrc with `source ~/.bash_aliases`
+
+- You can also add commands to your .bashrc to be run as soon as your shell loads. You can for example run a script everytime just by calling it in the bashrc.
+
+- Another file .bash_profile is executed only by login-shells (i.e. when you login). The commands there are run only once. But .bashrc is executed at the start of every new session of bash. You must source .bashrc in your .bash_profile.
+
+
 ## System debugging
 
 - For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jkbrzt/httpie).
