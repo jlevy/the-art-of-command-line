@@ -105,6 +105,8 @@ Notes:
 
 - Use `pgrep` and `pkill` to find or signal processes by name (`-f` is helpful).
 
+- If you need to search through a large dataset, try [`ripgrep`](https://github.com/BurntSushi/ripgrep) instead of regular grep. While not fully posix compliant, most of the time it is much, much faster.
+
 - Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
 
 - Use `nohup` or `disown` if you want a background process to keep running forever.
