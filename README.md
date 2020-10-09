@@ -268,6 +268,8 @@ EOF
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
+- You can use [`rclone`](https://rclone.org/downloads/) to manage files on remote cloud storage services, including backup/restore, encrypt/decrypt, sync.
+
 - For monitoring progress when processing files, use [`pv`](http://www.ivarch.com/programs/pv.shtml), [`pycp`](https://github.com/dmerejkowsky/pycp), [`pmonitor`](https://github.com/dspinellis/pmonitor), [`progress`](https://github.com/Xfennec/progress), `rsync --progress`, or, for block-level copying, `dd status=progress`.
 
 - Use `shuf` to shuffle or select random lines from a file.
@@ -310,6 +312,12 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - To create empty files quickly, use `truncate` (creates [sparse file](https://en.wikipedia.org/wiki/Sparse_file)), `fallocate` (ext4, xfs, btrfs and ocfs2 filesystems), `xfs_mkfile` (almost any filesystems, comes in xfsprogs package), `mkfile` (for Unix-like systems like Solaris, Mac OS).
 
 ## System debugging
+
+- To log your session, open a subshell using `script [<log_file>] [-T <timing_file>]`.  This starts logging of all input and output from your terminal session to `log_file` (`typescript` by default), along with optional timing information to `timing_file`.  End the session using `exit`.
+
+- View the script logging file using `less -r <log_file>`, which will handle color codes and other raw characters.  You can replay a script with timings using `scriptreplay -t <timing_file> <log_file>`.
+
+- You can augment your prompt to show when you are recording within a `script` subshell by adding the following to your `.bashrc` file: `lsof -tac script "$(tty)" > /dev/null && PS1="[recording] $PS1"`
 
 - For web debugging, `curl` and `curl -I` are handy, or their `wget` equivalents, or the more modern [`httpie`](https://github.com/jkbrzt/httpie).
 
@@ -608,6 +616,7 @@ These items are relevant *only* on Windows.
 - [awesome-shell](https://github.com/alebcay/awesome-shell): A curated list of shell tools and resources.
 - [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): A more in-depth guide for the macOS command line.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
+- [bats](https://github.com/sstephenson/bats): A test suite for bash scripts.
 - [shellcheck](https://github.com/koalaman/shellcheck): A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
 - [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): More commands and tools helpful for doing data science, from the book of the same name
