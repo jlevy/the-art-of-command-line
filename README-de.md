@@ -9,17 +9,22 @@
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-- [Kurzbeschreibung](#kurzbeschreibung)
-- [Grundlagen](#grundlagen)
-- [Täglicher Gebrauch](#täglicher-gebrauch)
-- [Umgang mit Dateien und Daten](#umgang-mit-dateien-und-daten)
-- [Fehlerbehebung auf Systemebene](#fehlerbehebung-auf-systemebene)
-- [Einzeiler](#einzeiler)
-- [Eigenartig aber hilfreich](#eigenartig-aber-hilfreich)
-- [Nur MacOS X](#nur-macos-x)
-- [Nur Windows](#nur-windows)
-- [Weitere Quellen](#weitere-quellen)
-- [Haftungsausschluss](#haftungsausschluss)
+- [The Art of Command Line](#the-art-of-command-line)
+  - [Kurzbeschreibung](#kurzbeschreibung)
+  - [Grundlagen](#grundlagen)
+  - [Täglicher Gebrauch](#t%C3%A4glicher-gebrauch)
+  - [Umgang mit Dateien und Daten](#umgang-mit-dateien-und-daten)
+  - [Fehlerbehebung auf Systemebene](#fehlerbehebung-auf-systemebene)
+  - [Einzeiler](#einzeiler)
+  - [Eigenartig aber hilfreich](#eigenartig-aber-hilfreich)
+  - [Nur MacOS X](#nur-macos-x)
+  - [Nur Windows](#nur-windows)
+    - [Möglichkeiten, Unix-Tools unter Windows zu erhalten](#m%C3%B6glichkeiten-unix-tools-unter-windows-zu-erhalten)
+    - [Nützliche Windows Befehlszeilen-Werkzeugen](#n%C3%BCtzliche-windows-befehlszeilen-werkzeugen)
+    - [Cygwin Tipps und Tricks](#cygwin-tipps-und-tricks)
+  - [Weitere Quellen](#weitere-quellen)
+  - [Haftungsausschluss](#haftungsausschluss)
+  - [Lizenz](#lizenz)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -564,7 +569,7 @@ Diese Hinweise sind *nur* für Windows relevant.
 
 - Du kannst die meisten Aufgaben der Windows-Systemverwaltung von der Befehlszeile ausführen und skripten, indem du den Umgang mit `wmic` lernst.
 
-- Native Windows Befehlszeilen Netzwerk Werkzeugen, die du nützlich finden kannst, gehören `ping`,` ipconfig`, `traceroute` und `netstat`.
+- Native Windows Befehlszeilen Netzwerk Werkzeugen, die du nützlich finden kannst, gehören `ping`,` ipconfig`, `traceroute`, `netstat` und `curl`.
 
 - Du kannst [viele nützliche Windows-Aufgaben] (http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) durch Aufrufen des Befehls `Rundll32` ausführen.
 

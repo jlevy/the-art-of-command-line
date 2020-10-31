@@ -568,7 +568,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 可以使用 `wmic` 在命令行环境下给大部分 Windows 系统管理任务编写脚本以及执行这些任务。
 
-- Windows 实用的原生命令行网络工具包括 `ping`，`ipconfig`，`tracert`，和 `netstat`。
+- Windows 实用的原生命令行网络工具包括 `ping`，`ipconfig`，`tracert`, `netstat` 和 `curl`。
 
 - 可以使用 `Rundll32` 命令来实现[许多有用的 Windows 任务](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) 。
 

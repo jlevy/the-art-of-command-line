@@ -6,17 +6,22 @@
 
 *Note: I'm planning to revise this and looking for a new co-author to help with expanding this into a more comprehensive guide. While it's very popular, it could be broader and a bit deeper. If you like to write and are close to being an expert on this material and willing to consider helping, please drop me a note at josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). Thank you!*
 
-- [Meta](#meta)
-- [Basics](#basics)
-- [Everyday use](#everyday-use)
-- [Processing files and data](#processing-files-and-data)
-- [System debugging](#system-debugging)
-- [One-liners](#one-liners)
-- [Obscure but useful](#obscure-but-useful)
-- [macOS only](#macos-only)
-- [Windows only](#windows-only)
-- [More resources](#more-resources)
-- [Disclaimer](#disclaimer)
+- [The Art of Command Line](#the-art-of-command-line)
+  - [Meta](#meta)
+  - [Basics](#basics)
+  - [Everyday use](#everyday-use)
+  - [Processing files and data](#processing-files-and-data)
+  - [System debugging](#system-debugging)
+  - [One-liners](#one-liners)
+  - [Obscure but useful](#obscure-but-useful)
+  - [macOS only](#macos-only)
+  - [Windows only](#windows-only)
+    - [Ways to obtain Unix tools under Windows](#ways-to-obtain-unix-tools-under-windows)
+    - [Useful Windows command-line tools](#useful-windows-command-line-tools)
+    - [Cygwin tips and tricks](#cygwin-tips-and-tricks)
+  - [More resources](#more-resources)
+  - [Disclaimer](#disclaimer)
+  - [License](#license)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -585,7 +590,7 @@ These items are relevant *only* on Windows.
 
 - You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
 
-- Native command-line Windows networking tools you may find useful include `ping`, `ipconfig`, `tracert`, and `netstat`.
+- Native command-line Windows networking tools you may find useful include `ping`, `ipconfig`, `tracert`, `netstat` and `curl`.
 
 - You can perform [many useful Windows tasks](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) by invoking the `Rundll32` command.
 
