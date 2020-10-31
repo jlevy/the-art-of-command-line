@@ -214,14 +214,14 @@
       rename 's/\.bak$//' *.bak
 ```
 
-- 根據 man 頁面的描述，`rsync` 真的是一個快速且非常靈​​活的檔案複製工具。它通常被用於機器間的同步，但在本地也同樣有用。它同時也是刪除大量檔案的[最快方法](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove -huge-number-of-files.html)之一：
+- 根據 man 頁面的描述，`rsync` 真的是一個快速且非常靈​​活的檔案複製工具。它通常被用於機器間的同步，但在本地也同樣有用。它同時也是刪除大量檔案的[最快方法](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html)之一：
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
 - 使用`shuf` 從一個檔案中隨機選取多行。
 
-- 瞭解 `sort` 的參數。處理數字方面，使用`-n` 或者`-h` 來處理可讀性數字（例如`du -h` 的輸出）。明白鍵的工作原理（`-t` 和 `-k`）。例如，注意到你需要`-k1，1` 來按照第一個欄位來排序，而`-k1` 意味著按照整行排序。穩定排序（`sort -s`）在某些情況下很有用。例如，以第二個欄位為主關鍵字，第一個欄位為次關鍵字進行排序，你可以使用`sort -k1，1 | sort -s -k2，2`。
+- 瞭解 `sort` 的參數。處理數字方面，使用`-n` 或者`-h` 來處理可讀性數字（例如`du -h` 的輸出）。明白鍵的工作原理（`-t` 和 `-k`）。例如，注意到你需要`-k1,1` 來只依第一個欄位來排序，而`-k1` 意味著按照整行排序。穩定排序（`sort -s`）在某些情況下很有用。例如，以第二個欄位為主關鍵字，第一個欄位為次關鍵字進行排序，你可以使用`sort -k1,1 | sort -s -k2,2`。
 
 - 如果你想在 Bash 命令列中寫 tab 製表符，按下**ctrl-v** **[Tab]** 或鍵入`$'\t'` （後者可能更好，因為你可以複製貼上它）。
 
@@ -251,7 +251,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 ## 系統偵錯
 
-- `curl` 和`curl -I` 可以便捷地被應用於 web 偵錯，它們的好兄弟`wget` 也可以，或者是更潮的[`httpie`](https://github.com/jakubroztocil /httpie)。
+- `curl` 和`curl -I` 可以便捷地被應用於 web 偵錯，它們的好兄弟`wget` 也可以，或者是更潮的[`httpie`](https://github.com/jakubroztocil/httpie)。
 
 - 使用`iostat`、`netstat`、`top` （`htop` 更佳）和`dstat` 去獲取硬碟、cpu 和網路的狀態。熟練掌握這些工具可以使你快速的對系統的當前狀態有一個大概的認識。
 
@@ -283,7 +283,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 當偵錯一些之前出現的問題的時候，[`sar`](http://sebastien.godard.pagesperso-orange.fr/) 非常有用。它展示了 cpu、記憶體以及網路等的歷史資料。
 
-- 關於更深層次的系統分析以及效能分析，看看`stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](http://en.wikipedia.org /wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
+- 關於更深層次的系統分析以及效能分析，看看`stap`（[SystemTap](https://sourceware.org/systemtap/wiki)），[`perf`](http://en.wikipedia.org/wiki/Perf_(Linux))，以及[`sysdig`](https://github.com/draios/sysdig)。
 
 - 檢視你當前使用的系統，使用`uname` ， `uname -a` （Unix／kernel 資訊） 或者`lsb_release -a` （Linux 發行版資訊）。
 
@@ -296,9 +296,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 當你需要對文字檔案做集合交、並、差運算時，結合使用`sort`/`uniq` 很有幫助。假設 `a` 與 `b` 是兩內容不同的檔案。這種方式效率很高，並且在小檔案和上G的檔案上都能運用（`sort` 不被記憶體大小約束，儘管在`/tmp` 在一個小的根分區上時你可能需要`-T ` 參數），參閱前文中關於`LC_ALL` 和`sort` 的`-u` 參數的部分。
 ```sh
-      cat a b | sort | uniq > c # c is a union b
-      cat ab | sort | uniq -d > c # c is a intersect b
-      cat abb | sort | uniq -u > c # c is set difference a - b
+      sort a b | uniq > c # c is a union b
+      sort a b | uniq -d > c # c is a intersect b
+      sort a b b | uniq -u > c # c is set difference a - b
 ```
 
 - 使用`grep . *`（每行都會附上檔名）或者`head -100 *`（每個檔案有一個標題）來閱讀檢查目錄下所有檔案的內容。這在檢查一個充滿配置檔案的目錄（如`/sys`、`/proc`、`/etc`）時特別好用。
@@ -315,7 +315,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 假設你有一個類似於 web 伺服器日誌檔案的文字檔案，並且一個確定的值只會出現在某些行上，假設一個`acct_id` 參數在URI中。如果你想計算出每個`acct_id` 值有多少次請求，使用如下程式碼：
 ```sh
-      cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
+      egrep -o 'acct_id=[0-9]+' access.log | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
 - 運行這個函數從這篇文件中隨機獲取一條技巧（解析 Markdown 檔案並抽取項目）：
