@@ -48,32 +48,32 @@ Poznámky:
 
 - Naučte se základy Bashe. Vlastně, napište `man bash` a alespoň si to proleťte; je to celkem jednoduché a ne tak dlouhé. Jiné shelly mohou být dobré, ale Bash je mocný a vždy dostupný (znalost *pouze* zsh, fish a jiných ačkoli lákavá na vlastním notebooku omezuje v mnoha situacích, jako například při použití existujících serverů).
 
-- Poznejte alespoň jeden textový editor dobře. Nejlépe Vim (`vi`) jelikož opravdu nemá pro občasné úpravy v terminálu nemá konkurenci (ani pokud většinu času používáte Emacs, velké IDE nebo moderní okenní editor).
+- Poznejte alespoň jeden textový editor dobře. Nejlépe Vim (`vi`) jelikož opravdu nemá pro občasné úpravy v terminálu konkurenci (ani pokud většinu času používáte Emacs, velké IDE nebo moderní okenní editory).
 
 - Naučte se číst dokumentaci pomocí `man` (pro zvědavce, `man man` vypíše čísla sekcí, například 1 jsou "obvyklé" příkazy, 5 jsou soubory/konvence a 8 je administrace). Hledejte manuálové stránky pomocí `apropos`. Vězte, že některé příkazy nejsou spustitelné programy, ale funkce zabudované v Bashi a nápovědu k nim můžete zobrazit příkazem `help` a `help-d`.
 
-- Naučte se přesměrování výstupu a vstupu pomocí `>` a `<` a roury pomocí `|`. Pamatujte, že `>` přepíše obsah výstupního souboru a `>>` přidá na jeho konec. Nezapomeňte na stdout (stndardní výstup) a stderr (standardní chybový výstup).
+- Naučte se přesměrování výstupu a vstupu pomocí `>` a `<` a roury pomocí `|`. Pamatujte, že `>` přepíše obsah výstupního souboru a `>>` přidá na jeho konec. Nezapomeňte na stdout (standardní výstup) a stderr (standardní chybový výstup).
 
-- Poznejte souborovou hromadnou expanzi za pomoci `*` (případně `?` a `[`...`]`) a úvozovkách a rozdílu mezi dvojitými uvozovkami `"` a jednoduchými `'`. (Více na expanzi proměných níže.)
+- Poznejte souborovou hromadnou expanzi za pomoci `*` (případně `?` a `[`...`]`) a úvozovkách a rozdílu mezi dvojitými uvozovkami `"` a jednoduchými `'`. (Více na expanzi proměnných níže.)
 
 - Seznamte se se správou činností v Bashi: `&`, **ctrl-z**, ctrl-c**, `jobs`, `fg`, `bg`, `kill`, atd.
 
 - Seznamte se s `ssh` a základy bezheslové autentizace pomocí `ssh-agent`, `ssh-add`, atd.
 
-- Základní správa souborů: `ls` a `ls -l` (zejména co který sloupec v `ls -l` znamená), `less`, `head`, `tail` a `tail -f` (nebo ještě lépe `less +F`), `ln` a `ln -s` (pochopte rozdíly a výhody pevného odkazu a symoblického odkazu), `chown`, `chmod`, `du` (pro krátký souhrn využití disku: `du -hs *`). Pro správu souborového systému, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Pochopte co je inode (`ls -i` nebo `df -i`).
+- Základní správa souborů: `ls` a `ls -l` (zejména co který sloupec v `ls -l` znamená), `less`, `head`, `tail` a `tail -f` (nebo ještě lépe `less +F`), `ln` a `ln -s` (pochopte rozdíly a výhody pevného odkazu a symbolického odkazu), `chown`, `chmod`, `du` (pro krátký souhrn využití disku: `du -hs *`). Pro správu souborového systému, `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. Pochopte co je inode (`ls -i` nebo `df -i`).
 
-- základní správa síťí: `ip` nebo `ifconfig`, `dig`.
+- Základní správa sítí: `ip` nebo `ifconfig`, `dig`.
 
 - Dobře se naučte regulárních výrazů a rozličné příznaky pro `grep`/`egrep`. Přepínače `-i`, `-o`, `-v`, `-A`, `-B` a `-C` je také vhodné znát.
 
-- Naučte se používat `apt-get`, `yum`, `dnf` nebo `pacman` (podle vaší distribuce) k hledání a instalaci balíků. A ujistěte se, že máte `pip` k instalace Pythonových terminálových nástrojů (některé je nejjednodušší nainstalovat pomocí `pip`).
+- Naučte se používat `apt-get`, `yum`, `dnf` nebo `pacman` (podle vaší distribuce) k hledání a instalaci balíků. A ujistěte se, že máte `pip` k instalaci Pythonových terminálových nástrojů (některé je nejjednodušší nainstalovat pomocí `pip`).
 
 
 ## Každodenní použití
 
 - V Bashi používejte **Tab** k dokončení argumentů nebo vylistování všech dostupných příkazů a **ctrl-r** k vyhledávání v historii příkazů (po stisknutí pište pro hledání a poté mačkejte opakovaně **ctrl-r** k procházení více shod, **Enter** k provedení nalezeného příkazu nebo šipku vpravo pro vložení výsledku hledání do terminálu a následnou editaci).
 
-- V Bashi používejte **ctrl-w** pro smazní posledního slova a **ctrl-u** pro smazání všeho od současné pozice kurzoru až po začátek řádku. Používejte **alt-b** a **alt-f** k procházení řádku po slovech, **ctrl-a** pro skok na začátek řádku, **ctrl-e** pro skok kurzoru na konec řádku, **ctrl-k** pro smazání všeho od současné pozice až ke konci řádku, **ctrl-l** pro vyčištění obrazovky. Prohlédněte si `man readline` pro všechny defaultní klávesové zkratky v Bashi. Je jich hodně. Například **alt-.** projíždí předchozí argumenty a **alt-*** rozšíří řetězec.
+- V Bashi používejte **ctrl-w** pro smazání posledního slova a **ctrl-u** pro smazání všeho od současné pozice kurzoru až po začátek řádku. Používejte **alt-b** a **alt-f** k procházení řádku po slovech, **ctrl-a** pro skok na začátek řádku, **ctrl-e** pro skok kurzoru na konec řádku, **ctrl-k** pro smazání všeho od současné pozice až ke konci řádku, **ctrl-l** pro vyčištění obrazovky. Prohlédněte si `man readline` pro všechny defaultní klávesové zkratky v Bashi. Je jich hodně. Například **alt-.** projíždí předchozí argumenty a **alt-*** rozšíří řetězec.
 
 - Pokud milujete klávesové zkratky ve stylu *vi*, použijte `set -o vi` (a `set -o emacs` pro návrat ke standardnímu rozložení).
 
@@ -121,7 +121,7 @@ Příklady:
       # pokracuj v puvodnim adresari
 ```
 
-- Nezapomeňte, že v Bashi je mnoho druhů expanze proměnných. KOntrola, že proměnná existuje `${jmeno:?chybova hlaska}`. například, pokud script vyžaduje jediný argument, napište `vstupni_soubor=${1:?pouziti: $0 vstupni_soubor}`. Aritmetická expanze: `i=$(( (i + 1) % 5 ))`. Sekvence: `{1..10}`. Ořezání (trimming) řetězců: `${var%suffix}` a `${var#prefix}`. Pokud například `var=foo.pdf`, pak `echo ${var%.pdf}.txt` zobrazí `foo.txt`.
+- Nezapomeňte, že v Bashi je mnoho druhů expanze proměnných. Kontrola, že proměnná existuje `${jmeno:?chybova hlaska}`. například, pokud script vyžaduje jediný argument, napište `vstupni_soubor=${1:?pouziti: $0 vstupni_soubor}`. Aritmetická expanze: `i=$(( (i + 1) % 5 ))`. Sekvence: `{1..10}`. Ořezání (trimming) řetězců: `${var%suffix}` a `${var#prefix}`. Pokud například `var=foo.pdf`, pak `echo ${var%.pdf}.txt` zobrazí `foo.txt`.
 
 - Expanze složených závorek použitím `{`...`}` může snížit potřebu přepisovat podobné texty a zautomatizovat kombinaci položek. Toto může být užitečné například v `mv foo.{txt,pdf} nejaky-adresar` (což přesune oba soubory), `cp nejakysoubor{,.bak}` (což se rozšíří do `cp nejakysoubor nejakysoubor.bak`) nebo `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (což se rozšíří do všech možných kombinací a vytvoří příslušný adresářový strom).
 
@@ -132,15 +132,15 @@ Příklady:
 
 - Poznejte "zdejší dokumenty" v Bashi, míněno `cat <<EOF ...`.
 
-- -Přesměrujte jak standardní výstup tak standardní chybový výstup v Bashi pomocí: `nejaky-prikaz > logsoubor 2>&1` nebo `nejaky-prikaz &>logsoubor`. Častokrát, k zajištění, že příkaz nezanechá otevřený souborový držák (handle), navázání ho na terminál ve kterém jste, je dobrá praktika také přidat `</dev/null`.
+- Přesměrujte jak standardní výstup tak standardní chybový výstup v Bashi pomocí: `nejaky-prikaz > logsoubor 2>&1` nebo `nejaky-prikaz &>logsoubor`. Častokrát, k zajištění, že příkaz nezanechá otevřený souborový držák (handle), navázání ho na terminál ve kterém jste, je dobrá praktika také přidat `</dev/null`.
 
 - Používejte `man ascii` pro dobrou ASCII tabulku se šestnáctkovými i dekadickými hodnotami. Pro obecné kódovací informace jsou užitečné `man unicode`, `man utf-8` a `man latin1`.
 
 - Používejte `screen` nebo [`tmux`](https://tmux.github.io/) k rozšíření obrazovky, což je užitečné zejména na vzdálených ssh připojeních a k odpojení a znovu-připojení k sezení. `byobu` dokáže vylepšit obrazovku nebo tmux a poskytovat více informací a jednodušší správu. Více minimalistická varianta pouze pro přetrvání sezení je `dtach`.
 
-- v ssh je důležité vědět, jak tunelovat porty s pomocí `-L` nebo `-D` (a příležitostně `-R`) například k přístupu na webovou stránku ze vzdáleného serveru.
+- V ssh je důležité vědět, jak tunelovat porty s pomocí `-L` nebo `-D` (a příležitostně `-R`) například k přístupu na webovou stránku ze vzdáleného serveru.
 
-- Může být užitečné udělat trochu optimalizačních úprav vašeho ssh připojení; například v `~/.ssh/config` je nastavení pro vyhýbání se odhozeným spojením v jistých sítích, používá kompresi (což je užitečné se scp přeš síť s malou šířkou pásma připojení) a multiplexové kanály ke stejnému serveru v lokálním souboru.
+- Může být užitečné udělat trochu optimalizačních úprav vašeho ssh připojení; například v `~/.ssh/config` je nastavení pro vyhýbání se odhozeným spojením v jistých sítích, používá kompresi (což je užitečné se scp přes síť s malou šířkou pásma připojení) a multiplexové kanály ke stejnému serveru v lokálním souboru.
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -236,7 +236,7 @@ Příklady:
 
 - Pro binární rozdíly (delta komprese) použijte `xdelta3`.
 
-- Pro konverzi testových kódování zkuste `iconv`. Nebo `uconv` pro pokročilejší použití; podporuje některé pokročilé Unicode věci. Například tento příkaz mění text na malé znaky a odstraňuje akcenty (jejich rozvinutím a zahozením):
+- Pro konverzi textových kódování zkuste `iconv`. Nebo `uconv` pro pokročilejší použití; podporuje některé pokročilé Unicode věci. Například tento příkaz mění text na malé znaky a odstraňuje akcenty (jejich rozvinutím a zahozením):
 ```sh
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
 ```
@@ -260,7 +260,7 @@ Příklady:
 
 - Na zjištění stavu paměti spusťte `free` a `vmstat` a pokuste se porozumět jejich výstupům. Zejména dbejte na "cached" hodnotu což je paměť držená Linuxovým kernelem jako souborová cache, tudíž se počítá do "volné" paměťi.
 
-- Ladění Javy je odlišný šálek čaje, ale jednoduchý trik na Javu od Oraclu a některé jiné JVM je, že stále můžete použít `kill -3 <pid>` a výpis zásobníku a haldy (včetně obecnějších detailů z **garbage collectoru**, které mohou být nesmírně informativní) bude zapsán do stderr/logs. Nástroje JDK jako `jps`, `jstat`, `jstack` a `jmap` jsou také užitečné, avšak [SJK tools](https://github.com/aragozin/jvm-tools)  jsou více pokročilé.
+- Ladění Javy je odlišný šálek čaje, ale jednoduchý trik na Javu od Oraclu a některé jiné JVM je, že stále můžete použít `kill -3 <pid>` a výpis zásobníku a haldy (včetně obecnějších detailů z **garbage collectoru**, které mohou být nesmírně informativní) bude zapsán do stderr/logs. Nástroje JDK jako `jps`, `jstat`, `jstack` a `jmap` jsou také užitečné, avšak [SJK tools](https://github.com/aragozin/jvm-tools) `jsou více pokročilé.
 
 - Použijte [`mtr`](http://www.bitwizard.nl/mtr/) jako lepší `traceroute` pro identifikování potíží se sítí.
 
@@ -398,7 +398,7 @@ Pár příkladů na spojování příkazů:
 
 - `shuf`: náhodně vybere řádky ze souboru
 
-- `comm`: porovná seřazení soubory řádek po řádku
+- `comm`: porovná seřazené soubory řádek po řádku
 
 - `pv`: monitoruje postup dat skrz rouru
 
@@ -481,7 +481,7 @@ Pár příkladů na spojování příkazů:
 - `fortune`, `ddate`, a `sl`: hm, no, záleží jestli považujete parní lokomotivy a Zippyho citáty za "užitečné"
 
 
-## Pouze pro OS X
+## Pouze pro macOS
 
 Tyto věci jsou relevantní pouze pro macOS.
 
@@ -489,13 +489,13 @@ Tyto věci jsou relevantní pouze pro macOS.
 
 - Kopírujte výstup jakéhokoli příkazu do desktopové aplikace pomocí `pbcopy` a vložte vstup z nějaké pomocí `pbpaste`.
 
-- K povolení klávesy Option v Terminálu Mac OS jako klávesu Alt (pro použití v příkazech jako **alt-b**, **alt-f**, atd.), otevřete Předvolby -> Profily -> Klávesnice a zvolte "Použít Option jako Meta klávesu".
+- K povolení klávesy Option v Terminálu macOS jako klávesu Alt (pro použití v příkazech jako **alt-b**, **alt-f**, atd.), otevřete Předvolby -> Profily -> Klávesnice a zvolte "Použít Option jako Meta klávesu".
 
 - K otevření souboru za pomoci desktopové aplikace použijte `open` nebo `open -a /Aplikace/Cokoli.app`.
 
 - Spotlight: Prohledávejte soubory s `mdfind` a vypište metadata (například EXIF informace fotografie) pomocí `mdls`.
 
-- Nezapomínejte, že macOS je založen na BSD Unixu a mnoho příkazů (například `ps`, `ls`, `tail`, `awk`, `sed`) mají spoustu jemných odlišností od Linuxu, což je z velké části ovlivněno System V (System Five) stylem Unixu a GNU nástroji. Mnohokrát mmůžete rozdíl poznat podle manuálové stránky mající v nadpise "BSD General Commands Manual". V některých případech mohou být GNU verze instalovány také (třeba `gawk` a `gsed` pro GNU awk a sed). Pokud píšete multi-platformní Bashové scripty, vyhýbejte se takovým příkazům (například, zvažte Python či `perl`) nebo pečlivě testujte.
+- Nezapomínejte, že macOS je založen na BSD Unixu a mnoho příkazů (například `ps`, `ls`, `tail`, `awk`, `sed`) mají spoustu jemných odlišností od Linuxu, což je z velké části ovlivněno System V (System Five) stylem Unixu a GNU nástroji. Mnohokrát můžete rozdíl poznat podle manuálové stránky mající v nadpise "BSD General Commands Manual". V některých případech mohou být GNU verze instalovány také (třeba `gawk` a `gsed` pro GNU awk a sed). Pokud píšete multi-platformní Bashové scripty, vyhýbejte se takovým příkazům (například, zvažte Python či `perl`) nebo pečlivě testujte.
 
 - K získání informací o verzi vydání macOS použijte `sw_vers`.
 
@@ -503,7 +503,7 @@ Tyto věci jsou relevantní pouze pro macOS.
 ## Další zdroje
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): Organizovaný seznam shellových nástrojů a zdrojů.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Průvodce Mac OS příkazovou řádkou více do hloubky.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): Průvodce macOS příkazovou řádkou více do hloubky.
 - [Striktní mód](http://redsymbol.net/articles/unofficial-bash-strict-mode/) pro psaní lepších shellových scriptů.
 - [shellcheck](https://github.com/koalaman/shellcheck): Nástroj pro statickou analýzu shellových scriptů. V podstatě lint pro bash/sh/zsh.
 - [Souborové názvy a cesty v shellu](http://www.dwheeler.com/essays/filenames-in-shell.html): Bohužel velmi komplexní drobnosti o korektní práci se souborovými jmény v shellových scriptech.
