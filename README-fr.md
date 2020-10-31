@@ -3,9 +3,9 @@
 
 # L'art de la ligne de commande
 
-[![Ask a Question](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
-
-[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%19Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+*Note : Je recherche un nouvel auteur principal (éventuellement rémunéré) pour aider à faire de ce document un guide plus complet.
+Bien que très populaire, il pourrait être à la fois plus approfondi et plus utile.
+Si vous aimer écrire, n'êtes pas loin d'être un expert du sujet et envisagez d'aider, merci de me laisser un message à josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com)*
 
 - [Méta](#méta)
 - [Notions de base](#notions-de-base)
@@ -64,10 +64,12 @@ L'éditeur `nano` est l'un des plus simples pour de l'édition simple (ouvrir, m
 Cependant pour un usage avancé dans un terminal, rien ne remplace le vénérable Vim (`vi`), éditeur difficile à prendre en main, mais rapide et très complet.
 De nombreuses personnes utilisent également le classique Emacs, surtout pour d'importantes tâches d'édition (bien sûr, tout développeur moderne de logiciels travaillant sur un vaste projet n'utilise probablement pas un simple éditeur en mode texte et devrait donc aussi se familiariser avec des outils et des EDI graphiques modernes).
 
-- Sachez comment lire une documentation avec `man` (pour les curieux, `man man` liste les sections avec leur numéro, par exemple 1 pour les commandes «&nbsp;normales&nbsp;» , 5 pour les formats des fichiers et les conventions, et 8 pour tout ce qui concerne l'administration système).
-Trouvez les pages de manuel avec `apropos`.
-Sachez que certaines commandes ne sont pas des exécutables, mais des commandes internes de Bash et que vous pouvez obtenir de l'aide à leur sujet avec `help` et `help -d`.
-Utilisez `type command` pour déterminer si une commande est un exécutable, une commande interne du shell ou un alias.
+- Trouver de la documentation :
+  - Sachez comment lire une documentation avec `man` (pour les curieux, `man man` liste les sections avec leur numéro, par exemple 1 pour les commandes «&nbsp;normales&nbsp;» , 5 pour les formats des fichiers et les conventions, et 8 pour tout ce qui concerne l'administration système).
+  Trouvez les pages de manuel avec `apropos`.
+  - Sachez que certaines commandes ne sont pas des exécutables, mais des commandes internes de Bash et que vous pouvez obtenir de l'aide à leur sujet avec `help` et `help -d`.
+  Utilisez `type command` pour déterminer si une commande est un exécutable, une commande interne du shell ou un alias.
+  - `curl cheat.sh/commande` fournit une *cheatsheet* concise comprenant des exemples courants d'utilisation d'une commande shell.
 
 - Apprenez à rediriger les entrées et sorties au moyen de `>` et `<`, et à créer des tubes avec `|`.
 Sachez que `>` écrase le fichier de sortie et `>>` sert à ajouter.
@@ -476,6 +478,11 @@ Voyez aussi la remarque à propos de `LC_ALL` ci-dessus et l'option `-u` de `sor
     sort a b | uniq > c   # c is a union b
     sort a b | uniq -d > c   # c is a intersect b
     sort a b b | uniq -u > c   # c is set difference a - b
+```
+
+- Embellissez les différences de deux fichiers JSON en normalisant leur syntaxe, en colorant et en paginant le résultat :
+```
+      diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
 ```
 
 - Utilisez `grep . *` pour inspecter rapidement les contenus des fichiers d'un repértoire (chaque ligne est précédé du nom du fichier) ou `head -100 *` (chaque fichier a un titre).
