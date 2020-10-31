@@ -313,7 +313,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 어떠한 소켓이나 프로세스가 사용하는 대역폭(bandwidth)를 찾아보려면 [`iftop`](http://www.ex-parrot.com/~pdw/iftop/)나 [`nethogs`](https://github.com/raboof/nethogs)를 사용하세요.
 
-- `ab`라는 툴(Apache에 딸려있는)은 신속하고 간단하게(quick-and-dirty) 웹서버의 성능을 체크하는데 유용합니다. 보다 복잡한 부하 테스트를 할 때는 `siege`를 사용해보세요.
+- `ab`라는 툴(Apache에 딸려있는)은 신속하고 거칠게(quick-and-dirty) 웹서버의 성능을 체크하는데 유용합니다. 보다 복잡한 부하 테스트를 할 때는 `siege`를 사용해보세요.
 
 - 보다 심각한 경우의 네트워크 디버깅을 위해서는 [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), [`ngrep`](http://ngrep.sourceforge.net/)를 사용하세요.
 
