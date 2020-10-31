@@ -495,6 +495,8 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `fortune`, `ddate`, e `sl`: mmmh, beh, dipende molto da quanto consideri le locomotive a vapore e le citazioni di Zippy "utili".
 
+- `mkfifo`: crea una namedpipe, utile per comunicazioni tra processi, due processi separati possono accedervi per nome e scriverci dati o leggervi 
+
 
 ## OS X
 
