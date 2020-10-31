@@ -541,7 +541,7 @@ Diese Hinweise sind *nur* für MacOS relevant.
 
 - Spotlight: Dateisuche mit `mdfind` und Ausgabe von Metadaten (wie z.B. photo EXIF info) mit `mdls`.
 
-- Man sollte sich bewusst sein, dass MacOS auf BSD Unix basiert und sich viele Befehle (wie z.B. `ps`, `ls`, `tail`, `awk`, `sed`) bezüglich subtiler Kleinigkeiten von Linux, das stark von System V-style Unix und GNU tools beeinflusst ist, unterscheiden. Oft kann man den Unterschied daran erkennen, dass eine `man`-Seite die Überschrift  "BSD General Commands Manual" trägt. In manchen Fällen kann auch die GNU-Version installiert werden (wie z.B. bei `gawk` und `gsed` für GNU awk und sed). Falls manplattformübergreifende Bash-Skripte schreiben möchte, sollte man solche Befehle vermeiden (und z.B. Python oder `perl` in Betracht ziehen) oder sorgfätig testen.
+- Man sollte sich bewusst sein, dass MacOS auf BSD Unix basiert und sich viele Befehle (wie z.B. `ps`, `ls`, `tail`, `awk`, `sed`) bezüglich subtiler Kleinigkeiten von Linux, das stark von System V-style Unix und GNU tools beeinflusst ist, unterscheiden. Oft kann man den Unterschied daran erkennen, dass eine `man`-Seite die Überschrift  "BSD General Commands Manual" trägt. In manchen Fällen kann auch die GNU-Version installiert werden (wie z.B. bei `gawk` und `gsed` für GNU awk und sed). Falls man plattformübergreifende Bash-Skripte schreiben möchte, sollte man solche Befehle vermeiden (und z.B. Python oder `perl` in Betracht ziehen) oder sorgfätig testen.
 
 - Benutze `sw_vers` für OS X Systeminformationen.
 
