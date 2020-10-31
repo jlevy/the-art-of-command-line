@@ -486,6 +486,8 @@ A few examples of piecing together commands:
 
 - `apg`: generates random passwords
 
+- `crunch`: wordlist generator
+
 - `xz`: high-ratio file compression
 
 - `ldd`: dynamic library info
