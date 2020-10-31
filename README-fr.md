@@ -205,7 +205,7 @@ Par exemple, une liste telle que `{1..20}` ne peut s'exprimer avec des variables
 - La sortie d'une commande peut être traitée comme un fichier à l'aide de `<(some command)` (substitution de processus).
 Par exemple, pour comparer le fichier local `/etc/hosts` avec un fichier distant&nbsp;:
 ```sh
-      diff /etc/hosts/ <(ssh somehost cat /etc/hosts)
+      diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
 - Lorsque vous écrivez des scripts, vous pourriez avoir envie de placer votre code entre accolades.
