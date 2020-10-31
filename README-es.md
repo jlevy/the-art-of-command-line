@@ -28,7 +28,7 @@ Parte de esta:
 [apareció](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
 pero se ha movido desde entonces a Github, donde personas más talentosas que el autor han hecho numerosas mejoras.
-[**Por favor contribuye**](/CONTRIBUTING.md) Si ves un error o algo que podría ser mejor!
+[**Por favor contribuye**](/CONTRIBUTING.md) si ves un error o algo que podría ser mejor!
 
 
 ## Meta
@@ -36,7 +36,7 @@ pero se ha movido desde entonces a Github, donde personas más talentosas que el
 Alcance:
 
 - Esta guía es tanto para principiantes como para experimentados. Los objetivos son *diversidad* (todo importa), *especificidad* (dar ejemplos concretos del caso más común), y *concisión* (evitar cosas que no son esenciales o insignificantes que puedas buscar fácilmente en otro lugar). Cada consejo es esencial en alguna situación o significativamente puede ahorrar tiempo comparado con otras alternativas.
-- Está escrita para Linux, con excepción de la secciones "[Solo para OS X](#os-x-only)" y "[Solo para Windows](#solo-windows)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices o OS X (o incluso Cygwin).
+- Está escrita para Linux, con excepción de la secciones "[Solo para OS X](#os-x-only)" y "[Solo para Windows](#solo-windows)". Muchos de los otros puntos aplican o pueden ser instalados en otros Unices u OS X (o incluso Cygwin).
 - Se centra en Bash interactivo, aunque muchos de los consejos aplican para otros shells y al Bash scripting por lo general.
 - Incluye tanto comandos "estándar" Unix así como los que requieren instalaciones de paquetes especiales -- siempre que sean lo suficientemente importantes para merecer su inclusión.
 
@@ -48,7 +48,7 @@ Notas:
 
 ## Fundamentos
 
-- Aprende conocimientos básicos de Bash, de hecho, escribe `man bash` y al menos échale un vistazo a todo el asunto. Es bastante fácil de seguir y no es tan largo. Alternar entre shells puede ser agradable, pero Bash es poderoso y siempre está disponible (conocer *solo* zsh, fish, etc., aunque resulte tentador en tu propia laptop, Te restringe en muchas situaciones, tales como el uso de servidores existentes).
+- Aprende conocimientos básicos de Bash, de hecho, escribe `man bash` y al menos échale un vistazo a todo el asunto. Es bastante fácil de seguir y no es tan largo. Alternar entre shells puede ser agradable, pero Bash es poderoso y siempre está disponible (conocer *solo* zsh, fish, etc., aunque resulte tentador en tu propia laptop, te restringe en muchas situaciones, tales como el uso de servidores existentes).
 
 - Aprende bien al menos un editor de texto, idealmente Vim (`vi`), como no hay realmente una competencia para la edición aleatoria en un terminal (incluso si usa Emacs, un gran IDE, o un editor alternativo (hipster) moderno la mayor parte del tiempo).
 
