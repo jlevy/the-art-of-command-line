@@ -122,7 +122,7 @@
 
 - 在 Bash 中，要注意其中有許多形式的擴展。檢查變數是否存在：`${name:?error message}`。例如，當 Bash 指令碼需要一個參數時，可以使用這樣的程式碼`input_file=${1:?usage: $0 input_file}`。數學表示式：`i=$(( (i + 1) % 5 ))`。序列：`{1..10}`。截斷字元串：`${var%suffix}` 和`${var#prefix}`。例如，假設`var=foo.pdf`，那麼`echo ${var%.pdf}.txt` 將輸出`foo.txt`。
 
-- 使用括號擴展（`{`...`}`）來減少輸入相似文字，並自動化文字組合。這在某些情況下會很有用，例如`mv foo.{txt,pdf} some-dir`（同時移動兩個檔案），`cp somefile{,.bak}`（會被擴展成`cp somefile somefile .bak`）或者`mkdir -p test-{a,b,c}/subtest-{1,2,3}`（會被擴展成所有可能的組合，並創建一個目錄樹）。
+- 使用括號擴展（`{`...`}`）來減少輸入相似文字，並自動化文字組合。這在某些情況下會很有用，例如`mv foo.{txt,pdf} some-dir`（同時移動兩個檔案），`cp somefile{,.bak}`（會被擴展成`cp somefile somefile.bak`）或者`mkdir -p test-{a,b,c}/subtest-{1,2,3}`（會被擴展成所有可能的組合，並創建一個目錄樹）。
 
 - 通過使用`<(some command)` 可以將輸出視為檔案。例如，對比本地檔案`/etc/hosts` 和一個​​遠端檔案：
 ```sh
