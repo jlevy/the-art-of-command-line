@@ -160,7 +160,7 @@
 
 - `man ascii`를 사용해서 헥스 값과 10진 값이 같이 있는 훌륭한 ASCII 테이블을 볼 수 있습니다. 일반적인 인코딩 정보를 보려면 `man unicode`, `man utf-8` 그리고 `man latin1`을 이용할 수 있습니다.
 
-- `screen`을 이용하거나  [`tmux`](https://tmux.github.io/)를 이용해서 화면을 다중 분할할 수 있습니다. 특히 리모트 ssh 세션을 떼어내고(detach) 다시 붙이는데(re-attach) 유용합니다. `byobu`은 스크린이나 tmux보다 더 많은 정보를 제공하며, 관리를 편합니다. 세션을 영구히 유지하는 최소한의 대안은 오직 [`dtach`](https://github.com/bogner/dtach)밖에 없습니다.
+- `screen`을 이용하거나  [`tmux`](https://tmux.github.io/)를 이용해서 화면을 다중 분할할 수 있습니다. 특히 리모트 ssh 세션을 떼어내고(detach) 다시 붙이는데(re-attach) 유용합니다. `byobu`은 스크린이나 tmux보다 더 많은 정보를 제공하며, 관리를 편합니다. 세션을 영구히 유지하는 최소한의 대안은 오직 [`dtach`](https://github.com/crigler/dtach)밖에 없습니다.
 
 - ssh에서 `-L`이나 `-D`(가끔 `-R`)를 이용해서 포트 터널링 하는 것을 알아두시면 유용합니다. 예를 들어 리모트 서버를 경유해서 웹사이트에 접속한다거나 할 때 말이죠.
 

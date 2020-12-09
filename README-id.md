@@ -158,7 +158,7 @@ Catatan:
 - Gunakan `man ascii` untuk melihan tabel ASCII, dengan nilai hex dan decimal. Untuk informasi umum mengenai unicode, `man unicode`, `man utf-8`, dan `man latin1` juga sangat berguna.
 
 - Gunakan `screen` atau [`tmux`](https://tmux.github.io/) untuk tampilan multi layar, terutama sangat bermanfaat dalam sesi ssh, melepas dan menyambung kembali sebuah sesi. `byobu`
-- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. `byobu` can enhance screen or tmux providing more information and easier management. A more minimal alternative for session persistence only is [`dtach`](https://github.com/bogner/dtach).
+- Use `screen` or [`tmux`](https://tmux.github.io/) to multiplex the screen, especially useful on remote ssh sessions and to detach and re-attach to a session. `byobu` can enhance screen or tmux providing more information and easier management. A more minimal alternative for session persistence only is [`dtach`](https://github.com/crigler/dtach).
 
 - Dalam ssh, mengetahui bagaimana cara menggunaakn saluran (port tunnel) dengan `-L` atau `-D` (dan terkadang `-R`) juga berguna. Misalnya untuk mengakses situs web dari kendali server jarak jauh.
 

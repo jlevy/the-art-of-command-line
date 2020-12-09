@@ -160,7 +160,7 @@ Note:
 
 - Folosiți `man ascii` pentru o tabelă ASCII foarte bună, cu valori în hex și decimal. Pentru informatii generale de codificare,  `man unicode`, `man utf-8`, și `man latin1` sunt utile.
 
-- Folosiți `screen` sau [`tmux`](https://tmux.github.io/) pentru a multiplexa terminalul, în special în cazul sesiunilor ssh. `byobu` poate îmbunătăți screen sau tmux fiind mai ușor de folosit. O interfață minimală pentru persistența sesiunilor este [`dtach`](https://github.com/bogner/dtach).
+- Folosiți `screen` sau [`tmux`](https://tmux.github.io/) pentru a multiplexa terminalul, în special în cazul sesiunilor ssh. `byobu` poate îmbunătăți screen sau tmux fiind mai ușor de folosit. O interfață minimală pentru persistența sesiunilor este [`dtach`](https://github.com/crigler/dtach).
 
 - În ssh, este util să știți cum să creați un tunel cu `-L` sau `-D` (și ocazional `-R`), e.g. pentru a accesa site-urile de pe un server aflat la distanță.
 
