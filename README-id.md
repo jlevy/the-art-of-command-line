@@ -57,7 +57,7 @@ Catatan:
 
 - Pelajari tentang pengalihan hasil keluaran dan masukan menggunakan `>` dan `<` dan saluran menggunakan `|`. Ketahui bahwa `>` menimpa hasil keluaran dari sebuah berkas sedangkan `>>` menambahkan keluaran dibagian akhir dari berkas. Pelajari tentang `stdout` dan `stderr`.
 
-- Pelajari tentang penyebaran berkas dengan `*` (dan mungkin `?` dan `[`...`]`) dan tanda petik dan perbedaan antara petik dua `"` dan petik sati `'`. (Penjelasan lebih lanjut pada penyebaran variabel dibawah.)
+- Pelajari tentang penyebaran berkas dengan `*` (dan mungkin `?` dan `[`...`]`) dan tanda petik dan perbedaan antara petik dua `"` dan petik satu `'`. (Penjelasan lebih lanjut pada penyebaran variabel dibawah.)
 
 - Biasakan diri dengan pengelolaan tugas pada Bash: `&`, **ctrl-z**, **ctrl-c**, `jobs`, `fg`, `bg`, `kill`, dan lain sebagainya.
 
