@@ -251,7 +251,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 ## 系統偵錯
 
-- `curl` 和`curl -I` 可以便捷地被應用於 web 偵錯，它們的好兄弟`wget` 也可以，或者是更潮的[`httpie`](https://github.com/jakubroztocil /httpie)。
+- `curl` 和`curl -I` 可以便捷地被應用於 web 偵錯，它們的好兄弟`wget` 也可以，或者是更潮的[`httpie`](https://github.com/jakubroztocil/httpie)。
 
 - 使用`iostat`、`netstat`、`top` （`htop` 更佳）和`dstat` 去獲取硬碟、cpu 和網路的狀態。熟練掌握這些工具可以使你快速的對系統的當前狀態有一個大概的認識。
 
