@@ -452,6 +452,8 @@ A few examples of piecing together commands:
 
 - `file`: identify type of a file
 
+- `touch "FILENAME.txt"`: create a new file
+
 - `tree`: display directories and subdirectories as a nesting tree; like `ls` but recursive
 
 - `stat`: file info
