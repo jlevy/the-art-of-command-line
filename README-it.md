@@ -498,7 +498,7 @@ Qualche esempio di combinazione di più comandi comandi:
 
 ## OS X
 
-Consiera questa sezione come un'esclusiva MacOS.
+Considera questa sezione come un'esclusiva MacOS.
 
 - I package vengono gestiti con `brew` (Homebrew) e/o `port` (MacPorts). Possono essere usati su MacOS per installare molti dei comandi visti in questo articolo.
 
