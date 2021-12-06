@@ -151,7 +151,7 @@ Příklady:
       ControlPersist yes
 ```
 
-- Některé další možnosti vstahující se k ssh jsou bezpečnostně citlivé a měly by být povoleny s opatrností, například pro jednotlivé podsítě nebo hosty v důvěryhodných sítích: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
+- Některé další možnosti vztahující se k ssh jsou bezpečnostně citlivé a měly by být povoleny s opatrností, například pro jednotlivé podsítě nebo hosty v důvěryhodných sítích: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
 - Zvažte [`mosh`](https://mosh.mit.edu/) jako alternativu k ssh, která používá UDP, vyhýbá se padlým spojením a přidává pohodlí na cestách (vyžaduje nastavení na serveru).
 
