@@ -614,7 +614,7 @@ These items are relevant *only* on Windows.
 
 ## Disclaimer
 
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
+With the exception of very small tasks, code is written so others can read it. With great power comes greater responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
 
 
 ## License
