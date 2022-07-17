@@ -144,7 +144,7 @@ Notes:
 
 - The order of expansions is: brace expansion; tilde expansion, parameter and variable expansion, arithmetic expansion, and command substitution (done in a left-to-right fashion); word splitting; and filename expansion. (For example, a range like `{1..20}` cannot be expressed with variables using `{$a..$b}`. Use `seq` or a `for` loop instead, e.g., `seq $a $b` or `for((i=a; i<=b; i++)); do ... ; done`.)
 
-- The output of a command can be treated like a file via `<(some command)` (known as process substitution). For example, compare local `/etc/hosts` with a remote one:
+- The output of a command can be treated like input to another via `<(some command)` (known as process substitution). For example, compare local `/etc/hosts` with a remote one:
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
