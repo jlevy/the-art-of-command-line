@@ -596,6 +596,8 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `apg` : génère des mots de passe aléatoires.
 
+- `crunch`: générateur de mots (wordlists)
+
 - `xz` : compresse des fichiers avec taux de compression élevé.
 
 - `ldd` : affiche des informations sur les bibliothèques partagées.

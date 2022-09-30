@@ -433,6 +433,8 @@ Qualche esempio di combinazione di più comandi comandi:
 
 - `apg`: genera password casuali.
 
+- `crunch`: generatore di liste di parole
+
 - `7z`: compressione di file ad alta ratio.
 
 - `ldd`: informazioni su una libreria dinamica.
