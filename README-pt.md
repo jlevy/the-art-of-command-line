@@ -169,7 +169,7 @@ Notas:
 
 - Aprenda a respeito do `cut`, `paste`, e `join` para manipular arquivos de texto. Muitas pessoas usam `cut` mas esquecem do `join`.
 
-- Aprenda a respeito do `wc` para contar novas linhas (`-l`), caracteres (`-m`), palavras (`-m`) e bytes (`-c`).
+- Aprenda a respeito do `wc` para contar novas linhas (`-l`), caracteres (`-m`), palavras (`-w`) e bytes (`-c`).
 
 - Aprenda a respeito do `tee` para copiar da entrada padrão (stdin) para um arquivo e também para a saída padrão (stdout), como no `ls -al | tee file.txt`.
 
