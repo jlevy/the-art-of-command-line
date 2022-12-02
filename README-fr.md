@@ -425,7 +425,7 @@ Pour un aperçu plus étendu et détaillé, utilisez [`glances`](https://github.
 - Pour connaître l'état de la mémoire, exécutez `free` et `vmstat` et comprenez leurs sorties.
 En particulier, ayez à l'esprit que la valeur du « cache » est la mémoire utilisée par le noyau Linux comme cache de fichiers, donc compte comme de la mémoire « libre ».
 
-- Le système de debogage de Java est une autre paire de manche, cependant un truc simple sur la JVM d'Oracle et quelques autres JVMs consiste à exécuter `kill -3 <pid>` pour obtenir une trace complète des appels et une empreinte de la mémoire (y compris des détails sur le ramasse-miettes qui peuvent être hautement instructifs) dans stderr ou des fichiers journaux.
+- Le système de débogage de Java est une autre paire de manche, cependant un truc simple sur la JVM d'Oracle et quelques autres JVMs consiste à exécuter `kill -3 <pid>` pour obtenir une trace complète des appels et une empreinte de la mémoire (y compris des détails sur le ramasse-miettes qui peuvent être hautement instructifs) dans stderr ou des fichiers journaux.
 Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil SJK](https://github.com/aragozin/jvm-tools) est plus avancé.
 
 - Utilisez [`mtr`](http://www.bitwizard.nl/mtr/) comme un `traceroute` amélioré pour identifier les problèmes de réseau.
@@ -437,7 +437,7 @@ Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil
 - L'outil `ab` (fourni avec Apache) est utile pour une vérification rapide et grossière des performances d'un serveur web.
 Pour des tests de charge plus complexes, essayez `siege`.
 
-- Pour du debogage réseau plus sérieux : [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ou [`ngrep`](http://ngrep.sourceforge.net/).
+- Pour du débogage réseau plus sérieux : [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ou [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Sachez utiliser `strace` et `ltrace`.
 Ces commandes peuvent être utiles si un programme fonctionne mal ou plante et que vous n'en connaissez pas la raison, ou si vous voulez vous faire une idée de ses performances.
@@ -552,7 +552,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `toe` : table des entrées terminfo.
 
-- `nc` : debogage réseau et transfert de données.
+- `nc` : débogage réseau et transfert de données.
 
 - `socat` : relai et réacheminement de port TCP (semblable à `netcat`).
 
