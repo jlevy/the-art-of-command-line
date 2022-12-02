@@ -336,7 +336,7 @@ C'est probablement trois fois plus rapide et trois fois plus petit que son équi
     perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- Pour renommer de multiple fichiers ou effectuer des recherches et des remplacements dans des fichiers, essayez [`repren`](https://github.com/jlevy/repren) (dans certains cas la commande `rename` permet aussi de renommer de multiples fichiers, mais soyez prudent car ses fonctionnalités ne sont pas les mêmes sur toutes les distributions Linux).
+- Pour renommer de multiples fichiers ou effectuer des recherches et des remplacements dans des fichiers, essayez [`repren`](https://github.com/jlevy/repren) (dans certains cas la commande `rename` permet aussi de renommer de multiples fichiers, mais soyez prudent car ses fonctionnalités ne sont pas les mêmes sur toutes les distributions Linux).
 ```sh
     # Renomme les répertoires, les fichiers et leurs contenus à l'aide
     # de la substitution foo -> bar :
