@@ -42,7 +42,7 @@ Les objectifs sont l'*envergure* (tout est important), la *spécificité* (donne
 Chaque astuce est indispensable dans certaines situations ou fait gagner beaucoup de temps par rapport aux solutions alternatives.
 - Il est écrit pour Linux, à l'exception des sections « [Uniquement macOS](#uniquement-macos) » et « [Uniquement Windows](#uniquement-windows) ».
 Beaucoup d'items s'appliquent ou peuvent être installés sur d'autres Unices ou macOS (ou même Cygwin).
-- L'accent est mis sur l'utilisation intéractive de Bash, bien que de nombreuses astuces s'appliquent aux autres shells et à l'écriture de scripts en Bash.
+- L'accent est mis sur l'utilisation interactive de Bash, bien que de nombreuses astuces s'appliquent aux autres shells et à l'écriture de scripts en Bash.
 - Il inclut les commandes « standard » d'Unix aussi bien que celles qui nécessitent l'installation de paquets spéciaux &mdash; tant qu'ils sont suffisamment importants pour mériter d'être mentionnés.
 
 Remarques :
