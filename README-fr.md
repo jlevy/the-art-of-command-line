@@ -257,9 +257,9 @@ Une alternative plus légère pour la persistance des sessions seulement est [`d
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- Pour une sélection intéractive de valeurs issues de la sortie d'une commande, utilisez [`percol`](https://github.com/mooz/percol) ou [`fzf`](https://github.com/junegunn/fzf).
+- Pour une sélection interactive de valeurs issues de la sortie d'une commande, utilisez [`percol`](https://github.com/mooz/percol) ou [`fzf`](https://github.com/junegunn/fzf).
 
-- Pour intéragir avec les fichiers provenant de la sortie d'une commande (p.&nbsp;ex. `git`), utilisez `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
+- Pour interagir avec les fichiers provenant de la sortie d'une commande (p.&nbsp;ex. `git`), utilisez `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
 
 - Créez un simple serveur web pour partager les fichiers du répertoire courant (et ses sous-répertoires) avec `python -m SimpleHTTPServer 7777` (port 7777 et Python 2)  et `python -m http.server 7777` (port 7777 et Python 3).
@@ -297,7 +297,7 @@ Par exemple, pour convertir un document Markdown au format Word : `pandoc README
 - Si vous devez manipuler du XML, l'ancien `xmlstarlet` marche bien.
 
 - Pour le JSON, utilisez [`jq`](http://stedolan.github.io/jq/).
-Voir également [`jid`](https://github.com/simeji/jid) and [`jiq`](https://github.com/fiatjaf/jiq) pour une utilisation intéractive.
+Voir également [`jid`](https://github.com/simeji/jid) and [`jiq`](https://github.com/fiatjaf/jiq) pour une utilisation interactive.
 
 - Pour le YAML, utilisez [`shyaml`](https://github.com/0k/shyaml).
 
