@@ -456,7 +456,7 @@ Il fournit un historique concernant l'usage du CPU, de la mémoire, du réseau, 
 
 - Pour une analyse plus approfondie du système et de ses performances, regardez `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_%28Linux%29) et [`sysdig`](https://github.com/draios/sysdig).
 
-- Vérifiez quel OS vous utilisez avec `uname` ou `uname -a` (information général sur la version d'Unix et du noyau) ou `lsb_release -a` (informations sur la distribution Linux).
+- Vérifiez quel OS vous utilisez avec `uname` ou `uname -a` (information générale sur la version d'Unix et du noyau) ou `lsb_release -a` (informations sur la distribution Linux).
 
 - Utilisez `dmesg` à chaque fois que quelque chose de bizarre se produit (pour des problèmes liés au matériel ou aux drivers).
 
