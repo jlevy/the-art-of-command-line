@@ -349,7 +349,7 @@ C'est probablement trois fois plus rapide et trois fois plus petit que son équi
 
 - Selon sa page de manuel, `rsync` est un outil de duplication de fichiers vraiment rapide et incroyablement polyvalent.
 Il est connu pour faire de la synchronisation entre machines, mais est également utile pour un usage local.
-Lorsque les mesures de sécurité l'autorisent, utiliser `rsync` au lieu de `scp` permet de reprendre un transfert interrompu sans devoir le recommencer zéro.
+Lorsque les mesures de sécurité l'autorisent, utiliser `rsync` au lieu de `scp` permet de reprendre un transfert interrompu sans devoir le recommencer de zéro.
 Il est aussi l'un des outils [les plus rapides](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) pour effacer un grand nombre de fichiers&nbsp;:
 ```sh
     mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
