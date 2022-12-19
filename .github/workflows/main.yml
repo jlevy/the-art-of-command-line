@@ -1,0 +1,189 @@
+-on:
+  workflow_dispatch:
+  CLI Design Template
+! Do not edit this template directly. Please make a copy ! 
+Components
+Syntax
+- [ branch ] :- [ label ]
+owner/repo
+Prompts
+? Yes/No Prompt [y/N]
+? Short text prompt (Auto fill)
+? Long text prompt [('((c)(r))') to launch vim, enter to skip] 
+? Single choice prompt [Use arrows to move, type to filter]
+> Choice focused
+  Choice 
+  Choice
+? Multi select prompt [Use arrows to move, space to select, type to filter]
+> [x]  Choice selected and focused
+  [x]  Choice selected
+  [ ]  Projects
+  [ ]  Milestone
+State
+
+#123 Open issue or pull request
+#123 Closed issue pull request
+#123 Merged pull request
+#123 Draft pull request
+
+✓ Checks passing
+✓ Approved
+- Review requested
++ Changes requested
+
+✓ Success message
+! Alert
+✗ Error message (ideal)
+error message (current)
+
+✓ Item closed
+✓ Item merged
+
+
+Loading spinner
+
+⣟ Action...
+
+
+
+Lists
+
+$ gh issue list 
+
+Showing 3 of 222 issues in cli/cli
+
+#1360  Ability to ski...                     about 2 days ago
+#1358  Provide extra ...  (enhancement)      about 3 days ago
+#1354  Add ability to...  (enhancement, ...  about 3 days ago
+
+
+
+Detail view
+
+
+
+Ability to skip confirmation via a flag
+Open • AliabbasMerchant opened about 2 days ago • 1 comment
+
+
+#1330 proposes to add confirmation to risky commands. It is a nice feature to have, but in order to support proper scriptability, we should support a flag (preferably  -y , like in most CLIs), to skip asking for confirmation. So for each of the 4 commands mentioned there (and possibly even more in the future), we should add support for the  -y  flag                                       
+
+
+View this issue on GitHub: https://github.com/cli/cli/issues/1360
+
+
+Headers
+
+
+Creating issue in cli/cli
+
+Showing 30 of 226 issues in cli/cli
+
+Relevant pull requests in cli/cli
+
+cli/cli
+GitHub’s official command line tool
+
+Default branch is not being prioritized
+Closed • tierninho opened about 6 months ago • 1 comment
+
+
+
+Empty states
+
+Current branch
+  There is no pull request associated with [master]
+
+Created by you
+  You have no open pull requests
+
+Requesting a code review from you
+  You have no pull requests to review
+
+No pull requests match your search in cli/cli
+
+No issues match your search in cli/cli
+
+There are no open issues in ampinsk/create-test
+
+
+
+
+Help page
+
+$ gh
+
+Work seamlessly with GitHub from the command line. 
+
+USAGE
+  gh <command> <subcommand> [flags]
+  Commands are run inside of a GitHub repository.
+
+CORE COMMANDS
+  issue:       Create and view issues
+  pr:          Create, view, and checkout pull requests
+  repo:        Create, clone, fork, and view repositories
+
+ADDITIONAL COMMANDS
+  help:        Help about any command
+  config:      Set and get preferences
+  completion:  Generate shell completion scripts
+
+FLAGS
+  -h, --help:              Show help for command
+  -v, --version:           Show gh version
+
+EXAMPLES
+  $ gh issue create
+  $ gh pr list
+  $ gh repo fork
+
+LEARN MORE
+  Use "gh [command] [subcommand] --help" for more information about a command.
+  Read the manual at <http://cli.github.com/manual>
+
+FEEDBACK 
+  Fill out our feedback form <https://forms.gle/umxd3h31c7aMQFKG7>
+  Open an issue using “gh issue create -R cli/cli”
+- name: Setup Java JDK
+  uses: actions/setup-java@v3.9.0
+  with:
+    # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
+    java-version: # optional
+    # The path to the `.java-version` file. See examples of supported syntax in README file
+    java-version-file: # optional
+    # Java distribution. See the list of supported distributions in README file
+    distribution: 
+    # The package type (jdk, jre, jdk+fx, jre+fx)
+    java-package: # optional, default is jdk
+    # The architecture of the package (defaults to the action runner's architecture)
+    architecture: # optional
+    # Path to where the compressed JDK is located
+    jdkFile: # optional
+    # Set this option if you want the action to check for the latest available version that satisfies the version spec
+    check-latest: # optional
+    # ID of the distributionManagement repository in the pom.xml file. Default is `github`
+    server-id: # optional, default is github
+    # Environment variable name for the username for authentication to the Apache Maven repository. Default is $GITHUB_ACTOR
+    server-username: # optional, default is GITHUB_ACTOR
+    # Environment variable name for password or token for authentication to the Apache Maven repository. Default is $GITHUB_TOKEN
+    server-password: # optional, default is GITHUB_TOKEN
+    # Path to where the settings.xml file will be written. Default is ~/.m2.
+    settings-path: # optional
+    # Overwrite the settings.xml file if it exists. Default is "true".
+    overwrite-settings: # optional, default is true
+    # GPG private key to import. Default is empty string.
+    gpg-private-key: # optional
+    # Environment variable name for the GPG private key passphrase. Default is $GPG_PASSPHRASE.
+    gpg-passphrase: # optional
+    # Name of the build platform to cache dependencies. It can be "maven", "gradle" or "sbt".
+    cache: # optional
+    # Workaround to pass job status to post job step. This variable is not intended for manual setting
+    job-status: # optional, default is ${{ job.status }}
+    # The token used to authenticate when fetching version manifests hosted on github.com, such as for the Microsoft Build of OpenJDK. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+    token: # optional, default is ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Name of Maven Toolchain ID if the default name of "${distribution}_${java-version}" is not wanted. See examples of supported syntax in Advanced Usage file
+    mvn-toolchain-id: # optional
+    # Name of Maven Toolchain Vendor if the default name of "${distribution}" is not wanted. See examples of supported syntax in Advanced Usage file
+    mvn-toolchain-vendor: # optional
+
