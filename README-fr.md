@@ -498,7 +498,7 @@ Cela peut être utile pour des répertoires remplis de fichiers de configuration
     find . -type f -ls
 ```
 
-- Supposons que vous ayez un fichier texte comme un fichier journal de serveur web et q'une certaine valeur, comme un paramètre `acct_id` présent dans l'URL, figure à certaines lignes.
+- Supposons que vous ayez un fichier texte comme un fichier journal de serveur web et qu'une certaine valeur, comme un paramètre `acct_id` présent dans l'URL, figure à certaines lignes.
 Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_id`&nbsp;:
 ```sh
     egrep -o 'acct_id=[0-9]+' access.log | cut -d= -f2 | sort | uniq -c | sort -rn
@@ -603,7 +603,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `apg` : génère des mots de passe aléatoires.
 
-- `xz` : compresse des fichiers avec taux de compression élevé.
+- `xz` : compresse des fichiers avec un taux de compression élevé.
 
 - `ldd` : affiche des informations sur les bibliothèques partagées.
 
