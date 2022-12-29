@@ -154,7 +154,7 @@ Pour la liste complète, consultez `man 7 signal`.
 - Utilisez `alias` pour créer des raccourcis vers les commandes fréquemment utilisées.
 Par exemple, `alias ll='ls -latr'` crée un nouvel alias `ll`.
 
-- Conservez les aliases, les paramètres du shell et les fonctions fréquemment utilisées dans le fichier `~/.bashrc`, et [arrangez-vous pour qu'il soit chargé par le shell de connexion](http://superuser.com/a/183980/7106).
+- Conservez les alias, les paramètres du shell et les fonctions fréquemment utilisées dans le fichier `~/.bashrc`, et [arrangez-vous pour qu'il soit chargé par le shell de connexion](http://superuser.com/a/183980/7106).
 Ainsi, votre configuration s'appliquera à toutes vos sessions shell.
 
 - Placez dans `~/.bash_profile` la configuration de vos variables d'environnement ainsi que les commandes à exécuter lorsque vous vous connectez.
