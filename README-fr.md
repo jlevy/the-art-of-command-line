@@ -5,7 +5,7 @@
 
 *Note : Je recherche un nouvel auteur principal (éventuellement rémunéré) pour aider à faire de ce document un guide plus complet.
 Bien que très populaire, il pourrait être à la fois plus approfondi et plus utile.
-Si vous aimer écrire, n'êtes pas loin d'être un expert du sujet et envisagez d'aider, merci de me laisser un message à josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com)*
+Si vous aimez écrire, n'êtes pas loin d'être un expert du sujet et envisagez d'aider, merci de me laisser un message à josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com)*
 
 - [Méta](#méta)
 - [Notions de base](#notions-de-base)
