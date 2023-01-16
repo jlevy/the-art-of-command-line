@@ -458,15 +458,15 @@ A few examples of piecing together commands:
 
 - `time`: execute and time a command
 
-- `timeout`: execute a command for specified amount of time and stop the process when the specified amount of time completes.
+- `timeout`: execute a command for specified amount of time and stop the process when the specified amount of time completes
 
 - `lockfile`: create semaphore file that can only be removed by `rm -f`
 
-- `logrotate`: rotate, compress and mail logs.
+- `logrotate`: rotate, compress and mail logs
 
 - `watch`: run a command repeatedly, showing results and/or highlighting changes
 
-- [`when-changed`](https://github.com/joh/when-changed): runs any command you specify whenever it sees file changed. See `inotifywait` and `entr` as well.
+- [`when-changed`](https://github.com/joh/when-changed): runs any command you specify whenever it sees file changed. See `inotifywait` and `entr` as well
 
 - `tac`: print files in reverse
 
@@ -544,7 +544,7 @@ A few examples of piecing together commands:
 
 - `lshw`, `lscpu`, `lspci`, `lsusb`, `dmidecode`: hardware information, including CPU, BIOS, RAID, graphics, devices, etc.
 
-- `lsmod` and `modinfo`: List and show details of kernel modules.
+- `lsmod` and `modinfo`: List and show details of kernel modules
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
@@ -610,7 +610,7 @@ These items are relevant *only* on Windows.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/) for writing better shell scripts.
 - [shellcheck](https://github.com/koalaman/shellcheck): A shell script static analysis tool. Essentially, lint for bash/sh/zsh.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): The sadly complex minutiae on how to handle filenames correctly in shell scripts.
-- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): More commands and tools helpful for doing data science, from the book of the same name
+- [Data Science at the Command Line](http://datascienceatthecommandline.com/#tools): More commands and tools helpful for doing data science, from the book of the same name.
 
 ## Disclaimer
 
