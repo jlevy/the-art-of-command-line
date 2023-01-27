@@ -220,7 +220,7 @@ C'est particulièrement utile pour des scripts mis à disposition sur le web, af
 ```
 
 - Un «&nbsp;document intégré&nbsp;» permet de [rediriger plusieurs lignes en entrée](https://abs.traduc.org/abs-fr/ch19.html) comme si elles provenaient d'un fichier&nbsp;:
-```
+```sh
 cat <<EOF
 entrée sur
 plusieurs lignes
@@ -481,7 +481,7 @@ Voyez aussi la remarque à propos de `LC_ALL` ci-dessus et l'option `-u` de `sor
 ```
 
 - Embellissez les différences de deux fichiers JSON en normalisant leur syntaxe, en colorant et en paginant le résultat :
-```
+```sh
       diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
 ```
 

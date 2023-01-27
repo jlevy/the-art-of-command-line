@@ -157,7 +157,7 @@ Opombe:
 ```
 
 - T.i. "here document" omogoča [preusmeritev večih vrstic vnosa](https://www.tldp.org/LDP/abs/html/here-docs.html) kot da gre za datoteko:
-```
+```sh
 cat << EOF
 These lines will
 print to stdout

@@ -153,7 +153,7 @@
 ```
 
 - 「ヒアドキュメント」によって、ファイルからの[複数行のリダイレクト](https://www.tldp.org/LDP/abs/html/here-docs.html)のように振る舞うことができる。
-```
+```sh
 cat <<EOF
 input
 on multiple lines

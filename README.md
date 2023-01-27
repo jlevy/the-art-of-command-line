@@ -157,7 +157,7 @@ Notes:
 ```
 
 - A "here document" allows [redirection of multiple lines of input](https://www.tldp.org/LDP/abs/html/here-docs.html) as if from a file:
-```
+```sh
 cat <<EOF
 input
 on multiple lines
@@ -365,7 +365,7 @@ A few examples of piecing together commands:
 ```
 
 - Pretty-print two JSON files, normalizing their syntax, then coloring and paginating the result:
-```
+```sh
       diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
 ```
 

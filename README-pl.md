@@ -157,7 +157,7 @@ Uwagi:
 ```
 
 - "Dokument lokalny" pozwala na [przekierowanie kilku linii strumienia wejścia](https://www.tldp.org/LDP/abs/html/here-docs.html) tak, jakby były wczytywane z pliku:
-```
+```sh
 cat <<EOF
 wejście
 w kilku liniach
@@ -365,7 +365,7 @@ Kilka przykładów składania poleceń:
 ```
 
 -  Wyświetl dwa pliki w formacie JSON, normalizując ich składnię, a następnie kolorując i dzieląc na strony wynik operacji:
-```
+```sh
       diff <(jq --sort-keys . < plik1.json) <(jq --sort-keys . < plik2.json) | colordiff | less -R
 ```
 
