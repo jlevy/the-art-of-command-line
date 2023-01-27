@@ -240,7 +240,7 @@ Une alternative plus légère pour la persistance des sessions seulement est [`d
 - Il est utile de savoir comment créer un tunnel SSH avec `-L` ou `-D` (et occasionnellement `-R`), par exemple pour accéder à des sites web à partir d'un serveur distant.
 
 - Il peut être intéressant d'effectuer quelques optimisations à votre configuration de ssh&#8239;; par exemple, le fichier `~/.ssh/config` contient des paramètres pour éviter les pertes de connexion dans certains environnements réseaux, pour utiliser la compression (ce qui est utile avec scp sur des connexions à faible bande passante), et pour le multiplexage de canaux vers le même serveur avec un fichier de contrôle local&nbsp;:
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6

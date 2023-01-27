@@ -122,7 +122,7 @@ Notas:
 - No ssh, saber como realizar um túnel de portas com `-L` ou `-D` (e ocasionalmente `-R`) é útil, para por exemplo acessar sites webs de um servidor remoto.
 
 - Pode ser útil realizar algumas otimizações em suas configurações do ssh; por exemplo, o arquivo `~/.ssh/config` contém configurações para evitar que conexões sejam dropadas em certos ambientes de rede, use compressão (muito útil quando se está usando o scp através de uma conexão lenta), e multiplexação de canais do mesmo servidor com um arquivo de controle local:
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6

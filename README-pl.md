@@ -173,7 +173,7 @@ EOF
 - W używaniu ssh, wiedza na temat tunelowania portów z użyciem `-L` lub `-D` (i czasami `-R`) jest przydatna, np. do przeglądania stron w sieci z maszyny zdalnej.
 
 - Wprowadzenie kilku usprawnień do konfiguracji Twojego ssh może być przydatne; na przykład, poniższy `~/.ssh/config` zawiera ustawienia pozwalające uniknąć zrywania połączeń w pewnych środowiskach sieciowych, używa kompresji (co może być pomocne w użyciu scp na łączach o niskiej przepustowości), zwielokrotnia kanały dostępowe do tego samego serwera przy użyciu lokalnego pliku kontrolnego:
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6
