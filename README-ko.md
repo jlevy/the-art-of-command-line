@@ -4,7 +4,7 @@
 
 # The Art of Command Line
 
-*참고: 나는 이 가이드를 개정할 계획이며 보다 포괄적인 가이드로 확장하는 데 도움을 줄 새로운 공동 저자를 찾고 있습니다. 이미 매우 대중적이지만 더 넓고 조금 더 깊은 내용을 다루고 싶습니다. 글을 쓰는 것을 좋아하고 이 자료에 대한 전문가에 가깝고 도와주실 의향이 있다면 josh(0x40) holloway.com에 메모를 남겨주세요. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). 감사합니다!*
+*참고: 나는 이 가이드를 개정할 계획이며 보다 포괄적인 가이드로 확장하는 데 도움을 줄 새로운 공동 저자를 찾고 있습니다. 이미 매우 대중적이지만 더 넓고 조금 더 깊은 내용을 다루고 싶습니다. 글을 쓰는 것을 좋아하고 이 자료에 대한 전문가에 가까우며 도와주실 의향이 있다면 josh(0x40) holloway.com에 메모를 남겨주세요. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). 감사합니다!*
 
 - [Meta](#meta)
 - [Basics](#basics)
@@ -53,9 +53,9 @@
 - 텍스트 기반 에디터를 최소한 하나 정도는 잘 다룰 수 있게 배우세요. `nano` 에디터는 기본적인 편집기능(열기, 수정하기, 저장하기, 찾기)을 제공하는 가장 단순한 에디터 중 하나입니다. 그러나 텍스트 터미널을 이용하는 고급 이용자라면 Vim(`Vi`)을 대체할 수 있는 것은 없습니다. Vim은 사용법을 배우기는 어렵지만 믿음직하고 빠르며 풍부한 기능을 가졌습니다. 또한 고전적인 Emacs도 많이 사용됩니다. 특히 규모가 좀 더 큰 편집 작업에서요. (물론 요즘 같은 시대에 대형 프로젝트를 진행하고 있는 소프트웨어 개발자라면 순수한 텍스트 기반 에디터만 사용하지는 않을 것이고 최신의 그래픽 기반 IDE와 도구들에도 익숙해져야 합니다.)
 
 - 문서를 찾으세요.
-  - `man`을 이용해서 문서를 읽는 법을 배우세요(호기심 많은 사람을 위해서 하는 얘기입니다만, `man man`은 섹션 번호들의 목록을 표시합니다. 예를 들어 1은 "regular" 커맨드, 5는 files/conventions, 그리고 8은 administration이죠). `apropos`를 이용해서 man 페이지를 찾으세요.
+  - `man`을 이용해서 문서를 읽는 법을 배우세요(호기심 많은 사람을 위해서 하는 얘기입니다만, `man man`은 섹션 번호들의 목록을 표시합니다. 예를 들어 1은 "regular" 커맨드, 5는 files/conventions, 그리고 8은 administration이죠). `apropos`를 이용해서 man을 검색하세요.
   - 몇몇 커맨드는 실행파일이 아니라 Bash 빌트인 명령어임을 알아두세요. Bash 빌트인 명령어들에 대한 도움을 받으려면 `help`와 `help -d`를 이용하세요. 어떤 커맨드가 실행파일, 쉘 빌트인 명령어인지, 아니면 별칭인지는 `type command`를 통해 확인할 수 있습니다.
-  - `curl cheat.sh/command`는 셸 명령을 사용하는 방법에 대한 일반적인 예와 함께 간단한 "치트 시트"를 제공합니다.
+  - `curl cheat.sh/command`는 셸 명령을 사용하는 방법에 대한 일반적인 예시와 함께 간단한 "치트 시트"를 제공합니다.
 
 - `>`와 `<`, `|`를 이용한 파이프를 사용해서 입력과 출력의 리다이렉션을 배우세요. `>`는 출력 파일을 덮어 씌우고, `>>`는 출력 파일 끝에 내용을 덧붙인다는 걸 알아두세요. stdout(역주: 표준 출력)과 stderr(역주: 표준 에러 출력)에 대해서 배우세요.
 
@@ -80,7 +80,7 @@
 
 - Bash 에서 **Tab**을 쓰면 argument를 완성하고, **ctrl-r**을 쓰면 커맨드 히스토리에서 검색합니다(누른 다음, 검색할 것을 입력하고, **ctrl-r**를 계속 눌러 좀 더 맞는 것을 찾을 수 있습니다. **Enter**를 눌러 찾은 커맨드를 실행하고 오른쪽 화살표 키를 눌러 결과를 현재 라인에 복사해 수정할 수 있습니다).
 
-- Bash에서 **ctrl-w**는 마지막 단어를 지웁니다. **ctrl-u**는 커서위치부터 라인의 처음까지의 내용을 지웁니다. **alt-b**와 **alt-f**를 이용해서 단어 단위로 이동할 수 있습니다. **ctrl-a**로 라인의 시작점으로 이동할 수 있고 **ctrl-e**로 라인의 끝으로 이동할 수 있습니다. **ctrl-k**는 커서 위치부터 라인의 끝까지 지웁니다. **ctrl-l**은 화면을 깨끗하게 합니다. `man readline`을 이용해서 Bash의 기본 키 조합을 살펴보세요. 많은 것이 있습니다. 예를 들면 **alt-.**같은 경우, 이건 argument를 돌아가면서 나타내고 **alt-***는 글롭을 확장합니다.
+- Bash에서 **ctrl-w**는 마지막 단어를 지웁니다. **ctrl-u**는 커서 위치부터 라인의 처음까지의 내용을 지웁니다. **alt-b**와 **alt-f**를 이용해서 단어 단위로 이동할 수 있습니다. **ctrl-a**로 라인의 시작점으로 이동할 수 있고 **ctrl-e**로 라인의 끝으로 이동할 수 있습니다. **ctrl-k**는 커서 위치부터 라인의 끝까지 지웁니다. **ctrl-l**은 화면을 깨끗하게 합니다. `man readline`을 이용해서 Bash의 기본 키 조합을 살펴보세요. 많은 것이 있습니다. 예를 들면 **alt-.**같은 경우, 이건 argument를 돌아가면서 나타내고 **alt-***는 글롭을 확장합니다.
 
 
 - vi 스타일의 키  조합을 사랑한다면, `set -o vi`를 사용할 수도 있습니다(`set -o emacs`로 되돌릴 수 있습니다).
@@ -109,7 +109,7 @@
 
 - 백그라운드 프로세스를 영원히 돌아가게 만들고 싶다면, `nohup`이나 `disown`을 사용하세요.
 
-- 어떤 프로세스가 리스닝(역주: 특정 포트로 들어오는 패킷 리스닝)을 하고 있는지 알려면 `netstat -lntp`나 `ss -plat`나 `lsof -iTCP -sTCP:LISTEN -P -n` (macOS에서 동작 합니다)을 사용해서 알 수 있습니다(TCP 일 경우입니다. UDP의 경우 `-u`옵션을 추가하세요).
+- 어떤 프로세스가 리스닝(역주: 특정 포트로 들어오는 패킷 리스닝)을 하고 있는지 알려면 `netstat -lntp`나 `ss -plat`나 `lsof -iTCP -sTCP:LISTEN -P -n` (macOS에서도 동작 합니다)을 사용해서 알 수 있습니다(TCP 일 경우입니다. UDP의 경우 `-u`옵션을 추가하세요).
 
 - `lsof`, `fuser`를 이용해서 열려있는 소켓과 파일을 볼 수 있습니다.
 
@@ -142,7 +142,7 @@
 
 - `{`...`}`를 사용한 괄호 확장은 비슷한 텍스트의 재입력을 줄이고, 아이템의 조합을 자동화할 수 있습니다. `mv foo.{txt,pdf} some-dir` (양쪽 파일들을 옮김), `cp somefile{,.bak}` (`cp somefile somefile.bak`로 확장), `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (모든 가능한 조합으로 확장해 디렉터리 트리를 생성) 같은 예제들은 유용합니다.
 
-- 확장의 우선순위는 다음과 같습니다. 괄호 확장; 틸드 확장; 파라메터 변수 확장; 산술 확장; 커맨드 대체(왼쪽에서 오른쪽 방식으로 수행); 단어 분리; 파일 확장 (예를 들어 `{1..20}`과 같은 범위는 `{$a..$b}`를 사용하는 변수로 표현할 수 없습니다. 대신 `seq` 또는 `for` 루프를 사용하세요. 예: `seq $a $b`, `for((i=a; i<=b; i++)); do ... ; done`.)
+- 확장의 우선순위는 다음과 같습니다. 괄호 확장; 틸드 확장; 파라미터 변수 확장; 산술 확장; 커맨드 대체(왼쪽에서 오른쪽 방식으로 수행); 단어 분리; 파일 이름 확장 (예를 들어 `{1..20}`과 같은 범위는 `{$a..$b}`를 사용하는 변수로 표현할 수 없습니다. 대신 `seq` 또는 `for` 루프를 사용하세요. 예: `seq $a $b`, `for((i=a; i<=b; i++)); do ... ; done`.)
 
 - 커맨드의 실행 결과 출력물은 `<(some command)`(프로세스 대체process substitution라고도 함)처럼 이용해서 파일처럼 다뤄질 수 있습니다. 예를 들어 로컬의 `/etc/hosts`를 리모트의 것과 비교하려면 다음처럼 하면 됩니다.
 ```bash
@@ -216,7 +216,7 @@ EOF
 
 - 현재 디렉터리에서 파일을 이름으로 찾으려면 `find . -iname '*something*'` (또는 비슷하게)를 사용하면 됩니다. 어느 곳에 있든 파일을 이름으로 찾으려면 `locate something`을 사용하세요(하지만 인내를 가져야 합니다. `updatedb`가 최근에 생성된 파일을 인덱싱하지 않았을 수 있습니다).
 
-- 소스나 데이터 파일들에서 일반적인 검색을 할 때는 `grep -r`보다 더 발전되고 빠른 여러 옵션이 있습니다. (오래된 새로운 순으로 나열하면) [`ack`](https://github.com/beyondgrep/ack2), [`ag`](https://github.com/ggreer/the_silver_searcher) ("the silver searcher"), [`rg`](https://github.com/BurntSushi/ripgrep) (ripgrep)같은 것이 포합됩니다.
+- 소스나 데이터 파일들에서 일반적인 검색을 할 때는 `grep -r`보다 더 발전되고 빠른 여러 옵션이 있습니다. (오래된 것부터 순서대로 나열하면) [`ack`](https://github.com/beyondgrep/ack2), [`ag`](https://github.com/ggreer/the_silver_searcher) ("the silver searcher"), [`rg`](https://github.com/BurntSushi/ripgrep) (ripgrep)같은 것이 포합됩니다.
 
 - HTML을 텍스트로 변환할 때는 `lynx -dump -stdin`를 사용하세요.
 
@@ -268,7 +268,7 @@ EOF
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
-- 파일을 처리할 때 진행 상황을 모니터링하려면 [`pv`](http://www.ivarch.com/programs/pv.shtml), [`pycp`](https://github.com/dmerejkowsky/pycp), [`pmonitor`](https://github.com/dspinellis/pmonitor), [`progress`](https://github.com/Xfennec/progress), `rsync --progress` 나 블록 레벨 복사를 할때는`dd status=progress`를 사용하십시오.
+- 파일을 처리할 때 진행 상황을 모니터링하려면 [`pv`](http://www.ivarch.com/programs/pv.shtml), [`pycp`](https://github.com/dmerejkowsky/pycp), [`pmonitor`](https://github.com/dspinellis/pmonitor), [`progress`](https://github.com/Xfennec/progress), `rsync --progress`나 블록 레벨 복사를 할때는 `dd status=progress`를 사용하십시오.
 
 - `shuf`를 사용해서 파일 안의 임의의 행을 선택하거나, 섞을 수 있습니다.
 
@@ -289,7 +289,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
       # 16진수 코드 또는 문자의 실제 이름을 표시(디버깅에 유용)
       uconv -f utf-8 -t utf-8 -x '::Any-Hex;' < input.txt
       uconv -f utf-8 -t utf-8 -x '::Any-Name;' < input.txt
-      # 소문자화하고 모든 악센트를 제거(확장하고, 떨어트리는 것을 이용해서)
+      # 소문자화하고 모든 악센트를 제거(본 문자에서 악센트를 분리해서 제거)
       uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC;' < input.txt > output.txt
 ```
 
@@ -307,7 +307,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
    setfacl --restore=permissions.txt
 ```
 
-- 빈 파일을 빠르게 생성하려면 `truncate`([sparse 파일 생성](https://en.wikipedia.org/wiki/Sparse_file)), `fallocate`(ext4, xfs, btrfs 및 ocfs2 파일 시스템), `xfs_mkfile` (xfsprogs 를 사용하는 거의 모든 파일 시스템), `mkfile` (Solaris, Mac OS 같은 Unix라이크 시스템)을 사용하세요. 
+- 빈 파일을 빠르게 생성하려면 `truncate` ([sparse 파일 생성](https://en.wikipedia.org/wiki/Sparse_file)), `fallocate` (ext4, xfs, btrfs 및 ocfs2 파일 시스템), `xfs_mkfile` (xfsprogs 를 사용하는 거의 모든 파일 시스템), `mkfile` (Solaris, Mac OS 같은 Unix계열 시스템)을 사용하세요. 
 
 ## System debugging
 
@@ -333,7 +333,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 보다 심각한 경우의 네트워크 디버깅을 위해서는 [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), [`ngrep`](http://ngrep.sourceforge.net/)를 사용하세요.
 
-- `strace` 와 `ltrace`에 대해서 알아보세요. 이 커맨드들은 만일 어떤 프로그램에서 failing, hanging 혹은 crashing이 일어나거나 그 외에 여러분이 무슨 이유인지 알지 못하는 상황이나 성능에 대한 대략적인 내용을 얻고자 할 때 유용할 것입니다. 특히 프로파일링을 위한 옵션(`-c`)과 현재 실행 중인 프로세스에 붙이기 위한 옵션(`-p`)을 기억하세요. 중요한 호출을 놓치지 않으려면 자식 프로세스 추적 옵션(`-f`)을 사용하십시오.
+- `strace` 와 `ltrace`에 대해서 알아보세요. 이 커맨드들은 만일 어떤 프로그램에서 failing, hanging 혹은 crashing이 일어나거나 그 외에 여러분이 무슨 이유인지 알지 못하는 상황이나 성능에 대한 대략적인 내용을 얻고자 할 때 유용할 것입니다. 특히 프로파일링을 위한 옵션(`-c`)과 현재 실행 중인 프로세스에 붙이기 위한 옵션(`-p`)을 기억하세요. 중요한 호출을 놓치지 않으려면 자식 프로세스 추적 옵션(`-f`)을 사용하세요.
 
 - 공유 라이브러리(shared libraries) 등을 체크하기 위해서는 `ldd`에 대해 알아보세요. — 하지만 [신뢰할 수 없는 파일을 체크하면 안됩니다](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/).
 
