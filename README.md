@@ -387,7 +387,7 @@ A few examples of piecing together commands:
       egrep -o 'acct_id=[0-9]+' access.log | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
-- To continuously monitor changes, use `watch`, e.g. check changes to files in a directory with `watch -d -n 2 'ls -rtlh | tail'` or to network settings while troubleshooting your wifi settings with `watch -d -n 2 ifconfig`.
+- To continuously monitor changes, use `watch`, e.g. check changes to files in a directory with `watch -d -n 2 'ls -rtlh | tail'` or to network settings while troubleshooting your Wi-Fi settings with `watch -d -n 2 ifconfig`.
 
 - Run this function to get a random tip from this document (parses Markdown and extracts an item):
 ```sh
