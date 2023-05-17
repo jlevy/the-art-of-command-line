@@ -1,10 +1,9 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [polski](README-pl.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
-
+_[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [polski](README-pl.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)_
 
 # The Art of Command Line
 
-*Note: I'm planning to revise this and looking for a new co-author to help with expanding this into a more comprehensive guide. While it's very popular, it could be broader and a bit deeper. If you like to write and are close to being an expert on this material and willing to consider helping, please drop me a note at josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). Thank you!*
+_Note: I'm planning to revise this and looking for a new co-author to help with expanding this into a more comprehensive guide. While it's very popular, it could be broader and a bit deeper. If you like to write and are close to being an expert on this material and willing to consider helping, please drop me a note at josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). Thank you!_
 
 - [Meta](#meta)
 - [Basics](#basics)
@@ -17,7 +16,6 @@
 - [Windows only](#windows-only)
 - [More resources](#more-resources)
 - [Disclaimer](#disclaimer)
-
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
@@ -35,7 +33,7 @@ but it has since moved to GitHub, where people more talented than the original a
 
 Scope:
 
-- This guide is for both beginners and experienced users. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
+- This guide is for both beginners and experienced users. The goals are _breadth_ (everything important), _specificity_ (give concrete examples of the most common case), and _brevity_ (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux, with the exception of the "[macOS only](#macos-only)" and "[Windows only](#windows-only)" sections. Many of the other items apply or can be installed on other Unices or macOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.
@@ -45,14 +43,14 @@ Notes:
 - To keep this to one page, content is implicitly included by reference. You're smart enough to look up more detail elsewhere once you know the idea or command to Google. Use `apt`, `yum`, `dnf`, `pacman`, `pip` or `brew` (as appropriate) to install new programs.
 - Use [Explainshell](http://explainshell.com/) to get a helpful breakdown of what commands, options, pipes etc. do.
 
-
 ## Basics
 
-- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning *only* zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
+- Learn basic Bash. Actually, type `man bash` and at least skim the whole thing; it's pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning _only_ zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).
 
 - Learn at least one text-based editor well. The `nano` editor is one of the simplest for basic editing (opening, editing, saving, searching). However, for the power user in a text terminal, there is no substitute for Vim (`vi`), the hard-to-learn but venerable, fast, and full-featured editor. Many people also use the classic Emacs, particularly for larger editing tasks. (Of course, any modern software developer working on an extensive project is unlikely to use only a pure text-based editor and should also be familiar with modern graphical IDEs and tools.)
 
 - Finding documentation:
+
   - Know how to read official documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`.
   - Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`. You can find out whether a command is an executable, shell builtin or an alias by using `type command`.
   - `curl cheat.sh/command` will give a brief "cheat sheet" with common examples of how to use a shell command.
@@ -75,13 +73,11 @@ Notes:
 
 - Learn to use `apt-get`, `yum`, `dnf` or `pacman` (depending on distro) to find and install packages. And make sure you have `pip` to install Python-based command-line tools (a few below are easiest to install via `pip`).
 
-
 ## Everyday use
 
 - In Bash, use **Tab** to complete arguments or list all available commands and **ctrl-r** to search through command history (after pressing, type to search, press **ctrl-r** repeatedly to cycle through more matches, press **Enter** to execute the found command, or hit the right arrow to put the result in the current line to allow editing).
 
-- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the content from current cursor back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-a** to move cursor to beginning of line,  **ctrl-e** to move cursor to end of line, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-*** expands a glob.
-
+- In Bash, use **ctrl-w** to delete the last word, and **ctrl-u** to delete the content from current cursor back to the start of the line. Use **alt-b** and **alt-f** to move by word, **ctrl-a** to move cursor to beginning of line, **ctrl-e** to move cursor to end of line, **ctrl-k** to kill to the end of the line, **ctrl-l** to clear the screen. See `man readline` for all the default keybindings in Bash. There are a lot. For example **alt-.** cycles through previous arguments, and **alt-\*** expands a glob.
 
 - Alternatively, if you love vi-style key-bindings, use `set -o vi` (and `set -o emacs` to put it back).
 
@@ -96,6 +92,7 @@ Notes:
 - If you are halfway through typing a command but change your mind, hit **alt-#** to add a `#` at the beginning and enter it as a comment (or use **ctrl-a**, **#**, **enter**). You can then return to it later via command history.
 
 - Use `xargs` (or `parallel`). It's very powerful. Note you can control how many items execute per line (`-L`) as well as parallelism (`-P`). If you're not sure if it'll do the right thing, use `xargs echo` first. Also, `-I{}` is handy. Examples:
+
 ```bash
       find . -name '*.py' | xargs grep some_function
       cat hosts | xargs -I{} ssh root@{} hostname
@@ -107,7 +104,7 @@ Notes:
 
 - Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
 
-- Use `nohup` or `disown` if you want a background process to keep running forever.
+- Use `nohup` or `disown` (use the `-h` for disown) if you want a background process to keep running forever.
 
 - Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP) or `lsof -iTCP -sTCP:LISTEN -P -n` (which also works on macOS).
 
@@ -126,12 +123,14 @@ Notes:
 - Understand that care is needed when variables and filenames include whitespace. Surround your Bash variables with quotes, e.g. `"$FOO"`. Prefer the `-0` or `-print0` options to enable null characters to delimit filenames, e.g. `locate -0 pattern | xargs -0 ls -al` or `find / -print0 -type d | xargs -0 ls -al`. To iterate on filenames containing whitespace in a for loop, set your IFS to be a newline only using `IFS=$'\n'`.
 
 - In Bash scripts, use `set -x` (or the variant `set -v`, which logs raw input, including unexpanded variables and comments) for debugging output. Use strict modes unless you have a good reason not to: Use `set -e` to abort on errors (nonzero exit code). Use `set -u` to detect unset variable usages. Consider `set -o pipefail` too, to abort on errors within pipes (though read up on it more if you do, as this topic is a bit subtle). For more involved scripts, also use `trap` on EXIT or ERR. A useful habit is to start a script like this, which will make it detect and abort on common errors and print a message:
+
 ```bash
       set -euo pipefail
       trap "echo 'error: Script failed: see failed command above'" ERR
 ```
 
 - In Bash scripts, subshells (written with parentheses) are convenient ways to group commands. A common example is to temporarily move to a different working directory, e.g.
+
 ```bash
       # do something in current dir
       (cd /some/other/dir && other-command)
@@ -140,16 +139,18 @@ Notes:
 
 - In Bash, note there are lots of kinds of variable expansion. Checking a variable exists: `${name:?error message}`. For example, if a Bash script requires a single argument, just write `input_file=${1:?usage: $0 input_file}`. Using a default value if a variable is empty: `${name:-default}`. If you want to have an additional (optional) parameter added to the previous example, you can use something like `output_file=${2:-logfile}`. If `$2` is omitted and thus empty, `output_file` will be set to `logfile`. Arithmetic expansion: `i=$(( (i + 1) % 5 ))`. Sequences: `{1..10}`. Trimming of strings: `${var%suffix}` and `${var#prefix}`. For example if `var=foo.pdf`, then `echo ${var%.pdf}.txt` prints `foo.txt`.
 
-- Brace expansion using `{`...`}` can reduce having to re-type similar text and automate combinations of items.  This is helpful in examples like `mv foo.{txt,pdf} some-dir` (which moves both files), `cp somefile{,.bak}` (which expands to `cp somefile somefile.bak`) or `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (which expands all possible combinations and creates a directory tree). Brace expansion is performed before any other expansion.
+- Brace expansion using `{`...`}` can reduce having to re-type similar text and automate combinations of items. This is helpful in examples like `mv foo.{txt,pdf} some-dir` (which moves both files), `cp somefile{,.bak}` (which expands to `cp somefile somefile.bak`) or `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (which expands all possible combinations and creates a directory tree). Brace expansion is performed before any other expansion.
 
 - The order of expansions is: brace expansion; tilde expansion, parameter and variable expansion, arithmetic expansion, and command substitution (done in a left-to-right fashion); word splitting; and filename expansion. (For example, a range like `{1..20}` cannot be expressed with variables using `{$a..$b}`. Use `seq` or a `for` loop instead, e.g., `seq $a $b` or `for((i=a; i<=b; i++)); do ... ; done`.)
 
 - The output of a command can be treated like a file via `<(some command)` (known as process substitution). For example, compare local `/etc/hosts` with a remote one:
+
 ```sh
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
 
 - When writing scripts you may want to put all of your code in curly braces. If the closing brace is missing, your script will be prevented from executing due to a syntax error. This makes sense when your script is going to be downloaded from the web, since it prevents partially downloaded scripts from executing:
+
 ```bash
 {
       # Your code here
@@ -157,6 +158,7 @@ Notes:
 ```
 
 - A "here document" allows [redirection of multiple lines of input](https://www.tldp.org/LDP/abs/html/here-docs.html) as if from a file:
+
 ```
 cat <<EOF
 input
@@ -173,6 +175,7 @@ EOF
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
 - It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, uses compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
+
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -188,6 +191,7 @@ EOF
 - Consider [`mosh`](https://mosh.mit.edu/) an alternative to ssh that uses UDP, avoiding dropped connections and adding convenience on the road (requires server-side setup).
 
 - To get the permissions on a file in octal form, which is useful for system configuration but not available in `ls` and easy to bungle, use something like
+
 ```sh
       stat -c '%A %a %n' /etc/timezone
 ```
@@ -197,7 +201,7 @@ EOF
 - For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
 - For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
-`python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
+  `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
 - For running a command as another user, use `sudo`. Defaults to running as root; use `-u` to specify another user. Use `-i` to login as that user (you will be asked for _your_ password).
 
@@ -206,11 +210,11 @@ EOF
 - Know about the [128K limit](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong) on command lines. This "Argument list too long" error is common when wildcard matching large numbers of files. (When this happens alternatives like `find` and `xargs` may help.)
 
 - For a basic calculator (and of course access to Python in general), use the `python` interpreter. For example,
+
 ```
 >>> 2+3
 5
 ```
-
 
 ## Processing files and data
 
@@ -242,18 +246,20 @@ EOF
 
 - For more complex calculations, including grouping, reversing fields, and statistical calculations, consider [`datamash`](https://www.gnu.org/software/datamash/).
 
-- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run *many times* slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
+- Know that locale affects a lot of command line tools in subtle ways, including sorting order (collation) and performance. Most Linux installations will set `LANG` or other locale variables to a local setting like US English. But be aware sorting will change if you change locale. And know i18n routines can make sort or other commands run _many times_ slower. In some situations (such as the set operations or uniqueness operations below) you can safely ignore slow i18n routines entirely and use traditional byte-based sort order, using `export LC_ALL=C`.
 
 - You can set a specific command's environment by prefixing its invocation with the environment variable settings, as in `TZ=Pacific/Fiji date`.
 
 - Know basic `awk` and `sed` for simple data munging. See [One-liners](#one-liners) for examples.
 
 - To replace all occurrences of a string in place, in one or more files:
+
 ```sh
       perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
 - To rename multiple files and/or search and replace within files, try [`repren`](https://github.com/jlevy/repren). (In some cases the `rename` command also allows multiple renames, but be careful as its functionality is not the same on all Linux distributions.)
+
 ```sh
       # Full rename of filenames, directories, and contents foo -> bar:
       repren --full --preserve-case --from foo --to bar .
@@ -264,6 +270,7 @@ EOF
 ```
 
 - As the man page says, `rsync` really is a fast and extraordinarily versatile file copying tool. It's known for synchronizing between machines but is equally useful locally. When security restrictions allow, using `rsync` instead of `scp` allows recovery of a transfer without restarting from scratch. It also is among the [fastest ways](https://web.archive.org/web/20130929001850/http://linuxnote.net/jianingy/en/linux/a-fast-way-to-remove-huge-number-of-files.html) to delete large numbers of files:
+
 ```sh
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
@@ -285,6 +292,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - For binary diffs (delta compression), use `xdelta3`.
 
 - To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example:
+
 ```sh
       # Displays hex codes or actual names of characters (useful for debugging):
       uconv -f utf-8 -t utf-8 -x '::Any-Hex;' < input.txt
@@ -299,9 +307,10 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `zless`, `zmore`, `zcat`, and `zgrep` to operate on compressed files.
 
-- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag:  `sudo chattr +i /critical/directory/or/file`
+- File attributes are settable via `chattr` and offer a lower-level alternative to file permissions. For example, to protect against accidental file deletion the immutable flag: `sudo chattr +i /critical/directory/or/file`
 
 - Use `getfacl` and `setfacl` to save and restore file permissions. For example:
+
 ```sh
    getfacl -R /some/path > permissions.txt
    setfacl --restore=permissions.txt
@@ -350,14 +359,14 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
 - If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process:
-`lsof | grep deleted | grep "filename-of-my-big-file"`
-
+  `lsof | grep deleted | grep "filename-of-my-big-file"`
 
 ## One-liners
 
 A few examples of piecing together commands:
 
 - It is remarkably helpful sometimes that you can do set intersection, union, and difference of text files via `sort`/`uniq`. Suppose `a` and `b` are text files that are already uniqued. This is fast, and works on files of arbitrary size, up to many gigabytes. (Sort is not limited by memory, though you may need to use the `-T` option if `/tmp` is on a small root partition.) See also the note about `LC_ALL` above and `sort`'s `-u` option (left out for clarity below).
+
 ```sh
       sort a b | uniq > c   # c is a union b
       sort a b | uniq -d > c   # c is a intersect b
@@ -365,24 +374,27 @@ A few examples of piecing together commands:
 ```
 
 - Pretty-print two JSON files, normalizing their syntax, then coloring and paginating the result:
+
 ```
       diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
 ```
 
 - Use `grep . *` to quickly examine the contents of all files in a directory (so each line is paired with the filename), or `head -100 *` (so each file has a heading). This can be useful for directories filled with config settings like those in `/sys`, `/proc`, `/etc`.
 
-
 - Summing all numbers in the third column of a text file (this is probably 3X faster and 3X less code than equivalent Python):
+
 ```sh
       awk '{ x += $3 } END { print x }' myfile
 ```
 
 - To see sizes/dates on a tree of files, this is like a recursive `ls -l` but is easier to read than `ls -lR`:
+
 ```sh
       find . -type f -ls
 ```
 
 - Say you have a text file, like a web server log, and a certain value that appears on some lines, such as an `acct_id` parameter that is present in the URL. If you want a tally of how many requests for each `acct_id`:
+
 ```sh
       egrep -o 'acct_id=[0-9]+' access.log | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
@@ -390,6 +402,7 @@ A few examples of piecing together commands:
 - To continuously monitor changes, use `watch`, e.g. check changes to files in a directory with `watch -d -n 2 'ls -rtlh | tail'` or to network settings while troubleshooting your wifi settings with `watch -d -n 2 ifconfig`.
 
 - Run this function to get a random tip from this document (parses Markdown and extracts an item):
+
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
@@ -400,7 +413,6 @@ A few examples of piecing together commands:
           xmlstarlet unesc | fmt -80 | iconv -t US
       }
 ```
-
 
 ## Obscure but useful
 
@@ -548,10 +560,9 @@ A few examples of piecing together commands:
 
 - `fortune`, `ddate`, and `sl`: um, well, it depends on whether you consider steam locomotives and Zippy quotations "useful"
 
-
 ## macOS only
 
-These are items relevant *only* on macOS.
+These are items relevant _only_ on macOS.
 
 - Package management with `brew` (Homebrew) and/or `port` (MacPorts). These can be used to install on macOS many of the above commands.
 
@@ -569,7 +580,7 @@ These are items relevant *only* on macOS.
 
 ## Windows only
 
-These items are relevant *only* on Windows.
+These items are relevant _only_ on Windows.
 
 ### Ways to obtain Unix tools under Windows
 
@@ -614,8 +625,7 @@ These items are relevant *only* on Windows.
 
 ## Disclaimer
 
-With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you *can* do something in Bash doesn't necessarily mean you should! ;)
-
+With the exception of very small tasks, code is written so others can read it. With power comes responsibility. The fact you _can_ do something in Bash doesn't necessarily mean you should! ;)
 
 ## License
 
