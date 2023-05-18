@@ -104,7 +104,7 @@ Notes:
 
 - Know the various signals you can send processes. For example, to suspend a process, use `kill -STOP [pid]`. For the full list, see `man 7 signal`
 
-- Use `nohup` or `disown` (use the `-h` for disown) if you want a background process to keep running forever.
+- Use `nohup` or `disown -h` if you want a background process to keep running forever.
 
 - Check what processes are listening via `netstat -lntp` or `ss -plat` (for TCP; add `-u` for UDP) or `lsof -iTCP -sTCP:LISTEN -P -n` (which also works on macOS).
 
