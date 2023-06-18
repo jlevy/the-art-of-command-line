@@ -1,10 +1,10 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [polski](README-pl.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 
 # The Art of Command Line
 
-*Note: I'm looking for a new (and potentially paid) lead author to help expand this to a more comprehensive Guide. While it's very popoular, it could be both deeper and more helpful. If you like to write and are close to being an expert on this material and willing to consider helping, please drop me a note at josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com)*
+*Note: I'm planning to revise this and looking for a new co-author to help with expanding this into a more comprehensive guide. While it's very popular, it could be broader and a bit deeper. If you like to write and are close to being an expert on this material and willing to consider helping, please drop me a note at josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). Thank you!*
 
 - [Meta](#meta)
 - [Basics](#basics)
@@ -35,7 +35,7 @@ but it has since moved to GitHub, where people more talented than the original a
 
 Scope:
 
-- This guide is both for beginners and the experienced. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
+- This guide is for both beginners and experienced users. The goals are *breadth* (everything important), *specificity* (give concrete examples of the most common case), and *brevity* (avoid things that aren't essential or digressions you can easily look up elsewhere). Every tip is essential in some situation or significantly saves time over alternatives.
 - This is written for Linux, with the exception of the "[macOS only](#macos-only)" and "[Windows only](#windows-only)" sections. Many of the other items apply or can be installed on other Unices or macOS (or even Cygwin).
 - The focus is on interactive Bash, though many tips apply to other shells and to general Bash scripting.
 - It includes both "standard" Unix commands as well as ones that require special package installs -- so long as they are important enough to merit inclusion.

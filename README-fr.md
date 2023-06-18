@@ -1,11 +1,11 @@
 🌍
-*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
+*[Čeština](README-cs.md) ∙ [Deutsch](README-de.md) ∙ [Ελληνικά](README-el.md) ∙ [English](README.md) ∙ [Español](README-es.md) ∙ [Français](README-fr.md) ∙ [Indonesia](README-id.md) ∙ [Italiano](README-it.md) ∙ [日本語](README-ja.md) ∙ [한국어](README-ko.md) ∙ [polski](README-pl.md) ∙ [Português](README-pt.md) ∙ [Română](README-ro.md) ∙ [Русский](README-ru.md) ∙ [Slovenščina](README-sl.md) ∙ [Українська](README-uk.md) ∙ [简体中文](README-zh.md) ∙ [繁體中文](README-zh-Hant.md)*
 
 # L'art de la ligne de commande
 
-[![Ask a Question](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
-
-[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%19Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+*Note : Je prévois de réviser le document et suis à la recherche d'un nouveau co-auteur pour en faire un guide plus complet.
+Bien que très populaire, il pourrait être plus étendu et un peu plus approfondi.
+Si vous aimer écrire, n'êtes pas loin d'être un expert du sujet et êtes disposé à contribuer, veuillez me laisser un message à josh (0x40) holloway.com. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). Merci !*
 
 - [Méta](#méta)
 - [Notions de base](#notions-de-base)
@@ -42,7 +42,7 @@ Les objectifs sont l'*envergure* (tout est important), la *spécificité* (donne
 Chaque astuce est indispensable dans certaines situations ou fait gagner beaucoup de temps par rapport aux solutions alternatives.
 - Il est écrit pour Linux, à l'exception des sections « [Uniquement macOS](#uniquement-macos) » et « [Uniquement Windows](#uniquement-windows) ».
 Beaucoup d'items s'appliquent ou peuvent être installés sur d'autres Unices ou macOS (ou même Cygwin).
-- L'accent est mis sur l'utilisation intéractive de Bash, bien que de nombreuses astuces s'appliquent aux autres shells et à l'écriture de scripts en Bash.
+- L'accent est mis sur l'utilisation interactive de Bash, bien que de nombreuses astuces s'appliquent aux autres shells et à l'écriture de scripts en Bash.
 - Il inclut les commandes « standard » d'Unix aussi bien que celles qui nécessitent l'installation de paquets spéciaux &mdash; tant qu'ils sont suffisamment importants pour mériter d'être mentionnés.
 
 Remarques :
@@ -64,10 +64,12 @@ L'éditeur `nano` est l'un des plus simples pour de l'édition simple (ouvrir, m
 Cependant pour un usage avancé dans un terminal, rien ne remplace le vénérable Vim (`vi`), éditeur difficile à prendre en main, mais rapide et très complet.
 De nombreuses personnes utilisent également le classique Emacs, surtout pour d'importantes tâches d'édition (bien sûr, tout développeur moderne de logiciels travaillant sur un vaste projet n'utilise probablement pas un simple éditeur en mode texte et devrait donc aussi se familiariser avec des outils et des EDI graphiques modernes).
 
-- Sachez comment lire une documentation avec `man` (pour les curieux, `man man` liste les sections avec leur numéro, par exemple 1 pour les commandes «&nbsp;normales&nbsp;» , 5 pour les formats des fichiers et les conventions, et 8 pour tout ce qui concerne l'administration système).
-Trouvez les pages de manuel avec `apropos`.
-Sachez que certaines commandes ne sont pas des exécutables, mais des commandes internes de Bash et que vous pouvez obtenir de l'aide à leur sujet avec `help` et `help -d`.
-Utilisez `type command` pour déterminer si une commande est un exécutable, une commande interne du shell ou un alias.
+- Trouver de la documentation :
+  - Sachez comment lire une documentation avec `man` (pour les curieux, `man man` liste les sections avec leur numéro, par exemple 1 pour les commandes «&nbsp;normales&nbsp;» , 5 pour les formats des fichiers et les conventions, et 8 pour tout ce qui concerne l'administration système).
+  Trouvez les pages de manuel avec `apropos`.
+  - Sachez que certaines commandes ne sont pas des exécutables, mais des commandes internes de Bash et que vous pouvez obtenir de l'aide à leur sujet avec `help` et `help -d`.
+  Utilisez `type command` pour déterminer si une commande est un exécutable, une commande interne du shell ou un alias.
+  - `curl cheat.sh/commande` fournit une *cheatsheet* concise comprenant des exemples courants d'utilisation d'une commande shell.
 
 - Apprenez à rediriger les entrées et sorties au moyen de `>` et `<`, et à créer des tubes avec `|`.
 Sachez que `>` écrase le fichier de sortie et `>>` sert à ajouter.
@@ -152,7 +154,7 @@ Pour la liste complète, consultez `man 7 signal`.
 - Utilisez `alias` pour créer des raccourcis vers les commandes fréquemment utilisées.
 Par exemple, `alias ll='ls -latr'` crée un nouvel alias `ll`.
 
-- Conservez les aliases, les paramètres du shell et les fonctions fréquemment utilisées dans le fichier `~/.bashrc`, et [arrangez-vous pour qu'il soit chargé par le shell de connexion](http://superuser.com/a/183980/7106).
+- Conservez les alias, les paramètres du shell et les fonctions fréquemment utilisées dans le fichier `~/.bashrc`, et [arrangez-vous pour qu'il soit chargé par le shell de connexion](http://superuser.com/a/183980/7106).
 Ainsi, votre configuration s'appliquera à toutes vos sessions shell.
 
 - Placez dans `~/.bash_profile` la configuration de vos variables d'environnement ainsi que les commandes à exécuter lorsque vous vous connectez.
@@ -257,9 +259,9 @@ Une alternative plus légère pour la persistance des sessions seulement est [`d
       stat -c '%A %a %n' /etc/timezone
 ```
 
-- Pour une sélection intéractive de valeurs issues de la sortie d'une commande, utilisez [`percol`](https://github.com/mooz/percol) ou [`fzf`](https://github.com/junegunn/fzf).
+- Pour une sélection interactive de valeurs issues de la sortie d'une commande, utilisez [`percol`](https://github.com/mooz/percol) ou [`fzf`](https://github.com/junegunn/fzf).
 
-- Pour intéragir avec les fichiers provenant de la sortie d'une commande (p.&nbsp;ex. `git`), utilisez `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
+- Pour interagir avec les fichiers provenant de la sortie d'une commande (p.&nbsp;ex. `git`), utilisez `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
 
 - Créez un simple serveur web pour partager les fichiers du répertoire courant (et ses sous-répertoires) avec `python -m SimpleHTTPServer 7777` (port 7777 et Python 2)  et `python -m http.server 7777` (port 7777 et Python 3).
@@ -297,7 +299,7 @@ Par exemple, pour convertir un document Markdown au format Word : `pandoc README
 - Si vous devez manipuler du XML, l'ancien `xmlstarlet` marche bien.
 
 - Pour le JSON, utilisez [`jq`](http://stedolan.github.io/jq/).
-Voir également [`jid`](https://github.com/simeji/jid) and [`jiq`](https://github.com/fiatjaf/jiq) pour une utilisation intéractive.
+Voir également [`jid`](https://github.com/simeji/jid) and [`jiq`](https://github.com/fiatjaf/jiq) pour une utilisation interactive.
 
 - Pour le YAML, utilisez [`shyaml`](https://github.com/0k/shyaml).
 
@@ -336,7 +338,7 @@ C'est probablement trois fois plus rapide et trois fois plus petit que son équi
     perl -pi.bak -e 's/old-string/new-string/g' my-files-*.txt
 ```
 
-- Pour renommer de multiple fichiers ou effectuer des recherches et des remplacements dans des fichiers, essayez [`repren`](https://github.com/jlevy/repren) (dans certains cas la commande `rename` permet aussi de renommer de multiples fichiers, mais soyez prudent car ses fonctionnalités ne sont pas les mêmes sur toutes les distributions Linux).
+- Pour renommer de multiples fichiers ou effectuer des recherches et des remplacements dans des fichiers, essayez [`repren`](https://github.com/jlevy/repren) (dans certains cas la commande `rename` permet aussi de renommer de multiples fichiers, mais soyez prudent car ses fonctionnalités ne sont pas les mêmes sur toutes les distributions Linux).
 ```sh
     # Renomme les répertoires, les fichiers et leurs contenus à l'aide
     # de la substitution foo -> bar :
@@ -425,7 +427,7 @@ Pour un aperçu plus étendu et détaillé, utilisez [`glances`](https://github.
 - Pour connaître l'état de la mémoire, exécutez `free` et `vmstat` et comprenez leurs sorties.
 En particulier, ayez à l'esprit que la valeur du « cache » est la mémoire utilisée par le noyau Linux comme cache de fichiers, donc compte comme de la mémoire « libre ».
 
-- Le système de debogage de Java est une autre paire de manche, cependant un truc simple sur la JVM d'Oracle et quelques autres JVMs consiste à exécuter `kill -3 <pid>` pour obtenir une trace complète des appels et une empreinte de la mémoire (y compris des détails sur le ramasse-miettes qui peuvent être hautement instructifs) dans stderr ou des fichiers journaux.
+- Le système de débogage de Java est une autre paire de manche, cependant un truc simple sur la JVM d'Oracle et quelques autres JVMs consiste à exécuter `kill -3 <pid>` pour obtenir une trace complète des appels et une empreinte de la mémoire (y compris des détails sur le ramasse-miettes qui peuvent être hautement instructifs) dans stderr ou des fichiers journaux.
 Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil SJK](https://github.com/aragozin/jvm-tools) est plus avancé.
 
 - Utilisez [`mtr`](http://www.bitwizard.nl/mtr/) comme un `traceroute` amélioré pour identifier les problèmes de réseau.
@@ -437,7 +439,7 @@ Les commandes `jps`, `jstat`, `jstack` et `jmap` de la JDK sont utiles. L'[outil
 - L'outil `ab` (fourni avec Apache) est utile pour une vérification rapide et grossière des performances d'un serveur web.
 Pour des tests de charge plus complexes, essayez `siege`.
 
-- Pour du debogage réseau plus sérieux : [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ou [`ngrep`](http://ngrep.sourceforge.net/).
+- Pour du débogage réseau plus sérieux : [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) ou [`ngrep`](http://ngrep.sourceforge.net/).
 
 - Sachez utiliser `strace` et `ltrace`.
 Ces commandes peuvent être utiles si un programme fonctionne mal ou plante et que vous n'en connaissez pas la raison, ou si vous voulez vous faire une idée de ses performances.
@@ -456,7 +458,7 @@ Il fournit un historique concernant l'usage du CPU, de la mémoire, du réseau, 
 
 - Pour une analyse plus approfondie du système et de ses performances, regardez `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](https://en.wikipedia.org/wiki/Perf_%28Linux%29) et [`sysdig`](https://github.com/draios/sysdig).
 
-- Vérifiez quel OS vous utilisez avec `uname` ou `uname -a` (information général sur la version d'Unix et du noyau) ou `lsb_release -a` (informations sur la distribution Linux).
+- Vérifiez quel OS vous utilisez avec `uname` ou `uname -a` (information générale sur la version d'Unix et du noyau) ou `lsb_release -a` (informations sur la distribution Linux).
 
 - Utilisez `dmesg` à chaque fois que quelque chose de bizarre se produit (pour des problèmes liés au matériel ou aux drivers).
 
@@ -478,6 +480,11 @@ Voyez aussi la remarque à propos de `LC_ALL` ci-dessus et l'option `-u` de `sor
     sort a b b | uniq -u > c   # c is set difference a - b
 ```
 
+- Embellissez les différences de deux fichiers JSON en normalisant leur syntaxe, en colorant et en paginant le résultat :
+```
+      diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
+```
+
 - Utilisez `grep . *` pour inspecter rapidement les contenus des fichiers d'un repértoire (chaque ligne est précédé du nom du fichier) ou `head -100 *` (chaque fichier a un titre).
 Cela peut être utile pour des répertoires remplis de fichiers de configuration comme ceux de `/sys`, `/proc`, `/etc`.
 
@@ -491,7 +498,7 @@ Cela peut être utile pour des répertoires remplis de fichiers de configuration
     find . -type f -ls
 ```
 
-- Supposons que vous ayez un fichier texte comme un fichier journal de serveur web et q'une certaine valeur, comme un paramètre `acct_id` présent dans l'URL, figure à certaines lignes.
+- Supposons que vous ayez un fichier texte comme un fichier journal de serveur web et qu'une certaine valeur, comme un paramètre `acct_id` présent dans l'URL, figure à certaines lignes.
 Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_id`&nbsp;:
 ```sh
     egrep -o 'acct_id=[0-9]+' access.log | cut -d= -f2 | sort | uniq -c | sort -rn
@@ -552,7 +559,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `toe` : table des entrées terminfo.
 
-- `nc` : debogage réseau et transfert de données.
+- `nc` : débogage réseau et transfert de données.
 
 - `socat` : relai et réacheminement de port TCP (semblable à `netcat`).
 
@@ -596,7 +603,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `apg` : génère des mots de passe aléatoires.
 
-- `xz` : compresse des fichiers avec taux de compression élevé.
+- `xz` : compresse des fichiers avec un taux de compression élevé.
 
 - `ldd` : affiche des informations sur les bibliothèques partagées.
 
