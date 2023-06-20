@@ -156,7 +156,7 @@ Note:
 
 - Altre opzioni sempre interessanti riguardo ssh sono sensibili in termini di sicurezza e dovrebbero essere gestite con cura: alcuni esempi sono `StrictHostKeyChecking=no` e `ForwardAgent=yes`;
 
-- Considera l'uso di [`mosh`](https://mosh.mit.edu/), un'alternativa ad ssh che usa UDP, in modo tale da evitare connessioni interrotte.
+- Considera l'uso di [`mosh`](https://mosh.org/), un'alternativa ad ssh che usa UDP, in modo tale da evitare connessioni interrotte.
 
 - Per ottenere i permessi relativi ad un certo file in forma ottale, utile alla configurazione ma non disponibile in `ls` usa qualcosa come
 
