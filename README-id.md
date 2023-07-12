@@ -175,7 +175,7 @@ Catatan:
 
 - Beberapa opsi lain untuk SSH terkait sensitifitas keamanan dan sebaiknya diaktifkan dengan hati-hati, misalnya pada subnet atau host atau pada jaringan yang terpercaya: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Pertimbangkan [`mosh`](https://mosh.mit.edu/) sebagai alternatif untuk SSH yang mana menggunakan UDP, dapat menjaga terputusnya koneksi dan lebih nyaman untuk digunakan (perlu konfigurasi disisi server).
+- Pertimbangkan [`mosh`](https://mosh.org/) sebagai alternatif untuk SSH yang mana menggunakan UDP, dapat menjaga terputusnya koneksi dan lebih nyaman untuk digunakan (perlu konfigurasi disisi server).
 
 - Untuk mendapatkan hak akses pada sebuah berkas, yang mana berguna untuk konfigurasi sistem tapi tidak tersedia pada `ls`, gunakan perintah perikut
 ```sh

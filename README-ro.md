@@ -177,7 +177,7 @@ Note:
 
 - Un număr de alte opțiuni sunt relevante pentru securitate și trebuiesc tratate cu atenție, de exemplu, setări pe rețea sau mașină: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Considerați folosirea [`mosh`](https://mosh.mit.edu/) ca o alternativă la ssh care folosește UDP, prevenind conexiunile eșuate (necesită setări pe partea de server).
+- Considerați folosirea [`mosh`](https://mosh.org/) ca o alternativă la ssh care folosește UDP, prevenind conexiunile eșuate (necesită setări pe partea de server).
 
 - Pentru a obține permisiunile unui fișier în forma octală, lucru util pentru configurarea sistemului, dar nedisponibil în `ls`, folosiți ceva precum:
 ```sh

@@ -152,7 +152,7 @@
 
 - 部分其他的關於 ssh 的選項是安全敏感且應當小心啟用的。例如在可信任的網路中：`StrictHostKeyChecking=no`，`ForwardAgent=yes`
 
-- 考慮使用[`mosh`](https://mosh.mit.edu/) 作為 ssh 的替代品，它使用 UDP 協議。
+- 考慮使用[`mosh`](https://mosh.org/) 作為 ssh 的替代品，它使用 UDP 協議。
 
 - 獲取檔案的八進位制格式許可權，使用類似如下的程式碼：
 ```sh
