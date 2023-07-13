@@ -4,10 +4,7 @@
 
 # The Art of Command Line
 
-[![Ask a Question](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
-
-[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+*참고: 나는 이 가이드를 개정할 계획이며 보다 포괄적인 가이드로 확장하는 데 도움을 줄 새로운 공동 저자를 찾고 있습니다. 이미 매우 대중적이지만 더 넓고 조금 더 깊은 내용을 다루고 싶습니다. 글을 쓰는 것을 좋아하고 이 자료에 대한 전문가에 가까우며 도와주실 의향이 있다면 josh(0x40) holloway.com에 메모를 남겨주세요. –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). 감사합니다!*
 
 - [Meta](#meta)
 - [Basics](#basics)
@@ -45,7 +42,7 @@
 
 노트:
 
-- 이 문서를 하나의 파일로 유지하기 위해서 콘텐츠들은 암시적인 레퍼런스 형태로 포함되어있습니다. 한 개념이나 명령어에 대해 알게 된 후에, 구글에서 그에 대한 좀 더 자세한 정보를 찾아보세요. `apt-get`, `yum`, `dnf`, `pacman`, `pip`, `brew` (혹은 적절한 다른 것)를 이용해 새 프로그램을 설치하세요.
+- 이 문서를 하나의 파일로 유지하기 위해서 콘텐츠들은 암시적인 레퍼런스 형태로 포함되어있습니다. 한 개념이나 명령어에 대해 알게 된 후에, 구글에서 그에 대한 좀 더 자세한 정보를 찾아보세요. `apt`, `yum`, `dnf`, `pacman`, `pip`, `brew` (혹은 적절한 다른 것)를 이용해 새 프로그램을 설치하세요.
 - [Explainshell](http://explainshell.com/)을 이용해서 커맨드, 옵션, 파이프, 기타 등등이 어떤 기능을 하는지 분석하는데 도움을 받으세요.
 
 
@@ -55,7 +52,10 @@
 
 - 텍스트 기반 에디터를 최소한 하나 정도는 잘 다룰 수 있게 배우세요. `nano` 에디터는 기본적인 편집기능(열기, 수정하기, 저장하기, 찾기)을 제공하는 가장 단순한 에디터 중 하나입니다. 그러나 텍스트 터미널을 이용하는 고급 이용자라면 Vim(`Vi`)을 대체할 수 있는 것은 없습니다. Vim은 사용법을 배우기는 어렵지만 믿음직하고 빠르며 풍부한 기능을 가졌습니다. 또한 고전적인 Emacs도 많이 사용됩니다. 특히 규모가 좀 더 큰 편집 작업에서요. (물론 요즘 같은 시대에 대형 프로젝트를 진행하고 있는 소프트웨어 개발자라면 순수한 텍스트 기반 에디터만 사용하지는 않을 것이고 최신의 그래픽 기반 IDE와 도구들에도 익숙해져야 합니다.)
 
-- `man`을 이용해서 문서를 읽는 법을 배우세요(호기심 많은 사람을 위해서 하는 얘기입니다만, `man man`은 섹션 번호들의 목록을 표시합니다. 예를 들어 1은 "regular" 커맨드, 5는 files/conventions, 그리고 8은 administration이죠). `apropos`를 이용해서 man 페이지를 찾으세요. 몇몇 커맨드는 실행파일이 아니라 Bash 빌트인 명령어임을 알아두세요. Bash 빌트인 명령어들에 대한 도움을 받으려면 `help`와 `help -d`를 이용하세요. 어떤 커맨드가 실행파일, 쉘 빌트인 명령어인지, 아니면 별칭인지는 `type command`를 통해 확인할 수 있습니다.
+- 문서를 찾으세요.
+  - `man`을 이용해서 문서를 읽는 법을 배우세요(호기심 많은 사람을 위해서 하는 얘기입니다만, `man man`은 섹션 번호들의 목록을 표시합니다. 예를 들어 1은 "regular" 커맨드, 5는 files/conventions, 그리고 8은 administration이죠). `apropos`를 이용해서 man을 검색하세요.
+  - 몇몇 커맨드는 실행파일이 아니라 Bash 빌트인 명령어임을 알아두세요. Bash 빌트인 명령어들에 대한 도움을 받으려면 `help`와 `help -d`를 이용하세요. 어떤 커맨드가 실행파일, 쉘 빌트인 명령어인지, 아니면 별칭인지는 `type command`를 통해 확인할 수 있습니다.
+  - `curl cheat.sh/command`는 셸 명령을 사용하는 방법에 대한 일반적인 예시와 함께 간단한 "치트 시트"를 제공합니다.
 
 - `>`와 `<`, `|`를 이용한 파이프를 사용해서 입력과 출력의 리다이렉션을 배우세요. `>`는 출력 파일을 덮어 씌우고, `>>`는 출력 파일 끝에 내용을 덧붙인다는 걸 알아두세요. stdout(역주: 표준 출력)과 stderr(역주: 표준 에러 출력)에 대해서 배우세요.
 
@@ -67,7 +67,7 @@
 
 - 기본 파일 관리: `ls`와 `ls -l`(특별히, `ls -l`에서 각각의 열이 무슨 의미인지 배우세요), `less`, `head`, `tail` 그리고 `tail -f`(또는 더 좋은 `less +F`), `ln`과 `ln -s`(하드 링크와 소프트 링크의 차이와 각각의 장단점을 배우세요), `chown`, `chmod`, `du`( 디스크 사용량의 빠른 요약을 보려면 `du -hs *`). 파일 시스템 관리를 위해서는 `df`, `mount`, `fdisk`, `mkfs`, `lsblk`. inode가 무엇인지 배우세요(`ls -i` 또는 `df -i`).
 
-- 기본 네트워크 관리: `ip` 또는 `ifconfig`, `dig`, `traceroute`, `route`.
+- 기본 네트워크 관리: `ip`, `ifconfig`, `dig`, `traceroute`, `route`.
 
 - `git` 같은 버전 관리 시스템을 배우고 사용하세요.
 
@@ -80,7 +80,7 @@
 
 - Bash 에서 **Tab**을 쓰면 argument를 완성하고, **ctrl-r**을 쓰면 커맨드 히스토리에서 검색합니다(누른 다음, 검색할 것을 입력하고, **ctrl-r**를 계속 눌러 좀 더 맞는 것을 찾을 수 있습니다. **Enter**를 눌러 찾은 커맨드를 실행하고 오른쪽 화살표 키를 눌러 결과를 현재 라인에 복사해 수정할 수 있습니다).
 
-- Bash에서 **ctrl-w**는 마지막 단어를 지웁니다. **ctrl-u**는 라인의 처음까지 전부다 지웁니다. **alt-b**와 **alt-f**를 이용해서 단어 단위로 이동할 수 있습니다. **ctrl-a**로 라인의 시작점으로 이동할 수 있고 **ctrl-e**로 라인의 끝으로 이동할 수 있습니다. **ctrl-k**는 커서 위치부터 라인의 끝까지 지웁니다. **ctrl-l**은 화면을 깨끗하게 합니다. `man readline`을 이용해서 Bash의 기본 키 조합을 살펴보세요. 많은 것이 있습니다. 예를 들면 **alt-.**같은 경우, 이건 argument를 돌아가면서 나타내고 **alt-***는 글롭을 확장합니다.
+- Bash에서 **ctrl-w**는 마지막 단어를 지웁니다. **ctrl-u**는 커서 위치부터 라인의 처음까지의 내용을 지웁니다. **alt-b**와 **alt-f**를 이용해서 단어 단위로 이동할 수 있습니다. **ctrl-a**로 라인의 시작점으로 이동할 수 있고 **ctrl-e**로 라인의 끝으로 이동할 수 있습니다. **ctrl-k**는 커서 위치부터 라인의 끝까지 지웁니다. **ctrl-l**은 화면을 깨끗하게 합니다. `man readline`을 이용해서 Bash의 기본 키 조합을 살펴보세요. 많은 것이 있습니다. 예를 들면 **alt-.**같은 경우, 이건 argument를 돌아가면서 나타내고 **alt-***는 글롭을 확장합니다.
 
 
 - vi 스타일의 키  조합을 사랑한다면, `set -o vi`를 사용할 수도 있습니다(`set -o emacs`로 되돌릴 수 있습니다).
@@ -109,9 +109,9 @@
 
 - 백그라운드 프로세스를 영원히 돌아가게 만들고 싶다면, `nohup`이나 `disown`을 사용하세요.
 
-- 어떤 프로세스가 리스닝(역주: 특정 포트로 들어오는 패킷 리스닝)을 하고 있는지 알려면 `netstat -lntp`나 `ss -plat`을 사용해서 알 수 있습니다(TCP 일 경우입니다. UDP의 경우 `-u`옵션을 추가하세요).
+- 어떤 프로세스가 리스닝(역주: 특정 포트로 들어오는 패킷 리스닝)을 하고 있는지 알려면 `netstat -lntp`나 `ss -plat`나 `lsof -iTCP -sTCP:LISTEN -P -n` (macOS에서도 동작 합니다)을 사용해서 알 수 있습니다(TCP 일 경우입니다. UDP의 경우 `-u`옵션을 추가하세요).
 
-- `lsof`를 이용해서 열려있는 소켓과 파일을 볼 수 있습니다.
+- `lsof`, `fuser`를 이용해서 열려있는 소켓과 파일을 볼 수 있습니다.
 
 - `uptime`이나 `w`를 이용해서 시스템이 얼마나 오래 실행 중인지 알 수 있습니다.
 
@@ -138,11 +138,13 @@
       # continue in original dir
 ```
 
-- Bash 에는 다양한 변수 확장이 있다는 것을 알아두세요. 변수가 존재하는지 확인하려면 `${name:?error message}`를 사용하세요. 예를 들어 Bash 스크립트가 하나의 argument를 요구한다면, `input_file=${1:?usage: $0 input_file}`를 사용하세요. 변수가 비어있을 때를 대비해 기본 값을 사용하세요. `${name:-default}` 이전 예제에 선택적인 파라미터를 추가하길 원한다면 `output_file=${2:-logfile}`로 할 수 있습니다. $2가 생략되어 비어있다면, `output_file`은 `logfile`로 설정됩니다. 산술 확장은 `i=$(( (i + 1) % 5 ))` 처럼 사용합니다. 순열은 `{1...10}`처럼 사용합니다. 문자열 트리밍(trimmin)은 `${var%suffix}`이나 `${var#prefix}`처럼 사용할 수 있습니다. 예를 들어 `var=foo.pdf`라면, `echo ${var$.pdf}.txt`는 `foo.txt`를 출력합니다.
+- Bash 에는 다양한 변수 확장이 있다는 것을 알아두세요. 변수가 존재하는지 확인하려면 `${name:?error message}`를 사용하세요. 예를 들어 Bash 스크립트가 하나의 argument를 요구한다면, `input_file=${1:?usage: $0 input_file}`를 사용하세요. 변수가 비어있을 때를 대비해 기본 값을 사용하세요. `${name:-default}` 이전 예제에 선택적인 파라미터를 추가하길 원한다면 `output_file=${2:-logfile}`로 할 수 있습니다. `$2`가 생략되어 비어있다면, `output_file`은 `logfile`로 설정됩니다. 산술 확장은 `i=$(( (i + 1) % 5 ))` 처럼 사용합니다. 순열은 `{1...10}`처럼 사용합니다. 문자열 트리밍(trimmin)은 `${var%suffix}`이나 `${var#prefix}`처럼 사용할 수 있습니다. 예를 들어 `var=foo.pdf`라면, `echo ${var$.pdf}.txt`는 `foo.txt`를 출력합니다.
 
 - `{`...`}`를 사용한 괄호 확장은 비슷한 텍스트의 재입력을 줄이고, 아이템의 조합을 자동화할 수 있습니다. `mv foo.{txt,pdf} some-dir` (양쪽 파일들을 옮김), `cp somefile{,.bak}` (`cp somefile somefile.bak`로 확장), `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (모든 가능한 조합으로 확장해 디렉터리 트리를 생성) 같은 예제들은 유용합니다.
 
-- 커맨드의 실행 결과 출력물은 `<(some command)`처럼 이용해서 파일처럼 다뤄질 수 있습니다. 예를 들어 로컬의 `/etc/hosts`를 리모트의 것과 비교하려면 다음처럼 하면 됩니다.
+- 확장의 우선순위는 다음과 같습니다. 괄호 확장; 틸드 확장; 파라미터 변수 확장; 산술 확장; 커맨드 대체(왼쪽에서 오른쪽 방식으로 수행); 단어 분리; 파일 이름 확장 (예를 들어 `{1..20}`과 같은 범위는 `{$a..$b}`를 사용하는 변수로 표현할 수 없습니다. 대신 `seq` 또는 `for` 루프를 사용하세요. 예: `seq $a $b`, `for((i=a; i<=b; i++)); do ... ; done`.)
+
+- 커맨드의 실행 결과 출력물은 `<(some command)`(프로세스 대체process substitution라고도 함)처럼 이용해서 파일처럼 다뤄질 수 있습니다. 예를 들어 로컬의 `/etc/hosts`를 리모트의 것과 비교하려면 다음처럼 하면 됩니다.
 ```bash
       diff /etc/hosts <(ssh somehost cat /etc/hosts)
 ```
@@ -154,7 +156,13 @@
 }
 ```
 
-- `cat << EOF...`같은 "here documents"에 대해서 알아두세요.
+- "here document"는 [여러 줄의 입력 리디렉션](https://www.tldp.org/LDP/abs/html/here-docs.html) 파일 처럼 사용할 수 있게 합니다.
+```
+cat <<EOF
+여러줄의
+입력
+EOF
+```
 
 - Bash에서 표준 출력(standard output)과 표준 에러(standard error) 둘 다 `some-command > logfile 2>&1`같은 명령어로 리다이렉트할 수 있습니다. 종종, 커맨드가 열린 파일 핸들을 남기지 않는 것을 확실히 하기 위해, 현재 작업 중인 터미널에서 명령어에 `</dev/null`을 덧붙이는 것은 좋은 습관입니다.
 
@@ -193,7 +201,7 @@
 
 - 권한을 가지고 커맨드를 실행하려면, `sudo`를 사용하세요. 기본값은 root 실행하며 `sudo -u`로 다른 유저를 지정할 수 있습니다. `-i`를 이용해 다른 사람으로 로그인 할 수 있습니다.(_당신의_ 패스워드를 물어볼 것입니다)
 
-- 셸을 다른 유저로 전환하려면 `su username`나 `su - username`를 사용하세요. `-`를 넣으면 그 유저가 방금 로그인한 것 같은 환경을 얻을 수 있습니다. 유저 이름을 생략하면 기본값은 root가 됩니다. _당신이 전환하려하는 유저의_ 비밀번호를 물어볼 것입니다.
+- 셸을 다른 유저로 전환하려면 `su username`나 `su - username`를 사용하세요. `-`문자를 넣으면 그 유저가 방금 로그인한 것 같은 환경을 얻을 수 있습니다. 유저 이름을 생략하면 기본값은 root가 됩니다. _당신이 전환하려하는 유저의_ 비밀번호를 물어볼 것입니다.
 
 - 커맨드 라인의 [128K 제한](https://wiki.debian.org/CommonErrorMessages/ArgumentListTooLong)을 알아 두세요. "Argument list too long" 에러는 많은 파일을 와일드카드 매칭할 때 일반적으로 일어납니다. (이런 일이 일어났을 때에는 `find`, `xargs`같은 것이 도움 됩니다.)
 
@@ -208,15 +216,15 @@
 
 - 현재 디렉터리에서 파일을 이름으로 찾으려면 `find . -iname '*something*'` (또는 비슷하게)를 사용하면 됩니다. 어느 곳에 있든 파일을 이름으로 찾으려면 `locate something`을 사용하세요(하지만 인내를 가져야 합니다. `updatedb`가 최근에 생성된 파일을 인덱싱하지 않았을 수 있습니다).
 
-- 소스나 데이터 파일들에서 일반적인 검색을 할 때는(`grep -r`보다 더 복잡할 때), [`ag`](https://github.com/ggreer/the_silver_searcher)를 사용하세요.
+- 소스나 데이터 파일들에서 일반적인 검색을 할 때는 `grep -r`보다 더 발전되고 빠른 여러 옵션이 있습니다. (오래된 것부터 순서대로 나열하면) [`ack`](https://github.com/beyondgrep/ack2), [`ag`](https://github.com/ggreer/the_silver_searcher) ("the silver searcher"), [`rg`](https://github.com/BurntSushi/ripgrep) (ripgrep)같은 것이 포합됩니다.
 
 - HTML을 텍스트로 변환할 때는 `lynx -dump -stdin`를 사용하세요.
 
-- 마크다운, HTML, 그리고 모든 종류의 문서 변환에는 [`pandoc`](http://pandoc.org/)을 시도해보세요.
+- 마크다운, HTML, 그리고 모든 종류의 문서 변환에는 [`pandoc`](http://pandoc.org/)을 시도해보세요. 예를 들어 Markdown 문서를 Word 형식으로 변환하려면 다음과 같이 입력하세요. `pandoc README.md --from markdown --to docx -o temp.docx`
 
 - XML을 반드시 다뤄야한다면, `xmlstarlet`을 사용하세요. 오래되었지만 좋습니다.
 
-- JSON에는 [`jq`](http://stedolan.github.io/jq/)를 사용하세요.
+- JSON에는 [`jq`](http://stedolan.github.io/jq/)를 사용하세요. 동적으로 사용하려면 [`jid`](https://github.com/simeji/jid), [`jiq`](https://github.com/fiatjaf/jiq)도 확인하세요.
 
 - YAML에는 [`shyaml`](https://github.com/0k/shyaml)를 사용하세요.
 
@@ -238,7 +246,7 @@
 
 - `TZ=Pacific/Fiji date`처럼 특정 명령의 환경 변수를 실행 앞에 붙여 설정할 수 있습니다.
 
-- 간단한 데이터 조작을 할 때 `awk`와 `sed`를 이용하는 것을 알아두세요. 예를 들어 텍스트 파일의 세 번째 열의 숫자들의 모든 값을 더하는 것은 이렇게 합니다: `awk '{ x += $3 } END { print x }'`. 이 방법은 같은 일을 하는 파이썬 코드보다 3배 정도 빠르고, 1/3 정도의 길이밖에 안됩니다.
+- 간단한 데이터 조작을 할 때 `awk`와 `sed`를 이용하는 것을 알아두세요. [One-liners](#one-liners)에서 예를 확인해 보세요.
 
 - 여러 파일 안의 문자열을 바꾸려면 다음과 같이 하세요.
 ```sh
@@ -260,6 +268,8 @@
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
+- 파일을 처리할 때 진행 상황을 모니터링하려면 [`pv`](http://www.ivarch.com/programs/pv.shtml), [`pycp`](https://github.com/dmerejkowsky/pycp), [`pmonitor`](https://github.com/dspinellis/pmonitor), [`progress`](https://github.com/Xfennec/progress), `rsync --progress`나 블록 레벨 복사를 할때는 `dd status=progress`를 사용하십시오.
+
 - `shuf`를 사용해서 파일 안의 임의의 행을 선택하거나, 섞을 수 있습니다.
 
 - `sort`의 옵션을 알아두세요. `-n`은 숫자를 정렬할 때, `-h`는 사람이 읽을 수 있게 작성한 숫자의 경우(`du -h`와 같은 형태). 키가 어떻게 작동하는지 알아두세요(`-t`와 `-k`). 특별히, 첫 번째 필드로만 정렬해야 한다면 `-k1,1`을 적어야 한다는 걸 주의하세요. `-k1`은 모든 행에 대해서 정렬하라는 뜻입니다.  안정적인 정렬(`sort -s`)도 유용합니다. 예를 들어, 먼저 2번 필드로 정렬하고, 그다음에 1번 필드로 정렬할 경우, `sort -k1,1 | sort -s -k2,2`처럼 할 수 있습니다.
@@ -268,20 +278,24 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 소스 코드를 패치하는 기본 도구는 `diff`와 `patch`입니다. diff와 `sdiff`(새로 diff)의 통계 요약을 보려면 `diffstat`를 보세요. `diff -r`은 모든 디렉터리에 대해 작업을 수행하는 걸 알아두세요. `diff -r tree1 tree2 | diffstat`으로 변경 내역의 요약을 볼 수 있습니다.
 
-- 바이너리 파일을 간단하게 hex 덤프를 뜨고 싶을 때는 `hd`, `hexdump`, `xxd`를 쓰세요. 바이너리 파일을 수정할 때는 `bvi`, `biew`를 사용하세요.
+- 바이너리 파일을 간단하게 hex 덤프를 뜨고 싶을 때는 `hd`, `hexdump`, `xxd`를 쓰세요. 바이너리 파일을 수정할 때는 `bvi`, `hexedit`, `biew`를 사용하세요.
 
 - `strings` (그리고 `grep`, 등) 을 사용해서 바이너리 파일 안에서 문자열 비트를 찾을 수 있습니다.
 
 - 바이너리 파일을 diff하려면(델타 압축), `xdelta3`를 사용하세요.
 
-- 텍스트 파일 인코딩을 변경하려면 `iconv`를 시도해보세요. 또는 `uconv`는 더 복잡한 목적에 사용할 수 있습니다. `uconv`는 몇 가지 복잡한 유니코드를 지원합니다. 예를 들어, 소문자화하고 모든 악센트를 제거하는(확장하고, 떨어트리는 것을 이용해서) 커맨드는 다음과 같습니다.
+- 텍스트 파일 인코딩을 변경하려면 `iconv`를 시도해보세요. 또는 `uconv`는 더 복잡한 목적에 사용할 수 있습니다. `uconv`는 몇 가지 복잡한 유니코드 처리를 지원합니다. 예를 들어 다음과 같이 사용할 수 있습니다.
 ```sh
-      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
+      # 16진수 코드 또는 문자의 실제 이름을 표시(디버깅에 유용)
+      uconv -f utf-8 -t utf-8 -x '::Any-Hex;' < input.txt
+      uconv -f utf-8 -t utf-8 -x '::Any-Name;' < input.txt
+      # 소문자화하고 모든 악센트를 제거(본 문자에서 악센트를 분리해서 제거)
+      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC;' < input.txt > output.txt
 ```
 
 - 파일을 여러 조각으로 나누려면 `split`(파일을 사이즈로 나눔)이나 `csplit`(파일을 패턴으로 나눔)을 보세요.
 
-- 날짜 시간 표현식을 제어하려면 [`dateutils`](http://www.fresse.org/dateutils/)의 `dateadd`, `datediff`, `strptime`등을 사용하세요.
+- 날짜 및 시간: 유용한 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식으로 현재 날짜 및 시간을 가져오려면 `date -u +"%Y-%m-%dT%H:%M:%SZ"`를 사용하십시오. (다른 옵션은 [문제가](https://stackoverflow.com/questions/7216358/date-command-on-os-x-doesnt-have-iso-8601-i-option) [있습니다](https://unix.stackexchange.com/questions/164826/date-command-iso-8601-option)) 날짜 및 시간 표현을 조작하려면 [`dateutils`](http://www.freesse.org/dateutils/)에서 `dateadd`, `datediff`, `strptime` 등을 사용하십시오.
 
 - `zless`, `zmore`, `zcat` 그리고`zgrep`을 이용해서 압축된 파일에 대해 작업하세요.
 
@@ -292,6 +306,8 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
    getfacl -R /some/path > permissions.txt
    setfacl --restore=permissions.txt
 ```
+
+- 빈 파일을 빠르게 생성하려면 `truncate` ([sparse 파일 생성](https://en.wikipedia.org/wiki/Sparse_file)), `fallocate` (ext4, xfs, btrfs 및 ocfs2 파일 시스템), `xfs_mkfile` (xfsprogs 를 사용하는 거의 모든 파일 시스템), `mkfile` (Solaris, Mac OS 같은 Unix계열 시스템)을 사용하세요. 
 
 ## System debugging
 
@@ -317,9 +333,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 보다 심각한 경우의 네트워크 디버깅을 위해서는 [`wireshark`](https://wireshark.org/), [`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html), [`ngrep`](http://ngrep.sourceforge.net/)를 사용하세요.
 
-- `strace` 와 `ltrace`에 대해서 알아보세요. 이 커맨드들은 만일 어떤 프로그램에서 failing, hanging 혹은 crashing이 일어나거나 그 외에 여러분이 무슨 이유인지 알지 못하는 상황이나 성능에 대한 대략적인 내용을 얻고자 할 때 유용할 것입니다. 특히 프로파일링을 위한 옵션(`-c`)과 현재 실행 중인 프로세스에 붙이기 위한 옵션(`-p`)을 기억하세요.
+- `strace` 와 `ltrace`에 대해서 알아보세요. 이 커맨드들은 만일 어떤 프로그램에서 failing, hanging 혹은 crashing이 일어나거나 그 외에 여러분이 무슨 이유인지 알지 못하는 상황이나 성능에 대한 대략적인 내용을 얻고자 할 때 유용할 것입니다. 특히 프로파일링을 위한 옵션(`-c`)과 현재 실행 중인 프로세스에 붙이기 위한 옵션(`-p`)을 기억하세요. 중요한 호출을 놓치지 않으려면 자식 프로세스 추적 옵션(`-f`)을 사용하세요.
 
-- 공유 라이브러리(shared libraries) 등을 체크하기 위해서는 `ldd`에 대해 알아보세요.
+- 공유 라이브러리(shared libraries) 등을 체크하기 위해서는 `ldd`에 대해 알아보세요. — 하지만 [신뢰할 수 없는 파일을 체크하면 안됩니다](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/).
 
 - `gdb`를 가지고 현재 실행 중인 프로세스에 연결하고 그 프로세스의 stack trace들을 얻는 방법을 알아보세요.
 
@@ -327,7 +343,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 과거에 왜 무엇인가가 잘못되었는지를 디버깅할 때에는 [`sar`](http://sebastien.godard.pagesperso-orange.fr/)가 매우 유용할 것입니다. 이 커맨드는 CPU, memory, network 등의 통계 내역을 보여줍니다.
 
-- 시스템의 보다 깊은 곳을 보거나 퍼포먼스를 분석하기 위해서는, `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_(Linux)), [`sysdig`](https://github.com/draios/sysdig)를 사용해보세요.
+- 시스템의 보다 깊은 곳을 보거나 퍼포먼스를 분석하기 위해서는, `stap` ([SystemTap](https://sourceware.org/systemtap/wiki)), [`perf`](http://en.wikipedia.org/wiki/Perf_%28Linux%29), [`sysdig`](https://github.com/draios/sysdig)를 사용해보세요.
 
 - 여러분이 사용하는 Linux의 배포판이 무엇인지 확인(대부분의 배포판에서 작동합니다)하려면 `uname`이나 `uname -a` 또는 `lsb_release -a`를 사용하세요.
 
@@ -343,9 +359,14 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `sort`/`uniq`를 사용하여 텍스트 파일의 교차점, 조합, 차이점을 확인이 필요할 때 상당한 도움이 될 겁니다. 가령 `a`와 `b`가 유일한 값들만을 가진 텍스트 파일이라 합시다. 이것이 임의의 크기인 파일을(그게 기가바이트라고 해도) 빠르게 작업할 수 있습니다. (Sort는 메모리 제한에 걸리지 않습니다만, 만약 루트 파티션이 작은 경우, `/tmp`를 사용하기 위해 `-T`옵션을 사용하면 됩니다.) 위의 `LC_ALL`에대한 내용은 `sort`의 `-u`옵션을 확인하십시오. (아래 예제에 집중하기 위해서 생략)
 ```sh
-      cat a b | sort | uniq > c   # c is a union b
-      cat a b | sort | uniq -d > c   # c is a intersect b
-      cat a b b | sort | uniq -u > c   # c is set difference a - b
+      cat a b | uniq > c   # c is a union b
+      cat a b | uniq -d > c   # c is a intersect b
+      cat a b b | uniq -u > c   # c is set difference a - b
+```
+
+- 두 개의 JSON 파일을 예쁘게 인쇄하고 구문을 정규화한 다음 결과에 색을 지정하고 페이지를 매깁니다.
+```
+      diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
 ```
 
 - `grep . *`을 사용해서 디렉터리 안의 모든 파일을 비주얼하게 살펴볼 수 있습니다.(r각 줄은 파일 이름과 같이 나옵니다) 아니면 `head -100 *`를 이용할 수도 있습니다.(각 파일의 해더만 볼 수 있습니다.) 이는 `/sys`, `/proc`, `/etc` 같이 설정값들로 가득한 디렉터리에서 유용합니다.
@@ -363,7 +384,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 웹서버 로그 같은 텍스트 파일이 있다고 합시다. 그리고 URL 파라미터에 나타나는 `acct_id`같은 특정 값이 몇몇 행에 나타난다고 해보죠. 각각의 `acct_id`에 대해 얼마나 많은 요청이 있었는지 알고 싶다면 다음처럼 할 수 있습니다.
 ```sh
-      cat access.log | egrep -o 'acct_id=[0-9]+' | cut -d= -f2 | sort | uniq -c | sort -rn
+      egrep -o 'acct_id=[0-9]+' access.log | cut -d= -f2 | sort | uniq -c | sort -rn
 ```
 
 - 변경을 계속 모니터링하려면 `watch`를 이용하세요. 예를 들어 `watch -d -n 2 'ls -rtlh | tail'`로 한 디렉터리 내의 파일 변경을 확인하거나, `watch -d -n 2 ifconfig`로 와이파이 설정을 고칠 때 네트워크 설정 변경을 확인할 수 있습니다.
@@ -372,10 +393,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```sh
       function taocl() {
         curl -s https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md |
+          sed '/cowsay[.]png/d' |
           pandoc -f markdown -t html |
           xmlstarlet fo --html --dropdtd |
           xmlstarlet sel -t -v "(html/body/ul/li[count(p)>0])[$RANDOM mod last()+1]" |
-          xmlstarlet unesc | fmt -80
+          xmlstarlet unesc | fmt -80 | iconv -t US
       }
 ```
 
@@ -444,15 +466,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `watch`: 명령을 반복적으로 실행해 결과를 보여주거나 변경을 하일라이트합니다
 
+- [`when-changed`](https://github.com/joh/when-changed): 파일이 변경될 때마다 지정한 명령을 실행합니다. `inotifywait`, `entr`도 참조하십시오.
+
 - `tac`: 파일의 내용을 역순으로 출력합니다
 
-- `shuf`: 파일의 각 줄들을 임의의 순서로 출력합니다
-
 - `comm`: 정렬된 파일들을 각 라인별로 비교합니다
-
-- `pv`: 파이프를 통해서 프로세스의 정보를 모니터링하는데 사용합니다
-
-- `hd` and `bvi`: 바이너리 파일을 수정하거나 덤프를 얻어오는데 사용합니다
 
 - `strings`: 바이너리 파일들에서 특정 문장을 추출하는데 사용합니다
 
@@ -474,7 +492,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `nm`: 오브젝트 파일들에 포함된 심볼정보를 얻어옵니다
 
-- `ab`: 웹 서버를 벤치 마킹하는데 사용합니다
+- `ab`, [`wrk`](https://github.com/wg/wrk): 웹 서버를 벤치 마킹하는데 사용합니다
 
 - `strace`: 시스템 콜을 디버깅할때 사용합니다
 
@@ -533,29 +551,45 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 ## macOS only
 
-*OS X에서만* 해당되는 항목입니다.
+macOS*에서만* 해당되는 항목입니다.
 
-- `brew` (Homebrew)나 `port` (MacPorts)를 패키지 매니저로 사용합니다. 위의 많은 명령어를 OS X에 설치하여 사용할 수 있습니다.
+- `brew` (Homebrew)나 `port` (MacPorts)를 패키지 매니저로 사용합니다. 위의 많은 명령어를 macOS에 설치하여 사용할 수 있습니다.
 
 - `pbcopy`를 이용하여 데스크톱 애플리케이션에 명령어 출력물을 복사하거나 `pbpaste`를 이용해 붙여넣기를 할 수 있습니다.
 
-- OS X 터미널에서 옵션 키를 알트 키(**alt-b**, **alt-f** 같은 위에 나온 명령)로 사용하려면 Preferences -> Profiles -> Keyboard를 열어 "Use Option as Meta key"를 선택하세요.
+- macOS 터미널에서 옵션 키를 알트 키(**alt-b**, **alt-f** 같은 위에 나온 명령)로 사용하려면 Preferences -> Profiles -> Keyboard를 열어 "Use Option as Meta key"를 선택하세요.
 
 - 데스크톱 애플리케이션에서 파일을 열기위해, `open` 또는 `open -a /Applications/Whatever.app`을 사용하면 됩니다.
 
 - Spotlight: `mdfind`를 이용해 파일을 찾고, `mdls`를 이용해 메타데이타 (사진 EXIF 정보와 같은) 목록을 볼 수 있습니다.
 
-- OS X는 BSD Unix 기반이며 많은 명령어들을 (예로 `ps`, `ls`, `tail`, `awk`, `sed`) 사용할 수 있으며, 이것들은 Linux 버전들과 미묘한 차이가 있습니다. 그리고 크게는 System V-style Unix와 GNU 도구들에 많은 영향을 받았습니다. 이런 내용들을 man 페이지 상단의 "BSD General Commands Manual." 라는 문구를 통해 알 수 있습니다. 가끔은 GNU 버전이 설치되기도 합니다. (예로, GNU awk와 sed인 `gawk`와 `gsed`에서). 만약 이종 플랫폼 간 Bash 스크립트를 작성하려면, 동일한 명령어 (예로, 파이썬이나 `perl`과 같은)나 테스트시 주의해야 합니다.
+- macOS는 BSD Unix 기반이며 많은 명령어들을 (예로 `ps`, `ls`, `tail`, `awk`, `sed`) 사용할 수 있으며, 이것들은 Linux 버전들과 미묘한 차이가 있습니다. 그리고 크게는 System V-style Unix와 GNU 도구들에 많은 영향을 받았습니다. 이런 내용들을 man 페이지 상단의 "BSD General Commands Manual." 라는 문구를 통해 알 수 있습니다. 가끔은 GNU 버전이 설치되기도 합니다. (예로, GNU awk와 sed인 `gawk`와 `gsed`에서). 만약 이종 플랫폼 간 Bash 스크립트를 작성하려면, 동일한 명령어 (예로, 파이썬이나 `perl`과 같은)나 테스트시 주의해야 합니다.
 
-- OS X 릴리스 정보를 얻으시려면, `sw_vers`를 사용하세요.
+- macOS 릴리스 정보를 얻으시려면, `sw_vers`를 사용하세요.
 
 ## Windows only
 
 Windows*에서만* 해당되는 항목입니다.
 
-- Windows 10에서는 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)를 사용할 수 있습니다. 이는 유닉스 커맨드 라인 도구와 함께 친숙한 Bash 환경을 제공합니다. 좋은 점은, 리눅스 프로그램을 Windows에서 사용할 수있게 합니다. 하지만 Bash에서 Windows 프로그램을 사용할 수는 없습니다.
+### Ways to obtain Unix tools under Windows
 
 - [Cygwin](https://cygwin.com/)를 설치해 Microsoft Windows에서 유닉스 셸을 사용할 수 있습니다. 이 문서에 기술된 대부분의 것들은 그대로 동작할 것입니다.
+
+- Windows 10에서는 Unix 커맨드 라인 유틸리티로 친숙한 Bash 환경을 제공하는 [WSL(Linux용 Windows 하위 시스템)](https://msdn.microsoft.com/commandline/wsl/about)을 사용할 수 있습니다.
+
+- Windows에서 GNU 개발자 툴(GCC같은)을 얻는 다른 대안으로 [MinGW](http://www.mingw.org/)와 거기에 포함된 [MSYS](http://www.mingw.org/wiki/msys) 패키지가 있습니다. 여기에는 bash, gawk, make, grep같은 도구가 포함됩니다. MSYS는 Cygwin에 비교하면 모든 기능은 없습니다. MinGW는 유닉스 툴을 네이티브 Windows로 포팅할 때 부분적으로 유용합니다.
+
+- Windows에서 유닉스 룩엔필을 얻는 다른 대안은 [Cash](https://github.com/dthree/cash)입니다. 이 환경에는 매우 적은 유닉스 명령과 커맨드 라인 옵션만 사용가능하니 주의하세요.
+
+### Useful Windows command-line tools
+
+- `wmic`을 학습하고 사용하여 커맨드 라인에서 대부분의 Windows 시스템 관리 작업을 수행하고 스크립팅할 수 있습니다.
+
+- `ping`, `ipconfig`, `tracert`, `netstat`가 포함된 유용한 기본 커맨드 라인 Windows 네트워킹 도구를 쓰실 수 있습니다.
+
+- `Rundll32` 명령을 호출하여 [많은 유용한 Windows 작업](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows)을 수행할 수 있습니다.
+
+### Cygwin tips and tricks
 
 - Cygwin의 패키지 매니저로 유닉스 프로그램을 더 설치할 수 있습니다.
 
@@ -569,16 +603,10 @@ Windows*에서만* 해당되는 항목입니다.
 
 - `C:\\` Windows 드라이브 경로는 Cygwin에서는 `/cygdrive/c`가 되고, Cygwin의 `/` Windows에서 `C:\cygwin`가 되는것을 알아 두세요. Cygwin과 Windows 스타일의 파일 패스는 `cygpath`로 변환할 수 있습니다. 이는 Windows 프로그램을 실행하는 프로그램에서 유용하게 사용됩니다.
 
-- You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
-
-- Windows에서 유닉스 룩엔필을 얻는 다른 대안은 [Cash](https://github.com/dthree/cash)입니다. 이 환경에는 매우 적은 유닉스 명령과 커맨드 라인 옵션만 사용가능하니 주의하세요.
-
-- Windows에서 GNU 개발자 툴(GCC같은)을 얻는 다른 대안으로 [MinGW](http://www.mingw.org/)와 거기에 포함된 [MSYS](http://www.mingw.org/wiki/msys) 패키지가 있습니다. 여기에는 bash, gawk, make, grep같은 도구가 포함됩니다. MSYS는 Cygwin에 비교하면 모든 기능은 없습니다. MinGW는 유닉스 툴을 네이티브 Windows로 포팅할 때 부분적으로 유용합니다.
-
 ## More resources
 
 - [awesome-shell](https://github.com/alebcay/awesome-shell): 셸에 대한 툴과 리소스들이 잘 정리되어 있는 리스트입니다.
-- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): OS X 커맨드 라인에 관해 더 깊이 알수 있는 가이드 입니다.
+- [awesome-osx-command-line](https://github.com/herrbischoff/awesome-osx-command-line): macOS 커맨드 라인에 관해 더 깊이 알수 있는 가이드 입니다.
 - [Strict mode](http://redsymbol.net/articles/unofficial-bash-strict-mode/): 보다 나은 셸 스크립트를 작성하기 위한 정보글입니다.
 - [shellcheck](https://github.com/koalaman/shellcheck): 셸 스크립트 정적 분석 도구 입니다. 특히, bash/sh/zsh에 대한 린트입니다.
 - [Filenames and Pathnames in Shell](http://www.dwheeler.com/essays/filenames-in-shell.html): 셸 스크립트에서 파일 이름을 처리하는 법을 다루는 슬프도록 복잡한 미니츄어입니다.
