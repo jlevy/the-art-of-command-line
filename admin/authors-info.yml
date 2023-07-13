@@ -58,6 +58,7 @@ roles:
   bgdnlp: translator (ro)
   23Pstars: translation maintainer (id)
   koh7: translator (ja)
+  realmosn: translation maintainer (fa)
 
 groups:
   - name: Maintainers
@@ -81,6 +82,7 @@ groups:
     -  dspinellis
     -  mihaimaruseac
     -  23Pstars
+    -  realmosn
   - name: Translators
     members:
     -  aaossa
@@ -101,5 +103,6 @@ groups:
     -  gernd
     -  bgdnlp
     -  koh7
+    -  realmosn
   - name: Contributors
 
