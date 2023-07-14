@@ -220,7 +220,7 @@ C'est particulièrement utile pour des scripts mis à disposition sur le web, af
 ```
 
 - Un «&nbsp;document intégré&nbsp;» permet de [rediriger plusieurs lignes en entrée](https://abs.traduc.org/abs-fr/ch19.html) comme si elles provenaient d'un fichier&nbsp;:
-```
+```sh
 cat <<EOF
 entrée sur
 plusieurs lignes
@@ -240,7 +240,7 @@ Une alternative plus légère pour la persistance des sessions seulement est [`d
 - Il est utile de savoir comment créer un tunnel SSH avec `-L` ou `-D` (et occasionnellement `-R`), par exemple pour accéder à des sites web à partir d'un serveur distant.
 
 - Il peut être intéressant d'effectuer quelques optimisations à votre configuration de ssh&#8239;; par exemple, le fichier `~/.ssh/config` contient des paramètres pour éviter les pertes de connexion dans certains environnements réseaux, pour utiliser la compression (ce qui est utile avec scp sur des connexions à faible bande passante), et pour le multiplexage de canaux vers le même serveur avec un fichier de contrôle local&nbsp;:
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6
@@ -481,7 +481,7 @@ Voyez aussi la remarque à propos de `LC_ALL` ci-dessus et l'option `-u` de `sor
 ```
 
 - Embellissez les différences de deux fichiers JSON en normalisant leur syntaxe, en colorant et en paginant le résultat :
-```
+```sh
       diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
 ```
 

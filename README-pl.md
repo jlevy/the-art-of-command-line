@@ -157,7 +157,7 @@ Uwagi:
 ```
 
 - "Dokument lokalny" pozwala na [przekierowanie kilku linii strumienia wejścia](https://www.tldp.org/LDP/abs/html/here-docs.html) tak, jakby były wczytywane z pliku:
-```
+```sh
 cat <<EOF
 wejście
 w kilku liniach
@@ -173,7 +173,7 @@ EOF
 - W używaniu ssh, wiedza na temat tunelowania portów z użyciem `-L` lub `-D` (i czasami `-R`) jest przydatna, np. do przeglądania stron w sieci z maszyny zdalnej.
 
 - Wprowadzenie kilku usprawnień do konfiguracji Twojego ssh może być przydatne; na przykład, poniższy `~/.ssh/config` zawiera ustawienia pozwalające uniknąć zrywania połączeń w pewnych środowiskach sieciowych, używa kompresji (co może być pomocne w użyciu scp na łączach o niskiej przepustowości), zwielokrotnia kanały dostępowe do tego samego serwera przy użyciu lokalnego pliku kontrolnego:
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6
@@ -365,7 +365,7 @@ Kilka przykładów składania poleceń:
 ```
 
 -  Wyświetl dwa pliki w formacie JSON, normalizując ich składnię, a następnie kolorując i dzieląc na strony wynik operacji:
-```
+```sh
       diff <(jq --sort-keys . < plik1.json) <(jq --sort-keys . < plik2.json) | colordiff | less -R
 ```
 

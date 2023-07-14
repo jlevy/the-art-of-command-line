@@ -157,7 +157,7 @@ Opombe:
 ```
 
 - T.i. "here document" omogoča [preusmeritev večih vrstic vnosa](https://www.tldp.org/LDP/abs/html/here-docs.html) kot da gre za datoteko:
-```
+```sh
 cat << EOF
 These lines will
 print to stdout
@@ -173,7 +173,7 @@ EOF
 - V ssh je poznavanje, kako usmeriti tunel z `-L` ali `-D` (in občasno `-R`) je uporaben, npr. za dostopanje do spletnih strani iz oddaljenega strežnika.
 
 - Lahko je uporabno, da se naredi nekaj optimizacij na vaših nastavitvah ssh; na primer, ta `~/.ssh/config` vsebuje nastavitve za izogib padle povezave v določenih okoljih omrežja, uporablja kompresijo (ki je v pomoč s scp preko nizko pasovnih povezav) in multiplicira kanale na isti strežnik z lokalno krmilno datoteko:
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6

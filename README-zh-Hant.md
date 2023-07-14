@@ -140,7 +140,7 @@
 - ssh 中，瞭解如何使用`-L` 或`-D`（偶爾需要用`-R`）去開啟通道是非常有用的，例如當你需要從一臺遠端伺服器上訪問 web。
 
 - 對 ssh 設定做一些小優化可能是很有用的，例如這個`​​~/.ssh/config` 檔案包含了防止特定環境下斷開連線、壓縮資料、多通道等選項：
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6

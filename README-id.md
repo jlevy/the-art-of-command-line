@@ -163,7 +163,7 @@ Catatan:
 - Dalam ssh, mengetahui bagaimana cara menggunaakn saluran (port tunnel) dengan `-L` atau `-D` (dan terkadang `-R`) juga berguna. Misalnya untuk mengakses situs web dari kendali server jarak jauh.
 
 - Akan sangat bermanfaat untuk melakukan optimisasi pada konfigurasi ssh; misalnya, `~/.ssh/config` mengandung pengaturan untuk menghindari putusnya koneksi antar jaringan, menggunakan kompresi (bermanfaat bagi yang memiliki bandwidth rendah), dan terhubung dengan banyak saluran pada suatu server dengan kontrol lokal:
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6

@@ -165,7 +165,7 @@ Note:
 - În ssh, este util să știți cum să creați un tunel cu `-L` sau `-D` (și ocazional `-R`), e.g. pentru a accesa site-urile de pe un server aflat la distanță.
 
 - Este foarte util să optimizați configurațiile ssh, de exemplu, setarea următoare din `~/.ssh/config` permite prevenirea sesiunilor eșuate în anumite condiții de rețea, folosește compresia (utilă pentru `scp` sau conexiuni peste rețele cu lățime de bandă redusă) și multiplexează canale către același server folosind un fișier de control local:
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6

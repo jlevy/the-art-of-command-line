@@ -141,7 +141,7 @@ Příklady:
 - v ssh je důležité vědět, jak tunelovat porty s pomocí `-L` nebo `-D` (a příležitostně `-R`) například k přístupu na webovou stránku ze vzdáleného serveru.
 
 - Může být užitečné udělat trochu optimalizačních úprav vašeho ssh připojení; například v `~/.ssh/config` je nastavení pro vyhýbání se odhozeným spojením v jistých sítích, používá kompresi (což je užitečné se scp přeš síť s malou šířkou pásma připojení) a multiplexové kanály ke stejnému serveru v lokálním souboru.
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6

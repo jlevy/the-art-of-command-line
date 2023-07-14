@@ -157,7 +157,7 @@ Notes:
 ```
 
 - A "here document" allows [redirection of multiple lines of input](https://www.tldp.org/LDP/abs/html/here-docs.html) as if from a file:
-```
+```sh
 cat <<EOF
 input
 on multiple lines
@@ -173,7 +173,7 @@ EOF
 - In ssh, knowing how to port tunnel with `-L` or `-D` (and occasionally `-R`) is useful, e.g. to access web sites from a remote server.
 
 - It can be useful to make a few optimizations to your ssh configuration; for example, this `~/.ssh/config` contains settings to avoid dropped connections in certain network environments, uses compression (which is helpful with scp over low-bandwidth connections), and multiplex channels to the same server with a local control file:
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6
@@ -365,7 +365,7 @@ A few examples of piecing together commands:
 ```
 
 - Pretty-print two JSON files, normalizing their syntax, then coloring and paginating the result:
-```
+```sh
       diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
 ```
 

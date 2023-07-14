@@ -153,7 +153,7 @@
 ```
 
 - 「ヒアドキュメント」によって、ファイルからの[複数行のリダイレクト](https://www.tldp.org/LDP/abs/html/here-docs.html)のように振る舞うことができる。
-```
+```sh
 cat <<EOF
 input
 on multiple lines
@@ -170,7 +170,7 @@ EOF
 
 - SSHの設定を少しでも最適化しておくと便利。例えば以下の`~/.ssh/config`の設定だと、ネットワーク環境による接続断を回避し、圧縮を使用し(帯域の細い回線を使ったscpなどで便利)、ローカルの制御ファイルを指定して同一サーバとのチャネルを多重化する。
 
-```
+```ssh-config
        TCPKeepAlive=yes
        ServerAliveInterval=15
        ServerAliveCountMax=6

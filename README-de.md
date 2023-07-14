@@ -165,7 +165,7 @@ Hinweise:
 - Bei SSH ist es hilfreich zu wissen, wie man einen Porttunnel mit `-L` oder `-D` (gelegentlich auch `-R`) einrichtet, etwa beim Zugriff auf Webseiten von einem Remote-Server.
 
 - Es kann nützlich sein, ein paar Verbesserungen an den SSH-Einstellungen vorzunehmen; so enthält bspw. diese `~/.ssh/config` Einstellungen, um das Abreißen der Verbindung in bestimmten Netzwerkumgebungen zu vermeiden, verwendet Kompression (was hilfreich ist bei SCP über Verbindungen mit niedriger Bandbreite) und Multiplex-Kanäle zu demselben Server mithilfe einer lokalen Kontrolldatei:
-```
+```ssh-config
     TCPKeepAlive=yes
     ServerAliveInterval=15
     ServerAliveCountMax=6

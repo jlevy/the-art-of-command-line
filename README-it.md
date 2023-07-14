@@ -144,7 +144,7 @@ Note:
 
 - Può essere utile effettuare alcune ottimizzazioni alla configurazione ssh; ad esempio, questo file `~/.ssh/config` contiene delle impostazioni utili ad evitare connessioni interrotte in specifiche reti ed ambienti, fa uso di compressione (utile in caso di connessioni lente), e multiplexing dei canali verso lo stesso server con un control file locale:
 
-```
+```ssh-config
       TCPKeepAlive=yes
       ServerAliveInterval=15
       ServerAliveCountMax=6
