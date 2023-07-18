@@ -9,7 +9,7 @@
 - [Le Basi](#le-basi)
 - [Uso quotidiano](#uso-quotidiano)
 - [Processare file e dati](#processare-file-e-dati)
-- [Debug sistema](#debug-sistema)
+- [Debug del sistema](#debug-del-sistema)
 - [One-liner](#one-liner)
 - [Oscuri ma utili](#oscuri-ma-utili)
 - [OS X](#os-x)
@@ -19,7 +19,7 @@
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
 
-Saper usare con una certa facilità la linea di comando è spesso visto come una sorta di "sapere arcano". Anche se può sembrare, in realtà non è decisamente così: può migliorare la tua produttività e la tua flessibilità in modi che neanche immagini. Questa che stai per leggere è una selezione di trucchi e di consigli che riguardano la linea di comando, che abbiamo trovato utili lavorando con Linux. Alcune di queste nozioni sono elementari, altre molto specifiche, se non sofisticate e, a volte, oscure.
+Saper usare con una certa facilità la linea di comando è spesso visto come una sorta di "sapere arcano". Anche se può sembrare "magia", in realtà non è  così: può migliorare la tua produttività e la tua flessibilità in modi che neanche immagini. Questa che stai per leggere è una selezione di trucchi e di consigli che riguardano la linea di comando, che abbiamo trovato utili lavorando con Linux. Alcune di queste nozioni sono elementari, altre molto specifiche, se non sofisticate e a volte, oscure.
 
 Non c'è da preoccuparsi, comunque: la pagina che stai scorrendo non è molto lunga e non ti ruberà molto tempo. Prenderci dimestichezza, saperla usare quando necessario, te ne renderà ancora di più.
 
@@ -45,7 +45,7 @@ Note:
 
 ## Le Basi
 
-- Impara le basi di Bash. Usa `man bash` e cerca almeno di scorrere velocemente l'intero scritto. Non è troppo lungo e neanche difficile da seguire. Altre shell possono andare bene, ma Bash è molto potente e sempre disponibile (impararne una sola tra zsh, fish e così via, per quanto ti possa tentare, ti darà problemi a lungo termine, lavorando su altre piattaforme).
+- Impara le basi di Bash. Usa `man bash` e cerca almeno di scorrere velocemente l'intero scritto (non è troppo lungo e neanche difficile da seguire). Altre shell possono andare bene, ma Bash è molto potente e sempre disponibile (impararne una sola tra zsh, fish e così via, per quanto ti possa tentare, ti darà problemi a lungo termine, lavorando su altre piattaforme).
 
 - Impara ad usare bene almeno un editor di testo. Idealmente, potresti usare Vim (`vi`), con il quale non c'è praticamente competizione per questo genere di cose (sì, anche se volessi usare Emacs, oppure un altro di quei grossi IDE, o magari l'ennesimo ultimo editor ultramoderno ed hipster).
 
@@ -256,7 +256,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - Usa `zless`, `zmore`, `zcat` e `zgrep` per lavorare su file compressi.
 
 
-## Debug sistema
+## Debug del sistema
 
 - Per il web debugging, `curl` e `curl -I` sono decisamente utili. La stessa cosa vale anche per l'equivalente `wget`, o ancora per il più recente [`httpie`](https://github.com/jkbrzt/httpie).
 
