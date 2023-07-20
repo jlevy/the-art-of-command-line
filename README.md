@@ -580,7 +580,13 @@ These items are relevant *only* on Windows.
 - If you mainly want to use GNU developer tools (such as GCC) on Windows, consider [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package, which provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin. MinGW is particularly useful for creating native Windows ports of Unix tools.
 
 - Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
+- Or you can install  [unxutils](http://unxutils.sourceforge.net) (GNU utilities) with [scoop](https://scoop.sh/#/) 
 
+```shell
+scoop bucket add main
+scoop install  unxutils
+```
+  
 ### Useful Windows command-line tools
 
 - You can perform and script most Windows system administration tasks from the command line by learning and using `wmic`.
