@@ -153,7 +153,7 @@ Příklady:
 
 - Některé další možnosti vstahující se k ssh jsou bezpečnostně citlivé a měli by být povoleny s opatrností, například pro jednotlivé podsítě nebo hosty v důvěryhodných sítích: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Zvažte [`mosh`](https://mosh.mit.edu/) jako alternativu k ssh, která používá UDP, vyhýbá se padlým spojením a přidává pohodlí na cestách (vyžaduje nastavení na serveru).
+- Zvažte [`mosh`](https://mosh.org/) jako alternativu k ssh, která používá UDP, vyhýbá se padlým spojením a přidává pohodlí na cestách (vyžaduje nastavení na serveru).
 
 - K získání oprávnění k souboru v osmičkové formě, což je užitečné pro systémovou konfiguraci, ale nedostupné v `ls` a lehko zpackatelné, použijte něco jako
 ```sh

@@ -185,7 +185,7 @@ EOF
 
 - Kilka innych opcji, istotnych dla ssh, jest związanych z bezpieczeństwem i powinno być stosowanych z rozwagą, np. w odniesieniu do konkretnej podsieci lub serwera lub w zaufanych sieciach: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Uznaj [`mosh`](https://mosh.mit.edu/) za alternatywę dla ssh używającą UDP, unikającą przerywania połączeń i zwiększającą wygodę (wymaga konfiguracji po stronie serwera).
+- Uznaj [`mosh`](https://mosh.org/) za alternatywę dla ssh używającą UDP, unikającą przerywania połączeń i zwiększającą wygodę (wymaga konfiguracji po stronie serwera).
 
 - Aby zobaczyć uprawnienia do pliku w postaci ósemkowej, co jest przydatne w konfiguracji systemu, ale niedostępne w `ls` i łatwe do rozwalenia, użyj czegoś takiego
 ```sh

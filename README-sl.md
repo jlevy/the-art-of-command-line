@@ -185,7 +185,7 @@ EOF
 
 - Nekaj ostalih opcij relevantnih za ssh je varnostno občutljivih in bi morale biti omogočene s pazljivostjo, npr. na podomrežju ali gostitelju ali v zaupljivih omrežjih: `StrictHostKeyChecking=no`, `ForwardAgent=yes`
 
-- Premislite o [`mosh`](https://mosh.mit.edu/) kot alternativi za ssh, ki uporablja UDP, da se izognete padlim povezavam in dodate priročnost, ko ste na poti (zahteva nastavitev strežniške strani).
+- Premislite o [`mosh`](https://mosh.org/) kot alternativi za ssh, ki uporablja UDP, da se izognete padlim povezavam in dodate priročnost, ko ste na poti (zahteva nastavitev strežniške strani).
 
 - Da dobite pravice na datoteki v osmiškem zapisu, ki je uporaben za nastavitve sistema vendar ni na voljo pri `ls` in enostaven za mešanje, uporabite nekaj takega kot je
 ```sh
