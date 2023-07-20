@@ -282,7 +282,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Also for binary files, `strings` (plus `grep`, etc.) lets you find bits of text.
 
-- For binary diffs (delta compression), use `xdelta3`.
+- For binary diffs (delta compression), use `xdelta3`, or `bsdiff`; the latter takes more time to compute the deltas, but creates dramatically smaller ones.
 
 - To convert text encodings, try `iconv`. Or `uconv` for more advanced use; it supports some advanced Unicode things. For example:
 ```sh
