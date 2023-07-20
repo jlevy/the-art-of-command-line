@@ -580,6 +580,7 @@ These items are relevant *only* on Windows.
 - If you mainly want to use GNU developer tools (such as GCC) on Windows, consider [MinGW](http://www.mingw.org/) and its [MSYS](http://www.mingw.org/wiki/msys) package, which provides utilities such as bash, gawk, make and grep. MSYS doesn't have all the features compared to Cygwin. MinGW is particularly useful for creating native Windows ports of Unix tools.
 
 - Another option to get Unix look and feel under Windows is [Cash](https://github.com/dthree/cash). Note that only very few Unix commands and command-line options are available in this environment.
+- If you use a package manager like `apt` or `yum`, you can consider using [scoop](https://scoop.sh/) as Windows command-line installer, which can help you get familiar Unix tools like gcc and grep. [Diff from Cygwin and MSYS](https://github.com/ScoopInstaller/Scoop/wiki/Cygwin-and-MSYS-Comparison).
 
 ### Useful Windows command-line tools
 
@@ -588,6 +589,8 @@ These items are relevant *only* on Windows.
 - Native command-line Windows networking tools you may find useful include `ping`, `ipconfig`, `tracert`, and `netstat`.
 
 - You can perform [many useful Windows tasks](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) by invoking the `Rundll32` command.
+
+- You can install applications in PowerShell using `scoop`(for unix tools) and [`winget`](https://docs.microsoft.com/en-us/windows/package-manager/winget/)(for MS Store and other cases, stable now).
 
 ### Cygwin tips and tricks
 
