@@ -4,10 +4,7 @@
 
 # Umetnost ukazne vrstice
 
-[![Vprašajte](https://img.shields.io/badge/%3f-Ask%20a%20Question-ff69b4.svg)](https://airtable.com/shrzMhx00YiIVAWJg)
-
-[![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
+*Opomba: Ta dokument je v planu za pregled in išče se novi soavtor, da pomaga pri razširitvi v celovitejši vodič. Medtem ko je ta vsebina zelo popolarna, bi lahko bila širša in globlja. Če radi pišete in ste poznavalec te teme ter pripravljeni pomagati, pustite sporočilo na josh (0x40) holloway.com –[jlevy](https://github.com/jlevy), [Holloway](https://www.holloway.com). Hvala!*
 
 - [Meta](#meta)
 - [Osnove](#osnove)
@@ -38,7 +35,7 @@ vendar se je premaknilo na GitHub, kjer so ljudje bolj talentirani od prvotnega 
 
 Obseg:
 
-- Ta vodič je tako za začetnike kot za poznavalce. Cilji so *širina* (vse pomembno), *specifičnost* (podaja konkretne primere najpogostejših primerov uporabe) in *kratkost* (izogiba se stvarem, ki niso bistvene ali se odmikajo, kar lahko enostavno pogledate drugje). Vsak nasvet je bistven v določeni situaciji ali bistveno prihrani čas pred alternativami.
+- Ta vodič je tako za začetnike kot tudi za bolj izkušene uporabnike. Cilji so *širina* (vse pomembno), *specifičnost* (podaja konkretne primere najpogostejših primerov uporabe) in *kratkost* (izogiba se stvarem, ki niso bistvene ali se odmikajo, kar lahko enostavno pogledate drugje). Vsak nasvet je bistven v določeni situaciji ali bistveno prihrani čas pred alternativami.
 - To je napisano za Linux z izjemo sekcij "[Samo za macOS](#samo-za-macos)" in "[Samo za Windows](#samo-za-windows)". Mnogi ostali elementi veljajo ali pa so lahko nameščeni na drugih Unix-ih ali macOS (ali celo Cygwin).
 - Poudarek je na interaktivnosti Bash-a, čeprav mnogo nasvetov velja za ostale lupine in splošno skriptanje Bash-a.
 - Vključuje tako "standardne" ukaze Unix-a kot tudi tiste, ki zahtevajo namestitev posebnih paketov -- dokler so dovolj pomembni, da zaslužijo vključitev.
@@ -55,7 +52,10 @@ Opombe:
 
 - Dobro se naučite vsaj enega izmed tekstovnih urejevalnikov. Urejevalnik `nano` je eden izmed najenostavnejših za osnovno urejanje (odpiranje, urejanje, shranjevanje, iskanje). Vendar za bolj vešče uporabnike v tekstovnem terminalu, ni zamenjave za Vim (`vi`), težko priučljiv vendar častljiv, hiter urejevalnik poln možnosti. Mnogi uporabljajo tudi klasični Emacs, še posebej za večja opravila urejanja. (Seveda, katerikoli moderni razvijalec, ki dela na razširljivem projektu, ne bo uporabljal samo čisto tekstovnega urejevalnika in bi moral biti seznanjen tudi z modernimi IDE in orodji z grafičnimi vmesniki.)
 
-- Spoznajte, kako brati dokumentacijo z `man` (za radovedne, `man man` izpiše številke sekcij, npr. 1 so "splošni" ukazi, 5 so datoteke/konvencije in 8 je za administracijo). Najdite strani man z `apropos`. Vedite, da nekateri ukazi niso izvršljivi, vendar vgrajeni v Bash in pomoč zanje lahko dobite s `help` in `help -d`. Z uporabo `type command` lahko izvedete, ali je ukaz izvršljiv, vgrajen v lupino ali pa je alias.
+- Iskanje dokumentacije:
+  - Naučite se brati dokumentacijo z `man` (za radovedne, `man man` izpiše številke sekcij, npr. 1 so "splošni" ukazi, 5 so datoteke/konvencije in 8 je za administracijo). Najdite strani man z `apropos`.
+  - Vedite, da nekateri ukazi niso izvršljivi, vendar vgrajeni v Bash in pomoč zanje lahko dobite s `help` in `help -d`. Z uporabo `type command` lahko izvedete, ali je ukaz izvršljiv, vgrajen v lupino ali pa je alias.
+  - `curl cheat.sh/command` bo podal kratek "plonk listek" s pogostimi primeri uporabe, kako uporabiti določen ukaz lupine.
 
 - Naučite se o preusmeritvi izpisa in vnosa z uporabo `>` in `<` ter uporabo cevi `|`. Vedite, da `>` prepiše izpis datoteke in `>>` ga pripne. Naučite se o stdout in stderr.
 
@@ -73,7 +73,7 @@ Opombe:
 
 - Poznajte tudi splošne izraze in različne zastavice za `grep`/`egrep`. Opcije `-i`, `-o`, `-v`, `-A`, `-B` in `-C` so vredne poznavanja.
 
-- Naučite se uporabljati `apt-get`, `yum`, `dnf` ali `pacman` (odvisno od distribucije), da najdete in namestite pakete. In zagotovite, da imate `pip`, da lahko nameščate orodja ukazne vrstice na osnovi Python-a (nekaj spodnjih je najenostavneje namestiti preko `pip`).
+- Naučite se uporabljati `apt`, `yum`, `dnf` ali `pacman` (odvisno od distribucije), da najdete in namestite pakete. In zagotovite, da imate `pip`, da lahko nameščate orodja ukazne vrstice na osnovi Python-a (nekaj spodnjih je najenostavneje namestiti preko `pip`).
 
 
 ## Vsakodnevna uporaba
@@ -125,7 +125,7 @@ Opombe:
 
 - Razumite, da je potrebna skrb, ko spremenljivke in imena datotek vsebujejo prazne znake. Obdajte vaše spremenljivke Bash s citati, npr. `"$FOO"`. Raje cenite opciji `-0` ali `-print0`, da omogočite razmejevanje imen datotek z ničelnimi znaki, npr. `locate -0 pattern | xargs -0 ls -al` ali `find / -print0 -type d | xargs -0 ls -al`. Za iteracijo v for zanki na imenih datotek, ki vsebujejo prazne znake, nastavite da vaš IFS za nove vrstice uporablja samo `IFS=$'\n'`.
 
-- V skriptah Bash uporabite `set -x` (ali varianto `set -v`, ki beleži dnevnik surovega izpisa, vključno z nerazširjenimi spremenljivkami in komentarji) za razhroščevanje izpisa. Uporabite striktni način razen, če imate dober razlog, da ga ne: Uporabite `set -e`, da preskočite napake (neničelna koda izhoda). Uporabite `set -u`, da zaznate uporabo nenastavljenih spremenljivk. Premislite tudi o `set -o pipefail`, da na napakah znotraj pip, (vendar preberite o tem več, če boste to uporabili, saj je ta tema nekoliko subtilna). Za bolj vključene skripte, uporabite tudi `trap` pri EXIT ali ERR. Uporabna navada je tako začeti skripto, kar bo naredilo, da lahko zazna ali prekliče na pogostih napakah in izpiše sporočilo:
+- V skriptah Bash uporabite `set -x` (ali varianto `set -v`, ki beleži dnevnik surovega izpisa, vključno z nerazširjenimi spremenljivkami in komentarji) za razhroščevanje izpisa. Uporabite striktni način razen, če imate dober razlog, da ga ne: Uporabite `set -e`, da preskočite napake (neničelna koda izhoda). Uporabite `set -u`, da zaznate uporabo nenastavljenih spremenljivk. Premislite tudi o `set -o pipefail`, da znotraj pip prekinite na napakah, (vendar preberite o tem več, če boste to uporabili, saj je ta tema nekoliko subtilna). Za bolj vključene skripte, uporabite tudi `trap` pri EXIT ali ERR. Uporabna navada je tako začeti skripto, kar bo naredilo, da lahko zazna ali prekliče na pogostih napakah in izpiše sporočilo:
 ```bash
       set -euo pipefail
       trap "echo 'error: Script failed: see failed command above'" ERR
@@ -220,7 +220,7 @@ EOF
 
 - Da pretvorite HTML v tekst: `lynx -dump -stdin`
 
-- Za Markdown, HTML in vse vrste pretvorb dokumentov poskusite [`pandoc`](http://pandoc.org/).
+- Za Markdown, HTML in vse vrste pretvorb dokumentov poskusite [`pandoc`](http://pandoc.org/). Na primer, za pretvorbo dokumenta Markdown v format Word: `pandoc README.md --from markdown --to docx -o temp.docx`
 
 - Če morate upravljati z XML, je `xmlstarlet` star vendar dober.
 
@@ -362,6 +362,11 @@ Nekaj primerov sestavljanja ukazov skupaj:
       sort a b | uniq > c   # c is a union b
       sort a b | uniq -d > c   # c is a intersect b
       sort a b b | uniq -u > c   # c is set difference a - b
+```
+
+-  Ličen izpis dveh datotek JSON, normalizacija njenih sintaks in nato obarvanje in paginacija rezultata:
+```
+      diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
 ```
 
 - Uporabite `grep . *`, da hitro preučite vsebine vseh datotek v direktoriju (vsaka vrstica ima par z imenom datoteke) ali `head -100 *` (da iima vsaka datoteka glavo). To je lahko uporabno za direktorije napolnjene s konfiguracijskimi nastavitvami, kot so tiste v `/sys`, `/proc`, `/etc`.
