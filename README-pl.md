@@ -168,7 +168,7 @@ EOF
 
 - Używaj `man ascii`, aby uzyskać dobrą tabelę kodów ASCII, zawierającą wartości szesnastkowe i dziesiętne. Do uzyskania ogólnych informacji o kodowaniu znaków, pomocne są polecenia `man unicode`, `man utf-8` i `man latin1`.
 
-- Używaj polecenia `screen` lub [`tmux`](https://tmux.github.io/) do zwielokrotnienia ekranu, szczególnie przydatnego w sesjach ssh do maszyn zdalnych, aby odłączać się i ponownie podłączać do sesji. `byobu` rozszerza możliwości screena lub tmuxa dostarczając więcej informacji i ułatwiając zarządzanie. Minimalistyczną alternatywą jedynie do celów utrzymania ciągłości sesji jest [`dtach`](https://github.com/bogner/dtach).
+- Używaj polecenia `screen` lub [`tmux`](https://tmux.github.io/) do zwielokrotnienia ekranu, szczególnie przydatnego w sesjach ssh do maszyn zdalnych, aby odłączać się i ponownie podłączać do sesji. `byobu` rozszerza możliwości screena lub tmuxa dostarczając więcej informacji i ułatwiając zarządzanie. Minimalistyczną alternatywą jedynie do celów utrzymania ciągłości sesji jest [`dtach`](https://github.com/crigler/dtach).
 
 - W używaniu ssh, wiedza na temat tunelowania portów z użyciem `-L` lub `-D` (i czasami `-R`) jest przydatna, np. do przeglądania stron w sieci z maszyny zdalnej.
 

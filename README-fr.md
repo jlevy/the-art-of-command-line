@@ -235,7 +235,7 @@ Pour des informations générales sur l'encodage, `man unicode`, `man utf-8` et 
 
 - Utilisez `screen` ou [`tmux`](https://tmux.github.io/) pour multiplexer une fenêtre de terminal, particulièrement utile pour des sessions SSH distantes, et pour détacher et rattacher une session.
 `byobu` peut améliorer screen ou tmux en fournissant plus d'informations et une gestion plus facile.
-Une alternative plus légère pour la persistance des sessions seulement est [`dtach`](https://github.com/bogner/dtach/).
+Une alternative plus légère pour la persistance des sessions seulement est [`dtach`](https://github.com/crigler/dtach/).
 
 - Il est utile de savoir comment créer un tunnel SSH avec `-L` ou `-D` (et occasionnellement `-R`), par exemple pour accéder à des sites web à partir d'un serveur distant.
 
