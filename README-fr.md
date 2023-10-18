@@ -145,7 +145,7 @@ Pour la liste complète, consultez `man 7 signal`.
 
 - Utilisez `nohup` ou `disown` pour qu'un processus en arrière-plan reste actif indéfiniment.
 
-- Vérifiez quels sont les processus qui écoutent à l'aide de `netstat -lntp`, `ss -plat` (pour TCP; ajoutez `-u` pour UDP) ou `lsof -iTCP -sTCP:LISTEN -P -n` (qui fonctionne aussi sur macOS). 
+- Vérifiez quels sont les processus qui écoutent à l'aide de `netstat -lntp`, `ss -plat` (pour TCP; ajoutez `-u` pour UDP) ou `lsof -iTCP -sTCP:LISTEN -P -n` (qui fonctionne aussi sur macOS).
 
 - Voyez également `lsof` et `fuser` pour la liste des *sockets* et fichiers ouverts.
 
@@ -200,7 +200,7 @@ Par exemple, si `var=foo.pdf`, alors `echo ${var%.pdf}.txt` affiche `foo.txt`.
 C'est utile dans des exemples comme  `mv foo.{txt,pdf} some-dir` (qui déplace les deux fichiers), `cp somefile{,.bak}` (équivalent à `cp somefile somefile.bak`) ou `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (qui engendre toutes les combinaisons possibles et crée une arborescence de répertoires).
 L'expansion des accolades est effectuée avant toutes les autres expansions.
 
-- Les expansions sont exécutées dans l'ordre suivant&nbsp;: expansion des accolades, développement du tilde, remplacement des paramètres et des variables, évaluation arithmétique, substitution de commande (de la gauche vers la droite), découpage en mots, puis développement des chemins. 
+- Les expansions sont exécutées dans l'ordre suivant&nbsp;: expansion des accolades, développement du tilde, remplacement des paramètres et des variables, évaluation arithmétique, substitution de commande (de la gauche vers la droite), découpage en mots, puis développement des chemins.
 Par exemple, une liste telle que `{1..20}` ne peut s'exprimer avec des variables en utilisant `{$a..$b}`.
 À la place, utilisez `seq` ou une boucle `for`&nbsp;; par exemple, `seq $a $b` ou `for((i=a; i<=b; i++)); do ...; done`.
 
@@ -385,11 +385,11 @@ Utilisez `vimdiff` pour comparer et éditer des fichiers.
 - Pour changer l'encodage d'un texte, essayer `iconv`, ou `uconv` pour un usage plus avancée&nbsp;: il permet quelques trucs avancés avec l'Unicode.
 Par exemple&nbsp;:
 ```sh
-      # Affiche les codes hexadécimaux et les noms des caractères (utile pour déboguer) : 
+      # Affiche les codes hexadécimaux et les noms des caractères (utile pour déboguer) :
       uconv -f utf-8 -t utf-8 -x '::Any-Hex;' < input.txt
       uconv -f utf-8 -t utf-8 -x '::Any-Name;' < input.txt
       # Convertit en minuscule et supprime les accents :
-      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; 
+      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >;
       ::Any-NFC;' < input.txt > output.txt
 ```
 
@@ -583,7 +583,7 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 
 - `watch` : exécute une commande périodiquement, affiche le résultat et surligne les différences entre les résultats.
 
-- [`when-changed`](https://github.com/joh/when-changed) : exécute n'importe quelle commande donnée à chaque fois qu'un fichier est modifié. Voir également `inotifywait` et `entr`. 
+- [`when-changed`](https://github.com/joh/when-changed) : exécute n'importe quelle commande donnée à chaque fois qu'un fichier est modifié. Voir également `inotifywait` et `entr`.
 
 - `tac` : affiche des fichiers à l'envers.
 
@@ -612,8 +612,6 @@ Si vous voulez un décompte du nombre de requêtes pour chaque valeur de `acct_i
 - `ab` ou [`wrk`](https://github.com/wg/wrk) : mesure les performances de serveurs web.
 
 - `strace`: trace les appels système.
-
-- [`mtr`](http://www.bitwizard.nl/mtr/): un traceroute amélioré pour débugguer un réseau.
 
 - `cssh` : visual concurrent shell
 

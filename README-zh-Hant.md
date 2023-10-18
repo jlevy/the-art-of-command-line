@@ -426,8 +426,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `strace`：系統呼叫偵錯
 
-- [`mtr`](http://www.bitwizard.nl/mtr/)：更好的網路偵錯跟蹤工具
-
 - `cssh`：視覺化的並發 shell
 
 - `rsync`：通過ssh 或本地檔案系統同步檔案和資料夾
