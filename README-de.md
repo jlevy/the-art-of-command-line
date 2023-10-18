@@ -105,6 +105,8 @@ Hinweise:
 
 - Verwende `pgrep` und `pkill`, um Prozesse anhand eines Namens zu finden oder festzustellen (`-f` ist hilfreich).
 
+- Wenn du eine große Datenmenge durchsuchen musst, versuche [`ripgrep`](https://github.com/BurntSushi/ripgrep) anstatt des normalen GNU grep. Es entspricht zwar nicht der POSIX-Spezifikation, ist in den meisten Fällen aber viel, viel schneller.
+
 - Kenne die verschiedenen Signale, welche du Prozessen senden kannst. Um einen Prozess etwa zu unterbrechen, verwende `kill -STOP [pid]`. Für die vollständige Liste, siehe `man 7 signal`
 
 - Verwende `nohup` oder `disown`, wenn du einen Hintergrundprozess für immer laufen lassen willst.
