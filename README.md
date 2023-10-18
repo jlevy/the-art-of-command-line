@@ -210,6 +210,16 @@ EOF
 >>> 2+3
 5
 ```
+Another approach is to use bc, in case you have no python installed in your system.
+```
+echo "2+3"|bc
+5
+```
+Specify scale for accuracy control purpse.
+```
+echo "scale=4;9/7"|bc
+1.2857
+```
 
 
 ## Processing files and data
