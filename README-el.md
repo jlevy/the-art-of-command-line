@@ -544,7 +544,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Μπορείτε να εκτελέσετε και να γράψετε scripts για τις περισσότερες εργασίες διαχείρισης συστήματος των Windows από τη γραμμή εντολών μαθαίνοντας και χρησιμοποιώντας την `wmic`.
 
-- Χρήσιμα εγγενή εργαλεία της γραμμής εντολών των Windows για διαχείριση και αποσφαλμάτωση του δικτύου είναι τα `ping`,` ipconfig`, `traceroute` και `netstat`.
+- Χρήσιμα εγγενή εργαλεία της γραμμής εντολών των Windows για διαχείριση και αποσφαλμάτωση του δικτύου είναι τα `ping`,` ipconfig`, `traceroute`, `netstat`  και `curl`.
 
 - Πολλές [χρήσιμες λειτουργίες των Windows] (http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) μπορούν να εκτελεστούν μέσω της εντολής `Rundll32`.
 

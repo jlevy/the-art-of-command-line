@@ -9,17 +9,22 @@
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-- [Meta](#meta)
-- [Osnove](#osnove)
-- [Vsakodnevna uporaba](#vsakodnevna-uporaba)
-- [Procesiranje datotek in podatkov](#procesiranje-datotek-in-podatkov)
-- [Sistemsko razhroščevanje](#sistemsko-razhroščevanje)
-- [V eni vrstici](#v-eni-vrstici)
-- [Nepregledno vendar uporabno](#nepregledno-vendar-uporabno)
-- [Samo za macOS](#samo-za-macos)
-- [Samo za Windows](#samo-za-windows)
-- [Več virov](#več-virov)
-- [Pogoji uporabe](#pogoji-uporabe)
+- [Umetnost ukazne vrstice](#umetnost-ukazne-vrstice)
+  - [Meta](#meta)
+  - [Osnove](#osnove)
+  - [Vsakodnevna uporaba](#vsakodnevna-uporaba)
+  - [Procesiranje datotek in podatkov](#procesiranje-datotek-in-podatkov)
+  - [Sistemsko razhroščevanje](#sistemsko-razhro%C5%A1%C4%8Devanje)
+  - [V eni vrstici](#v-eni-vrstici)
+  - [Nepregledno vendar uporabno](#nepregledno-vendar-uporabno)
+  - [Samo za macOS](#samo-za-macos)
+  - [Samo za Windows](#samo-za-windows)
+    - [Načini pridobitve Unix orodij na Windows](#na%C4%8Dini-pridobitve-unix-orodij-na-windows)
+    - [Uporabna Windows orodja ukazne vrstice](#uporabna-windows-orodja-ukazne-vrstice)
+    - [Cygwin nasveti in triki](#cygwin-nasveti-in-triki)
+  - [Več virov](#ve%C4%8D-virov)
+  - [Pogoji uporabe](#pogoji-uporabe)
+  - [Licenca](#licenca)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -580,7 +585,7 @@ Sledeče velja *samo* za Windows.
 
 - Izvajate in kodirate lahko večino sistemskih opravil Windows iz ukazne vrstice, če se naučite uporabljati `wmic`.
 
-- Izvorna mrežna orodja ukazne vrstice Windows, ki jih morda najdete uporabne, vključujejo `ping`, `ipconfig`, `tracert` in `netstat`.
+- Izvorna mrežna orodja ukazne vrstice Windows, ki jih morda najdete uporabne, vključujejo `ping`, `ipconfig`, `tracert`, `netstat` in `curl`.
 
 - Izvajate lahko [mnoga upporabna opravila Windows](http://www.thewindowsclub.com/rundll32-shortcut-commands-windows) s klicem ukaza `Rundll32`.
 
