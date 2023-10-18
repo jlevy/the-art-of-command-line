@@ -138,7 +138,7 @@
       # continue in original dir
 ```
 
-- Bash 에는 다양한 변수 확장이 있다는 것을 알아두세요. 변수가 존재하는지 확인하려면 `${name:?error message}`를 사용하세요. 예를 들어 Bash 스크립트가 하나의 argument를 요구한다면, `input_file=${1:?usage: $0 input_file}`를 사용하세요. 변수가 비어있을 때를 대비해 기본 값을 사용하세요. `${name:-default}` 이전 예제에 선택적인 파라미터를 추가하길 원한다면 `output_file=${2:-logfile}`로 할 수 있습니다. $2가 생략되어 비어있다면, `output_file`은 `logfile`로 설정됩니다. 산술 확장은 `i=$(( (i + 1) % 5 ))` 처럼 사용합니다. 순열은 `{1...10}`처럼 사용합니다. 문자열 트리밍(trimmin)은 `${var%suffix}`이나 `${var#prefix}`처럼 사용할 수 있습니다. 예를 들어 `var=foo.pdf`라면, `echo ${var$.pdf}.txt`는 `foo.txt`를 출력합니다.
+- Bash 에는 다양한 변수 확장이 있다는 것을 알아두세요. 변수가 존재하는지 확인하려면 `${name:?error message}`를 사용하세요. 예를 들어 Bash 스크립트가 하나의 argument를 요구한다면, `input_file=${1:?usage: $0 input_file}`를 사용하세요. 변수가 비어있을 때를 대비해 기본 값을 사용하세요. `${name:-default}` 이전 예제에 선택적인 파라미터를 추가하길 원한다면 `output_file=${2:-logfile}`로 할 수 있습니다. $2가 생략되어 비어있다면, `output_file`은 `logfile`로 설정됩니다. 산술 확장은 `i=$(( (i + 1) % 5 ))` 처럼 사용합니다. 순열은 `{1...10}`처럼 사용합니다. 문자열 트리밍(trimmin)은 `${var%suffix}`이나 `${var#prefix}`처럼 사용할 수 있습니다. 예를 들어 `var=foo.pdf`라면, `echo ${var%.pdf}.txt`는 `foo.txt`를 출력합니다.
 
 - `{`...`}`를 사용한 괄호 확장은 비슷한 텍스트의 재입력을 줄이고, 아이템의 조합을 자동화할 수 있습니다. `mv foo.{txt,pdf} some-dir` (양쪽 파일들을 옮김), `cp somefile{,.bak}` (`cp somefile somefile.bak`로 확장), `mkdir -p test-{a,b,c}/subtest-{1,2,3}` (모든 가능한 조합으로 확장해 디렉터리 트리를 생성) 같은 예제들은 유용합니다.
 
