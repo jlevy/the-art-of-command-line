@@ -54,6 +54,7 @@ Notes:
 
 - Finding documentation:
   - Know how to read official documentation with `man` (for the inquisitive, `man man` lists the section numbers, e.g. 1 is "regular" commands, 5 is files/conventions, and 8 are for administration). Find man pages with `apropos`.
+  - Know that some commands have `info` pages. These info pages are sometimes more in depth than the `man` pages. They can be viewed with `info command`.
   - Know that some commands are not executables, but Bash builtins, and that you can get help on them with `help` and `help -d`. You can find out whether a command is an executable, shell builtin or an alias by using `type command`.
   - `curl cheat.sh/command` will give a brief "cheat sheet" with common examples of how to use a shell command.
 
