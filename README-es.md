@@ -11,9 +11,9 @@
 - [Procesamiento archivos y datos](#procesamiento-de-archivos-y-datos)
 - [Depuración del sistema](#depuración-del-sistema)
 - [One-liners](#one-liners)
-- [Obscuro pero útil](#osbcuro-pero-útil)
+- [Confuso pero útil](#confuso-pero-útil)
 - [Solo para OS X](#solo-para-os-x)
-- [Solo para Windows](#solo-windows)
+- [Solo para Windows](#solo-para-windows)
 - [Más recursos](#más-recursos)
 - [Advertencia](#advertencia)
 
@@ -337,7 +337,7 @@ Algunos ejemplos de comandos reunidos:
 ```
 
 
-## Obscuro, pero útil
+## Confuso, pero útil
 
 - `expr`: ejecuta operaciones aritméticas o booleanas o evalúa expresiones regulares
 
