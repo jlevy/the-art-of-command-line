@@ -296,9 +296,9 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 當你需要對文字檔案做集合交、並、差運算時，結合使用`sort`/`uniq` 很有幫助。假設 `a` 與 `b` 是兩內容不同的檔案。這種方式效率很高，並且在小檔案和上G的檔案上都能運用（`sort` 不被記憶體大小約束，儘管在`/tmp` 在一個小的根分區上時你可能需要`-T ` 參數），參閱前文中關於`LC_ALL` 和`sort` 的`-u` 參數的部分。
 ```sh
-      cat a b | sort | uniq > c # c is a union b
-      cat ab | sort | uniq -d > c # c is a intersect b
-      cat abb | sort | uniq -u > c # c is set difference a - b
+      sort a b | uniq > c # c is a union b
+      sort a b | uniq -d > c # c is a intersect b
+      sort a b b | uniq -u > c # c is set difference a - b
 ```
 
 - 使用`grep . *`（每行都會附上檔名）或者`head -100 *`（每個檔案有一個標題）來閱讀檢查目錄下所有檔案的內容。這在檢查一個充滿配置檔案的目錄（如`/sys`、`/proc`、`/etc`）時特別好用。
