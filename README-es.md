@@ -81,7 +81,7 @@ Notas:
 
 - Alternativamente, si amas los atajos de teclado vi-style, usa `set -o vi`. (y `set -o emacs` para regresar a la anterior).
 
-- Para editar largos comandos, después de configurar to editor (por ejemplo `export EDITOR=vim`), **ctrl-x** **ctrl-e** se abrirá el comando actual en un editor para editar multiples líneas. O en estilo vi, **escape-v**.
+- Para editar largos comandos, después de configurar tu editor (por ejemplo `export EDITOR=vim`), **ctrl-x** **ctrl-e** se abrirá el comando actual en un editor para editar multiples líneas. O en estilo vi, **escape-v**.
 
 - Para ver los últimos comandos, `history`. También existen abreviaciones, tales como, `!$` (último argumento) y `!!` último comando, aunque son fácilmente remplazados con **ctrl-r** y **alt-.**.
 
