@@ -334,7 +334,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 查看你当前使用的系统，使用 `uname`，`uname -a`（Unix／kernel 信息）或者 `lsb_release -a`（Linux 发行版信息）。
 
-- 无论什么东西工作得很欢乐（可能是硬件或驱动问题）时可以试试 `dmesg`。
+- 当某些事情出现异常（可能是硬件或驱动程序问题）时，请使用`dmesg`命令。
 
 - 如果你删除了一个文件，但通过 `du` 发现没有释放预期的磁盘空间，请检查文件是否被进程占用：
 `lsof | grep deleted | grep "filename-of-my-big-file"`
