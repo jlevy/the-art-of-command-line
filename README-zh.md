@@ -6,17 +6,22 @@
 
 [![Join the chat at https://gitter.im/jlevy/the-art-of-command-line](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/jlevy/the-art-of-command-line?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-- [前言](#前言)
-- [基础](#基础)
-- [日常使用](#日常使用)
-- [文件及数据处理](#文件及数据处理)
-- [系统调试](#系统调试)
-- [单行脚本](#单行脚本)
-- [冷门但有用](#冷门但有用)
-- [仅限 OS X 系统](#仅限-os-x-系统)
-- [仅限 Windows 系统](#仅限-windows-系统)
-- [更多资源](#更多资源)
-- [免责声明](#免责声明)
+- [命令行的艺术](#命令行的艺术)
+  - [前言](#前言)
+  - [基础](#基础)
+  - [日常使用](#日常使用)
+  - [文件及数据处理](#文件及数据处理)
+  - [系统调试](#系统调试)
+  - [单行脚本](#单行脚本)
+  - [冷门但有用](#冷门但有用)
+  - [仅限 OS X 系统](#仅限-os-x-系统)
+  - [仅限 Windows 系统](#仅限-windows-系统)
+    - [在 Windows 下获取 Unix 工具](#在-windows-下获取-unix-工具)
+    - [实用 Windows 命令行工具](#实用-windows-命令行工具)
+    - [Cygwin 技巧](#cygwin-技巧)
+  - [更多资源](#更多资源)
+  - [免责声明](#免责声明)
+  - [授权条款](#授权条款)
 
 
 ![curl -s 'https://raw.githubusercontent.com/jlevy/the-art-of-command-line/master/README.md' | egrep -o '`\w+`' | tr -d '`' | cowsay -W50](cowsay.png)
@@ -29,6 +34,7 @@
 [出现](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 于 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，
 但已经迁移到了 GitHub，并由众多高手做出了许多改进。
+如果您有与命令行相关的问题，请[**提交问题**](https://airtable.com/shrzMhx00YiIVAWJg)。
 如果你在本文中发现了错误或者存在可以改善的地方，请[**贡献你的一份力量**](/CONTRIBUTING.md)。
 
 ## 前言
@@ -153,7 +159,13 @@
 }
 ```
 
-- 了解 Bash 中的“here documents”，例如 `cat <<EOF ...`。
+- 了解 Bash 中的“here documents”，它允许将[多行输入重定向](https://www.tldp.org/LDP/abs/html/here-docs.html)，就好像这些输入是来自文件一样。
+```
+cat <<EOF
+input
+on multiple lines
+EOF
+```
 
 - 在 Bash 中，同时重定向标准输出和标准错误：`some-command >logfile 2>&1` 或者 `some-command &>logfile`。通常，为了保证命令不会在标准输入里残留一个未关闭的文件句柄捆绑在你当前所在的终端上，在命令后添加 `</dev/null` 是一个好习惯。
 
@@ -163,7 +175,7 @@
 
 - ssh 中，了解如何使用 `-L` 或 `-D`（偶尔需要用 `-R`）开启隧道是非常有用的，比如当你需要从一台远程服务器上访问 web 页面。
 
-- 对 ssh 设置做一些小优化可能是很有用的，例如这个 `~/.ssh/config` 文件包含了防止特定网络环境下连接断开、压缩数据、多通道等选项：
+- 对 ssh 设置做一些小优化可能是很有用的，例如这个 `~/.ssh/config` 文件包含了防止特定网络环境下连接断开、使用压缩（对于使用 scp 在低带宽连接上传输文件很有帮助），以及在本地控制文件中多路复用通道到同一服务器：
 ```
       TCPKeepAlive=yes
       ServerAliveInterval=15
@@ -207,7 +219,7 @@
 
 - 在当前目录下通过文件名查找一个文件，使用类似于这样的命令：`find . -iname '*something*'`。在所有路径下通过文件名查找文件，使用 `locate something` （但注意到 `updatedb` 可能没有对最近新建的文件建立索引，所以你可能无法定位到这些未被索引的文件）。
 
-- 使用 [`ag`](https://github.com/ggreer/the_silver_searcher) 在源代码或数据文件里检索（`grep -r` 同样可以做到，但相比之下 `ag` 更加先进）。
+- 在搜索源代码或数据文件时，有几种比 `grep -r` 更先进或更快速的选择，这些选择包括（按照从老到新的大致顺序）[`ack`](https://github.com/beyondgrep/ack2)、[`ag`](https://github.com/ggreer/the_silver_searcher)（the silver searcher）和 [`rg`](https://github.com/BurntSushi/ripgrep)（ripgrep）。
 
 - 将 HTML 转为文本：`lynx -dump -stdin`。
 
@@ -215,7 +227,7 @@
 
 - 当你要处理棘手的 XML 时候，`xmlstarlet` 算是上古时代流传下来的神器。
 
-- 使用 [`jq`](http://stedolan.github.io/jq/) 处理 JSON。
+- 使用 [`jq`](http://stedolan.github.io/jq/) 处理 JSON。对于需要交互式处理的场景，可以参考 [`jid`](https://github.com/simeji/jid) 和 [`jiq`](https://github.com/fiatjaf/jiq)。
 
 - 使用 [`shyaml`](https://github.com/0k/shyaml) 处理 YAML。
 
@@ -259,7 +271,7 @@
 mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 ```
 
-- 若要在复制文件时获取当前进度，可使用 `pv`，[`pycp`](https://github.com/dmerejkowsky/pycp)，[`progress`](https://github.com/Xfennec/progress)，`rsync --progress`。若所执行的复制为block块拷贝，可以使用 `dd status=progress`。
+- 若要在处理文件时获取当前进度，可使用 [`pv`](http://www.ivarch.com/programs/pv.shtml)，[`pycp`](https://github.com/dmerejkowsky/pycp)，[`pmonitor`](https://github.com/dspinellis/pmonitor)，[`progress`](https://github.com/Xfennec/progress)，`rsync --progress`。或者，若要进行块级别（block-level）的复制，可以使用 `dd status=progress`。
 
 - 使用 `shuf` 可以以行为单位来打乱文件的内容或从一个文件中随机选取多行。
 
@@ -275,14 +287,18 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 制作二进制差分文件（Delta 压缩），使用 `xdelta3`。
 
-- 使用 `iconv` 更改文本编码。需要更高级的功能，可以使用 `uconv`，它支持一些高级的 Unicode 功能。例如，这条命令移除了所有重音符号：
+- 使用 `iconv` 更改文本编码。需要更高级的功能，可以使用 `uconv`，它支持一些高级的 Unicode 功能。例如：
 ```sh
-      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC; ' < input.txt > output.txt
+      # 显示字符的十六进制编码或者实际的字符名称（在调试过程中非常有用）：
+      uconv -f utf-8 -t utf-8 -x '::Any-Hex;' < input.txt
+      uconv -f utf-8 -t utf-8 -x '::Any-Name;' < input.txt
+      # 将字符转换为小写并去除所有重音符号（通过将重音符号展开成普通字符然后删除）：
+      uconv -f utf-8 -t utf-8 -x '::Any-Lower; ::Any-NFD; [:Nonspacing Mark:] >; ::Any-NFC;' < input.txt > output.txt
 ```
 
 - 拆分文件可以使用 `split`（按大小拆分）和 `csplit`（按模式拆分）。
 
-- 操作日期和时间表达式，可以用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`、`datediff`、`strptime` 等工具。
+- 日期和时间：要以 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 格式获取当前日期和时间，可以使用 `date -u +"%Y-%m-%dT%H:%M:%SZ"`（其他选项 [存在](https://stackoverflow.com/questions/7216358/date-command-on-os-x-doesnt-have-iso-8601-i-option) [问题](https://unix.stackexchange.com/questions/164826/date-command-iso-8601-option)）。操作日期和时间表达式，可以用 [`dateutils`](http://www.fresse.org/dateutils/) 中的 `dateadd`、`datediff`、`strptime` 等工具。
 
 - 使用 `zless`、`zmore`、`zcat` 和 `zgrep` 对压缩过的文件进行操作。
 
@@ -320,7 +336,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - [`wireshark`](https://wireshark.org/)，[`tshark`](https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html) 和 [`ngrep`](http://ngrep.sourceforge.net/) 可用于复杂的网络调试。
 
-- 了解 `strace` 和 `ltrace`。这俩工具在你的程序运行失败、挂起甚至崩溃，而你却不知道为什么或你想对性能有个总体的认识的时候是非常有用的。注意 profile 参数（`-c`）和附加到一个运行的进程参数 （`-p`）。
+- 了解 `strace` 和 `ltrace`。如果程序出现失败、挂起、崩溃，而你不知道原因，或者想要了解性能的大致情况，它们可能会有帮助。请注意性能分析参数（`-c`）以及附加到正在运行的进程的参数（`-p`）。可以使用追踪子进程参数（`-f`）来避免丢失重要的调用。
 
 - 了解使用 `ldd` 来检查共享库。但是[永远不要在不信任的文件上运行](http://www.catonmat.net/blog/ldd-arbitrary-code-execution/)。
 
@@ -349,6 +365,11 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
       sort a b | uniq > c   # c 是 a 并 b
       sort a b | uniq -d > c   # c 是 a 交 b
       sort a b b | uniq -u > c   # c 是 a - b
+```
+
+- 对两个 JSON 文件进行美化打印，规范化它们的语法，然后给结果添加颜色并分页显示：
+```
+      diff <(jq --sort-keys . < file1.json) <(jq --sort-keys . < file2.json) | colordiff | less -R
 ```
 
 - 使用 `grep . *`（每行都会附上文件名）或者 `head -100 *`（每个文件有一个标题）来阅读检查目录下所有文件的内容。这在检查一个充满配置文件的目录（如 `/sys`、`/proc`、`/etc`）时特别好用。
@@ -558,7 +579,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - 可以安装 [Cygwin](https://cygwin.com/) 允许你在 Microsoft Windows 中体验 Unix shell 的威力。这样的话，本文中介绍的大多数内容都将适用。
 
-- 在 Windows 10 上，你可以使用 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)，它提供了一个熟悉的 Bash 环境，包含了不少 Unix 命令行工具。好处是它允许 Linux 上编写的程序在 Windows 上运行，而另一方面，Windows 上编写的程序却无法在 Bash 命令行中运行。
+- 在 Windows 10 上，你可以使用 [Windows Subsystem for Linux (WSL)](https://msdn.microsoft.com/commandline/wsl/about)，它提供了一个熟悉的 Bash 环境，并包含了 Unix 命令行工具。
 
 - 如果你在 Windows 上主要想用 GNU 开发者工具（例如 GCC），可以考虑 [MinGW](http://www.mingw.org/) 以及它的 [MSYS](http://www.mingw.org/wiki/msys) 包，这个包提供了例如 bash，gawk，make 和 grep 的工具。MSYS 并不包含所有可以与 Cygwin 媲美的特性。当制作 Unix 工具的原生 Windows 端口时 MinGW 将特别地有用。
 
@@ -585,12 +606,6 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 - 要访问 Windows 注册表，可以使用 `regtool`。
 
 - 注意 Windows 驱动器路径 `C:\` 在 Cygwin 中用 `/cygdrive/c` 代表，而 Cygwin 的 `/` 代表 Windows 中的 `C:\cygwin`。要转换 Cygwin 和 Windows 风格的路径可以用 `cygpath`。这在需要调用 Windows 程序的脚本里很有用。
-
-- 学会使用 `wmic`，你就可以从命令行执行大多数 Windows 系统管理任务，并编成脚本。
-
-- 要在 Windows 下获得 Unix 的界面和体验，另一个办法是使用 [Cash](https://github.com/dthree/cash)。需要注意的是，这个环境支持的 Unix 命令和命令行参数非常少。
-
-- 要在 Windows 上获取 GNU 开发者工具（比如 GCC）的另一个办法是使用 [MinGW](http://www.mingw.org/) 以及它的 [MSYS](http://www.mingw.org/wiki/msys) 软件包，该软件包提供了 bash、gawk、make、grep 等工具。然而 MSYS 提供的功能没有 Cygwin 完善。MinGW 在创建 Unix 工具的 Windows 原生移植方面非常有用。
 
 ## 更多资源
 
