@@ -412,7 +412,7 @@ A few examples of piecing together commands:
 
 - `cal`: nice calendar
 
-- `env`: run a command (useful in scripts)
+- `eval`: run a command (useful in scripts)
 
 - `printenv`: print out environment variables (useful in debugging and scripts)
 
