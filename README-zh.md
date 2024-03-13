@@ -393,7 +393,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - `cal`：漂亮的日历
 
-- `env`：执行一个命令（脚本文件中很有用）
+- `eval`：执行一个命令（脚本文件中很有用）
 
 - `printenv`：打印环境变量（调试时或在写脚本文件时很有用）
 
