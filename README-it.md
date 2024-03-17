@@ -25,7 +25,7 @@ Non c'è da preoccuparsi, comunque: la pagina che stai scorrendo non è molto lu
 
 Questo lavoro è il risultato degli sforzi di [svariati autori e traduttori](AUTHORS.md).
 
-Una buona parte di ciò che leggi è [apparsa](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands), [originariamente](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix), su [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know). Tuttavia, visto l'interesse, mi è sembrato logico usare Github per raccogliere il tutto e creare un qualcosa a cui chiunque avrebbe potuto contribuire, anche con un piccolo suggerimento. Non abbiamo la pretesa di aver creato qualcosa di perfetto: se trovi qualche errore faccelo sapere, magari aprendo una Pull Request!
+Una buona parte di ciò che leggi è [apparsa](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands), [originariamente](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix), su [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know). Tuttavia, visto l'interesse, mi è sembrato logico usare GitHub per raccogliere il tutto e creare un qualcosa a cui chiunque avrebbe potuto contribuire, anche con un piccolo suggerimento. Non abbiamo la pretesa di aver creato qualcosa di perfetto: se trovi qualche errore faccelo sapere, magari aprendo una Pull Request!
 
 
 ## Meta

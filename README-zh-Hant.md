@@ -26,7 +26,7 @@
 這篇文章是[許多作者和譯者](AUTHORS.md)共同的成果。這裡的大部分內容
 [首次](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [出現](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
-於 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，但考慮到這裡的人們都具有學習的天賦且樂於接受別人的建議，使用 Github 來做這件事是更佳的選擇。如果你在本文中發現了錯誤或者​​存在可以改善的地方，請果斷提交 Issue 或 Pull Request！ (當然在提交前請看一下必讀節和已有的 PR/issue）。
+於 [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know)，但考慮到這裡的人們都具有學習的天賦且樂於接受別人的建議，使用 GitHub 來做這件事是更佳的選擇。如果你在本文中發現了錯誤或者​​存在可以改善的地方，請果斷提交 Issue 或 Pull Request！ (當然在提交前請看一下必讀節和已有的 PR/issue）。
 
 
 ## 必讀

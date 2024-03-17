@@ -27,7 +27,7 @@ Parte de esta:
 [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareció](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 en [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-pero se ha movido desde entonces a Github, donde personas más talentosas que el autor han hecho numerosas mejoras.
+pero se ha movido desde entonces a GitHub, donde personas más talentosas que el autor han hecho numerosas mejoras.
 [**Por favor contribuye**](/CONTRIBUTING.md) Si ves un error o algo que podría ser mejor!
 
 

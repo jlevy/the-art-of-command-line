@@ -21,7 +21,7 @@ Fluência na linha de comando é uma habilidade muitas vezes negligenciada ou co
 Muito do que está aqui [originalmente](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 [apareceu](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 no [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-mas dado o interesse por lá, me pareceu importante usar o Github, onde pessoas mais talentosas do que eu, poderiam sugerir melhorias facilmente. Se você descobrir um erro ou algo que poderia ser melhorado, por favor abra um issue ou um PR! (E claro, por favor veja as `meta sections' e PRs/issues existentes, primeiro.)
+mas dado o interesse por lá, me pareceu importante usar o GitHub, onde pessoas mais talentosas do que eu, poderiam sugerir melhorias facilmente. Se você descobrir um erro ou algo que poderia ser melhorado, por favor abra um issue ou um PR! (E claro, por favor veja as `meta sections' e PRs/issues existentes, primeiro.)
 
 ## Meta
 

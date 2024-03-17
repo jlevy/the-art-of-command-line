@@ -30,7 +30,7 @@ Vieles davon
 [erschien](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
 [ursprünglich](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
 auf [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-aber angesichts des Interesses scheint es vielversprechend, Github zu nutzen, wo talentiertere Menschen als ich es bin kontinuierlich Verbesserungen vorschlagen können. Wenn du einen Fehler entdeckst oder etwas, das man besser machen könnte, erstelle ein Issue oder einen PR! (Lies aber bitte zuerst die Kurzbeschreibung und überprüfe bereits vorhandene Issues/PRs.)
+aber angesichts des Interesses scheint es vielversprechend, GitHub zu nutzen, wo talentiertere Menschen als ich es bin kontinuierlich Verbesserungen vorschlagen können. Wenn du einen Fehler entdeckst oder etwas, das man besser machen könnte, erstelle ein Issue oder einen PR! (Lies aber bitte zuerst die Kurzbeschreibung und überprüfe bereits vorhandene Issues/PRs.)
 
 
 ## Kurzbeschreibung

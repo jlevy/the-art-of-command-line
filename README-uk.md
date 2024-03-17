@@ -25,7 +25,7 @@
 Використанню командного рядка часто не приділяють достатньої уваги. Про термінал говорять, як про щось містичне. Насправді, ці навики явно (і не явно) збільшують вашу продуктивність у роботі. Даний документ є підбіркою на наш погляд корисних при роботі з командним рядком в Linux заміток і порад. Деякі з них - прості та очевидні, але інші - або призначені для вирішення конкретних завдань, або досить складні чи широко невідомі. Це невелика публікація, але якщо ви вже все знаєте, що тут написано, і можете згадати як це все використовувати - ви знаєте багато!
 
 Це -- результат роботи [багатьох авторів і перекладачів](AUTHORS.md).
-Дещо з цього [спочатку](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands) [з'явилось](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix) на [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), але потім переїхало на Github, де багато людей талановитіших за початкового автора, внесли багато удосконалень.
+Дещо з цього [спочатку](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands) [з'явилось](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix) на [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), але потім переїхало на GitHub, де багато людей талановитіших за початкового автора, внесли багато удосконалень.
 [**Задайте питання**](https://airtable.com/shrzMhx00YiIVAWJg) якщо у вас є питання стосовно командного рядка. 
 [**Будь-ласка, зробіть свій внесок**](/CONTRIBUTING.md) якщо ви знайшли помилку або можете щось покращити!
 
